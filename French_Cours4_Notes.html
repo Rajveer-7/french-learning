@@ -93,11 +93,11 @@ const NUM20 = [
 ];
 
 const NUM69 = [
-  ["20","vingt"],["21","vingt et un"],["22","vingt-deux"],
-  ["30","trente"],["33","trente-trois"],["34","trente-quatre"],
-  ["40","quarante"],["45","quarante-cinq"],["46","quarante-six"],["47","quarante-sept"],["48","quarante-huit"],["49","quarante-neuf"],
-  ["50","cinquante"],["57","cinquante-sept"],["58","cinquante-huit"],["59","cinquante-neuf"],
-  ["60","soixante"],["69","soixante-neuf"],
+  ["20","vingt","van"],["21","vingt et un","van-tay-UHN"],["22","vingt-deux","van-DUH"],
+  ["30","trente","taunt"],["33","trente-trois","taunt-TWAH"],["34","trente-quatre","taunt-KATR"],
+  ["40","quarante","kayhont"],["45","quarante-cinq","kayhont-SANK"],["46","quarante-six","kayhont-SEES"],["47","quarante-sept","kayhont-SET"],["48","quarante-huit","kayhont-WEET"],["49","quarante-neuf","kayhont-NUHF"],
+  ["50","cinquante","saykont"],["57","cinquante-sept","saykont-SET"],["58","cinquante-huit","saykont-WEET"],["59","cinquante-neuf","saykont-NUHF"],
+  ["60","soixante","swasont"],["69","soixante-neuf","swasont-NUHF"],
 ];
 
 const LINES = [
@@ -131,11 +131,11 @@ NUM20.forEach(([n,fr,ph])=>{
 });
 
 const list69 = document.getElementById('list69');
-NUM69.forEach(([n,fr])=>{
+NUM69.forEach(([n,fr,ph])=>{
   const row=document.createElement('div'); row.className='row';
   const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play '+fr);
   const txt=document.createElement('div'); txt.className='txt';
-  txt.innerHTML=`<div class="fr">${n} · ${fr}</div>`;
+  txt.innerHTML=`<div class="fr">${n} · ${fr}</div><div class="ph">${ph}</div>`;
   btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
   row.appendChild(btn); row.appendChild(txt); list69.appendChild(row);
 });
