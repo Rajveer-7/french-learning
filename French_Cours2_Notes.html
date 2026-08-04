@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 2 — Audio Notes</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 2 Audio Notes</h1>
+  <p class="sub">The Language SKOOL · Saison 1 · Unité 0 « Mes cinq sens en action » · 30 July 2026</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html" class="active">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Conversations.html">Conversations</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+
+  <div class="note" id="pronNote">
+    The clever idea on this page: the alphabet is grouped by <b>mouth shape</b>, not A–Z. Letters in the same row share the same core vowel sound. Tap a row to hear all its letters — feel your mouth hold one shape across the whole row.
+  </div>
+</div>
+
+<script>
+const DATA = [
+  { h: "1 · Où ça ? — Where? (chez = at)", lead:"From « Regardez l'image. C'est où ? » — Look at the picture. Where is it?", items: [
+    ["chez le médecin", "shay luh may-DSAN", "at the doctor's"],
+    ["chez le dentiste", "shay luh dahn-TEEST", "at the dentist's"],
+    ["chez l'ophtalmologue", "shay lof-tal-mo-LOG", "at the eye doctor's"],
+  ]},
+  { h: "2 · Les consignes — Instruction verbs", lead:"The commands the teacher/book uses (imperative = \"you do X\").", items: [
+    ["Regardez", "ruh-gar-DAY", "Look"],
+    ["Écoutez", "ay-koo-TAY", "Listen"],
+    ["Écrivez", "ay-kree-VAY", "Write"],
+    ["Observez", "ob-sair-VAY", "Observe / look at"],
+    ["Prononcez", "pro-nohn-SAY", "Pronounce"],
+    ["Remettez dans l'ordre", "ruh-meh-TAY dahn LORDR", "Put in order"],
+    ["Que remarquez-vous ?", "kuh ruh-mar-kay-VOO", "What do you notice?"],
+    ["Quels mots trouvez-vous ?", "kel moh troo-vay-VOO", "What words do you find?"],
+  ]},
+  { h: "3 · La bouche — Mouth vocabulary", lead:"Words the pronunciation box uses.", items: [
+    ["les lèvres", "lay LEV-ruh", "the lips"],
+    ["la bouche", "lah BOOSH", "the mouth"],
+    ["les lettres", "lay LET-ruh", "the letters"],
+    ["tirées", "tee-RAY", "stretched / pulled"],
+    ["arrondies", "ah-rohn-DEE", "rounded"],
+    ["fermée", "fair-MAY", "closed"],
+    ["ouverte", "oo-VAIRT", "open"],
+  ]},
+  { h: "4 · Tendez l'oreille — Listen carefully", lead:"p.19 — listening exercise instructions.", items: [
+    ["Tendez l'oreille.", "tahn-DAY loh-RAY", "Listen carefully (lit. \"stretch your ear\")"],
+    ["Écoutez et retrouvez la nationalité.", "ay-koo-TAY ay ruh-troo-VAY lah nah-syo-nah-lee-TAY", "Listen and find the nationality"],
+    ["Féminin ou masculin ?", "fay-mee-NAN oo mas-kew-LAN", "Feminine or masculine?"],
+    ["Question ou affirmation ?", "kess-tyohn oo ah-feer-mah-syohn", "Question or statement?"],
+    ["Complétez le tableau.", "kohm-play-TAY luh tah-BLOH", "Complete the table"],
+  ]},
+  { h: "5 · Les nationalités — Nationalities (m. / f.)", lead:"The feminine usually adds -e, which makes a silent final consonant sound out loud.", items: [
+    ["français / française", "frahn-SEH / frahn-SEZ", "French"],
+    ["anglais / anglaise", "ahn-GLEH / ahn-GLEZ", "English"],
+    ["américain / américaine", "ah-may-ree-KAN / -KEN", "American"],
+    ["chinois / chinoise", "shee-NWAH / shee-NWAHZ", "Chinese"],
+    ["colombien / colombienne", "ko-lohn-BYAN / -BYEN", "Colombian"],
+    ["danois / danoise", "dah-NWAH / dah-NWAHZ", "Danish"],
+    ["japonais / japonaise", "zhah-po-NEH / -NEZ", "Japanese"],
+    ["turc / turque", "tewrk / tewrk", "Turkish"],
+    ["vietnamien / vietnamienne", "vee-et-nah-MYAN / -MYEN", "Vietnamese"],
+    ["indien / indienne", "an-dee-AN / an-dee-EN", "Indian"],
+    ["canadien / canadienne", "ka-na-DYAN / -DYEN", "Canadian"],
+  ]},
+];
+
+const GROUPS = [
+  { h: "b c d g p t v w", say: "b c d g p t v w", desc: "Lips stretched, mouth closed → the \"-ay\" sound (bay, say, day…)" },
+  { h: "f l m n r s z", say: "f l m n r s z", desc: "Lips stretched, mouth open → the \"eh\" sound (eff, ell, emm…)" },
+  { h: "i j y x", say: "i j y x", desc: "Lips stretched, mouth very closed → the \"ee\" sound (ee, zhee…)" },
+  { h: "e o u q", say: "e o u q", desc: "Lips rounded, mouth closed → rounded vowels (uh, oh, ew…)" },
+  { h: "a h k", say: "a h k", desc: "Mouth open → the \"ah\" sound (ah, ahsh, kah)" },
+];
+
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "🔊 " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function speak(text){
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text.replace(/\s+([!?])/g,'$1'));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; speechSynthesis.speak(u);
+}
+
+const content = document.getElementById('content');
+DATA.forEach(sec => {
+  const h=document.createElement('h2'); h.textContent=sec.h; content.appendChild(h);
+  if(sec.lead){ const p=document.createElement('p'); p.className='lead'; p.textContent=sec.lead; content.appendChild(p); }
+  sec.items.forEach(([fr,ph,en])=>{
+    const row=document.createElement('div'); row.className='row';
+    const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play '+fr);
+    const txt=document.createElement('div'); txt.className='txt';
+    txt.innerHTML=`<div class="fr">${fr}</div><div class="ph">${ph}</div><div class="en">${en}</div>`;
+    btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+    row.appendChild(btn); row.appendChild(txt); content.appendChild(row);
+  });
+});
+
+const gh=document.createElement('h2'); gh.textContent='4 · Prononciation — alphabet by mouth shape'; content.appendChild(gh);
+const gl=document.createElement('p'); gl.className='lead'; gl.textContent='Tap a row to hear its letters. Same row = same mouth shape = same core sound.'; content.appendChild(gl);
+GROUPS.forEach(g=>{
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play '+g.h);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML=`<div class="fr" style="letter-spacing:2px">${g.h}</div><div class="en">${g.desc}</div>`;
+  btn.onclick=()=>speak(g.say); txt.querySelector('.fr').onclick=()=>speak(g.say);
+  row.appendChild(btn); row.appendChild(txt); content.appendChild(row);
+});
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+</body>
+</html>

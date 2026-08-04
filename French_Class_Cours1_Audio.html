@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 1 — Audio Notes</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:24px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 20px; font-size:14px; }
+  .bar { position:sticky; top:0; background:var(--bg); padding:10px 0; border-bottom:1px solid var(--line); display:flex; gap:10px; align-items:center; flex-wrap:wrap; z-index:5; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:26px 0 10px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .row:hover { border-color:#c9c4b8; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:8px; }
+  .cell { display:flex; align-items:center; gap:8px; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; }
+  .cell .play { width:32px; height:32px; font-size:13px; }
+  .cell .fr { font-size:15px; }
+  .cell .ph { font-size:12px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:10px 0; }
+  .tip { font-size:13px; color:var(--muted); margin:4px 0 14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 1 Audio Notes</h1>
+  <p class="sub">The Language SKOOL · Français A1 · 29 July 2026 — tap ▶ or the French word to hear it.</p>
+
+  <nav style="display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap;">
+    <a href="French_Class_Cours1_Audio.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--accent);border-radius:999px;color:#fff;background:var(--accent);">Cours 1</a>
+    <a href="French_Cours1_Intro.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">My introduction</a>
+    <a href="French_Cours2_Notes.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Cours 2</a>
+    <a href="French_Cours3_Notes.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Cours 3</a>
+    <a href="French_Cours4_Notes.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Cours 4</a>
+    <a href="French_Conversations.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Conversations</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus">checking voice…</span>
+  </div>
+
+  <div id="content"></div>
+
+  <div class="note" id="fallbackNote" style="display:none;">
+    No French voice was found on this device, so words may read with an English accent. On Windows: Settings → Time &amp; Language → Language → add <b>Français (France)</b> → Speech, then reload. Chrome usually provides a French voice automatically when online.
+  </div>
+</div>
+
+<script>
+const DATA = [
+  { h: "1 · Les salutations — Greetings", items: [
+    ["Bonjour !", "bohn-ZHOOR", "Hello / Good day"],
+    ["Bonsoir !", "bohn-SWAHR", "Good evening"],
+    ["Salut !", "sah-LEW", "Hi / Bye (informal)"],
+    ["Au revoir !", "oh ruh-VWAHR", "Goodbye"],
+    ["À bientôt !", "ah byan-TOH", "See you soon"],
+    ["Bonne nuit !", "bun NWEE", "Good night"],
+  ]},
+  { h: "2 · Se présenter — Introducing yourself", items: [
+    ["Bonjour, je m'appelle Rajveer.", "bohn-ZHOOR, zhuh mah-PELL", "Hello, my name is Rajveer"],
+    ["Je m'appelle Rajveer.", "zhuh mah-PELL", "My name is Rajveer"],
+    ["Et toi ?", "ay TWAH", "And you? (informal)"],
+    ["Et vous ?", "ay VOO", "And you? (formal/plural)"],
+    ["Comment tu t'appelles ?", "koh-MAHN tew tah-PELL", "What's your name? (informal)"],
+    ["Comment vous appelez-vous ?", "koh-MAHN voo-zah-play VOO", "What's your name? (formal)"],
+    ["Enchanté !", "ahn-shahn-TAY", "Nice to meet you (man speaking)"],
+    ["Enchantée !", "ahn-shahn-TAY", "Nice to meet you (woman speaking)"],
+    ["le prénom", "luh pray-NOHN", "first name"],
+    ["le nom", "luh nohn", "surname / last name"],
+  ]},
+  { h: "3 · Salut, ça va ? — Polite exchanges", items: [
+    ["monsieur", "muh-SYUH", "Sir / Mr"],
+    ["madame", "mah-DAM", "Madam / Mrs"],
+    ["mademoiselle", "mad-mwah-ZELL", "Miss"],
+    ["Ça va ?", "sah VAH", "How's it going?"],
+    ["Comment ça va ?", "koh-mahn sah VAH", "How are you? (casual)"],
+    ["Comment allez-vous ?", "koh-mahn tah-lay VOO", "How are you? (formal)"],
+    ["Tu vas bien ?", "tew vah BYAN", "Are you well? (informal)"],
+    ["Vous allez bien ?", "voo-zah-lay BYAN", "Are you well? (formal)"],
+    ["Très bien, merci !", "treh byan mehr-SEE", "Very well, thank you!"],
+    ["Oui, ça va, et toi ?", "wee sah VAH, ay TWAH", "Yes, I'm fine, and you?"],
+    ["Bonne journée !", "bun zhoor-NAY", "Have a good day!"],
+    ["Bonne soirée !", "bun swah-RAY", "Have a good evening!"],
+    ["À ce soir !", "ah suh SWAHR", "See you this evening!"],
+    ["À plus ! / Ciao !", "ah PLEWSS / chow", "See you! / Bye! (casual)"],
+    ["maman / papa", "mah-MAHN / pah-PAH", "mum / dad"],
+  ]},
+  { h: "4 · La politesse — Politeness", items: [
+    ["Merci", "mehr-SEE", "Thank you"],
+    ["Merci beaucoup", "mehr-SEE boh-KOO", "Thank you very much"],
+    ["S'il vous plaît", "seel voo PLEH", "Please (formal)"],
+    ["S'il te plaît", "seel tuh PLEH", "Please (informal)"],
+    ["De rien", "duh RYAN", "You're welcome"],
+    ["Oui", "WEE", "Yes"],
+    ["Non", "NOHN", "No"],
+    ["Pardon", "par-DOHN", "Sorry / Excuse me"],
+    ["Excusez-moi", "ex-kew-zay MWAH", "Excuse me (formal)"],
+    ["Je ne sais pas.", "zhuh nuh say PAH", "I don't know"],
+    ["D'accord.", "dah-KOR", "OK / agreed"],
+    ["Bien sûr.", "byan SEWR", "Of course"],
+    ["Peut-être.", "puh-TETR", "Maybe"],
+    ["Je voudrais ___.", "zhuh voo-DREH", "I would like ___"],
+    ["Où est ___ ?", "oo AY", "Where is ___?"],
+    ["Combien ça coûte ?", "kohm-BYAN sah KOOT", "How much is it?"],
+  ]},
+  { h: "5 · En classe — Classroom phrases", items: [
+    ["Je ne comprends pas.", "zhuh nuh kohm-PRAHN pah", "I don't understand"],
+    ["Répétez, s'il vous plaît.", "ray-pay-TAY, seel voo PLEH", "Please repeat"],
+    ["Plus lentement, s'il vous plaît.", "plew lahn-tuh-MAHN, seel voo PLEH", "More slowly, please"],
+    ["Comment dit-on ___ en français ?", "koh-MAHN dee-TOHN ahn frahn-SEH", "How do you say ___ in French?"],
+    ["Qu'est-ce que ça veut dire ?", "kess-kuh sah vuh DEER", "What does that mean?"],
+    ["Comment ça s'écrit ?", "koh-MAHN sah say-KREE", "How is it spelled?"],
+  ]},
+  { h: "6 · Se décrire — Saying who you are", items: [
+    ["Je suis étudiant.", "zhuh sweez ay-tew-dee-AHN", "I am a student (man)"],
+    ["Je suis étudiante.", "zhuh sweez ay-tew-dee-AHNT", "I am a student (woman)"],
+    ["Je suis indien.", "zhuh sweez an-dee-AN", "I am Indian (man)"],
+    ["Je suis indienne.", "zhuh sweez an-dee-ENN", "I am Indian (woman)"],
+    ["J'ai vingt-cinq ans.", "zhay van-sank AHN", "I am 25 years old"],
+    ["Je viens de l'Inde.", "zhuh vyan duh LAND", "I come from India"],
+    ["Je parle un peu français.", "zhuh parl uhn puh frahn-SEH", "I speak a little French"],
+  ]},
+  { h: "7 · Coutumes — Greeting customs", items: [
+    ["serrer la main", "seh-RAY lah MAN", "to shake hands"],
+    ["faire la bise", "fair lah BEEZ", "to greet with cheek kisses"],
+    ["un ami / une amie", "uhn ah-MEE / ewn ah-MEE", "a friend (m./f.)"],
+    ["la famille", "lah fah-MEE", "the family"],
+    ["un inconnu / une inconnue", "uhn an-koh-NEW", "a stranger (m./f.)"],
+  ]},
+  { h: "8 · Le verbe ÊTRE — to be", items: [
+    ["je suis", "zhuh SWEE", "I am"],
+    ["tu es", "tew AY", "you are (informal)"],
+    ["il / elle est", "eel / ell AY", "he / she is"],
+    ["nous sommes", "noo SUM", "we are"],
+    ["vous êtes", "voo ZET", "you are (formal/plural)"],
+    ["ils / elles sont", "eel / ell SOHN", "they are"],
+  ]},
+  { h: "9 · Le verbe AVOIR — to have", items: [
+    ["j'ai", "zhay", "I have"],
+    ["tu as", "tew AH", "you have"],
+    ["il / elle a", "eel / ell AH", "he / she has"],
+    ["nous avons", "noo-zah-VOHN", "we have"],
+    ["vous avez", "voo-zah-VAY", "you have"],
+    ["ils / elles ont", "eel / ell ZOHN", "they have"],
+  ]},
+  { h: "10 · Les jours — Days of the week", items: [
+    ["lundi", "luhn-DEE", "Monday"],
+    ["mardi", "mar-DEE", "Tuesday"],
+    ["mercredi", "mair-kruh-DEE", "Wednesday"],
+    ["jeudi", "zhuh-DEE", "Thursday"],
+    ["vendredi", "vahn-druh-DEE", "Friday"],
+    ["samedi", "sam-DEE", "Saturday"],
+    ["dimanche", "dee-MAHNSH", "Sunday"],
+  ]},
+  { h: "11 · Les mois — Months", items: [
+    ["janvier", "zhahn-vee-AY", "January"],
+    ["février", "fay-vree-AY", "February"],
+    ["mars", "marss", "March"],
+    ["avril", "ah-VREEL", "April"],
+    ["mai", "meh", "May"],
+    ["juin", "zhwan", "June"],
+    ["juillet", "zhwee-YEH", "July"],
+    ["août", "oot", "August"],
+    ["septembre", "sep-TAHMBR", "September"],
+    ["octobre", "ok-TOBR", "October"],
+    ["novembre", "no-VAHMBR", "November"],
+    ["décembre", "day-SAHMBR", "December"],
+  ]},
+  { h: "12 · Les couleurs — Colours", items: [
+    ["rouge", "roozh", "red"],
+    ["bleu", "bluh", "blue"],
+    ["vert", "vair", "green"],
+    ["jaune", "zhohn", "yellow"],
+    ["noir", "nwahr", "black"],
+    ["blanc", "blahn", "white"],
+    ["orange", "oh-RAHNZH", "orange"],
+    ["rose", "rohz", "pink"],
+    ["violet", "vee-oh-LEH", "purple"],
+    ["gris", "gree", "grey"],
+    ["marron", "mah-ROHN", "brown"],
+  ]},
+];
+
+const ALPHABET = [
+  ["A","ah"],["B","bay"],["C","say"],["D","day"],["E","uh"],["F","eff"],["G","zhay"],
+  ["H","ahsh"],["I","ee"],["J","zhee"],["K","kah"],["L","ell"],["M","emm"],["N","enn"],
+  ["O","oh"],["P","pay"],["Q","kew"],["R","air"],["S","ess"],["T","tay"],["U","ew"],
+  ["V","vay"],["W","doo-bluh-vay"],["X","eeks"],["Y","ee-grek"],["Z","zed"],
+];
+
+const NUMBERS = [
+  ["0","zéro","ZAY-ro"],["1","un","uhn"],["2","deux","duh"],["3","trois","twah"],
+  ["4","quatre","KATR"],["5","cinq","sank"],["6","six","sees"],["7","sept","set"],
+  ["8","huit","weet"],["9","neuf","nuhf"],["10","dix","dees"],["11","onze","ohnz"],
+  ["12","douze","dooz"],["13","treize","trez"],["14","quatorze","kah-TORZ"],["15","quinze","kanz"],
+  ["16","seize","sez"],["17","dix-sept","dee-SET"],["18","dix-huit","dee-ZWEET"],
+  ["19","dix-neuf","deez-NUHF"],["20","vingt","van"],
+];
+
+let rate = 1;
+let frVoice = null;
+
+function pickVoice() {
+  const voices = speechSynthesis.getVoices();
+  frVoice = voices.find(v => /fr[-_]FR/i.test(v.lang)) || voices.find(v => /^fr/i.test(v.lang)) || null;
+  const status = document.getElementById('voiceStatus');
+  if (frVoice) { status.textContent = "🔊 " + frVoice.name; }
+  else if (voices.length) { status.textContent = "⚠ no French voice"; document.getElementById('fallbackNote').style.display='block'; }
+}
+speechSynthesis.onvoiceschanged = pickVoice;
+pickVoice();
+
+function speak(text) {
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'fr-FR';
+  if (frVoice) u.voice = frVoice;
+  u.rate = rate;
+  speechSynthesis.speak(u);
+}
+function clean(t){ return t.replace(/\s+([!?])/g,'$1').replace(/___/g,''); }
+
+const content = document.getElementById('content');
+
+DATA.forEach(sec => {
+  const h = document.createElement('h2'); h.textContent = sec.h; content.appendChild(h);
+  sec.items.forEach(([fr, ph, en]) => {
+    const row = document.createElement('div'); row.className='row';
+    const btn = document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play '+fr);
+    const txt = document.createElement('div'); txt.className='txt';
+    txt.innerHTML = `<div class="fr">${fr}</div><div class="ph">${ph}</div><div class="en">${en}</div>`;
+    btn.onclick = () => speak(clean(fr));
+    txt.querySelector('.fr').onclick = () => speak(clean(fr));
+    row.appendChild(btn); row.appendChild(txt); content.appendChild(row);
+  });
+});
+
+const vnote = document.createElement('div'); vnote.className='note';
+vnote.innerHTML = '<b>tu</b> (tew) = informal, one person you know · <b>vous</b> (voo) = formal OR plural. Unsure with a stranger → use <b>vous</b>. Age uses <b>avoir</b>: "I am 25" = J\'ai vingt-cinq ans.';
+content.appendChild(vnote);
+
+const ah = document.createElement('h2'); ah.textContent='13 · L’alphabet — The alphabet'; content.appendChild(ah);
+const atip = document.createElement('p'); atip.className='tip'; atip.textContent='Tap a letter to hear its French name. Vowels: A E I O U Y. Spell your name: Rajveer = air–ah–zhee–vay–uh–uh–air.'; content.appendChild(atip);
+const agrid = document.createElement('div'); agrid.className='grid';
+ALPHABET.forEach(([L,ph])=>{
+  const c=document.createElement('div'); c.className='cell';
+  const b=document.createElement('button'); b.className='play'; b.textContent='▶'; b.setAttribute('aria-label','Play '+L);
+  const t=document.createElement('div'); t.className='txt'; t.innerHTML=`<div class="fr">${L}</div><div class="ph">${ph}</div>`;
+  b.onclick=()=>speak(L); t.querySelector('.fr').onclick=()=>speak(L);
+  c.appendChild(b); c.appendChild(t); agrid.appendChild(c);
+});
+content.appendChild(agrid);
+
+const nh = document.createElement('h2'); nh.textContent='14 · Les nombres 0–20 — Numbers'; content.appendChild(nh);
+const ngrid = document.createElement('div'); ngrid.className='grid';
+NUMBERS.forEach(([n,fr,ph])=>{
+  const c=document.createElement('div'); c.className='cell';
+  const b=document.createElement('button'); b.className='play'; b.textContent='▶'; b.setAttribute('aria-label','Play '+fr);
+  const t=document.createElement('div'); t.className='txt'; t.innerHTML=`<div class="fr">${n} · ${fr}</div><div class="ph">${ph}</div>`;
+  b.onclick=()=>speak(fr); t.querySelector('.fr').onclick=()=>speak(fr);
+  c.appendChild(b); c.appendChild(t); ngrid.appendChild(c);
+});
+content.appendChild(ngrid);
+
+document.getElementById('speed').addEventListener('click', e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate = parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+</body>
+</html>

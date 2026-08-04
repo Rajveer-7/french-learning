@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French — Conversations</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; --aBg:#eef; --bBg:#eefaf3; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  .convo { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 16px; margin:16px 0; }
+  .convo h2 { font-size:17px; margin:0 0 4px; padding:0; border:none; }
+  .csub { font-size:13px; color:var(--muted); margin:0 0 10px; }
+  .playall { display:inline-flex; align-items:center; gap:6px; border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; margin-bottom:10px; }
+  .line { display:flex; align-items:flex-start; gap:10px; padding:8px 10px; border-radius:10px; margin:6px 0; }
+  .line.A { background:var(--aBg); }
+  .line.B { background:var(--bBg); }
+  .line.active { outline:2px solid var(--accent); }
+  .who { flex:0 0 auto; font-weight:600; width:20px; color:var(--muted); }
+  .play { flex:0 0 auto; width:34px; height:34px; border-radius:50%; border:1px solid var(--line); background:#fff; color:var(--accent); font-size:14px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:16px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:12px; color:var(--green); font-style:italic; }
+  .en { font-size:12px; color:var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Conversations</h1>
+  <p class="sub">Mini-dialogues using every word from Cours 1 &amp; 2. Tap ▶ on a line, or play the whole dialogue.</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Conversations.html" class="active">Conversations</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+const CONVOS = [
+  { title:"1 · Se rencontrer — Meeting someone", sub:"greetings + names + ça va", lines:[
+    ["A","Bonjour ! Comment vous appelez-vous ?","bohn-ZHOOR, koh-MAHN voo-zah-play VOO","Hello! What's your name? (formal)"],
+    ["B","Bonjour ! Je m'appelle Marie. Et vous ?","bohn-ZHOOR, zhuh mah-PELL mah-REE, ay VOO","Hello! My name is Marie. And you?"],
+    ["A","Je m'appelle Rajveer. Enchanté !","zhuh mah-PELL raj-VEER, ahn-shahn-TAY","My name is Rajveer. Nice to meet you!"],
+    ["B","Enchantée ! Comment ça va ?","ahn-shahn-TAY, koh-mahn sah VAH","Nice to meet you! How are you?"],
+    ["A","Ça va bien, merci. Et vous ?","sah vah BYAN, mehr-SEE, ay VOO","I'm well, thanks. And you?"],
+    ["B","Très bien ! Au revoir, à bientôt !","treh BYAN, oh ruh-VWAHR, ah byan-TOH","Very well! Goodbye, see you soon!"],
+  ]},
+  { title:"2 · C'est où ? — Where is it?", sub:"chez le médecin / dentiste / ophtalmologue", lines:[
+    ["A","Regardez l'image. C'est où ?","ruh-gar-DAY lee-MAZH, say OO","Look at the picture. Where is it?"],
+    ["B","C'est chez le dentiste ?","say shay luh dahn-TEEST","Is it at the dentist's?"],
+    ["A","Non, ce n'est pas chez le dentiste.","nohn, suh nay pah shay luh dahn-TEEST","No, it's not at the dentist's."],
+    ["B","C'est chez l'ophtalmologue ?","say shay lof-tal-mo-LOG","Is it at the eye doctor's?"],
+    ["A","Oui ! Très bien !","WEE, treh BYAN","Yes! Very good!"],
+  ]},
+  { title:"3 · En classe — In class", sub:"classroom phrases + instruction verbs", lines:[
+    ["A","Comment dit-on « hello » en français ?","koh-MAHN dee-TOHN 'hello' ahn frahn-SEH","How do you say 'hello' in French?"],
+    ["B","On dit « Bonjour ».","ohn DEE bohn-ZHOOR","You say 'Bonjour'."],
+    ["A","Pardon, je ne comprends pas.","par-DOHN, zhuh nuh kohm-PRAHN pah","Sorry, I don't understand."],
+    ["A","Répétez, s'il vous plaît. Plus lentement.","ray-pay-TAY seel voo PLEH, plew lahn-tuh-MAHN","Please repeat. More slowly."],
+    ["B","« Bon… jour ». Ça s'écrit B-O-N-J-O-U-R.","bohn ZHOOR, sah say-KREE …","'Bon-jour.' It's spelled B-O-N-J-O-U-R."],
+    ["A","Merci beaucoup !","mehr-SEE boh-KOO","Thank you very much!"],
+  ]},
+  { title:"4 · Épeler son nom — Spelling your name", sub:"comment ça s'écrit + alphabet", lines:[
+    ["A","Comment tu t'appelles ?","koh-MAHN tew tah-PELL","What's your name? (informal)"],
+    ["B","Je m'appelle Rajveer.","zhuh mah-PELL raj-VEER","My name is Rajveer."],
+    ["A","Comment ça s'écrit ?","koh-MAHN sah say-KREE","How is it spelled?"],
+    ["B","Ça s'écrit R-A-J-V-E-E-R.","sah say-KREE, air-ah-zhee-vay-uh-uh-air","It's spelled R-A-J-V-E-E-R."],
+    ["A","Enchanté, Rajveer !","ahn-shahn-TAY raj-VEER","Nice to meet you, Rajveer!"],
+  ]},
+];
+
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "🔊 " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(t){ const u=new SpeechSynthesisUtterance(t.replace(/\s+([!?])/g,'$1').replace(/[«»]/g,'')); u.lang='fr-FR'; if(frVoice)u.voice=frVoice; u.rate=rate; return u; }
+function speak(t){ speechSynthesis.cancel(); speechSynthesis.speak(utter(t)); }
+
+const content = document.getElementById('content');
+CONVOS.forEach(c=>{
+  const box=document.createElement('div'); box.className='convo';
+  const h=document.createElement('h2'); h.textContent=c.title; box.appendChild(h);
+  const sub=document.createElement('p'); sub.className='csub'; sub.textContent=c.sub; box.appendChild(sub);
+  const pa=document.createElement('button'); pa.className='playall'; pa.textContent='▶ Play whole dialogue'; box.appendChild(pa);
+  const rowEls=[];
+  c.lines.forEach(([who,fr,ph,en])=>{
+    const line=document.createElement('div'); line.className='line '+who; rowEls.push(line);
+    const w=document.createElement('div'); w.className='who'; w.textContent=who;
+    const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play line');
+    const txt=document.createElement('div'); txt.className='txt';
+    txt.innerHTML=`<div class="fr">${fr}</div><div class="ph">${ph}</div><div class="en">${en}</div>`;
+    btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+    line.appendChild(w); line.appendChild(btn); line.appendChild(txt); box.appendChild(line);
+  });
+  pa.onclick=()=>{
+    speechSynthesis.cancel();
+    c.lines.forEach(([,fr],i)=>{
+      const u=utter(fr);
+      u.onstart=()=>{ rowEls.forEach(r=>r.classList.remove('active')); rowEls[i].classList.add('active'); };
+      u.onend=()=>{ if(i===c.lines.length-1) rowEls.forEach(r=>r.classList.remove('active')); };
+      speechSynthesis.speak(u);
+    });
+  };
+  content.appendChild(box);
+});
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My French Introduction — Cours 1</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  .bigplay { display:inline-flex; align-items:center; gap:8px; border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:10px 18px; font-size:15px; cursor:pointer; margin-bottom:16px; }
+  .bigplay:active { transform:scale(.97); }
+  h2 { font-size:18px; margin:22px 0 10px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .row.active { border-color:var(--accent); background:var(--accentbg); }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:18px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .tpl { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; font-size:15px; }
+  .tpl b { color:var(--accent); }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>My French Introduction</h1>
+  <p class="sub">The Language SKOOL · Cours 1 homework — tap ▶ on any line, or play the whole intro.</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html" class="active">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Conversations.html">Conversations</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <button class="bigplay" id="playAll">▶ Play whole introduction</button>
+
+  <h2>Mon introduction</h2>
+  <div id="lines"></div>
+
+  <h2>Épeler — Spelling drill</h2>
+  <p class="csub" style="font-size:13px;color:var(--muted);margin:0 0 10px;">Practice saying your name and nationality, then spelling both letter by letter.</p>
+  <div id="spell"></div>
+
+  <h2>Make it yours</h2>
+  <div class="tpl">
+    Bonjour ! Je m'appelle <b>[your name]</b>.<br>
+    Je suis <b>[indien / canadien / …]</b>.<br>
+    Je suis <b>[job]</b>. <span style="color:var(--muted)">(administrateur système, ingénieur, développeur…)</span><br>
+    Je travaille chez <b>[company]</b>. <span style="color:var(--muted)">(chez = "at")</span><br>
+    J'ai <b>[age]</b> ans. <span style="color:var(--muted)">(optional)</span><br>
+    Enchanté(e) !
+  </div>
+  <div class="note">Women add an extra <b>-e</b>: Enchantée, étudiante, indienne. Men: Enchanté, étudiant, indien.</div>
+</div>
+
+<script>
+const LINES = [
+  ["Bonjour ! Je m'appelle Rajveer.", "bohn-ZHOOR, zhuh mah-PELL raj-VEER", "Hello! My name is Rajveer."],
+  ["Je suis indien.", "zhuh sweez an-dee-AN", "I am Indian."],
+  ["Je suis administrateur système.", "zhuh sweez ad-mee-nee-strah-TUR sees-TEM", "I am a systems administrator."],
+  ["Je travaille chez Sobeys.", "zhuh trah-VYE shay SOH-beez", "I work at Sobeys."],
+  ["Enchanté !", "ahn-shahn-TAY", "Nice to meet you!"],
+];
+
+const SPELL = [
+  ["Je m'appelle Rajveer.", "zhuh mah-PELL raj-VEER", "My name is Rajveer."],
+  ["Ça s'écrit R-A-J-V-E-E-R.", "sah say-KREE, air-ah-zhee-vay-uh-uh-air", "It's spelled R-A-J-V-E-E-R."],
+  ["Je suis indien.", "zhuh sweez an-dee-AN", "I am Indian."],
+  ["Ça s'écrit I-N-D-I-E-N.", "sah say-KREE, ee-enn-day-ee-uh-enn", "It's spelled I-N-D-I-E-N."],
+];
+
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "🔊 " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see notes page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+
+function utter(text){
+  const u = new SpeechSynthesisUtterance(text.replace(/\s+([!?])/g,'$1'));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+const container = document.getElementById('lines');
+const rows = [];
+LINES.forEach(([fr,ph,en],i)=>{
+  const row=document.createElement('div'); row.className='row'; rows.push(row);
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play line '+(i+1));
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML=`<div class="fr">${fr}</div><div class="ph">${ph}</div><div class="en">${en}</div>`;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt); container.appendChild(row);
+});
+
+document.getElementById('playAll').onclick=()=>{
+  speechSynthesis.cancel();
+  LINES.forEach(([fr],i)=>{
+    const u=utter(fr);
+    u.onstart=()=>{ rows.forEach(r=>r.classList.remove('active')); rows[i].classList.add('active'); };
+    u.onend=()=>{ if(i===LINES.length-1) rows.forEach(r=>r.classList.remove('active')); };
+    speechSynthesis.speak(u);
+  });
+};
+
+const spellContainer = document.getElementById('spell');
+SPELL.forEach(([fr,ph,en])=>{
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play '+fr);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML=`<div class="fr">${fr}</div><div class="ph">${ph}</div><div class="en">${en}</div>`;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt); spellContainer.appendChild(row);
+});
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+</body>
+</html>

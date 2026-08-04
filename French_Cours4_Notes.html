@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 4 — Audio Notes</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:8px; }
+  .cell { display:flex; align-items:center; gap:8px; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; }
+  .cell .play { width:32px; height:32px; font-size:13px; }
+  .cell .fr { font-size:15px; }
+  .cell .ph { font-size:12px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .note a { color:#6b5a1e; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 4 Audio Notes</h1>
+  <p class="sub">The Language SKOOL · Saison 1 · 3 August 2026 · numbers 0–69, counting game</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html" class="active">Cours 4</a>
+    <a href="French_Conversations.html">Conversations</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <h2>1 · Numbers 0–20 (with pronunciation)</h2>
+  <p class="lead">The teacher's handout, annotated live in class today.</p>
+  <div id="grid20" class="grid"></div>
+
+  <h2>2 · Numbers 20–69</h2>
+  <p class="lead">Tens pattern: hyphenate for most digits, but use "et" only for x1 (21, 31, 41, 51...). Tap a row to hear it.</p>
+  <div id="list69"></div>
+
+  <div class="note">Pattern: vingt-<b>deux</b>, trente-<b>trois</b>, quarante-<b>cinq</b>… but vingt <b>et</b> un, trente <b>et</b> un, quarante <b>et</b> un, cinquante <b>et</b> un. The teacher confirmed: "we do not use et with other numbers."</div>
+
+  <h2>3 · The counting game</h2>
+  <p class="lead">From the textbook (Saison 1, p.21) — a fun drill for counting fluently under pressure.</p>
+  <div id="lines"></div>
+  <div class="note">The teacher throws an imaginary ball to a student while starting to count. That student receives it and throws it on while continuing to count. A second imaginary ball is added, then a third, all at once. First to reach 69 without a mistake wins!</div>
+
+  <div class="note">Practice resource from class: <a href="https://www.liveworksheets.com/worksheet/fr/french-foreign-language/2135263" target="_blank">Les Nombres 0–60 listening quiz (liveworksheets.com)</a></div>
+
+  <h2>4 · Le verbe ÊTRE</h2>
+  <p class="lead">The handout's section 2 is "Le verbe ÊTRE," but class moved on before it was filled in today — see the Cours 1 or Cours 3 page for the full conjugation.</p>
+</div>
+
+<script>
+const NUM20 = [
+  ["0","zéro","ZAY-ro"],["1","un","uhn"],["2","deux","duh"],["3","trois","twah"],
+  ["4","quatre","KATR"],["5","cinq","sank"],["6","six","sees"],["7","sept","set"],
+  ["8","huit","weet"],["9","neuf","nuhf"],["10","dix","dees"],["11","onze","ohnz"],
+  ["12","douze","dooz"],["13","treize","trez"],["14","quatorze","kah-TORZ"],["15","quinze","kanz"],
+  ["16","seize","sez"],["17","dix-sept","dee-SET"],["18","dix-huit","dee-ZWEET"],
+  ["19","dix-neuf","deez-NUHF"],["20","vingt","van"],
+];
+
+const NUM69 = [
+  ["20","vingt"],["21","vingt et un"],["22","vingt-deux"],
+  ["30","trente"],["33","trente-trois"],["34","trente-quatre"],
+  ["40","quarante"],["45","quarante-cinq"],["46","quarante-six"],["47","quarante-sept"],["48","quarante-huit"],["49","quarante-neuf"],
+  ["50","cinquante"],["57","cinquante-sept"],["58","cinquante-huit"],["59","cinquante-neuf"],
+  ["60","soixante"],["69","soixante-neuf"],
+];
+
+const LINES = [
+  ["Il lance la balle à un joueur en commençant à compter.", "eel LAHNS lah BAHL ah uhn zhoo-UR ahn koh-mahn-SAHN ah kohm-TAY", "He throws the ball to a player while starting to count."],
+  ["Ce dernier la reçoit, la lance tout en continuant à compter.", "suh dair-NYAY lah ruh-SWAH, lah LAHNS too tahn kohn-tee-new-AHN ah kohm-TAY", "That player receives it and throws it on while continuing to count."],
+  ["Le premier qui arrive à 69 sans se tromper a gagné !", "luh pruh-MYAY kee ah-REEV ah swah-sahnt-nuhf sahn suh trohm-PAY ah gah-NYAY", "The first to reach 69 without a mistake wins!"],
+];
+
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "🔊 " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function speak(text){
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text.replace(/\s+([!?])/g,'$1'));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; speechSynthesis.speak(u);
+}
+
+const grid20 = document.getElementById('grid20');
+NUM20.forEach(([n,fr,ph])=>{
+  const c=document.createElement('div'); c.className='cell';
+  const b=document.createElement('button'); b.className='play'; b.textContent='▶'; b.setAttribute('aria-label','Play '+fr);
+  const t=document.createElement('div'); t.className='txt'; t.innerHTML=`<div class="fr">${n} · ${fr}</div><div class="ph">${ph}</div>`;
+  b.onclick=()=>speak(fr); t.querySelector('.fr').onclick=()=>speak(fr);
+  c.appendChild(b); c.appendChild(t); grid20.appendChild(c);
+});
+
+const list69 = document.getElementById('list69');
+NUM69.forEach(([n,fr])=>{
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play '+fr);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML=`<div class="fr">${n} · ${fr}</div>`;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt); list69.appendChild(row);
+});
+
+const linesContainer = document.getElementById('lines');
+LINES.forEach(([fr,ph,en])=>{
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play line');
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML=`<div class="fr">${fr}</div><div class="ph">${ph}</div><div class="en">${en}</div>`;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt); linesContainer.appendChild(row);
+});
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+</body>
+</html>
