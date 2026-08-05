@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French — The Full Guide (A1)</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.55; }
+  .wrap { max-width:980px; margin:0 auto; padding:20px 16px 100px; }
+  h1 { font-size:28px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav.sitenav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav.sitenav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav.sitenav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; position:sticky; top:0; background:var(--bg); padding:10px 0; border-bottom:1px solid var(--line); z-index:6; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+
+  .toc { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin:0 0 24px; }
+  .toc h2 { margin:0 0 10px; font-size:16px; }
+  .toc ol { columns:2; column-gap:24px; margin:0; padding-left:20px; font-size:14px; }
+  .toc li { margin-bottom:6px; break-inside:avoid; }
+  .toc a { color:var(--accent); text-decoration:none; }
+  .toc a:hover { text-decoration:underline; }
+  @media (max-width:600px){ .toc ol{ columns:1; } }
+
+  .chapter { margin:44px 0; padding-top:10px; border-top:3px solid var(--accent); }
+  .chapter h2 { font-size:22px; margin:14px 0 6px; display:flex; align-items:center; gap:10px; }
+  .chapter .icon { font-size:26px; }
+  .chapter .intro { font-size:15px; color:#3d3a33; margin:0 0 18px; background:var(--accentbg); border-radius:12px; padding:14px 16px; }
+  h3 { font-size:17px; margin:22px 0 6px; padding-bottom:5px; border-bottom:2px solid var(--line); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  p.p { font-size:14.5px; margin:8px 0; }
+
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:16px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:8px; margin:10px 0; }
+  .cell { display:flex; align-items:center; gap:8px; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; }
+  .cell .play { width:32px; height:32px; font-size:13px; }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+
+  .swatchrow { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .swatch { flex:0 0 auto; width:28px; height:28px; border-radius:50%; border:1px solid var(--line); }
+  .badge { flex:0 0 auto; width:34px; height:34px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:18px; background:var(--accentbg); }
+
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#6b5a1e; margin:12px 0; }
+  .note b { color:#544418; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+
+  table.conj { width:100%; border-collapse:collapse; margin:10px 0 6px; font-size:14px; }
+  table.conj th { background:var(--accent); color:#fff; text-align:left; padding:8px 10px; font-size:13px; }
+  table.conj td { padding:8px 10px; border-bottom:1px solid var(--line); }
+  table.conj tr:nth-child(even) td { background:#f4f2fb; }
+
+  .toplink { display:inline-block; margin-top:10px; font-size:12.5px; color:var(--accent); text-decoration:none; }
+  .roadmap { background:var(--card); border:1px dashed var(--line); border-radius:14px; padding:16px 18px; margin-top:36px; font-size:14px; color:var(--muted); }
+  .roadmap b { color:var(--ink); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — The Full Guide</h1>
+  <p class="sub">A complete beginner-to-A1 reference — every topic explained from scratch, with meaning, context, and pronunciation for everything. Tap ▶ or any French word to hear it.</p>
+
+  <nav class="sitenav">
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Full_Guide.html" class="active">Full Guide</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div class="toc">
+    <h2>Contents</h2>
+    <ol id="tocList"></ol>
+  </div>
+
+  <div id="chapters"></div>
+
+  <div class="roadmap">
+    <b>Coming next in the guide:</b> weather, telling the future with more verbs, food &amp; ordering at a restaurant, shopping &amp; money phrases, directions &amp; getting around, hobbies, and past tense (passé composé). This guide grows alongside your classes — ask any time to add a new chapter.
+  </div>
+</div>
+
+<script>
+/* ======================= CONTENT ======================= */
+const CHAPTERS = [
+
+{ id:'sounds', icon:'🔤', title:'1 · How French Sounds', intro:
+  "Before any vocabulary, it helps to know how French letters actually sound — French spelling looks like English but is pronounced very differently. Read this once, then come back to it whenever a word's pronunciation surprises you.",
+  sections: [
+    { type:'text', html:
+      "<p class='p'><b>Accents change the sound.</b> French adds small marks above certain letters: <b>é</b> (acute accent) sounds like the \"ay\" in \"day\"; <b>è</b> and <b>ê</b> (grave/circumflex) sound like the \"e\" in \"bed\"; <b>à</b> and <b>â</b> sound the same as a plain \"a\" (the accent just tells two similar words apart); <b>ç</b> (cedilla) makes a C sound soft like \"s\" instead of hard like \"k\".</p>" +
+      "<p class='p'><b>Most final consonants are silent.</b> In words like <i>Paris</i>, <i>trop</i>, or <i>petit</i>, the last letter usually isn't pronounced. A handy memory trick is the word <b>CaReFuL</b> — C, R, F, and L are the consonants that usually <i>are</i> still pronounced at the end of a word (as in avec, pour, chef, animal).</p>" +
+      "<p class='p'><b>Final -e is silent</b> (it just tells you the previous consonant should be pronounced, and often marks a feminine word), and <b>final -s is silent</b> too — it's just the plural marker, so <i>chats</i> (cats) sounds identical to <i>chat</i> (cat).</p>"
+    },
+    { type:'vocab', title:'The alphabet', lead:'Tap a letter to hear its French name — very different from English!', grid:true, items:[
+      ["A","ah",""],["B","bay",""],["C","say",""],["D","day",""],["E","uh",""],["F","eff",""],["G","zhay",""],
+      ["H","ahsh",""],["I","ee",""],["J","zhee",""],["K","kah",""],["L","ell",""],["M","emm",""],["N","enn",""],
+      ["O","oh",""],["P","pay",""],["Q","kew",""],["R","air",""],["S","ess",""],["T","tay",""],["U","ew",""],
+      ["V","vay",""],["W","doo-bluh-vay",""],["X","eeks",""],["Y","ee-grek",""],["Z","zed",""],
+    ]},
+    { type:'note', html: "<b>Spelling out loud:</b> French people spell names constantly (on the phone, at check-in counters). Practice spelling your own name — e.g. Rajveer = <i>air, ah, zhee, vay, uh, uh, air</i>." },
+    { type:'text', html: "<h3>Nasal vowels</h3><p class='p'>French has sounds with no English equivalent: the air passes partly through your nose. Four spelling patterns to recognise:</p>" },
+    { type:'vocab', title:'Nasal sound examples', items:[
+      ["an / en — maman", "mah-MAHN", "\"ahn\" nasal — mum"],
+      ["on / om — bonjour", "bohn-ZHOOR", "\"ohn\" nasal — hello"],
+      ["in / ain / ein — pain", "pan", "\"an\" nasal — bread"],
+      ["un / um — un", "uhn", "\"uh\" nasal — a/one"],
+    ]},
+    { type:'text', html: "<h3>Liaison — linking words</h3><p class='p'>When a word ending in a normally-silent consonant is followed by a word starting with a vowel, the two link together and the consonant is pronounced. This is why <i>vous êtes</i> is said \"voo-ZET\" (not \"voo ET\") and <i>ils ont</i> is \"eel-ZOHN\". You'll hear this constantly — it's what makes French sound smooth and flowing rather than choppy.</p>" },
+    { type:'text', html: "<h3>The French R</h3><p class='p'>The French R is made at the back of the throat (closer to a light gargle than the English R). It takes practice — listening and repeating is the fastest way to pick it up. Don't worry about perfecting it early on; being understood matters far more than a perfect accent.</p>" },
+  ]
+},
+
+{ id:'greetings', icon:'👋', title:'2 · Greetings & Politeness', intro:
+  "The very first words you need in any language: how to say hello, introduce yourself, and be polite. Two words you'll use constantly: <b>tu</b> (informal \"you\", one person you know well) and <b>vous</b> (formal \"you\", or plural \"you all\"). If in doubt with a stranger or an elder, always use vous.",
+  sections: [
+    { type:'vocab', title:'Saying hello and goodbye', items:[
+      ["Bonjour !", "bohn-ZHOOR", "Hello / Good day"],
+      ["Bonsoir !", "bohn-SWAHR", "Good evening"],
+      ["Salut !", "sah-LEW", "Hi / Bye (informal, friends only)"],
+      ["Au revoir !", "oh ruh-VWAHR", "Goodbye"],
+      ["À bientôt !", "ah byan-TOH", "See you soon"],
+      ["À demain !", "ah duh-MAN", "See you tomorrow"],
+      ["Bonne nuit !", "bun NWEE", "Good night (going to sleep)"],
+    ]},
+    { type:'vocab', title:'Introducing yourself', items:[
+      ["Je m'appelle Rajveer.", "zhuh mah-PELL raj-VEER", "My name is Rajveer"],
+      ["Comment tu t'appelles ?", "koh-MAHN tew tah-PELL", "What's your name? (informal)"],
+      ["Comment vous appelez-vous ?", "koh-MAHN voo-zah-play VOO", "What's your name? (formal)"],
+      ["Et toi ?", "ay TWAH", "And you? (informal)"],
+      ["Et vous ?", "ay VOO", "And you? (formal/plural)"],
+      ["Enchanté !", "ahn-shahn-TAY", "Nice to meet you (man speaking)"],
+      ["Enchantée !", "ahn-shahn-TAY", "Nice to meet you (woman speaking)"],
+    ]},
+    { type:'note', html: "Notice the pattern: many words add a silent <b>-e</b> when a woman is speaking about herself (enchanté → enchantée). It's spelled differently but usually sounds the same." },
+    { type:'vocab', title:'How are you?', items:[
+      ["Ça va ?", "sah VAH", "How's it going? (casual)"],
+      ["Comment ça va ?", "koh-mahn sah VAH", "How are you? (casual)"],
+      ["Comment allez-vous ?", "koh-mahn tah-lay VOO", "How are you? (formal)"],
+      ["Ça va bien, merci.", "sah vah BYAN, mehr-SEE", "I'm well, thanks"],
+      ["Très bien, merci !", "treh byan mehr-SEE", "Very well, thank you!"],
+      ["Comme ci, comme ça.", "kum SEE kum SAH", "So-so"],
+    ]},
+    { type:'vocab', title:'Politeness essentials', items:[
+      ["Merci", "mehr-SEE", "Thank you"],
+      ["Merci beaucoup", "mehr-SEE boh-KOO", "Thank you very much"],
+      ["S'il vous plaît", "seel voo PLEH", "Please (formal)"],
+      ["S'il te plaît", "seel tuh PLEH", "Please (informal)"],
+      ["De rien", "duh RYAN", "You're welcome"],
+      ["Pardon", "par-DOHN", "Sorry / Excuse me"],
+      ["Excusez-moi", "ex-kew-zay MWAH", "Excuse me (formal)"],
+      ["Oui / Non", "WEE / NOHN", "Yes / No"],
+    ]},
+    { type:'vocab', title:'Useful classroom phrases', items:[
+      ["Je ne comprends pas.", "zhuh nuh kohm-PRAHN pah", "I don't understand"],
+      ["Je ne sais pas.", "zhuh nuh say PAH", "I don't know"],
+      ["Répétez, s'il vous plaît.", "ray-pay-TAY, seel voo PLEH", "Please repeat"],
+      ["Plus lentement, s'il vous plaît.", "plew lahn-tuh-MAHN, seel voo PLEH", "More slowly, please"],
+      ["Comment dit-on ___ en français ?", "koh-MAHN dee-TOHN ahn frahn-SEH", "How do you say ___ in French?"],
+      ["Comment ça s'écrit ?", "koh-MAHN sah say-KREE", "How is it spelled?"],
+    ]},
+  ]
+},
+
+{ id:'etre', icon:'🧍', title:'3 · Le verbe ÊTRE — "to be"', intro:
+  "ÊTRE is one of the two most important verbs in French (with AVOIR, next chapter). It's irregular, meaning it doesn't follow a predictable pattern, so it just has to be memorised. You use être for identity, nationality, profession, description, and location.",
+  sections: [
+    { type:'conj', title:'Full conjugation', rows:[
+      ["je suis","zhuh SWEE","I am"],
+      ["tu es","tew AY","you are (informal)"],
+      ["il / elle / on est","eel / ell / ohn AY","he / she / one is"],
+      ["nous sommes","noo SUM","we are"],
+      ["vous êtes","voo ZET","you are (formal/plural)"],
+      ["ils / elles sont","eel / ell SOHN","they are"],
+    ]},
+    { type:'note', html: "<b>on</b> is a very common informal way of saying \"we\" in spoken French — <i>on est</i> is often used instead of <i>nous sommes</i> in casual conversation." },
+    { type:'vocab', title:'What être is used for', items:[
+      ["Je suis indien.", "zhuh sweez an-dee-AN", "I am Indian (identity/nationality)"],
+      ["Je suis étudiant.", "zhuh sweez ay-tew-dee-AHN", "I am a student (profession)"],
+      ["Tu es sympa.", "tew ay sam-PAH", "You are nice (description)"],
+      ["Nous sommes à Paris.", "noo sum ah pah-REE", "We are in Paris (location)"],
+      ["Ce n'est pas grave.", "suh nay pah GRAHV", "It's not a big deal (expression)"],
+    ]},
+    { type:'text', html: "<h3>Making it negative</h3><p class='p'>To say what something is <i>not</i>, wrap the verb in <b>ne ... pas</b>: <i>je ne suis pas</i> (I am not), <i>tu n'es pas</i> (you are not — \"ne\" shortens to \"n'\" before a vowel), <i>il n'est pas</i>, <i>nous ne sommes pas</i>, <i>vous n'êtes pas</i>, <i>ils ne sont pas</i>. More on negation in chapter 13.</p>" },
+  ]
+},
+
+{ id:'avoir', icon:'🎒', title:'4 · Le verbe AVOIR — "to have"', intro:
+  "AVOIR (to have) is the other essential irregular verb. Besides possession, French uses avoir for age and for a whole family of common expressions where English would use \"to be\" instead — this trips up a lot of beginners, so pay attention to the examples below.",
+  sections: [
+    { type:'conj', title:'Full conjugation', rows:[
+      ["j'ai","zhay","I have"],
+      ["tu as","tew AH","you have"],
+      ["il / elle / on a","eel / ell / ohn AH","he / she / one has"],
+      ["nous avons","noo-zah-VOHN","we have"],
+      ["vous avez","voo-zah-VAY","you have"],
+      ["ils / elles ont","eel / ell ZOHN","they have"],
+    ]},
+    { type:'note', html: "<b>Age uses avoir, not être!</b> \"I am 25\" is <i>j'ai vingt-cinq ans</i> — literally \"I have 25 years\". Never say <i>je suis 25 ans</i>." },
+    { type:'vocab', title:'Common expressions with avoir', items:[
+      ["j'ai [age] ans", "zhay ... ahn", "I am [age] years old"],
+      ["avoir faim", "ah-VWAHR fam", "to be hungry (lit. \"to have hunger\")"],
+      ["avoir soif", "ah-VWAHR swahf", "to be thirsty"],
+      ["avoir chaud", "ah-VWAHR shoh", "to be hot"],
+      ["avoir froid", "ah-VWAHR frwah", "to be cold"],
+      ["avoir peur", "ah-VWAHR pur", "to be afraid"],
+      ["avoir raison", "ah-VWAHR ray-ZOHN", "to be right"],
+      ["avoir tort", "ah-VWAHR tor", "to be wrong"],
+      ["avoir besoin de", "ah-VWAHR buh-ZWAN duh", "to need"],
+      ["avoir envie de", "ah-VWAHR ahn-VEE duh", "to want / feel like"],
+    ]},
+    { type:'example', html: "<b>J'ai faim et j'ai soif !</b> (zhay fam ay zhay swahf) — I'm hungry and thirsty! Notice both use avoir, where English uses \"to be\"." },
+  ]
+},
+
+{ id:'gender', icon:'🔤', title:'5 · Nouns, Gender & Articles', intro:
+  "Every French noun is either masculine or feminine — even objects with no natural gender, like \"a table\" (feminine) or \"a book\" (masculine). This affects which little word (article) goes in front of it. It feels strange at first, but it becomes automatic with practice — for now, just learn each new noun together with its article.",
+  sections: [
+    { type:'text', html:
+      "<p class='p'><b>Definite articles</b> (\"the\"): <b>le</b> before masculine nouns, <b>la</b> before feminine nouns, <b>l'</b> before any noun starting with a vowel (masc. or fem.), and <b>les</b> before any plural noun.</p>" +
+      "<p class='p'><b>Indefinite articles</b> (\"a / an\"): <b>un</b> for masculine, <b>une</b> for feminine, <b>des</b> for plural (\"some\").</p>" +
+      "<p class='p'><b>Partitive articles</b> (\"some\", for uncountable amounts): <b>du</b> (masc.), <b>de la</b> (fem.), <b>de l'</b> (before a vowel) — this is the \"du\" you saw in \"il y a du blanc\" (there's some white)!</p>"
+    },
+    { type:'vocab', title:'Articles in action', items:[
+      ["le livre", "luh LEEVR", "the book (masc.)"],
+      ["la table", "lah TAHBL", "the table (fem.)"],
+      ["l'ami / l'amie", "lah-MEE", "the friend (m./f. — starts with a vowel)"],
+      ["les livres", "lay LEEVR", "the books (plural)"],
+      ["un stylo", "uhn stee-LOH", "a pen (masc.)"],
+      ["une pomme", "ewn POHM", "an apple (fem.)"],
+      ["des pommes", "day POHM", "some apples (plural)"],
+      ["du pain", "dew PAN", "some bread (partitive, masc.)"],
+      ["de l'eau", "duh LOH", "some water (partitive, before vowel)"],
+    ]},
+    { type:'note', html: "<b>Rough gender hints</b> (not 100% reliable, but helpful): words ending in <b>-e</b>, <b>-tion</b>, <b>-sion</b>, or <b>-té</b> are often feminine (la nation, la beauté). Words ending in a consonant, or in <b>-age</b>, <b>-ment</b>, are often masculine (le fromage, le logement). When in doubt, learn the article with the word." },
+  ]
+},
+
+{ id:'numbers', icon:'🔢', title:'6 · Numbers', intro:
+  "French counting has a few quirks past 60 (it recycles \"twenty\" and \"ten\" instead of having new words) — this is the single trickiest part of A1 vocabulary, so take your time here.",
+  sections: [
+    { type:'vocab', title:'0–20', grid:true, items:[
+      ["0 · zéro","ZAY-ro",""],["1 · un","uhn",""],["2 · deux","duh",""],["3 · trois","twah",""],
+      ["4 · quatre","KATR",""],["5 · cinq","sank",""],["6 · six","sees",""],["7 · sept","set",""],
+      ["8 · huit","weet",""],["9 · neuf","nuhf",""],["10 · dix","dees",""],["11 · onze","ohnz",""],
+      ["12 · douze","dooz",""],["13 · treize","trez",""],["14 · quatorze","kah-TORZ",""],["15 · quinze","kanz",""],
+      ["16 · seize","sez",""],["17 · dix-sept","dee-SET",""],["18 · dix-huit","dee-ZWEET",""],
+      ["19 · dix-neuf","deez-NUHF",""],["20 · vingt","van",""],
+    ]},
+    { type:'vocab', title:'Tens, and the 20–69 pattern', items:[
+      ["vingt (20)", "van", "twenty"],
+      ["vingt et un (21)", "van-tay-UHN", "twenty-one — note the \"et\""],
+      ["vingt-deux (22)", "van-DUH", "twenty-two — hyphen, no \"et\""],
+      ["trente (30)", "taunt", "thirty"],
+      ["quarante (40)", "kayhont", "forty"],
+      ["cinquante (50)", "saykont", "fifty"],
+      ["soixante (60)", "swasont", "sixty"],
+    ]},
+    { type:'note', html: "<b>The pattern:</b> use \"et\" (and) only before <b>un</b> (21, 31, 41, 51, 61, 71): vingt <b>et</b> un, trente <b>et</b> un... Every other digit just hyphenates: vingt-<b>deux</b>, vingt-<b>trois</b>... Also remember: <b>onze</b> is \"11\" on its own — it's not built from \"dix et un\"." },
+    { type:'vocab', title:'The tricky bit: 70–100', items:[
+      ["soixante-dix (70)", "swasont-DEES", "\"sixty-ten\" — France's word for 70"],
+      ["soixante et onze (71)", "swasont-ay-OHNZ", "\"sixty and eleven\" = 71"],
+      ["quatre-vingts (80)", "katr-VAN", "\"four twenties\" = 80"],
+      ["quatre-vingt-un (81)", "katr-van-UHN", "no \"et\" here — 81"],
+      ["quatre-vingt-dix (90)", "katr-van-DEES", "\"four-twenty-ten\" = 90"],
+      ["quatre-vingt-onze (91)", "katr-van-OHNZ", "\"four-twenty-eleven\" = 91"],
+      ["cent (100)", "sahn", "one hundred"],
+      ["mille (1000)", "meel", "one thousand"],
+    ]},
+    { type:'note', html: "<b>Regional note:</b> Belgium and Switzerland use simpler words — <b>septante</b> (70), <b>huitante/octante</b> (80), <b>nonante</b> (90) — good to recognise, but France (and TEF Canada) use the quatre-vingts system above." },
+  ]
+},
+
+{ id:'colors', icon:'🎨', title:'7 · Colors & Descriptions', intro:
+  "Colors are adjectives, and French adjectives change their spelling (and sometimes sound) to match the noun they describe — this is called \"agreement\". Learn the base (masculine) form first, then the feminine version.",
+  sections: [
+    { type:'swatches', items:[
+      ["rouge","roozh","red","#d63b3b"],["vert / verte","vair","green","#2e9e5b"],["blanc / blanche","blahn","white","#f4f4f0"],
+      ["jaune","zhohn","yellow","#e8c93a"],["bleu / bleue","bluh","blue","#3b6fd6"],["orange","oh-RAHNZH","orange","#e8873a"],
+      ["rose","rohz","pink","#e878a8"],["marron","mah-ROHN","brown","#7a4a30"],["noir / noire","nwahr","black","#222"],
+      ["violet / violette","vee-oh-LEH","purple","#8047c7"],["gris / grise","gree","grey","#9a9a9a"],
+    ]},
+    { type:'note', html: "<b>Agreement rule of thumb:</b> most adjectives add <b>-e</b> for feminine (vert → verte) and <b>-s</b> for plural (vert → verts). <b>Orange</b> and <b>marron</b> never change form, no matter the noun. This same -e/-s pattern applies to nationality words too (indien → indienne, indiens, indiennes)." },
+    { type:'vocab', title:'Using colors in a sentence', items:[
+      ["Le chat est noir.", "luh shah ay NWAHR", "The cat is black (masc.)"],
+      ["La voiture est rouge.", "lah vwah-TEWR ay ROOZH", "The car is red (fem., but rouge doesn't change)"],
+      ["Les fleurs sont jaunes.", "lay flur sohn ZHOHN", "The flowers are yellow (plural)"],
+      ["Il y a du blanc, du rouge...", "eel yah dew blahn, dew roozh", "There's some white, some red... (il y a = there is/are)"],
+    ]},
+  ]
+},
+
+{ id:'selfintro', icon:'🙋', title:'8 · Talking About Yourself', intro:
+  "Combining être, avoir, and a few new phrases, you can now build a full self-introduction — one of the most useful things you'll say in real life and in the TEF exam.",
+  sections: [
+    { type:'vocab', title:'The building blocks', items:[
+      ["je m'appelle ___", "zhuh mah-PELL", "my name is ___"],
+      ["je suis [nationalité]", "zhuh SWEE", "I am [nationality]"],
+      ["je suis [métier]", "zhuh SWEE", "I am [job]"],
+      ["j'habite à ___", "zhah-BEET ah", "I live in ___ (city)"],
+      ["je viens de ___", "zhuh vyan duh", "I come from ___"],
+      ["je viens de l'Inde", "zhuh vyan duh LAND", "I come from India"],
+      ["j'ai [age] ans", "zhay ... ahn", "I am [age] years old"],
+      ["je parle [langue]", "zhuh PARL", "I speak [language]"],
+      ["je travaille chez ___", "zhuh trah-VYE shay", "I work at ___"],
+    ]},
+    { type:'vocab', title:'Nationalities (masc. / fem.)', items:[
+      ["indien / indienne", "an-dee-AN / an-dee-EN", "Indian"],
+      ["français / française", "frahn-SEH / frahn-SEZ", "French"],
+      ["anglais / anglaise", "ahn-GLEH / ahn-GLEZ", "English"],
+      ["américain / américaine", "ah-may-ree-KAN / -KEN", "American"],
+      ["canadien / canadienne", "ka-na-DYAN / -DYEN", "Canadian"],
+      ["chinois / chinoise", "shee-NWAH / shee-NWAHZ", "Chinese"],
+    ]},
+    { type:'example', html: "<b>Full example:</b> Bonjour ! Je m'appelle Rajveer. Je suis indien. J'habite à Dehradun. Je viens de l'Inde. J'ai vingt-trois ans. Je suis administrateur système. Enchanté !" },
+  ]
+},
+
+{ id:'family', icon:'👪', title:'9 · La Famille — Family', intro:
+  "Family vocabulary is everywhere in beginner conversations and textbooks. Most family words come in masculine/feminine pairs.",
+  sections: [
+    { type:'vocab', title:'Immediate family', items:[
+      ["le père / la mère", "luh PAIR / lah MAIR", "father / mother"],
+      ["les parents", "lay pah-RAHN", "the parents"],
+      ["le frère / la sœur", "luh FRAIR / lah SUR", "brother / sister"],
+      ["le fils / la fille", "luh FEESS / lah FEE-yuh", "son / daughter"],
+      ["les enfants", "lay-zahn-FAHN", "the children"],
+      ["le mari / la femme", "luh mah-REE / lah FAHM", "husband / wife"],
+    ]},
+    { type:'vocab', title:'Extended family', items:[
+      ["le grand-père", "luh grahn-PAIR", "grandfather"],
+      ["la grand-mère", "lah grahn-MAIR", "grandmother"],
+      ["l'oncle / la tante", "LOHNKL / lah TAHNT", "uncle / aunt"],
+      ["le cousin / la cousine", "luh koo-ZAN / lah koo-ZEEN", "cousin (m./f.)"],
+      ["le neveu / la nièce", "luh nuh-VUH / lah NYESS", "nephew / niece"],
+    ]},
+    { type:'example', html: "<b>J'ai deux frères et une sœur.</b> (zhay duh frair ay ewn sur) — I have two brothers and one sister. <b>Mon père s'appelle...</b> (mohn pair sah-PELL) — My father's name is..." },
+    { type:'note', html: "<b>mon / ma / mes</b> = my (mon for masc., ma for fem., mes for plural) — you'll meet these possessives properly in a later chapter, but they're essential for talking about family now." },
+  ]
+},
+
+{ id:'calendar', icon:'📅', title:'10 · Days, Months, Seasons & Dates', intro:
+  "The calendar vocabulary you need for making plans, talking about your schedule, and giving your birthday.",
+  sections: [
+    { type:'vocab', title:'Days of the week', items:[
+      ["lundi","luhn-DEE","Monday"],["mardi","mar-DEE","Tuesday"],["mercredi","mair-kruh-DEE","Wednesday"],
+      ["jeudi","zhuh-DEE","Thursday"],["vendredi","vahn-druh-DEE","Friday"],["samedi","sam-DEE","Saturday"],["dimanche","dee-MAHNSH","Sunday"],
+    ]},
+    { type:'vocab', title:'Months', grid:true, items:[
+      ["janvier","zhahn-vee-AY",""],["février","fay-vree-AY",""],["mars","marss",""],["avril","ah-VREEL",""],
+      ["mai","meh",""],["juin","zhwan",""],["juillet","zhwee-YEH",""],["août","oot",""],
+      ["septembre","sep-TAHMBR",""],["octobre","ok-TOBR",""],["novembre","no-VAHMBR",""],["décembre","day-SAHMBR",""],
+    ]},
+    { type:'vocab', title:'Seasons', items:[
+      ["le printemps", "luh pran-TAHN", "spring"],
+      ["l'été", "lay-TAY", "summer"],
+      ["l'automne", "loh-TOHN", "autumn / fall"],
+      ["l'hiver", "lee-VAIR", "winter"],
+    ]},
+    { type:'note', html: "<b>Giving a date:</b> le + number + month — e.g. <i>le quatre août</i> (August 4th). Unlike English, no \"th/st/nd\" ending is needed, except for the 1st: <i>le premier janvier</i> (January 1st)." },
+  ]
+},
+
+{ id:'time', icon:'🕐', title:'11 · Telling Time', intro:
+  "Asking and giving the time — a genuinely practical everyday skill.",
+  sections: [
+    { type:'vocab', title:'Asking and answering', items:[
+      ["Quelle heure est-il ?", "kel ur ay-TEEL", "What time is it?"],
+      ["Il est ... heures.", "eel ay ... ur", "It is ... o'clock."],
+      ["Il est une heure.", "eel ay ewn UR", "It's one o'clock."],
+      ["Il est trois heures.", "eel ay twah ZUR", "It's three o'clock."],
+      ["midi", "mee-DEE", "noon"],
+      ["minuit", "mee-NWEE", "midnight"],
+    ]},
+    { type:'vocab', title:'Minutes', items:[
+      ["... et quart", "ay KAR", "... quarter past"],
+      ["... et demie", "ay duh-MEE", "... half past"],
+      ["... moins le quart", "mwan luh KAR", "quarter to ..."],
+      ["Il est trois heures et quart.", "eel ay twah zur ay KAR", "It's a quarter past three."],
+      ["Il est quatre heures moins le quart.", "eel ay katr ur mwan luh KAR", "It's a quarter to four."],
+    ]},
+  ]
+},
+
+{ id:'questions', icon:'❓', title:'12 · Question Words', intro:
+  "The words that start almost every question you'll ever ask in French.",
+  sections: [
+    { type:'vocab', title:'The core question words', items:[
+      ["qui ?", "kee", "who?"],
+      ["quoi ? / que ?", "kwah / kuh", "what?"],
+      ["où ?", "oo", "where?"],
+      ["quand ?", "kahn", "when?"],
+      ["comment ?", "koh-MAHN", "how?"],
+      ["pourquoi ?", "poor-KWAH", "why?"],
+      ["combien ?", "kohm-BYAN", "how much/many?"],
+      ["quel / quelle ?", "kel", "which? (masc./fem.)"],
+    ]},
+    { type:'vocab', title:'Example questions', items:[
+      ["Qui es-tu ?", "kee ay TEW", "Who are you?"],
+      ["Où habites-tu ?", "oo ah-BEET tew", "Where do you live?"],
+      ["Quand est-ce que tu arrives ?", "kahn ess-kuh tew ah-REEV", "When are you arriving?"],
+      ["Pourquoi apprends-tu le français ?", "poor-kwah ah-prahn tew luh frahn-SEH", "Why are you learning French?"],
+      ["Combien ça coûte ?", "kohm-byan sah KOOT", "How much does it cost?"],
+    ]},
+    { type:'note', html: "<b>est-ce que</b> (ess-kuh) is a handy phrase you can drop in front of almost any statement to turn it into a question, without changing word order — e.g. <i>Tu parles français</i> → <i>Est-ce que tu parles français ?</i>" },
+  ]
+},
+
+{ id:'negation', icon:'🚫', title:'13 · Negation — Saying "not"', intro:
+  "How to say you don't do something, never do something, or have nothing.",
+  sections: [
+    { type:'vocab', title:'The main negative forms', items:[
+      ["ne ... pas", "nuh ... pah", "not"],
+      ["ne ... jamais", "nuh ... zhah-MAY", "never"],
+      ["ne ... plus", "nuh ... plew", "no longer / not anymore"],
+      ["ne ... rien", "nuh ... ree-AN", "nothing"],
+      ["ne ... personne", "nuh ... pair-SUN", "nobody"],
+    ]},
+    { type:'example', html: "The pattern always wraps around the verb: <b>ne</b> + verb + <b>pas</b>. <i>Je ne parle pas anglais.</i> (zhuh nuh parl pah ahn-GLEH) — I don't speak English. <i>Je ne suis jamais en retard.</i> — I'm never late." },
+    { type:'note', html: "In fast casual speech, French speakers often drop the <b>ne</b> and just say <i>pas</i> — you'll hear \"j'sais pas\" instead of \"je ne sais pas\". Keep using the full form in writing and formal speech though." },
+  ]
+},
+
+{ id:'verbs', icon:'🔧', title:'14 · Regular Verbs & Key Irregular Verbs', intro:
+  "Most French verbs end in -ER and follow one predictable pattern — learn this once and you can conjugate hundreds of verbs. A handful of very common verbs (aller, faire...) are irregular and just need memorising.",
+  sections: [
+    { type:'text', html: "<h3>-ER verbs: the regular pattern</h3><p class='p'>Take off the <b>-er</b> ending to get the \"stem\", then add these endings. Model verb: <b>parler</b> (to speak).</p>" },
+    { type:'conj', title:'parler — to speak', rows:[
+      ["je parle","zhuh PARL","I speak"],
+      ["tu parles","tew PARL","you speak"],
+      ["il / elle parle","eel / ell PARL","he / she speaks"],
+      ["nous parlons","noo par-LOHN","we speak"],
+      ["vous parlez","voo par-LAY","you speak"],
+      ["ils / elles parlent","eel / ell PARL","they speak"],
+    ]},
+    { type:'note', html: "Notice je/tu/il/ils all sound the same (\"parl\") even though spelled differently — only <b>nous</b> and <b>vous</b> sound different. This is true for every regular -ER verb." },
+    { type:'vocab', title:'Other common -ER verbs (same pattern)', items:[
+      ["habiter", "ah-bee-TAY", "to live (somewhere)"],
+      ["aimer", "eh-MAY", "to like / love"],
+      ["adorer", "ah-doh-RAY", "to love / adore"],
+      ["détester", "day-tess-TAY", "to hate"],
+      ["écouter", "ay-koo-TAY", "to listen"],
+      ["regarder", "ruh-gar-DAY", "to look at / watch"],
+      ["manger", "mahn-ZHAY", "to eat"],
+      ["travailler", "trah-vye-YAY", "to work"],
+      ["chercher", "shair-SHAY", "to look for"],
+      ["arriver", "ah-ree-VAY", "to arrive"],
+    ]},
+    { type:'text', html: "<h3>Key irregular verbs</h3><p class='p'>ALLER (to go) and FAIRE (to do/make) are both irregular but extremely common — worth memorising early, since they're also used to build other tenses.</p>" },
+    { type:'conj', title:'aller — to go', rows:[
+      ["je vais","zhuh VAY","I go"],
+      ["tu vas","tew VAH","you go"],
+      ["il / elle va","eel / ell VAH","he / she goes"],
+      ["nous allons","noo-zah-LOHN","we go"],
+      ["vous allez","voo-zah-LAY","you go"],
+      ["ils / elles vont","eel / ell VOHN","they go"],
+    ]},
+    { type:'conj', title:'faire — to do / make', rows:[
+      ["je fais","zhuh FAY","I do / make"],
+      ["tu fais","tew FAY","you do / make"],
+      ["il / elle fait","eel / ell FAY","he / she does / makes"],
+      ["nous faisons","noo fuh-ZOHN","we do / make"],
+      ["vous faites","voo FET","you do / make"],
+      ["ils / elles font","eel / ell FOHN","they do / make"],
+    ]},
+    { type:'note', html: "<b>The near future (le futur proche):</b> aller + [infinitive verb] = \"going to do something\" — exactly like English! <i>Je vais manger.</i> (I'm going to eat.) <i>Tu vas parler français.</i> (You're going to speak French.) This is the easiest way to talk about the future as a beginner." },
+  ]
+},
+
+];
+
+/* ======================= RENDERING ======================= */
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "🔊 " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function clean(t){ return t.replace(/\s+([!?])/g,'$1').replace(/\[.*?\]/g,'').replace(/___/g,'').replace(/\(.*?\)/g,'').replace(/\.\.\.$/,''); }
+function speak(text){
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(clean(text));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate;
+  speechSynthesis.speak(u);
+}
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play '+fr);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML=`<div class="fr">${fr}</div>${ph?`<div class="ph">${ph}</div>`:''}${en?`<div class="en">${en}</div>`:''}`;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+function makeCell(fr, ph){
+  const c=document.createElement('div'); c.className='cell';
+  const b=document.createElement('button'); b.className='play'; b.textContent='▶'; b.setAttribute('aria-label','Play '+fr);
+  const t=document.createElement('div'); t.className='txt'; t.innerHTML=`<div class="fr">${fr}</div>${ph?`<div class="ph">${ph}</div>`:''}`;
+  b.onclick=()=>speak(fr); t.querySelector('.fr').onclick=()=>speak(fr);
+  c.appendChild(b); c.appendChild(t);
+  return c;
+}
+
+const tocList = document.getElementById('tocList');
+const chapterContainer = document.getElementById('chapters');
+
+CHAPTERS.forEach(ch => {
+  const li = document.createElement('li');
+  li.innerHTML = `<a href="#${ch.id}">${ch.title.replace(/^[0-9]+\s*·\s*/,'')}</a>`;
+  tocList.appendChild(li);
+
+  const chapDiv = document.createElement('div'); chapDiv.className='chapter'; chapDiv.id = ch.id;
+  const h2 = document.createElement('h2'); h2.innerHTML = `<span class="icon">${ch.icon}</span> ${ch.title}`;
+  chapDiv.appendChild(h2);
+  const introP = document.createElement('div'); introP.className='intro'; introP.innerHTML = ch.intro;
+  chapDiv.appendChild(introP);
+
+  ch.sections.forEach(sec => {
+    if (sec.type === 'text') {
+      const d = document.createElement('div'); d.innerHTML = sec.html; chapDiv.appendChild(d);
+    } else if (sec.type === 'note') {
+      const d = document.createElement('div'); d.className='note'; d.innerHTML = sec.html; chapDiv.appendChild(d);
+    } else if (sec.type === 'example') {
+      const d = document.createElement('div'); d.className='example'; d.innerHTML = sec.html; chapDiv.appendChild(d);
+    } else if (sec.type === 'vocab') {
+      if (sec.title) { const h3 = document.createElement('h3'); h3.textContent = sec.title; chapDiv.appendChild(h3); }
+      if (sec.lead) { const p = document.createElement('p'); p.className='lead'; p.textContent = sec.lead; chapDiv.appendChild(p); }
+      const container = document.createElement('div'); container.className = sec.grid ? 'grid' : '';
+      sec.items.forEach(([fr,ph,en]) => container.appendChild(sec.grid ? makeCell(fr,ph) : makeRow(fr,ph,en)));
+      chapDiv.appendChild(container);
+    } else if (sec.type === 'swatches') {
+      const h3 = document.createElement('h3'); h3.textContent = 'Colors'; chapDiv.appendChild(h3);
+      sec.items.forEach(([fr,ph,en,hex]) => {
+        const row=document.createElement('div'); row.className='swatchrow';
+        const sw=document.createElement('div'); sw.className='swatch'; sw.style.background=hex;
+        const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+        const txt=document.createElement('div'); txt.className='txt';
+        txt.innerHTML=`<div class="fr">${fr}</div><div class="ph">${ph}</div><div class="en">${en}</div>`;
+        btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+        row.appendChild(sw); row.appendChild(btn); row.appendChild(txt); chapDiv.appendChild(row);
+      });
+    } else if (sec.type === 'conj') {
+      if (sec.title) { const h3 = document.createElement('h3'); h3.textContent = sec.title; chapDiv.appendChild(h3); }
+      const table = document.createElement('table'); table.className='conj';
+      table.innerHTML = '<tr><th>Français</th><th>Pronunciation</th><th>English</th></tr>';
+      sec.rows.forEach(([fr,ph,en])=>{
+        const tr = document.createElement('tr');
+        const tdFr = document.createElement('td'); tdFr.textContent = fr; tdFr.style.cursor='pointer'; tdFr.style.fontWeight='600'; tdFr.onclick=()=>speak(fr);
+        const tdPh = document.createElement('td'); tdPh.textContent = ph; tdPh.style.color='var(--green)'; tdPh.style.fontStyle='italic';
+        const tdEn = document.createElement('td'); tdEn.textContent = en;
+        tr.appendChild(tdFr); tr.appendChild(tdPh); tr.appendChild(tdEn);
+        table.appendChild(tr);
+      });
+      chapDiv.appendChild(table);
+    }
+  });
+
+  const top = document.createElement('a'); top.href='#top'; top.className='toplink'; top.textContent='↑ Back to contents';
+  top.onclick = (e)=>{ e.preventDefault(); document.querySelector('.toc').scrollIntoView({behavior:'smooth'}); };
+  chapDiv.appendChild(top);
+
+  chapterContainer.appendChild(chapDiv);
+});
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+</body>
+</html>
