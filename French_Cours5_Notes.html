@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 5 — Audio Notes</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .swatchrow { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .swatch { flex:0 0 auto; width:28px; height:28px; border-radius:50%; border:1px solid var(--line); }
+  .bigplay { display:inline-flex; align-items:center; gap:8px; border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:10px 18px; font-size:15px; cursor:pointer; margin:6px 0 16px; }
+  .bigplay:active { transform:scale(.97); }
+  .row.active { border-color:var(--accent); background:var(--accentbg); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 5 Audio Notes</h1>
+  <p class="sub">The Language SKOOL · Saison 1 · 4 August 2026 · les couleurs, numbers review, talking about yourself</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html" class="active">Cours 5</a>
+    <a href="French_Conversations.html">Conversations</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <h2>1 · Numbers review — 69 to 100, plus corrections</h2>
+  <div id="numlist"></div>
+  <div class="note"><b>Regional note:</b> France says <b>soixante-dix</b> for 70. Belgium/Switzerland instead say <b>septante</b> ("sep-tont") — good to recognise, but use soixante-dix for standard France French / TEF Canada.</div>
+  <div class="note"><b>Corrections from the whiteboard:</b> <b>un</b> = "a/one" (masc., "an") · <b>une</b> = "a/one" (fem., "yune") · <b>et</b> ("and") = "ay" · 11 is <b>onze</b>, not "dix et un" (a common mistake!) · 71 is <b>soixante et onze</b> — the "et" is still needed even past 69.</div>
+
+  <h2>2 · Les couleurs — Colours</h2>
+  <div id="colorlist"></div>
+
+  <h2>3 · Jeu de couleurs — Colour game</h2>
+  <p class="lead"><b>Nommez les couleurs que vous voyez.</b> — Name the colours you see. Prompts used: des macarons, au restaurant, au marché.</p>
+  <div id="gamelines"></div>
+  <div class="note"><b>New structure — il y a</b> = "there is / there are". Used to point out what's in a picture: <i>il y a du blanc, du rouge...</i> (there's some white, some red...).</div>
+
+  <h2>4 · Le verbe ÊTRE — reviewed again</h2>
+  <p class="lead">Full table already on the Cours 1 and Cours 3 pages — quick review here.</p>
+  <div id="etrelist"></div>
+
+  <h2>5 · Talking about yourself — putting it all together</h2>
+  <div id="selflist"></div>
+  <button class="bigplay" id="playAll">▶ Play whole introduction template</button>
+  <div id="tpllines"></div>
+  <div class="note">Remember: age uses <b>avoir</b> (to have), not être — "I am 23" = <b>j'ai 23 ans</b> (literally "I have 23 years").</div>
+</div>
+
+<script>
+const NUM = [
+  ["69","soixante-neuf","swasont-NUHF"],["70","soixante-dix","swasont-DEES"],["71","soixante et onze","swasont-ay-OHNZ"],
+  ["78","soixante-dix-huit","swasont-dee-ZWEET"],["79","soixante-dix-neuf","swasont-deez-NUHF"],
+  ["80","quatre-vingt(s)","katr-VAN"],["81","quatre-vingt-un","katr-van-UHN"],["100","cent","sahn"],
+];
+
+const COLORS = [
+  ["rouge","roozh","red","#d63b3b"],["vert","vair","green","#2e9e5b"],["blanc","blahn","white","#f4f4f0"],
+  ["jaune","zhohn","yellow","#e8c93a"],["bleu","bluh","blue","#3b6fd6"],["orange","oh-RAHNZH","orange","#e8873a"],
+  ["rose","rohz","pink","#e878a8"],["marron","mah-ROHN","brown","#7a4a30"],["noir","nwahr","black","#222"],
+];
+
+const GAMELINES = [
+  ["Nommez les couleurs que vous voyez.", "no-MAY lay koo-LUR kuh voo VWAH-yay", "Name the colours you see."],
+  ["Les macarons sont jaunes, verts...", "lay mah-kah-ROHN sohn ZHOHN, VAIR", "The macarons are yellow, green..."],
+  ["Au restaurant, il y a du blanc, du...", "oh res-toh-RAHN, eel yah dew BLAHN, dew", "At the restaurant, there is white, some..."],
+];
+
+const ETRE = [
+  ["je suis","zhuh SWEE","I am"],["tu es","tew AY","you are (informal)"],["il / elle est","eel / ell AY","he / she is"],
+  ["nous sommes","noo SUM","we are"],["vous êtes","voo ZET","you are (formal/plural)"],["ils / elles sont","eel / ell SOHN","they are"],
+];
+
+const SELF = [
+  ["je viens de ___","zhuh vyan duh","I come from ___"],
+  ["je viens de l'Inde","zhuh vyan duh LAND","I come from India"],
+  ["j'habite à ___","zhah-BEET ah","I live in ___"],
+  ["j'ai [age] ans","zhay ... ahn","I am [age] years old"],
+];
+
+const TPL = [
+  ["Bonjour ! Je m'appelle Rajveer.", "bohn-ZHOOR, zhuh mah-PELL raj-VEER", "Hello! My name is Rajveer."],
+  ["Je suis indien.", "zhuh sweez an-dee-AN", "I am Indian."],
+  ["J'habite à Dehradun.", "zhah-BEET ah deh-rah-DOON", "I live in Dehradun."],
+  ["Je viens de l'Inde.", "zhuh vyan duh LAND", "I come from India."],
+  ["J'ai vingt-trois ans.", "zhay van-twah ZAHN", "I am 23 years old."],
+  ["Enchanté !", "ahn-shahn-TAY", "Nice to meet you!"],
+];
+
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "🔊 " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(text.replace(/\s+([!?])/g,'$1').replace(/\[.*?\]/g,'').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function buildRow(container, fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play '+fr);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML=`<div class="fr">${fr}</div><div class="ph">${ph}</div>${en?`<div class="en">${en}</div>`:''}`;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt); container.appendChild(row);
+  return row;
+}
+
+const numlist = document.getElementById('numlist');
+NUM.forEach(([n,fr,ph])=>buildRow(numlist, n+' · '+fr, ph));
+
+const colorlist = document.getElementById('colorlist');
+COLORS.forEach(([fr,ph,en,hex])=>{
+  const row=document.createElement('div'); row.className='swatchrow';
+  const sw=document.createElement('div'); sw.className='swatch'; sw.style.background=hex;
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play '+fr);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML=`<div class="fr">${fr}</div><div class="ph">${ph}</div><div class="en">${en}</div>`;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(sw); row.appendChild(btn); row.appendChild(txt); colorlist.appendChild(row);
+});
+
+const gamelines = document.getElementById('gamelines');
+GAMELINES.forEach(([fr,ph,en])=>buildRow(gamelines, fr, ph, en));
+
+const etrelist = document.getElementById('etrelist');
+ETRE.forEach(([fr,ph,en])=>buildRow(etrelist, fr, ph, en));
+
+const selflist = document.getElementById('selflist');
+SELF.forEach(([fr,ph,en])=>buildRow(selflist, fr, ph, en));
+
+const tplContainer = document.getElementById('tpllines');
+const tplRows = [];
+TPL.forEach(([fr,ph,en])=>{ tplRows.push(buildRow(tplContainer, fr, ph, en)); });
+document.getElementById('playAll').onclick=()=>{
+  speechSynthesis.cancel();
+  TPL.forEach(([fr],i)=>{
+    const u=utter(fr);
+    u.onstart=()=>{ tplRows.forEach(r=>r.classList.remove('active')); tplRows[i].classList.add('active'); };
+    u.onend=()=>{ if(i===TPL.length-1) tplRows.forEach(r=>r.classList.remove('active')); };
+    speechSynthesis.speak(u);
+  });
+};
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+</body>
+</html>
