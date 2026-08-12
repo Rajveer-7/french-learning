@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 6 — Audio Notes</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:8px; margin:10px 0; }
+  .cell { display:flex; align-items:center; gap:8px; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; }
+  .cell .play { width:32px; height:32px; font-size:13px; }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .flags { display:flex; gap:10px; flex-wrap:wrap; margin:10px 0 16px; }
+  .flagcard { flex:1 1 130px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px; text-align:center; }
+  .flagcard .swatch { height:38px; border-radius:6px; margin-bottom:8px; }
+  .flagcard .fr { font-size:14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 6 Audio Notes</h1>
+  <p class="sub">The Language SKOOL · Saison 1 · countries &amp; flags, buying &amp; prices, calendar &amp; French festivals</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html" class="active">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Articles.html">Articles</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+const FLAGS = [
+  ["la France","lah FRAHNSS","#ffffff","france"],
+  ["la Suisse","lah SWEESS","#e8342a","suisse"],
+  ["le Mali","luh mah-LEE","#2e9e5b","mali"],
+  ["la Belgique","lah bel-ZHEEK","#222222","belgique"],
+  ["le Maroc","luh mah-ROK","#b32a2a","maroc"],
+];
+
+const DATA = [
+  { h: "1 · Les pays — Countries (flags exercise)", lead:"« Écoutez et remettez ces drapeaux de pays francophones dans l'ordre. » — Listen and put these French-speaking countries' flags in order.", items: [
+    ["le pays", "lay PAY-ee", "the country"],
+    ["le drapeau", "luh drah-POH", "the flag"],
+    ["Quel est le nom de votre pays ?", "kel ay luh nohm duh votr pay-EE", "What is the name of your country?"],
+    ["Quelles sont les couleurs du drapeau de votre pays ?", "kel sohn lay koo-LUR dew drah-poh duh votr pay-EE", "What are the colours of your country's flag?"],
+  ]},
+  { h: "2 · Les nationalités des pays du jour", lead:"Masculine / feminine nationality pairs for today's countries — feminine usually adds a silent -e.", items: [
+    ["français / française", "frahn-SEH / frahn-SEZ", "French"],
+    ["suisse / suisse", "swees / swees", "Swiss (same for both genders)"],
+    ["malien / malienne", "mah-lee-AN / mah-lee-EN", "Malian"],
+    ["belge / belge", "belzh / belzh", "Belgian (same for both genders)"],
+    ["marocain / marocaine", "mah-roh-KAN / mah-roh-KEN", "Moroccan"],
+  ]},
+  { h: "3 · Vocabulaire — new words from the whiteboard", lead:"Written up live in class.", items: [
+    ["une croix", "ewn KRWAH", "a cross (like on the Swiss flag)"],
+    ["une étoile", "ewn ay-TWAHL", "a star"],
+    ["avec", "ah-VEK", "with"],
+    ["c'est", "SAY", "it is / it's"],
+    ["le pays", "luh pay-EE", "the country"],
+  ]},
+  { h: "4 · Point culturel — currency", lead:"Many European countries share one currency.", items: [
+    ["l'euro", "LUR-oh", "the euro"],
+    ["Dans beaucoup de pays en Europe, on utilise l'euro.", "dahn boh-koo duh pay-ee ahn uh-ROP, ohn ew-teel-EEZ lur-oh", "In many countries in Europe, they use the euro."],
+    ["De quelles couleurs sont les billets ?", "duh kel koo-lur sohn lay bee-YEH", "What colours are the bank notes?"],
+    ["Dans votre pays, quelle monnaie utilise-t-on ?", "dahn votr pay-ee, kel mo-NAY ew-teel-eez TOHN", "In your country, what currency is used?"],
+  ]},
+  { h: "5 · C'est combien ? — Numbers &amp; prices", lead:"Listening exercise: numbers 0–9, then prices 10€–19€.", items: [
+    ["Quels chiffres entendez-vous ?", "kel sheefr ahn-tahn-day VOO", "Which numbers do you hear?"],
+    ["Combien ça coûte ?", "kohm-byan sah KOOT", "How much does it cost?"],
+    ["zéro à neuf (0–9)", "zay-ro ah nuhf", "zero to nine"],
+    ["dix euros (10 €)", "deez uh-ROH", "ten euros"],
+    ["quinze euros (15 €)", "kanz uh-ROH", "fifteen euros"],
+    ["dix-neuf euros (19 €)", "deez-nuhf uh-ROH", "nineteen euros"],
+  ]},
+  { h: "6 · Communication — Acheter (Buying)", lead:"A ready-made mini-script for buying something in a shop.", items: [
+    ["Bonjour, je voudrais..., s'il vous plaît.", "bohn-ZHOOR, zhuh voo-DREH ... seel voo PLEH", "Hello, I would like..., please."],
+    ["C'est tout ?", "say TOO", "Is that all?"],
+    ["Oui, merci.", "wee, mehr-SEE", "Yes, thank you."],
+    ["Ça fait combien ?", "sah fay kohm-BYAN", "How much does that come to?"],
+    ["Dix euros.", "deez uh-ROH", "Ten euros."],
+  ]},
+  { h: "7 · Prononciation — word-group stress", lead:"French doesn't stress individual words — it stresses the last syllable of each group of words.", items: [
+    ["La dernière syllabe de chaque groupe de mots est plus longue.", "lah dair-nyair see-lab duh shak groop duh moh ay plew LOHNG", "The last syllable of each word group is longer."],
+    ["Oui, merci !", "wee, mehr-SEE", "Yes, thank you! (stress falls on \"-ci\")"],
+  ]},
+];
+
+const CALENDAR = {
+  days: [
+    ["lundi","luhn-DEE","Monday"],["mardi","mar-DEE","Tuesday"],["mercredi","mair-kruh-DEE","Wednesday"],
+    ["jeudi","zhuh-DEE","Thursday"],["vendredi","vahn-druh-DEE","Friday"],["samedi","sam-DEE","Saturday"],["dimanche","dee-MAHNSH","Sunday"],
+  ],
+  months: [
+    ["janvier","zhahn-vee-AY"],["février","fay-vree-AY"],["mars","marss"],["avril","ah-VREEL"],
+    ["mai","meh"],["juin","zhwan"],["juillet","zhwee-YEH"],["août","oot"],
+    ["septembre","sep-TAHMBR"],["octobre","ok-TOBR"],["novembre","no-VAHMBR"],["décembre","day-SAHMBR"],
+  ],
+};
+
+const FETES = [
+  ["les vendanges", "lay vahn-DAHNZH", "the grape harvest — en septembre-octobre"],
+  ["la fête nationale", "lah fet nah-syo-NAHL", "the national holiday (Bastille Day) — le 14 juillet"],
+  ["le festival de Cannes", "luh fes-tee-VAL duh KAHN", "the Cannes Film Festival — en mai"],
+];
+
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "🔊 " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(text.replace(/\s+([!?])/g,'$1'));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play '+fr);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML=`<div class="fr">${fr}</div>${ph?`<div class="ph">${ph}</div>`:''}${en?`<div class="en">${en}</div>`:''}`;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+function makeCell(fr, ph){
+  const c=document.createElement('div'); c.className='cell';
+  const b=document.createElement('button'); b.className='play'; b.textContent='▶'; b.setAttribute('aria-label','Play '+fr);
+  const t=document.createElement('div'); t.className='txt'; t.innerHTML=`<div class="fr">${fr}</div>${ph?`<div class="ph">${ph}</div>`:''}`;
+  b.onclick=()=>speak(fr); t.querySelector('.fr').onclick=()=>speak(fr);
+  c.appendChild(b); c.appendChild(t);
+  return c;
+}
+
+const content = document.getElementById('content');
+
+// Flags section
+const fh = document.createElement('h2'); fh.textContent = "0 · Drapeaux — Today's country flags"; content.appendChild(fh);
+const fl = document.createElement('p'); fl.className='lead'; fl.textContent = "Tap a flag's name to hear the country."; content.appendChild(fl);
+const flagsWrap = document.createElement('div'); flagsWrap.className = 'flags';
+FLAGS.forEach(([fr,ph,color])=>{
+  const card=document.createElement('div'); card.className='flagcard';
+  const sw=document.createElement('div'); sw.className='swatch'; sw.style.background=color; sw.style.border='1px solid var(--line)';
+  const t=document.createElement('div'); t.className='fr'; t.textContent=fr; t.onclick=()=>speak(fr);
+  card.appendChild(sw); card.appendChild(t); flagsWrap.appendChild(card);
+});
+content.appendChild(flagsWrap);
+
+DATA.forEach(sec => {
+  const h=document.createElement('h2'); h.innerHTML=sec.h; content.appendChild(h);
+  if(sec.lead){ const p=document.createElement('p'); p.className='lead'; p.textContent=sec.lead; content.appendChild(p); }
+  sec.items.forEach(([fr,ph,en])=>content.appendChild(makeRow(fr,ph,en)));
+});
+
+// Calendar section
+const ch = document.createElement('h2'); ch.textContent = "8 · Mots et expressions — Days &amp; Months"; content.appendChild(ch);
+const cl = document.createElement('p'); cl.className='lead'; cl.textContent = "Full lists from the book — days of the week and months of the year."; content.appendChild(cl);
+const dh = document.createElement('h3'); dh.style.margin='14px 0 6px'; dh.style.fontSize='14px'; dh.style.color='var(--muted)'; dh.textContent = 'Les jours de la semaine'; content.appendChild(dh);
+const dGrid = document.createElement('div'); dGrid.className='grid';
+CALENDAR.days.forEach(([fr,ph])=>dGrid.appendChild(makeCell(fr,ph)));
+content.appendChild(dGrid);
+const mh = document.createElement('h3'); mh.style.margin='14px 0 6px'; mh.style.fontSize='14px'; mh.style.color='var(--muted)'; mh.textContent = 'Les mois de l\'année'; content.appendChild(mh);
+const mGrid = document.createElement('div'); mGrid.className='grid';
+CALENDAR.months.forEach(([fr,ph])=>mGrid.appendChild(makeCell(fr,ph)));
+content.appendChild(mGrid);
+
+// Festivals
+const feh = document.createElement('h2'); feh.textContent = "9 · La France en fête — Festivals"; content.appendChild(feh);
+const fel = document.createElement('p'); fel.className='lead'; fel.textContent = "Écoutez et retrouvez les rendez-vous festifs de l'année en France."; content.appendChild(fel);
+FETES.forEach(([fr,ph,en])=>content.appendChild(makeRow(fr,ph,en)));
+
+const note = document.createElement('div'); note.className='note';
+note.innerHTML = "<b>Point culturel:</b> Le 14 juillet, les Français ne travaillent pas. C'est la fête nationale. Il y a des feux d'artifice. C'est quand la fête nationale dans votre pays ?";
+content.appendChild(note);
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+</body>
+</html>

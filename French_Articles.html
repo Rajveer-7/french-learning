@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French — Articles (le/la/les, un/une/des, du/de la) — Complete Guide</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.55; }
+  .wrap { max-width:900px; margin:0 auto; padding:20px 16px 100px; }
+  h1 { font-size:28px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; position:sticky; top:0; background:var(--bg); padding:10px 0; border-bottom:1px solid var(--line); z-index:6; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+
+  .toc { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin:0 0 24px; }
+  .toc h2 { margin:0 0 10px; font-size:16px; }
+  .toc ol { columns:2; column-gap:24px; margin:0; padding-left:20px; font-size:14px; }
+  .toc li { margin-bottom:6px; break-inside:avoid; }
+  .toc a { color:var(--accent); text-decoration:none; }
+  @media (max-width:600px){ .toc ol{ columns:1; } }
+
+  .sec { margin:40px 0; padding-top:10px; border-top:3px solid var(--accent); }
+  .sec h2 { font-size:22px; margin:14px 0 6px; }
+  .sec .intro { font-size:15px; color:#3d3a33; margin:0 0 18px; background:var(--accentbg); border-radius:12px; padding:14px 16px; }
+  h3 { font-size:17px; margin:22px 0 6px; padding-bottom:5px; border-bottom:2px solid var(--line); }
+  p.p { font-size:14.5px; margin:8px 0; }
+
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:16px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+
+  table.artt { width:100%; border-collapse:collapse; margin:10px 0 6px; font-size:14px; }
+  table.artt th { background:var(--accent); color:#fff; text-align:left; padding:8px 10px; font-size:13px; }
+  table.artt td { padding:8px 10px; border-bottom:1px solid var(--line); cursor:pointer; }
+  table.artt td.fr-cell:hover { color:var(--accent); }
+  table.artt tr:nth-child(even) td { background:#f4f2fb; }
+
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#6b5a1e; margin:12px 0; }
+  .note b { color:#544418; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeeee; border:1px solid #e6b8b8; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#7a2222; margin:10px 0; }
+  .warn b { color:#5c1414; }
+
+  .toplink { display:inline-block; margin-top:10px; font-size:12.5px; color:var(--accent); text-decoration:none; }
+
+  .quizbox { margin:20px 0 4px; }
+  .quizbtn { display:inline-flex; align-items:center; gap:8px; border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; margin-top:8px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:6px; }
+  .quizfr { font-size:19px; font-weight:700; margin-bottom:12px; }
+  .quizopt { display:block; width:100%; text-align:left; background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 12px; margin:6px 0; font-size:14px; cursor:pointer; color:var(--ink); }
+  .quizopt:hover:not(:disabled) { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:#3fa96a; color:#155c37; font-weight:600; }
+  .quizopt.wrong { background:#fdeeee; border-color:#e08a8a; color:#8a2b2b; }
+  .quizresult { font-size:15px; font-weight:600; text-align:center; padding:8px 0; }
+  .quizretry { margin-left:8px; border:1px solid var(--accent); background:#fff; color:var(--accent); border-radius:999px; padding:6px 14px; font-size:13px; cursor:pointer; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Articles, Completely Explained</h1>
+  <p class="sub">le / la / l' / les · un / une / des · du / de la / de l' — every form, every rule, every exception, with full pronunciation.</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Articles.html" class="active">Articles</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div class="toc">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#why">0 · Why French needs articles at all</a></li>
+      <li><a href="#definite">1 · Definite articles — le / la / l' / les</a></li>
+      <li><a href="#contractions">2 · Contractions with à and de</a></li>
+      <li><a href="#indefinite">3 · Indefinite articles — un / une / des</a></li>
+      <li><a href="#partitive">4 · Partitive articles — du / de la / de l' / des</a></li>
+      <li><a href="#negation">5 · Articles in negative sentences</a></li>
+      <li><a href="#omission">6 · When French drops the article</a></li>
+      <li><a href="#mistakes">7 · Common mistakes to watch for</a></li>
+      <li><a href="#fillblank">7b · Fill-in-the-blank practice</a></li>
+      <li><a href="#quiz">8 · Multiple-choice practice</a></li>
+    </ol>
+  </div>
+
+  <div id="sections"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "🔊 " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function clean(t){ return t.replace(/\s+([!?])/g,'$1').replace(/\(.*?\)/g,'').trim(); }
+function speak(text){ speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(clean(text)); u.lang='fr-FR'; if(frVoice)u.voice=frVoice; u.rate=rate; speechSynthesis.speak(u); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML=`<div class="fr">${fr}</div>${ph?`<div class="ph">${ph}</div>`:''}${en?`<div class="en">${en}</div>`:''}`;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+function makeTable(headers, rows){
+  const table=document.createElement('table'); table.className='artt';
+  table.innerHTML = '<tr>'+headers.map(h=>`<th>${h}</th>`).join('')+'</tr>';
+  rows.forEach(cells=>{
+    const tr=document.createElement('tr');
+    cells.forEach((c,i)=>{
+      const td=document.createElement('td');
+      td.textContent=c;
+      if(i===0){ td.className='fr-cell'; td.style.fontWeight='600'; td.onclick=()=>speak(c); }
+      if(i===1){ td.style.color='var(--green)'; td.style.fontStyle='italic'; }
+      tr.appendChild(td);
+    });
+    table.appendChild(tr);
+  });
+  return table;
+}
+
+const GLOBAL_VOCAB = [];
+function cleanEn(en){ return en.replace(/\s*\(.*?\)\s*/g,'').trim(); }
+function shuffleArr(a){ a=[...a]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]];} return a; }
+function track(fr, en){ if(en){ GLOBAL_VOCAB.push({fr, en:cleanEn(en)}); } }
+
+const container = document.getElementById('sections');
+
+function sec(id, title, introHtml, builder){
+  const div = document.createElement('div'); div.className='sec'; div.id=id;
+  const h2 = document.createElement('h2'); h2.textContent = title; div.appendChild(h2);
+  const intro = document.createElement('div'); intro.className='intro'; intro.innerHTML = introHtml; div.appendChild(intro);
+  builder(div);
+  const top = document.createElement('a'); top.href='#'; top.className='toplink'; top.textContent='↑ Back to contents';
+  top.onclick=(e)=>{ e.preventDefault(); document.querySelector('.toc').scrollIntoView({behavior:'smooth'}); };
+  div.appendChild(top);
+  container.appendChild(div);
+  return div;
+}
+
+/* ===================== 0 · WHY ===================== */
+sec('why', '0 · Why French Needs Articles At All',
+  "In English you can say a bare noun on its own — \"I like coffee\", \"Books are expensive\" — with no little word in front. French almost never allows that. Nearly every noun needs a small word glued in front of it, and which one depends on three things: is the noun specific or general, is it countable or a mass/uncountable amount, and is it masculine, feminine, or plural.",
+  (div) => {
+    const p1 = document.createElement('div');
+    p1.innerHTML = "<p class='p'>There are three families of articles in French, and this page covers every one of them in full: <b>definite</b> (\"the\" — a specific, known thing), <b>indefinite</b> (\"a/an/some\" — one or more unspecified, countable things), and <b>partitive</b> (\"some\" — an unspecified amount of something uncountable, like water or bread). English uses \"the\", \"a\", and \"some\" too, but French uses them far more often and much more strictly — almost never omitting an article the way English casually does.</p>" +
+      "<p class='p'>The single biggest mental shift: in French, <b>every noun has a gender baked in permanently</b> (covered fully in the Full Guide's gender chapter), and the article is the very first place that gender shows up in a sentence. So learning articles and learning noun gender are really the same task, done together.</p>";
+    div.appendChild(p1);
+  }
+);
+
+/* ===================== 1 · DEFINITE ===================== */
+sec('definite', '1 · Definite Articles — le / la / l\' / les',
+  "The definite article means \"the\" — used for something specific and identifiable, but also (unlike English) for general categories and abstract ideas as a whole.",
+  (div) => {
+    div.appendChild((()=>{ const p=document.createElement('div'); p.innerHTML =
+      "<p class='p'>There are four forms, and which one you use depends purely on the grammatical gender and number of the noun that follows — never on meaning.</p>"; return p; })());
+
+    div.appendChild(makeTable(['Form','Used before...','Example'], [
+      ['le','masculine singular nouns','le livre (the book)'],
+      ['la','feminine singular nouns','la table (the table)'],
+      ["l'","any singular noun (masc. or fem.) starting with a vowel or silent h","l'ami / l'amie (the friend)"],
+      ['les','any plural noun, regardless of gender','les livres / les tables (the books / tables)'],
+    ]));
+
+    const h3a = document.createElement('h3'); h3a.textContent = 'Hearing it: le vs. les'; div.appendChild(h3a);
+    const leadA = document.createElement('p'); leadA.className='p'; leadA.textContent = "le sounds like \"luh\"; les sounds like \"lay\" — very different vowel sounds, so listen carefully, since this is often the only clue telling you singular from plural in fast speech (the noun itself frequently sounds identical, since final -s is silent).";
+    div.appendChild(leadA);
+    [
+      ["le chat","luh SHAH","the cat (one)"],
+      ["les chats","lay SHAH","the cats (many) — \"chat\" and \"chats\" sound the same, only \"le/les\" tells you the number"],
+    ].forEach(([fr,ph,en])=>{ div.appendChild(makeRow(fr,ph,en)); track(fr,en); });
+
+    const h3b = document.createElement('h3'); h3b.textContent = 'Beyond "the": general/abstract use'; div.appendChild(h3b);
+    const p2 = document.createElement('div');
+    p2.innerHTML = "<p class='p'>French uses the definite article for talking about a whole category or an abstract concept in general — where English drops the article entirely. This is one of the most common small errors beginners make (saying \"J'aime chocolat\" instead of \"J'aime <b>le</b> chocolat\").</p>";
+    div.appendChild(p2);
+    [
+      ["J'aime le chocolat.", "zhem luh sho-koh-LAH", "I like chocolate. (chocolate in general)"],
+      ["Les chiens sont fidèles.", "lay shyan sohn fee-DEL", "Dogs are loyal. (dogs as a category)"],
+      ["Le temps, c'est de l'argent.", "luh tahn, say duh lar-ZHAHN", "Time is money. (abstract concept)"],
+      ["Je déteste la pluie.", "zhuh day-TEST lah PLWEE", "I hate rain. (rain in general)"],
+    ].forEach(([fr,ph,en])=>{ div.appendChild(makeRow(fr,ph,en)); track(fr,en); });
+
+    const note = document.createElement('div'); note.className='note';
+    note.innerHTML = "<b>Also used for:</b> days of the week when describing a repeated habit (<i>le lundi</i> = \"on Mondays, generally\", vs. plain <i>lundi</i> = \"this coming Monday\"), languages (<i>le français</i>), body parts instead of possessives (<i>Elle lève la main.</i> — She raises her/the hand), and titles/names with an adjective (<i>le petit Paul</i>).";
+    div.appendChild(note);
+  }
+);
+
+/* ===================== 2 · CONTRACTIONS ===================== */
+sec('contractions', '2 · Contractions With à and de',
+  "When the prepositions à (to/at) or de (of/from) are immediately followed by le or les, French fuses them into a single new word — you cannot say \"à le\" or \"de les\", ever. This is a hard grammar rule, not a style choice.",
+  (div) => {
+    div.appendChild(makeTable(['Preposition + article','Becomes','Example'], [
+      ['à + le','au','Je vais au marché. (to the market)'],
+      ['à + les','aux','Je parle aux enfants. (to the children)'],
+      ['à + la','à la (no change)','Je vais à la banque. (to the bank)'],
+      ["à + l'","à l' (no change)","Je vais à l'école. (to school)"],
+      ['de + le','du','Je viens du Canada. (from Canada)'],
+      ['de + les','des','La couleur des yeux. (the colour of the eyes)'],
+      ['de + la','de la (no change)','Le prix de la voiture. (the price of the car)'],
+      ["de + l'","de l' (no change)","Le nom de l'école. (the name of the school)"],
+    ]));
+    [
+      ["au revoir", "oh ruh-VWAHR", "goodbye (lit. \"to the seeing-again\")"],
+      ["Je vais au cinéma.", "zhuh vay oh see-nay-MAH", "I'm going to the cinema."],
+      ["Je viens du Canada.", "zhuh vyan dew kah-nah-DAH", "I come from Canada."],
+      ["Je parle aux étudiants.", "zhuh parl oh-zay-tew-dee-AHN", "I speak to the students."],
+    ].forEach(([fr,ph,en])=>{ div.appendChild(makeRow(fr,ph,en)); track(fr,en); });
+    const note = document.createElement('div'); note.className='note';
+    note.innerHTML = "<b>Only le and les contract.</b> la and l' never change after à or de — that's the whole rule. If you remember nothing else: \"à + le → au\", \"de + le → du\", \"à + les → aux\", \"de + les → des\" are the only four fusions that exist.";
+    div.appendChild(note);
+  }
+);
+
+/* ===================== 3 · INDEFINITE ===================== */
+sec('indefinite', '3 · Indefinite Articles — un / une / des',
+  "The indefinite article means \"a/an\" (singular) or \"some\" (plural) — used for something countable and not yet specifically identified to the listener.",
+  (div) => {
+    div.appendChild(makeTable(['Form','Used before...','Example'], [
+      ['un','masculine singular, countable nouns','un livre (a book)'],
+      ['une','feminine singular, countable nouns','une pomme (an apple)'],
+      ['des','any plural, countable noun','des livres / des pommes (some books / some apples)'],
+    ]));
+    [
+      ["J'ai un chien.", "zhay uhn SHYAN", "I have a dog."],
+      ["Elle a une sœur.", "el ah ewn SUR", "She has a sister."],
+      ["Il y a des étudiants ici.", "eel yah day zay-tew-dee-AHN ee-SEE", "There are some students here."],
+      ["C'est un problème.", "say tuhn proh-BLEM", "It's a problem."],
+    ].forEach(([fr,ph,en])=>{ div.appendChild(makeRow(fr,ph,en)); track(fr,en); });
+    const note = document.createElement('div'); note.className='note';
+    note.innerHTML = "<b>des vs. les:</b> both can translate as \"the\"/\"some\" loosely in English, but they're opposites in French — <i>les</i> points at specific, already-known plural things (\"the books [we discussed]\"), while <i>des</i> introduces new, unspecified plural things (\"some books [unspecified]\"). Compare: <i>Les enfants jouent dehors</i> (The [specific] children are playing outside) vs. <i>Il y a des enfants dehors</i> (There are some [unspecified] children outside).";
+    div.appendChild(note);
+  }
+);
+
+/* ===================== 4 · PARTITIVE ===================== */
+sec('partitive', '4 · Partitive Articles — du / de la / de l\' / des',
+  "The partitive article means \"some\" — but specifically for an unspecified amount of something that isn't normally counted in individual units (food, drink, abstract qualities). This is the article family that gives beginners the most trouble because English usually just drops \"some\" entirely.",
+  (div) => {
+    div.appendChild(makeTable(['Form','Used before...','Example'], [
+      ['du','masculine singular, uncountable nouns','du pain (some bread)'],
+      ['de la','feminine singular, uncountable nouns','de la confiture (some jam)'],
+      ["de l'","any singular uncountable noun starting with a vowel","de l'eau (some water)"],
+      ['des','plural uncountable/countable in a general sense','des céréales (some cereal)'],
+    ]));
+    [
+      ["Je voudrais du pain, s'il vous plaît.", "zhuh voo-DREH dew pan, seel voo PLEH", "I would like some bread, please."],
+      ["Il y a de la confiture dans le frigo.", "eel yah duh lah kohn-fee-TEWR dahn luh free-GOH", "There's some jam in the fridge."],
+      ["Elle boit de l'eau.", "el bwah duh LOH", "She drinks (some) water."],
+      ["Tu as du courage.", "tew ah dew koo-RAHZH", "You have courage. (abstract quality — still partitive!)"],
+    ].forEach(([fr,ph,en])=>{ div.appendChild(makeRow(fr,ph,en)); track(fr,en); });
+    const note = document.createElement('div'); note.className='note';
+    note.innerHTML = "<b>Countable vs. uncountable — the real test:</b> ask \"can I put a number in front of this?\" One apple, two apples → countable → <i>un/une/des</i>. You can't say \"one bread, two breads\" the same way (in French, <i>un pain</i> actually means \"a loaf\", a countable unit — but flour, water, rice, courage, patience, music are inherently uncountable) → <i>du/de la/de l'</i>. This is exactly the same countable/uncountable distinction English makes with \"a/some\" (\"an apple\" vs. \"some water\") — French just marks it on far more nouns.";
+    div.appendChild(note);
+  }
+);
+
+/* ===================== 5 · NEGATION ===================== */
+sec('negation', '5 · Articles in Negative Sentences',
+  "This is a hard grammar rule with almost no exceptions: in a negative sentence, un, une, des, du, de la, and de l' all collapse down to a single word — de (or d' before a vowel) — when the noun is a direct object.",
+  (div) => {
+    div.appendChild(makeTable(['Positive','Negative'], [
+      ["J'ai un chien. (I have a dog.)","Je n'ai pas de chien. (I don't have a dog.)"],
+      ["Elle mange des légumes. (She eats vegetables.)","Elle ne mange pas de légumes. (She doesn't eat vegetables.)"],
+      ["Je bois du café. (I drink coffee.)","Je ne bois pas de café. (I don't drink coffee.)"],
+      ["Il y a de l'eau. (There is water.)","Il n'y a pas d'eau. (There isn't water.)"],
+    ]));
+    [
+      ["Je n'ai pas de stylo.", "zhuh nay pah duh stee-LOH", "I don't have a pen."],
+      ["Il n'y a pas de problème.", "eel nyah pah duh proh-BLEM", "There's no problem."],
+      ["Je ne veux pas de sucre.", "zhuh nuh vuh pah duh SEWKR", "I don't want (any) sugar."],
+    ].forEach(([fr,ph,en])=>{ div.appendChild(makeRow(fr,ph,en)); track(fr,en); });
+    const warn = document.createElement('div'); warn.className='warn';
+    warn.innerHTML = "<b>Big exception:</b> this de-collapse rule only applies to un/une/des/du/de la/de l'. It does <b>not</b> apply to the definite article (le/la/l'/les) — those stay exactly the same in a negative sentence. <i>Je n'aime pas le café</i> (I don't like coffee — le stays), NOT \"Je n'aime pas de café\". The rule also only applies with the verb <b>être</b> when identifying what something <i>is</i> (\"Ce n'est pas <b>un</b> problème\" keeps \"un\" — être doesn't trigger the collapse).";
+    div.appendChild(warn);
+  }
+);
+
+/* ===================== 6 · OMISSION ===================== */
+sec('omission', '6 · When French Drops the Article Entirely',
+  "French uses articles far more than English overall, but there are specific, learnable situations where the article disappears completely — these are worth memorising as fixed patterns.",
+  (div) => {
+    const h3a = document.createElement('h3'); h3a.textContent = 'Profession or nationality after être (no adjective)'; div.appendChild(h3a);
+    [
+      ["Je suis étudiant.", "zhuh sweez ay-tew-dee-AHN", "I am a student. (no article!)"],
+      ["Elle est infirmière.", "el ay tan-feer-MYAIR", "She is a nurse."],
+      ["Il est français.", "eel ay frahn-SEH", "He is French."],
+    ].forEach(([fr,ph,en])=>{ div.appendChild(makeRow(fr,ph,en)); track(fr,en); });
+    const note1 = document.createElement('div'); note1.className='note';
+    note1.innerHTML = "<b>But the article comes back the moment you add an adjective:</b> <i>Il est étudiant</i> (no article) vs. <i>C'est un bon étudiant</i> (article returns — notice \"c'est\" replaces \"il est\" too, another fixed pattern when an article is present).";
+    div.appendChild(note1);
+
+    const h3b = document.createElement('h3'); h3b.textContent = 'After sans (without) and quel/quelle (exclamations)'; div.appendChild(h3b);
+    [
+      ["Un café sans sucre.", "uhn kah-fay sahn SEWKR", "A coffee without sugar."],
+      ["Quelle surprise !", "kel sewr-PREEZ", "What a surprise!"],
+      ["Quel dommage !", "kel doh-MAZH", "What a shame!"],
+    ].forEach(([fr,ph,en])=>{ div.appendChild(makeRow(fr,ph,en)); track(fr,en); });
+
+    const h3c = document.createElement('h3'); h3c.textContent = 'Lists, signs, and headlines'; div.appendChild(h3c);
+    const p = document.createElement('div'); p.innerHTML = "<p class='p'>Just like English newspaper headlines drop \"the/a\" (\"Man Bites Dog\"), French menus, shopping lists, and signs often drop articles for brevity — <i>Entrée, plat, dessert</i> on a menu rather than \"L'entrée, le plat, le dessert\". This is a stylistic shortcut, not a different grammar rule, so don't copy it into normal sentences.</p>";
+    div.appendChild(p);
+  }
+);
+
+/* ===================== 7 · MISTAKES ===================== */
+sec('mistakes', '7 · Common Mistakes to Watch For',
+  "The errors nearly every English-speaking beginner makes with articles, gathered in one place so you can check your own sentences against them.",
+  (div) => {
+    const mistakes = [
+      ["Dropping the article for general/abstract nouns", "\"J'aime chocolat\" ✗ → \"J'aime le chocolat\" ✓ — English drops it, French never does for likes/dislikes."],
+      ["Using un/une instead of the partitive for food", "\"Je voudrais un café\" is actually fine (a cup, countable!) but \"Je voudrais un eau\" ✗ is wrong → \"de l'eau\" ✓ (water is uncountable)."],
+      ["Forgetting the de-collapse in negative sentences", "\"Je n'ai pas un stylo\" ✗ → \"Je n'ai pas de stylo\" ✓"],
+      ["Saying \"à le\" or \"de les\" instead of contracting", "\"Je vais à le marché\" ✗ → \"Je vais au marché\" ✓"],
+      ["Adding an article before a bare profession", "\"Je suis un étudiant\" is actually understood but non-standard without an adjective → \"Je suis étudiant\" ✓"],
+    ];
+    mistakes.forEach(([title, body])=>{
+      const w = document.createElement('div'); w.className='warn';
+      w.innerHTML = `<b>${title}:</b> ${body}`;
+      div.appendChild(w);
+    });
+  }
+);
+
+/* ===================== 7b · FILL IN THE BLANK ===================== */
+function buildFillBlank(items, div){
+  const wrap = document.createElement('div');
+  items.forEach((it, i) => {
+    const card = document.createElement('div'); card.className='row'; card.style.flexDirection='column'; card.style.alignItems='stretch'; card.style.gap='8px';
+    const sentRow = document.createElement('div'); sentRow.style.display='flex'; sentRow.style.alignItems='center'; sentRow.style.gap='10px'; sentRow.style.flexWrap='wrap';
+    const num = document.createElement('span'); num.textContent = (i+1)+'.'; num.style.color='var(--muted)'; num.style.fontWeight='600';
+    const before = document.createElement('span'); before.textContent = it.before; before.style.fontSize='15px';
+    const input = document.createElement('input'); input.type='text'; input.placeholder='...'; input.style.width='70px'; input.style.padding='6px 8px'; input.style.border='1px solid var(--line)'; input.style.borderRadius='8px'; input.style.fontSize='15px'; input.style.textAlign='center';
+    const after = document.createElement('span'); after.textContent = it.after; after.style.fontSize='15px';
+    const check = document.createElement('button'); check.textContent='Check'; check.style.border='1px solid var(--accent)'; check.style.background='#fff'; check.style.color='var(--accent)'; check.style.borderRadius='999px'; check.style.padding='5px 12px'; check.style.fontSize='12.5px'; check.style.cursor='pointer';
+    const result = document.createElement('span'); result.style.fontSize='13px'; result.style.fontWeight='600';
+    sentRow.appendChild(num); sentRow.appendChild(before); sentRow.appendChild(input); sentRow.appendChild(after); sentRow.appendChild(check); sentRow.appendChild(result);
+    const enDiv = document.createElement('div'); enDiv.className='en'; enDiv.textContent = it.en;
+    card.appendChild(sentRow); card.appendChild(enDiv);
+    check.onclick = () => {
+      const val = input.value.trim().toLowerCase().replace(/’/g,"'");
+      const ok = it.answers.map(a=>a.toLowerCase()).includes(val);
+      if (ok) { result.style.color='#155c37'; result.textContent='✓ Correct!'; input.style.borderColor='#3fa96a'; }
+      else { result.style.color='#8a2b2b'; result.textContent='✗ Try: '+it.answers[0]; input.style.borderColor='#e08a8a'; }
+    };
+    input.addEventListener('keydown', e => { if (e.key==='Enter') check.click(); });
+    wrap.appendChild(card);
+  });
+  div.appendChild(wrap);
+}
+
+sec('fillblank', '7b · Practice — Fill In the Correct Article',
+  "Original practice sentences (not from any textbook) — type the article that belongs in the blank, then hit Check or press Enter. Capitalization doesn't matter.",
+  (div) => {
+    const items = [
+      { before:"", answers:["le"], after:"chat de ma voisine dort toute la journée.", en:"My neighbour's cat sleeps all day. (le → chat is masculine)" },
+      { before:"", answers:["la"], after:"voiture de mon père est garée devant la maison.", en:"My father's car is parked in front of the house. (la → voiture is feminine)" },
+      { before:"J'ai", answers:["un"], after:"ami qui habite à Montréal.", en:"I have a friend who lives in Montreal. (un → ami is masc., but starts with a vowel — still \"un\", the article itself doesn't shorten before a vowel, only le/la do)" },
+      { before:"", answers:["l'","l"], after:"école ferme à 16 heures.", en:"The school closes at 4pm. (l' → école starts with a vowel)" },
+      { before:"Nous cherchons", answers:["un"], after:"hôtel pas cher pour ce week-end.", en:"We're looking for a cheap hotel for this weekend. (un → hôtel, masc., silent h)" },
+      { before:"", answers:["les"], after:"enfants jouent dans le jardin.", en:"The children are playing in the garden. (les → plural)" },
+      { before:"Le matin, je bois", answers:["du"], after:"café avant de partir travailler.", en:"In the morning, I drink coffee before leaving for work. (du → café is uncountable here, partitive)" },
+      { before:"", answers:["le"], after:"problème principal, c'est le prix.", en:"The main problem is the price. (le → problème is masculine)" },
+      { before:"Elle vient d'acheter", answers:["une"], after:"maison à la campagne.", en:"She just bought a house in the countryside. (une → maison is feminine)" },
+      { before:"Au marché, elle achète", answers:["des"], after:"pommes et des poires.", en:"At the market, she buys apples and pears. (des → plural, unspecified quantity)" },
+    ];
+    buildFillBlank(items, div);
+    const note = document.createElement('div'); note.className='note';
+    note.innerHTML = "<b>Why these answers, not others:</b> every blank above tests exactly one rule from sections 1–6 above — go back and re-read that rule if you got one wrong, rather than just memorising the sentence.";
+    div.appendChild(note);
+  }
+);
+
+/* ===================== 8 · QUIZ ===================== */
+function buildQuiz(pool, chapDiv){
+  pool = pool.filter(v=>v.en && v.en.length>0 && v.en.length<45);
+  if (pool.length<4) return;
+  const box=document.createElement('div'); box.className='quizbox';
+  const btn=document.createElement('button'); btn.className='quizbtn'; btn.textContent='🎯 Practice all articles';
+  const area=document.createElement('div'); area.className='quizarea'; area.style.display='none';
+  box.appendChild(btn); box.appendChild(area);
+  btn.onclick=()=>{ btn.style.display='none'; area.style.display='block'; runQuiz(pool, area, btn); };
+  chapDiv.appendChild(box);
+}
+function runQuiz(pool, area, btn){
+  const questions = shuffleArr(pool).slice(0, Math.min(8, pool.length));
+  let idx=0, score=0;
+  function showQ(){
+    area.innerHTML='';
+    if (idx>=questions.length){
+      const res=document.createElement('div'); res.className='quizresult';
+      res.innerHTML = `Score: ${score} / ${questions.length}`;
+      const retry=document.createElement('button'); retry.className='quizretry'; retry.textContent='Try again';
+      retry.onclick=()=>{ btn.style.display='inline-flex'; area.style.display='none'; };
+      res.appendChild(retry); area.appendChild(res);
+      return;
+    }
+    const q=questions[idx];
+    const wrongPool = GLOBAL_VOCAB.filter(v=>v.en!==q.en);
+    const wrongs = shuffleArr(wrongPool).slice(0,3).map(v=>v.en);
+    const options = shuffleArr([q.en, ...wrongs]);
+    const qDiv=document.createElement('div'); qDiv.className='quizq';
+    const prog=document.createElement('div'); prog.className='quizprog'; prog.textContent=`Question ${idx+1} of ${questions.length}`;
+    const frDiv=document.createElement('div'); frDiv.className='quizfr'; frDiv.textContent=q.fr;
+    qDiv.appendChild(prog); qDiv.appendChild(frDiv);
+    options.forEach(opt=>{
+      const b=document.createElement('button'); b.className='quizopt'; b.textContent=opt;
+      b.onclick=()=>{
+        const ok = opt===q.en;
+        if(ok){ score++; b.classList.add('correct'); }
+        else { b.classList.add('wrong'); [...qDiv.querySelectorAll('.quizopt')].forEach(x=>{ if(x.textContent===q.en) x.classList.add('correct'); }); }
+        [...qDiv.querySelectorAll('.quizopt')].forEach(x=>x.disabled=true);
+        setTimeout(()=>{ idx++; showQ(); }, 850);
+      };
+      qDiv.appendChild(b);
+    });
+    area.appendChild(qDiv);
+  }
+  showQ();
+}
+
+sec('quiz', '8 · Practice What You Just Learned', "Test yourself on every example sentence from this page, mixed together — definite, indefinite, and partitive articles all at once.", (div)=>{
+  buildQuiz(GLOBAL_VOCAB, div);
+});
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+</body>
+</html>

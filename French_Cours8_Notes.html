@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 8 — Audio Notes</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .qa .a { display:flex; align-items:center; gap:10px; background:var(--accentbg); border-radius:10px; padding:8px 10px; margin-top:6px; }
+  .bigplay { display:inline-flex; align-items:center; gap:8px; border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:10px 18px; font-size:15px; cursor:pointer; margin:6px 0 16px; }
+  .row.active { border-color:var(--accent); background:var(--accentbg); }
+  .fiche { background:var(--card); border:2px solid var(--line); border-radius:14px; padding:16px 18px; margin:12px 0; }
+  .fiche.me { border-color:var(--accent); background:var(--accentbg); }
+  .fiche h3 { margin:0 0 10px; font-size:17px; color:var(--accent); cursor:pointer; }
+  .fiche .field { font-size:14px; margin:4px 0; }
+  .fiche .field b { color:var(--ink); }
+  .fiche .play2 { display:inline-flex; align-items:center; gap:6px; border:1px solid var(--accent); background:#fff; color:var(--accent); border-radius:999px; padding:5px 12px; font-size:12.5px; cursor:pointer; margin-top:8px; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:90px; text-align:center; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 8 Audio Notes</h1>
+  <p class="sub">The Language SKOOL · Saison 1, Unité 1 "S'ouvrir aux autres" · 10 August 2026 · francophone personalities, professions, prepositions of place, fiche d'identité</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html" class="active">Cours 8</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Articles.html">Articles</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+const PROFESSIONS = [
+  ["un chanteur / une chanteuse", "uhn shahn-TUR / ewn shahn-TUZ", "a singer (m/f)"],
+  ["un dessinateur / une dessinatrice", "uhn deh-see-nah-TUR / ewn deh-see-nah-TREES", "a cartoonist / illustrator (m/f)"],
+  ["un écrivain / une écrivaine", "uhn ay-kree-VAN / ewn ay-kree-VEN", "a writer (m/f)"],
+  ["un joueur de tennis / une joueuse de tennis", "uhn zhoo-UR duh teh-NEES", "a tennis player (m/f)"],
+  ["un(e) astronaute", "uhn(-ewn) as-troh-NOHT", "an astronaut"],
+  ["un musicien / une musicienne", "uhn mew-zee-SYAN / ewn mew-zee-SYEN", "a musician (m/f)"],
+  ["un acteur / une actrice", "uhn ak-TUR / ewn ak-TREES", "an actor / an actress"],
+  ["un professeur (de français)", "uhn proh-feh-SUR duh frahn-SEH", "a teacher (of French)"],
+];
+
+const PERSONALITIES = [
+  { name:"Roger Federer", ph:"roh-ZHAY feh-deh-RAIR", nat:"suisse", prof:"joueur de tennis",
+    sentence:"C'est un joueur de tennis suisse.", sph:"say tuhn zhoo-ur duh teh-nees SWEES", sen:"He is a Swiss tennis player." },
+  { name:"Philippe Geluck", ph:"fee-LEEP zhuh-LEWK", nat:"belge", prof:"dessinateur",
+    sentence:"C'est un dessinateur belge.", sph:"say tuhn deh-see-nah-tur BELZH", sen:"He is a Belgian cartoonist." },
+  { name:"Julie Payette", ph:"zhoo-LEE pah-YET", nat:"québécoise", prof:"astronaute",
+    sentence:"Elle est astronaute. Elle est québécoise.", sph:"el eh as-troh-noht, el eh kay-bay-KWAHZ", sen:"She is an astronaut. She is Québécoise (from Québec, Canada)." },
+  { name:"Amadou et Mariam", ph:"ah-mah-DOO ay mah-RYAM", nat:"maliens", prof:"musiciens et chanteurs",
+    sentence:"Ils sont maliens. Ils sont musiciens et chanteurs.", sph:"eel sohn mah-lee-AN, eel sohn mew-zee-syan zay shahn-TUR", sen:"They are Malian. They are musicians and singers." },
+];
+
+const PREPLACE = [
+  ["Vous habitez à Bruxelles.", "voo zah-bee-TAY ah brew-SEL", "You live in Brussels. (à + city)"],
+  ["Vous êtes née à Montréal.", "voo-zet nay ah mohn-ray-AHL", "You were born in Montreal. (à + city)"],
+  ["Vous travaillez au Canada.", "voo trah-vah-YAY oh kah-nah-DAH", "You work in Canada. (au + masculine country)"],
+  ["Vous habitez en Belgique.", "voo zah-bee-TAY ahn bel-ZHEEK", "You live in Belgium. (en + feminine country)"],
+  ["Vous venez du Mali.", "voo vuh-NAY dew mah-LEE", "You come from Mali. (du + masculine country)"],
+  ["Vous venez de Suisse.", "voo vuh-NAY duh SWEES", "You come from Switzerland. (de + feminine country)"],
+];
+
+const FICHEWORDS = [
+  ["le nom", "luh NOHN", "the last name / surname"],
+  ["le prénom", "luh pray-NOHN", "the first name"],
+  ["la date de naissance", "lah daht duh neh-SAHNS", "the date of birth"],
+  ["le lieu de naissance", "luh lyuh duh neh-SAHNS", "the place of birth"],
+  ["la nationalité", "lah nah-syoh-nah-lee-TAY", "the nationality"],
+  ["la profession", "lah proh-feh-SYOHN", "the profession / job"],
+];
+
+const COMM = [
+  ["Qui est-ce ?", "kee ess", "Who is it? / Who is this?"],
+  ["C'est qui ?", "say KEE", "Who's that? (informal)"],
+  ["C'est + [nom].", "say", "This is + [name]. — the basic way to introduce someone"],
+];
+
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "🔊 " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(text.replace(/\s+([!?])/g,'$1'));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play '+fr);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML=`<div class="fr">${fr}</div>${ph?`<div class="ph">${ph}</div>`:''}${en?`<div class="en">${en}</div>`:''}`;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+
+// 1. Professions
+const h1 = document.createElement('h2'); h1.textContent = "1 · Quelques professions — Professions vocabulary"; content.appendChild(h1);
+const l1 = document.createElement('p'); l1.className='lead'; l1.textContent = "From today's \"Mots et expressions\" box, plus the professions that came up describing today's four francophone personalities."; content.appendChild(l1);
+PROFESSIONS.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+
+// 2. Personnalités francophones — nationality + profession matching
+const h2s = document.createElement('h2'); h2s.textContent = "2 · Personnalités francophones — nationality & profession"; content.appendChild(h2s);
+const l2 = document.createElement('p'); l2.className='lead'; l2.textContent = "The listening exercise: match each real francophone celebrity to their nationality and job. Click a name to hear it, click the sentence to hear the full answer."; content.appendChild(l2);
+PERSONALITIES.forEach(p=>{
+  const div = document.createElement('div'); div.className='qa';
+  const q = document.createElement('div'); q.className='q'; q.textContent = p.name; q.onclick=()=>speak(p.name);
+  const qen = document.createElement('div'); qen.className='qen'; qen.textContent = `Nationalité : ${p.nat}  ·  Métier : ${p.prof}`;
+  div.appendChild(q); div.appendChild(qen);
+  const aRow = document.createElement('div'); aRow.className='a';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.onclick=()=>speak(p.sentence);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML = `<div class="fr">${p.sentence}</div><div class="ph">${p.sph}</div><div class="en">${p.sen}</div>`;
+  txt.querySelector('.fr').onclick=()=>speak(p.sentence);
+  aRow.appendChild(btn); aRow.appendChild(txt);
+  div.appendChild(aRow);
+  content.appendChild(div);
+  GLOBAL_VOCAB.push({fr:p.name, en:`${p.nat}, ${p.prof}`});
+});
+
+// 3. Prepositions of place
+const h3 = document.createElement('h2'); h3.textContent = "3 · Les prépositions de lieu — Prepositions of place"; content.appendChild(h3);
+const l3 = document.createElement('p'); l3.className='lead'; l3.textContent = "Today's grammar point, from the whiteboard:"; content.appendChild(l3);
+const note1 = document.createElement('div'); note1.className='note';
+note1.innerHTML = "<b>From the whiteboard:</b><br>• <b>city → à</b> (à Bruxelles, à Montréal, à Paris)<br>• <b>country → en</b> for most feminine countries (en Belgique, en France, en Inde)<br>• <b>au = à + le</b>, used before masculine countries (au Canada, au Maroc, au Japon)<br>• <b>de / du</b> is used for origin — <i>de</i> before a feminine country or a vowel (de Suisse, d'Inde), <b>du = de + le</b> before a masculine country (du Mali, du Canada)";
+content.appendChild(note1);
+PREPLACE.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+const ex1 = document.createElement('div'); ex1.className='example';
+ex1.innerHTML = "<b>Why the difference?</b> French countries have a gender, just like nouns. Most countries ending in <i>-e</i> are feminine (la France, la Belgique, la Suisse) and take <b>en</b>. Countries that don't end in <i>-e</i> are usually masculine (le Canada, le Mali, le Japon) and take <b>au</b>. Cities don't have a gender in French, so they always simply take <b>à</b>.";
+content.appendChild(ex1);
+
+// 4. Fiche d'identité vocabulary
+const h4 = document.createElement('h2'); h4.textContent = "4 · La fiche d'identité — Identity-card vocabulary"; content.appendChild(h4);
+const l4 = document.createElement('p'); l4.className='lead'; l4.textContent = "The field names used on every \"ID card\" style exercise in the book — learn these once, reuse them everywhere."; content.appendChild(l4);
+FICHEWORDS.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+
+// 5. Communication — introducing someone
+const h5 = document.createElement('h2'); h5.textContent = "5 · Communication — s'informer sur quelqu'un / présenter quelqu'un"; content.appendChild(h5);
+const l5 = document.createElement('p'); l5.className='lead'; l5.textContent = "Asking about someone, and introducing someone."; content.appendChild(l5);
+COMM.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+
+// 6. Fiches artistes — reading practice with real facts
+const h6 = document.createElement('h2'); h6.textContent = "6 · Fiches artistes — reading practice"; content.appendChild(h6);
+const l6 = document.createElement('p'); l6.className='lead'; l6.textContent = "Three real francophone artists, none of them born in France, all of them famous partly through French. Click a name to hear it, click \"Play summary\" to hear the sentence.";
+content.appendChild(l6);
+
+const ARTISTS = [
+  { name:"Kristin Scott Thomas", nph:"krees-teen skot toh-MAH", born:"1960", place:"Royaume-Uni (United Kingdom)", nat:"anglaise", prof:"actrice", extra:"Film : Partir",
+    sentence:"Kristin Scott Thomas est née en 1960, au Royaume-Uni. Elle est anglaise. Elle est actrice.",
+    sph:"krees-teen skot toh-mah eh nay ahn deez-nuhf sahn-swah-sahnt, oh rwah-yohm-EW-nee. el eh ahn-GLEZ. el eh ak-TREES.",
+    sen:"Kristin Scott Thomas was born in 1960, in the United Kingdom. She is English. She is an actress." },
+  { name:"Akira Mizubayashi", nph:"ah-kee-rah mee-zoo-bah-YAH-shee", born:"1952", place:"Japon (Japan)", nat:"japonaise", prof:"écrivain et professeur de français", extra:"Livre : Une langue venue d'ailleurs",
+    sentence:"Akira Mizubayashi est né en 1952, au Japon. Il est japonais. Il est écrivain et professeur de français.",
+    sph:"ah-kee-rah mee-zoo-bah-yah-shee eh nay ahn dees nuhf sahn sank-KAHNT-duh, oh zhah-POHN. eel eh zhah-poh-NEH. eel eh ay-kree-van ay proh-feh-sur duh frahn-SEH.",
+    sen:"Akira Mizubayashi was born in 1952, in Japan. He is Japanese. He is a writer and French teacher." },
+  { name:"Mika", nph:"MEE-kah", born:"1983", place:"Beyrouth (Beirut)", nat:"libanaise", prof:"chanteur", extra:"Chanson : Elle me dit",
+    sentence:"Mika est né en 1983, à Beyrouth. Il est libanais. Il est chanteur.",
+    sph:"mee-kah eh nay ahn dees-nuhf sahn katr-vahn-TWAH, ah bay-ROOT. eel eh lee-bah-NEH. eel eh shahn-TUR.",
+    sen:"Mika was born in 1983, in Beirut. He is Lebanese. He is a singer." },
+];
+ARTISTS.forEach(a=>{
+  const div = document.createElement('div'); div.className='fiche';
+  const h3 = document.createElement('h3'); h3.textContent = a.name; h3.onclick=()=>speak(a.name);
+  div.appendChild(h3);
+  div.innerHTML += `
+    <div class="field"><b>Date de naissance :</b> ${a.born}</div>
+    <div class="field"><b>Lieu de naissance :</b> ${a.place}</div>
+    <div class="field"><b>Nationalité :</b> ${a.nat}</div>
+    <div class="field"><b>Profession :</b> ${a.prof}</div>
+    <div class="field"><b>${a.extra.split(' : ')[0]} :</b> <i>${a.extra.split(' : ')[1]}</i></div>
+  `;
+  const btn = document.createElement('button'); btn.className='play2'; btn.textContent='▶ Play summary'; btn.onclick=()=>speak(a.sentence);
+  div.appendChild(btn);
+  const summary = document.createElement('div'); summary.style.marginTop='8px';
+  summary.innerHTML = `<div class="ph">${a.sph}</div><div class="en">${a.sen}</div>`;
+  div.appendChild(summary);
+  content.appendChild(div);
+  GLOBAL_VOCAB.push({fr:`${a.name} — nationalité`, en:a.nat});
+});
+
+// 7. Reading comprehension questions (ex.7 style)
+const h7 = document.createElement('h2'); h7.textContent = "7 · Répondez aux questions — reading comprehension"; content.appendChild(h7);
+const l7 = document.createElement('p'); l7.className='lead'; l7.textContent = "Answer using the fiches above. Click a question to hear it — the answer is underneath."; content.appendChild(l7);
+const QUESTIONS = [
+  { q:"Qui est japonais ?", qen:"Who is Japanese?", a:"Akira Mizubayashi est japonais.", aen:"Akira Mizubayashi is Japanese." },
+  { q:"Quelle est la nationalité de Mika ?", qen:"What is Mika's nationality?", a:"Mika est libanais.", aen:"Mika is Lebanese." },
+  { q:"Comment s'appelle l'actrice ?", qen:"What is the actress's name?", a:"Elle s'appelle Kristin Scott Thomas.", aen:"Her name is Kristin Scott Thomas." },
+  { q:"Quel est le prénom de l'écrivain ?", qen:"What is the writer's first name?", a:"Son prénom, c'est Akira.", aen:"His first name is Akira." },
+  { q:"Quand est née Kristin Scott Thomas ?", qen:"When was Kristin Scott Thomas born?", a:"Elle est née en 1960.", aen:"She was born in 1960." },
+];
+QUESTIONS.forEach(item=>{
+  const div = document.createElement('div'); div.className='qa';
+  const q = document.createElement('div'); q.className='q'; q.textContent = item.q; q.onclick=()=>speak(item.q);
+  const qen = document.createElement('div'); qen.className='qen'; qen.textContent = item.qen;
+  div.appendChild(q); div.appendChild(qen);
+  const aRow = document.createElement('div'); aRow.className='a';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.onclick=()=>speak(item.a);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML = `<div class="fr">${item.a}</div><div class="en">${item.aen}</div>`;
+  txt.querySelector('.fr').onclick=()=>speak(item.a);
+  aRow.appendChild(btn); aRow.appendChild(txt);
+  div.appendChild(aRow);
+  content.appendChild(div);
+});
+
+// 8. My own fiche d'identité, same style as the artists
+const h8 = document.createElement('h2'); h8.textContent = "8 · Ma fiche d'identité — my own ID card"; content.appendChild(h8);
+const l8 = document.createElement('p'); l8.className='lead'; l8.textContent = "Written the same way as the fiches above, using today's vocabulary."; content.appendChild(l8);
+const me = document.createElement('div'); me.className='fiche me';
+const meh3 = document.createElement('h3'); meh3.textContent = "Rajveer Singh"; meh3.onclick=()=>speak("Rajveer Singh");
+me.appendChild(meh3);
+me.innerHTML += `
+  <div class="field"><b>Nom :</b> Singh</div>
+  <div class="field"><b>Prénom :</b> Rajveer</div>
+  <div class="field"><b>Âge :</b> 23 ans</div>
+  <div class="field"><b>Lieu de naissance / résidence :</b> Dehradun, en Inde</div>
+  <div class="field"><b>Nationalité :</b> indien</div>
+  <div class="field"><b>Profession :</b> administrateur système</div>
+  <div class="field"><b>Langues :</b> hindi, pendjabi, anglais, et un peu de français</div>
+`;
+const mebtn = document.createElement('button'); mebtn.className='play2'; mebtn.textContent='▶ Play summary';
+const meSentence = "Je m'appelle Rajveer Singh. J'ai vingt-trois ans. J'habite à Dehradun, en Inde. Je suis indien. Je suis administrateur système. Je parle hindi, pendjabi, anglais et un peu français.";
+mebtn.onclick=()=>speak(meSentence);
+me.appendChild(mebtn);
+const meSummary = document.createElement('div'); meSummary.style.marginTop='8px';
+meSummary.innerHTML = `<div class="ph">zhuh mah-PELL raj-veer SANG. zhay vahn-twah ZAHN. zhah-BEET ah deh-rah-DOON, ahn AND. zhuh sweez an-dee-AN. zhuh sweez ad-mee-nee-strah-tur duh sees-TEM. zhuh PARL an-DEE, pahn-jah-BEE, ahn-GLEH ay uhn puh frahn-SEH.</div><div class="en">My name is Rajveer Singh. I am 23 years old. I live in Dehradun, India. I am Indian. I am a systems administrator. I speak Hindi, Punjabi, English, and a little French.</div>`;
+me.appendChild(meSummary);
+content.appendChild(me);
+
+// 9. Extra activity — fill in à / au / en / du / de
+const h9 = document.createElement('h2'); h9.textContent = "9 · Extra activity — fill in à, au, en, du or de"; content.appendChild(h9);
+const l9 = document.createElement('p'); l9.className='lead'; l9.textContent = "Original practice sentences (not from the textbook) using today's preposition rule. Type the missing word and press Check."; content.appendChild(l9);
+
+const FILLITEMS = [
+  { before:"Elle habite", answers:["à"], after:"Paris.", en:"She lives in Paris. (city → à)" },
+  { before:"Il travaille", answers:["au"], after:"Canada.", en:"He works in Canada. (masculine country → au)" },
+  { before:"Nous venons", answers:["de"], after:"Suisse.", en:"We come from Switzerland. (feminine country, origin → de)" },
+  { before:"Vous venez", answers:["du"], after:"Maroc.", en:"You come from Morocco. (masculine country, origin → du)" },
+  { before:"Ils habitent", answers:["en"], after:"Belgique.", en:"They live in Belgium. (feminine country → en)" },
+  { before:"Je suis né", answers:["à"], after:"Londres.", en:"I was born in London. (city → à)" },
+  { before:"Elle vient", answers:["du"], after:"Mali.", en:"She comes from Mali. (masculine country, origin → du)" },
+  { before:"Nous habitons", answers:["en"], after:"Inde.", en:"We live in India. (feminine country → en)" },
+];
+const fillDiv = document.createElement('div');
+FILLITEMS.forEach(item=>{
+  const row = document.createElement('div'); row.className='fillrow';
+  const sent = document.createElement('div'); sent.className='sent';
+  sent.innerHTML = `${item.before} <input type="text" maxlength="6"> ${item.after} <button>Check</button>`;
+  row.appendChild(sent);
+  const fb = document.createElement('div'); fb.className='fb';
+  row.appendChild(fb);
+  const input = sent.querySelector('input');
+  const btn = sent.querySelector('button');
+  function check(){
+    const val = input.value.trim().toLowerCase().replace(/’/g,"'");
+    if (item.answers.includes(val)) {
+      fb.textContent = "✓ Correct — " + item.en; fb.className = 'fb ok';
+    } else {
+      fb.textContent = "✗ Not quite. Correct answer: " + item.answers[0] + " — " + item.en; fb.className = 'fb bad';
+    }
+  }
+  btn.onclick = check;
+  input.addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); check(); } });
+  fillDiv.appendChild(row);
+});
+content.appendChild(fillDiv);
+
+// 10. Quiz
+const h10 = document.createElement('h2'); h10.textContent = "10 · Quick quiz"; content.appendChild(h10);
+const quizBox = document.createElement('div'); quizBox.className='quizbox';
+quizBox.innerHTML = `<p class="lead" style="margin:0 0 8px;">Multiple-choice, mixing every word and fact from today's class.</p>`;
+const quizBtn = document.createElement('button'); quizBtn.className='quizbtn'; quizBtn.textContent='▶ Start quiz';
+const quizArea = document.createElement('div'); quizArea.className='quizarea';
+quizBox.appendChild(quizBtn); quizBox.appendChild(quizArea);
+content.appendChild(quizBox);
+
+function shuffleArr(a){ const b=[...a]; for(let i=b.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [b[i],b[j]]=[b[j],b[i]]; } return b; }
+function buildQuiz(pool, area, btn){
+  btn.onclick = ()=> runQuiz(pool, area, btn);
+}
+function runQuiz(pool, area, btn){
+  btn.style.display='none';
+  const qs = shuffleArr(pool).slice(0, Math.min(8, pool.length));
+  let i = 0, score = 0;
+  function showQ(){
+    area.innerHTML = '';
+    if (i >= qs.length) {
+      const res = document.createElement('div'); res.className='quizresult';
+      res.textContent = `Score: ${score} / ${qs.length}`;
+      const retry = document.createElement('button'); retry.className='quizretry'; retry.textContent='↻ Retry';
+      retry.onclick = ()=>{ btn.style.display='inline-block'; area.innerHTML=''; };
+      area.appendChild(res); area.appendChild(retry);
+      return;
+    }
+    const item = qs[i];
+    const wrongPool = pool.filter(p=>p.en!==item.en);
+    const opts = shuffleArr([item, ...shuffleArr(wrongPool).slice(0,3)]);
+    const prog = document.createElement('div'); prog.className='quizprog'; prog.textContent = `Question ${i+1} / ${qs.length}`;
+    const fr = document.createElement('div'); fr.className='quizfr'; fr.textContent = item.fr;
+    area.appendChild(prog); area.appendChild(fr);
+    opts.forEach(o=>{
+      const b = document.createElement('button'); b.className='quizopt'; b.textContent = o.en;
+      b.onclick = ()=>{
+        [...area.querySelectorAll('.quizopt')].forEach(x=>x.disabled=true);
+        if (o.en===item.en){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); [...area.querySelectorAll('.quizopt')].find(x=>x.textContent===item.en).classList.add('correct'); }
+        setTimeout(()=>{ i++; showQ(); }, 900);
+      };
+      area.appendChild(b);
+    });
+  }
+  showQ();
+}
+buildQuiz(GLOBAL_VOCAB, quizArea, quizBtn);
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+</body>
+</html>

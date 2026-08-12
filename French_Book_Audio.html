@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French — Book Audio (Real CD Tracks)</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:900px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:12px 14px; font-size:13.5px; color:#6b5a1e; margin:12px 0 20px; }
+  .bookbtn { display:inline-flex; align-items:center; gap:8px; border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:10px 18px; font-size:14px; text-decoration:none; margin:6px 8px 20px 0; }
+  .tracks { display:flex; flex-direction:column; gap:10px; }
+  .track { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; }
+  .track .top { display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-bottom:6px; }
+  .track .num { font-weight:700; color:var(--accent); font-size:15px; }
+  .track .desc { font-size:13.5px; color:var(--ink); }
+  .track .dur { font-size:12px; color:var(--muted); }
+  .track audio { width:100%; height:34px; margin-top:6px; }
+  .unknown { color:var(--muted); font-style:italic; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Book Audio</h1>
+  <p class="sub">Real recordings from the Saison 1 course CD — not text-to-speech. Uploaded straight from the book's audio tracks.</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Book_Audio.html" class="active">Book Audio</a>
+    <a href="French_Articles.html">Articles</a>
+  </nav>
+
+  <div class="note">
+    <b>Where these come from:</b> these are the actual "Piste" (track) recordings from the <i>Saison 1</i> A1 course CD — the same audio the book's speaker-icons point to. A few tracks are matched to their exercise below from class; the rest are labelled generically for now and will be filled in as we cover them in class, or you can identify them by listening.
+  </div>
+
+  <div class="tracks" id="tracks"></div>
+</div>
+
+<script>
+const TRACKS = [
+  { n:1, file:'01piste01.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:2, file:'02piste02.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:3, file:'03piste03.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:4, file:'04piste04.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:5, file:'05piste05.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:6, file:'06piste06.mp3', desc:'p.20 — "Tendez l\'oreille" (a): écoutez et retrouvez la nationalité de chaque personne' },
+  { n:7, file:'07piste07.mp3', desc:'p.20 — "Tendez l\'oreille" (b): féminin ou masculin — écoutez et complétez le tableau' },
+  { n:8, file:'08piste08.mp3', desc:'p.20–21 — "Tendez l\'oreille" (c)/(d): question ou affirmation, and syllable count' },
+  { n:9, file:'09piste09.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:10, file:'10piste10.mp3', desc:'p.21 — "C\'est combien ?" (a)/(b): chiffres et prix — numbers and prices' },
+  { n:11, file:'11piste11.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:12, file:'12piste12.mp3', desc:'p.22 — "La France en fête": écoutez et retrouvez les rendez-vous festifs de l\'année' },
+  { n:13, file:'13piste13.mp3', desc:'p.23 — "J\'ai rendez-vous !" (b): dialogue — names, ages, nationality' },
+  { n:14, file:'14piste14.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:15, file:'15piste15.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:16, file:'16piste16.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:17, file:'17piste17.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:18, file:'18piste18.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:19, file:'19piste19.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:20, file:'20piste20.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:21, file:'21piste21.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:22, file:'22piste22.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:23, file:'23piste23.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:24, file:'24piste24.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:25, file:'25piste25.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:26, file:'26piste26.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:27, file:'27piste27.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:28, file:'28piste28.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:29, file:'29piste29.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:30, file:'30piste30.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:31, file:'31piste31.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:32, file:'32piste32.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:33, file:'33piste33.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:34, file:'34piste34.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:35, file:'35piste35.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:36, file:'36piste36.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:37, file:'37piste37.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:38, file:'38piste38.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:39, file:'39piste39.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:40, file:'40piste40.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:41, file:'41piste41.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:42, file:'42piste42.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:43, file:'43piste43.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:44, file:'44piste44.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:45, file:'45piste45.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:46, file:'46piste46.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:47, file:'47piste47.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:48, file:'48piste48.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:49, file:'49piste49.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:50, file:'50piste50.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:51, file:'51piste51.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:52, file:'52piste52.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:53, file:'53piste53.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:54, file:'54piste54.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:55, file:'55piste55.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:56, file:'56piste56.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:57, file:'57piste57.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:58, file:'58piste58.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:59, file:'59piste59.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:60, file:'60piste60.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:61, file:'61piste61.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:62, file:'62piste62.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:63, file:'63piste63.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:64, file:'64piste64.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:65, file:'65piste65.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:66, file:'66piste66.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:67, file:'67piste67.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:68, file:'68piste68.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:69, file:'69piste69.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:70, file:'70piste70.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:71, file:'71piste71.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:72, file:'72piste72.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:73, file:'73piste73.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:74, file:'74piste74.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:75, file:'75piste75.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:76, file:'76piste76.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:77, file:'77piste77.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:78, file:'78piste78.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:79, file:'79piste79.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:80, file:'80piste80.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:81, file:'81piste81.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:82, file:'82piste82.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:83, file:'83piste83.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:84, file:'84piste84.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:85, file:'85piste85.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+];
+
+const container = document.getElementById('tracks');
+TRACKS.forEach(t => {
+  const div = document.createElement('div'); div.className = 'track';
+  const top = document.createElement('div'); top.className = 'top';
+  const num = document.createElement('div'); num.className = 'num'; num.textContent = 'Piste ' + String(t.n).padStart(2,'0');
+  top.appendChild(num);
+  const desc = document.createElement('div'); desc.className = 'desc' + (t.desc.includes('not yet matched') ? ' unknown' : ''); desc.textContent = t.desc;
+  div.appendChild(top);
+  div.appendChild(desc);
+  const audio = document.createElement('audio'); audio.controls = true; audio.preload = 'none';
+  const src = document.createElement('source'); src.src = t.file; src.type = 'audio/mpeg';
+  audio.appendChild(src);
+  div.appendChild(audio);
+  container.appendChild(div);
+});
+</script>
+</body>
+</html>

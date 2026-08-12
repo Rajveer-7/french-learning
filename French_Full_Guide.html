@@ -67,6 +67,19 @@
   .toplink { display:inline-block; margin-top:10px; font-size:12.5px; color:var(--accent); text-decoration:none; }
   .roadmap { background:var(--card); border:1px dashed var(--line); border-radius:14px; padding:16px 18px; margin-top:36px; font-size:14px; color:var(--muted); }
   .roadmap b { color:var(--ink); }
+
+  .quizbox { margin:20px 0 4px; }
+  .quizbtn { display:inline-flex; align-items:center; gap:8px; border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizbtn:active { transform:scale(.97); }
+  .quizarea { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; margin-top:8px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:6px; }
+  .quizfr { font-size:19px; font-weight:700; margin-bottom:12px; }
+  .quizopt { display:block; width:100%; text-align:left; background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 12px; margin:6px 0; font-size:14px; cursor:pointer; color:var(--ink); }
+  .quizopt:hover:not(:disabled) { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:#3fa96a; color:#155c37; font-weight:600; }
+  .quizopt.wrong { background:#fdeeee; border-color:#e08a8a; color:#8a2b2b; }
+  .quizresult { font-size:15px; font-weight:600; text-align:center; padding:8px 0; }
+  .quizretry { margin-left:8px; border:1px solid var(--accent); background:#fff; color:var(--accent); border-radius:999px; padding:6px 14px; font-size:13px; cursor:pointer; }
 </style>
 </head>
 <body>
@@ -81,8 +94,13 @@
     <a href="French_Cours3_Notes.html">Cours 3</a>
     <a href="French_Cours4_Notes.html">Cours 4</a>
     <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
     <a href="French_Conversations.html">Conversations</a>
     <a href="French_Full_Guide.html" class="active">Full Guide</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Articles.html">Articles</a>
   </nav>
 
   <div class="bar">
@@ -102,13 +120,27 @@
   <div id="chapters"></div>
 
   <div class="roadmap">
-    <b>Coming next in the guide:</b> weather, telling the future with more verbs, food &amp; ordering at a restaurant, shopping &amp; money phrases, directions &amp; getting around, hobbies, and past tense (passé composé). This guide grows alongside your classes — ask any time to add a new chapter.
+    <b>You've now got a genuinely complete A1 reference</b> — sounds, greetings, être/avoir, gender, numbers, colors, self-intro, family, calendar, time, questions, negation, regular &amp; irregular verbs, emotions, countries/nationalities, shopping, possessives/demonstratives, directions, weather, food, more irregular verbs, the imperative, and an introduction to the past tense. Still to come as we go further: hobbies &amp; leisure, comparatives &amp; superlatives, the future tense (futur simple), and deeper practice for the TEF speaking/writing sections. Ask any time to add a new chapter.
   </div>
 </div>
 
 <script>
 /* ======================= CONTENT ======================= */
 const CHAPTERS = [
+
+{ id:'studytips', icon:'🧭', title:'0 · How to Use This Guide (Read This First)', intro:
+  "You're learning French for the very first time, so this chapter exists to set expectations and give you a study method — before a single French word shows up. Everything after this point assumes zero prior knowledge and explains the reasoning behind each rule, not just the rule itself.",
+  sections: [
+    { type:'text', html:
+      "<p class='p'>French, like every language, is really three separate skills bolted together: <b>understanding what you hear</b>, <b>producing sounds yourself</b>, and <b>knowing the grammar/vocabulary</b> that sits underneath both. Most beginners over-focus on the third one (memorising word lists) because it feels the most \"studyable\", but the first two — listening and speaking — are what actually make a language usable, and they only improve with repeated, active practice, not by reading about them.</p>" +
+      "<p class='p'>That's why every single phrase in this guide has a <b>▶ play button</b> next to it. The habit to build is: read the French word, guess how it sounds, tap play, notice what you got wrong, then say it out loud yourself. Passive reading without producing the sound yourself barely helps — your mouth needs the repetition as much as your brain does.</p>" +
+      "<p class='p'>The pronunciation spelled out next to each word (in green italics, e.g. <i>bohn-ZHOOR</i>) is not official phonetic notation — it's a plain-English approximation designed to get you close enough to be understood, with the stressed syllable in CAPITALS. Once your ear is trained from listening to real audio, you'll rely on it less.</p>"
+    },
+    { type:'note', html: "<b>A realistic pace:</b> A1 (the level this guide covers) is the first of six CEFR levels (A1 → A2 → B1 → B2 → C1 → C2). It typically takes 60–100 hours of study to reach a solid A1. Don't expect fluency from this guide alone — expect to be able to introduce yourself, ask basic questions, and understand slow, simple French. That's a real, useful milestone, and exactly what TEF Canada's earliest bands measure." },
+    { type:'text', html: "<h3>How this guide is organised</h3><p class='p'>Chapters build on each other roughly in the order you'd need them, starting with sounds and greetings, through the two most important verbs (être/avoir), grammar building blocks (gender, articles, possessives), and outward into everyday topic vocabulary (numbers, colors, family, food, directions, weather). Use the Contents box above to jump around, but if you're totally new, working top to bottom once is a good idea before jumping ahead.</p>" },
+    { type:'note', html: "<b>Three habits that matter more than any single rule in this guide:</b> (1) say every phrase out loud, don't just read it silently. (2) When you learn a new noun, always learn its article (le/la) with it — never the bare word alone. (3) Mistakes are part of the process, not a sign you're doing it wrong — French speakers understand heavily-accented, grammatically imperfect French just fine as long as you keep trying." },
+  ]
+},
 
 { id:'sounds', icon:'🔤', title:'1 · How French Sounds', intro:
   "Before any vocabulary, it helps to know how French letters actually sound — French spelling looks like English but is pronounced very differently. Read this once, then come back to it whenever a word's pronunciation surprises you.",
@@ -191,6 +223,10 @@ const CHAPTERS = [
 { id:'etre', icon:'🧍', title:'3 · Le verbe ÊTRE — "to be"', intro:
   "ÊTRE is one of the two most important verbs in French (with AVOIR, next chapter). It's irregular, meaning it doesn't follow a predictable pattern, so it just has to be memorised. You use être for identity, nationality, profession, description, and location.",
   sections: [
+    { type:'text', html:
+      "<p class='p'>In English, \"to be\" already changes a lot (I am, you are, he is, we are...), so the idea of a verb changing form per person isn't new to you — French just changes it more, and less predictably. <b>Every</b> French verb has six forms in the present tense, one for each of: je (I), tu (you, informal singular), il/elle/on (he/she/one), nous (we), vous (you, formal or plural), ils/elles (they, masc./fem.). This six-way pattern is the single most important structural idea in French grammar — once it clicks for être, it applies to literally every other verb you'll ever learn.</p>" +
+      "<p class='p'>Why memorise être first? Because it's both irregular (no shortcuts) and used constantly — for saying who you are, what you do, where you are, and what something is like. Getting comfortable with these six forms pays off immediately.</p>"
+    },
     { type:'conj', title:'Full conjugation', rows:[
       ["je suis","zhuh SWEE","I am"],
       ["tu es","tew AY","you are (informal)"],
@@ -214,6 +250,10 @@ const CHAPTERS = [
 { id:'avoir', icon:'🎒', title:'4 · Le verbe AVOIR — "to have"', intro:
   "AVOIR (to have) is the other essential irregular verb. Besides possession, French uses avoir for age and for a whole family of common expressions where English would use \"to be\" instead — this trips up a lot of beginners, so pay attention to the examples below.",
   sections: [
+    { type:'text', html:
+      "<p class='p'>AVOIR is arguably even more useful than être, because beyond simple possession (\"I have a book\"), French routes a whole category of feelings and states through \"to have\" that English routes through \"to be\". This isn't random — French treats these as things you momentarily <i>possess</i> (hunger, fear, an age) rather than permanent states of <i>being</i>. There's no deeper logic to memorise beyond that; you simply have to learn which expressions use avoir instead of être, and the vocab list below covers the ones you'll use constantly.</p>" +
+      "<p class='p'>AVOIR is also the \"helper verb\" for most of the past tense (passé composé, covered in Chapter 24) — so getting fluent with these six forms now saves you effort twice over.</p>"
+    },
     { type:'conj', title:'Full conjugation', rows:[
       ["j'ai","zhay","I have"],
       ["tu as","tew AH","you have"],
@@ -243,6 +283,8 @@ const CHAPTERS = [
   "Every French noun is either masculine or feminine — even objects with no natural gender, like \"a table\" (feminine) or \"a book\" (masculine). This affects which little word (article) goes in front of it. It feels strange at first, but it becomes automatic with practice — for now, just learn each new noun together with its article.",
   sections: [
     { type:'text', html:
+      "<p class='p'>This is usually the first genuinely unfamiliar concept English speakers hit in French, because English dropped grammatical gender centuries ago — \"a table\" just needs \"a\", full stop. In French, that same word (<i>une table</i>) carries hidden information about which article, which adjective endings, and which pronoun (il/elle) it takes later in a sentence. The good news: gender rarely affects meaning, so getting it wrong won't stop you from being understood — it's a polish issue, not a comprehension issue, so don't let it slow down your speaking.</p>" +
+      "<p class='p'>The single best habit here: whenever you write down a new noun, write its article too — not \"table\" but \"la table\"; not \"livre\" but \"le livre\". Treat the article as glued to the word. Over hundreds of words, your brain starts to feel gender the way you feel which preposition sounds right in English, without consciously applying a rule.</p>" +
       "<p class='p'><b>Definite articles</b> (\"the\"): <b>le</b> before masculine nouns, <b>la</b> before feminine nouns, <b>l'</b> before any noun starting with a vowel (masc. or fem.), and <b>les</b> before any plural noun.</p>" +
       "<p class='p'><b>Indefinite articles</b> (\"a / an\"): <b>un</b> for masculine, <b>une</b> for feminine, <b>des</b> for plural (\"some\").</p>" +
       "<p class='p'><b>Partitive articles</b> (\"some\", for uncountable amounts): <b>du</b> (masc.), <b>de la</b> (fem.), <b>de l'</b> (before a vowel) — this is the \"du\" you saw in \"il y a du blanc\" (there's some white)!</p>"
@@ -259,6 +301,31 @@ const CHAPTERS = [
       ["de l'eau", "duh LOH", "some water (partitive, before vowel)"],
     ]},
     { type:'note', html: "<b>Rough gender hints</b> (not 100% reliable, but helpful): words ending in <b>-e</b>, <b>-tion</b>, <b>-sion</b>, or <b>-té</b> are often feminine (la nation, la beauté). Words ending in a consonant, or in <b>-age</b>, <b>-ment</b>, are often masculine (le fromage, le logement). When in doubt, learn the article with the word." },
+    { type:'text', html: "<h3>Predicting gender from word endings — the fuller picture</h3><p class='p'>These patterns aren't grammar rules exactly — they're statistical tendencies noticed across thousands of French words, reliable enough to be a genuinely useful first guess when you meet a brand-new word. Treat every row as \"usually\", never \"always\".</p>" },
+    { type:'text', html:
+      "<table class='conj'><tr><th>Typically masculine ending</th><th>Examples</th></tr>" +
+      "<tr><td>-age</td><td>le village, le fromage, le voyage, le garage</td></tr>" +
+      "<tr><td>-ment</td><td>le gouvernement, le bâtiment, le département</td></tr>" +
+      "<tr><td>-isme</td><td>le tourisme, le réalisme, le capitalisme</td></tr>" +
+      "<tr><td>-eau</td><td>le bureau, le bateau, le château</td></tr>" +
+      "<tr><td>-phone</td><td>le téléphone, le microphone</td></tr>" +
+      "<tr><td>-ier</td><td>le métier, le quartier, le papier</td></tr>" +
+      "<tr><td>-oir</td><td>le miroir, le couloir, le devoir</td></tr>" +
+      "<tr><td>-in / -on</td><td>le matin, le chemin, le jardin, le poisson</td></tr>" +
+      "</table>"
+    },
+    { type:'text', html:
+      "<table class='conj'><tr><th>Typically feminine ending</th><th>Examples</th></tr>" +
+      "<tr><td>-tion / -sion</td><td>la nation, la télévision, la décision</td></tr>" +
+      "<tr><td>-té / -tié</td><td>la beauté, la liberté, l'amitié</td></tr>" +
+      "<tr><td>-ette</td><td>la baguette, la fourchette, la bicyclette</td></tr>" +
+      "<tr><td>-ance / -ence</td><td>la chance, la différence, la patience</td></tr>" +
+      "<tr><td>-ure</td><td>la voiture, la culture, la nature</td></tr>" +
+      "<tr><td>-ie</td><td>la vie, la boulangerie, la pharmacie</td></tr>" +
+      "<tr><td>-euse (from -eur jobs)</td><td>la vendeuse, la danseuse, la coiffeuse</td></tr>" +
+      "</table>"
+    },
+    { type:'note', html: "<b>Important exceptions worth memorising individually</b> (because they break the very patterns above): <i>le silence</i> and <i>le musée</i> despite -e endings normally leaning feminine; <i>la page, la plage, la image/l'image, la cage</i> despite -age normally leaning masculine; <i>le/la</i> for people-nouns generally follows the person's actual gender regardless of ending (<i>le dentiste</i> / <i>la dentiste</i> — identical spelling, different article)." },
   ]
 },
 
@@ -493,6 +560,239 @@ const CHAPTERS = [
   ]
 },
 
+{ id:'emotions', icon:'😊', title:'15 · Emotions & Feelings', intro:
+  "Talking about how you feel is one of the most natural things to practise early on. Most emotion nouns are feminine (la + noun), and remember: French uses <b>avoir</b> (to have) for many feelings, just like it does for age — not être.",
+  sections: [
+    { type:'vocab', title:'Core emotions', items:[
+      ["la tristesse / triste", "lah tree-STESS / treest", "sadness / sad"],
+      ["la joie", "lah ZHWAH", "joy"],
+      ["la colère", "lah ko-LAIR", "anger"],
+      ["la peur", "lah PUR", "fear"],
+      ["le dégoût", "luh day-GOO", "disgust"],
+      ["la fatigue", "lah fah-TEEG", "tiredness"],
+      ["l'amour", "lah-MOOR", "love"],
+      ["le stress", "luh STRESS", "stress"],
+      ["la contente", "lah kohn-TAHNT", "happy / glad"],
+      ["l'amusant", "lah-mew-ZAHN", "funny"],
+      ["la fierté / fier / fière", "lah fyair-TAY / fyair", "pride / proud"],
+      ["l'embarrassé", "lahm-bah-rah-SAY", "embarrassed"],
+    ]},
+    { type:'example', html: "<b>Je suis triste.</b> (I am sad — uses être, like a description.) <b>J'ai peur.</b> (I am afraid — uses avoir, literally \"I have fear\"!) Both patterns exist, so learn each emotion phrase as a set expression rather than assuming one rule fits all." },
+    { type:'note', html: "<b>Describing a photo/scene:</b> <i>Quel sentiment décrit le mieux la scène ?</i> (Which feeling best describes the scene?) <i>Justifiez votre choix.</i> (Justify your choice.) — common instructions in listening/speaking exercises." },
+  ]
+},
+
+{ id:'countries', icon:'🌍', title:'16 · Countries, Flags & Nationalities', intro:
+  "A fuller set of countries and their nationality adjectives, built around a class exercise matching flags to country names. Nationality words double as both nouns (the nationality) and adjectives (describing a person) — lowercase when used as an adjective, capitalised as a noun for the person (un Français vs. je suis français).",
+  sections: [
+    { type:'vocab', title:'Countries (with gendered article)', items:[
+      ["la France", "lah FRAHNSS", "France"],
+      ["la Suisse", "lah SWEESS", "Switzerland"],
+      ["le Mali", "luh mah-LEE", "Mali"],
+      ["la Belgique", "lah bel-ZHEEK", "Belgium"],
+      ["le Maroc", "luh mah-ROK", "Morocco"],
+      ["le Canada", "luh kah-nah-DAH", "Canada"],
+      ["l'Inde", "LAND", "India"],
+      ["les États-Unis", "lay-zay-tah-zew-NEE", "the United States"],
+    ]},
+    { type:'vocab', title:'Nationalities (masc. / fem.)', items:[
+      ["français / française", "frahn-SEH / frahn-SEZ", "French"],
+      ["suisse / suisse", "swees / swees", "Swiss (same both genders)"],
+      ["malien / malienne", "mah-lee-AN / mah-lee-EN", "Malian"],
+      ["belge / belge", "belzh / belzh", "Belgian (same both genders)"],
+      ["marocain / marocaine", "mah-roh-KAN / mah-roh-KEN", "Moroccan"],
+      ["canadien / canadienne", "ka-na-DYAN / -DYEN", "Canadian"],
+      ["indien / indienne", "an-dee-AN / an-dee-EN", "Indian"],
+      ["américain / américaine", "ah-may-ree-KAN / -KEN", "American"],
+    ]},
+    { type:'vocab', title:'Talking about countries & flags', items:[
+      ["le pays", "luh pay-EE", "the country"],
+      ["le drapeau", "luh drah-POH", "the flag"],
+      ["une croix", "ewn KRWAH", "a cross (e.g. on the Swiss flag)"],
+      ["une étoile", "ewn ay-TWAHL", "a star"],
+      ["Quel est le nom de votre pays ?", "kel ay luh nohm duh votr pay-EE", "What is the name of your country?"],
+      ["Quelles sont les couleurs du drapeau de votre pays ?", "kel sohn lay koo-lur dew drah-poh duh votr pay-EE", "What are the colours of your country's flag?"],
+    ]},
+    { type:'note', html: "<b>Point culturel — currency:</b> <i>l'euro</i> is used in many European countries. <i>Dans beaucoup de pays en Europe, on utilise l'euro.</i> (In many European countries, they use the euro.) <i>Dans votre pays, quelle monnaie utilise-t-on ?</i> (In your country, what currency is used?)" },
+  ]
+},
+
+{ id:'shopping', icon:'🛍️', title:'17 · Shopping & Buying (Acheter)', intro:
+  "A ready-made mini-script for buying something, plus the numbers you need to understand prices — straight from a class listening exercise on prices in euros.",
+  sections: [
+    { type:'vocab', title:'Acheter — Buying phrases', items:[
+      ["Bonjour, je voudrais..., s'il vous plaît.", "bohn-ZHOOR, zhuh voo-DREH ... seel voo PLEH", "Hello, I would like..., please."],
+      ["C'est tout ?", "say TOO", "Is that all?"],
+      ["Oui, merci.", "wee, mehr-SEE", "Yes, thank you."],
+      ["Ça fait combien ?", "sah fay kohm-BYAN", "How much does that come to?"],
+      ["Combien ça coûte ?", "kohm-byan sah KOOT", "How much does it cost?"],
+      ["Dix euros.", "deez uh-ROH", "Ten euros."],
+    ]},
+    { type:'vocab', title:'Prices in euros (10€–19€)', grid:true, items:[
+      ["10 €","deez uh-ROH",""],["11 €","ohnz uh-ROH",""],["12 €","dooz uh-ROH",""],["13 €","trez uh-ROH",""],
+      ["14 €","kah-torz uh-ROH",""],["15 €","kanz uh-ROH",""],["16 €","sez uh-ROH",""],
+      ["17 €","dee-set uh-ROH",""],["18 €","dee-zweet uh-ROH",""],["19 €","deez-nuhf uh-ROH",""],
+    ]},
+    { type:'note', html: "<b>Pronunciation tip from class:</b> <i>La dernière syllabe de chaque groupe de mots est plus longue.</i> — the last syllable of each word group is longer/more stressed than the others. This is very different from English, where stress can fall anywhere in a word. Example: <i>Oui, merci !</i> — the stress falls on the final \"-ci\"." },
+  ]
+},
+
+{ id:'possessives', icon:'👉', title:'18 · Possessives & Demonstratives', intro:
+  "\"My\", \"your\", \"his/her\" and \"this/that\" all change form in French to match the noun they attach to — not the owner. This trips up a lot of English speakers, since English never does this (\"his book\" and \"his car\" both use \"his\", but French uses two different words).",
+  sections: [
+    { type:'vocab', title:'Possessives — \"my / your / his-her\"', items:[
+      ["mon frère / ma sœur / mes parents", "mohn frair / mah sur / may pah-rahn", "my brother / my sister / my parents"],
+      ["ton frère / ta sœur / tes parents", "tohn frair / tah sur / tay pah-rahn", "your brother / sister / parents (informal)"],
+      ["son frère / sa sœur / ses parents", "sohn frair / sah sur / say pah-rahn", "his/her brother / sister / parents"],
+      ["notre frère / notre sœur / nos parents", "notr frair / notr sur / noh pah-rahn", "our brother / sister / parents"],
+      ["votre frère / votre sœur / vos parents", "votr frair / votr sur / voh pah-rahn", "your brother / sister / parents (formal/plural)"],
+      ["leur frère / leur sœur / leurs parents", "lur frair / lur sur / lur pah-rahn", "their brother / sister / parents"],
+    ]},
+    { type:'note', html: "<b>The trick with mon/ton/son:</b> these masculine forms are also used before any feminine word that starts with a vowel sound, purely for smooth pronunciation — <i>mon amie</i> (my friend, feminine) not \"ma amie\". Also remember <b>son/sa/ses</b> can mean \"his\" OR \"her\" — French possessives agree with the object owned, not the owner's gender." },
+    { type:'vocab', title:'Demonstratives — \"this / that\"', items:[
+      ["ce livre", "suh LEEVR", "this/that book (masc.)"],
+      ["cet ami", "set ah-MEE", "this/that friend (masc., before a vowel)"],
+      ["cette table", "set TAHBL", "this/that table (fem.)"],
+      ["ces livres", "say LEEVR", "these/those books (plural)"],
+    ]},
+  ]
+},
+
+{ id:'directions', icon:'🧭', title:'19 · Places & Directions', intro:
+  "Vocabulary for describing where things are and giving simple directions — useful for both everyday life and the TEF speaking section.",
+  sections: [
+    { type:'vocab', title:'Prepositions of place', items:[
+      ["à côté de", "ah koh-tay duh", "next to"],
+      ["en face de", "ahn fahss duh", "opposite / across from"],
+      ["devant", "duh-VAHN", "in front of"],
+      ["derrière", "deh-RYAIR", "behind"],
+      ["entre", "AHNTR", "between"],
+      ["sur / sous", "sewr / soo", "on / under"],
+      ["dans", "dahn", "in / inside"],
+      ["près de / loin de", "preh duh / lwan duh", "near / far from"],
+    ]},
+    { type:'vocab', title:'Giving directions', items:[
+      ["Où est la gare ?", "oo ay lah GAHR", "Where is the train station?"],
+      ["Tournez à droite / à gauche.", "toor-NAY ah DRWAHT / ah GOHSH", "Turn right / left."],
+      ["Continuez tout droit.", "kohn-tee-NWAY too DRWAH", "Keep going straight."],
+      ["C'est loin d'ici ?", "say lwan dee-SEE", "Is it far from here?"],
+      ["C'est à cinq minutes à pied.", "say tah sank mee-newt ah PYAY", "It's five minutes on foot."],
+    ]},
+    { type:'vocab', title:'Common places in town', grid:true, items:[
+      ["la gare","lah GAHR",""],["la banque","lah BAHNK",""],["la poste","lah POST",""],
+      ["l'hôpital","loh-pee-TAL",""],["la pharmacie","lah far-mah-SEE",""],["le supermarché","luh sew-pair-mar-SHAY",""],
+      ["l'école","lay-KOL",""],["la boulangerie","lah boo-lahn-zhuh-REE",""],["le restaurant","luh res-toh-RAHN",""],
+    ]},
+  ]
+},
+
+{ id:'weather', icon:'🌦️', title:'20 · Weather', intro:
+  "Small talk about the weather is common in every language — French uses the impersonal \"il\" (it) for most weather expressions, similar to English \"it's raining\".",
+  sections: [
+    { type:'vocab', title:'Asking and describing weather', items:[
+      ["Quel temps fait-il ?", "kel tahn fay-TEEL", "What's the weather like?"],
+      ["Il fait beau.", "eel fay BOH", "The weather is nice."],
+      ["Il fait mauvais.", "eel fay moh-VEH", "The weather is bad."],
+      ["Il fait chaud / froid.", "eel fay SHOH / FRWAH", "It's hot / cold."],
+      ["Il pleut.", "eel PLUH", "It's raining."],
+      ["Il neige.", "eel NEZH", "It's snowing."],
+      ["Il y a du vent.", "eel yah dew VAHN", "It's windy."],
+      ["Il y a du soleil.", "eel yah dew soh-LAY", "It's sunny."],
+    ]},
+    { type:'example', html: "<b>En hiver, il fait froid et il neige. En été, il fait chaud et il y a du soleil.</b> — In winter, it's cold and it snows. In summer, it's hot and sunny. (Reuses the seasons from Chapter 10!)" },
+  ]
+},
+
+{ id:'food', icon:'🍽️', title:'21 · Food & Restaurant', intro:
+  "Core food vocabulary and the phrases you need to order at a restaurant or café — builds directly on the \"Acheter\" phrases from Chapter 17.",
+  sections: [
+    { type:'vocab', title:'Meals of the day', items:[
+      ["le petit-déjeuner", "luh puh-tee-day-zhuh-NAY", "breakfast"],
+      ["le déjeuner", "luh day-zhuh-NAY", "lunch"],
+      ["le dîner", "luh dee-NAY", "dinner"],
+    ]},
+    { type:'vocab', title:'Everyday foods & drinks', grid:true, items:[
+      ["le pain","luh PAN",""],["le fromage","luh froh-MAHZH",""],["l'eau","LOH",""],
+      ["le café","luh kah-FAY",""],["le thé","luh TAY",""],["le vin","luh VAN",""],
+      ["la viande","lah vee-AHND",""],["le poisson","luh pwah-SOHN",""],["les légumes","lay lay-GEWM",""],
+      ["les fruits","lay FRWEE",""],["le sucre","luh SEWKR",""],["le sel","luh SEL",""],
+    ]},
+    { type:'vocab', title:'At the restaurant', items:[
+      ["Je voudrais réserver une table.", "zhuh voo-dreh ray-zair-VAY ewn TAHBL", "I would like to reserve a table."],
+      ["La carte, s'il vous plaît.", "lah KART, seel voo PLEH", "The menu, please."],
+      ["Je vais prendre le poulet.", "zhuh vay PRAHNDR luh poo-LEH", "I'll have the chicken."],
+      ["L'addition, s'il vous plaît.", "lah-dee-syohn, seel voo PLEH", "The bill, please."],
+      ["C'était délicieux !", "say-TAY day-lee-syuh", "It was delicious!"],
+    ]},
+  ]
+},
+
+{ id:'irregverbs', icon:'⚙️', title:'22 · More Everyday Irregular Verbs', intro:
+  "Beyond être, avoir, aller and faire, these six verbs come up constantly in daily conversation and are worth memorising early, even though they don't follow the regular -ER pattern.",
+  sections: [
+    { type:'conj', title:'vouloir — to want', rows:[
+      ["je veux","zhuh VUH","I want"],["tu veux","tew VUH","you want"],["il / elle veut","eel / ell VUH","he / she wants"],
+      ["nous voulons","noo voo-LOHN","we want"],["vous voulez","voo voo-LAY","you want"],["ils / elles veulent","eel / ell VUHL","they want"],
+    ]},
+    { type:'conj', title:'pouvoir — to be able to / can', rows:[
+      ["je peux","zhuh PUH","I can"],["tu peux","tew PUH","you can"],["il / elle peut","eel / ell PUH","he / she can"],
+      ["nous pouvons","noo poo-VOHN","we can"],["vous pouvez","voo poo-VAY","you can"],["ils / elles peuvent","eel / ell PUHV","they can"],
+    ]},
+    { type:'conj', title:'devoir — to have to / must', rows:[
+      ["je dois","zhuh DWAH","I must"],["tu dois","tew DWAH","you must"],["il / elle doit","eel / ell DWAH","he / she must"],
+      ["nous devons","noo duh-VOHN","we must"],["vous devez","voo duh-VAY","you must"],["ils / elles doivent","eel / ell DWAHV","they must"],
+    ]},
+    { type:'conj', title:'venir — to come', rows:[
+      ["je viens","zhuh vee-AN","I come"],["tu viens","tew vee-AN","you come"],["il / elle vient","eel / ell vee-AN","he / she comes"],
+      ["nous venons","noo vuh-NOHN","we come"],["vous venez","voo vuh-NAY","you come"],["ils / elles viennent","eel / ell vee-EN","they come"],
+    ]},
+    { type:'conj', title:'prendre — to take / have (food)', rows:[
+      ["je prends","zhuh PRAHN","I take"],["tu prends","tew PRAHN","you take"],["il / elle prend","eel / ell PRAHN","he / she takes"],
+      ["nous prenons","noo pruh-NOHN","we take"],["vous prenez","voo pruh-NAY","you take"],["ils / elles prennent","eel / ell PREN","they take"],
+    ]},
+    { type:'conj', title:'finir — to finish (a regular -IR verb, shown for contrast)', rows:[
+      ["je finis","zhuh fee-NEE","I finish"],["tu finis","tew fee-NEE","you finish"],["il / elle finit","eel / ell fee-NEE","he / she finishes"],
+      ["nous finissons","noo fee-nee-SOHN","we finish"],["vous finissez","voo fee-nee-SAY","you finish"],["ils / elles finissent","eel / ell fee-NEES","they finish"],
+    ]},
+    { type:'note', html: "<b>venir de + infinitive</b> = \"to have just done something\": <i>Je viens de manger.</i> (I just ate.) This is a very handy shortcut, the opposite of aller + infinitive (near future) from Chapter 14." },
+  ]
+},
+
+{ id:'imperative', icon:'❗', title:'23 · The Imperative — Giving Commands', intro:
+  "The imperative is used for instructions, advice, and requests. It's simply the tu/nous/vous form of the present tense with the subject pronoun dropped — no new endings to learn, except one small spelling rule.",
+  sections: [
+    { type:'vocab', title:'Examples with parler (to speak)', items:[
+      ["Parle !", "PARL", "Speak! (to a friend)"],
+      ["Parlons !", "par-LOHN", "Let's speak!"],
+      ["Parlez !", "par-LAY", "Speak! (formal/plural)"],
+    ]},
+    { type:'note', html: "<b>Spelling rule:</b> for -ER verbs only, drop the final -s from the tu form: <i>tu parles</i> → <i>Parle !</i> (not \"Parles!\"). -IR and -RE verbs keep their normal tu form: <i>Finis tes devoirs !</i> (Finish your homework!)" },
+    { type:'vocab', title:'Everyday commands you\'ll hear', items:[
+      ["Viens ici !", "vyan ee-SEE", "Come here!"],
+      ["Attendez !", "ah-tahn-DAY", "Wait! (formal)"],
+      ["Ne t'inquiète pas.", "nuh tan-KYET pah", "Don't worry."],
+      ["Asseyez-vous.", "ah-say-YAY VOO", "Sit down (formal)."],
+    ]},
+  ]
+},
+
+{ id:'pastense', icon:'⏳', title:'24 · Introduction to the Past — Passé Composé', intro:
+  "The passé composé is the most common way to talk about completed past actions in spoken French. It has two parts: a helper verb (avoir or être, conjugated in the present) plus a past participle. Most verbs use avoir; a small set of \"movement\" verbs use être.",
+  sections: [
+    { type:'text', html: "<h3>Forming the past participle</h3><p class='p'>-ER verbs → replace -er with <b>-é</b> (parler → parlé). -IR verbs → replace -ir with <b>-i</b> (finir → fini). -RE verbs → replace -re with <b>-u</b> (vendre → vendu). Many common verbs are irregular and must be memorised (avoir → eu, être → été, faire → fait, prendre → pris)." },
+    { type:'conj', title:'parler in the passé composé (avoir group)', rows:[
+      ["j'ai parlé","zhay par-LAY","I spoke / have spoken"],
+      ["tu as parlé","tew ah par-LAY","you spoke"],
+      ["il / elle a parlé","eel / ell ah par-LAY","he / she spoke"],
+      ["nous avons parlé","noo-zah-vohn par-LAY","we spoke"],
+      ["vous avez parlé","voo-zah-vay par-LAY","you spoke"],
+      ["ils / elles ont parlé","eel / ell zohn par-LAY","they spoke"],
+    ]},
+    { type:'note', html: "<b>The être group:</b> a short list of mostly movement/state verbs use être instead of avoir — aller (to go), venir (to come), arriver (to arrive), partir (to leave), entrer (to enter), sortir (to go out), naître (to be born), mourir (to die), monter/descendre (to go up/down), rester (to stay), retourner, tomber (to fall). With être, the past participle also agrees in gender/number with the subject, like an adjective: <i>Elle est allée</i> (She went, note the extra -e)." },
+    { type:'example', html: "<b>Hier, j'ai mangé une pizza et je suis allé au cinéma.</b> (yair, zhay mahn-zhay ewn peed-zah ay zhuh sweez ah-lay oh see-nay-MAH) — Yesterday, I ate a pizza and I went to the cinema. Notice: manger uses avoir, aller uses être." },
+  ]
+},
+
 ];
 
 /* ======================= RENDERING ======================= */
@@ -534,6 +834,63 @@ function makeCell(fr, ph){
 const tocList = document.getElementById('tocList');
 const chapterContainer = document.getElementById('chapters');
 
+// Pool of every taught word/phrase, built while rendering, used to generate quizzes.
+const GLOBAL_VOCAB = [];
+function cleanEn(en){ return en.replace(/\s*\(.*?\)\s*/g,'').trim(); }
+function shuffleArr(a){ a=[...a]; for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+function buildQuiz(chapVocab, chapDiv){
+  const pool = chapVocab.filter(v => v.en && v.en.length>0 && v.en.length<40);
+  if (pool.length < 4) return;
+  const box = document.createElement('div'); box.className='quizbox';
+  const btn = document.createElement('button'); btn.className='quizbtn'; btn.textContent='🎯 Practice this chapter';
+  const area = document.createElement('div'); area.className='quizarea'; area.style.display='none';
+  box.appendChild(btn); box.appendChild(area);
+  btn.onclick = () => { btn.style.display='none'; area.style.display='block'; runQuiz(pool, area, btn); };
+  chapDiv.appendChild(box);
+}
+
+function runQuiz(pool, area, btn){
+  const questions = shuffleArr(pool).slice(0, Math.min(6, pool.length));
+  let idx = 0, score = 0;
+  function showQ(){
+    area.innerHTML = '';
+    if (idx >= questions.length) {
+      const res = document.createElement('div'); res.className='quizresult';
+      res.innerHTML = `Score: ${score} / ${questions.length}`;
+      const retry = document.createElement('button'); retry.className='quizretry'; retry.textContent='Try again';
+      retry.onclick = () => { btn.style.display='inline-flex'; area.style.display='none'; };
+      res.appendChild(retry);
+      area.appendChild(res);
+      return;
+    }
+    const q = questions[idx];
+    const wrongPool = GLOBAL_VOCAB.filter(v => v.en !== q.en);
+    const wrongs = shuffleArr(wrongPool).slice(0,3).map(v=>v.en);
+    const options = shuffleArr([q.en, ...wrongs]);
+    const qDiv = document.createElement('div'); qDiv.className='quizq';
+    const prog = document.createElement('div'); prog.className='quizprog'; prog.textContent = `Question ${idx+1} of ${questions.length}`;
+    const frDiv = document.createElement('div'); frDiv.className='quizfr'; frDiv.textContent = q.fr;
+    qDiv.appendChild(prog); qDiv.appendChild(frDiv);
+    options.forEach(opt => {
+      const b = document.createElement('button'); b.className='quizopt'; b.textContent = opt;
+      b.onclick = () => {
+        const isCorrect = opt === q.en;
+        if (isCorrect) { score++; b.classList.add('correct'); }
+        else {
+          b.classList.add('wrong');
+          [...qDiv.querySelectorAll('.quizopt')].forEach(x=>{ if(x.textContent===q.en) x.classList.add('correct'); });
+        }
+        [...qDiv.querySelectorAll('.quizopt')].forEach(x=>x.disabled=true);
+        setTimeout(()=>{ idx++; showQ(); }, 850);
+      };
+      qDiv.appendChild(b);
+    });
+    area.appendChild(qDiv);
+  }
+  showQ();
+}
+
 CHAPTERS.forEach(ch => {
   const li = document.createElement('li');
   li.innerHTML = `<a href="#${ch.id}">${ch.title.replace(/^[0-9]+\s*·\s*/,'')}</a>`;
@@ -544,6 +901,8 @@ CHAPTERS.forEach(ch => {
   chapDiv.appendChild(h2);
   const introP = document.createElement('div'); introP.className='intro'; introP.innerHTML = ch.intro;
   chapDiv.appendChild(introP);
+
+  const chapVocab = [];
 
   ch.sections.forEach(sec => {
     if (sec.type === 'text') {
@@ -556,7 +915,10 @@ CHAPTERS.forEach(ch => {
       if (sec.title) { const h3 = document.createElement('h3'); h3.textContent = sec.title; chapDiv.appendChild(h3); }
       if (sec.lead) { const p = document.createElement('p'); p.className='lead'; p.textContent = sec.lead; chapDiv.appendChild(p); }
       const container = document.createElement('div'); container.className = sec.grid ? 'grid' : '';
-      sec.items.forEach(([fr,ph,en]) => container.appendChild(sec.grid ? makeCell(fr,ph) : makeRow(fr,ph,en)));
+      sec.items.forEach(([fr,ph,en]) => {
+        container.appendChild(sec.grid ? makeCell(fr,ph) : makeRow(fr,ph,en));
+        if (en && en.trim()) { const item={fr, en:cleanEn(en)}; chapVocab.push(item); GLOBAL_VOCAB.push(item); }
+      });
       chapDiv.appendChild(container);
     } else if (sec.type === 'swatches') {
       const h3 = document.createElement('h3'); h3.textContent = 'Colors'; chapDiv.appendChild(h3);
@@ -568,6 +930,7 @@ CHAPTERS.forEach(ch => {
         txt.innerHTML=`<div class="fr">${fr}</div><div class="ph">${ph}</div><div class="en">${en}</div>`;
         btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
         row.appendChild(sw); row.appendChild(btn); row.appendChild(txt); chapDiv.appendChild(row);
+        if (en && en.trim()) { const item={fr, en:cleanEn(en)}; chapVocab.push(item); GLOBAL_VOCAB.push(item); }
       });
     } else if (sec.type === 'conj') {
       if (sec.title) { const h3 = document.createElement('h3'); h3.textContent = sec.title; chapDiv.appendChild(h3); }
@@ -580,10 +943,13 @@ CHAPTERS.forEach(ch => {
         const tdEn = document.createElement('td'); tdEn.textContent = en;
         tr.appendChild(tdFr); tr.appendChild(tdPh); tr.appendChild(tdEn);
         table.appendChild(tr);
+        if (en && en.trim()) { const item={fr, en:cleanEn(en)}; chapVocab.push(item); GLOBAL_VOCAB.push(item); }
       });
       chapDiv.appendChild(table);
     }
   });
+
+  buildQuiz(chapVocab, chapDiv);
 
   const top = document.createElement('a'); top.href='#top'; top.className='toplink'; top.textContent='↑ Back to contents';
   top.onclick = (e)=>{ e.preventDefault(); document.querySelector('.toc').scrollIntoView({behavior:'smooth'}); };

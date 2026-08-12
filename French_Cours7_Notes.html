@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 7 — Audio Notes</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qph { font-size:12px; color:var(--green); font-style:italic; margin:2px 0 4px; }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .qa .a { display:flex; align-items:center; gap:10px; background:var(--accentbg); border-radius:10px; padding:8px 10px; }
+  .bigplay { display:inline-flex; align-items:center; gap:8px; border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:10px 18px; font-size:15px; cursor:pointer; margin:6px 0 16px; }
+  .row.active { border-color:var(--accent); background:var(--accentbg); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 7 Audio Notes</h1>
+  <p class="sub">The Language SKOOL · Saison 1 · 6 August 2026 · emotions, avoir review, "J'ai rendez-vous" dialogue, full self-introduction</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html" class="active">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Articles.html">Articles</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+
+  <h2>Worked example — full self-introduction</h2>
+  <p class="lead">Following today's whiteboard checklist: name → age → profession → where you live → nationality → languages.</p>
+  <button class="bigplay" id="playAll">▶ Play whole introduction</button>
+  <div id="lines"></div>
+</div>
+
+<script>
+const EMOTIONS = [
+  ["la tristesse / triste", "lah tree-STESS / treest", "sadness / sad"],
+  ["la joie", "lah ZHWAH", "joy"],
+  ["la colère", "lah ko-LAIR", "anger"],
+  ["la peur", "lah PUR", "fear"],
+  ["le dégoût", "luh day-GOO", "disgust"],
+  ["la fatigue", "lah fah-TEEG", "tiredness"],
+  ["l'amour", "lah-MOOR", "love"],
+  ["le stress", "luh STRESS", "stress"],
+  ["la contente", "lah kohn-TAHNT", "happy (glad)"],
+  ["l'amusant", "lah-mew-ZAHN", "funny"],
+  ["la fierté / fier / fière", "lah fyair-TAY / fyair", "pride / proud"],
+  ["l'embarrassé", "lahm-bah-rah-SAY", "embarrassed"],
+];
+
+const AVOIR = [
+  ["j'ai", "zhay", "I have"],
+  ["tu as", "tew AH", "you have"],
+  ["il / elle a", "eel / ell AH", "he / she has"],
+  ["nous avons", "noo-zah-VOHN", "we have"],
+  ["vous avez", "voo-zah-VAY", "you have"],
+  ["ils / elles ont", "eel / ell ZOHN", "they have"],
+];
+
+const MISC = [
+  ["peut-être", "puh-TETR", "maybe / perhaps"],
+  ["un rendez-vous", "uhn rahn-day-VOO", "a date / an appointment"],
+  ["une photo", "ewn foh-TOH", "a photo"],
+  ["décrire", "day-KREER", "to describe"],
+  ["Quel sentiment décrit le mieux la scène ?", "kel sahn-tee-mahn day-kree luh myuh lah SEN", "Which feeling best describes the scene?"],
+  ["Justifiez votre choix.", "zhew-stee-fyay votr SHWAH", "Justify your choice."],
+];
+
+const QA = [
+  { q:"Comment s'appelle-t-il ?", qph:"koh-mahn sah-PEL-teel", qen:"What is his name?",
+    a:"Il s'appelle Julien.", aph:"eel sah-PEL zhoo-LYAN", aen:"His name is Julien." },
+  { q:"Et elle, comment s'appelle-t-elle ?", qph:"ay EL, koh-mahn sah-pel-TEL", qen:"And her, what is her name?",
+    a:"Elle s'appelle Camille.", aph:"el sah-PEL kah-MEEY", aen:"Her name is Camille." },
+  { q:"Il a quel âge ?", qph:"eel ah kel AHZH", qen:"How old is he?",
+    a:"Il a vingt-huit ans.", aph:"eel ah vahn-tweet AHN", aen:"He is 28 years old." },
+  { q:"Et elle, quel âge a-t-elle ?", qph:"ay EL, kel ahzh ah-TEL", qen:"And her, how old is she?",
+    a:"Elle a vingt-cinq ans.", aph:"el ah vahn-sank AHN", aen:"She is 25 years old." },
+  { q:"Elle est française ?", qph:"el eh frahn-SEZ", qen:"Is she French?",
+    a:"Oui, elle est française.", aph:"wee, el eh frahn-SEZ", aen:"Yes, she is French." },
+  { q:"Et lui, il est français ?", qph:"ay LWEE, eel eh frahn-SEH", qen:"And him, is he French?",
+    a:"Non, il est canadien.", aph:"nohn, eel eh kah-nah-DYAN", aen:"No, he is Canadian." },
+];
+
+const TPL = [
+  ["Bonjour !", "bohn-ZHOOR", "Hello!"],
+  ["Je m'appelle Rajveer Singh.", "zhuh mah-PELL raj-veer SANG", "My name is Rajveer Singh."],
+  ["J'ai vingt-trois ans.", "zhay vahn-twah ZAHN", "I am 23 years old."],
+  ["Je suis administrateur système.", "zhuh sweez ad-mee-nee-strah-TUR duh sees-TEM", "I am a systems administrator."],
+  ["J'habite à Dehradun, en Inde.", "zhah-BEET ah deh-rah-DOON, ahn AND", "I live in Dehradun, India."],
+  ["Je suis indien.", "zhuh sweez an-dee-AN", "I am Indian."],
+  ["Je parle hindi, pendjabi, anglais et un peu français.", "zhuh PARL an-DEE, pahn-jah-BEE, ahn-GLEH ay uhn puh frahn-SEH", "I speak Hindi, Punjabi, English, and a little French."],
+  ["Enchanté !", "ahn-shahn-TAY", "Nice to meet you!"],
+];
+
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "🔊 " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(text.replace(/\s+([!?])/g,'$1'));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play '+fr);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML=`<div class="fr">${fr}</div>${ph?`<div class="ph">${ph}</div>`:''}${en?`<div class="en">${en}</div>`:''}`;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+
+const h1 = document.createElement('h2'); h1.textContent = "1 · Les émotions — Emotions vocabulary"; content.appendChild(h1);
+const l1 = document.createElement('p'); l1.className='lead'; l1.textContent = "From today's class handout — full list, feminine noun form (la/l')."; content.appendChild(l1);
+EMOTIONS.forEach(([fr,ph,en])=>content.appendChild(makeRow(fr,ph,en)));
+
+const ex = document.createElement('div'); ex.className='example';
+ex.innerHTML = "<b>Using emotions in a sentence:</b> Je suis triste. (I am sad.) — Elle a peur. (She is afraid — uses <i>avoir</i>, not être, just like age!) — Il est amusant. (He is funny.)";
+content.appendChild(ex);
+
+const h2r = document.createElement('h2'); h2r.textContent = "2 · Le verbe AVOIR — reviewed again"; content.appendChild(h2r);
+AVOIR.forEach(([fr,ph,en])=>content.appendChild(makeRow(fr,ph,en)));
+
+const h3 = document.createElement('h2'); h3.textContent = "3 · \"J'ai rendez-vous !\" — Activité: décrire la photo"; content.appendChild(h3);
+const l3 = document.createElement('p'); l3.className='lead'; l3.textContent = "Regardez la photo et choisissez un sentiment pour la décrire, puis justifiez votre choix."; content.appendChild(l3);
+MISC.forEach(([fr,ph,en])=>content.appendChild(makeRow(fr,ph,en)));
+
+const h4 = document.createElement('h2'); h4.textContent = "4 · Écoutez le dialogue et répondez aux questions"; content.appendChild(h4);
+const l4 = document.createElement('p'); l4.className='lead'; l4.textContent = "The book's three question pairs, each with an example answer (imaginary names, for practice)."; content.appendChild(l4);
+QA.forEach(item=>{
+  const div = document.createElement('div'); div.className='qa';
+  const q = document.createElement('div'); q.className='q'; q.textContent = item.q; q.onclick=()=>speak(item.q);
+  const qph = document.createElement('div'); qph.className='qph'; qph.textContent = item.qph;
+  const qen = document.createElement('div'); qen.className='qen'; qen.textContent = item.qen;
+  div.appendChild(q); div.appendChild(qph); div.appendChild(qen);
+  const aRow = document.createElement('div'); aRow.className='a';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.onclick=()=>speak(item.a);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML = `<div class="fr">${item.a}</div><div class="ph">${item.aph}</div><div class="en">${item.aen}</div>`;
+  txt.querySelector('.fr').onclick=()=>speak(item.a);
+  aRow.appendChild(btn); aRow.appendChild(txt);
+  div.appendChild(aRow);
+  content.appendChild(div);
+});
+
+const note = document.createElement('div'); note.className='note';
+note.innerHTML = "<b>Quick tip from class:</b> to give an age range in one sentence, say <i>Elle a 18 ou 19 ans.</i> (el ah deez-weet oo dees-nuhf AHN) — \"She is 18 or 19 years old.\" Grammar reminder: French always uses <b>avoir</b> (to have) for age, never être — <i>Il a 28 ans</i> literally means \"He has 28 years.\"";
+content.appendChild(note);
+
+const h5 = document.createElement('h2'); h5.textContent = "5 · Self-intro checklist from the whiteboard"; content.appendChild(h5);
+const l5 = document.createElement('p'); l5.className='lead'; l5.textContent = "name → age → profession → live → nationality → languages (je parle...)"; content.appendChild(l5);
+
+const linesContainer = document.getElementById('lines');
+const rows = [];
+TPL.forEach(([fr,ph,en],i)=>{
+  const row=document.createElement('div'); row.className='row'; rows.push(row);
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play line '+(i+1));
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML=`<div class="fr">${fr}</div><div class="ph">${ph}</div><div class="en">${en}</div>`;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt); linesContainer.appendChild(row);
+});
+document.getElementById('playAll').onclick=()=>{
+  speechSynthesis.cancel();
+  TPL.forEach(([fr],i)=>{
+    const u=utter(fr);
+    u.onstart=()=>{ rows.forEach(r=>r.classList.remove('active')); rows[i].classList.add('active'); };
+    u.onend=()=>{ if(i===TPL.length-1) rows.forEach(r=>r.classList.remove('active')); };
+    speechSynthesis.speak(u);
+  });
+};
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+</body>
+</html>
