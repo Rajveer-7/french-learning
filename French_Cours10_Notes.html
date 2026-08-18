@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 10 — Audio Notes</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .qa .a { display:flex; align-items:center; gap:10px; background:var(--accentbg); border-radius:10px; padding:8px 10px; margin-top:6px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:110px; text-align:center; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 10 Audio Notes</h1>
+  <p class="sub">The Language SKOOL · Saison 1, Unité 1 · 11 August 2026 · things in my bag, tonic pronouns, polite requests, numbers 70–1000, phonetics</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html" class="active">Cours 10</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Articles.html">Articles</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "🔊 " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(text.replace(/\s+([!?])/g,'$1'));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play '+fr);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML=`<div class="fr">${fr}</div>${ph?`<div class="ph">${ph}</div>`:''}${en?`<div class="en">${en}</div>`:''}`;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+
+/* 1. Things in my bag */
+const h1 = document.createElement('h2'); h1.textContent = "1 · Choses dans mon sac — things in my bag"; content.appendChild(h1);
+const l1 = document.createElement('p'); l1.className='lead'; l1.textContent = "Today's class looked at a \"what's in your bag\" text and passport/jewellery box illustrations. Here's the everyday-object vocabulary that came up, built into original example sentences."; content.appendChild(l1);
+const OBJECTS = [
+  ["une clé", "ewn KLAY", "a key"],
+  ["un téléphone", "uhn tay-lay-FUN", "a phone"],
+  ["un porte-monnaie", "uhn port-mo-NAY", "a wallet / coin purse"],
+  ["un agenda", "uhn ah-zhen-DAH", "a planner / diary"],
+  ["un parapluie", "uhn pah-rah-PLWEE", "an umbrella"],
+  ["un mouchoir", "uhn moo-SHWAHR", "a tissue"],
+  ["un rouge à lèvres", "uhn roozh ah LEVR", "a lipstick"],
+  ["de la crème", "duh lah KREM", "some cream / lotion"],
+  ["un bijou / des bijoux", "uhn bee-ZHOO / day bee-ZHOO", "a piece of jewellery / jewellery"],
+  ["un stylo", "uhn stee-LOH", "a pen"],
+  ["un ticket de métro", "uhn tee-keh duh may-TROH", "a metro ticket"],
+  ["une brosse à dents", "ewn bross ah DAHN", "a toothbrush"],
+  ["un ordinateur", "uhn or-dee-nah-TUR", "a laptop / computer"],
+  ["un passeport", "uhn pass-POR", "a passport"],
+  ["un sac", "uhn SAHK", "a bag"],
+];
+OBJECTS.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+const ex1 = document.createElement('div'); ex1.className='example';
+ex1.innerHTML = "<b>Il y a</b> (there is / there are) never changes form, however many things follow it: <i>Dans mon sac, il y a un téléphone, des clés et un agenda.</i> (dahn mohn sahk, eel-ee-ah uhn tay-lay-fun, day klay ay uhn ah-zhen-dah) — In my bag, there's a phone, keys, and a planner.";
+content.appendChild(ex1);
+
+const h1b = document.createElement('h3'); h1b.className='sub2'; h1b.textContent = "Six original practice sentences — \"what's in my bag\""; content.appendChild(h1b);
+const l1b = document.createElement('p'); l1b.className='lead'; l1b.textContent = "Longer sentences built from the vocabulary above, using un portefeuille (wallet) and un cahier (notebook) — everyday alternates for porte-monnaie and agenda."; content.appendChild(l1b);
+const BAG_SENT = [
+  { fr:"Dans mon sac, j'ai un portefeuille, des clés et un téléphone.", ph:"dahn mohn sahk, zhay uhn por-tuh-FUY, day klay ay uhn tay-lay-FUN", en:"In my bag, I have a wallet, keys, and a phone." },
+  { fr:"J'ai aussi un parapluie, parce qu'il pleut souvent.", ph:"zhay oh-see uhn pah-rah-PLWEE, pars keel pluh SOO-vahn", en:"I also have an umbrella, because it rains often." },
+  { fr:"Il y a un cahier et un stylo pour écrire mes notes.", ph:"eel ee ah uhn kah-YAY ay uhn stee-LOH poor ay-kreer may NOHT", en:"There's a notebook and a pen to write my notes." },
+  { fr:"Mon téléphone et mon portefeuille sont toujours dans la même poche.", ph:"mohn tay-lay-fun ay mohn por-tuh-fuy sohn too-zhoor dahn lah mem POSH", en:"My phone and my wallet are always in the same pocket." },
+  { fr:"Je n'ai pas de parapluie aujourd'hui — il fait beau !", ph:"zhuh nay pah duh pah-rah-plwee oh-zhoor-DWEE — eel feh BOH", en:"I don't have an umbrella today — the weather's nice!" },
+  { fr:"Avant de sortir, je vérifie : mes clés, mon téléphone, mon portefeuille et mon cahier.", ph:"ah-vahn duh sor-TEER, zhuh vay-ree-FEE: may klay, mohn tay-lay-fun, mohn por-tuh-fuy ay mohn kah-yay", en:"Before going out, I check: my keys, my phone, my wallet, and my notebook." },
+];
+BAG_SENT.forEach(({fr,ph,en})=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+const note1b = document.createElement('div'); note1b.className='note';
+note1b.innerHTML = "<b>portefeuille vs porte-monnaie:</b> un portefeuille is the everyday word for a billfold-style wallet (cards + notes); un porte-monnaie leans toward a small coin purse. <b>cahier vs agenda:</b> un cahier is a plain notebook/exercise book; un agenda is specifically a planner/diary with dates. Both pairs are near-synonyms you'll hear used interchangeably.";
+content.appendChild(note1b);
+
+const h1c = document.createElement('h3'); h1c.className='sub2'; h1c.textContent = "Practice — questions about your own bag"; content.appendChild(h1c);
+const BAG_QA = [
+  { q:"Qu'est-ce qu'il y a dans votre sac ?", qph:"kess keel-ee-ah dahn votr SAHK", qen:"What's in your bag?",
+    a:"Dans mon sac, il y a un téléphone, un portefeuille et des clés.", aph:"dahn mohn sahk, eel-ee-ah uhn tay-lay-fun, uhn por-tuh-fuy ay day KLAY", aen:"In my bag, there's a phone, a wallet, and keys." },
+  { q:"Vous avez un parapluie aujourd'hui ?", qph:"voo-zah-vay uhn pah-rah-plwee oh-zhoor-DWEE", qen:"Do you have an umbrella today?",
+    a:"Non, je n'ai pas de parapluie — il fait beau.", aph:"nohn, zhuh nay pah duh pah-rah-plwee — eel feh BOH", aen:"No, I don't have an umbrella — the weather's nice." },
+  { q:"Combien de choses avez-vous dans votre sac ?", qph:"kohm-byan duh shohz ah-vay VOO dahn votr sahk", qen:"How many things do you have in your bag?",
+    a:"J'ai à peu près six ou sept choses.", aph:"zhay ah puh preh sees oo set SHOHZ", aen:"I have about six or seven things." },
+];
+BAG_QA.forEach(item=>{
+  const div = document.createElement('div'); div.className='qa';
+  const q = document.createElement('div'); q.className='q'; q.textContent = item.q; q.onclick=()=>speak(item.q);
+  const qen = document.createElement('div'); qen.className='qen'; qen.textContent = item.qen;
+  div.appendChild(q); div.appendChild(qen);
+  const aRow = document.createElement('div'); aRow.className='a';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.onclick=()=>speak(item.a);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML = `<div class="fr">${item.a}</div><div class="ph">${item.aph}</div><div class="en">${item.aen}</div>`;
+  txt.querySelector('.fr').onclick=()=>speak(item.a);
+  aRow.appendChild(btn); aRow.appendChild(txt);
+  div.appendChild(aRow);
+  content.appendChild(div);
+});
+
+/* 2. Tonic pronouns */
+const h2 = document.createElement('h2'); h2.textContent = "2 · Tonic (stressed) pronouns — moi, toi, lui..."; content.appendChild(h2);
+const l2 = document.createElement('p'); l2.className='lead'; l2.textContent = "A second set of \"I/you/he\" words, used any time the pronoun needs to stand alone or get extra emphasis."; content.appendChild(l2);
+const TONIC = [
+  ["je → moi", "zhuh → mwah", "I → me"],
+  ["tu → toi", "tew → twah", "you → you"],
+  ["il → lui", "eel → lwee", "he → him"],
+  ["elle → elle", "ell → ell", "she → her"],
+  ["nous → nous", "noo → noo", "we → us"],
+  ["vous → vous", "voo → voo", "you → you"],
+  ["ils → eux", "eel → uh", "they (m) → them"],
+  ["elles → elles", "ell → ell", "they (f) → them"],
+];
+TONIC.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+const note2 = document.createElement('div'); note2.className='note';
+note2.innerHTML = "<b>Four situations that call for the tonic form:</b> 1) standing alone with no verb (<i>— Qui a un ordinateur ? — Moi !</i>) 2) emphasis, often doubled with the subject pronoun (<i>Moi, j'ai un ordinateur. Lui, il n'a pas de sac.</i>) 3) after a preposition — avec, chez, pour, sans (<i>Tu viens avec moi ?</i>) 4) after c'est (<i>C'est moi.</i>).";
+content.appendChild(note2);
+const ex2 = document.createElement('div'); ex2.className='example';
+ex2.innerHTML = "<b>Et vous, vous avez quoi dans votre sac ? Moi, j'ai un ordinateur. Lui, il n'a pas de sac.</b> (ay voo, voo-zah-vay kwah dahn votr sahk ? mwah, zhay uhn or-dee-nah-tur. lwee, eel nah pah duh sahk.) — And you, what do you have in your bag? Me, I have a laptop. Him, he doesn't have a bag.";
+content.appendChild(ex2);
+
+/* 3. Personal info + polite requests */
+const h3 = document.createElement('h2'); h3.textContent = "3 · Personal-info questions & polite requests"; content.appendChild(h3);
+const PERSQ = [
+  ["Vous vous appelez comment ?", "voo voo-zah-play koh-MAHN", "What's your name?"],
+  ["Quel est votre nom ?", "kel eh votr NOHN", "What is your name/surname?"],
+  ["Quelle est votre nationalité ?", "kel eh votr nah-syoh-nah-lee-TAY", "What is your nationality?"],
+  ["Vous avez quel âge ?", "voo-zah-vay kel AHZH", "How old are you?"],
+  ["Vous venez d'où ?", "voo vuh-nay DOO", "Where do you come from?"],
+  ["Vous habitez où ?", "voo zah-bee-tay OO", "Where do you live?"],
+  ["Vous travaillez où ?", "voo trah-vah-yay OO", "Where do you work?"],
+];
+PERSQ.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+const h3b = document.createElement('h3'); h3b.className='sub2'; h3b.textContent = "Demander poliment / Répondre poliment"; content.appendChild(h3b);
+const POLITE = [
+  ["Excusez-moi...", "ex-kew-zay MWAH", "Excuse me..."],
+  ["Pardon, vous avez l'heure ?", "par-DOHN, voo-zah-vay LUR", "Excuse me, do you have the time?"],
+  ["Un café, s'il vous plaît !", "uhn kah-FAY, seel voo PLEH", "A coffee, please!"],
+  ["Je voudrais un café.", "zhuh voo-DREH uhn kah-FAY", "I would like a coffee."],
+  ["Je vous remercie.", "zhuh voo ruh-mair-SEE", "I thank you. (formal)"],
+  ["Merci — De rien.", "mair-SEE — duh RYAN", "Thank you — You're welcome."],
+  ["Je t'en prie.", "zhuh tahn PREE", "You're welcome. (informal)"],
+  ["Avec plaisir !", "ah-vek pleh-ZEER", "With pleasure!"],
+];
+POLITE.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+const note3 = document.createElement('div'); note3.className='note';
+note3.innerHTML = "<b>Je voudrais vs je veux:</b> <i>je voudrais</i> (I would like) is dramatically more polite than <i>je veux</i> (I want) — use voudrais for basically every real request.";
+content.appendChild(note3);
+
+/* 4. Numbers 70-1000 */
+const h4 = document.createElement('h2'); h4.textContent = "4 · Numbers 70–1000"; content.appendChild(h4);
+const table4 = document.createElement('table'); table4.className='conjt';
+table4.innerHTML = `<tr><th>Number</th><th>French</th><th>Pronunciation</th></tr>
+<tr><td>70</td><td>soixante-dix</td><td>swah-sont-DEES</td></tr>
+<tr><td>71</td><td>soixante et onze</td><td>swah-sont-ay-OHNZ</td></tr>
+<tr><td>80</td><td>quatre-vingts</td><td>katr-VAN</td></tr>
+<tr><td>90</td><td>quatre-vingt-dix</td><td>katr-van-DEES</td></tr>
+<tr><td>95</td><td>quatre-vingt-quinze</td><td>katr-van-KANZ</td></tr>
+<tr><td>100</td><td>cent</td><td>SAHN</td></tr>
+<tr><td>107</td><td>cent sept</td><td>sahn-SET</td></tr>
+<tr><td>500</td><td>cinq cents</td><td>sank-SAHN</td></tr>
+<tr><td>560</td><td>cinq cent soixante</td><td>sank-sahn-swah-SAHNT</td></tr>
+<tr><td>1000</td><td>mille</td><td>MEEL</td></tr>`;
+content.appendChild(table4);
+const note4 = document.createElement('div'); note4.className='note';
+note4.innerHTML = "<b>cent takes an -s</b> when multiplied and nothing follows (cinq <b>cents</b>) but loses it the moment a number follows (cinq cent <b>soixante</b>). <b>mille never changes</b> — always mille, no matter what.";
+content.appendChild(note4);
+
+/* 5. Phonetics */
+const h5 = document.createElement('h2'); h5.textContent = "5 · Phonétique — final consonants, silent e, and un vs une"; content.appendChild(h5);
+const note5 = document.createElement('div'); note5.className='note';
+note5.innerHTML = "<b>Final consonants and e are usually silent:</b> in most French words the last consonant AND any final -e go unpronounced. Memory trick: <b>CaReFuL</b> — C, R, F, L are the consonants that usually ARE still pronounced at the end of a word (avec, un chanteur, chef, animal). <b>Un vs une</b> genuinely sound different: <i>un</i> is a nasal sound through the nose with spread lips; <i>une</i> is a clear oral \"ewn\" with rounded lips and the tongue forward — native listeners hear a noun's gender before the word even finishes.";
+content.appendChild(note5);
+const PHON = [
+  ["il est anglais / elle est anglaise", "eel eh ahn-GLEH / el eh ahn-GLEZ", "he is English / she is English — hear the final -s appear"],
+  ["un artiste / une artiste", "uhn ar-TEEST / ewn ar-TEEST", "an artist (m) / an artist (f) — same spelling, different article sound"],
+  ["un journaliste / une journaliste", "uhn zhoor-nah-LEEST / ewn zhoor-nah-LEEST", "a journalist (m) / a journalist (f)"],
+];
+PHON.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+
+/* 6. Practice */
+const h6 = document.createElement('h2'); h6.textContent = "6 · Practice — pick the right tonic pronoun"; content.appendChild(h6);
+const l6 = document.createElement('p'); l6.className='lead'; l6.textContent = "Original practice sentences. Type moi, toi, lui, elle, nous, vous, eux, or elles."; content.appendChild(l6);
+const TONIC_FILL = [
+  { before:"— Qui a un parapluie ? —", answers:["moi"], after:", j'ai un parapluie.", en:"Who has an umbrella? Me, I have an umbrella." },
+  { before:"C'est pour", answers:["toi"], after:".", en:"It's for you." },
+  { before:"", answers:["lui"], after:", il n'a pas de clés.", en:"Him, he doesn't have keys." },
+  { before:"Tu viens avec", answers:["nous"], after:" ?", en:"Are you coming with us?" },
+  { before:"— Qui a un stylo ? — C'est", answers:["elle"], after:".", en:"Who has a pen? It's her." },
+  { before:"", answers:["eux"], after:", ils habitent au Canada.", en:"Them, they live in Canada." },
+];
+const tonicDiv = document.createElement('div');
+TONIC_FILL.forEach(item=>{
+  const row = document.createElement('div'); row.className='fillrow';
+  const sent = document.createElement('div'); sent.className='sent';
+  sent.innerHTML = `${item.before} <input type="text" maxlength="8"> ${item.after} <button>Check</button>`;
+  row.appendChild(sent);
+  const fb = document.createElement('div'); fb.className='fb';
+  row.appendChild(fb);
+  const input = sent.querySelector('input');
+  const btn = sent.querySelector('button');
+  function check(){
+    const val = input.value.trim().toLowerCase();
+    if (item.answers.includes(val)) { fb.textContent = "✓ Correct — " + item.en; fb.className = 'fb ok'; }
+    else { fb.textContent = "✗ Correct answer: " + item.answers[0] + " — " + item.en; fb.className = 'fb bad'; }
+  }
+  btn.onclick = check;
+  input.addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); check(); } });
+  tonicDiv.appendChild(row);
+});
+content.appendChild(tonicDiv);
+
+/* 7. Quiz */
+const h7 = document.createElement('h2'); h7.textContent = "7 · Quick quiz"; content.appendChild(h7);
+const quizBox = document.createElement('div'); quizBox.className='quizbox';
+quizBox.innerHTML = `<p class="lead" style="margin:0 0 8px;">Multiple-choice, mixing everything from today.</p>`;
+const quizBtn = document.createElement('button'); quizBtn.className='quizbtn'; quizBtn.textContent='▶ Start quiz';
+const quizArea = document.createElement('div'); quizArea.className='quizarea';
+quizBox.appendChild(quizBtn); quizBox.appendChild(quizArea);
+content.appendChild(quizBox);
+
+function shuffleArr(a){ const b=[...a]; for(let i=b.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [b[i],b[j]]=[b[j],b[i]]; } return b; }
+function runQuiz(pool, area, btn){
+  btn.style.display='none';
+  const qs = shuffleArr(pool).slice(0, Math.min(8, pool.length));
+  let i = 0, score = 0;
+  function showQ(){
+    area.innerHTML = '';
+    if (i >= qs.length) {
+      const res = document.createElement('div'); res.className='quizresult';
+      res.textContent = `Score: ${score} / ${qs.length}`;
+      const retry = document.createElement('button'); retry.className='quizretry'; retry.textContent='↻ Retry';
+      retry.onclick = ()=>{ btn.style.display='inline-block'; area.innerHTML=''; };
+      area.appendChild(res); area.appendChild(retry);
+      return;
+    }
+    const item = qs[i];
+    const wrongPool = pool.filter(p=>p.en!==item.en);
+    const opts = shuffleArr([item, ...shuffleArr(wrongPool).slice(0,3)]);
+    const prog = document.createElement('div'); prog.className='quizprog'; prog.textContent = `Question ${i+1} / ${qs.length}`;
+    const fr = document.createElement('div'); fr.className='quizfr'; fr.textContent = item.fr;
+    area.appendChild(prog); area.appendChild(fr);
+    opts.forEach(o=>{
+      const b = document.createElement('button'); b.className='quizopt'; b.textContent = o.en;
+      b.onclick = ()=>{
+        [...area.querySelectorAll('.quizopt')].forEach(x=>x.disabled=true);
+        if (o.en===item.en){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); [...area.querySelectorAll('.quizopt')].find(x=>x.textContent===item.en).classList.add('correct'); }
+        setTimeout(()=>{ i++; showQ(); }, 900);
+      };
+      area.appendChild(b);
+    });
+  }
+  showQ();
+}
+quizBtn.onclick = ()=> runQuiz(GLOBAL_VOCAB, quizArea, quizBtn);
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+</body>
+</html>

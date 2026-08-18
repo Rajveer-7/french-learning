@@ -97,6 +97,8 @@
     <a href="French_Cours6_Notes.html">Cours 6</a>
     <a href="French_Cours7_Notes.html">Cours 7</a>
     <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
     <a href="French_Conversations.html">Conversations</a>
     <a href="French_Full_Guide.html" class="active">Full Guide</a>
     <a href="French_Book_Audio.html">Book Audio</a>
@@ -120,7 +122,7 @@
   <div id="chapters"></div>
 
   <div class="roadmap">
-    <b>You've now got a genuinely complete A1 reference</b> — sounds, greetings, être/avoir, gender, numbers, colors, self-intro, family, calendar, time, questions, negation, regular &amp; irregular verbs, emotions, countries/nationalities, shopping, possessives/demonstratives, directions, weather, food, more irregular verbs, the imperative, and an introduction to the past tense. Still to come as we go further: hobbies &amp; leisure, comparatives &amp; superlatives, the future tense (futur simple), and deeper practice for the TEF speaking/writing sections. Ask any time to add a new chapter.
+    <b>You've now got a genuinely complete A1 reference</b> — sounds, greetings, être/avoir, gender, numbers (0 to 1000), colors, self-intro, family, calendar, time, questions, negation, regular &amp; irregular verbs, emotions, countries/nationalities, shopping, possessives/demonstratives, directions, weather, food, more irregular verbs, the imperative, an introduction to the past tense, professions, the full prepositions-of-place system (à/au/en/du/de), tonic pronouns, and everyday objects &amp; polite requests. Still to come as we go further: hobbies &amp; leisure, comparatives &amp; superlatives, the future tense (futur simple), and deeper practice for the TEF speaking/writing sections. Ask any time to add a new chapter.
   </div>
 </div>
 
@@ -166,6 +168,7 @@ const CHAPTERS = [
     ]},
     { type:'text', html: "<h3>Liaison — linking words</h3><p class='p'>When a word ending in a normally-silent consonant is followed by a word starting with a vowel, the two link together and the consonant is pronounced. This is why <i>vous êtes</i> is said \"voo-ZET\" (not \"voo ET\") and <i>ils ont</i> is \"eel-ZOHN\". You'll hear this constantly — it's what makes French sound smooth and flowing rather than choppy.</p>" },
     { type:'text', html: "<h3>The French R</h3><p class='p'>The French R is made at the back of the throat (closer to a light gargle than the English R). It takes practice — listening and repeating is the fastest way to pick it up. Don't worry about perfecting it early on; being understood matters far more than a perfect accent.</p>" },
+    { type:'text', html: "<h3>Hearing the difference: un vs une</h3><p class='p'><b>un</b> (masculine \"a/an\") is nasal — the sound comes out through the nose, lips spread rather than rounded. <b>une</b> (feminine \"a/an\") is a clear, oral \"ewn\" sound, said with rounded lips and the tongue forward. They sound genuinely different, not just spelled differently, and native listeners rely on that sound alone to know a noun's gender before they've even heard it — so it's worth training your ear on pairs like <i>un artiste / une artiste</i> and <i>un journaliste / une journaliste</i>, where the spelling barely changes but the article does all the work." },
   ]
 },
 
@@ -361,6 +364,16 @@ const CHAPTERS = [
       ["mille (1000)", "meel", "one thousand"],
     ]},
     { type:'note', html: "<b>Regional note:</b> Belgium and Switzerland use simpler words — <b>septante</b> (70), <b>huitante/octante</b> (80), <b>nonante</b> (90) — good to recognise, but France (and TEF Canada) use the quatre-vingts system above." },
+    { type:'vocab', title:'Hundreds and beyond', items:[
+      ["cent (100)", "sahn", "one hundred — no \"un\" before it, unlike English \"one hundred\""],
+      ["cent un (101)", "sahn UHN", "one hundred and one — no \"et\" after cent"],
+      ["cent sept (107)", "sahn SET", "one hundred and seven"],
+      ["deux cents (200)", "duh SAHN", "two hundred — cent takes an -s when multiplied and nothing follows"],
+      ["cinq cents (500)", "sank SAHN", "five hundred"],
+      ["cinq cent soixante (560)", "sank sahn swah-SAHNT", "five hundred sixty — cents loses its -s when a number follows it"],
+      ["mille (1000)", "meel", "one thousand — always invariable, never takes an -s"],
+    ]},
+    { type:'note', html: "<b>The -s rule for cent:</b> cent takes a plural -s when it's multiplied by a number AND nothing follows it (deux <b>cents</b>, cinq <b>cents</b>) — but the -s disappears the moment another number follows (cinq cent <b>soixante</b>, deux cent <b>un</b>). Mille never changes, ever: mille, deux mille, dix mille — always mille." },
   ]
 },
 
@@ -790,6 +803,199 @@ const CHAPTERS = [
     ]},
     { type:'note', html: "<b>The être group:</b> a short list of mostly movement/state verbs use être instead of avoir — aller (to go), venir (to come), arriver (to arrive), partir (to leave), entrer (to enter), sortir (to go out), naître (to be born), mourir (to die), monter/descendre (to go up/down), rester (to stay), retourner, tomber (to fall). With être, the past participle also agrees in gender/number with the subject, like an adjective: <i>Elle est allée</i> (She went, note the extra -e)." },
     { type:'example', html: "<b>Hier, j'ai mangé une pizza et je suis allé au cinéma.</b> (yair, zhay mahn-zhay ewn peed-zah ay zhuh sweez ah-lay oh see-nay-MAH) — Yesterday, I ate a pizza and I went to the cinema. Notice: manger uses avoir, aller uses être." },
+  ]
+},
+
+{ id:'jobs', icon:'💼', title:'25 · Les métiers — Professions & Talking About Jobs', intro:
+  "Every self-introduction — spoken or written, including in the TEF — eventually needs a profession. French has one grammar quirk here that trips up almost every English speaker, plus a set of predictable patterns for turning a masculine job title into a feminine one.",
+  sections: [
+    { type:'text', html: "<h3>The most important rule: no article after être</h3><p class='p'>In English you say \"I am <b>a</b> teacher\" — English always needs the article \"a/an\" before a profession. French does the opposite: <b>no article</b> is used after être with an unmodified profession. <i>Je suis professeur.</i> (NOT <i>Je suis un professeur</i>.) <i>Elle est infirmière.</i> (NOT <i>Elle est une infirmière</i>.) This is the single most common mistake English-speaking beginners make with professions.</p><p class='p'>The article <b>does</b> come back the moment you add a describing adjective before the noun: <i>Je suis <b>un bon</b> professeur.</i> (I am a good teacher.) <i>C'est <b>une excellente</b> avocate.</i> (She's an excellent lawyer.) The rule flips because now the profession is being described, not just stated as a category — grammatically it behaves like <i>C'est...</i> + noun phrase rather than <i>être</i> + bare noun." },
+    { type:'vocab', title:'Common professions — masculine / feminine forms', items:[
+      ["un professeur / une professeure", "uhn proh-feh-SUR / ewn proh-feh-SUR", "a teacher"],
+      ["un médecin / une médecin", "uhn mayd-SAN / ewn mayd-SAN", "a doctor"],
+      ["un infirmier / une infirmière", "uhn an-feer-MYAY / ewn an-feer-MYAIR", "a nurse"],
+      ["un ingénieur / une ingénieure", "uhn an-zhay-NYUR / ewn an-zhay-NYUR", "an engineer"],
+      ["un avocat / une avocate", "uhn ah-voh-KAH / ewn ah-voh-KAHT", "a lawyer"],
+      ["un vendeur / une vendeuse", "uhn vahn-DUR / ewn vahn-DUZ", "a salesperson"],
+      ["un cuisinier / une cuisinière", "uhn kwee-zee-NYAY / ewn kwee-zee-NYAIR", "a cook / chef"],
+      ["un serveur / une serveuse", "uhn sair-VUR / ewn sair-VUZ", "a waiter / waitress"],
+      ["un employé / une employée (de bureau)", "uhn ahm-plwah-YAY duh bew-ROH", "an office employee"],
+      ["un administrateur système / une administratrice système", "uhn ad-mee-nee-strah-TUR sees-TEM", "a systems administrator"],
+      ["un étudiant / une étudiante", "uhn ay-tew-DYAHN / ewn ay-tew-DYAHNT", "a student"],
+      ["un(e) retraité(e)", "uhn(-ewn) ruh-treh-TAY", "a retiree"],
+      ["au chômage / sans emploi", "oh shoh-MAHZH / sahn zahm-PLWAH", "unemployed"],
+    ]},
+    { type:'note', html: "<b>How the feminine form is built — four patterns:</b><br>• Add a silent <b>-e</b>: employé → employé<b>e</b>, avocat → avocat<b>e</b>, étudiant → étudiant<b>e</b><br>• <b>-eur → -euse</b>: vendeur → vend<b>euse</b>, serveur → serv<b>euse</b><br>• <b>-teur → -trice</b>: dessinateur → dessina<b>trice</b>, acteur → ac<b>trice</b><br>• Invariable — same word for both genders: astronaute, journaliste, artiste, secrétaire, and all words ending in <b>-iste</b> or already ending in <b>-e</b>. <i>médecin</i> traditionally stays the same for women in everyday French, though <i>une médecin</i> is standard and <i>une médecine</i> is not a job title (it means \"medicine\" the subject!)." },
+    { type:'vocab', title:'Asking about someone\'s job', items:[
+      ["Qu'est-ce que vous faites dans la vie ?", "kess kuh voo fet dahn lah VEE", "What do you do for a living?"],
+      ["Vous faites quoi comme métier ?", "voo fet kwah kom may-TYAY", "What's your job? (informal-ish)"],
+      ["Quelle est votre profession ?", "kel eh votr proh-feh-SYOHN", "What is your profession? (formal)"],
+      ["Où travaillez-vous ?", "oo trah-vah-yay VOO", "Where do you work?"],
+    ]},
+    { type:'example', html: "<b>Elle est ingénieure. Elle travaille dans une grande entreprise à Toronto.</b> (el eh an-zhay-nyur, el trah-vahy dahn zewn grahnd ahn-truh-PREEZ ah toh-ron-TOH) — She is an engineer. She works at a large company in Toronto. — <b>Il est infirmier à l'hôpital.</b> (eel eh an-feer-myay ah loh-pee-TAHL) — He is a nurse at the hospital." },
+  ]
+},
+
+{ id:'placeprep', icon:'🗺️', title:'26 · Meeting Someone New — Fiche d\'identité & Prepositions of Place', intro:
+  "This chapter ties together three things that always show up together in real conversation and in the TEF: the standard \"identity card\" fields used to describe anyone, the small talk used to ask about or introduce a person, and the single trickiest piece of A1 grammar — which little word (à, au, en, du, de...) to use in front of a city or country name.",
+  sections: [
+    { type:'vocab', title:'La fiche d\'identité — identity-card vocabulary', items:[
+      ["le nom", "luh NOHN", "the last name / surname"],
+      ["le prénom", "luh pray-NOHN", "the first name"],
+      ["l'âge", "LAHZH", "the age"],
+      ["la date de naissance", "lah daht duh neh-SAHNS", "the date of birth"],
+      ["le lieu de naissance", "luh lyuh duh neh-SAHNS", "the place of birth"],
+      ["la nationalité", "lah nah-syoh-nah-lee-TAY", "the nationality"],
+      ["la profession", "lah proh-feh-SYOHN", "the profession"],
+      ["l'adresse", "lah-DRESS", "the address"],
+      ["la langue maternelle", "lah lahng mah-tair-NELL", "the mother tongue / native language"],
+    ]},
+    { type:'text', html: "<h3>City, country, and the right little word</h3><p class='p'>French countries have a grammatical gender, just like every other noun — and the word you place before a place name depends entirely on that gender (and whether it's a city, which has no gender at all). Get the pattern once and it works for every country you'll ever need.</p><p class='p'><b>Cities never take a gender</b>, so they always simply use <b>à</b> (to/in) and <b>de</b> (from): <i>à Paris, à Montréal, à Beyrouth</i> / <i>de Paris, de Montréal, de Beyrouth</i>.</p><p class='p'><b>Countries ending in -e are almost always feminine</b> (la France, la Belgique, la Suisse, l'Inde) and use <b>en</b> (to/in) and <b>de / d'</b> (from): <i>en France, en Belgique</i> / <i>de Suisse, d'Inde</i> (d' before a vowel sound).</p><p class='p'><b>Countries NOT ending in -e are almost always masculine</b> (le Canada, le Mali, le Japon, le Maroc) and use <b>au</b> (to/in — a fused contraction of à + le) and <b>du</b> (from — a fused contraction of de + le): <i>au Canada, au Japon</i> / <i>du Mali, du Maroc</i>.</p><p class='p'><b>Plural-named countries</b> (les États-Unis, les Pays-Bas) use <b>aux</b> (à + les) and <b>des</b> (de + les): <i>aux États-Unis</i> / <i>des États-Unis</i>.</p>" },
+    { type:'conj', title:'The full pattern at a glance', rows:[
+      ["ville (city) → à / de", "ah / duh", "à Paris, de Paris"],
+      ["pays féminin (fem. country) → en / de, d'", "ahn / duh", "en France, de Suisse, d'Inde"],
+      ["pays masculin (masc. country) → au / du", "oh / dew", "au Canada, du Mali"],
+      ["pays pluriel (plural country) → aux / des", "oh / day", "aux États-Unis, des États-Unis"],
+    ]},
+    { type:'note', html: "<b>Why does this matter so much?</b> Almost every self-introduction includes \"I live in...\", \"I was born in...\", or \"I come from...\" — so getting à/au/en/du wrong is one of the most common (and most noticeable) beginner mistakes. There's no way around memorising which countries are masculine vs feminine, but the good news is the <b>-e ending rule</b> correctly predicts gender for the vast majority of countries you'll actually need." },
+    { type:'vocab', title:'Communication — asking about & introducing someone', items:[
+      ["Qui est-ce ?", "kee ESS", "Who is it? / Who is this?"],
+      ["C'est qui ?", "say KEE", "Who's that? (informal)"],
+      ["C'est + [nom].", "say", "This is + [name]. (basic introduction)"],
+      ["Je te présente [nom].", "zhuh tuh pray-ZAHNT", "Let me introduce you to [name]. (informal, to one person)"],
+      ["Je vous présente [nom].", "zhuh voo pray-ZAHNT", "Let me introduce you to [name]. (formal / to a group)"],
+      ["Voici [nom].", "vwah-SEE", "Here is [name]. / This is [name]."],
+      ["Enchanté(e) !", "ahn-shahn-TAY", "Nice to meet you!"],
+    ]},
+    { type:'example', html: "<b>— Qui est-ce ? — C'est Julie. Elle est née à Montréal, au Canada. Elle est québécoise et elle est astronaute.</b> (kee ess — say zhoo-LEE. el eh nay ah mohn-ray-al, oh kah-nah-DAH. el eh kay-bay-kwahz ay el eh as-troh-NOHT.) — \"Who's that?\" \"That's Julie. She was born in Montreal, in Canada. She's Québécoise and she's an astronaut.\" Notice all three prepositions doing their job: à before the city, au before the masculine country." },
+    { type:'note', html: "<b>One more refinement — masculine countries that start with a vowel sound:</b> a handful of masculine countries begin with a vowel (l'Iran, l'Afghanistan, l'Uruguay). Saying <i>au Iran</i> would create an awkward vowel clash, so French switches to <b>en</b> and <b>d'</b> for these too — exactly like it does for feminine countries. <i>Je viens d'Iran mais j'habite en Uruguay.</i> (I come from Iran but I live in Uruguay — both masculine, both using the \"feminine-style\" preposition purely because of the vowel.) In short: <b>the vowel sound wins over gender</b> when picking between au/du and en/d'." },
+    { type:'vocab', title:'More countries, sorted by which preposition they take', grid:true, items:[
+      ["le Canada","luh kah-nah-DAH",""],["le Japon","luh zhah-POHN",""],["le Portugal","luh por-tew-GAL",""],
+      ["le Brésil","luh bray-ZEEL",""],["le Mexique","luh mek-SEEK",""],["le Maroc","luh mah-ROK",""],
+      ["le Sénégal","luh say-nay-GAL",""],["le Vietnam","luh vyet-NAHM",""],["le Chili","luh shee-LEE",""],
+      ["le Pérou","luh pay-ROO",""],["le Royaume-Uni","luh rwah-yohm-ew-NEE",""],["le Mali","luh mah-LEE",""],
+      ["la France","lah FRAHNSS",""],["la Suisse","lah SWEESS",""],["la Belgique","lah bel-ZHEEK",""],
+      ["l'Italie","lee-tah-LEE",""],["l'Espagne","less-PAHN-yuh",""],["l'Allemagne","lal-MAHN-yuh",""],
+      ["la Chine","lah SHEEN",""],["l'Inde","LAND",""],["l'Australie","loh-strah-LEE",""],
+      ["les États-Unis","lay-zay-tah-zew-NEE",""],["les Pays-Bas","lay pay-ee-BAH",""],["les Philippines","lay fee-lee-PEEN",""],
+    ]},
+    { type:'note', html: "<b>Exceptions to memorise on their own:</b> most countries ending in <b>-e</b> are feminine, but a short list are masculine anyway — <b>le Mexique, le Cambodge, le Zimbabwe, le Mozambique</b>. There's no shortcut for these; the fastest fix is to always learn a new country together with its article (<i>le Mexique</i>, not just \"Mexique\") right from the first time you meet the word." },
+    { type:'text', html: "<h3>Le verbe HABITER — \"to live / to reside\"</h3><p class='p'>Habiter is a completely regular -ER verb, so once you know its pattern you already know hundreds of other verbs (parler, aimer, travailler, écouter...). It's the natural verb to pair with everything in this chapter, since \"where you live\" is usually the first thing that comes up after a name.</p>" },
+    { type:'conj', title:'habiter — present tense (regular -ER verb)', rows:[
+      ["j'habite","zhah-BEET","I live"],
+      ["tu habites","tew ah-BEET","you live"],
+      ["il / elle habite","eel / ell ah-BEET","he / she lives"],
+      ["nous habitons","noo zah-bee-TOHN","we live"],
+      ["vous habitez","voo zah-bee-TAY","you live"],
+      ["ils / elles habitent","eel / ell zah-BEET","they live"],
+    ]},
+    { type:'note', html: "<b>-ER verb pattern, spelled out:</b> je → <b>-e</b>, tu → <b>-es</b>, il/elle → <b>-e</b>, nous → <b>-ons</b>, vous → <b>-ez</b>, ils/elles → <b>-ent</b>. The je/tu/il/elle/ils/elles forms all <i>sound</i> almost identical when spoken (the final letters are silent) — the spelling differs, but your ear won't catch it. Only nous (-ons) and vous (-ez) sound distinctly different." },
+    { type:'vocab', title:'Habiter drilled with every subject + a different place', items:[
+      ["J'habite à Paris.", "zhah-BEET ah pah-REE", "I live in Paris."],
+      ["Tu habites en France.", "tew ah-BEET ahn FRAHNS", "You live in France."],
+      ["Elle habite en Inde.", "el ah-BEET ahn AND", "She lives in India."],
+      ["Nous habitons au Canada.", "noo zah-bee-TOHN oh kah-nah-DAH", "We live in Canada."],
+      ["Vous habitez à Londres.", "voo zah-bee-TAY ah LOHN-druh", "You live in London."],
+      ["Ils habitent aux États-Unis.", "eel zah-BEET oh zay-tah-zew-NEE", "They live in the United States."],
+      ["Il habite au Japon.", "eel ah-BEET oh zhah-POHN", "He lives in Japan."],
+      ["Elles habitent en Italie.", "el zah-BEET ahn ee-tah-LEE", "They live in Italy."],
+    ]},
+    { type:'text', html: "<h3>Pronunciation deep-dive — liaison in plural countries</h3><p class='p'>Plural countries are where French \"liaison\" (linking a normally-silent consonant onto the next word's vowel sound) shows up the most, so they're worth slowing down on.</p><p class='p'><b>les États-Unis</b> (lay zay-tah-zew-NEE) — the United States. This has a <b>double liaison</b>: <i>États</i> starts with a vowel, so the normally-silent -s of <i>les</i> is pronounced as a \"z\" (<i>les États</i> → \"lay-zay-tah\"). Then <i>Unis</i> also starts with a vowel, so the -s at the end of <i>États</i> links over too (\"tah-zew-NEE\"). The final -s of <i>Unis</i> itself stays silent.</p><p class='p'><b>les Pays-Bas</b> (lay pay-ee-BAH) — the Netherlands. <i>Pays</i> is pronounced like \"pay-EE\" (two syllables). <i>Bas</i> rhymes with \"ah\" (BAH) — its final -s is completely silent, so there's no liaison into it here.</p>" },
+    { type:'text', html: "<h3>Putting it together — introducing someone else</h3><p class='p'>Everything in this chapter — fiche d'identité vocabulary, prepositions, and habiter — combines into one of the most common real conversations you'll have: telling someone about a third person. Here's a full practice exchange you can adapt for literally anyone by swapping the bracketed words.</p>" },
+    { type:'qa', title:'Practice dialogue — introducing a friend', items:[
+      { q:"C'est qui ?", qph:"say KEE", qen:"Who is that?",
+        a:"Je te présente mon ami. Il s'appelle Alex.", aph:"zhuh tuh pray-ZAHNT mohn nah-MEE. eel sah-PEL ah-LEKS", aen:"Let me introduce my friend. His name is Alex." },
+      { q:"Quelle est sa nationalité ?", qph:"kel eh sah nah-syoh-nah-lee-TAY", qen:"What is his nationality?",
+        a:"Il est canadien. Il habite à Montréal.", aph:"eel eh kah-nah-DYAN. eel ah-BEET ah mohn-ray-AL", aen:"He is Canadian. He lives in Montreal." },
+      { q:"Quelle est sa profession ?", qph:"kel eh sah proh-feh-SYOHN", qen:"What is his profession?",
+        a:"C'est un professeur. Il travaille dans une école.", aph:"say tuhn proh-feh-SUR. eel trah-VYE dahn zewn ay-KOHL", aen:"He is a teacher. He works in a school." },
+    ]},
+    { type:'conj', title:'The pattern behind the dialogue — swap any bracket', rows:[
+      ["Intro: C'est... / Je te présente...", "say / zhuh tuh pray-ZAHNT", "This is... / Let me introduce..."],
+      ["Name: il/elle s'appelle...", "eel/el sah-PEL", "his/her name is..."],
+      ["Nationality: il/elle est [nationalité]", "eel/el eh", "he/she is [nationality]"],
+      ["Job: il/elle est [métier] / c'est un(e) [métier]", "eel/el eh", "he/she is a [job]"],
+      ["Lives: il/elle habite à [ville] / en, au [pays]", "eel/el ah-BEET", "he/she lives in [city/country]"],
+    ]},
+    { type:'example', html: "<b>Same dialogue, two easy swaps:</b> change the job to <i>C'est un mécanicien. Il travaille dans un garage.</i> (say tuhn may-kah-nee-SYAN. eel trah-vye dahn zuhn gah-RAZH — He is a mechanic. He works in a garage. Notice the liaison: <i>dans un</i> is pronounced \"dahn-zuhn\", the silent -s of dans linking to the vowel of un.) Or simplify the opening line to skip \"Je te présente\" entirely: <i>Mon ami s'appelle Alex.</i> (mohn nah-mee sah-pel ah-leks — My friend's name is Alex.) — shorter, and just as natural." },
+  ]
+},
+
+{ id:'tonic', icon:'👆', title:'27 · Tonic (Stressed) Pronouns — moi, toi, lui...', intro:
+  "French has a second set of \"me/you/him\" words, used any time a pronoun needs to stand alone or get extra emphasis. English handles this with stress in speech (\"ME, I have a laptop\") — French has a whole separate set of words for it.",
+  sections: [
+    { type:'vocab', title:'Subject pronoun → tonic pronoun', items:[
+      ["je → moi", "zhuh → mwah", "I → me"],
+      ["tu → toi", "tew → twah", "you → you"],
+      ["il → lui", "eel → lwee", "he → him"],
+      ["elle → elle", "ell → ell", "she → her (same word)"],
+      ["nous → nous", "noo → noo", "we → us (same word)"],
+      ["vous → vous", "voo → voo", "you → you (same word)"],
+      ["ils → eux", "eel → uh", "they (m) → them"],
+      ["elles → elles", "ell → ell", "they (f) → them (same word)"],
+    ]},
+    { type:'text', html: "<h3>When to use the tonic form instead of the subject pronoun</h3><p class='p'>Four everyday situations call for the tonic (also called \"stressed\" or \"disjunctive\") pronoun instead of je/tu/il/elle:</p><p class='p'>1. <b>Standing completely alone</b>, with no verb attached — as a one-word answer: <i>— Qui a un ordinateur ? — Moi !</i> (Who has a laptop? Me!)</p><p class='p'>2. <b>For emphasis</b>, often doubling up with the subject pronoun right after: <i>Moi, j'ai un ordinateur.</i> (ME, I have a laptop — emphasising \"me\" specifically.) <i>Lui, il n'a pas de sac.</i> (HIM, he doesn't have a bag.)</p><p class='p'>3. <b>After a preposition</b> (avec, chez, pour, sans...): <i>Tu viens avec moi ?</i> (Are you coming with me?) <i>C'est pour toi.</i> (It's for you.)</p><p class='p'>4. <b>After c'est / ce sont</b>: <i>C'est moi.</i> (It's me.) <i>C'est lui.</i> (It's him.)</p>" },
+    { type:'example', html: "<b>Et vous, vous avez quoi dans votre sac ? Moi, j'ai un ordinateur. Lui, il n'a pas de sac.</b> (ay VOO, voo-zah-vay kwah dahn votr SAHK ? mwah, zhay uhn or-dee-nah-TUR. lwee, eel nah pah duh SAHK.) — And you, what do you have in your bag? Me, I have a laptop. Him, he doesn't have a bag. Notice the tonic pronoun (moi, lui) sets up the sentence, then the normal subject pronoun (j', il) still does the actual verb work — French frequently doubles them up like this for emphasis, which has no direct English equivalent (English just relies on vocal stress)." },
+  ]
+},
+
+{ id:'objects', icon:'🎒', title:'28 · Everyday Objects & Polite Requests', intro:
+  "The vocabulary for \"what's in your bag\" and the fixed phrases for asking politely are two of the most immediately reusable things you can learn — you'll use both in almost every real conversation.",
+  sections: [
+    { type:'vocab', title:'Choses dans mon sac — things in my bag', items:[
+      ["une clé", "ewn KLAY", "a key"],
+      ["un téléphone", "uhn tay-lay-FUN", "a phone"],
+      ["un porte-monnaie", "uhn port-mo-NAY", "a wallet / coin purse"],
+      ["un agenda", "uhn ah-zhen-DAH", "a planner / diary"],
+      ["un parapluie", "uhn pah-rah-PLWEE", "an umbrella"],
+      ["un mouchoir", "uhn moo-SHWAHR", "a tissue"],
+      ["un rouge à lèvres", "uhn roozh ah LEVR", "a lipstick"],
+      ["de la crème", "duh lah KREM", "some cream / lotion"],
+      ["un bijou / des bijoux", "uhn bee-ZHOO / day bee-ZHOO", "a piece of jewellery / jewellery"],
+      ["un stylo", "uhn stee-LOH", "a pen"],
+      ["un ticket de métro", "uhn tee-keh duh may-TROH", "a metro ticket"],
+      ["une brosse à dents", "ewn bross ah DAHN", "a toothbrush"],
+      ["un ordinateur", "uhn or-dee-nah-TUR", "a laptop / computer"],
+      ["un passeport", "uhn pass-POR", "a passport"],
+    ]},
+    { type:'example', html: "<b>Dans mon sac, il y a un téléphone, des clés et un agenda.</b> (dahn mohn sahk, eel ee ah uhn tay-lay-fun, day klay ay uhn ah-zhen-DAH) — In my bag, there's a phone, keys, and a planner. <i>Il y a</i> (there is/are) is the go-to phrase for listing what's somewhere — it never changes form, no matter how many things you're listing." },
+    { type:'vocab', title:'Six practice sentences — "what\'s in my bag"', items:[
+      ["Dans mon sac, j'ai un portefeuille, des clés et un téléphone.", "dahn mohn sahk, zhay uhn por-tuh-FUY, day klay ay uhn tay-lay-FUN", "In my bag, I have a wallet, keys, and a phone."],
+      ["J'ai aussi un parapluie, parce qu'il pleut souvent.", "zhay oh-see uhn pah-rah-PLWEE, pars keel pluh SOO-vahn", "I also have an umbrella, because it rains often."],
+      ["Il y a un cahier et un stylo pour écrire mes notes.", "eel ee ah uhn kah-YAY ay uhn stee-LOH poor ay-kreer may NOHT", "There's a notebook and a pen to write my notes."],
+      ["Mon téléphone et mon portefeuille sont toujours dans la même poche.", "mohn tay-lay-fun ay mohn por-tuh-fuy sohn too-zhoor dahn lah mem POSH", "My phone and my wallet are always in the same pocket."],
+      ["Je n'ai pas de parapluie aujourd'hui — il fait beau !", "zhuh nay pah duh pah-rah-plwee oh-zhoor-DWEE — eel feh BOH", "I don't have an umbrella today — the weather's nice!"],
+      ["Avant de sortir, je vérifie : mes clés, mon téléphone, mon portefeuille et mon cahier.", "ah-vahn duh sor-TEER, zhuh vay-ree-FEE: may klay, mohn tay-lay-fun, mohn por-tuh-fuy ay mohn kah-yay", "Before going out, I check: my keys, my phone, my wallet, and my notebook."],
+    ]},
+    { type:'note', html: "<b>portefeuille vs porte-monnaie:</b> un portefeuille is the everyday word for a billfold-style wallet (cards + notes); un porte-monnaie leans toward a small coin purse. <b>cahier vs agenda:</b> un cahier is a plain notebook/exercise book; un agenda is specifically a planner/diary with dates — both pairs are near-synonyms you'll hear used interchangeably." },
+    { type:'qa', title:'Practice — questions about your own bag', items:[
+      { q:"Qu'est-ce qu'il y a dans votre sac ?", qph:"kess keel-ee-ah dahn votr SAHK", qen:"What's in your bag?",
+        a:"Dans mon sac, il y a un téléphone, un portefeuille et des clés.", aph:"dahn mohn sahk, eel-ee-ah uhn tay-lay-fun, uhn por-tuh-fuy ay day KLAY", aen:"In my bag, there's a phone, a wallet, and keys." },
+      { q:"Vous avez un parapluie aujourd'hui ?", qph:"voo-zah-vay uhn pah-rah-plwee oh-zhoor-DWEE", qen:"Do you have an umbrella today?",
+        a:"Non, je n'ai pas de parapluie — il fait beau.", aph:"nohn, zhuh nay pah duh pah-rah-plwee — eel feh BOH", aen:"No, I don't have an umbrella — the weather's nice." },
+      { q:"Combien de choses avez-vous dans votre sac ?", qph:"kohm-byan duh shohz ah-vay VOO dahn votr sahk", qen:"How many things do you have in your bag?",
+        a:"J'ai à peu près six ou sept choses.", aph:"zhay ah puh preh sees oo set SHOHZ", aen:"I have about six or seven things." },
+    ]},
+    { type:'vocab', title:'Demander des informations personnelles — asking for personal info', items:[
+      ["Vous vous appelez comment ?", "voo voo-zah-play koh-MAHN", "What's your name? (lit. you call yourself how)"],
+      ["Quel est votre nom ?", "kel eh votr NOHN", "What is your name/surname?"],
+      ["Quelle est votre nationalité ?", "kel eh votr nah-syoh-nah-lee-TAY", "What is your nationality?"],
+      ["Vous avez quel âge ?", "voo-zah-vay kel AHZH", "How old are you?"],
+      ["Vous venez d'où ?", "voo vuh-nay DOO", "Where do you come from?"],
+      ["Vous habitez où ?", "voo zah-bee-tay OO", "Where do you live?"],
+      ["Vous travaillez où ?", "voo trah-vah-yay OO", "Where do you work?"],
+    ]},
+    { type:'vocab', title:'Demander poliment / Répondre poliment — asking & answering politely', items:[
+      ["Excusez-moi...", "ex-kew-zay MWAH", "Excuse me..."],
+      ["Pardon, vous avez l'heure ?", "par-DOHN, voo-zah-vay LUR", "Excuse me, do you have the time?"],
+      ["Un café, s'il vous plaît !", "uhn kah-FAY, seel voo PLEH", "A coffee, please! (formal)"],
+      ["Je voudrais un café.", "zhuh voo-DREH uhn kah-FAY", "I would like a coffee."],
+      ["Je vous remercie.", "zhuh voo ruh-mair-SEE", "I thank you. (formal)"],
+      ["Merci — De rien.", "mair-SEE — duh RYAN", "Thank you — You're welcome."],
+      ["Je t'en prie.", "zhuh tahn PREE", "You're welcome. (informal, responding to merci)"],
+      ["Avec plaisir !", "ah-vek pleh-ZEER", "With pleasure! / Gladly!"],
+    ]},
+    { type:'note', html: "<b>Je voudrais vs je veux:</b> <i>je voudrais</i> (I would like) is the conditional form of vouloir, and it's dramatically more polite than <i>je veux</i> (I want). In almost every real request — ordering food, asking a favour — <i>je voudrais</i> is the natural, courteous choice. Reserve <i>je veux</i> for situations with children or very close friends, where bluntness reads as normal rather than rude." },
   ]
 },
 

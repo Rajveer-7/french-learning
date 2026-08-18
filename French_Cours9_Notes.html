@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 9 — Audio Notes</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:8px; margin:10px 0; }
+  .cell { display:flex; align-items:center; gap:8px; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; }
+  .cell .play { width:32px; height:32px; font-size:13px; }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .qa .a { display:flex; align-items:center; gap:10px; background:var(--accentbg); border-radius:10px; padding:8px 10px; margin-top:6px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:110px; text-align:center; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .fillrow select { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; }
+  .mistakerow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .mistakerow .sent { font-size:15px; margin-bottom:8px; }
+  .mistakerow .ph { font-size:12.5px; color:var(--muted); margin-bottom:8px; }
+  .mistakerow .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-right:8px; }
+  .mistakerow .btns button:hover { border-color:var(--accent); }
+  .mistakerow .fb { font-size:13px; margin-top:8px; }
+  .mistakerow .fb.ok { color:#155c37; } .mistakerow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 9 Audio Notes</h1>
+  <p class="sub">The Language SKOOL · 11 August 2026 · bonus session — countries by gender, le verbe HABITER, prepositions of place, introducing someone else</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html" class="active">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Articles.html">Articles</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "🔊 " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(text.replace(/\s+([!?])/g,'$1'));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play '+fr);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML=`<div class="fr">${fr}</div>${ph?`<div class="ph">${ph}</div>`:''}${en?`<div class="en">${en}</div>`:''}`;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+function makeCell(fr, ph){
+  const c=document.createElement('div'); c.className='cell';
+  const b=document.createElement('button'); b.className='play'; b.textContent='▶'; b.setAttribute('aria-label','Play '+fr);
+  const t=document.createElement('div'); t.className='txt'; t.innerHTML=`<div class="fr">${fr}</div>${ph?`<div class="ph">${ph}</div>`:''}`;
+  b.onclick=()=>speak(fr); t.querySelector('.fr').onclick=()=>speak(fr);
+  c.appendChild(b); c.appendChild(t);
+  return c;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+
+/* ===== 1. HABITER conjugation with example sentences ===== */
+const h1 = document.createElement('h2'); h1.textContent = "1 · Le verbe HABITER — full conjugation with examples"; content.appendChild(h1);
+const l1 = document.createElement('p'); l1.className='lead'; l1.textContent = "Habiter (to live / to reside) is a completely regular -ER verb. Today's practice paired every form with a different place, which is the best way to drill it — the verb ending changes with the subject, the little word before the place changes with the place."; content.appendChild(l1);
+
+const HABITER_EX = [
+  { fr:"J'habite à Paris.", ph:"zhah-BEET ah pah-REE", en:"I live in Paris." },
+  { fr:"Tu habites en France.", ph:"tew ah-BEET ahn FRAHNS", en:"You live in France." },
+  { fr:"Elle habite en Inde.", ph:"el ah-BEET ahn AND", en:"She lives in India." },
+  { fr:"Nous habitons au Canada.", ph:"noo zah-bee-TOHN oh kah-nah-DAH", en:"We live in Canada." },
+  { fr:"Vous habitez à Londres.", ph:"voo zah-bee-TAY ah LOHN-druh", en:"You live in London." },
+  { fr:"Ils habitent aux États-Unis.", ph:"eel zah-BEET oh zay-tah-zew-NEE", en:"They live in the United States." },
+  { fr:"Il habite au Japon.", ph:"eel ah-BEET oh zhah-POHN", en:"He lives in Japan." },
+  { fr:"Elles habitent en Italie.", ph:"el zah-BEET ahn ee-tah-LEE", en:"They live in Italy." },
+];
+HABITER_EX.forEach(({fr,ph,en})=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+
+const note1 = document.createElement('div'); note1.className='note';
+note1.innerHTML = "<b>What changes and why:</b> the ending of <i>habiter</i> follows the normal -ER pattern (-e, -es, -e, -ons, -ez, -ent) no matter where the person lives. The little word before the place (à/en/au/aux) follows a completely separate rule based on the <u>place</u>, not the subject. The two systems are independent — get used to choosing them one at a time.";
+content.appendChild(note1);
+
+const table1 = document.createElement('table'); table1.className='conjt';
+table1.innerHTML = `<tr><th>Subject</th><th>Habiter</th><th>Pronunciation</th></tr>
+<tr><td>je</td><td>j'habite</td><td>zhah-BEET</td></tr>
+<tr><td>tu</td><td>tu habites</td><td>tew ah-BEET</td></tr>
+<tr><td>il / elle</td><td>il / elle habite</td><td>eel / el ah-BEET</td></tr>
+<tr><td>nous</td><td>nous habitons</td><td>noo zah-bee-TOHN</td></tr>
+<tr><td>vous</td><td>vous habitez</td><td>voo zah-bee-TAY</td></tr>
+<tr><td>ils / elles</td><td>ils / elles habitent</td><td>eel / el zah-BEET</td></tr>`;
+content.appendChild(table1);
+
+/* ===== 2. Countries by gender — the full lists ===== */
+const h2 = document.createElement('h2'); h2.textContent = "2 · Countries, sorted by gender"; content.appendChild(h2);
+const l2 = document.createElement('p'); l2.className='lead'; l2.textContent = "Every country you'll realistically need at A1, grouped by the preposition it takes."; content.appendChild(l2);
+
+const h2a = document.createElement('h3'); h2a.className='sub2'; h2a.textContent = "Feminine countries → en / de, d'"; content.appendChild(h2a);
+const FEM = [
+  ["la France","lah FRAHNSS"],["la Belgique","lah bel-ZHEEK"],["la Suisse","lah SWEESS"],
+  ["l'Italie","lee-tah-LEE"],["l'Espagne","less-PAHN-yuh"],["l'Allemagne","lal-MAHN-yuh"],
+  ["la Chine","lah SHEEN"],["l'Inde","LAND"],["l'Australie","loh-strah-LEE"],
+];
+const grid2a = document.createElement('div'); grid2a.className='grid';
+FEM.forEach(([fr,ph])=>{ grid2a.appendChild(makeCell(fr,ph)); GLOBAL_VOCAB.push({fr, en:'feminine country'}); });
+content.appendChild(grid2a);
+
+const h2b = document.createElement('h3'); h2b.className='sub2'; h2b.textContent = "Masculine countries → au / du"; content.appendChild(h2b);
+const MASC = [
+  ["le Canada","luh kah-nah-DAH"],["le Japon","luh zhah-POHN"],["le Portugal","luh por-tew-GAL"],
+  ["le Brésil","luh bray-ZEEL"],["le Mexique","luh mek-SEEK"],["le Maroc","luh mah-ROK"],
+  ["le Sénégal","luh say-nay-GAL"],["le Vietnam","luh vyet-NAHM"],["le Chili","luh shee-LEE"],
+  ["le Pérou","luh pay-ROO"],["le Royaume-Uni","luh rwah-yohm-ew-NEE"],["le Mali","luh mah-LEE"],
+];
+const grid2b = document.createElement('div'); grid2b.className='grid';
+MASC.forEach(([fr,ph])=>{ grid2b.appendChild(makeCell(fr,ph)); GLOBAL_VOCAB.push({fr, en:'masculine country'}); });
+content.appendChild(grid2b);
+
+const h2c = document.createElement('h3'); h2c.className='sub2'; h2c.textContent = "Plural countries → aux / des"; content.appendChild(h2c);
+const PLUR = [
+  ["les États-Unis","lay zay-tah-zew-NEE"],["les Pays-Bas","lay pay-ee-BAH"],["les Philippines","lay fee-lee-PEEN"],
+];
+const grid2c = document.createElement('div'); grid2c.className='grid';
+PLUR.forEach(([fr,ph])=>{ grid2c.appendChild(makeCell(fr,ph)); GLOBAL_VOCAB.push({fr, en:'plural country'}); });
+content.appendChild(grid2c);
+
+const note2 = document.createElement('div'); note2.className='note';
+note2.innerHTML = "<b>Exceptions to memorise on their own:</b> most countries ending in -e are feminine, but <b>le Mexique, le Cambodge, le Zimbabwe, le Mozambique</b> are masculine anyway — learn these with their article from day one. <b>Also:</b> masculine countries that start with a vowel sound (like l'Iran) switch to <b>en / d'</b> instead of au/du, purely to avoid an awkward vowel clash: <i>j'habite en Iran</i>, not <i>au Iran</i>.";
+content.appendChild(note2);
+
+/* ===== 3. Pronunciation deep-dive: plural countries & liaison ===== */
+const h3 = document.createElement('h2'); h3.textContent = "3 · Pronunciation deep-dive — liaison in plural countries"; content.appendChild(h3);
+const l3 = document.createElement('p'); l3.className='lead'; l3.textContent = "Plural countries are where French \"liaison\" (linking a normally-silent consonant to the next word's vowel) shows up the most — worth slowing down on."; content.appendChild(l3);
+
+const liaDiv = document.createElement('div'); liaDiv.className='example';
+liaDiv.innerHTML = `
+  <b>les États-Unis</b> (lay zay-tah-zew-NEE) — the United States<br>
+  Double liaison! <i>États</i> starts with a vowel, so the normally-silent -s of <i>les</i> is pronounced as a "z": <i>les</i>+<i>États</i> → "lay-zay-tah". Then <i>Unis</i> also starts with a vowel, so the -s at the end of <i>États</i> links over too: "tah-zew-NEE". The final -s of <i>Unis</i> itself stays silent.<br><br>
+  <b>les Pays-Bas</b> (lay pay-ee-BAH) — the Netherlands<br>
+  <i>Pays</i> is pronounced like "pay-EE" (two syllables). <i>Bas</i> rhymes with "ah" (BAH) — its final -s is completely silent, so there's no liaison into it.
+`;
+content.appendChild(liaDiv);
+
+/* ===== 4. What to use, where and when — quick reference ===== */
+const h4 = document.createElement('h2'); h4.textContent = "4 · What to use, where and when — quick reference"; content.appendChild(h4);
+const table4 = document.createElement('table'); table4.className='conjt';
+table4.innerHTML = `<tr><th>Place type</th><th>To / In</th><th>From</th><th>Example</th></tr>
+<tr><td>City</td><td>à</td><td>de / d'</td><td>à Paris, de Paris</td></tr>
+<tr><td>Feminine country (or vowel-starting)</td><td>en</td><td>de / d'</td><td>en France, d'Italie</td></tr>
+<tr><td>Masculine country</td><td>au</td><td>du</td><td>au Canada, du Mali</td></tr>
+<tr><td>Masculine country starting with a vowel</td><td>en</td><td>d'</td><td>en Iran, d'Iran</td></tr>
+<tr><td>Plural country</td><td>aux</td><td>des</td><td>aux Philippines, des Philippines</td></tr>`;
+content.appendChild(table4);
+
+/* ===== 5. Practice — conjugate habiter ===== */
+const h5 = document.createElement('h2'); h5.textContent = "5 · Practice — conjugate habiter"; content.appendChild(h5);
+const l5 = document.createElement('p'); l5.className='lead'; l5.textContent = "Original practice sentences (not from any handout). Type the correct form of habiter for the subject shown."; content.appendChild(l5);
+const HAB_FILL = [
+  { before:"Nous", answers:["habitons"], after:"en Belgique.", en:"We live in Belgium." },
+  { before:"Elle", answers:["habite"], after:"à Tokyo.", en:"She lives in Tokyo." },
+  { before:"Vous", answers:["habitez"], after:"au Mexique.", en:"You live in Mexico." },
+  { before:"Ils", answers:["habitent"], after:"aux Philippines.", en:"They live in the Philippines." },
+  { before:"Je (j')", answers:["habite"], after:"en Espagne.", en:"I live in Spain." },
+  { before:"Tu", answers:["habites"], after:"au Sénégal.", en:"You live in Senegal." },
+];
+const habDiv = document.createElement('div');
+HAB_FILL.forEach(item=>{
+  const row = document.createElement('div'); row.className='fillrow';
+  const sent = document.createElement('div'); sent.className='sent';
+  sent.innerHTML = `${item.before} <input type="text" maxlength="12"> ${item.after} <button>Check</button>`;
+  row.appendChild(sent);
+  const fb = document.createElement('div'); fb.className='fb';
+  row.appendChild(fb);
+  const input = sent.querySelector('input');
+  const btn = sent.querySelector('button');
+  function check(){
+    const val = input.value.trim().toLowerCase();
+    if (item.answers.includes(val)) { fb.textContent = "✓ Correct — " + item.en; fb.className = 'fb ok'; }
+    else { fb.textContent = "✗ Correct answer: " + item.answers[0] + " — " + item.en; fb.className = 'fb bad'; }
+  }
+  btn.onclick = check;
+  input.addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); check(); } });
+  habDiv.appendChild(row);
+});
+content.appendChild(habDiv);
+
+/* ===== 6. Practice — pick the right preposition ===== */
+const h6 = document.createElement('h2'); h6.textContent = "6 · Practice — pick à, en, au, or aux"; content.appendChild(h6);
+const l6 = document.createElement('p'); l6.className='lead'; l6.textContent = "Original practice — different countries from the ones already drilled above, on purpose."; content.appendChild(l6);
+const PREP_FILL = [
+  { before:"J'habite", answers:["en"], after:"Belgique.", en:"I live in Belgium. (feminine)" },
+  { before:"Il habite", answers:["au"], after:"Sénégal.", en:"He lives in Senegal. (masculine)" },
+  { before:"Elle habite", answers:["au"], after:"Vietnam.", en:"She lives in Vietnam. (masculine)" },
+  { before:"Nous habitons", answers:["aux"], after:"Philippines.", en:"We live in the Philippines. (plural)" },
+  { before:"Vous habitez", answers:["en"], after:"Espagne.", en:"You live in Spain. (feminine)" },
+  { before:"Je viens", answers:["de"], after:"Beyrouth.", en:"I come from Beirut. (city)" },
+  { before:"Ils habitent", answers:["au"], after:"Chili.", en:"They live in Chile. (masculine)" },
+  { before:"Tu habites", answers:["en"], after:"Chine.", en:"You live in China. (feminine)" },
+];
+const prepDiv = document.createElement('div');
+PREP_FILL.forEach(item=>{
+  const row = document.createElement('div'); row.className='fillrow';
+  const sent = document.createElement('div'); sent.className='sent';
+  sent.innerHTML = `${item.before} <input type="text" maxlength="6"> ${item.after} <button>Check</button>`;
+  row.appendChild(sent);
+  const fb = document.createElement('div'); fb.className='fb';
+  row.appendChild(fb);
+  const input = sent.querySelector('input');
+  const btn = sent.querySelector('button');
+  function check(){
+    const val = input.value.trim().toLowerCase();
+    if (item.answers.includes(val)) { fb.textContent = "✓ Correct — " + item.en; fb.className = 'fb ok'; }
+    else { fb.textContent = "✗ Correct answer: " + item.answers[0] + " — " + item.en; fb.className = 'fb bad'; }
+  }
+  btn.onclick = check;
+  input.addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); check(); } });
+  prepDiv.appendChild(row);
+});
+content.appendChild(prepDiv);
+
+/* ===== 7. Match the country to the preposition ===== */
+const h7m = document.createElement('h2'); h7m.textContent = "7 · Match the country to the preposition"; content.appendChild(h7m);
+const l7m = document.createElement('p'); l7m.className='lead'; l7m.textContent = "Original — pick à, en, au, or aux from the dropdown for each country. Includes the vowel-start exception."; content.appendChild(l7m);
+const MATCH_PAIRS = [
+  { before:"J'habite", country:"Maroc", ph:"mah-ROHK", answers:["au"], en:"I live in Morocco. (masculine)" },
+  { before:"Tu habites", country:"Norvège", ph:"nor-VEZH", answers:["en"], en:"You live in Norway. (feminine)" },
+  { before:"Nous habitons", country:"Pays-Bas", ph:"pay-ee BAH", answers:["aux"], en:"We live in the Netherlands. (plural)" },
+  { before:"Elle habite", country:"Argentine", ph:"ar-zhan-TEEN", answers:["en"], en:"She lives in Argentina. (feminine)" },
+  { before:"Ils habitent", country:"Pérou", ph:"pay-ROO", answers:["au"], en:"They live in Peru. (masculine)" },
+  { before:"Vous habitez", country:"Émirats arabes unis", ph:"ay-mee-rah zah-rab ew-NEE", answers:["aux"], en:"You live in the United Arab Emirates. (plural)" },
+  { before:"Il habite", country:"Iran", ph:"ee-RAHN", answers:["en"], en:"He lives in Iran. (masculine, but starts with a vowel — exception!)" },
+  { before:"J'habite", country:"Nice", ph:"NEESS", answers:["à"], en:"I live in Nice. (city — no article)" },
+];
+const matchDiv = document.createElement('div');
+MATCH_PAIRS.forEach(item=>{
+  const row = document.createElement('div'); row.className='fillrow';
+  const sent = document.createElement('div'); sent.className='sent';
+  sent.innerHTML = `${item.before} <select><option value="">–</option><option value="à">à</option><option value="en">en</option><option value="au">au</option><option value="aux">aux</option></select> ${item.country}. <button>Check</button>`;
+  row.appendChild(sent);
+  const fb = document.createElement('div'); fb.className='fb';
+  row.appendChild(fb);
+  const sel = sent.querySelector('select');
+  const btn = sent.querySelector('button');
+  function check(){
+    const val = sel.value;
+    if (item.answers.includes(val)) { fb.textContent = "✓ Correct — " + item.en; fb.className = 'fb ok'; }
+    else if (!val) { fb.textContent = "Pick an option first."; fb.className = 'fb bad'; }
+    else { fb.textContent = "✗ Correct answer: " + item.answers[0] + " — " + item.en; fb.className = 'fb bad'; }
+  }
+  btn.onclick = check;
+  matchDiv.appendChild(row);
+  GLOBAL_VOCAB.push({fr:item.country, en:item.en});
+});
+content.appendChild(matchDiv);
+
+/* ===== 8. Find the mistake ===== */
+const h8m = document.createElement('h2'); h8m.textContent = "8 · Find the mistake"; content.appendChild(h8m);
+const l8m = document.createElement('p'); l8m.className='lead'; l8m.textContent = "Original — some sentences below are correct, some have a mistake (wrong preposition, wrong agreement, or a missing conjugation ending). Say which, then check."; content.appendChild(l8m);
+const MISTAKE_EX = [
+  { fr:"J'habite à Tokyo.", ph:"zhah-BEET ah toh-KYOH", ok:true, note:"Correct — cities always take à." },
+  { fr:"Tu habite en France.", ph:"tü ah-BEET ahn FRAHNSS", ok:false, fix:"Tu habites en France.", note:"Mistake — the tu form needs an -s: habites, not habite." },
+  { fr:"Il habite en Portugal.", ph:"eel ah-BEET ahn por-tü-GAL", ok:false, fix:"Il habite au Portugal.", note:"Mistake — Portugal is masculine, so it takes au, not en." },
+  { fr:"Nous habitons au Pays-Bas.", ph:"noo zah-bee-TOHN oh pay-ee BAH", ok:false, fix:"Nous habitons aux Pays-Bas.", note:"Mistake — Pays-Bas is plural, so it takes aux, not au." },
+  { fr:"Elles habitent en Argentine.", ph:"ell zah-BEET ahn ar-zhan-TEEN", ok:true, note:"Correct — Argentine is feminine, so en is right." },
+  { fr:"Vous habitez au Sénégal.", ph:"voo zah-bee-TAY oh say-nay-GAL", ok:true, note:"Correct — Sénégal is masculine, so au is right." },
+];
+const mistakeDiv = document.createElement('div');
+MISTAKE_EX.forEach(item=>{
+  const row = document.createElement('div'); row.className='mistakerow';
+  const sent = document.createElement('div'); sent.className='sent'; sent.textContent = item.fr; sent.style.cursor='pointer'; sent.onclick=()=>speak(item.fr);
+  const ph = document.createElement('div'); ph.className='ph'; ph.textContent = item.ph;
+  const btns = document.createElement('div'); btns.className='btns';
+  const okBtn = document.createElement('button'); okBtn.textContent='✓ Correct';
+  const badBtn = document.createElement('button'); badBtn.textContent='✗ Mistake';
+  btns.appendChild(okBtn); btns.appendChild(badBtn);
+  const fb = document.createElement('div'); fb.className='fb';
+  row.appendChild(sent); row.appendChild(ph); row.appendChild(btns); row.appendChild(fb);
+  function answer(pickedOk){
+    okBtn.disabled = true; badBtn.disabled = true;
+    if (pickedOk === item.ok) {
+      fb.textContent = "✓ Right — " + item.note + (item.fix ? " Correction: " + item.fix : "");
+      fb.className = 'fb ok';
+    } else {
+      fb.textContent = "✗ Not quite — " + item.note + (item.fix ? " Correction: " + item.fix : "");
+      fb.className = 'fb bad';
+    }
+  }
+  okBtn.onclick = ()=>answer(true);
+  badBtn.onclick = ()=>answer(false);
+  mistakeDiv.appendChild(row);
+});
+content.appendChild(mistakeDiv);
+
+/* ===== 9. Introducing someone else ===== */
+const h7 = document.createElement('h2'); h7.textContent = "9 · Introducing someone else"; content.appendChild(h7);
+const l7 = document.createElement('p'); l7.className='lead'; l7.textContent = "Everything from today combined into one real conversation."; content.appendChild(l7);
+const INTRO_QA = [
+  { q:"C'est qui ?", qph:"say KEE", qen:"Who is that?",
+    a:"Je te présente mon ami. Il s'appelle Alex.", aph:"zhuh tuh pray-ZAHNT mohn nah-MEE. eel sah-PEL ah-LEKS", aen:"Let me introduce my friend. His name is Alex." },
+  { q:"Quelle est sa nationalité ?", qph:"kel eh sah nah-syoh-nah-lee-TAY", qen:"What is his nationality?",
+    a:"Il est canadien. Il habite à Montréal.", aph:"eel eh kah-nah-DYAN. eel ah-BEET ah mohn-ray-AL", aen:"He is Canadian. He lives in Montreal." },
+  { q:"Quelle est sa profession ?", qph:"kel eh sah proh-feh-SYOHN", qen:"What is his profession?",
+    a:"C'est un professeur. Il travaille dans une école.", aph:"say tuhn proh-feh-SUR. eel trah-VYE dahn zewn ay-KOHL", aen:"He is a teacher. He works in a school." },
+];
+INTRO_QA.forEach(item=>{
+  const div = document.createElement('div'); div.className='qa';
+  const q = document.createElement('div'); q.className='q'; q.textContent = item.q; q.onclick=()=>speak(item.q);
+  const qen = document.createElement('div'); qen.className='qen'; qen.textContent = item.qen;
+  div.appendChild(q); div.appendChild(qen);
+  const aRow = document.createElement('div'); aRow.className='a';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.onclick=()=>speak(item.a);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML = `<div class="fr">${item.a}</div><div class="ph">${item.aph}</div><div class="en">${item.aen}</div>`;
+  txt.querySelector('.fr').onclick=()=>speak(item.a);
+  aRow.appendChild(btn); aRow.appendChild(txt);
+  div.appendChild(aRow);
+  content.appendChild(div);
+  GLOBAL_VOCAB.push({fr:item.a, en:item.aen});
+});
+const ex7 = document.createElement('div'); ex7.className='example';
+ex7.innerHTML = "<b>Swap the job:</b> <i>C'est un mécanicien. Il travaille dans un garage.</i> (say tuhn may-kah-nee-SYAN. eel trah-vye dahn zuhn gah-RAZH) — He is a mechanic. He works in a garage. Notice the liaison: <i>dans un</i> sounds like \"dahn-zuhn\". — <b>Shorter opening line:</b> skip \"Je te présente\" entirely: <i>Mon ami s'appelle Alex.</i> (mohn nah-mee sah-pel ah-leks) — My friend's name is Alex.";
+content.appendChild(ex7);
+
+/* ===== 10. Quiz ===== */
+const h8 = document.createElement('h2'); h8.textContent = "10 · Quick quiz"; content.appendChild(h8);
+const quizBox = document.createElement('div'); quizBox.className='quizbox';
+quizBox.innerHTML = `<p class="lead" style="margin:0 0 8px;">Multiple-choice, mixing everything from today.</p>`;
+const quizBtn = document.createElement('button'); quizBtn.className='quizbtn'; quizBtn.textContent='▶ Start quiz';
+const quizArea = document.createElement('div'); quizArea.className='quizarea';
+quizBox.appendChild(quizBtn); quizBox.appendChild(quizArea);
+content.appendChild(quizBox);
+
+function shuffleArr(a){ const b=[...a]; for(let i=b.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [b[i],b[j]]=[b[j],b[i]]; } return b; }
+function runQuiz(pool, area, btn){
+  btn.style.display='none';
+  const qs = shuffleArr(pool).slice(0, Math.min(8, pool.length));
+  let i = 0, score = 0;
+  function showQ(){
+    area.innerHTML = '';
+    if (i >= qs.length) {
+      const res = document.createElement('div'); res.className='quizresult';
+      res.textContent = `Score: ${score} / ${qs.length}`;
+      const retry = document.createElement('button'); retry.className='quizretry'; retry.textContent='↻ Retry';
+      retry.onclick = ()=>{ btn.style.display='inline-block'; area.innerHTML=''; };
+      area.appendChild(res); area.appendChild(retry);
+      return;
+    }
+    const item = qs[i];
+    const wrongPool = pool.filter(p=>p.en!==item.en);
+    const opts = shuffleArr([item, ...shuffleArr(wrongPool).slice(0,3)]);
+    const prog = document.createElement('div'); prog.className='quizprog'; prog.textContent = `Question ${i+1} / ${qs.length}`;
+    const fr = document.createElement('div'); fr.className='quizfr'; fr.textContent = item.fr;
+    area.appendChild(prog); area.appendChild(fr);
+    opts.forEach(o=>{
+      const b = document.createElement('button'); b.className='quizopt'; b.textContent = o.en;
+      b.onclick = ()=>{
+        [...area.querySelectorAll('.quizopt')].forEach(x=>x.disabled=true);
+        if (o.en===item.en){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); [...area.querySelectorAll('.quizopt')].find(x=>x.textContent===item.en).classList.add('correct'); }
+        setTimeout(()=>{ i++; showQ(); }, 900);
+      };
+      area.appendChild(b);
+    });
+  }
+  showQ();
+}
+quizBtn.onclick = ()=> runQuiz(GLOBAL_VOCAB, quizArea, quizBtn);
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+</body>
+</html>

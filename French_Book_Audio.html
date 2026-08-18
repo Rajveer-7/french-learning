@@ -24,6 +24,11 @@
   .track .dur { font-size:12px; color:var(--muted); }
   .track audio { width:100%; height:34px; margin-top:6px; }
   .unknown { color:var(--muted); font-style:italic; }
+  .cue { background:var(--accentbg); border-radius:8px; padding:8px 10px; margin-top:8px; font-size:13px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .cue .play { cursor:pointer; color:var(--accent); font-weight:700; }
+  .cue .fr { font-weight:600; cursor:pointer; }
+  .cue .ph { color:var(--muted); font-style:italic; }
+  .cue .en { color:var(--muted); }
 </style>
 </head>
 <body>
@@ -41,6 +46,8 @@
     <a href="French_Cours6_Notes.html">Cours 6</a>
     <a href="French_Cours7_Notes.html">Cours 7</a>
     <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
     <a href="French_Conversations.html">Conversations</a>
     <a href="French_Full_Guide.html">Full Guide</a>
     <a href="French_Book_Audio.html" class="active">Book Audio</a>
@@ -48,7 +55,7 @@
   </nav>
 
   <div class="note">
-    <b>Where these come from:</b> these are the actual "Piste" (track) recordings from the <i>Saison 1</i> A1 course CD — the same audio the book's speaker-icons point to. A few tracks are matched to their exercise below from class; the rest are labelled generically for now and will be filled in as we cover them in class, or you can identify them by listening.
+    <b>Where these come from:</b> these are the actual "Piste" (track) recordings from the <i>Saison 1</i> A1 course CD — the same audio the book's speaker-icons point to. A few tracks are matched to their exercise below from class; the rest are labelled generically for now and will be filled in as we cover them in class, or you can identify them by listening. Matched tracks also show a short original sample phrase in the same style as what's on the recording, with pronunciation and translation — click it (or ▶) to hear it read aloud.
   </div>
 
   <div class="tracks" id="tracks"></div>
@@ -61,22 +68,35 @@ const TRACKS = [
   { n:3, file:'03piste03.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
   { n:4, file:'04piste04.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
   { n:5, file:'05piste05.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
-  { n:6, file:'06piste06.mp3', desc:'p.20 — "Tendez l\'oreille" (a): écoutez et retrouvez la nationalité de chaque personne' },
-  { n:7, file:'07piste07.mp3', desc:'p.20 — "Tendez l\'oreille" (b): féminin ou masculin — écoutez et complétez le tableau' },
-  { n:8, file:'08piste08.mp3', desc:'p.20–21 — "Tendez l\'oreille" (c)/(d): question ou affirmation, and syllable count' },
+  { n:6, file:'06piste06.mp3', desc:'p.20 — "Tendez l\'oreille" (a): écoutez et retrouvez la nationalité de chaque personne',
+    cue:"Elle est italienne, il est japonais.", ph:"ell eh ee-tal-YEN, eel eh zha-poh-NEH", en:"She is Italian, he is Japanese." },
+  { n:7, file:'07piste07.mp3', desc:'p.20 — "Tendez l\'oreille" (b): féminin ou masculin — écoutez et complétez le tableau',
+    cue:"français / française — masculin ou féminin ?", ph:"frahn-SEH / frahn-SEZ", en:"French (m.) / French (f.) — masculine or feminine?" },
+  { n:8, file:'08piste08.mp3', desc:'p.20–21 — "Tendez l\'oreille" (c)/(d): question ou affirmation, and syllable count',
+    cue:"Tu es canadien ?", ph:"tü eh kah-nah-dyEN", en:"Are you Canadian? — question or statement?" },
   { n:9, file:'09piste09.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
-  { n:10, file:'10piste10.mp3', desc:'p.21 — "C\'est combien ?" (a)/(b): chiffres et prix — numbers and prices' },
+  { n:10, file:'10piste10.mp3', desc:'p.21 — "C\'est combien ?" (a)/(b): chiffres et prix — numbers and prices',
+    cue:"Ça fait combien ? — Douze euros cinquante.", ph:"sah feh kohm-byEN — dooz uh-ROH sank-AHNT", en:"How much is that? — Twelve euros fifty." },
   { n:11, file:'11piste11.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
-  { n:12, file:'12piste12.mp3', desc:'p.22 — "La France en fête": écoutez et retrouvez les rendez-vous festifs de l\'année' },
-  { n:13, file:'13piste13.mp3', desc:'p.23 — "J\'ai rendez-vous !" (b): dialogue — names, ages, nationality' },
-  { n:14, file:'14piste14.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
-  { n:15, file:'15piste15.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:12, file:'12piste12.mp3', desc:'p.22 — "La France en fête": écoutez et retrouvez les rendez-vous festifs de l\'année',
+    cue:"En juillet, c'est la fête nationale.", ph:"ahn zhwee-YEH, seh lah fet nah-syoh-NAL", en:"In July, it's the national holiday." },
+  { n:13, file:'13piste13.mp3', desc:'p.23 — "J\'ai rendez-vous !" (b): dialogue — names, ages, nationality',
+    cue:"J'ai rendez-vous avec Sophie, elle a vingt-cinq ans.", ph:"zheh rahn-day-VOO ah-vek soh-FEE, ell ah vahn-sank AHN", en:"I have an appointment with Sophie, she's twenty-five." },
+  { n:14, file:'14piste14.mp3', desc:'"Personnalités francophones" — listening ex.2–3: Roger Federer, Philippe Geluck, Julie Payette, Amadou et Mariam — order of presentation and matching nationality + profession',
+    cue:"Il est suisse, il joue au tennis.", ph:"eel eh sü-EES, eel zhoo oh teh-NEES", en:"He is Swiss, he plays tennis." },
+  { n:15, file:'15piste15.mp3', desc:'"Personnalités francophones" — "Tendez l\'oreille" (ex.4): identifying which sound each word ends in',
+    cue:"-eur, -euse, -ien, -ienne — écoutez la fin du mot.", ph:"ur / uz / yEN / yen", en:"-eur, -euse, -ien, -ienne — listen to the end of the word." },
   { n:16, file:'16piste16.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
-  { n:17, file:'17piste17.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
-  { n:18, file:'18piste18.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
-  { n:19, file:'19piste19.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
-  { n:20, file:'20piste20.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
-  { n:21, file:'21piste21.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
+  { n:17, file:'17piste17.mp3', desc:'"Qu\'est-ce que vous avez dans votre sac ?" — ex.4–6: reordering the travel documents, completing the fiche (nom/prénom/âge/nationalité/destination), and listening for what\'s in the woman\'s bag',
+    cue:"Quel est votre nom ? Quelle est votre nationalité ?", ph:"kel eh votr NOHM ? kel eh votr nah-syoh-nah-lee-TAY ?", en:"What is your name? What is your nationality?" },
+  { n:18, file:'18piste18.mp3', desc:'"Tendez l\'oreille" — distinguishing the nasal sound [ɛ̃] (un) from the oral sound [yn] (une)',
+    cue:"un — une : écoutez la différence.", ph:"AN — ÜN", en:"un — une: listen to the difference." },
+  { n:19, file:'19piste19.mp3', desc:'"Observez ces phrases" — tonic pronoun examples (moi, toi, lui...); listen and underline the stressed word in each sentence',
+    cue:"Moi, je suis fatigué. Et toi ?", ph:"mwah, zhuh swee fah-tee-GAY. ay TWAH ?", en:"Me, I'm tired. What about you?" },
+  { n:20, file:'20piste20.mp3', desc:'Point Étape — Phonétique: consonnes finales et e muet — listening for which final consonants/e\'s are pronounced vs silent',
+    cue:"Il est grand. Elle est grande.", ph:"eel eh GRAHN. ell eh GRAHND", en:"He is tall. She is tall." },
+  { n:21, file:'21piste21.mp3', desc:'Point Étape — Phonétique: un / une — hearing the difference between the nasal and oral vowel sound',
+    cue:"un ami — une amie", ph:"un-ah-MEE — ün-ah-MEE", en:"a (male) friend — a (female) friend" },
   { n:22, file:'22piste22.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
   { n:23, file:'23piste23.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
   { n:24, file:'24piste24.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
@@ -143,6 +163,18 @@ const TRACKS = [
   { n:85, file:'85piste85.mp3', desc:'Saison 1 audio CD — not yet matched to a page (identify by listening, or we\'ll tag it as we reach it in class)' },
 ];
 
+let frVoice = null;
+function pickVoice(){ const vs = speechSynthesis.getVoices(); frVoice = vs.find(v=>v.lang==='fr-FR') || vs.find(v=>v.lang && v.lang.startsWith('fr')) || null; }
+pickVoice();
+if (typeof speechSynthesis !== 'undefined') speechSynthesis.onvoiceschanged = pickVoice;
+function speak(text){
+  if (typeof speechSynthesis === 'undefined') return;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'fr-FR'; if (frVoice) u.voice = frVoice; u.rate = 0.9;
+  speechSynthesis.speak(u);
+}
+
 const container = document.getElementById('tracks');
 TRACKS.forEach(t => {
   const div = document.createElement('div'); div.className = 'track';
@@ -152,6 +184,13 @@ TRACKS.forEach(t => {
   const desc = document.createElement('div'); desc.className = 'desc' + (t.desc.includes('not yet matched') ? ' unknown' : ''); desc.textContent = t.desc;
   div.appendChild(top);
   div.appendChild(desc);
+  if (t.cue) {
+    const cueRow = document.createElement('div'); cueRow.className = 'cue';
+    cueRow.innerHTML = `<span class="play" title="Hear this sample phrase">▶</span> <span class="fr">${t.cue}</span> <span class="ph">${t.ph}</span> <span class="en">${t.en}</span>`;
+    cueRow.querySelector('.play').onclick = ()=>speak(t.cue);
+    cueRow.querySelector('.fr').onclick = ()=>speak(t.cue);
+    div.appendChild(cueRow);
+  }
   const audio = document.createElement('audio'); audio.controls = true; audio.preload = 'none';
   const src = document.createElement('source'); src.src = t.file; src.type = 'audio/mpeg';
   audio.appendChild(src);

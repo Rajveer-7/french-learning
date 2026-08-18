@@ -78,6 +78,8 @@
     <a href="French_Cours6_Notes.html">Cours 6</a>
     <a href="French_Cours7_Notes.html">Cours 7</a>
     <a href="French_Cours8_Notes.html" class="active">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
     <a href="French_Conversations.html">Conversations</a>
     <a href="French_Full_Guide.html">Full Guide</a>
     <a href="French_Book_Audio.html">Book Audio</a>
@@ -342,8 +344,70 @@ FILLITEMS.forEach(item=>{
 });
 content.appendChild(fillDiv);
 
+// 9b. Extra session — more countries, habiter, introducing someone
+const h9b = document.createElement('h2'); h9b.textContent = "11 · Bonus session — more countries & le verbe HABITER"; content.appendChild(h9b);
+const l9b = document.createElement('p'); l9b.className='lead'; l9b.textContent = "A follow-up practice session covering more countries sorted by gender, plus the verb you pair with them: habiter (to live)."; content.appendChild(l9b);
+
+const MORECOUNTRIES = [
+  ["le Canada","luh kah-nah-DAH","Canada (masc.)"],["le Japon","luh zhah-POHN","Japan (masc.)"],
+  ["le Portugal","luh por-tew-GAL","Portugal (masc.)"],["le Brésil","luh bray-ZEEL","Brazil (masc.)"],
+  ["le Mexique","luh mek-SEEK","Mexico (masc. — exception, ends in -e!)"],["le Sénégal","luh say-nay-GAL","Senegal (masc.)"],
+  ["le Vietnam","luh vyet-NAHM","Vietnam (masc.)"],["le Chili","luh shee-LEE","Chile (masc.)"],
+  ["le Pérou","luh pay-ROO","Peru (masc.)"],["le Royaume-Uni","luh rwah-yohm-ew-NEE","United Kingdom (masc.)"],
+  ["l'Italie","lee-tah-LEE","Italy (fem.)"],["l'Espagne","less-PAHN-yuh","Spain (fem.)"],
+  ["l'Australie","loh-strah-LEE","Australia (fem.)"],
+  ["les Pays-Bas","lay pay-ee-BAH","the Netherlands (plural)"],["les Philippines","lay fee-lee-PEEN","the Philippines (plural)"],
+];
+MORECOUNTRIES.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+
+const note2 = document.createElement('div'); note2.className='note';
+note2.innerHTML = "<b>Exception to remember:</b> most countries ending in -e are feminine, but <b>le Mexique, le Cambodge, le Zimbabwe, le Mozambique</b> are masculine anyway. Learn these with their article from day one. <b>Also:</b> masculine countries that start with a vowel sound (like l'Iran) switch to <b>en / d'</b> instead of au/du, purely to avoid an awkward vowel clash — <i>j'habite en Iran</i>, not <i>au Iran</i>.";
+content.appendChild(note2);
+
+const HABITER = [
+  ["j'habite","zhah-BEET","I live"],["tu habites","tew ah-BEET","you live"],
+  ["il / elle habite","eel / ell ah-BEET","he / she lives"],["nous habitons","noo zah-bee-TOHN","we live"],
+  ["vous habitez","voo zah-bee-TAY","you live"],["ils / elles habitent","eel / ell zah-BEET","they live"],
+];
+const h9c = document.createElement('h3'); h9c.style.fontSize='15px'; h9c.style.margin='16px 0 6px'; h9c.textContent = "Le verbe habiter — a regular -ER verb"; content.appendChild(h9c);
+HABITER.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+const ex2 = document.createElement('div'); ex2.className='example';
+ex2.innerHTML = "<b>-ER pattern:</b> je → -e, tu → -es, il/elle → -e, nous → -ons, vous → -ez, ils/elles → -ent. J'habite à Paris. J'habite en France. J'habite au Canada. J'habite aux Pays-Bas — one verb, four prepositions depending on the place.";
+content.appendChild(ex2);
+
+// 9c. Introducing someone else
+const h9d = document.createElement('h2'); h9d.textContent = "12 · Introducing someone else"; content.appendChild(h9d);
+const l9d = document.createElement('p'); l9d.className='lead'; l9d.textContent = "Everything from today combined into one real conversation: telling someone about a third person."; content.appendChild(l9d);
+
+const INTRO_QA = [
+  { q:"C'est qui ?", qph:"say KEE", qen:"Who is that?",
+    a:"Je te présente mon ami. Il s'appelle Alex.", aph:"zhuh tuh pray-ZAHNT mohn nah-MEE. eel sah-PEL ah-LEKS", aen:"Let me introduce my friend. His name is Alex." },
+  { q:"Quelle est sa nationalité ?", qph:"kel eh sah nah-syoh-nah-lee-TAY", qen:"What is his nationality?",
+    a:"Il est canadien. Il habite à Montréal.", aph:"eel eh kah-nah-DYAN. eel ah-BEET ah mohn-ray-AL", aen:"He is Canadian. He lives in Montreal." },
+  { q:"Quelle est sa profession ?", qph:"kel eh sah proh-feh-SYOHN", qen:"What is his profession?",
+    a:"C'est un professeur. Il travaille dans une école.", aph:"say tuhn proh-feh-SUR. eel trah-VYE dahn zewn ay-KOHL", aen:"He is a teacher. He works in a school." },
+];
+INTRO_QA.forEach(item=>{
+  const div = document.createElement('div'); div.className='qa';
+  const q = document.createElement('div'); q.className='q'; q.textContent = item.q; q.onclick=()=>speak(item.q);
+  const qen = document.createElement('div'); qen.className='qen'; qen.textContent = item.qen;
+  div.appendChild(q); div.appendChild(qen);
+  const aRow = document.createElement('div'); aRow.className='a';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.onclick=()=>speak(item.a);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML = `<div class="fr">${item.a}</div><div class="ph">${item.aph}</div><div class="en">${item.aen}</div>`;
+  txt.querySelector('.fr').onclick=()=>speak(item.a);
+  aRow.appendChild(btn); aRow.appendChild(txt);
+  div.appendChild(aRow);
+  content.appendChild(div);
+});
+
+const ex3 = document.createElement('div'); ex3.className='example';
+ex3.innerHTML = "<b>Swap the job:</b> <i>C'est un mécanicien. Il travaille dans un garage.</i> (say tuhn may-kah-nee-SYAN. eel trah-vye dahn zuhn gah-RAZH) — He is a mechanic. He works in a garage. Notice the liaison: <i>dans un</i> sounds like \"dahn-zuhn\". — <b>Shorter opening line:</b> skip \"Je te présente\" entirely: <i>Mon ami s'appelle Alex.</i> (mohn nah-mee sah-pel ah-leks) — My friend's name is Alex.";
+content.appendChild(ex3);
+
 // 10. Quiz
-const h10 = document.createElement('h2'); h10.textContent = "10 · Quick quiz"; content.appendChild(h10);
+const h10 = document.createElement('h2'); h10.textContent = "13 · Quick quiz"; content.appendChild(h10);
 const quizBox = document.createElement('div'); quizBox.className='quizbox';
 quizBox.innerHTML = `<p class="lead" style="margin:0 0 8px;">Multiple-choice, mixing every word and fact from today's class.</p>`;
 const quizBtn = document.createElement('button'); quizBtn.className='quizbtn'; quizBtn.textContent='▶ Start quiz';
