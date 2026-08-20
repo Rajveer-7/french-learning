@@ -76,6 +76,7 @@
     <a href="French_Cours8_Notes.html">Cours 8</a>
     <a href="French_Cours9_Notes.html">Cours 9</a>
     <a href="French_Cours10_Notes.html" class="active">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
     <a href="French_Conversations.html">Conversations</a>
     <a href="French_Full_Guide.html">Full Guide</a>
     <a href="French_Book_Audio.html">Book Audio</a>
@@ -187,6 +188,20 @@ BAG_QA.forEach(item=>{
   content.appendChild(div);
 });
 
+const warn17 = document.createElement('div'); warn17.className='note';
+warn17.innerHTML = "<b>Piste 17 — the real audio behind this topic.</b> ⚠ No verified transcript — I can't listen to audio myself, so this is the real recording plus the book's own task, not an invented dialogue.";
+content.appendChild(warn17);
+const box17 = document.createElement('div'); box17.className='row'; box17.style.flexDirection='column'; box17.style.alignItems='stretch';
+const t17title = document.createElement('div'); t17title.style.cssText='font-weight:700;margin-bottom:4px;'; t17title.textContent = "Piste 17 — \"Qu'est-ce que vous avez dans votre sac ?\" (ex.4–6)";
+const t17ph = document.createElement('div'); t17ph.className='ph'; t17ph.textContent = "kess-kuh voo-zah-vay dahn votr SAHK";
+const t17en = document.createElement('div'); t17en.className='en'; t17en.textContent = "What do you have in your bag? — a three-part exercise.";
+const t17explain = document.createElement('div'); t17explain.style.cssText='font-size:13px;color:var(--ink);margin-top:8px;'; t17explain.textContent = "ex.4: put a set of travel documents back in the right order and answer where the scene is, who's asking the questions, and how the traveller is journeying. ex.5: complete an identity fiche (Nom / Prénom / Âge / Nationalité / Destination) then find the customs-officer's exact questions on a communication chart. ex.6: listen again and list what's actually inside the woman's bag.";
+const audio17 = document.createElement('audio'); audio17.controls = true; audio17.preload='none'; audio17.style.cssText='width:100%;margin-top:8px;';
+const src17 = document.createElement('source'); src17.src = '17piste17.mp3'; src17.type = 'audio/mpeg';
+audio17.appendChild(src17);
+box17.appendChild(t17title); box17.appendChild(t17ph); box17.appendChild(t17en); box17.appendChild(t17explain); box17.appendChild(audio17);
+content.appendChild(box17);
+
 /* 2. Tonic pronouns */
 const h2 = document.createElement('h2'); h2.textContent = "2 · Tonic (stressed) pronouns — moi, toi, lui..."; content.appendChild(h2);
 const l2 = document.createElement('p'); l2.className='lead'; l2.textContent = "A second set of \"I/you/he\" words, used any time the pronoun needs to stand alone or get extra emphasis."; content.appendChild(l2);
@@ -207,6 +222,20 @@ content.appendChild(note2);
 const ex2 = document.createElement('div'); ex2.className='example';
 ex2.innerHTML = "<b>Et vous, vous avez quoi dans votre sac ? Moi, j'ai un ordinateur. Lui, il n'a pas de sac.</b> (ay voo, voo-zah-vay kwah dahn votr sahk ? mwah, zhay uhn or-dee-nah-tur. lwee, eel nah pah duh sahk.) — And you, what do you have in your bag? Me, I have a laptop. Him, he doesn't have a bag.";
 content.appendChild(ex2);
+
+const warn19 = document.createElement('div'); warn19.className='note';
+warn19.innerHTML = "<b>Piste 19 — the real audio for \"Observez ces phrases.\"</b> ⚠ No verified transcript — I can't listen to audio myself, so this is the real recording plus the book's own task, not an invented dialogue.";
+content.appendChild(warn19);
+const box19 = document.createElement('div'); box19.className='row'; box19.style.flexDirection='column'; box19.style.alignItems='stretch';
+const t19title = document.createElement('div'); t19title.style.cssText='font-weight:700;margin-bottom:4px;'; t19title.textContent = "Piste 19 — Observez ces phrases : écoutez, soulignez le mot accentué, trouvez sa place";
+const t19ph = document.createElement('div'); t19ph.className='ph'; t19ph.textContent = "ay-koo-TAY lay FRAHZ, soo-lee-NYAY luh moh ah-sahn-TWAY";
+const t19en = document.createElement('div'); t19en.className='en'; t19en.textContent = "Listen to the sentences, underline the stressed word, and work out where it goes.";
+const t19explain = document.createElement('div'); t19explain.style.cssText='font-size:13px;color:var(--ink);margin-top:8px;'; t19explain.textContent = "This is the audio for the exact example above — sentences using \"Moi, j'ai...\" and \"Lui, il n'a pas...\". The grammar point it's building toward: the accented/tonic pronoun goes at the very start of the sentence to emphasize who you're talking about, exactly like note 2 explains.";
+const audio19 = document.createElement('audio'); audio19.controls = true; audio19.preload='none'; audio19.style.cssText='width:100%;margin-top:8px;';
+const src19 = document.createElement('source'); src19.src = '19piste19.mp3'; src19.type = 'audio/mpeg';
+audio19.appendChild(src19);
+box19.appendChild(t19title); box19.appendChild(t19ph); box19.appendChild(t19en); box19.appendChild(t19explain); box19.appendChild(audio19);
+content.appendChild(box19);
 
 /* 3. Personal info + polite requests */
 const h3 = document.createElement('h2'); h3.textContent = "3 · Personal-info questions & polite requests"; content.appendChild(h3);
@@ -266,6 +295,30 @@ const PHON = [
   ["un journaliste / une journaliste", "uhn zhoor-nah-LEEST / ewn zhoor-nah-LEEST", "a journalist (m) / a journalist (f)"],
 ];
 PHON.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+
+const warnPhon = document.createElement('div'); warnPhon.className='note';
+warnPhon.innerHTML = "<b>Pistes 18, 20 & 21 — the real audio for this section.</b> ⚠ No verified transcripts — I can't listen to audio myself, so these are the real recordings plus the book's own tasks, not invented dialogue.";
+content.appendChild(warnPhon);
+const TRACKSPHON = [
+  { n:18, file:'18piste18.mp3', title:"Piste 18 — Tendez l'oreille : [ɛ̃] (un) ou [yn] (une) ?", ph:"tahn-DAY loh-RAY", en:"Listen carefully — do you hear the nasal sound (un) or the oral sound (une)?",
+    explain:"Direct audio for the un/une distinction explained in the note above. Each item plays a noun phrase; the task is deciding which article you heard purely from the sound, since un artiste and une artiste are spelled almost the same." },
+  { n:20, file:'20piste20.mp3', title:"Piste 20 — Consonnes finales et e muet : écoutez et observez", ph:"kohn-SUN feen-AL ay uh mwet", en:"Final consonants and silent e — listen and observe.",
+    explain:"This is the audio behind the CaReFuL rule above: most final consonants and final -e's are silent, except C, R, F, L. Listen for words like une actrice anglaise vs il est anglais — the -s only becomes audible in the feminine form." },
+  { n:21, file:'21piste21.mp3', title:"Piste 21 — Un – une : écoutez et répétez", ph:"uhn — ewn", en:"Un — une: listen and repeat.",
+    explain:"A repetition drill pairing masculine/feminine nouns (un juge/une juge, un artiste/une artiste, un pianiste/une pianiste) so you can practice producing the nasal vs oral distinction yourself, not just recognizing it." },
+];
+TRACKSPHON.forEach(t=>{
+  const box = document.createElement('div'); box.className='row'; box.style.flexDirection='column'; box.style.alignItems='stretch';
+  const title = document.createElement('div'); title.style.cssText='font-weight:700;margin-bottom:4px;'; title.textContent = t.title;
+  const ph = document.createElement('div'); ph.className='ph'; ph.textContent = t.ph;
+  const en = document.createElement('div'); en.className='en'; en.textContent = t.en;
+  const explain = document.createElement('div'); explain.style.cssText='font-size:13px;color:var(--ink);margin-top:8px;'; explain.textContent = t.explain;
+  const audio = document.createElement('audio'); audio.controls = true; audio.preload = 'none'; audio.style.cssText = 'width:100%;margin-top:8px;';
+  const src = document.createElement('source'); src.src = t.file; src.type = 'audio/mpeg';
+  audio.appendChild(src);
+  box.appendChild(title); box.appendChild(ph); box.appendChild(en); box.appendChild(explain); box.appendChild(audio);
+  content.appendChild(box);
+});
 
 /* 6. Practice */
 const h6 = document.createElement('h2'); h6.textContent = "6 · Practice — pick the right tonic pronoun"; content.appendChild(h6);

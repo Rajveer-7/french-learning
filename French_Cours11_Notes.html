@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 11 — Audio Notes</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .qa .a { display:flex; align-items:center; gap:10px; background:var(--accentbg); border-radius:10px; padding:8px 10px; margin-top:6px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:110px; text-align:center; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle ul { margin:6px 0 10px; padding-left:20px; font-size:14.5px; }
+  .riddle .prompt { font-weight:600; color:var(--accent); margin-bottom:4px; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-right:8px; margin-bottom:6px; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:6px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 11 Audio Notes</h1>
+  <p class="sub">The Language SKOOL · 17 August 2026 · les pronoms sujets et toniques — subject &amp; tonic pronouns, emphasis, avec/pour/chez, talking about yourself</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html" class="active">Cours 11</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Articles.html">Articles</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "🔊 " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(text.replace(/\s+([!?])/g,'$1'));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play '+fr);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML=`<div class="fr">${fr}</div>${ph?`<div class="ph">${ph}</div>`:''}${en?`<div class="en">${en}</div>`:''}`;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+
+/* 1. Subject pronouns recap */
+const h1 = document.createElement('h2'); h1.textContent = "1 · Les pronoms sujets — subject pronouns (recap)"; content.appendChild(h1);
+const l1 = document.createElement('p'); l1.className='lead'; l1.textContent = "The pronoun that goes before a conjugated verb. Quick recap before today's main topic."; content.appendChild(l1);
+const SUBJ = [
+  ["je", "zhuh", "I"],
+  ["tu", "tew", "you (informal, one person)"],
+  ["il", "eel", "he / it"],
+  ["elle", "ell", "she / it"],
+  ["nous", "noo", "we"],
+  ["vous", "voo", "you (formal, or plural)"],
+  ["ils", "eel", "they (masculine or mixed group)"],
+  ["elles", "ell", "they (all-feminine group)"],
+];
+SUBJ.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+
+/* 2. Tonic pronouns — full table */
+const h2 = document.createElement('h2'); h2.textContent = "2 · Les pronoms toniques — tonic (stressed) pronouns"; content.appendChild(h2);
+const l2 = document.createElement('p'); l2.className='lead'; l2.textContent = "Every subject pronoun has a \"strong\" partner form, used whenever the pronoun needs to stand on its own or carry extra weight."; content.appendChild(l2);
+const TONIC = [
+  ["je → moi", "zhuh → mwah", "I → me"],
+  ["tu → toi", "tew → twah", "you → you"],
+  ["il → lui", "eel → lwee", "he → him"],
+  ["elle → elle", "ell → ell", "she → her"],
+  ["nous → nous", "noo → noo", "we → us"],
+  ["vous → vous", "voo → voo", "you → you"],
+  ["ils → eux", "eel → uh", "they (m) → them"],
+  ["elles → elles", "ell → ell", "they (f) → them"],
+];
+TONIC.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+const note2 = document.createElement('div'); note2.className='note';
+note2.innerHTML = "<b>Only four actually change form:</b> je→moi, tu→toi, il→lui, ils→eux. The rest (elle, nous, vous, elles) look exactly the same as the subject pronoun — that's the easy half of the table.";
+content.appendChild(note2);
+
+/* 3. Emphasis — doubling the pronoun */
+const h3 = document.createElement('h2'); h3.textContent = "3 · Emphasis — doubling the pronoun"; content.appendChild(h3);
+const l3 = document.createElement('p'); l3.className='lead'; l3.textContent = "The most common use in conversation: put the tonic pronoun first, comma, then the normal sentence with its subject pronoun. It's how French adds stress — English does this with tone of voice instead."; content.appendChild(l3);
+const EMPH = [
+  { fr:"Moi, je suis étudiant.", ph:"mwah, zhuh swee zay-tew-DYAHN", en:"ME, I'm a student." },
+  { fr:"Toi, tu aimes le rap.", ph:"twah, tew em luh RAP", en:"YOU, you like rap." },
+  { fr:"Lui, il joue au football.", ph:"lwee, eel zhoo oh foot-BALL", en:"HIM, he plays football." },
+  { fr:"Elle, elle est française.", ph:"ell, ell eh frahn-SEZ", en:"HER, she's French." },
+];
+EMPH.forEach(({fr,ph,en})=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+const ex3 = document.createElement('div'); ex3.className='example';
+ex3.innerHTML = "<b>Et vous, vous avez quoi dans votre sac ? Moi, j'ai un ordinateur. Lui, il n'a pas de sac.</b> (ay voo, voo-zah-vay kwah dahn votr sahk ? mwah, zhay uhn or-dee-nah-tur. lwee, eel nah pah duh sahk.) — And you, what do you have in your bag? Me, I have a laptop. Him, he doesn't have a bag.";
+content.appendChild(ex3);
+
+/* 4. After a preposition: avec / pour / chez */
+const h4 = document.createElement('h2'); h4.textContent = "4 · After a preposition — avec, pour, chez"; content.appendChild(h4);
+const l4 = document.createElement('p'); l4.className='lead'; l4.textContent = "The other everyday trigger for the tonic form: right after these three little prepositions, you always use moi/toi/lui, never je/tu/il."; content.appendChild(l4);
+const PREPW = [
+  ["avec", "ah-VEK", "with"],
+  ["pour", "poor", "for"],
+  ["chez", "shay", "at (someone's home / place)"],
+];
+PREPW.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+const PREPEX = [
+  { fr:"Je suis avec toi.", ph:"zhuh swee zah-vek TWAH", en:"I am with you.",
+    words:"Je (I) · suis (am — from être) · avec (with) · toi (you — tonic form, required right after avec). Word for word: \"I am with you.\"" },
+  { fr:"C'est pour moi.", ph:"seh poor MWAH", en:"It's for me.",
+    words:"C'est (it is — c' + est) · pour (for) · moi (me — tonic form, required right after pour). Word for word: \"It-is for me.\"" },
+  { fr:"Je vais chez lui.", ph:"zhuh veh shay LWEE", en:"I'm going to his place.",
+    words:"Je (I) · vais (go/am going — from aller) · chez (at the home/place of) · lui (him — tonic form, required right after chez). Word for word: \"I go at-the-place-of him.\"" },
+];
+PREPEX.forEach(({fr,ph,en,words})=>{
+  const row = makeRow(fr,ph,en);
+  const ph2 = document.createElement('div'); ph2.style.cssText='font-size:12px;color:var(--muted);margin-top:4px;'; ph2.textContent = words;
+  row.querySelector('.txt').appendChild(ph2);
+  content.appendChild(row); GLOBAL_VOCAB.push({fr,en});
+});
+const note4 = document.createElement('div'); note4.className='note';
+note4.innerHTML = "<b>chez</b> doesn't translate with one English word — it means \"at [someone]'s place\": <i>chez moi</i> = at my place/home, <i>chez le médecin</i> = at the doctor's. Whenever you'd say \"someone's house/office/shop\" in English, French usually just says <i>chez + person</i>.";
+content.appendChild(note4);
+
+/* 5. Guess who — riddle activity */
+const h5 = document.createElement('h2'); h5.textContent = "5 · Devinez qui — guess who (original activity)"; content.appendChild(h5);
+const l5 = document.createElement('p'); l5.className='lead'; l5.textContent = "Same format as in class: read the clues, then answer \"C'est ___ !\" with the correct tonic pronoun."; content.appendChild(l5);
+const RIDDLES = [
+  { clues:["C'est un garçon.","Il aime la cuisine.","Il apprend le japonais.","Il joue de la guitare."], answers:["lui"], en:"It's a boy. He likes cooking. He's learning Japanese. He plays guitar. → C'est LUI !" },
+  { clues:["C'est une fille.","Elle aime les animaux.","Elle adore dessiner.","Elle parle trois langues."], answers:["elle"], en:"It's a girl. She likes animals. She loves drawing. She speaks three languages. → C'est ELLE !" },
+  { clues:["Ce sont des filles.","Elles aiment danser.","Elles habitent à Paris.","Elles apprennent l'anglais."], answers:["elles"], en:"They're girls. They like dancing. They live in Paris. They're learning English. → Ce sont ELLES !" },
+  { clues:["Ce sont des garçons.","Ils aiment le sport.","Ils jouent au basket.","Ils voyagent beaucoup."], answers:["eux"], en:"They're boys. They like sport. They play basketball. They travel a lot. → Ce sont EUX !" },
+];
+const riddleDiv = document.createElement('div');
+RIDDLES.forEach(item=>{
+  const box = document.createElement('div'); box.className='riddle';
+  const ul = document.createElement('ul');
+  item.clues.forEach(c=>{ const li = document.createElement('li'); li.textContent = c; ul.appendChild(li); });
+  const prompt = document.createElement('div'); prompt.className='prompt'; prompt.textContent = "C'est qui ?";
+  box.appendChild(prompt); box.appendChild(ul);
+  const btns = document.createElement('div'); btns.className='btns';
+  ["lui","elle","eux","elles"].forEach(opt=>{
+    const b = document.createElement('button'); b.textContent = opt;
+    b.onclick = ()=>{
+      [...btns.querySelectorAll('button')].forEach(x=>x.disabled=true);
+      if (item.answers.includes(opt)) { fb.textContent = "✓ Correct — " + item.en; fb.className='fb ok'; }
+      else { fb.textContent = "✗ Not quite — correct answer: " + item.answers[0] + ". " + item.en; fb.className='fb bad'; }
+    };
+    btns.appendChild(b);
+  });
+  box.appendChild(btns);
+  const fb = document.createElement('div'); fb.className='fb';
+  box.appendChild(fb);
+  riddleDiv.appendChild(box);
+});
+content.appendChild(riddleDiv);
+
+/* 6. Talking about yourself */
+const h6 = document.createElement('h2'); h6.textContent = "6 · Parler de soi — talking about yourself with moi"; content.appendChild(h6);
+const l6 = document.createElement('p'); l6.className='lead'; l6.textContent = "The class activity: open with \"Moi,\" then say what you like, love, or dislike. Original example answers below (not the same as what anyone said in class)."; content.appendChild(l6);
+const SELF = [
+  { fr:"Moi, j'aime cuisiner.", ph:"mwah, zhem kwee-zee-NAY", en:"Me, I like cooking." },
+  { fr:"Moi, j'adore les voyages.", ph:"mwah, zhah-dor lay vwah-YAZH", en:"Me, I love travelling." },
+  { fr:"Moi, je n'aime pas me réveiller tôt.", ph:"mwah, zhuh nem pah muh ray-veh-yay TOH", en:"Me, I don't like waking up early." },
+];
+SELF.forEach(({fr,ph,en})=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+const h6b = document.createElement('h3'); h6b.className='sub2'; h6b.textContent = "Your turn — practice questions"; content.appendChild(h6b);
+const SELF_QA = [
+  { q:"Qu'est-ce que vous aimez faire ?", qph:"kess kuh voo-zay-may FEHR", qen:"What do you like to do?",
+    a:"Moi, j'aime lire et j'adore le café.", aph:"mwah, zhem leer ay zhah-dor luh kah-FAY", aen:"Me, I like reading and I love coffee." },
+  { q:"Qu'est-ce que vous n'aimez pas ?", qph:"kess kuh voo nay-may PAH", qen:"What don't you like?",
+    a:"Moi, je n'aime pas attendre.", aph:"mwah, zhuh nem pah zah-TAHNDR", aen:"Me, I don't like waiting." },
+];
+SELF_QA.forEach(item=>{
+  const div = document.createElement('div'); div.className='qa';
+  const q = document.createElement('div'); q.className='q'; q.textContent = item.q; q.onclick=()=>speak(item.q);
+  const qen = document.createElement('div'); qen.className='qen'; qen.textContent = item.qen;
+  div.appendChild(q); div.appendChild(qen);
+  const aRow = document.createElement('div'); aRow.className='a';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.onclick=()=>speak(item.a);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML = `<div class="fr">${item.a}</div><div class="ph">${item.aph}</div><div class="en">${item.aen}</div>`;
+  txt.querySelector('.fr').onclick=()=>speak(item.a);
+  aRow.appendChild(btn); aRow.appendChild(txt);
+  div.appendChild(aRow);
+  content.appendChild(div);
+  GLOBAL_VOCAB.push({fr:item.a, en:item.aen});
+});
+const note6 = document.createElement('div'); note6.className='note';
+note6.innerHTML = "<b>aimer vs adorer vs ne pas aimer:</b> j'aime = I like, j'adore = I love (stronger), je n'aime pas = I don't like. All three work with a noun (<i>j'aime la musique</i>) or a verb in the infinitive (<i>j'aime cuisiner</i>).";
+content.appendChild(note6);
+
+/* 7. Practice — fill the tonic pronoun */
+const h7 = document.createElement('h2'); h7.textContent = "7 · Practice — fill in the tonic pronoun"; content.appendChild(h7);
+const l7 = document.createElement('p'); l7.className='lead'; l7.textContent = "Original sentences, different from Cours 10's set. Type moi, toi, lui, elle, nous, vous, eux, or elles."; content.appendChild(l7);
+const TONIC_FILL2 = [
+  { before:"", answers:["moi"], after:", j'adore le chocolat.", en:"Me, I love chocolate." },
+  { before:"C'est pour", answers:["toi"], after:", pas pour moi.", en:"It's for you, not for me." },
+  { before:"Je vais chez", answers:["lui"], after:" ce soir.", en:"I'm going to his place tonight." },
+  { before:"", answers:["elle"], after:", elle n'aime pas le café.", en:"Her, she doesn't like coffee." },
+  { before:"Tu viens avec", answers:["nous"], after:" ?", en:"Are you coming with us?" },
+  { before:"", answers:["eux"], after:", ils adorent voyager.", en:"Them, they love travelling." },
+];
+const tonicDiv2 = document.createElement('div');
+TONIC_FILL2.forEach(item=>{
+  const row = document.createElement('div'); row.className='fillrow';
+  const sent = document.createElement('div'); sent.className='sent';
+  sent.innerHTML = `${item.before} <input type="text" maxlength="8"> ${item.after} <button>Check</button>`;
+  row.appendChild(sent);
+  const fb = document.createElement('div'); fb.className='fb';
+  row.appendChild(fb);
+  const input = sent.querySelector('input');
+  const btn = sent.querySelector('button');
+  function check(){
+    const val = input.value.trim().toLowerCase();
+    if (item.answers.includes(val)) { fb.textContent = "✓ Correct — " + item.en; fb.className = 'fb ok'; }
+    else { fb.textContent = "✗ Correct answer: " + item.answers[0] + " — " + item.en; fb.className = 'fb bad'; }
+  }
+  btn.onclick = check;
+  input.addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); check(); } });
+  tonicDiv2.appendChild(row);
+});
+content.appendChild(tonicDiv2);
+
+/* 8. Insist! — a mini dialogue with tonic pronouns */
+const h7b = document.createElement('h2'); h7b.textContent = "8 · Insistez ! — a mini dialogue with tonic pronouns"; content.appendChild(h7b);
+const l7b = document.createElement('p'); l7b.className='lead'; l7b.textContent = "From the book's grammar page: ask a yes/no question, get a surprising answer, then insist by opening with the tonic pronoun. Moi ? Non uses non after a positive question; Moi ? Si uses si (not oui) to contradict a negative one."; content.appendChild(l7b);
+const INSIST = [
+  { fr:"— Tu habites à Toronto ? — Moi ? Non. Et toi, tu habites à Toronto ?", ph:"tew ah-beet ah toh-ron-TOH ? mwah ? nohn. ay twah, tew ah-beet ah toh-ron-TOH ?", en:"Do you live in Toronto? — Me? No. What about you, do you live in Toronto?" },
+  { fr:"— Moi ? Si, j'habite à Toronto.", ph:"mwah ? see, zhah-beet ah toh-ron-TOH", en:"Me? Yes I do, I live in Toronto." },
+  { fr:"— Tu n'aimes pas le café ? — Moi ? Si, j'adore le café !", ph:"tew nem pah luh kah-FAY ? mwah ? see, zhah-dor luh kah-FAY", en:"You don't like coffee? — Me? Yes I do, I love coffee!" },
+];
+INSIST.forEach(({fr,ph,en})=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+const note7b = document.createElement('div'); note7b.className='note';
+note7b.innerHTML = "<b>oui vs si:</b> use <i>oui</i> to answer yes to a normal question, but switch to <i>si</i> when contradicting a negative question. — <i>Tu n'aimes pas le café ?</i> — <i>Si !</i> (Yes I do! — disagreeing with the \"don't\") vs a plain <i>Oui</i> which would sound like agreeing that you don't.";
+content.appendChild(note7b);
+
+/* 9. La négation (1) */
+const h9 = document.createElement('h2'); h9.textContent = "9 · La négation (1) — ne...pas"; content.appendChild(h9);
+const l9 = document.createElement('p'); l9.className='lead'; l9.textContent = "Also covered live today — the basic negative sentence, wrapped around the verb."; content.appendChild(l9);
+const note9 = document.createElement('div'); note9.className='note';
+note9.innerHTML = "<b>Three rules for a negative sentence:</b> 1) a negative sentence needs two words, <i>ne</i> and <i>pas</i>. 2) <i>ne</i> (or <i>n'</i> before a vowel sound) goes right before the conjugated verb. 3) <i>pas</i> goes right after it. So the verb is sandwiched: <i>ne/n' + VERB + pas</i>.";
+content.appendChild(note9);
+const NEG = [
+  { fr:"Je suis étudiant.", neg:"Je ne suis pas étudiant.", ph:"zhuh nuh swee pah zay-tew-DYAHN", en:"I am not a student.",
+    words:"Je (I) · ne...pas (not — the two-part negation, wrapped around the verb) · suis (am — from être, \"to be\") · étudiant (student). Literally: \"I not-am not student.\"" },
+  { fr:"J'habite à Paris.", neg:"Je n'habite pas à Paris.", ph:"zhuh nah-BEET pah zah pah-REE", en:"I don't live in Paris.",
+    words:"Je (I) · n'...pas (not — n' because habite starts with a vowel sound) · habite (live — from habiter, \"to live\") · à Paris (in Paris). Literally: \"I not-live not in Paris.\"" },
+  { fr:"Il parle anglais.", neg:"Il ne parle pas anglais.", ph:"eel nuh parl pah zahn-GLEH", en:"He doesn't speak English.",
+    words:"Il (he) · ne...pas (not) · parle (speaks — from parler, \"to speak\") · anglais (English). Literally: \"He not-speaks not English.\"" },
+  { fr:"Elle aime le café.", neg:"Elle n'aime pas le café.", ph:"ell nem pah luh kah-FAY", en:"She doesn't like coffee.",
+    words:"Elle (she) · n'...pas (not — n' because aime starts with a vowel sound) · aime (likes — from aimer, \"to like/love\") · le café (the coffee). Literally: \"She not-likes not the coffee.\"" },
+];
+NEG.forEach(item=>{
+  const row = document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.onclick=()=>speak(item.neg);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML = `<div class="fr">${item.neg}</div><div class="ph">${item.ph}</div><div class="en">${item.en} <span style="opacity:.6">(positive: ${item.fr})</span></div><div class="ph" style="color:var(--muted);font-style:normal;margin-top:4px;">${item.words}</div>`;
+  txt.querySelector('.fr').onclick=()=>speak(item.neg);
+  row.appendChild(btn); row.appendChild(txt);
+  content.appendChild(row);
+  GLOBAL_VOCAB.push({fr:item.neg, en:item.en});
+});
+const h9b = document.createElement('h3'); h9b.className='sub2'; h9b.textContent = "Practice — make it negative"; content.appendChild(h9b);
+const NEG_FILL = [
+  { before:"Je", mid:["n'","ne"], answers:["ai"], after:"pas de parapluie.", full:"Je n'ai pas de parapluie.", en:"I don't have an umbrella." },
+  { before:"Tu", mid:["ne"], answers:["habites"], after:"pas ici.", full:"Tu n'habites pas ici.", en:"You don't live here." },
+  { before:"Elle", mid:["n'"], answers:["est"], after:"pas française.", full:"Elle n'est pas française.", en:"She is not French." },
+  { before:"Nous", mid:["ne"], answers:["parlons"], after:"pas espagnol.", full:"Nous ne parlons pas espagnol.", en:"We don't speak Spanish." },
+];
+const negDiv = document.createElement('div');
+NEG_FILL.forEach(item=>{
+  const row = document.createElement('div'); row.className='fillrow';
+  const sent = document.createElement('div'); sent.className='sent';
+  sent.innerHTML = `${item.before} ${item.mid[0]} <input type="text" maxlength="12"> ${item.after} <button>Check</button>`;
+  row.appendChild(sent);
+  const fb = document.createElement('div'); fb.className='fb';
+  row.appendChild(fb);
+  const input = sent.querySelector('input');
+  const btn = sent.querySelector('button');
+  function check(){
+    const val = input.value.trim().toLowerCase();
+    if (item.answers.includes(val)) { fb.textContent = "✓ Correct — " + item.full + " — " + item.en; fb.className = 'fb ok'; }
+    else { fb.textContent = "✗ Correct answer: " + item.answers[0] + " — " + item.full + " — " + item.en; fb.className = 'fb bad'; }
+  }
+  btn.onclick = check;
+  input.addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); check(); } });
+  negDiv.appendChild(row);
+});
+content.appendChild(negDiv);
+
+/* 10. Demander poliment — why politeness pays */
+const h10 = document.createElement('h2'); h10.textContent = "10 · Demander poliment — why politeness pays"; content.appendChild(h10);
+const l10 = document.createElement('p'); l10.className='lead'; l10.textContent = "A fun page from the book today: a café chalkboard joke and a short poem about escalating politeness."; content.appendChild(l10);
+const ex10 = document.createElement('div'); ex10.className='example';
+ex10.innerHTML = "<b>The chalkboard joke:</b> a café sign lists <i>un café</i> (a coffee) at one price — but <i>un café, s'il vous plaît</i> (a coffee, please) at a noticeably cheaper price. The joke: manners are worth paying less for. <b>The poem (Michel Monnereau):</b> a character politely escalates a request sentence by sentence — <i>s'il vous plaît</i>, then <i>s'il vous plaît, monsieur</i>, then addressing an elephant directly, finally asking it to please move its front-left paw off his right foot — each line adding one more polite layer before the actual request even arrives.";
+content.appendChild(ex10);
+const note10 = document.createElement('div'); note10.className='note';
+note10.innerHTML = "<b>Takeaway:</b> <i>s'il vous plaît</i> (formal) / <i>s'il te plaît</i> (informal) can be piled up with a title (<i>monsieur</i>, <i>madame</i>) before the actual request for extra courtesy — very common in real French, not just the joke.";
+content.appendChild(note10);
+
+const h10b0 = document.createElement('h3'); h10b0.className='sub2'; h10b0.textContent = "Piste 22 — the real audio"; content.appendChild(h10b0);
+const l10b0 = document.createElement('p'); l10b0.className='lead'; l10b0.textContent = "The actual recording from the course CD — listen for yourself."; content.appendChild(l10b0);
+const audio22 = document.createElement('audio'); audio22.controls = true; audio22.preload = 'none'; audio22.style.width = '100%';
+const src22 = document.createElement('source'); src22.src = '22piste22.mp3'; src22.type = 'audio/mpeg';
+audio22.appendChild(src22);
+content.appendChild(audio22);
+
+const warn22 = document.createElement('div'); warn22.className='note';
+warn22.innerHTML = "<b>⚠ Important caveat on the transcript below:</b> I can't listen to audio files myself (no speech-to-text tool available here), so the French text below is <b>not something I transcribed from this recording</b>. It comes from an earlier chat with a different AI that was asked repeatedly for \"the track 22 transcript\" — and it gave several different, contradictory versions across that conversation (a mom-and-child version, a customs-officer version, a street-directions version...), which is a strong sign it was invented rather than actually heard. This is the version you picked as the tightest one. Treat it as a <i>plausible practice script in the right style</i>, not a confirmed transcript — verify it against the audio above before relying on it for real listening-exam prep.";
+content.appendChild(warn22);
+
+const h10bT = document.createElement('h3'); h10bT.className='sub2'; h10bT.textContent = "Working transcript (unverified) — full translation, line by line"; content.appendChild(h10bT);
+const TRACK22_LINES = [
+  { fr:"Situation 1 — L'enfant et sa mère", isHeader:true },
+  { fr:"L'enfant : « Maman ! Maman ! Maman ! »", ph:"mah-MAHN, mah-MAHN, mah-MAHN", en:"Child: \"Mom! Mom! Mom!\"", words:"maman = mom, tripled for a child's insistence." },
+  { fr:"La mère : « Quoi ? »", ph:"KWAH", en:"Mother: \"What?\"", words:"quoi = what — a blunt one-word question, casual tone." },
+  { fr:"L'enfant : « Je veux une pomme ! »", ph:"zhuh vuh oon POM", en:"Child: \"I want an apple!\"", words:"je (I) · veux (want — from vouloir) · une pomme (an apple)." },
+  { fr:"La mère : « C'est quoi le mot magique ? »", ph:"say KWAH luh moh mah-ZHEEK", en:"Mother: \"What's the magic word?\"", words:"c'est quoi (what is) · le mot (the word) · magique (magic)." },
+  { fr:"L'enfant : « Je ne sais pas... »", ph:"zhuh nuh say PAH", en:"Child: \"I don't know...\"", words:"je ne sais pas — standard \"I don't know,\" from savoir." },
+  { fr:"La mère : « Si, tu sais. »", ph:"SEE, tew SAY", en:"Mother: \"Yes you do.\"", words:"si (not oui) because it contradicts a negative statement — the same si-vs-oui rule from section 8 above." },
+  { fr:"L'enfant : « Abracadabra ! Je veux une pomme ! »", ph:"ah-brah-kah-dah-BRAH ! zhuh vuh oon POM", en:"Child: \"Abracadabra! I want an apple!\"", words:"the joke: the child thinks abracadabra is the magic word, when the real answer is s'il te plaît." },
+  { fr:"Situation 2 — La dame et le monsieur", isHeader:true },
+  { fr:"La dame : « Monsieur ! Monsieur ! Pardon... cher monsieur, excusez-moi de vous déranger. »", ph:"muh-SYUH ! muh-SYUH ! pahr-DOHN... shehr muh-SYUH, ex-kew-zay-mwah duh voo day-rahn-ZHAY", en:"Lady: \"Sir! Sir! Excuse me... dear sir, sorry to bother you.\"", words:"pardon (sorry) · cher (dear) · excusez-moi de vous déranger — literally \"excuse me of disturbing you,\" a formal apology-before-asking phrase." },
+  { fr:"Le monsieur : « Mais madame, madame, chère madame, bien entendu ! Que puis-je pour vous ? »", ph:"meh mah-DAHM, mah-DAHM, shehr mah-DAHM, byan nahn-TAHN-doo ! kuh PWEE-zhuh poor VOO", en:"Man: \"Well madam, madam, dear madam, of course! What can I do for you?\"", words:"mais here = \"well,\" not \"but\" · bien entendu = \"of course\" · que puis-je pour vous = formal \"what can I do for you,\" from pouvoir." },
+  { fr:"La dame : « Monsieur... monsieur... monsieur, j'ai une question. »", ph:"muh-SYUH... muh-SYUH... muh-SYUH, zhay oon kess-TYOHN", en:"Lady: \"Sir... sir... sir, I have a question.\"", words:"j'ai (I have) · une question (a question)." },
+  { fr:"Le monsieur : « Madame, avec plaisir ! Deux, trois, vingt, quarante, soixante questions, je vous en prie ! »", ph:"mah-DAHM, ah-vek pleh-ZEER ! duh, twah, van, kah-RAHNT, swah-SAHNT kess-TYOHN, zhuh voo zahn PREE", en:"Man: \"Madam, with pleasure! Two, three, twenty, forty, sixty questions, go right ahead!\"", words:"avec plaisir = \"with pleasure\" · the exaggerated number list (2, 3, 20, 40, 60) is the joke — comically over-accommodating · je vous en prie here = \"please, be my guest,\" not \"you're welcome.\"" },
+  { fr:"La dame : « Quel jour sommes-nous ? »", ph:"kel zhoor SUM-noo", en:"Lady: \"What day is it?\"", words:"quel jour (what day) · sommes-nous (are we) — the standard way to ask the day/date." },
+  { fr:"Le monsieur : « Jeudi. »", ph:"zhuh-DEE", en:"Man: \"Thursday.\"", words:"jeudi = Thursday." },
+  { fr:"La dame : « Comment ? »", ph:"koh-MAHN", en:"Lady: \"Sorry, what?\"", words:"comment used alone = \"pardon?/come again?\", not \"how.\"" },
+  { fr:"Le monsieur : « Je dis... que nous sommes jeudi ! »", ph:"zhuh DEE... kuh noo sum zhuh-DEE", en:"Man: \"I'm saying... that it's Thursday!\"", words:"the pun: je dis (\"I say\") and jeudi (\"Thursday\") both sound like zhuh-DEE — so \"comment?\" sounds like he just repeated \"jeudi\" twice." },
+  { fr:"La dame : « Ah ! Je vous remercie. »", ph:"AH ! zhuh voo ruh-mehr-SEE", en:"Lady: \"Ah! I thank you.\"", words:"je vous remercie — formal alternative to merci." },
+  { fr:"Le monsieur : « De rien. »", ph:"duh RYAN", en:"Man: \"You're welcome.\"", words:"literally \"of nothing.\"" },
+];
+TRACK22_LINES.forEach(item=>{
+  if (item.isHeader) {
+    const hh = document.createElement('div'); hh.style.cssText='font-weight:700;color:var(--accent);margin:14px 0 4px;'; hh.textContent = item.fr;
+    content.appendChild(hh);
+    return;
+  }
+  const row = document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.onclick=()=>speak(item.fr.replace(/^[^:]+: /,''));
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML = `<div class="fr">${item.fr}</div><div class="ph">${item.ph}</div><div class="en">${item.en}</div><div class="ph" style="color:var(--muted);font-style:normal;margin-top:4px;">${item.words}</div>`;
+  txt.querySelector('.fr').onclick=()=>speak(item.fr.replace(/^[^:]+: /,''));
+  row.appendChild(btn); row.appendChild(txt);
+  content.appendChild(row);
+});
+
+const h10b = document.createElement('h3'); h10b.className='sub2'; h10b.textContent = "Activity 1 — comprehension questions, translated and explained"; content.appendChild(h10b);
+const l10b = document.createElement('p'); l10b.className='lead'; l10b.textContent = "These are the book's own printed questions for track 22, with full answers worked out against the transcript above."; content.appendChild(l10b);
+const TRACK22_Q = [
+  { q:"Qu'est-ce qui est amusant dans chaque document ?", ph:"kess kee eh ah-mew-ZAHN dahn shahk doh-kew-MAHN ?", en:"What's funny in each document?",
+    hint:"Doc.1: the coffee gets cheaper if you say please. Doc.2: a mouse politely asks an elephant standing on its foot to move. Doc.3 (this track): the child mistakes a magic-trick word for a politeness word, and the lady gets caught out by a jeudi/je dis pun." },
+  { q:"Quels sont les nombres que vous entendez ?", ph:"kel sohn lay NOHM-bruh kuh voo zahn-tahn-DAY ?", en:"What numbers do you hear?",
+    hint:"In this track: deux, trois, vingt, quarante, soixante (2, 3, 20, 40, 60) — the man's exaggerated offer to answer that many questions. (The chalkboard prices 1,65 € / 1,30 € are in Doc.1, which is read rather than heard.)" },
+  { q:"Quel mot peut remplacer abracadabra ?", ph:"kel moh puh rahm-plah-SAY ah-brah-kah-dah-brah ?", en:"What word can replace \"abracadabra\"?",
+    hint:"The real \"magic word\" the recording is teaching: s'il vous plaît / s'il te plaît." },
+  { q:"Dans chaque document, quels sont les « mots magiques » ?", ph:"dahn shahk doh-kew-MAHN, kel sohn lay moh mah-ZHEEK ?", en:"In each document, what are the \"magic words\"?",
+    hint:"Doc.1 & Doc.3: s'il vous/te plaît. Doc.2 adds veuillez and merci beaucoup. Doc.3's second situation also piles on cher, avec plaisir, and je vous en prie." },
+];
+TRACK22_Q.forEach(item=>{
+  const div = document.createElement('div'); div.className='qa';
+  const q = document.createElement('div'); q.className='q'; q.textContent = item.q; q.onclick=()=>speak(item.q);
+  const qen = document.createElement('div'); qen.className='qen'; qen.textContent = item.ph + " — " + item.en;
+  div.appendChild(q); div.appendChild(qen);
+  const hint = document.createElement('div'); hint.style.cssText='font-size:13px;color:var(--green);margin-top:6px;';
+  hint.textContent = "→ " + item.hint;
+  div.appendChild(hint);
+  content.appendChild(div);
+});
+
+const h10c = document.createElement('h3'); h10c.className='sub2'; h10c.textContent = "Exercise 2 — Demandez poliment... (speaking practice, with model answers)"; content.appendChild(h10c);
+const TRACK22_EX2 = [
+  { q:"Est-ce que, pour vous, la politesse est importante ?", ph:"ess-kuh, poor VOO, lah poh-lee-TESS eh tan-por-TAHNT ?", en:"Is politeness important to you?",
+    a:"Oui, pour moi, la politesse est très importante.", aph:"WEE, poor MWAH, lah poh-lee-TESS eh tray zan-por-TAHNT", aen:"Yes, for me, politeness is very important." },
+  { q:"Quel mot français de politesse préférez-vous ?", ph:"kel moh frahn-SEH duh poh-lee-TESS pray-fay-ray VOO ?", en:"Which French politeness word do you prefer?",
+    a:"Je préfère « s'il vous plaît » et « avec plaisir ».", aph:"zhuh pray-FEHR seel voo PLEH ay ah-vek pleh-ZEER", aen:"I prefer \"please\" and \"with pleasure\"." },
+  { q:"Demandez poliment un objet à votre voisin(e). Répondez-lui poliment.", ph:"duh-mahn-DAY poh-lee-MAHN uhn nob-ZHEH ah votr vwah-zan(vwah-ZEEN). ray-pohn-DAY lwee poh-lee-MAHN", en:"Politely ask your neighbour for an object. Reply to them politely.",
+    a:"Tu as un stylo, s'il te plaît ? — Oui, tiens ! — Merci beaucoup ! — De rien.", aph:"tew ah uhn stee-LOH, seel tuh PLEH ? — WEE, TYAN ! — mehr-SEE boh-KOO ! — duh RYAN", aen:"Do you have a pen, please? — Yes, here! — Thank you very much! — You're welcome." },
+];
+TRACK22_EX2.forEach(item=>{
+  const div = document.createElement('div'); div.className='qa';
+  const q = document.createElement('div'); q.className='q'; q.textContent = item.q; q.onclick=()=>speak(item.q);
+  const qen = document.createElement('div'); qen.className='qen'; qen.textContent = item.ph + " — " + item.en;
+  div.appendChild(q); div.appendChild(qen);
+  const aRow = document.createElement('div'); aRow.className='a';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.onclick=()=>speak(item.a);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML = `<div class="fr">${item.a}</div><div class="ph">${item.aph}</div><div class="en">${item.aen}</div>`;
+  txt.querySelector('.fr').onclick=()=>speak(item.a);
+  aRow.appendChild(btn); aRow.appendChild(txt);
+  div.appendChild(aRow);
+  content.appendChild(div);
+  GLOBAL_VOCAB.push({fr:item.a, en:item.aen});
+});
+
+/* 11. Quiz */
+const h8 = document.createElement('h2'); h8.textContent = "11 · Quick quiz"; content.appendChild(h8);
+const quizBox = document.createElement('div'); quizBox.className='quizbox';
+quizBox.innerHTML = `<p class="lead" style="margin:0 0 8px;">Multiple-choice, mixing everything from today.</p>`;
+const quizBtn = document.createElement('button'); quizBtn.className='quizbtn'; quizBtn.textContent='▶ Start quiz';
+const quizArea = document.createElement('div'); quizArea.className='quizarea';
+quizBox.appendChild(quizBtn); quizBox.appendChild(quizArea);
+content.appendChild(quizBox);
+
+function shuffleArr(a){ const b=[...a]; for(let i=b.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [b[i],b[j]]=[b[j],b[i]]; } return b; }
+function runQuiz(pool, area, btn){
+  btn.style.display='none';
+  const qs = shuffleArr(pool).slice(0, Math.min(8, pool.length));
+  let i = 0, score = 0;
+  function showQ(){
+    area.innerHTML = '';
+    if (i >= qs.length) {
+      const res = document.createElement('div'); res.className='quizresult';
+      res.textContent = `Score: ${score} / ${qs.length}`;
+      const retry = document.createElement('button'); retry.className='quizretry'; retry.textContent='↻ Retry';
+      retry.onclick = ()=>{ btn.style.display='inline-block'; area.innerHTML=''; };
+      area.appendChild(res); area.appendChild(retry);
+      return;
+    }
+    const item = qs[i];
+    const wrongPool = pool.filter(p=>p.en!==item.en);
+    const opts = shuffleArr([item, ...shuffleArr(wrongPool).slice(0,3)]);
+    const prog = document.createElement('div'); prog.className='quizprog'; prog.textContent = `Question ${i+1} / ${qs.length}`;
+    const fr = document.createElement('div'); fr.className='quizfr'; fr.textContent = item.fr;
+    area.appendChild(prog); area.appendChild(fr);
+    opts.forEach(o=>{
+      const b = document.createElement('button'); b.className='quizopt'; b.textContent = o.en;
+      b.onclick = ()=>{
+        [...area.querySelectorAll('.quizopt')].forEach(x=>x.disabled=true);
+        if (o.en===item.en){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); [...area.querySelectorAll('.quizopt')].find(x=>x.textContent===item.en).classList.add('correct'); }
+        setTimeout(()=>{ i++; showQ(); }, 900);
+      };
+      area.appendChild(b);
+    });
+  }
+  showQ();
+}
+quizBtn.onclick = ()=> runQuiz(GLOBAL_VOCAB, quizArea, quizBtn);
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+</body>
+</html>

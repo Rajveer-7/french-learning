@@ -57,6 +57,9 @@
     <a href="French_Cours6_Notes.html" class="active">Cours 6</a>
     <a href="French_Cours7_Notes.html">Cours 7</a>
     <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
     <a href="French_Conversations.html">Conversations</a>
     <a href="French_Full_Guide.html">Full Guide</a>
     <a href="French_Book_Audio.html">Book Audio</a>
@@ -203,8 +206,25 @@ DATA.forEach(sec => {
   sec.items.forEach(([fr,ph,en])=>content.appendChild(makeRow(fr,ph,en)));
 });
 
+// Piste 10 — real audio for "C'est combien ?"
+const p10h = document.createElement('h2'); p10h.textContent = "8 · Piste 10 — the real audio for \"C'est combien ?\""; content.appendChild(p10h);
+const p10l = document.createElement('p'); p10l.className='lead'; p10l.textContent = "p.21 — the actual listening exercise behind section 5's numbers and prices."; content.appendChild(p10l);
+const warn10 = document.createElement('div'); warn10.className='note';
+warn10.innerHTML = "<b>⚠ No verified transcript:</b> I can't listen to audio myself, so there's no transcript below — just the real recording and the book's own printed task, translated and explained.";
+content.appendChild(warn10);
+const box10 = document.createElement('div'); box10.className='row'; box10.style.flexDirection='column'; box10.style.alignItems='stretch';
+const t10title = document.createElement('div'); t10title.style.cssText='font-weight:700;margin-bottom:4px;'; t10title.textContent = "Piste 10 — Quels chiffres entendez-vous ? Combien ça coûte ?";
+const t10ph = document.createElement('div'); t10ph.className='ph'; t10ph.textContent = "kel sheefr ahn-tahn-day VOO ? kohm-byan sah KOOT ?";
+const t10en = document.createElement('div'); t10en.className='en'; t10en.textContent = "Which numbers do you hear? How much does it cost?";
+const t10explain = document.createElement('div'); t10explain.style.cssText='font-size:13px;color:var(--ink);margin-top:8px;'; t10explain.textContent = "Two-part exercise: first identify single digits 0–9 spoken aloud, then identify prices in the 10€–19€ range (dix, onze, douze... dix-neuf euros). The teens are the tricky part in French — they don't follow a clean \"ten-one, ten-two\" pattern the way some languages do, so each one (onze, douze, treize...) has to be memorized individually.";
+const audio10 = document.createElement('audio'); audio10.controls = true; audio10.preload='none'; audio10.style.cssText='width:100%;margin-top:8px;';
+const src10 = document.createElement('source'); src10.src = '10piste10.mp3'; src10.type = 'audio/mpeg';
+audio10.appendChild(src10);
+box10.appendChild(t10title); box10.appendChild(t10ph); box10.appendChild(t10en); box10.appendChild(t10explain); box10.appendChild(audio10);
+content.appendChild(box10);
+
 // Calendar section
-const ch = document.createElement('h2'); ch.textContent = "8 · Mots et expressions — Days &amp; Months"; content.appendChild(ch);
+const ch = document.createElement('h2'); ch.textContent = "9 · Mots et expressions — Days &amp; Months"; content.appendChild(ch);
 const cl = document.createElement('p'); cl.className='lead'; cl.textContent = "Full lists from the book — days of the week and months of the year."; content.appendChild(cl);
 const dh = document.createElement('h3'); dh.style.margin='14px 0 6px'; dh.style.fontSize='14px'; dh.style.color='var(--muted)'; dh.textContent = 'Les jours de la semaine'; content.appendChild(dh);
 const dGrid = document.createElement('div'); dGrid.className='grid';
@@ -216,13 +236,27 @@ CALENDAR.months.forEach(([fr,ph])=>mGrid.appendChild(makeCell(fr,ph)));
 content.appendChild(mGrid);
 
 // Festivals
-const feh = document.createElement('h2'); feh.textContent = "9 · La France en fête — Festivals"; content.appendChild(feh);
+const feh = document.createElement('h2'); feh.textContent = "10 · La France en fête — Festivals"; content.appendChild(feh);
 const fel = document.createElement('p'); fel.className='lead'; fel.textContent = "Écoutez et retrouvez les rendez-vous festifs de l'année en France."; content.appendChild(fel);
 FETES.forEach(([fr,ph,en])=>content.appendChild(makeRow(fr,ph,en)));
 
 const note = document.createElement('div'); note.className='note';
 note.innerHTML = "<b>Point culturel:</b> Le 14 juillet, les Français ne travaillent pas. C'est la fête nationale. Il y a des feux d'artifice. C'est quand la fête nationale dans votre pays ?";
 content.appendChild(note);
+
+const warn12 = document.createElement('div'); warn12.className='note';
+warn12.innerHTML = "<b>Piste 12 — the real audio for this exercise.</b> ⚠ No verified transcript — I can't listen to audio myself, so this is the real recording plus the book's printed task, not an invented dialogue.";
+content.appendChild(warn12);
+const box12 = document.createElement('div'); box12.className='row'; box12.style.flexDirection='column'; box12.style.alignItems='stretch';
+const t12title = document.createElement('div'); t12title.style.cssText='font-weight:700;margin-bottom:4px;'; t12title.textContent = "Piste 12 — écoutez et retrouvez les rendez-vous festifs de l'année";
+const t12ph = document.createElement('div'); t12ph.className='ph'; t12ph.textContent = "ay-koo-TAY ay ruh-troo-VAY lay rahn-day-VOO fes-TEEF duh lah-NAY";
+const t12en = document.createElement('div'); t12en.className='en'; t12en.textContent = "Listen and match up the year's festive dates.";
+const t12explain = document.createElement('div'); t12explain.style.cssText='font-size:13px;color:var(--ink);margin-top:8px;'; t12explain.textContent = "You'll hear the three events above (les vendanges, la fête nationale, le festival de Cannes) mentioned along with their months — the task is matching each event to when it happens. Listen for the month names and the pattern \"en + month\" (en septembre, en juillet, en mai).";
+const audio12 = document.createElement('audio'); audio12.controls = true; audio12.preload='none'; audio12.style.cssText='width:100%;margin-top:8px;';
+const src12 = document.createElement('source'); src12.src = '12piste12.mp3'; src12.type = 'audio/mpeg';
+audio12.appendChild(src12);
+box12.appendChild(t12title); box12.appendChild(t12ph); box12.appendChild(t12en); box12.appendChild(t12explain); box12.appendChild(audio12);
+content.appendChild(box12);
 
 document.getElementById('speed').addEventListener('click',e=>{
   if(e.target.tagName!=='BUTTON') return;

@@ -47,6 +47,9 @@
     <a href="French_Cours6_Notes.html">Cours 6</a>
     <a href="French_Cours7_Notes.html">Cours 7</a>
     <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
     <a href="French_Conversations.html">Conversations</a>
     <a href="French_Full_Guide.html">Full Guide</a>
     <a href="French_Book_Audio.html">Book Audio</a>
@@ -154,7 +157,33 @@ DATA.forEach(sec => {
   });
 });
 
-const gh=document.createElement('h2'); gh.textContent='4 · Prononciation — alphabet by mouth shape'; content.appendChild(gh);
+const h5 = document.createElement('h2'); h5.textContent = "5 · Pistes 6, 7, 8 — the real audio for \"Tendez l'oreille\""; content.appendChild(h5);
+const l5 = document.createElement('p'); l5.className='lead'; l5.textContent = "The actual recordings from p.20–21 that section 4's instructions refer to."; content.appendChild(l5);
+const TRACKS678 = [
+  { n:6, file:'06piste06.mp3', title:"Piste 6 — écoutez et retrouvez la nationalité de chaque personne", ph:"ay-koo-TAY ay ruh-troo-VAY lah nah-syo-nah-lee-TAY duh shahk pair-SUN", en:"Listen and find each person's nationality.",
+    explain:"You'll hear several short statements; for each one, identify which nationality (français, anglais, américain, etc.) is being described. Listen for the adjective ending — that's often your only clue to gender, so listen closely for whether the final consonant is pronounced." },
+  { n:7, file:'07piste07.mp3', title:"Piste 7 — féminin ou masculin ? écoutez et complétez le tableau", ph:"fay-mee-NAN oo mas-kew-LAN ? ay-koo-TAY ay kohm-play-TAY luh tah-BLOH", en:"Feminine or masculine? Listen and complete the table.",
+    explain:"This is the direct follow-up to section 5's masculine/feminine nationality pairs above (français/française, anglais/anglaise...). The whole exercise hinges on one rule: in the masculine form the final consonant is silent, but in the feminine form that same consonant is pronounced out loud (français = frahn-SEH, française = frahn-SEZ) — that's literally the only difference you can hear." },
+  { n:8, file:'08piste08.mp3', title:"Piste 8 — question ou affirmation ? + syllable count", ph:"kess-tyohn oo ah-feer-mah-syohn ?", en:"Question or statement? (plus counting syllables)",
+    explain:"French turns a statement into a yes/no question purely with rising intonation — the words don't change at all (Tu es français. vs Tu es français ?). Listen for whether the pitch rises at the end. The syllable-counting half of the exercise is testing whether you're hearing silent letters correctly — e.g. français is 2 syllables (frahn-SEH), not 3." },
+];
+const warn678 = document.createElement('div'); warn678.className='note';
+warn678.innerHTML = "<b>⚠ No verified transcript for these tracks:</b> I can't listen to audio (no transcription tool available), and unlike Cours 11's track 22, I don't have any prior chat transcript to work from for these either. So below is the real audio to listen to yourself, plus the book's actual printed instructions (translated and explained) — but no invented dialogue. If you want a transcript, listen and tell me what you hear, or paste one from elsewhere and I'll build the full breakdown the same way I did for track 22.";
+content.appendChild(warn678);
+TRACKS678.forEach(t=>{
+  const box = document.createElement('div'); box.className='row'; box.style.flexDirection='column'; box.style.alignItems='stretch';
+  const title = document.createElement('div'); title.style.cssText='font-weight:700;margin-bottom:4px;'; title.textContent = t.title;
+  const ph = document.createElement('div'); ph.className='ph'; ph.textContent = t.ph;
+  const en = document.createElement('div'); en.className='en'; en.textContent = t.en;
+  const explain = document.createElement('div'); explain.style.cssText='font-size:13px;color:var(--ink);margin-top:8px;'; explain.textContent = t.explain;
+  const audio = document.createElement('audio'); audio.controls = true; audio.preload = 'none'; audio.style.cssText = 'width:100%;margin-top:8px;';
+  const src = document.createElement('source'); src.src = t.file; src.type = 'audio/mpeg';
+  audio.appendChild(src);
+  box.appendChild(title); box.appendChild(ph); box.appendChild(en); box.appendChild(explain); box.appendChild(audio);
+  content.appendChild(box);
+});
+
+const gh=document.createElement('h2'); gh.textContent='6 · Prononciation — alphabet by mouth shape'; content.appendChild(gh);
 const gl=document.createElement('p'); gl.className='lead'; gl.textContent='Tap a row to hear its letters. Same row = same mouth shape = same core sound.'; content.appendChild(gl);
 GROUPS.forEach(g=>{
   const row=document.createElement('div'); row.className='row';

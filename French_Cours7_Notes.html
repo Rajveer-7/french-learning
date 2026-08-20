@@ -56,6 +56,9 @@
     <a href="French_Cours6_Notes.html">Cours 6</a>
     <a href="French_Cours7_Notes.html" class="active">Cours 7</a>
     <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
     <a href="French_Conversations.html">Conversations</a>
     <a href="French_Full_Guide.html">Full Guide</a>
     <a href="French_Book_Audio.html">Book Audio</a>
@@ -183,6 +186,21 @@ MISC.forEach(([fr,ph,en])=>content.appendChild(makeRow(fr,ph,en)));
 
 const h4 = document.createElement('h2'); h4.textContent = "4 · Écoutez le dialogue et répondez aux questions"; content.appendChild(h4);
 const l4 = document.createElement('p'); l4.className='lead'; l4.textContent = "The book's three question pairs, each with an example answer (imaginary names, for practice)."; content.appendChild(l4);
+
+const warn13 = document.createElement('div'); warn13.className='note';
+warn13.innerHTML = "<b>Piste 13 — the real audio behind this dialogue.</b> ⚠ No verified transcript — I can't listen to audio myself, so there's no invented dialogue below, just the real recording and the book's own task, translated and explained.";
+content.appendChild(warn13);
+const box13 = document.createElement('div'); box13.className='row'; box13.style.flexDirection='column'; box13.style.alignItems='stretch';
+const t13title = document.createElement('div'); t13title.style.cssText='font-weight:700;margin-bottom:4px;'; t13title.textContent = "Piste 13 — \"J'ai rendez-vous !\" (b) — names, ages, nationality";
+const t13ph = document.createElement('div'); t13ph.className='ph'; t13ph.textContent = "zheh rahn-day-VOO";
+const t13en = document.createElement('div'); t13en.className='en'; t13en.textContent = "\"I have an appointment!\" — a short dialogue introducing who's meeting whom.";
+const t13explain = document.createElement('div'); t13explain.style.cssText='font-size:13px;color:var(--ink);margin-top:8px;'; t13explain.textContent = "Listen for the three pieces of information the questions below are built around: a name, an age, and a nationality — exactly the pattern you practice answering underneath with the example Q&A pairs.";
+const audio13 = document.createElement('audio'); audio13.controls = true; audio13.preload='none'; audio13.style.cssText='width:100%;margin-top:8px;';
+const src13 = document.createElement('source'); src13.src = '13piste13.mp3'; src13.type = 'audio/mpeg';
+audio13.appendChild(src13);
+box13.appendChild(t13title); box13.appendChild(t13ph); box13.appendChild(t13en); box13.appendChild(t13explain); box13.appendChild(audio13);
+content.appendChild(box13);
+
 QA.forEach(item=>{
   const div = document.createElement('div'); div.className='qa';
   const q = document.createElement('div'); q.className='q'; q.textContent = item.q; q.onclick=()=>speak(item.q);

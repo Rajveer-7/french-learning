@@ -80,6 +80,7 @@
     <a href="French_Cours8_Notes.html" class="active">Cours 8</a>
     <a href="French_Cours9_Notes.html">Cours 9</a>
     <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
     <a href="French_Conversations.html">Conversations</a>
     <a href="French_Full_Guide.html">Full Guide</a>
     <a href="French_Book_Audio.html">Book Audio</a>
@@ -195,6 +196,31 @@ PERSONALITIES.forEach(p=>{
   div.appendChild(aRow);
   content.appendChild(div);
   GLOBAL_VOCAB.push({fr:p.name, en:`${p.nat}, ${p.prof}`});
+});
+
+// 2b. Real audio for the Personnalités listening exercise
+const h2b = document.createElement('h2'); h2b.textContent = "2b · Pistes 14 & 15 — the real audio"; content.appendChild(h2b);
+const l2b = document.createElement('p'); l2b.className='lead'; l2b.textContent = "The actual recordings behind section 2's listening exercise."; content.appendChild(l2b);
+const warn1415 = document.createElement('div'); warn1415.className='note';
+warn1415.innerHTML = "<b>⚠ No verified transcript:</b> I can't listen to audio myself, so there's no invented dialogue below — just the real recordings plus the book's own tasks, translated and explained.";
+content.appendChild(warn1415);
+const TRACKS1415 = [
+  { n:14, file:'14piste14.mp3', title:"Piste 14 — écoutez et retrouvez l'ordre de présentation / la nationalité et le métier", ph:"ay-koo-TAY ay ruh-troo-VAY lordr duh pray-zahn-tah-SYOHN", en:"Listen and figure out the order the four personalities are introduced in, matching each to their nationality and profession.",
+    explain:"This is the listening version of the matching exercise above — Roger Federer, Philippe Geluck, Julie Payette, and Amadou et Mariam are each described; the task is connecting the audio description back to the right name, nationality, and job from the cards above." },
+  { n:15, file:'15piste15.mp3', title:"Piste 15 — Tendez l'oreille : identifiez le son final", ph:"tahn-DAY loh-RAY", en:"Listen carefully — identify the sound each word ends in.",
+    explain:"A pronunciation-focused follow-up: listen to word endings like -eur/-euse (joueur/joueuse) and -ien/-ienne (musicien/musicienne) and identify which one you're hearing — the same masculine/feminine ending pattern used throughout this page's profession and nationality vocabulary." },
+];
+TRACKS1415.forEach(t=>{
+  const box = document.createElement('div'); box.className='row'; box.style.flexDirection='column'; box.style.alignItems='stretch';
+  const title = document.createElement('div'); title.style.cssText='font-weight:700;margin-bottom:4px;'; title.textContent = t.title;
+  const ph = document.createElement('div'); ph.className='ph'; ph.textContent = t.ph;
+  const en = document.createElement('div'); en.className='en'; en.textContent = t.en;
+  const explain = document.createElement('div'); explain.style.cssText='font-size:13px;color:var(--ink);margin-top:8px;'; explain.textContent = t.explain;
+  const audio = document.createElement('audio'); audio.controls = true; audio.preload = 'none'; audio.style.cssText = 'width:100%;margin-top:8px;';
+  const src = document.createElement('source'); src.src = t.file; src.type = 'audio/mpeg';
+  audio.appendChild(src);
+  box.appendChild(title); box.appendChild(ph); box.appendChild(en); box.appendChild(explain); box.appendChild(audio);
+  content.appendChild(box);
 });
 
 // 3. Prepositions of place
