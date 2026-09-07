@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 19 — Présenter une autre personne</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:180px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 19: Présenter une autre personne</h1>
+  <p class="sub">The Language SKOOL · Teacher worksheet (4 pages) · Describing someone else — physical description vocab, ties into Cours 18</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html" class="active">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Articles.html">Articles</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "🔊 " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(text.replace(/\s+([!?])/g,'$1'));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play '+fr);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML=`<div class="fr">${fr}</div>${ph?`<div class="ph">${ph}</div>`:''}${en?`<div class="en">${en}</div>`:''}`;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+
+const introP = document.createElement('p'); introP.className='lead';
+introP.textContent = "This worksheet (\"Présenter une autre personne\" — Introducing/describing another person) is a teacher-made handout, not the Saison 1 textbook — so it's reproduced here in full. Page 1 opens mid-way through an earlier exercise on likes/dislikes, then moves into the physical description vocab table below.";
+content.appendChild(introP);
+
+/* Earlier exercise fragment seen at top of page 1 */
+const h0 = document.createElement('h2'); h0.textContent = "Before section 3 — likes/dislikes practice"; content.appendChild(h0);
+const l0 = document.createElement('p'); l0.className='lead'; l0.textContent = "The tail end of an earlier exercise (sections 1-2, not yet fully seen) — fill-in-the-blank practice with j'aime/je n'aime pas:"; content.appendChild(l0);
+content.appendChild(makeRow("J'aime la musique.", "zhem lah mew-ZEEK", "I like music."));
+content.appendChild(makeRow("Je n'aime pas le thé.", "zhuh nem pah luh tay", "I don't like tea."));
+GLOBAL_VOCAB.push({fr:"J'aime la musique.", en:"I like music."});
+GLOBAL_VOCAB.push({fr:"Je n'aime pas le thé.", en:"I don't like tea."});
+const note0 = document.createElement('div'); note0.className='note';
+note0.innerHTML = "Sections 1 and 2 of this worksheet haven't come into view yet — will add them here once the class scrolls back or they're confirmed.";
+content.appendChild(note0);
+
+/* 3. Vocabulaire — description physique */
+const h1 = document.createElement('h2'); h1.textContent = "3 · Vocabulaire — Description physique"; content.appendChild(h1);
+const l1 = document.createElement('p'); l1.className='lead'; l1.textContent = "The worksheet's full physical-description table, organised in four columns."; content.appendChild(l1);
+
+const h1a = document.createElement('h3'); h1a.className='sub2'; h1a.textContent = "La taille (height)"; content.appendChild(h1a);
+const TAILLE = [
+  { fr:"grand / grande", ph:"grahn / grahnd", en:"tall" },
+  { fr:"petit / petite", ph:"puh-tee / puh-teet", en:"short" },
+  { fr:"de taille moyenne", ph:"duh tahy mwah-YEN", en:"medium height" },
+];
+TAILLE.forEach(item=>{ content.appendChild(makeRow(item.fr, item.ph, item.en)); GLOBAL_VOCAB.push({fr:item.fr, en:item.en}); });
+
+const h1b = document.createElement('h3'); h1b.className='sub2'; h1b.textContent = "Les cheveux (hair)"; content.appendChild(h1b);
+const CHEVEUX = [
+  { fr:"longs", ph:"lohn", en:"long" },
+  { fr:"courts", ph:"koor", en:"short" },
+  { fr:"blonds", ph:"blohn", en:"blonde" },
+  { fr:"bruns", ph:"bruhn", en:"brown/dark" },
+  { fr:"noirs", ph:"nwahr", en:"black" },
+  { fr:"roux", ph:"roo", en:"red" },
+  { fr:"bouclés", ph:"boo-KLAY", en:"curly" },
+  { fr:"raides", ph:"rehd", en:"straight" },
+];
+CHEVEUX.forEach(item=>{ content.appendChild(makeRow(item.fr, item.ph, item.en)); GLOBAL_VOCAB.push({fr:item.fr, en:item.en}); });
+
+const h1c = document.createElement('h3'); h1c.className='sub2'; h1c.textContent = "Les yeux (eyes)"; content.appendChild(h1c);
+const YEUX = [
+  { fr:"bleus", ph:"bluh", en:"blue" },
+  { fr:"verts", ph:"vehr", en:"green" },
+  { fr:"marron", ph:"mah-ROHN", en:"brown" },
+  { fr:"noirs", ph:"nwahr", en:"black" },
+];
+YEUX.forEach(item=>{ content.appendChild(makeRow(item.fr, item.ph, item.en)); GLOBAL_VOCAB.push({fr:item.fr, en:item.en}); });
+const noteYeux = document.createElement('div'); noteYeux.className='note';
+noteYeux.innerHTML = "\"Marron\" (brown, for eyes/hair) is one of a small group of French colour words that never change for gender or number — always marron, never marrons/marronne. (Compare: une chemise marron, des yeux marron.)";
+content.appendChild(noteYeux);
+
+const h1d = document.createElement('h3'); h1d.className='sub2'; h1d.textContent = "Autres (other features)"; content.appendChild(h1d);
+const AUTRES = [
+  { fr:"une barbe", ph:"ewn barb", en:"a beard" },
+  { fr:"une moustache", ph:"ewn moo-STASH", en:"a moustache" },
+  { fr:"des lunettes", ph:"day lew-NET", en:"glasses" },
+];
+AUTRES.forEach(item=>{ content.appendChild(makeRow(item.fr, item.ph, item.en)); GLOBAL_VOCAB.push({fr:item.fr, en:item.en}); });
+
+/* Full table view */
+const h1e = document.createElement('h3'); h1e.className='sub2'; h1e.textContent = "Full table"; content.appendChild(h1e);
+const table = document.createElement('table'); table.className='conjt';
+table.innerHTML = '<tr><th>La taille</th><th>Les cheveux</th><th>Les yeux</th><th>Autres</th></tr>' +
+  '<tr><td>grand/grande — tall</td><td>longs — long</td><td>bleus — blue</td><td>une barbe — beard</td></tr>' +
+  '<tr><td>petit/petite — short</td><td>courts — short</td><td>verts — green</td><td>une moustache — moustache</td></tr>' +
+  '<tr><td>de taille moyenne — medium</td><td>blonds — blonde</td><td>marron — brown</td><td>des lunettes — glasses</td></tr>' +
+  '<tr><td></td><td>bruns — brown/dark</td><td>noirs — black</td><td></td></tr>' +
+  '<tr><td></td><td>noirs — black</td><td></td><td></td></tr>' +
+  '<tr><td></td><td>roux — red</td><td></td><td></td></tr>' +
+  '<tr><td></td><td>bouclés — curly</td><td></td><td></td></tr>' +
+  '<tr><td></td><td>raides — straight</td><td></td><td></td></tr>';
+content.appendChild(table);
+
+/* 3b. Grammar — être vs avoir */
+const h1f = document.createElement('h2'); h1f.textContent = "3b · Grammaire — être ou avoir ?"; content.appendChild(h1f);
+const gramNote = document.createElement('div'); gramNote.className='example';
+gramNote.innerHTML = "<b>Être + adjectif</b> — for overall height/build: <i>Il est grand. Elle est mince.</i> The adjective agrees with the person (grand/grande, mince stays the same).<br><br>" +
+  "<b>Avoir + les + nom + adjectif</b> — for hair and eyes: <i>Il a les cheveux blonds. Elle a les yeux bleus.</i> Here the adjective agrees with <i>cheveux</i>/<i>yeux</i> (masculine plural), not with the person — so it's always -s, whoever you're describing.<br><br>" +
+  "<b>Porter</b> — for things worn: <i>Elle porte des lunettes.</i> (avoir also works: <i>Elle a des lunettes.</i>)";
+content.appendChild(gramNote);
+const gramNote2 = document.createElement('div'); gramNote2.className='note';
+gramNote2.innerHTML = "Word order trap: size/beauty adjectives (<b>grand, petit, beau</b>) go <u>before</u> the noun, and when that happens to a plural noun, <b>des → de</b>: <i>de grands yeux</i> (not \"des grands yeux\"), <i>de beaux yeux</i>, <i>de petits yeux</i>. Liaison: <i>de grands yeux</i> → duh grahn-z-yuh; <i>de beaux yeux</i> → duh boh-z-yuh.";
+content.appendChild(gramNote2);
+[["Il est grand. Elle est mince.","eel eh grahn. ell eh mans","He is tall. She is slim."],
+ ["Il a les cheveux blonds. Elle a les yeux bleus.","eel ah lay shuh-VUH blohn. ell ah lay zyuh bluh","He has blonde hair. She has blue eyes."],
+ ["Elle a de grands yeux.","ell ah duh grahn zyuh","She has big eyes."],
+ ["Il a de beaux yeux verts.","eel ah duh boh zyuh vehr","He has beautiful green eyes."]
+].forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+
+/* 3c. Marron vs Brun vs Châtain */
+const h1g = document.createElement('h2'); h1g.textContent = "3c · Marron, brun, châtain — what's the difference?"; content.appendChild(h1g);
+const tableMBC = document.createElement('table'); tableMBC.className='conjt';
+tableMBC.innerHTML = '<tr><th>Word</th><th>Used for</th><th>Agreement</th><th>Example</th></tr>' +
+  '<tr><td>marron</td><td>eyes, clothes, objects — never hair</td><td>invariable (never -e/-s)</td><td>les yeux marron</td></tr>' +
+  '<tr><td>brun / brune</td><td>dark brown hair, brunette, skin/fur</td><td>agrees: brun, brune, bruns, brunes</td><td>elle a les cheveux bruns</td></tr>' +
+  '<tr><td>châtain</td><td>light-to-medium chestnut hair only</td><td>usually just adds -s in plural</td><td>il a les cheveux châtains</td></tr>';
+content.appendChild(tableMBC);
+const noteMBC = document.createElement('div'); noteMBC.className='note';
+noteMBC.innerHTML = "Two rules of thumb: for <b>eyes</b>, always say <i>marron</i> (never \"les yeux bruns\"). For <b>hair</b>, choose <i>châtain</i> (light/medium brown) or <i>brun</i> (dark brown/brunette) — never \"les cheveux marron\". Both marron and noisette (hazel) are invariable because they come from nouns (le marron = chestnut, la noisette = hazelnut).";
+content.appendChild(noteMBC);
+
+/* 3d. Le visage et l'âge (bonus vocab) */
+const h1h = document.createElement('h2'); h1h.textContent = "3d · Bonus — le visage, l'âge, les signes particuliers"; content.appendChild(h1h);
+const BONUS = [
+  { fr:"jeune", ph:"zhuhn", en:"young" },
+  { fr:"âgé / âgée", ph:"ah-ZHAY", en:"elderly" },
+  { fr:"le visage rond", ph:"luh vee-ZAHZH rohn", en:"round face" },
+  { fr:"le visage ovale", ph:"luh vee-ZAHZH oh-VAHL", en:"oval face" },
+  { fr:"des taches de rousseur", ph:"day tahsh duh roo-SUR", en:"freckles" },
+  { fr:"un grain de beauté", ph:"uhn gran duh boh-TAY", en:"a beauty mark / mole" },
+];
+BONUS.forEach(item=>{ content.appendChild(makeRow(item.fr, item.ph, item.en)); GLOBAL_VOCAB.push({fr:item.fr, en:item.en}); });
+
+/* Practice */
+const h2 = document.createElement('h2'); h2.textContent = "4 · Practice — describe someone"; content.appendChild(h2);
+const l2 = document.createElement('p'); l2.className='lead'; l2.textContent = "Using today's vocab, describe a friend or family member."; content.appendChild(l2);
+content.appendChild(makeRow(
+  "Il est grand, il a les cheveux courts et bruns, et les yeux marron.",
+  "eel eh grahn, eel ah lay shuh-VUH koor ay bruhn, ay lay zyuh mah-ROHN",
+  "He's tall, he has short brown hair, and brown eyes."
+));
+content.appendChild(makeRow(
+  "Elle est de taille moyenne, elle a les cheveux longs et bouclés, et les yeux verts.",
+  "ell eh duh tahy mwah-YEN, ell ah lay shuh-VUH lohn ay boo-KLAY, ay lay zyuh vehr",
+  "She's medium height, she has long curly hair, and green eyes."
+));
+GLOBAL_VOCAB.push({fr:"Il est grand, il a les cheveux courts et bruns, et les yeux marron.", en:"He's tall, he has short brown hair, and brown eyes."});
+GLOBAL_VOCAB.push({fr:"Elle est de taille moyenne, elle a les cheveux longs et bouclés, et les yeux verts.", en:"She's medium height, she has long curly hair, and green eyes."});
+
+/* Fill in the blank practice */
+const h3sec = document.createElement('h2'); h3sec.textContent = "5 · Practice — fill in the description"; content.appendChild(h3sec);
+const PRACTICE = [
+  { before:"Mon frère est", after:". Il a les cheveux", after2:"et les yeux", answers:["grand"], en:"My brother is tall." },
+];
+const practiceNote = document.createElement('div'); practiceNote.className='example';
+practiceNote.innerHTML = "Write your own description here in your notes: <i>Mon/Ma ___ est ___ (taille). Il/Elle a les cheveux ___ et ___ (couleur/texture), et les yeux ___ (couleur).</i>";
+content.appendChild(practiceNote);
+
+/* 5b. Pair practice — describe your partner */
+const h5b = document.createElement('h2'); h5b.textContent = "5b · Pair practice — describe your partner"; content.appendChild(h5b);
+const l5b = document.createElement('p'); l5b.className='lead'; l5b.textContent = "In pairs: ask each other what you look like, then take turns describing each other out loud."; content.appendChild(l5b);
+
+const h5b1 = document.createElement('h3'); h5b1.className='sub2'; h5b1.textContent = "Useful questions"; content.appendChild(h5b1);
+const QDIALOG = [
+  ["Tu es grand(e) ou petit(e) ?","too eh grahn(d) oo puh-tee(t)","Are you tall or short?"],
+  ["Tu as les cheveux de quelle couleur ?","too ah lay shuh-VUH duh kel koo-LUHR","What colour is your hair?"],
+  ["Tu as les cheveux raides ou bouclés ?","too ah lay shuh-VUH red oo boo-KLAY","Do you have straight or curly hair?"],
+  ["De quelle couleur sont tes yeux ?","duh kel koo-LUHR sohn tay zyuh","What colour are your eyes?"],
+  ["Tu portes des lunettes ?","too port day lew-NET","Do you wear glasses?"],
+];
+QDIALOG.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+
+const h5b2 = document.createElement('h3'); h5b2.className='sub2'; h5b2.textContent = "Example: describing a partner who is thin, black-haired, curly-haired, black-eyed"; content.appendChild(h5b2);
+const l5b2 = document.createElement('p'); l5b2.className='lead'; l5b2.textContent = "Five features, one sentence each — then combined into one fluent description:"; content.appendChild(l5b2);
+const FIVE = [
+  ["Tu es mince.","too eh mans","You are thin. (être — build)"],
+  ["Tu as les cheveux noirs.","too ah lay shuh-VUH nwahr","You have black hair. (avoir — colour)"],
+  ["Tu as les cheveux bouclés.","too ah lay shuh-VUH boo-KLAY","You have curly hair. (avoir — texture)"],
+  ["Tu as les yeux noirs.","too ah lay zyuh nwahr","You have black eyes. (avoir — eye colour, liaison lay-z-yeux)"],
+  ["Tu as les cheveux courts.","too ah lay shuh-VUH koor","You have short hair. (avoir — length)"],
+];
+FIVE.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+content.appendChild(makeRow(
+  "Tu es mince et grand. Tu as les cheveux courts, noirs et bouclés, et tu as les yeux noirs.",
+  "too eh mans ay grahn. too ah lay shuh-VUH koor, nwahr ay boo-KLAY, ay too ah lay zyuh nwahr",
+  "You are slim and tall. You have short, black, curly hair, and you have black eyes."
+));
+GLOBAL_VOCAB.push({fr:"Tu es mince et grand. Tu as les cheveux courts, noirs et bouclés, et tu as les yeux noirs.", en:"You are slim and tall. You have short, black, curly hair, and you have black eyes."});
+
+const h5b3 = document.createElement('h3'); h5b3.className='sub2'; h5b3.textContent = "Common mistakes to avoid"; content.appendChild(h5b3);
+const table5b = document.createElement('table'); table5b.className='conjt';
+table5b.innerHTML = '<tr><th>Mistake</th><th>Correct</th><th>Why</th></tr>' +
+  '<tr><td>il a mustache</td><td>Il a une moustache.</td><td>needs the article une + French spelling (moustache)</td></tr>' +
+  '<tr><td>il a un barbe</td><td>Il a une barbe.</td><td>barbe is feminine → une, not un</td></tr>' +
+  '<tr><td>il a de lunet</td><td>Il a des lunettes. / Il porte des lunettes.</td><td>lunettes is always plural, with des</td></tr>' +
+  '<tr><td>il a daieye grahn</td><td>Il a de grands yeux.</td><td>des → de before a plural adjective placed before the noun</td></tr>' +
+  '<tr><td>il chava long</td><td>Il a les cheveux longs.</td><td>needs the verb a + article les + plural agreement</td></tr>';
+content.appendChild(table5b);
+const noteNeg = document.createElement('div'); noteNeg.className='note';
+noteNeg.innerHTML = "Negative form reminder: un/une/des all become <b>de</b> in a negative sentence — <i>Il a une barbe</i> → <i>Il n'a pas de barbe.</i> <i>Il porte des lunettes</i> → <i>Il ne porte pas de lunettes.</i>";
+content.appendChild(noteNeg);
+
+/* 6. Quiz */
+const h6 = document.createElement('h2'); h6.textContent = "6 · Quick quiz"; content.appendChild(h6);
+const quizBox = document.createElement('div'); quizBox.className='quizbox';
+quizBox.innerHTML = `<p class="lead" style="margin:0 0 8px;">Multiple-choice, mixing today's vocab.</p>`;
+const quizBtn = document.createElement('button'); quizBtn.className='quizbtn'; quizBtn.textContent='▶ Start quiz';
+const quizArea = document.createElement('div'); quizArea.className='quizarea';
+quizBox.appendChild(quizBtn); quizBox.appendChild(quizArea);
+content.appendChild(quizBox);
+
+function shuffleArr(a){ const b=[...a]; for(let i=b.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [b[i],b[j]]=[b[j],b[i]]; } return b; }
+function runQuiz(pool, area, btn){
+  btn.style.display='none';
+  const qs = shuffleArr(pool).slice(0, Math.min(8, pool.length));
+  let i = 0, score = 0;
+  function showQ(){
+    area.innerHTML = '';
+    if (i >= qs.length) {
+      const res = document.createElement('div'); res.className='quizresult';
+      res.textContent = `Score: ${score} / ${qs.length}`;
+      const retry = document.createElement('button'); retry.className='quizretry'; retry.textContent='↻ Retry';
+      retry.onclick = ()=>{ btn.style.display='inline-block'; area.innerHTML=''; };
+      area.appendChild(res); area.appendChild(retry);
+      return;
+    }
+    const item = qs[i];
+    const wrongPool = pool.filter(p=>p.en!==item.en);
+    const opts = shuffleArr([item, ...shuffleArr(wrongPool).slice(0,3)]);
+    const prog = document.createElement('div'); prog.className='quizprog'; prog.textContent = `Question ${i+1} / ${qs.length}`;
+    const fr = document.createElement('div'); fr.className='quizfr'; fr.textContent = item.fr;
+    area.appendChild(prog); area.appendChild(fr);
+    opts.forEach(o=>{
+      const b = document.createElement('button'); b.className='quizopt'; b.textContent = o.en;
+      b.onclick = ()=>{
+        [...area.querySelectorAll('.quizopt')].forEach(x=>x.disabled=true);
+        if (o.en===item.en){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); [...area.querySelectorAll('.quizopt')].find(x=>x.textContent===item.en).classList.add('correct'); }
+        setTimeout(()=>{ i++; showQ(); }, 900);
+      };
+      area.appendChild(b);
+    });
+  }
+  showQ();
+}
+quizBtn.onclick = ()=> runQuiz(GLOBAL_VOCAB, quizArea, quizBtn);
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 15 — Adjectives Worksheet</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .conjt td.ph { font-size:12px; color:var(--green); font-style:italic; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:150px; text-align:center; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 15: Adjectives Worksheet</h1>
+  <p class="sub">The Language SKOOL · 20 August 2026 · masculine → feminine adjective agreement, transformation rules, pronunciation</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html" class="active">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Articles.html">Articles</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "🔊 " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(text.replace(/\s+([!?])/g,'$1'));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play '+fr);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML=`<div class="fr">${fr}</div>${ph?`<div class="ph">${ph}</div>`:''}${en?`<div class="en">${en}</div>`:''}`;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+
+const introP = document.createElement('p'); introP.className='lead';
+introP.textContent = "Today's class used a dedicated worksheet on adjective agreement — the topic Cours 14's \"habitations insolites\" page already introduced (breton→bretonne, grand→grande, lumineux→lumineuse). This page is the full reference version: all forms, the transformation rules behind them, and how pronunciation changes between masculine and feminine.";
+content.appendChild(introP);
+
+/* 1. The full table */
+const h1 = document.createElement('h2'); h1.textContent = "1 · Masculin vs Féminin — the full table"; content.appendChild(h1);
+const ADJ = [
+  { m:"grand", f:"grande", mph:"grahn", fph:"grahnd", en:"big/tall", rule:"add -e (final d becomes pronounced)" },
+  { m:"petit", f:"petite", mph:"puh-TEE", fph:"puh-TEET", en:"small/short", rule:"add -e (final t becomes pronounced)" },
+  { m:"sportif", f:"sportive", mph:"spor-TEEF", fph:"spor-TEEV", en:"athletic/sporty", rule:"-f → -ve" },
+  { m:"intelligent", f:"intelligente", mph:"an-teh-lee-ZHAHN", fph:"an-teh-lee-ZHAHNT", en:"intelligent/smart", rule:"add -e (nasal sound opens up)" },
+  { m:"amusant", f:"amusante", mph:"ah-mew-ZAHN", fph:"ah-mew-ZAHNT", en:"funny/amusing", rule:"add -e (nasal sound opens up)" },
+  { m:"élégant", f:"élégante", mph:"ay-lay-GAHN", fph:"ay-lay-GAHNT", en:"elegant", rule:"add -e (nasal sound opens up)" },
+  { m:"rond", f:"ronde", mph:"rohn", fph:"rohnd", en:"round", rule:"add -e (final d becomes pronounced)" },
+  { m:"beau", f:"belle", mph:"boh", fph:"bell", en:"handsome/beautiful", rule:"irregular" },
+  { m:"vieux", f:"vieille", mph:"vyuh", fph:"vyay", en:"old", rule:"irregular" },
+  { m:"heureux", f:"heureuse", mph:"uh-RUH", fph:"uh-RUHZ", en:"happy", rule:"-eux → -euse" },
+];
+const table = document.createElement('table'); table.className = 'conjt';
+table.innerHTML = '<tr><th>Masculin</th><th>Féminin</th><th>Meaning</th><th>Rule</th></tr>';
+ADJ.forEach(item=>{
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td class="fr" style="cursor:pointer;">${item.m}</td><td class="fr" style="cursor:pointer;">${item.f}</td><td>${item.en}</td><td style="font-size:12.5px;color:var(--muted);">${item.rule}</td>`;
+  const tds = tr.querySelectorAll('td.fr');
+  tds[0].onclick = ()=>speak(item.m); tds[1].onclick = ()=>speak(item.f);
+  table.appendChild(tr);
+  GLOBAL_VOCAB.push({fr:item.m, en:item.en + " (masc.)"});
+  GLOBAL_VOCAB.push({fr:item.f, en:item.en + " (fem.)"});
+});
+content.appendChild(table);
+const l1 = document.createElement('p'); l1.className='lead'; l1.textContent = "Pronunciation guide, masculine → feminine, for each row above:"; content.appendChild(l1);
+ADJ.forEach(item=>{
+  content.appendChild(makeRow(item.m + " → " + item.f, item.mph + " → " + item.fph, item.en));
+});
+
+/* 2. Transformation rules */
+const h2 = document.createElement('h2'); h2.textContent = "2 · Règles essentielles de formation — the transformation rules"; content.appendChild(h2);
+const RULES = [
+  { title:"Règle générale (+e)", body:"Most adjectives just add -e: grand→grande, petit→petite, intelligent→intelligente, amusant→amusante, élégant→élégante, rond→ronde." },
+  { title:"Changement de consonne finale", body:"Adjectives ending in -f switch to -ve: sportif→sportive. Adjectives ending in -eux switch to -euse: heureux→heureuse." },
+  { title:"Formes irrégulières", body:"A small set just has to be memorized: beau→belle, vieux→vieille." },
+];
+RULES.forEach(r=>{
+  const box = document.createElement('div'); box.className='example';
+  box.innerHTML = `<b>${r.title}:</b> ${r.body}`;
+  content.appendChild(box);
+});
+
+/* 3. Pronunciation secrets */
+const h3 = document.createElement('h2'); h3.textContent = "3 · Secrets de prononciation à l'oral — pronunciation secrets"; content.appendChild(h3);
+const note3a = document.createElement('div'); note3a.className='note';
+note3a.innerHTML = "<b>Silent vs pronounced consonants:</b> in the masculine form, the final consonant (d, t, s, x) is usually silent — <i>grand</i> [grahn], <i>petit</i> [puh-TEE], <i>heureux</i> [uh-RUH]. Adding -e for the feminine forces that consonant to be pronounced — <i>grande</i> [grahnd], <i>petite</i> [puh-TEET], <i>heureuse</i> [uh-RUHZ]. This is the single biggest audible clue that tells you masculine from feminine when listening.";
+content.appendChild(note3a);
+const note3b = document.createElement('div'); note3b.className='note';
+note3b.innerHTML = "<b>Nasal sounds that disappear:</b> <i>intelligent</i> and <i>élégant</i> end in a nasal \"-an\" sound in the masculine. In the feminine, that nasal opens up into a clearly pronounced \"-ant\" — <i>intelligent</i> (nasal) → <i>intelligente</i> (an-t pronounced clearly), same for <i>élégant → élégante</i>.";
+content.appendChild(note3b);
+
+/* 4. Examples in context */
+const h4 = document.createElement('h2'); h4.textContent = "4 · Exemples en contexte — examples in context"; content.appendChild(h4);
+const EX_CTX = [
+  { fr:"Il est grand.", ph:"eel eh GRAHN", en:"He is tall." },
+  { fr:"Elle est grande.", ph:"el eh GRAHND", en:"She is tall." },
+  { fr:"C'est un beau garçon.", ph:"seh tuhn BOH gahr-SOHN", en:"He is a handsome boy." },
+  { fr:"C'est une belle maison.", ph:"seh toon BELL may-ZOHN", en:"It is a beautiful house." },
+  { fr:"Il est heureux d'apprendre le français.", ph:"eel eh tuh-RUH dah-PRAHN-druh luh frahn-SEH", en:"He is happy to learn French." },
+  { fr:"Elle est très heureuse.", ph:"el eh treh zuh-RUHZ", en:"She is very happy." },
+];
+EX_CTX.forEach(item=>{ content.appendChild(makeRow(item.fr, item.ph, item.en)); GLOBAL_VOCAB.push({fr:item.fr, en:item.en}); });
+const note4 = document.createElement('div'); note4.className='note';
+note4.innerHTML = "<b>beau has a 3rd form:</b> before a masculine noun starting with a vowel sound, <i>beau</i> becomes <i>bel</i> — <i>un bel appartement</i> (a beautiful apartment), not <i>un beau appartement</i>. This is the same liaison-avoidance pattern as <i>vieux→vieil</i> (<i>un vieil homme</i>) and <i>nouveau→nouvel</i> (<i>un nouvel ami</i>).";
+content.appendChild(note4);
+
+/* 5. Practice */
+const h5 = document.createElement('h2'); h5.textContent = "5 · Practice — give the feminine form"; content.appendChild(h5);
+const PRACTICE = [
+  { m:"grand", f:["grande"], en:"big/tall" },
+  { m:"petit", f:["petite"], en:"small" },
+  { m:"sportif", f:["sportive"], en:"athletic" },
+  { m:"heureux", f:["heureuse"], en:"happy" },
+  { m:"beau", f:["belle"], en:"beautiful" },
+  { m:"vieux", f:["vieille"], en:"old" },
+];
+const practiceDiv = document.createElement('div');
+PRACTICE.forEach(item=>{
+  const row = document.createElement('div'); row.className='fillrow';
+  const sent = document.createElement('div'); sent.className='sent';
+  sent.innerHTML = `<b>${item.m}</b> (${item.en}) → <input type="text" maxlength="14"> <button>Check</button>`;
+  row.appendChild(sent);
+  const fb = document.createElement('div'); fb.className='fb';
+  row.appendChild(fb);
+  const input = sent.querySelector('input');
+  const btn = sent.querySelector('button');
+  function check(){
+    const val = input.value.trim().toLowerCase();
+    if (item.f.includes(val)) { fb.textContent = "✓ Correct — " + item.f[0]; fb.className = 'fb ok'; }
+    else { fb.textContent = "✗ Correct answer: " + item.f[0]; fb.className = 'fb bad'; }
+  }
+  btn.onclick = check;
+  input.addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); check(); } });
+  practiceDiv.appendChild(row);
+});
+content.appendChild(practiceDiv);
+
+/* 6. Worksheet exercise 2 — Transforme au féminin */
+const h6a = document.createElement('h2'); h6a.textContent = "6 · Transforme au féminin (the worksheet's own exercise)"; content.appendChild(h6a);
+const l6a = document.createElement('p'); l6a.className='lead'; l6a.textContent = "Change the whole noun phrase from masculine to feminine — the noun changes too, not just the adjective."; content.appendChild(l6a);
+const TRANSFORM = [
+  { before:"un garçon sportif", after:"une fille", answers:["sportive"], full:"un garçon sportif → une fille sportive", en:"an athletic boy → an athletic girl" },
+  { before:"un homme intelligent", after:"une femme", answers:["intelligente"], full:"un homme intelligent → une femme intelligente", en:"an intelligent man → an intelligent woman" },
+  { before:"un ami amusant", after:"une amie", answers:["amusante"], full:"un ami amusant → une amie amusante", en:"a funny (male) friend → a funny (female) friend" },
+  { before:"un pantalon élégant", after:"une robe", answers:["élégante"], full:"un pantalon élégant → une robe élégante", en:"elegant trousers → an elegant dress" },
+  { before:"un petit sac", after:"une", answers:["petite"], after2:"valise", full:"un petit sac → une petite valise", en:"a small bag → a small suitcase" },
+  { before:"un grand appartement", after:"une", answers:["grande"], after2:"maison", full:"un grand appartement → une grande maison", en:"a big apartment → a big house" },
+];
+const transformDiv = document.createElement('div');
+TRANSFORM.forEach(item=>{
+  const row = document.createElement('div'); row.className='fillrow';
+  const sent = document.createElement('div'); sent.className='sent';
+  sent.innerHTML = `${item.before} → ${item.after} <input type="text" maxlength="16"> ${item.after2||''} <button>Check</button>`;
+  row.appendChild(sent);
+  const fb = document.createElement('div'); fb.className='fb';
+  row.appendChild(fb);
+  const input = sent.querySelector('input');
+  const btn = sent.querySelector('button');
+  function check(){
+    const val = input.value.trim().toLowerCase();
+    if (item.answers.includes(val)) { fb.textContent = "✓ " + item.full + " — " + item.en; fb.className = 'fb ok'; }
+    else { fb.textContent = "✗ Correct: " + item.full + " — " + item.en; fb.className = 'fb bad'; }
+  }
+  btn.onclick = check;
+  input.addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); check(); } });
+  transformDiv.appendChild(row);
+  GLOBAL_VOCAB.push({fr:item.full, en:item.en});
+});
+content.appendChild(transformDiv);
+
+/* 7. Worksheet exercise 3 — Choisis le bon adjectif */
+const h7a = document.createElement('h2'); h7a.textContent = "7 · Choisis le bon adjectif (the worksheet's own exercise)"; content.appendChild(h7a);
+const l7a = document.createElement('p'); l7a.className='lead'; l7a.textContent = "Complète avec : grand/grande — petit/petite — beau/belle — sportif/sportive — amusant/amusante. Pick the form that matches the noun's gender."; content.appendChild(l7a);
+const CHOOSE = [
+  { before:"Ma sœur est très", after:".", answers:["sportive","belle","amusante","grande","petite"],
+    en:"My sister is very ___.", why:"ma sœur (my sister) is feminine, so any of the 5 feminine adjective forms fits grammatically — the meaning you pick just needs to make sense." },
+  { before:"Mon frère est", after:"et il joue au football.", answers:["sportif"],
+    en:"My brother is athletic and he plays football.", why:"mon frère (my brother) is masculine, and the context (\"he plays football\") points specifically to sportif (athletic) as the sensible meaning, not just any masculine adjective." },
+  { before:"J'habite dans une", after:"maison.", answers:["grande","petite","belle"],
+    en:"I live in a big/small/beautiful house.", why:"une maison is feminine, so grande, petite, or belle all fit grammatically." },
+  { before:"J'ai un", after:"sac.", answers:["grand","petit","beau"],
+    en:"I have a big/small/beautiful bag.", why:"un sac is masculine, so grand, petit, or beau all fit grammatically." },
+  { before:"Mon professeur est très", after:".", answers:["sportif","intelligent","amusant","grand","petit"],
+    en:"My teacher is very ___.", why:"professeur defaults to masculine agreement unless specified otherwise, so a masculine adjective form fits here." },
+  { before:"C'est une", after:"journée !", answers:["belle","grande","petite"],
+    en:"It's a beautiful day!", why:"une journée (a day) is feminine; belle is the natural choice here (\"C'est une belle journée !\" is a common everyday expression), though grande/petite are grammatically valid too." },
+];
+const chooseDiv = document.createElement('div');
+CHOOSE.forEach(item=>{
+  const row = document.createElement('div'); row.className='fillrow';
+  const sent = document.createElement('div'); sent.className='sent';
+  sent.innerHTML = `${item.before} <input type="text" maxlength="16"> ${item.after} <button>Check</button>`;
+  row.appendChild(sent);
+  const fb = document.createElement('div'); fb.className='fb';
+  row.appendChild(fb);
+  const input = sent.querySelector('input');
+  const btn = sent.querySelector('button');
+  function check(){
+    const val = input.value.trim().toLowerCase();
+    if (item.answers.includes(val)) { fb.textContent = "✓ Correct — " + item.en + " — " + item.why; fb.className = 'fb ok'; }
+    else { fb.textContent = "✗ Try: " + item.answers.join(', ') + " — " + item.why; fb.className = 'fb bad'; }
+  }
+  btn.onclick = check;
+  input.addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); check(); } });
+  chooseDiv.appendChild(row);
+});
+content.appendChild(chooseDiv);
+
+/* 8. Section 4 — MON STYLE */
+const h8a = document.createElement('h2'); h8a.textContent = "8 · Les adjectifs dans la vraie vie : MON STYLE"; content.appendChild(h8a);
+const l8a = document.createElement('p'); l8a.className='lead'; l8a.textContent = "\"Imagine que tu choisis une tenue pour sortir avec tes amis. Décris les vêtements avec des adjectifs.\" — Imagine you're picking an outfit to go out with friends. Describe the clothes with adjectives."; content.appendChild(l8a);
+const CLOTHES = [
+  ["un pantalon", "uhn pahn-tah-LOHN", "trousers/pants"],
+  ["un t-shirt", "uhn tee-shurt", "a t-shirt"],
+  ["une chemise", "ewn shuh-MEEZ", "a shirt"],
+  ["des chaussures", "day shoh-SEWR", "shoes"],
+  ["une tenue", "ewn tuh-NEW", "an outfit"],
+];
+CLOTHES.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+const h8b = document.createElement('h3'); h8b.className='sub2'; h8b.textContent = "Your turn — describe your own outfit"; content.appendChild(h8b);
+const l8b = document.createElement('p'); l8b.className='lead'; l8b.textContent = "Try filling in the worksheet's own sentences for yourself. No auto-check — just practice picking adjectives that agree with each noun's gender (pantalon/t-shirt/chemise are masc./fem. as shown; chaussures and tenue are feminine)."; content.appendChild(l8b);
+const styleDiv = document.createElement('div');
+[
+  { before:"Mon pantalon est", en:"My trousers are ___. (pantalon = masculine)" },
+  { before:"Mon t-shirt / ma chemise est", en:"My t-shirt/shirt is ___. (t-shirt = masc., chemise = fem.)" },
+  { before:"Mes chaussures sont", en:"My shoes are ___. (chaussures = feminine plural)" },
+  { before:"Ma tenue est ___ et", en:"My outfit is ___ and ___. (tenue = feminine)" },
+].forEach(item=>{
+  const row = document.createElement('div'); row.className='fillrow';
+  row.innerHTML = `<div class="sent">${item.before} <input type="text" maxlength="16"> ${item.before.includes('___ et')?'':'.'}</div><div class="fb" style="color:var(--muted);">${item.en}</div>`;
+  styleDiv.appendChild(row);
+});
+content.appendChild(styleDiv);
+const ex8 = document.createElement('div'); ex8.className='example';
+ex8.innerHTML = "<b>Example (Rajveer's style):</b> Mon pantalon est noir. Ma chemise est bleue et élégante. Mes chaussures sont blanches. Ma tenue est simple et confortable. — (mohn pahn-tah-LOHN eh NWAHR. mah shuh-MEEZ eh blur ay ay-lay-GAHNT. may shoh-SEWR sohn BLAHNSH. mah tuh-NEW eh SAMPL ay kohn-for-TAHBL.) — My trousers are black. My shirt is blue and elegant. My shoes are white. My outfit is simple and comfortable.";
+content.appendChild(ex8);
+
+/* 9. Section 5 — Devine la personne */
+const h9a = document.createElement('h2'); h9a.textContent = "9 · Devine la personne ! — guess the person"; content.appendChild(h9a);
+const l9a = document.createElement('p'); l9a.className='lead'; l9a.textContent = "\"Écris 3 adjectifs pour décrire une personne célèbre, un ami, un personnage ou toi-même. Ton partenaire doit deviner qui c'est.\" — Write 3 adjectives to describe a famous person, a friend, a character, or yourself. Your partner has to guess who it is."; content.appendChild(l9a);
+const ex9 = document.createElement('div'); ex9.className='example';
+ex9.innerHTML = "<b>Example:</b> ① grand ② sportif ③ canadien — <b>Qui est-ce ?</b> (kee eh-SUH ? — Who is it?) → C'est peut-être un joueur de hockey célèbre. (say puh-teh-truh uhn zhoo-UR duh oh-KAY say-LEHBR — It might be a famous hockey player.)";
+content.appendChild(ex9);
+const guessRow = document.createElement('div'); guessRow.className='fillrow';
+guessRow.innerHTML = `<div class="sent">① <input type="text" maxlength="14"> ② <input type="text" maxlength="14"> ③ <input type="text" maxlength="14"></div><div class="sent" style="margin-top:8px;">Qui est-ce ? <input type="text" maxlength="30" style="width:220px;"></div>`;
+content.appendChild(guessRow);
+const note9 = document.createElement('div'); note9.className='note';
+note9.innerHTML = "<b>Qui est-ce ?</b> (kee eh-SUH ?) — Who is it/this? Different from <i>qui es-tu ?</i> (who are YOU) — <i>qui est-ce</i> asks about a third person/thing being described, exactly like this guessing-game format.";
+content.appendChild(note9);
+
+/* 10. Emotions vocab — from the live whiteboard */
+const h10a = document.createElement('h2'); h10a.textContent = "10 · Les émotions — adjectives of feeling (from today's whiteboard)"; content.appendChild(h10a);
+const l10a = document.createElement('p'); l10a.className='lead'; l10a.textContent = "Same masculine adjective pattern applies here — these are the masculine forms; add -e for feminine as usual (heureux→heureuse is the -eux→-euse pattern from section 2)."; content.appendChild(l10a);
+const EMOTIONS = [
+  { fr:"heureux", f:"heureuse", ph:"uh-RUH / uh-RUHZ", en:"happy" },
+  { fr:"en colère", f:"en colère", ph:"ahn koh-LEHR", en:"angry (invariable — en colère doesn't change form)" },
+  { fr:"triste", f:"triste", ph:"treest", en:"sad (invariable — already ends in -e)" },
+];
+EMOTIONS.forEach(item=>{ content.appendChild(makeRow(item.fr, item.ph, item.en)); GLOBAL_VOCAB.push({fr:item.fr, en:item.en}); });
+const note10a = document.createElement('div'); note10a.className='note';
+note10a.innerHTML = "<b>colère is a noun, not an adjective:</b> <i>la colère</i> means \"anger\" (the noun). To say \"angry\" as a description, French uses the phrase <i>en colère</i> (literally \"in anger\") rather than a single adjective — <i>Il est en colère</i> (He is angry), <i>Elle est en colère</i> (She is angry) — same phrase for both, it never changes form.";
+content.appendChild(note10a);
+const ex10a = document.createElement('div'); ex10a.className='example';
+ex10a.innerHTML = "<b>Je suis heureux/heureuse aujourd'hui.</b> (zhuh swee zuh-RUH/zuh-RUHZ oh-zhoor-DWEE) — I am happy today. &nbsp;|&nbsp; <b>Il est en colère.</b> (eel eh tahn koh-LEHR) — He is angry. &nbsp;|&nbsp; <b>Elle est triste.</b> (ell eh treest) — She is sad.";
+content.appendChild(ex10a);
+
+/* 11. Quiz */
+const h6 = document.createElement('h2'); h6.textContent = "11 · Quick quiz"; content.appendChild(h6);
+const quizBox = document.createElement('div'); quizBox.className='quizbox';
+quizBox.innerHTML = `<p class="lead" style="margin:0 0 8px;">Multiple-choice, mixing today's vocab.</p>`;
+const quizBtn = document.createElement('button'); quizBtn.className='quizbtn'; quizBtn.textContent='▶ Start quiz';
+const quizArea = document.createElement('div'); quizArea.className='quizarea';
+quizBox.appendChild(quizBtn); quizBox.appendChild(quizArea);
+content.appendChild(quizBox);
+
+function shuffleArr(a){ const b=[...a]; for(let i=b.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [b[i],b[j]]=[b[j],b[i]]; } return b; }
+function runQuiz(pool, area, btn){
+  btn.style.display='none';
+  const qs = shuffleArr(pool).slice(0, Math.min(8, pool.length));
+  let i = 0, score = 0;
+  function showQ(){
+    area.innerHTML = '';
+    if (i >= qs.length) {
+      const res = document.createElement('div'); res.className='quizresult';
+      res.textContent = `Score: ${score} / ${qs.length}`;
+      const retry = document.createElement('button'); retry.className='quizretry'; retry.textContent='↻ Retry';
+      retry.onclick = ()=>{ btn.style.display='inline-block'; area.innerHTML=''; };
+      area.appendChild(res); area.appendChild(retry);
+      return;
+    }
+    const item = qs[i];
+    const wrongPool = pool.filter(p=>p.en!==item.en);
+    const opts = shuffleArr([item, ...shuffleArr(wrongPool).slice(0,3)]);
+    const prog = document.createElement('div'); prog.className='quizprog'; prog.textContent = `Question ${i+1} / ${qs.length}`;
+    const fr = document.createElement('div'); fr.className='quizfr'; fr.textContent = item.fr;
+    area.appendChild(prog); area.appendChild(fr);
+    opts.forEach(o=>{
+      const b = document.createElement('button'); b.className='quizopt'; b.textContent = o.en;
+      b.onclick = ()=>{
+        [...area.querySelectorAll('.quizopt')].forEach(x=>x.disabled=true);
+        if (o.en===item.en){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); [...area.querySelectorAll('.quizopt')].find(x=>x.textContent===item.en).classList.add('correct'); }
+        setTimeout(()=>{ i++; showQ(); }, 900);
+      };
+      area.appendChild(b);
+    });
+  }
+  showQ();
+}
+quizBtn.onclick = ()=> runQuiz(GLOBAL_VOCAB, quizArea, quizBtn);
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+</body>
+</html>

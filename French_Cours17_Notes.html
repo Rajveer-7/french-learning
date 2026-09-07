@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 17 — Jeune femme cherche appartement</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .qa .a { display:flex; align-items:center; gap:10px; background:var(--accentbg); border-radius:10px; padding:8px 10px; margin-top:6px; }
+  .factbox { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .factbox th, .factbox td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .factbox th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 17: Jeune femme cherche appartement</h1>
+  <p class="sub">The Language SKOOL · Saison 1, page 46 · A rental-ad reading exercise — Unité 2, l'habitat (continues from Cours 13/14)</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html" class="active">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Articles.html">Articles</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "🔊 " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(text.replace(/\s+([!?])/g,'$1'));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play '+fr);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML=`<div class="fr">${fr}</div>${ph?`<div class="ph">${ph}</div>`:''}${en?`<div class="en">${en}</div>`:''}`;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+function makeCell(fr, ph){
+  const c=document.createElement('div'); c.className='cell';
+  c.innerHTML = `<div class="fr">${fr}</div>${ph?`<div class="ph">${ph}</div>`:''}`;
+  c.onclick=()=>speak(fr);
+  return c;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+
+/* 1. The ad itself */
+const h1 = document.createElement('h2'); h1.textContent = "1 · The listing — title and header"; content.appendChild(h1);
+const l1 = document.createElement('p'); l1.className='lead'; l1.textContent = "A rental ad on a classifieds site."; content.appendChild(l1);
+content.appendChild(makeRow("Jeune femme cherche appartement", "zhuhn fam shehrsh ah-par-tuh-MAHN", "Young woman looking for an apartment"));
+content.appendChild(makeRow("Location 3 pièces meublé - Paris 18e - 1 200 € cc", "loh-kah-syohn trwah pyess mub-LAY - pah-REE deez-wee-tyem - meel duh sahn zuh-roh koh-PREEZ", "3-room furnished rental - Paris 18th district - €1,200/month, charges included"));
+GLOBAL_VOCAB.push({fr:"Jeune femme cherche appartement", en:"Young woman looking for an apartment"});
+
+const h1t = document.createElement('h3'); h1t.className='sub2'; h1t.textContent = "Fiche récapitulative (summary table)"; content.appendChild(h1t);
+const factTable = document.createElement('table'); factTable.className='factbox';
+factTable.innerHTML = '<tr><th>French</th><th>Pronunciation</th><th>English</th></tr>' +
+  '<tr><td>Pièces : 3</td><td>pyess : trwah</td><td>Rooms: 3</td></tr>' +
+  '<tr><td>Surface : 60 m²</td><td>swah-SAHNT meh-truh kah-RAY</td><td>Size: 60 m² (~645 sq ft)</td></tr>' +
+  '<tr><td>Étage : 2</td><td>duh-zyem ay-TAHZH</td><td>Floor: 2nd floor</td></tr>' +
+  '<tr><td>Ascenseur : oui</td><td>ah-sahn-SUR : wee</td><td>Elevator: yes</td></tr>' +
+  '<tr><td>Terrasse : non</td><td>teh-RAHS : nohn</td><td>Terrace: no</td></tr>' +
+  '<tr><td>Parking : 0</td><td>par-KEENG : zay-roh</td><td>Parking: 0</td></tr>';
+content.appendChild(factTable);
+
+const h1tr = document.createElement('h3'); h1tr.className='sub2'; h1tr.textContent = "Transports"; content.appendChild(h1tr);
+content.appendChild(makeRow("Transports : Jules Joffrin, Marcadet-Poissonniers", "trahn-SPOR : mah-tro zhool zhoh-FRAN, mar-kah-DAY pwah-suh-NYAY", "Public transit: Jules Joffrin, Marcadet-Poissonniers metro stations"));
+GLOBAL_VOCAB.push({fr:"Transports : Jules Joffrin, Marcadet-Poissonniers", en:"Public transit: Jules Joffrin, Marcadet-Poissonniers metro stations"});
+
+const h1d = document.createElement('h3'); h1d.className='sub2'; h1d.textContent = "Descriptif — feature by feature"; content.appendChild(h1d);
+const l1d = document.createElement('p'); l1d.className='lead'; l1d.textContent = "The ad's spec list, broken into individual features with pronunciation and translation for each (rather than as one quoted block of the book's prose):"; content.appendChild(l1d);
+const DESCRIPTIF = [
+  { fr:"60 m², 2e étage", ph:"swah-SAHNT meh-truh kah-RAY, duh-zyem ay-TAHZH", en:"60 sq. metres, 2nd floor" },
+  { fr:"vieil immeuble", ph:"vyay eem-MUH-bluh", en:"older building" },
+  { fr:"ascenseur", ph:"ah-sahn-SUR", en:"elevator" },
+  { fr:"entrée, séjour, salle à manger", ph:"ahn-TRAY, say-ZHOOR, sahl ah mahn-ZHAY", en:"entryway, living room, dining room" },
+  { fr:"1 chambre (lit 160 cm)", ph:"ewn shahm-bruh (lee sahnt-swah-SAHNT sahn-tee-MEH-truh)", en:"1 bedroom (160 cm queen-size bed)" },
+  { fr:"salle de bains, WC séparé", ph:"sahl duh ban, vay-say say-pah-RAY", en:"bathroom, separate toilet" },
+  { fr:"cuisine équipée (LV)", ph:"kwee-ZEEN ay-kee-PAY (el-vay)", en:"fitted kitchen (dishwasher)" },
+  { fr:"placard sous escalier", ph:"plah-KAR soo zess-kah-LYAY", en:"cupboard under the stairs" },
+  { fr:"TV écran plat", ph:"tay-vay ay-krahn PLAH", en:"flat-screen TV" },
+  { fr:"bon état, moderne", ph:"bohn nay-TAH, moh-DEHRN", en:"good condition, modern" },
+  { fr:"avec vue sur le parc", ph:"ah-vek vew sewr luh PARK", en:"with a view over the park" },
+];
+DESCRIPTIF.forEach(item=>{ content.appendChild(makeRow(item.fr, item.ph, item.en)); GLOBAL_VOCAB.push({fr:item.fr, en:item.en}); });
+
+const h1c = document.createElement('h3'); h1c.className='sub2'; h1c.textContent = "Contact info"; content.appendChild(h1c);
+content.appendChild(makeRow("Prendre contact par mail ou par téléphone :", "prahn-druh kohn-TAKT par mel oo par tay-lay-FOHN", "Contact by email or by phone:"));
+GLOBAL_VOCAB.push({fr:"Prendre contact par mail ou par téléphone :", en:"Contact by email or by phone:"});
+const note1phone = document.createElement('div'); note1phone.className='example';
+note1phone.innerHTML = "Reading the phone number aloud in French pairs: <b>06 54 21 72 31</b> → zéro-six, cinquante-quatre, vingt-et-un, soixante-douze, trente-et-un (same pairing pattern practised in Cours 12 with téléphoner en France).";
+content.appendChild(note1phone);
+
+const h1abbr = document.createElement('h3'); h1abbr.className='sub2'; h1abbr.textContent = "Real-estate abbreviations"; content.appendChild(h1abbr);
+const ABBR = [
+  { fr:"€ cc", ph:"say-say", en:"charges comprises — rent includes building maintenance and standard water/services" },
+  { fr:"LV", ph:"el-vay", en:"lave-vaisselle — dishwasher" },
+  { fr:"WC", ph:"vay-say", en:"water-closet — toilet room" },
+  { fr:"lit 160 cm", ph:"lee sahnt-swah-SAHNT sahn-tee-MEH-truh", en:"standard French queen-size bed" },
+];
+ABBR.forEach(item=>{ content.appendChild(makeRow(item.fr, item.ph, item.en)); GLOBAL_VOCAB.push({fr:item.fr, en:item.en}); });
+
+/* 1b. Ordinal numbers — explaining "18e" */
+const h1b = document.createElement('h2'); h1b.textContent = "1b · Ordinal numbers — what \"18e\" means"; content.appendChild(h1b);
+const l1b = document.createElement('p'); l1b.className='lead'; l1b.textContent = "\"Paris 18e\" in the ad means the 18th arrondissement (Paris's districts are numbered 1st to 20th). French ordinal numbers (1st, 2nd, 3rd...) are written as a digit + e, and spoken with the -ième suffix on the number."; content.appendChild(l1b);
+const ORDINALS = [
+  { fr:"deuxième", ph:"duh-zyem", en:"2nd (2e)" },
+  { fr:"troisième", ph:"trwah-zyem", en:"3rd (3e)" },
+  { fr:"dix-huitième", ph:"dee-zwee-tyem", en:"18th (18e)" },
+];
+ORDINALS.forEach(item=>{ content.appendChild(makeRow(item.fr, item.ph, item.en)); GLOBAL_VOCAB.push({fr:item.fr, en:item.en}); });
+const note1b = document.createElement('div'); note1b.className='note';
+note1b.innerHTML = "Pattern: take the cardinal number and add -ième (deux → deuxième, trois → troisième, dix-huit → dix-huitième — drop the silent -e from \"neuf/quatre\"-type numbers before adding -ième). The one exception: 1st is <b>premier</b> (masc.) / <b>première</b> (fem.), not \"unième\" on its own — unième only appears in compounds like vingt-et-unième (21st).";
+content.appendChild(note1b);
+const note1c = document.createElement('div'); note1c.className='example';
+note1c.innerHTML = "Also from the whiteboard: <b>m² = mètre carré</b> (square metre) — the unit used for \"Surface : 60 m²\" in the ad above. Say it as \"soixante mètres carrés\" (sixty square metres).";
+content.appendChild(note1c);
+content.appendChild(makeRow("un mètre carré", "an meh-truh kah-RAY", "a square metre"));
+GLOBAL_VOCAB.push({fr:"un mètre carré", en:"a square metre"});
+
+/* 2. Vocab */
+const h2v = document.createElement('h2'); h2v.textContent = "2 · Mots et expressions — L'équipement"; content.appendChild(h2v);
+const l2v = document.createElement('p'); l2v.className='lead'; l2v.textContent = "The book's own vocab box for this page, on furnishings/equipment."; content.appendChild(l2v);
+const EQUIP = [
+  { fr:"un meublé", ph:"an mub-LAY", en:"a furnished apartment" },
+  { fr:"une cuisine équipée", ph:"ewn kwee-ZEEN ay-kee-PAY", en:"a fitted/equipped kitchen" },
+  { fr:"un placard", ph:"an plah-KAR", en:"a closet / cupboard" },
+];
+EQUIP.forEach(item=>{ content.appendChild(makeRow(item.fr, item.ph, item.en)); GLOBAL_VOCAB.push({fr:item.fr, en:item.en}); });
+const note2v = document.createElement('div'); note2v.className='note';
+note2v.innerHTML = "More vocab from this box will be added here as the class continues — the teacher was still scrolling to the rest of the list.";
+content.appendChild(note2v);
+
+/* 3. Related vocab from the ad */
+const h3v = document.createElement('h2'); h3v.textContent = "3 · Other useful vocab from the ad"; content.appendChild(h3v);
+const ADVOCAB = [
+  { fr:"une annonce", ph:"ewn ah-NOHNS", en:"an ad / listing" },
+  { fr:"la location", ph:"lah loh-kah-SYOHN", en:"the rental" },
+  { fr:"la vente", ph:"lah VAHNT", en:"the sale" },
+  { fr:"un(e) locataire", ph:"an/ewn loh-kah-TEHR", en:"a tenant" },
+  { fr:"le loyer", ph:"luh lwah-YAY", en:"the rent" },
+  { fr:"l'étage", ph:"lay-TAHZH", en:"the floor (level)" },
+  { fr:"l'ascenseur", ph:"lah-sahn-SUR", en:"the elevator" },
+  { fr:"la terrasse", ph:"lah teh-RAHS", en:"the terrace" },
+  { fr:"le parking", ph:"luh par-KEENG", en:"the parking" },
+  { fr:"prendre contact", ph:"PRAHN-druh cohn-TAKT", en:"to get in touch" },
+];
+const gridEl = document.createElement('div'); gridEl.className='grid';
+ADVOCAB.forEach(item=>{ gridEl.appendChild(makeCell(item.fr, item.ph)); GLOBAL_VOCAB.push({fr:item.fr, en:item.en}); });
+content.appendChild(gridEl);
+
+/* 4. Exercise 1 */
+const h4 = document.createElement('h2'); h4.textContent = "4 · Exercice 1 — Regardez rapidement le document et trouvez la bonne réponse"; content.appendChild(h4);
+const l4 = document.createElement('p'); l4.className='lead'; l4.textContent = "\"Skim the document and find the right answer.\" The book's own multiple-choice comprehension check."; content.appendChild(l4);
+const EX1 = [
+  { prompt:"a. Il s'agit d'une :", opts:["annonce","publicité"], answers:["annonce"], en:"a. It's a: a listing/ad (not a general advertisement — this is a specific classified ad for one apartment)." },
+  { prompt:"b. Pour :", opts:["une vente","une location"], answers:["une location"], en:"b. For: a rental (\"Location 3 pièces meublé\" — the ad is for renting, not selling)." },
+];
+EX1.forEach(item=>{
+  const row = document.createElement('div'); row.className='riddle';
+  const prompt = document.createElement('div'); prompt.className='prompt'; prompt.textContent = item.prompt;
+  row.appendChild(prompt);
+  const btns = document.createElement('div'); btns.className='btns';
+  const fb = document.createElement('div'); fb.className='fb';
+  item.opts.forEach(opt=>{
+    const b = document.createElement('button'); b.textContent = opt;
+    b.onclick = ()=>{
+      if (item.answers.includes(opt)) { fb.textContent = "✓ Correct — " + item.en; fb.className = 'fb ok'; }
+      else { fb.textContent = "✗ Correct answer: " + item.answers[0] + " — " + item.en; fb.className = 'fb bad'; }
+    };
+    btns.appendChild(b);
+  });
+  row.appendChild(btns); row.appendChild(fb);
+  content.appendChild(row);
+});
+
+/* 5. Exercise 2 */
+const h5 = document.createElement('h2'); h5.textContent = "5 · Exercice 2 — Repérez des éléments clés du document"; content.appendChild(h5);
+const l5 = document.createElement('p'); l5.className='lead'; l5.textContent = "\"Spot the key elements of the document.\" Using the facts from section 1 above: 3 rooms, 60 m², 2nd floor, elevator yes, no terrace, no parking, near Jules Joffrin / Marcadet-Poissonniers metro, €1,200/month including charges."; content.appendChild(l5);
+const note5 = document.createElement('div'); note5.className='example';
+note5.innerHTML = "Practice saying it aloud: <b>C'est un appartement de trois pièces, soixante mètres carrés, au deuxième étage, avec ascenseur.</b> (It's a three-room apartment, sixty square metres, on the second floor, with an elevator.)";
+content.appendChild(note5);
+content.appendChild(makeRow(
+  "C'est un appartement de trois pièces, soixante mètres carrés, au deuxième étage, avec ascenseur.",
+  "seh tuh nah-par-tuh-MAHN duh trwah pyess, swah-SAHNT meh-truh kah-RAY, oh duh-zyem ay-TAHZH, ah-vek ah-sahn-SUR",
+  "It's a three-room apartment, sixty square metres, on the second floor, with an elevator."
+));
+const recapAns = document.createElement('table'); recapAns.className='factbox';
+recapAns.innerHTML = '<tr><th>Élément</th><th>Réponse</th></tr>' +
+  '<tr><td>Type de bien</td><td>Appartement 3 pièces meublé</td></tr>' +
+  '<tr><td>Loyer</td><td>1 200 € par mois (charges comprises)</td></tr>' +
+  '<tr><td>Superficie</td><td>60 m²</td></tr>' +
+  '<tr><td>Étage</td><td>2e étage avec ascenseur</td></tr>' +
+  '<tr><td>Atout principal</td><td>Vue sur le parc, moderne, cuisine équipée</td></tr>';
+content.appendChild(recapAns);
+
+/* 6. Quiz */
+const h6 = document.createElement('h2'); h6.textContent = "6 · Quick quiz"; content.appendChild(h6);
+const quizBox = document.createElement('div'); quizBox.className='quizbox';
+quizBox.innerHTML = `<p class="lead" style="margin:0 0 8px;">Multiple-choice, mixing today's vocab.</p>`;
+const quizBtn = document.createElement('button'); quizBtn.className='quizbtn'; quizBtn.textContent='▶ Start quiz';
+const quizArea = document.createElement('div'); quizArea.className='quizarea';
+quizBox.appendChild(quizBtn); quizBox.appendChild(quizArea);
+content.appendChild(quizBox);
+
+function shuffleArr(a){ const b=[...a]; for(let i=b.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [b[i],b[j]]=[b[j],b[i]]; } return b; }
+function runQuiz(pool, area, btn){
+  btn.style.display='none';
+  const qs = shuffleArr(pool).slice(0, Math.min(8, pool.length));
+  let i = 0, score = 0;
+  function showQ(){
+    area.innerHTML = '';
+    if (i >= qs.length) {
+      const res = document.createElement('div'); res.className='quizresult';
+      res.textContent = `Score: ${score} / ${qs.length}`;
+      const retry = document.createElement('button'); retry.className='quizretry'; retry.textContent='↻ Retry';
+      retry.onclick = ()=>{ btn.style.display='inline-block'; area.innerHTML=''; };
+      area.appendChild(res); area.appendChild(retry);
+      return;
+    }
+    const item = qs[i];
+    const wrongPool = pool.filter(p=>p.en!==item.en);
+    const opts = shuffleArr([item, ...shuffleArr(wrongPool).slice(0,3)]);
+    const prog = document.createElement('div'); prog.className='quizprog'; prog.textContent = `Question ${i+1} / ${qs.length}`;
+    const fr = document.createElement('div'); fr.className='quizfr'; fr.textContent = item.fr;
+    area.appendChild(prog); area.appendChild(fr);
+    opts.forEach(o=>{
+      const b = document.createElement('button'); b.className='quizopt'; b.textContent = o.en;
+      b.onclick = ()=>{
+        [...area.querySelectorAll('.quizopt')].forEach(x=>x.disabled=true);
+        if (o.en===item.en){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); [...area.querySelectorAll('.quizopt')].find(x=>x.textContent===item.en).classList.add('correct'); }
+        setTimeout(()=>{ i++; showQ(); }, 900);
+      };
+      area.appendChild(b);
+    });
+  }
+  showQ();
+}
+quizBtn.onclick = ()=> runQuiz(GLOBAL_VOCAB, quizArea, quizBtn);
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+</body>
+</html>

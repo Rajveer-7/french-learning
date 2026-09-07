@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 16 — Possessive Adjectives</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:110px; text-align:center; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 16: Les adjectifs possessifs</h1>
+  <p class="sub">The Language SKOOL · 20 August 2026 · Possessive adjectives (my/your/his/her/our/their) — builds directly on the qualificative adjectives from Cours 15</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html" class="active">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Articles.html">Articles</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "🔊 " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(text.replace(/\s+([!?])/g,'$1'));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play '+fr);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML=`<div class="fr">${fr}</div>${ph?`<div class="ph">${ph}</div>`:''}${en?`<div class="en">${en}</div>`:''}`;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+
+const introP = document.createElement('p'); introP.className='lead';
+introP.textContent = "Today's lesson plan builds directly on adjectives: \"This class builds directly on adjectives already learned, letting students immediately combine possessive adjectives with descriptive adjectives to talk about their own lives.\" A quick masculine/feminine adjective warm-up (grand/grande, sportif/sportive — see Cours 15) came first, then the full possessives table below.";
+content.appendChild(introP);
+
+/* 1. The full possessives table */
+const h1 = document.createElement('h2'); h1.textContent = "1 · Les Possessifs — the full table"; content.appendChild(h1);
+const POSS = [
+  { owner:"je", m:"mon", f:"ma", pl:"mes", en:"my" },
+  { owner:"tu", m:"ton", f:"ta", pl:"tes", en:"your (informal)" },
+  { owner:"il / elle", m:"son", f:"sa", pl:"ses", en:"his / her" },
+  { owner:"nous", m:"notre", f:"notre", pl:"nos", en:"our" },
+  { owner:"vous", m:"votre", f:"votre", pl:"vos", en:"your (formal/plural)" },
+  { owner:"ils / elles", m:"leur", f:"leur", pl:"leurs", en:"their" },
+];
+const table = document.createElement('table'); table.className = 'conjt';
+table.innerHTML = '<tr><th>Owner</th><th>Masc. sing.</th><th>Fem. sing.</th><th>Plural</th><th>Meaning</th></tr>';
+POSS.forEach(item=>{
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td>${item.owner}</td><td class="fr" style="cursor:pointer;font-size:15px;">${item.m}</td><td class="fr" style="cursor:pointer;font-size:15px;">${item.f}</td><td class="fr" style="cursor:pointer;font-size:15px;">${item.pl}</td><td>${item.en}</td>`;
+  const tds = tr.querySelectorAll('td.fr');
+  tds[0].onclick=()=>speak(item.m); tds[1].onclick=()=>speak(item.f); tds[2].onclick=()=>speak(item.pl);
+  table.appendChild(tr);
+  GLOBAL_VOCAB.push({fr:item.m, en:item.en + " (masc. sing.)"});
+  GLOBAL_VOCAB.push({fr:item.f, en:item.en + " (fem. sing.)"});
+  GLOBAL_VOCAB.push({fr:item.pl, en:item.en + " (plural)"});
+});
+content.appendChild(table);
+
+/* 2. The two traps */
+const h2 = document.createElement('h2'); h2.textContent = "2 · The two traps"; content.appendChild(h2);
+const note2a = document.createElement('div'); note2a.className='note';
+note2a.innerHTML = "<b>Trap 1 — son/sa/ses agree with the OBJECT, not the owner:</b> unlike English \"his\" vs \"her,\" French doesn't care whether the owner is male or female — it only cares about the gender of the thing owned. <i>son téléphone</i> = his phone OR her phone (téléphone is masculine, so it's always son regardless of who owns it). <i>sa voiture</i> = his car OR her car (voiture is feminine, so it's always sa). You literally cannot tell the owner's gender from son/sa alone — you need context.";
+content.appendChild(note2a);
+const ex2a = document.createElement('div'); ex2a.className='example';
+ex2a.innerHTML = "<b>Marie a son téléphone.</b> (mah-REE ah sohn tay-lay-FOHN) — Marie has her phone. (téléphone is masc. → son, even though Marie is female) &nbsp;|&nbsp; <b>Paul a sa voiture.</b> (pohl ah sah vwah-TEWR) — Paul has his car. (voiture is fem. → sa, even though Paul is male)";
+content.appendChild(ex2a);
+const note2b = document.createElement('div'); note2b.className='note';
+note2b.innerHTML = "<b>Trap 2 — liaison rule before a vowel sound:</b> before a feminine noun that starts with a vowel sound, French swaps <i>ma/ta/sa</i> for <i>mon/ton/son</i> — purely for smoother pronunciation (avoiding two vowel sounds colliding). <i>mon amie</i> (not <i>ma amie</i>) even though <i>amie</i> (female friend) is feminine — because <i>amie</i> starts with a vowel sound.";
+content.appendChild(note2b);
+const ex2b = document.createElement('div'); ex2b.className='example';
+ex2b.innerHTML = "<b>mon amie</b> (mohn nah-MEE) — my (female) friend &nbsp;|&nbsp; <b>ton école</b> (tohn nay-KOL) — your school &nbsp;|&nbsp; <b>son histoire</b> (sohn nees-TWAHR) — his/her story — all feminine nouns, but mon/ton/son used because each starts with a vowel sound.";
+content.appendChild(ex2b);
+
+/* 3. Invariable forms: nous / vous / ils-elles */
+const h3i = document.createElement('h2'); h3i.textContent = "3 · Invariable forms — notre, votre, leur"; content.appendChild(h3i);
+const l3i = document.createElement('p'); l3i.className='lead'; l3i.textContent = "For nous, vous, and ils/elles, there is no masculine/feminine distinction in the singular — the same word covers both genders. The plural just adds a silent -s."; content.appendChild(l3i);
+const INVAR = [
+  { fr:"notre maison", ph:"NOH-truh may-ZOHN", en:"our house (fem. noun, same word)" },
+  { fr:"notre appartement", ph:"NOH-truh ah-par-tuh-MAHN", en:"our apartment (masc. noun, same word)" },
+  { fr:"votre sac", ph:"VOH-truh sahk", en:"your bag (masc.)" },
+  { fr:"votre chemise", ph:"VOH-truh shuh-MEEZ", en:"your shirt (fem.)" },
+  { fr:"leur salon", ph:"lur sah-LOHN", en:"their living room (masc.)" },
+  { fr:"leur chambre", ph:"lur SHAHM-bruh", en:"their bedroom (fem.)" },
+  { fr:"nos affaires", ph:"noh zah-FEHR", en:"our belongings (plural)" },
+  { fr:"vos clés", ph:"voh klay", en:"your keys (plural)" },
+  { fr:"leurs enfants", ph:"lur zahn-FAHN", en:"their children (plural)" },
+];
+INVAR.forEach(item=>{ content.appendChild(makeRow(item.fr, item.ph, item.en)); GLOBAL_VOCAB.push({fr:item.fr, en:item.en}); });
+const note3i = document.createElement('div'); note3i.className='note';
+note3i.innerHTML = "Compare to je/tu/il-elle, where the article changes with gender (mon/ma, ton/ta, son/sa) — notre/votre/leur never change for gender, only for number (singular → plural adds -s: notre→nos, votre→vos, leur→leurs).";
+content.appendChild(note3i);
+
+/* 4. Practical examples from daily life */
+const h4p = document.createElement('h2'); h4p.textContent = "4 · Practical examples — your everyday things"; content.appendChild(h4p);
+const l4p = document.createElement('p'); l4p.className='lead'; l4p.textContent = "Full sentences mixing mon/ma/mes in context — the kind of thing you'd actually say."; content.appendChild(l4p);
+const h4pa = document.createElement('h3'); h4pa.className='sub2'; h4pa.textContent = "Mon sac / Ma maison / Mes affaires"; content.appendChild(h4pa);
+content.appendChild(makeRow(
+  "Dans mon sac, j'ai mon portefeuille, ma pièce d'identité et mes clés.",
+  "dahn mohn sahk, zhay mohn por-tuh-fuy, mah pyess dee-dahn-tee-TAY ay may klay",
+  "In my bag, I have my wallet, my ID and my keys."
+));
+GLOBAL_VOCAB.push({fr:"Dans mon sac, j'ai mon portefeuille, ma pièce d'identité et mes clés.", en:"In my bag, I have my wallet, my ID and my keys."});
+content.appendChild(makeRow("le portefeuille", "por-tuh-FUY", "the wallet (masc. → mon)"));
+content.appendChild(makeRow("la pièce d'identité", "pyess dee-dahn-tee-TAY", "the ID card (fem. → ma)"));
+content.appendChild(makeRow("les clés", "klay", "the keys (plural → mes)"));
+
+const h4pb = document.createElement('h3'); h4pb.className='sub2'; h4pb.textContent = "Mon style"; content.appendChild(h4pb);
+content.appendChild(makeRow(
+  "Mon pantalon est noir, ma chemise est élégante et mes chaussures sont sportives.",
+  "mohn pahn-tah-LOHN eh nwahr, mah shuh-MEEZ eh tay-lay-GAHNT ay may shoh-SYOOR sohn spor-TEEV",
+  "My trousers are black, my shirt is elegant and my shoes are sporty."
+));
+GLOBAL_VOCAB.push({fr:"Mon pantalon est noir, ma chemise est élégante et mes chaussures sont sportives.", en:"My trousers are black, my shirt is elegant and my shoes are sporty."});
+const note4pb = document.createElement('div'); note4pb.className='example';
+note4pb.innerHTML = "Notice all three genders/numbers in one sentence: <b>mon</b> pantalon (masc. sing.), <b>ma</b> chemise (fem. sing.), <b>mes</b> chaussures (plural) — each adjective (noir/élégante/sportives) also agrees with its own noun.";
+content.appendChild(note4pb);
+
+const h4pc = document.createElement('h3'); h4pc.className='sub2'; h4pc.textContent = "Son logement"; content.appendChild(h4pc);
+content.appendChild(makeRow(
+  "Son appartement est lumineux et sa terrasse est grande.",
+  "sohn nah-par-tuh-MAHN eh loo-mee-NUH ay sah teh-RAHS eh GRAHND",
+  "His/her apartment is bright and his/her terrace is big."
+));
+GLOBAL_VOCAB.push({fr:"Son appartement est lumineux et sa terrasse est grande.", en:"His/her apartment is bright and his/her terrace is big."});
+const note4pc = document.createElement('div'); note4pc.className='note';
+note4pc.innerHTML = "Same trap as section 2: <b>son</b> appartement (masc. → son, regardless of owner) and <b>sa</b> terrasse (fem. → sa, regardless of owner). Without more context, you can't tell if \"son/sa\" here means his or her.";
+content.appendChild(note4pc);
+
+/* 5. Family & Belongings vocab */
+const h3v = document.createElement('h2'); h3v.textContent = "5 · Vocabulary — Family & Personal Belongings"; content.appendChild(h3v);
+const l3v = document.createElement('p'); l3v.className='lead'; l3v.textContent = "This is the vocab used to practise the possessives above."; content.appendChild(l3v);
+const FAMBEL = [
+  { fr:"le père", ph:"luh pehr", en:"father" },
+  { fr:"la mère", ph:"lah mehr", en:"mother" },
+  { fr:"le frère", ph:"luh frehr", en:"brother" },
+  { fr:"la sœur", ph:"lah sur", en:"sister" },
+  { fr:"l'ami / l'amie", ph:"lah-MEE", en:"friend (masc./fem.)" },
+  { fr:"le téléphone", ph:"luh tay-lay-FOHN", en:"phone" },
+  { fr:"la maison", ph:"lah may-ZOHN", en:"house" },
+  { fr:"la voiture", ph:"lah vwah-TEWR", en:"car" },
+  { fr:"le sac", ph:"luh sahk", en:"bag" },
+  { fr:"le livre", ph:"luh LEE-vruh", en:"book" },
+];
+FAMBEL.forEach(item=>{ content.appendChild(makeRow(item.fr, item.ph, item.en)); GLOBAL_VOCAB.push({fr:item.fr, en:item.en}); });
+const note3v = document.createElement('div'); note3v.className='note';
+note3v.innerHTML = "Note l'ami / l'amie — before a vowel sound, le/la both shorten to l' (elision), so you can't tell gender from the article alone here. This is a different rule from the mon/ma liaison rule above, but the same underlying reason: French avoids two vowel sounds bumping into each other.";
+content.appendChild(note3v);
+
+/* 6. Practice */
+const h3 = document.createElement('h2'); h3.textContent = "6 · Practice — fill in the possessive"; content.appendChild(h3);
+const PRACTICE = [
+  { before:"J'ai", noun:"stylo", gender:"m", owner:"my", answers:["mon"], en:"I have my pen. (stylo = masc.)" },
+  { before:"Tu as", noun:"clé", gender:"f", owner:"your", answers:["ta"], en:"You have your key. (clé = fem., starts with consonant sound)" },
+  { before:"Il aime", noun:"sœur", gender:"f", owner:"his", answers:["sa"], en:"He loves his sister. (sœur = fem.)" },
+  { before:"Elle a", noun:"livre", gender:"m", owner:"her", answers:["son"], en:"She has her book. (livre = masc.)" },
+  { before:"Nous avons", noun:"maison", gender:"f", owner:"our", answers:["notre"], en:"We have our house. (maison = fem. sing.)" },
+  { before:"Vous avez", noun:"amis", gender:"pl", owner:"your", answers:["vos"], en:"You have your friends. (amis = plural)" },
+  { before:"Ils adorent", noun:"appartement", gender:"m", owner:"their", answers:["leur"], en:"They love their apartment. (appartement = masc. sing.)" },
+  { before:"J'aime", noun:"amie", gender:"f-vowel", owner:"my", answers:["mon"], en:"I love my (female) friend. (amie = fem. but starts with a vowel sound → mon, not ma)" },
+];
+const practiceDiv = document.createElement('div');
+PRACTICE.forEach(item=>{
+  const row = document.createElement('div'); row.className='fillrow';
+  const sent = document.createElement('div'); sent.className='sent';
+  sent.innerHTML = `${item.before} <input type="text" maxlength="10"> ${item.noun}. <button>Check</button>`;
+  row.appendChild(sent);
+  const fb = document.createElement('div'); fb.className='fb';
+  row.appendChild(fb);
+  const input = sent.querySelector('input');
+  const btn = sent.querySelector('button');
+  function check(){
+    const val = input.value.trim().toLowerCase();
+    if (item.answers.includes(val)) { fb.textContent = "✓ Correct — " + item.en; fb.className = 'fb ok'; }
+    else { fb.textContent = "✗ Correct answer: " + item.answers[0] + " — " + item.en; fb.className = 'fb bad'; }
+  }
+  btn.onclick = check;
+  input.addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); check(); } });
+  practiceDiv.appendChild(row);
+});
+content.appendChild(practiceDiv);
+
+/* 6b. Worksheet — Fiche d'exercices de français A1 */
+const h6w = document.createElement('h2'); h6w.textContent = "6b · Worksheet — Fiche d'exercices A1 (10 items)"; content.appendChild(h6w);
+const l6w = document.createElement('p'); l6w.className='lead'; l6w.textContent = "\"Choisissez : mon, ma, mes, ton, ta, tes, son, sa, ses\" — a teacher worksheet, done live in class."; content.appendChild(l6w);
+const WORKSHEET = [
+  { before:"C'est", noun:"frère", answers:["mon","son","ton"], main:"mon", ph:"seh mohn frehr", en:"This is my brother.", subject:"Neutral (C'est)", nounGender:"Masculine singular", rule:"Frère is a masculine singular noun. Because the subject is neutral (C'est), mon, ton, or son are all grammatically correct here — mon is the most common choice in this exercise." },
+  { before:"Elle aime", noun:"voiture", answers:["sa"], main:"sa", ph:"el em sah vwah-TEWR", en:"She likes her car.", subject:"Elle (3rd person)", nounGender:"Feminine singular", rule:"Subject Elle (3rd person) + feminine singular noun (une voiture) → sa." },
+  { before:"Je cherche", noun:"clés", answers:["mes"], main:"mes", ph:"zhuh shehrsh may klay", en:"I am looking for my keys.", subject:"Je (1st person)", nounGender:"Plural", rule:"Subject Je (1st person) + plural noun (les clés) → mes." },
+  { before:"Tu prends", noun:"sac", answers:["ton"], main:"ton", ph:"too prahn tohn sahk", en:"You take your bag.", subject:"Tu (2nd person)", nounGender:"Masculine singular", rule:"Subject Tu (2nd person) + masculine singular noun (un sac) → ton." },
+  { before:"Il regarde", noun:"télévision", answers:["sa"], main:"sa", ph:"eel ruh-gahrd sah tay-lay-vee-ZYOHN", en:"He is watching his television.", subject:"Il (3rd person)", nounGender:"Feminine singular", rule:"Subject Il (3rd person) + feminine singular noun (la télévision) → sa." },
+  { before:"J'adore", noun:"parents", answers:["mes"], main:"mes", ph:"zhah-dor may pah-RAHN", en:"I love my parents.", subject:"Je (1st person)", nounGender:"Plural", rule:"Subject Je (1st person) + plural noun (les parents) → mes (or tes parents if speaking to someone about their parents)." },
+  { before:"Tu présentes", noun:"sœur", answers:["ta"], main:"ta", ph:"too pray-zahnt tah sur", en:"You introduce your sister.", subject:"Tu (2nd person)", nounGender:"Feminine singular", rule:"Subject Tu (2nd person) + feminine singular noun (une sœur) → ta." },
+  { before:"Elle téléphone à", noun:"amis", answers:["ses"], main:"ses", ph:"el tay-lay-fun ah say zah-MEE", en:"She calls / is phoning her friends.", subject:"Elle (3rd person)", nounGender:"Plural", rule:"Subject Elle (3rd person) + plural noun (les amis) → ses (with a sounded liaison in \"z\": ses-z-amis)." },
+  { before:"Je prépare", noun:"valise", answers:["ma"], main:"ma", ph:"zhuh pray-pahr mah vah-LEEZ", en:"I prepare my suitcase.", subject:"Je (1st person)", nounGender:"Feminine singular", rule:"Subject Je (1st person) + feminine singular noun (une valise) → ma." },
+  { before:"Il cherche", noun:"passeport", answers:["son"], main:"son", ph:"eel shehrsh sohn pass-POR", en:"He is looking for his passport.", subject:"Il (3rd person)", nounGender:"Masculine singular", rule:"Subject Il (3rd person) + masculine singular noun (un passeport) → son." },
+];
+const worksheetDiv = document.createElement('div');
+WORKSHEET.forEach((item, idx)=>{
+  const row = document.createElement('div'); row.className='fillrow';
+  const sent = document.createElement('div'); sent.className='sent';
+  sent.innerHTML = `${idx+1}. ${item.before} <input type="text" maxlength="10"> ${item.noun}. <button>Check</button>`;
+  row.appendChild(sent);
+  const fb = document.createElement('div'); fb.className='fb';
+  row.appendChild(fb);
+  const input = sent.querySelector('input');
+  const btn = sent.querySelector('button');
+  function check(){
+    const val = input.value.trim().toLowerCase();
+    if (item.answers.includes(val)) { fb.textContent = "✓ Correct — " + item.en + " — " + item.ph; fb.className = 'fb ok'; }
+    else { fb.textContent = "✗ Correct answer: " + item.main + " — " + item.en + " — " + item.rule; fb.className = 'fb bad'; }
+  }
+  btn.onclick = check;
+  input.addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); check(); } });
+  worksheetDiv.appendChild(row);
+});
+content.appendChild(worksheetDiv);
+
+const h6corr = document.createElement('h3'); h6corr.className='sub2'; h6corr.textContent = "Corrigé — full explanation for every item"; content.appendChild(h6corr);
+const l6corr = document.createElement('p'); l6corr.className='lead'; l6corr.textContent = "The full answer key, with pronunciation, translation, and the grammar rule behind each choice."; content.appendChild(l6corr);
+WORKSHEET.forEach((item, idx)=>{
+  const box = document.createElement('div'); box.className='example';
+  box.innerHTML = `<b>${idx+1}. ${item.before} ${item.main} ${item.noun}.</b><br>` +
+    `<i>${item.ph}</i> — "${item.en}"<br>` +
+    `Rule: ${item.rule}`;
+  content.appendChild(box);
+});
+
+const h6tab = document.createElement('h3'); h6tab.className='sub2'; h6tab.textContent = "Recap table"; content.appendChild(h6tab);
+const recapTable = document.createElement('table'); recapTable.className = 'conjt';
+recapTable.innerHTML = '<tr><th>#</th><th>Subject (owner)</th><th>Noun</th><th>Noun gender/number</th><th>Answer</th></tr>';
+WORKSHEET.forEach((item, idx)=>{
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td>${idx+1}</td><td>${item.subject}</td><td>${item.noun}</td><td>${item.nounGender}</td><td class="fr" style="cursor:pointer;font-size:15px;">${item.main}</td>`;
+  tr.querySelector('td.fr').onclick=()=>speak(item.main);
+  recapTable.appendChild(tr);
+});
+content.appendChild(recapTable);
+
+const h6more = document.createElement('h3'); h6more.className='sub2'; h6more.textContent = "Extra practice — new sentences (not from the worksheet)"; content.appendChild(h6more);
+const l6more = document.createElement('p'); l6more.className='lead'; l6more.textContent = "Same rules, fresh nouns — a second round of practice to lock in the pattern before the quiz."; content.appendChild(l6more);
+const EXTRA = [
+  { before:"Nous adorons", noun:"jardin", answers:["notre"], main:"notre", ph:"noo zah-dor-OHN NOH-truh zhar-DAHN", en:"We love our garden. (jardin masc. sing. → notre, invariable for gender)" },
+  { before:"Vous cherchez", noun:"lunettes", answers:["vos"], main:"vos", ph:"voo shehr-SHAY voh loo-NET", en:"You're looking for your glasses. (lunettes plural → vos)" },
+  { before:"Ils aiment", noun:"chien", answers:["leur"], main:"leur", ph:"eel zem lur shyan", en:"They love their dog. (chien masc. sing. → leur, invariable for gender)" },
+  { before:"Elles adorent", noun:"vacances", answers:["leurs"], main:"leurs", ph:"ell zah-dor lur va-KAHNS", en:"They love their vacation. (vacances plural → leurs)" },
+  { before:"J'ai perdu", noun:"écharpe", answers:["mon"], main:"mon", ph:"zhay pehr-DEW mohn nay-SHARP", en:"I lost my scarf. (écharpe is fem., but starts with a vowel sound → mon, not ma)" },
+  { before:"Tu oublies toujours", noun:"parapluie", answers:["ton"], main:"ton", ph:"too oo-BLEE too-ZHOOR tohn pah-rah-PLWEE", en:"You always forget your umbrella. (parapluie masc. → ton)" },
+];
+const extraDiv = document.createElement('div');
+EXTRA.forEach((item, idx)=>{
+  const row = document.createElement('div'); row.className='fillrow';
+  const sent = document.createElement('div'); sent.className='sent';
+  sent.innerHTML = `${idx+1}. ${item.before} <input type="text" maxlength="10"> ${item.noun}. <button>Check</button>`;
+  row.appendChild(sent);
+  const fb = document.createElement('div'); fb.className='fb';
+  row.appendChild(fb);
+  const input = sent.querySelector('input');
+  const btn = sent.querySelector('button');
+  function check(){
+    const val = input.value.trim().toLowerCase();
+    if (item.answers.includes(val)) { fb.textContent = "✓ Correct — " + item.en + " — " + item.ph; fb.className = 'fb ok'; }
+    else { fb.textContent = "✗ Correct answer: " + item.main + " — " + item.en; fb.className = 'fb bad'; }
+  }
+  btn.onclick = check;
+  input.addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); check(); } });
+  extraDiv.appendChild(row);
+  GLOBAL_VOCAB.push({fr:`${item.before} ${item.main} ${item.noun}.`, en:item.en});
+});
+content.appendChild(extraDiv);
+
+/* 6c. Worksheet Partie 3 — Choisissez le bon adjectif */
+const h6c2 = document.createElement('h2'); h6c2.textContent = "6c · Worksheet Partie 3 — Choisissez le bon adjectif"; content.appendChild(h6c2);
+const l6c2 = document.createElement('p'); l6c2.className='lead'; l6c2.textContent = "Review of masc./fem. adjective agreement from Cours 15, worked in class right after the possessives exercise."; content.appendChild(l6c2);
+const PARTIE3 = [
+  { before:"Marie est", opts:["grand","grande"], answers:["grande"], en:"Marie is tall. (Marie is fem. → grande)" },
+  { before:"Paul est", opts:["sportif","sportive"], answers:["sportif"], en:"Paul is athletic. (Paul is masc. → sportif)" },
+  { before:"Ma sœur est", opts:["intelligent","intelligente"], answers:["intelligente"], en:"My sister is smart. (sœur fem. → intelligente)" },
+  { before:"Mon frère est", opts:["petit","petite"], answers:["petit"], en:"My brother is short. (frère masc. → petit)" },
+  { before:"Cette voiture est", opts:["beau","belle"], answers:["belle"], en:"This car is beautiful. (voiture fem., and beau is irregular → belle)" },
+  { before:"Mes amis sont", opts:["gentil","gentils"], answers:["gentils"], en:"My friends are kind. (amis plural → gentils)" },
+  { before:"Mes cousines sont", opts:["français","françaises"], answers:["françaises"], en:"My (female) cousins are French. (cousines fem. plural → françaises)" },
+  { before:"Mon professeur est", opts:["sympathique","sympathiques"], answers:["sympathique"], en:"My teacher is nice. (professeur singular here, and sympathique is invariable for gender but still needs singular form, no -s)" },
+];
+const p3Div = document.createElement('div');
+PARTIE3.forEach((item, idx)=>{
+  const row = document.createElement('div'); row.className='riddle';
+  const prompt = document.createElement('div'); prompt.className='prompt';
+  prompt.textContent = `${idx+1}. ${item.before} (${item.opts.join(' / ')}).`;
+  row.appendChild(prompt);
+  const btns = document.createElement('div'); btns.className='btns';
+  const fb = document.createElement('div'); fb.className='fb';
+  item.opts.forEach(opt=>{
+    const b = document.createElement('button');
+    b.textContent = opt;
+    b.onclick = ()=>{
+      if (item.answers.includes(opt)) { fb.textContent = "✓ Correct — " + item.en; fb.className = 'fb ok'; }
+      else { fb.textContent = "✗ Correct answer: " + item.answers[0] + " — " + item.en; fb.className = 'fb bad'; }
+    };
+    btns.appendChild(b);
+  });
+  row.appendChild(btns); row.appendChild(fb);
+  p3Div.appendChild(row);
+});
+content.appendChild(p3Div);
+
+/* 6d. Worksheet Exercice 3 — Complétez les phrases (possessive + adjective) */
+const h6d = document.createElement('h2'); h6d.textContent = "6d · Worksheet Exercice 3 — possessive + adjective together"; content.appendChild(h6d);
+const l6d = document.createElement('p'); l6d.className='lead'; l6d.textContent = "\"Utilisez un adjectif de la boîte\" — word bank: grand · petit · belle · beau · sportif · gentille · nouveau · vieille. Fill both the possessive AND the adjective, matching gender/number. Class example: C'est mon petit frère."; content.appendChild(l6d);
+const EX3 = [
+  { before:"C'est", noun:"frère", answers:["mon petit"], en:"It's my little brother. (frère masc. → mon + petit)" },
+  { before:"C'est", noun:"voiture", answers:["ma belle"], en:"It's my beautiful car. (voiture fem. → ma + belle)" },
+  { before:"Voici", noun:"maison", answers:["ma grande","ma nouvelle","ma vieille"], en:"Here is my big/new/old house. (maison fem. → ma + a fem. adjective)" },
+  { before:"Elle présente", noun:"sœur", answers:["sa sportive","sa gentille"], en:"She's introducing her athletic/kind sister. (sœur fem. → sa + fem. adjective)" },
+  { before:"Je regarde", noun:"téléphone", answers:["mon nouveau","mon vieux"], en:"I'm looking at my new/old phone. (téléphone masc. → mon + masc. adjective)" },
+  { before:"Il aime", noun:"appartement", answers:["son grand","son petit","son nouvel"], en:"He loves his big/small/new apartment. (appartement masc. → son + masc. adjective)" },
+  { before:"Nous visitons", noun:"école", answers:["notre grande","notre nouvelle","notre vieille"], en:"We're visiting our big/new/old school. (école fem., but starts with vowel — notre doesn't change though, since notre is already the vowel-safe form)" },
+  { before:"Tu connais", noun:"professeur ?", answers:["mon nouveau","ton nouveau"], en:"Do you know my/your new teacher?" },
+];
+const ex3Div = document.createElement('div');
+EX3.forEach((item, idx)=>{
+  const row = document.createElement('div'); row.className='fillrow';
+  const sent = document.createElement('div'); sent.className='sent';
+  sent.innerHTML = `${idx+1}. ${item.before} <input type="text" maxlength="20" placeholder="possessive + adjective"> ${item.noun} <button>Check</button>`;
+  row.appendChild(sent);
+  const fb = document.createElement('div'); fb.className='fb';
+  row.appendChild(fb);
+  const input = sent.querySelector('input');
+  const btn = sent.querySelector('button');
+  function check(){
+    const val = input.value.trim().toLowerCase();
+    if (item.answers.some(a=>a.toLowerCase()===val)) { fb.textContent = "✓ Correct — " + item.en; fb.className = 'fb ok'; }
+    else { fb.textContent = "✗ Sample answer: " + item.answers[0] + " — " + item.en; fb.className = 'fb bad'; }
+  }
+  btn.onclick = check;
+  input.addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); check(); } });
+  ex3Div.appendChild(row);
+});
+content.appendChild(ex3Div);
+const note6d = document.createElement('div'); note6d.className='note';
+note6d.innerHTML = "Several of these have more than one reasonable answer (e.g. \"ma grande maison\" or \"ma vieille maison\") since the word bank offers several adjectives that could fit each noun — the important thing being practised is matching both the possessive AND the adjective to the noun's gender/number at the same time.";
+content.appendChild(note6d);
+
+/* 8. Combining with descriptive adjectives */
+const h4 = document.createElement('h2'); h4.textContent = "8 · Combining possessive + descriptive adjectives"; content.appendChild(h4);
+const l4 = document.createElement('p'); l4.className='lead'; l4.textContent = "The point of today's lesson: stack a possessive adjective with a describing adjective from Cours 15, in your own life."; content.appendChild(l4);
+const COMBO = [
+  { fr:"Ma sœur est intelligente.", ph:"mah sur eh tan-teh-lee-ZHAHNT", en:"My sister is intelligent." },
+  { fr:"Mon frère est sportif.", ph:"mohn frehr eh spor-TEEF", en:"My brother is athletic." },
+  { fr:"Notre maison est grande.", ph:"noh-truh may-ZOHN eh GRAHND", en:"Our house is big." },
+  { fr:"Leur appartement est petit.", ph:"lur nah-par-tuh-MAHN eh puh-TEE", en:"Their apartment is small." },
+  { fr:"Mon informaticien préféré est très intelligent.", ph:"mohn an-for-mah-tee-syan pray-fay-RAY eh treh zan-teh-lee-ZHAHN", en:"My favourite IT specialist is very intelligent." },
+];
+COMBO.forEach(item=>{ content.appendChild(makeRow(item.fr, item.ph, item.en)); GLOBAL_VOCAB.push({fr:item.fr, en:item.en}); });
+
+/* 9. Class activities */
+const h6 = document.createElement('h2'); h6.textContent = "9 · Class activities"; content.appendChild(h6);
+const h6a = document.createElement('h3'); h6a.className='sub2'; h6a.textContent = "Relatable Activity — \"My World\" (Mon monde)"; content.appendChild(h6a);
+const l6a = document.createElement('p'); l6a.className='lead'; l6a.textContent = "Describe your own life using possessives + adjectives from the previous class:"; content.appendChild(l6a);
+const MONMONDE = [
+  { fr:"Voici ma famille.", ph:"vwah-SEE mah fah-MEEY", en:"Here is my family." },
+  { fr:"Mon frère est grand.", ph:"mohn frehr eh GRAHN", en:"My brother is tall." },
+  { fr:"Ma sœur est drôle.", ph:"mah sur eh DROHL", en:"My sister is funny." },
+  { fr:"Mes amis sont sportifs.", ph:"mez ah-MEE sohn spor-TEEF", en:"My friends are athletic." },
+];
+MONMONDE.forEach(item=>{ content.appendChild(makeRow(item.fr, item.ph, item.en)); GLOBAL_VOCAB.push({fr:item.fr, en:item.en}); });
+const note6a = document.createElement('div'); note6a.className='note';
+note6a.innerHTML = "Homework-style task from class: write 4-5 similar sentences about your own family/belongings, then present them to a partner. Try it here, in your own notes: e.g. <i>Voici ma famille. Mon père est intelligent. Ma mère est sportive. Mon frère est grand. J'aime ma maison.</i>";
+content.appendChild(note6a);
+const modelH = document.createElement('p'); modelH.className='lead'; modelH.style.marginTop='12px'; modelH.innerHTML = "<b>Teacher's model answer</b> (posted live in class chat — a clean example to copy the pattern from):"; content.appendChild(modelH);
+const MODELANS = [
+  { fr:"Mon frère est gentil et travailleur.", ph:"mohn frehr eh zhahn-TEE ay trah-vah-YUR", en:"My brother is kind and hardworking." },
+  { fr:"Mes amis sont sympathiques et sportifs.", ph:"mez ah-MEE sohn san-pah-TEEK ay spor-TEEF", en:"My friends are nice and athletic." },
+  { fr:"Notre maison est grande et lumineuse.", ph:"noh-truh may-ZOHN eh GRAHND ay lew-mee-NURZ", en:"Our house is big and bright." },
+  { fr:"Ma chambre est calme et moderne.", ph:"mah SHAHM-bruh eh kahlm ay moh-DEHRN", en:"My room is calm and modern." },
+];
+MODELANS.forEach(item=>{ content.appendChild(makeRow(item.fr, item.ph, item.en)); GLOBAL_VOCAB.push({fr:item.fr, en:item.en}); });
+const modelNote = document.createElement('div'); modelNote.className='example';
+modelNote.innerHTML = "Notice the pattern: possessive + noun + être + two adjectives joined with <b>et</b> (and). Each adjective agrees with the noun's gender — <i>gentil/travailleur</i> stay masculine for frère, <i>sympathiques/sportifs</i> take plural -s for amis, <i>grande/lumineuse</i> go feminine for maison, <i>calme/moderne</i> stay feminine for chambre (calme and moderne don't change form between masc./fem.).";
+content.appendChild(modelNote);
+const h6b = document.createElement('h3'); h6b.className='sub2'; h6b.textContent = "Fun Speaking Game — À qui est-ce ?"; content.appendChild(h6b);
+const l6b = document.createElement('p'); l6b.className='lead'; l6b.textContent = "The teacher shows or mentions objects belonging to different students; the class guesses the owner using possessives. \"À qui est-ce ?\" = \"Whose is it?\" (literally \"to whom is it\")."; content.appendChild(l6b);
+content.appendChild(makeRow("À qui est-ce ?", "ah kee eh-SUH", "Whose is it?"));
+content.appendChild(makeRow("C'est le sac de Rajveer.", "seh luh sahk duh Rajveer", "It's Rajveer's bag."));
+content.appendChild(makeRow("C'est son sac !", "seh sohn sahk", "It's his bag!"));
+GLOBAL_VOCAB.push({fr:"À qui est-ce ?", en:"Whose is it?"});
+GLOBAL_VOCAB.push({fr:"C'est son sac !", en:"It's his bag!"});
+
+const h6z = document.createElement('h3'); h6z.className='sub2'; h6z.textContent = "Another classmate's chat answer (mostly correct!)"; content.appendChild(h6z);
+const l6z = document.createElement('p'); l6z.className='lead'; l6z.textContent = "Posted in the class chat — a nice example of possessives + avoir (for age) + être all in one paragraph:"; content.appendChild(l6z);
+const okBox = document.createElement('div'); okBox.className='example';
+okBox.innerHTML = "\"Mon frère a treize ans. Mon frère est très gentil. C'est son chien préféré. Mon frère est très amusant.\" — <i>My brother is thirteen years old. My brother is very kind. It's his favourite dog. My brother is very funny.</i>";
+content.appendChild(okBox);
+const okNote = document.createElement('div'); okNote.className='note';
+okNote.innerHTML = "Two good things to notice: <b>ans</b> uses <i>avoir</i> (a treize ans = \"has thirteen years\"), not être — French always says age with avoir, never être, unlike English \"is\". And <b>son chien</b> correctly uses son (not sa) because chien is masculine — this is exactly the object-agreement trap from section 2, applied correctly.";
+content.appendChild(okNote);
+
+const h6c = document.createElement('h3'); h6c.className='sub2'; h6c.textContent = "Spot the mistakes — a classmate's chat answer"; content.appendChild(h6c);
+const l6c = document.createElement('p'); l6c.className='lead'; l6c.textContent = "A classmate posted this attempt in the class chat while practising \"Mon monde\" sentences. Good real-world practice: find the mistakes before checking the corrected version."; content.appendChild(l6c);
+const wrongBox = document.createElement('div'); wrongBox.className='note';
+wrongBox.innerHTML = "<b>Original (as posted):</b> \"Ma sœur est amusant. Elle ne jaime pas café. C'est sa voiture vert, elle aller travailler avec sa voiture. Nous travaille beaucoup, et nous dormons beaucoup aussi.\"";
+content.appendChild(wrongBox);
+const rightBox = document.createElement('div'); rightBox.className='example';
+rightBox.innerHTML = "<b>Corrected:</b> \"Ma sœur est amusante. Elle n'aime pas le café. C'est sa voiture verte. Elle va travailler avec sa voiture. Nous travaillons beaucoup, et nous dormons beaucoup aussi.\"";
+content.appendChild(rightBox);
+const fixList = document.createElement('div'); fixList.className='note';
+fixList.innerHTML = "<b>What changed, and why:</b><br>" +
+  "1. <i>amusant → amusante</i> — sœur is feminine, so the adjective must agree (Cours 15 rule).<br>" +
+  "2. <i>ne jaime pas → n'aime pas</i> — the verb is <i>aimer</i> (j'aime/elle aime), not \"jaime\"; and <i>ne</i> elides to <i>n'</i> before a vowel.<br>" +
+  "3. <i>pas café → pas le café</i> — French almost always keeps the article (le/la/les) even where English drops it (\"doesn't like coffee\" → \"n'aime pas le café\").<br>" +
+  "4. <i>voiture vert → voiture verte</i> — voiture is feminine, so vert takes an -e (same pattern as grand/grande in Cours 15).<br>" +
+  "5. <i>elle aller travailler → elle va travailler</i> — aller must be conjugated (je vais / tu vas / il-elle va), not left in the infinitive.<br>" +
+  "6. <i>Nous travaille → Nous travaillons</i> — the nous form of -er verbs always ends in -ons.";
+content.appendChild(fixList);
+
+/* 10. Quiz */
+const h5 = document.createElement('h2'); h5.textContent = "10 · Quick quiz"; content.appendChild(h5);
+const quizBox = document.createElement('div'); quizBox.className='quizbox';
+quizBox.innerHTML = `<p class="lead" style="margin:0 0 8px;">Multiple-choice, mixing today's vocab.</p>`;
+const quizBtn = document.createElement('button'); quizBtn.className='quizbtn'; quizBtn.textContent='▶ Start quiz';
+const quizArea = document.createElement('div'); quizArea.className='quizarea';
+quizBox.appendChild(quizBtn); quizBox.appendChild(quizArea);
+content.appendChild(quizBox);
+
+function shuffleArr(a){ const b=[...a]; for(let i=b.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [b[i],b[j]]=[b[j],b[i]]; } return b; }
+function runQuiz(pool, area, btn){
+  btn.style.display='none';
+  const qs = shuffleArr(pool).slice(0, Math.min(8, pool.length));
+  let i = 0, score = 0;
+  function showQ(){
+    area.innerHTML = '';
+    if (i >= qs.length) {
+      const res = document.createElement('div'); res.className='quizresult';
+      res.textContent = `Score: ${score} / ${qs.length}`;
+      const retry = document.createElement('button'); retry.className='quizretry'; retry.textContent='↻ Retry';
+      retry.onclick = ()=>{ btn.style.display='inline-block'; area.innerHTML=''; };
+      area.appendChild(res); area.appendChild(retry);
+      return;
+    }
+    const item = qs[i];
+    const wrongPool = pool.filter(p=>p.en!==item.en);
+    const opts = shuffleArr([item, ...shuffleArr(wrongPool).slice(0,3)]);
+    const prog = document.createElement('div'); prog.className='quizprog'; prog.textContent = `Question ${i+1} / ${qs.length}`;
+    const fr = document.createElement('div'); fr.className='quizfr'; fr.textContent = item.fr;
+    area.appendChild(prog); area.appendChild(fr);
+    opts.forEach(o=>{
+      const b = document.createElement('button'); b.className='quizopt'; b.textContent = o.en;
+      b.onclick = ()=>{
+        [...area.querySelectorAll('.quizopt')].forEach(x=>x.disabled=true);
+        if (o.en===item.en){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); [...area.querySelectorAll('.quizopt')].find(x=>x.textContent===item.en).classList.add('correct'); }
+        setTimeout(()=>{ i++; showQ(); }, 900);
+      };
+      area.appendChild(b);
+    });
+  }
+  showQ();
+}
+quizBtn.onclick = ()=> runQuiz(GLOBAL_VOCAB, quizArea, quizBtn);
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+</body>
+</html>

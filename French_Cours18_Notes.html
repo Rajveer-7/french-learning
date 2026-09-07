@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 18 — Maud et ses nouveaux voisins</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .qa .a { display:flex; align-items:center; gap:10px; background:var(--accentbg); border-radius:10px; padding:8px 10px; margin-top:6px; }
+  audio { width:100%; margin:10px 0; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 18: Maud et ses nouveaux voisins</h1>
+  <p class="sub">The Language SKOOL · Saison 1, page 47 · Unité 2 "Partager son lieu de vie" — the real Piste 26 listening activity</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html" class="active">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Articles.html">Articles</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "🔊 " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(text.replace(/\s+([!?])/g,'$1'));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play '+fr);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML=`<div class="fr">${fr}</div>${ph?`<div class="ph">${ph}</div>`:''}${en?`<div class="en">${en}</div>`:''}`;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+
+/* 1. Title and setup */
+const h1 = document.createElement('h2'); h1.textContent = "1 · Maud et ses nouveaux voisins"; content.appendChild(h1);
+content.appendChild(makeRow("Maud et ses nouveaux voisins", "mohd ay say noo-VOH vwah-ZAN", "Maud and her new neighbours"));
+GLOBAL_VOCAB.push({fr:"Maud et ses nouveaux voisins", en:"Maud and her new neighbours"});
+const l1 = document.createElement('p'); l1.className='lead'; l1.textContent = "A photo shows an old building with blue shutters, several people leaning out of the windows talking to each other — the class first predicts what's happening before listening."; content.appendChild(l1);
+content.appendChild(makeRow("un voisin / une voisine", "an vwah-ZAN / ewn vwah-ZEEN", "a neighbour (masc./fem.)"));
+GLOBAL_VOCAB.push({fr:"un voisin / une voisine", en:"a neighbour (masc./fem.)"});
+content.appendChild(makeRow("nouveau / nouveaux", "noo-VOH / noo-VOH", "new (masc. sing./plural)"));
+GLOBAL_VOCAB.push({fr:"nouveau / nouveaux", en:"new (masc. sing./plural)"});
+
+/* 2. Exercise 5 */
+const h2 = document.createElement('h2'); h2.textContent = "2 · Exercice 5 — Regardez la photo et le titre"; content.appendChild(h2);
+const l2 = document.createElement('p'); l2.className='lead'; l2.textContent = "\"Look at the photo and the title.\" Prediction questions before listening — answer them yourself as practice, there's no single correct answer yet."; content.appendChild(l2);
+const qa1 = document.createElement('div'); qa1.className='qa';
+qa1.innerHTML = `<div class="q">a. C'est chez qui ?</div><div class="qen">Whose place is it?</div>`;
+content.appendChild(qa1);
+content.appendChild(makeRow("C'est l'immeuble où habite Maud, chez ses nouveaux voisins.", "seh leem-MUH-bluh oo ah-BEET mohd, shay lay noo-VOH vwah-ZAN", "It's the building where Maud lives, at her new neighbours' place."));
+const qa2 = document.createElement('div'); qa2.className='qa';
+qa2.innerHTML = `<div class="q">b. Qui sont ces gens ?</div><div class="qen">Who are these people?</div>`;
+content.appendChild(qa2);
+content.appendChild(makeRow("Ce sont les habitants de l'immeuble — la nouvelle famille voisine (Chloé, Marc et leurs enfants).", "suh sohn lay zah-bee-TAHN duh leem-MUH-bluh", "They're the building's residents — the new neighbour family (Chloé, Marc and their kids)."));
+GLOBAL_VOCAB.push({fr:"C'est chez qui ?", en:"Whose place is it?"});
+GLOBAL_VOCAB.push({fr:"Qui sont ces gens ?", en:"Who are these people?"});
+const note2 = document.createElement('div'); note2.className='note';
+note2.innerHTML = "\"Chez\" means \"at (someone)'s place\" — chez Maud = at Maud's place, chez moi = at my place. It's one of the most common little words in French and has no direct one-word English equivalent.";
+content.appendChild(note2);
+
+/* 3. Piste 26 audio */
+const h3 = document.createElement('h2'); h3.textContent = "3 · Piste 26 — the real audio"; content.appendChild(h3);
+const l3 = document.createElement('p'); l3.className='lead'; l3.textContent = "The actual listening track from the book. Play it and answer exercise 6 below."; content.appendChild(l3);
+const audioEl = document.createElement('audio'); audioEl.controls = true; audioEl.preload = 'none';
+audioEl.innerHTML = '<source src="26piste26.mp3" type="audio/mpeg">';
+content.appendChild(audioEl);
+const note3 = document.createElement('div'); note3.className='note';
+note3.innerHTML = "⚠ No verified line-by-line transcript here — I can't listen to audio directly, and the dialogue itself is the textbook's copyrighted audio script, so it isn't reproduced word-for-word. What follows is a plain-language summary plus the book's own comprehension questions and answers, confirmed from class.";
+content.appendChild(note3);
+const summary3 = document.createElement('div'); summary3.className='example';
+summary3.innerHTML = "<b>Gist of the conversation:</b> a friend asks Maud how things are going with her new neighbours. Maud says it's going well and describes a woman, <b>Chloé</b>, who lives on the ground floor (<i>le rez-de-chaussée</i>) and looks a bit like Maud's sister Juliette (except Juliette has black hair). Chloé has two sons — <b>Alex</b>, a slim teenager with curly blonde hair, and <b>Noé</b>, a chubby baby who weighs about 10 kg and has nice blue eyes. The friend then asks about the father; Maud says he's not blonde, his name is <b>Marc</b>, he has light-brown (châtain) hair, and he's funny, always in floral shirts.";
+content.appendChild(summary3);
+
+/* 3b. Word-by-word glossary for Piste 26 */
+const h3g = document.createElement('h3'); h3g.className='sub2'; h3g.textContent = "Word-by-word glossary — every key word from this track"; content.appendChild(h3g);
+const l3g = document.createElement('p'); l3g.className='lead'; l3g.textContent = "Play the track above, then use this list to catch each word as it goes by."; content.appendChild(l3g);
+const GLOSS26 = [
+  ["Ça se passe bien ?","sah suh pass byan","Is it going well?"],
+  ["avec tes nouveaux voisins","ah-vek tay noo-voh vwah-ZAN","with your new neighbours"],
+  ["une femme très sympa","ewn fam treh sam-PAH","a very nice woman"],
+  ["elle s'appelle...","ell sah-PELL","her name is..."],
+  ["elle ressemble à ma sœur","ell ruh-SAHM-bluh ah mah sur","she looks like my sister"],
+  ["à quel étage ?","ah kel ay-TAZH","which floor?"],
+  ["elle habite au rez-de-chaussée","ell ah-BEET oh ray-duh-shoh-SAY","she lives on the ground floor"],
+  ["elle a deux fils","ell ah duh feess","she has two sons (fils: silent l, sounded s)"],
+  ["c'est un ado","seh-tuhn-nah-doh","he's a teenager"],
+  ["il est mince","eel eh mans","he is slim"],
+  ["les cheveux blonds et bouclés","lay shuh-vuh blohn-zay boo-klay","blonde, curly hair"],
+  ["un gros bébé","uhn groh bay-BAY","a chubby baby"],
+  ["il pèse 10 kilos","eel pehz deess kee-loh","he weighs 10 kilos"],
+  ["de beaux yeux bleus","duh boh-zyuh bluh","beautiful blue eyes"],
+  ["leur père","luhr pehr","their father"],
+  ["il est châtain","eel eh shah-TAN","he has light-brown hair"],
+  ["il est drôle","eel eh drohl","he is funny"],
+  ["une chemise à fleurs","ewn shuh-meez ah fluhr","a floral shirt"],
+];
+GLOSS26.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+
+/* 4. Exercise 6 */
+const h4 = document.createElement('h2'); h4.textContent = "4 · Exercice 6 — Écoutez et répondez"; content.appendChild(h4);
+const l4 = document.createElement('p'); l4.className='lead'; l4.textContent = "\"Listen and answer.\" The book's own comprehension questions for Piste 26."; content.appendChild(l4);
+const EX6 = [
+  { q:"a. Est-ce que les femmes se connaissent ?", en:"Do the women know each other?",
+    a:"Oui, elles se connaissent bien — ce sont des amies. Elles se tutoient et s'appellent par leur prénom (« Tu vas bien Maud ? »).",
+    aph:"wee, el suh koh-NESS byan. suh sohn day zah-MEE.",
+    aen:"Yes, they know each other well — they're friends. They use \"tu\" and call each other by first name." },
+  { q:"b. De qui parlent-elles ?", en:"Who are they talking about?",
+    a:"Elles parlent des nouveaux voisins de Maud — Chloé, son mari Marc, et leurs deux fils Alex et Noé.",
+    aph:"el parl day noo-VOH vwah-ZAN duh mohd.",
+    aen:"They're talking about Maud's new neighbours — Chloé, her husband Marc, and their two sons Alex and Noé." },
+  { q:"c. Qui ressemble à Juliette ?", en:"Who looks like Juliette?",
+    a:"C'est Chloé qui ressemble à Juliette, la sœur de Maud — sauf que Juliette a les cheveux noirs.",
+    aph:"seh kloh-AY kee ruh-SAHM-bluh ah zhoo-lee-ET.",
+    aen:"It's Chloé who looks like Juliette, Maud's sister — except Juliette has black hair." },
+  { q:"d. D'après la description, retrouvez sur la photo : Chloé, Alex, Noé et Marc.", en:"Based on the description, find in the photo: Chloé, Alex, Noé and Marc.",
+    a:"Chloé = grande femme blonde, au rez-de-chaussée. Alex = l'ado mince aux cheveux blonds et bouclés. Noé = le bébé (gros, 10 kg, beaux yeux bleus). Marc = l'homme aux cheveux châtains, en chemise à fleurs.",
+    aph:"",
+    aen:"Chloé = tall blonde woman on the ground floor. Alex = the slim teenager with curly blonde hair. Noé = the baby (chubby, 10 kg, nice blue eyes). Marc = the man with light-brown hair, in a floral shirt." },
+];
+EX6.forEach(item=>{
+  const qa = document.createElement('div'); qa.className='qa';
+  qa.innerHTML = `<div class="q">${item.q}</div><div class="qen">${item.en}</div>`;
+  content.appendChild(qa);
+  content.appendChild(makeRow(item.a, item.aph, item.aen));
+  GLOBAL_VOCAB.push({fr:item.q, en:item.en});
+});
+const note4 = document.createElement('div'); note4.className='note';
+note4.innerHTML = "Names to know: <b>Chloé</b> (new neighbour, tall/blonde, ground floor), <b>Alex</b> (her teenage son, slim, curly blonde hair), <b>Noé</b> (her baby son, 10 kg, blue eyes), <b>Marc</b> (the father, light-brown hair, floral shirts), <b>Juliette</b> (Maud's sister — Chloé resembles her, minus the black hair).";
+content.appendChild(note4);
+
+/* Character recap table */
+const h4b = document.createElement('h3'); h4b.className='sub2'; h4b.textContent = "Fiche descriptive des personnages"; content.appendChild(h4b);
+const table6 = document.createElement('table'); table6.className='conjt';
+table6.innerHTML = '<tr><th>Personnage</th><th>Rôle</th><th>Lieu de vie</th><th>Description</th></tr>' +
+  '<tr><td>Chloé</td><td>Nouvelle voisine</td><td>Rez-de-chaussée</td><td>Grande, blonde, très sympa</td></tr>' +
+  '<tr><td>Juliette</td><td>Sœur de Maud</td><td>—</td><td>Ressemble à Chloé, mais cheveux noirs</td></tr>' +
+  '<tr><td>Alex</td><td>Fils aîné de Chloé</td><td>Rez-de-chaussée</td><td>Ado, mince, cheveux blonds et bouclés</td></tr>' +
+  '<tr><td>Noé</td><td>Deuxième fils</td><td>Rez-de-chaussée</td><td>Gros bébé (10 kg), beaux yeux bleus</td></tr>' +
+  '<tr><td>Marc</td><td>Le père</td><td>Rez-de-chaussée</td><td>Châtain, drôle, chemises à fleurs</td></tr>';
+content.appendChild(table6);
+
+/* 5. Communication — Décrire quelqu'un physiquement */
+const h5 = document.createElement('h2'); h5.textContent = "5 · Communication — Décrire quelqu'un physiquement"; content.appendChild(h5);
+const l5 = document.createElement('p'); l5.className='lead'; l5.textContent = "\"Describing someone physically\" — the book's own phrase box, for talking about what people look like."; content.appendChild(l5);
+const PHYSIQUE = [
+  { fr:"Il/Elle est grand(e)/petit(e).", ph:"eel/ell eh grahn(d)/puh-tee(t)", en:"He/She is tall/short." },
+  { fr:"Elle est blonde/Il est châtain.", ph:"ell eh blohnd / eel eh shah-TAN", en:"She's blonde/He has brown hair." },
+  { fr:"Elle a les cheveux longs.", ph:"ell ah lay shuh-VUH lohn", en:"She has long hair." },
+  { fr:"Il a les yeux bleus.", ph:"eel ah lay zyuh bluh", en:"He has blue eyes." },
+  { fr:"Elle ressemble à Juliette.", ph:"ell ruh-SAHM-bluh ah zhoo-lyet", en:"She looks like Juliette." },
+  { fr:"Il pèse 10 kg.", ph:"eel pehz dee kee-loh", en:"He weighs 10 kg." },
+];
+PHYSIQUE.forEach(item=>{ content.appendChild(makeRow(item.fr, item.ph, item.en)); GLOBAL_VOCAB.push({fr:item.fr, en:item.en}); });
+const note5 = document.createElement('div'); note5.className='note';
+note5.innerHTML = "\"Il pèse 10 kg\" is a clue that this description is of a young child, not an adult — worth noticing for the listening exercise above (Chloé, Alex, Noé, Marc could include a baby/toddler among the neighbours).";
+content.appendChild(note5);
+const note5b = document.createElement('div'); note5b.className='example';
+note5b.innerHTML = "Grammar note: <b>blonde</b> and <b>châtain</b> both describe hair colour, but note the pattern difference — \"Elle est blonde\" (she IS blonde, using être + adjective) vs \"Elle a les cheveux longs\" (she HAS long hair, using avoir + les cheveux + adjective). Both patterns are common for physical description in French — you'll see both again.";
+content.appendChild(note5b);
+
+const note5e = document.createElement('div'); note5e.className='note';
+note5e.innerHTML = "More detail on <b>être vs avoir</b> for descriptions: use <b>être + adjective</b> for overall height/build (il est grand, elle est mince), and <b>avoir + les + noun + adjective</b> for hair and eyes (il a les cheveux blonds, elle a les yeux bleus) — the adjective agrees with the noun cheveux/yeux (masc. plural), not with the person. Watch the liaisons: <i>c'est un ado</i> → seh-tuhn-nah-doh; <i>de beaux yeux</i> → duh boh-z-yuh (des → de before a plural adjective placed before the noun, e.g. de beaux yeux, de grands yeux); <i>deux fils</i> → duh FEESS (the l is silent, the s is pronounced). \"Ado\" is short, everyday French for adolescent (teenager). \"Châtain\" = light/chestnut-brown hair.";
+content.appendChild(note5e);
+
+/* 5b. Exercise 7 — Réécoutez, opposites table */
+const h5b = document.createElement('h2'); h5b.textContent = "5b · Exercice 7 — Réécoutez (les contraires)"; content.appendChild(h5b);
+const l5b = document.createElement('p'); l5b.className='lead'; l5b.textContent = "\"Listen again.\" a. Complétez ce tableau pour retrouver les contraires. (Complete this table to find the opposites.) The table contrasts the two people described in the audio — one column for \"elle\", one for \"il\"."; content.appendChild(l5b);
+const table7 = document.createElement('table'); table7.className='conjt';
+table7.innerHTML = '<tr><th>Elle</th><th>Il</th></tr>' +
+  '<tr><td>Elle est petite.</td><td>Il est mince.</td></tr>' +
+  '<tr><td>Elle est ..... <i>(to confirm)</i></td><td>Il est ..... <i>(to confirm)</i></td></tr>';
+content.appendChild(table7);
+content.appendChild(makeRow("Elle est petite.", "ell eh puh-TEET", "She is short."));
+content.appendChild(makeRow("Il est mince.", "eel eh mans", "He is thin."));
+GLOBAL_VOCAB.push({fr:"Elle est petite.", en:"She is short."});
+GLOBAL_VOCAB.push({fr:"Il est mince.", en:"He is thin."});
+const note5c = document.createElement('div'); note5c.className='note';
+note5c.innerHTML = "\"Les contraires\" here doesn't mean each word is a strict antonym of the other — it means the two people in the photo are described with contrasting/different traits (she's short, he's thin — not necessarily opposite qualities, just a contrast between the two). The second row is still blank on the worksheet; will fill in once confirmed in class.";
+content.appendChild(note5c);
+const h5bb = document.createElement('h3'); h5bb.className='sub2'; h5bb.textContent = "b. Tendez l'oreille — the [z] sound"; content.appendChild(h5bb);
+const l5bb = document.createElement('p'); l5bb.className='lead'; l5bb.textContent = "\"Prick up your ears. Say whether you hear [z].\" A phonetics exercise using Piste 26 again — listening for the [z] sound, which usually comes from a liaison (a word ending in a silent -s or -x linking to the next word starting with a vowel, e.g. les_yeux, ses_amis)."; content.appendChild(l5bb);
+content.appendChild(makeRow("les yeux", "lay zyuh", "the eyes (liaison: s + y sounds like [z])"));
+content.appendChild(makeRow("ses amis", "say zah-MEE", "his/her friends (liaison: s + a sounds like [z])"));
+GLOBAL_VOCAB.push({fr:"les yeux", en:"the eyes (liaison [z])"});
+GLOBAL_VOCAB.push({fr:"ses amis", en:"his/her friends (liaison [z])"});
+const l5d = document.createElement('p'); l5d.className='lead'; l5d.textContent = "The teacher listed the categories the table compares (for the two people described in the audio):"; content.appendChild(l5d);
+const CATEGORIES = [
+  { fr:"couleur (color)", en:"colour" },
+  { fr:"couleur des cheveux", en:"hair colour" },
+  { fr:"taille", en:"height" },
+  { fr:"yeux", en:"eyes" },
+  { fr:"âge", en:"age" },
+  { fr:"lunettes", en:"glasses" },
+  { fr:"texture (des cheveux)", en:"texture (of hair)" },
+  { fr:"tenue", en:"outfit" },
+];
+const catGrid = document.createElement('div'); catGrid.style.cssText = 'display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;';
+CATEGORIES.forEach(item=>{
+  const chip = document.createElement('div');
+  chip.style.cssText = 'background:var(--accentbg);color:var(--accent);border-radius:999px;padding:6px 14px;font-size:13px;cursor:pointer;';
+  chip.innerHTML = `<b>${item.fr}</b> — ${item.en}`;
+  chip.onclick = ()=>speak(item.fr.split(' (')[0]);
+  catGrid.appendChild(chip);
+  GLOBAL_VOCAB.push({fr:item.fr.split(' (')[0], en:item.en});
+});
+content.appendChild(catGrid);
+content.appendChild(makeRow("mince", "mans", "thin"));
+GLOBAL_VOCAB.push({fr:"mince", en:"thin"});
+
+/* 6. Quiz */
+const h6 = document.createElement('h2'); h6.textContent = "6 · Quick quiz"; content.appendChild(h6);
+const quizBox = document.createElement('div'); quizBox.className='quizbox';
+quizBox.innerHTML = `<p class="lead" style="margin:0 0 8px;">Multiple-choice, mixing today's vocab.</p>`;
+const quizBtn = document.createElement('button'); quizBtn.className='quizbtn'; quizBtn.textContent='▶ Start quiz';
+const quizArea = document.createElement('div'); quizArea.className='quizarea';
+quizBox.appendChild(quizBtn); quizBox.appendChild(quizArea);
+content.appendChild(quizBox);
+
+function shuffleArr(a){ const b=[...a]; for(let i=b.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [b[i],b[j]]=[b[j],b[i]]; } return b; }
+function runQuiz(pool, area, btn){
+  btn.style.display='none';
+  const qs = shuffleArr(pool).slice(0, Math.min(8, pool.length));
+  let i = 0, score = 0;
+  function showQ(){
+    area.innerHTML = '';
+    if (i >= qs.length) {
+      const res = document.createElement('div'); res.className='quizresult';
+      res.textContent = `Score: ${score} / ${qs.length}`;
+      const retry = document.createElement('button'); retry.className='quizretry'; retry.textContent='↻ Retry';
+      retry.onclick = ()=>{ btn.style.display='inline-block'; area.innerHTML=''; };
+      area.appendChild(res); area.appendChild(retry);
+      return;
+    }
+    const item = qs[i];
+    const wrongPool = pool.filter(p=>p.en!==item.en);
+    const opts = shuffleArr([item, ...shuffleArr(wrongPool).slice(0,3)]);
+    const prog = document.createElement('div'); prog.className='quizprog'; prog.textContent = `Question ${i+1} / ${qs.length}`;
+    const fr = document.createElement('div'); fr.className='quizfr'; fr.textContent = item.fr;
+    area.appendChild(prog); area.appendChild(fr);
+    opts.forEach(o=>{
+      const b = document.createElement('button'); b.className='quizopt'; b.textContent = o.en;
+      b.onclick = ()=>{
+        [...area.querySelectorAll('.quizopt')].forEach(x=>x.disabled=true);
+        if (o.en===item.en){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); [...area.querySelectorAll('.quizopt')].find(x=>x.textContent===item.en).classList.add('correct'); }
+        setTimeout(()=>{ i++; showQ(); }, 900);
+      };
+      area.appendChild(b);
+    });
+  }
+  showQ();
+}
+quizBtn.onclick = ()=> runQuiz(GLOBAL_VOCAB, quizArea, quizBtn);
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+</body>
+</html>

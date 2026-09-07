@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 20 — Classroom Games & Phonétique</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .gamebox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:10px 0; }
+  .gamebox h3 { margin:0 0 8px; color:var(--accent); font-size:16px; }
+  .gamebox ul { margin:6px 0; padding-left:20px; font-size:14px; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 20: Classroom Games &amp; Phonétique</h1>
+  <p class="sub">The Language SKOOL · Saison 1, page 48 · Two speaking/memory games (rooms &amp; equipment, physical description) + phonetics</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html" class="active">Cours 20</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Articles.html">Articles</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "🔊 " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(text.replace(/\s+([!?])/g,'$1'));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play '+fr);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML=`<div class="fr">${fr}</div>${ph?`<div class="ph">${ph}</div>`:''}${en?`<div class="en">${en}</div>`:''}`;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+
+/* 1. Jeu de rapidité */
+const h1 = document.createElement('h2'); h1.textContent = "1 · Jeu de rapidité (Speed game) — Les pièces et l'équipement"; content.appendChild(h1);
+const gameBox1 = document.createElement('div'); gameBox1.className='gamebox';
+gameBox1.innerHTML = "<h3>Rules (played in pairs)</h3><ul>" +
+  "<li>Name, as quickly as possible, the equipment found in each room of a house.</li>" +
+  "<li>Count your points — 1 point per word.</li>" +
+  "</ul>";
+content.appendChild(gameBox1);
+content.appendChild(makeRow(
+  "Dans la cuisine, il y a un four, un lave-vaisselle, des placards...",
+  "dahn lah kwee-ZEEN, eel yah uhn foor, uhn lahv-vay-SELL, day plah-KAR",
+  "In the kitchen, there's an oven, a dishwasher, cupboards..."
+));
+GLOBAL_VOCAB.push({fr:"Dans la cuisine, il y a un four, un lave-vaisselle, des placards...", en:"In the kitchen, there's an oven, a dishwasher, cupboards..."});
+content.appendChild(makeRow("un four", "uhn foor", "an oven"));
+content.appendChild(makeRow("un lave-vaisselle", "uhn lahv-vay-SELL", "a dishwasher"));
+content.appendChild(makeRow("un placard", "uhn plah-KAR", "a cupboard"));
+GLOBAL_VOCAB.push({fr:"un four", en:"an oven"});
+GLOBAL_VOCAB.push({fr:"un lave-vaisselle", en:"a dishwasher"});
+GLOBAL_VOCAB.push({fr:"un placard", en:"a cupboard"});
+const note1 = document.createElement('div'); note1.className='note';
+note1.innerHTML = "Good warm-up for combining possessives and rooms from Cours 16: try \"Dans ma cuisine, il y a...\" or \"Dans notre salon, il y a...\" using your own home.";
+content.appendChild(note1);
+
+/* 2. Faites appel à votre mémoire */
+const h2 = document.createElement('h2'); h2.textContent = "2 · Faites appel à votre mémoire (Memory game) — La description physique"; content.appendChild(h2);
+const gameBox2 = document.createElement('div'); gameBox2.className='gamebox';
+gameBox2.innerHTML = "<h3>Rules (played in threes)</h3><ul>" +
+  "<li>You have 30 seconds to look at a set of face photos in the book. Close your book.</li>" +
+  "<li>One person describes a photo (physical description vocab from Cours 18/19); another draws what's being described.</li>" +
+  "<li>The third person checks and corrects the description if needed.</li>" +
+  "</ul>";
+content.appendChild(gameBox2);
+const note2 = document.createElement('div'); note2.className='example';
+note2.innerHTML = "Great chance to reuse everything from Cours 18/19: <i>Il/Elle est grand(e)/petit(e). Il/Elle a les cheveux longs/courts/blonds/bruns/roux. Il/Elle a les yeux bleus/verts/marron. Il a une barbe/moustache. Il/Elle porte des lunettes.</i>";
+content.appendChild(note2);
+content.appendChild(makeRow("Il porte des lunettes.", "eel port day lew-NET", "He wears glasses."));
+GLOBAL_VOCAB.push({fr:"Il porte des lunettes.", en:"He wears glasses."});
+
+/* 3. Phonétique */
+const h3 = document.createElement('h2'); h3.textContent = "3 · Phonétique — the [z] liaison sound"; content.appendChild(h3);
+const l3 = document.createElement('p'); l3.className='lead'; l3.textContent = "\"Tendez l'oreille. Dites si vous entendez [z].\" (Prick up your ears. Say whether you hear [z].) Using Piste 26 again — this trains your ear for liaison, where a normally-silent final -s or -x is pronounced as [z] because the next word starts with a vowel sound."; content.appendChild(l3);
+content.appendChild(makeRow("les yeux", "lay zyuh", "the eyes — liaison: s + y sounds like [z]"));
+content.appendChild(makeRow("ses amis", "say zah-MEE", "his/her friends — liaison: s + a sounds like [z]"));
+content.appendChild(makeRow("les enfants", "lay zahn-FAHN", "the children — liaison: s + e sounds like [z]"));
+GLOBAL_VOCAB.push({fr:"les yeux", en:"the eyes (liaison [z])"});
+GLOBAL_VOCAB.push({fr:"ses amis", en:"his/her friends (liaison [z])"});
+GLOBAL_VOCAB.push({fr:"les enfants", en:"the children (liaison [z])"});
+const note3 = document.createElement('div'); note3.className='note';
+note3.innerHTML = "This is the same liaison mechanism from Cours 16 (mon amie, not ma amie) — French avoids two vowel sounds bumping together, so a silent consonant \"wakes up\" and gets pronounced. Without liaison, \"les yeux\" would sound like \"lay-uh\"; with it, it's \"lay-zyuh\" — much smoother.";
+content.appendChild(note3);
+
+/* 4. Quiz */
+const h4 = document.createElement('h2'); h4.textContent = "4 · Quick quiz"; content.appendChild(h4);
+const quizBox = document.createElement('div'); quizBox.className='quizbox';
+quizBox.innerHTML = `<p class="lead" style="margin:0 0 8px;">Multiple-choice, mixing today's vocab.</p>`;
+const quizBtn = document.createElement('button'); quizBtn.className='quizbtn'; quizBtn.textContent='▶ Start quiz';
+const quizArea = document.createElement('div'); quizArea.className='quizarea';
+quizBox.appendChild(quizBtn); quizBox.appendChild(quizArea);
+content.appendChild(quizBox);
+
+function shuffleArr(a){ const b=[...a]; for(let i=b.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [b[i],b[j]]=[b[j],b[i]]; } return b; }
+function runQuiz(pool, area, btn){
+  btn.style.display='none';
+  const qs = shuffleArr(pool).slice(0, Math.min(8, pool.length));
+  let i = 0, score = 0;
+  function showQ(){
+    area.innerHTML = '';
+    if (i >= qs.length) {
+      const res = document.createElement('div'); res.className='quizresult';
+      res.textContent = `Score: ${score} / ${qs.length}`;
+      const retry = document.createElement('button'); retry.className='quizretry'; retry.textContent='↻ Retry';
+      retry.onclick = ()=>{ btn.style.display='inline-block'; area.innerHTML=''; };
+      area.appendChild(res); area.appendChild(retry);
+      return;
+    }
+    const item = qs[i];
+    const wrongPool = pool.filter(p=>p.en!==item.en);
+    const opts = shuffleArr([item, ...shuffleArr(wrongPool).slice(0,3)]);
+    const prog = document.createElement('div'); prog.className='quizprog'; prog.textContent = `Question ${i+1} / ${qs.length}`;
+    const fr = document.createElement('div'); fr.className='quizfr'; fr.textContent = item.fr;
+    area.appendChild(prog); area.appendChild(fr);
+    opts.forEach(o=>{
+      const b = document.createElement('button'); b.className='quizopt'; b.textContent = o.en;
+      b.onclick = ()=>{
+        [...area.querySelectorAll('.quizopt')].forEach(x=>x.disabled=true);
+        if (o.en===item.en){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); [...area.querySelectorAll('.quizopt')].find(x=>x.textContent===item.en).classList.add('correct'); }
+        setTimeout(()=>{ i++; showQ(); }, 900);
+      };
+      area.appendChild(b);
+    });
+  }
+  showQ();
+}
+quizBtn.onclick = ()=> runQuiz(GLOBAL_VOCAB, quizArea, quizBtn);
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+</body>
+</html>

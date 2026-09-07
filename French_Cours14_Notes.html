@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 14 — Audio Notes</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .qa .a { display:flex; align-items:center; gap:10px; background:var(--accentbg); border-radius:10px; padding:8px 10px; margin-top:6px; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:150px; text-align:center; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 14 Audio Notes</h1>
+  <p class="sub">The Language SKOOL · 20 August 2026 · "Des habitations insolites" — unusual housing, adjective agreement (masculine → feminine)</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html" class="active">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Articles.html">Articles</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "🔊 " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(text.replace(/\s+([!?])/g,'$1'));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play '+fr);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML=`<div class="fr">${fr}</div>${ph?`<div class="ph">${ph}</div>`:''}${en?`<div class="en">${en}</div>`:''}`;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+function makeCell(fr, ph){
+  const c=document.createElement('div'); c.className='cell';
+  c.innerHTML=`<div class="fr">${fr}</div><div class="ph">${ph}</div>`;
+  c.onclick=()=>speak(fr);
+  return c;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+
+const introP = document.createElement('p'); introP.className='lead';
+introP.textContent = "Today's book page (page 45, \"Des habitations insolites\" — unusual housing) describes a real place: a lighthouse near Lorient on the Brittany coast (le phare de Kerbel, in Riantec) that's been converted into a guesthouse. The description below is paraphrased from the book, not copied verbatim — facts and vocabulary only.";
+content.appendChild(introP);
+
+/* 1. Le phare de Kerbel — the facts */
+const h1 = document.createElement('h2'); h1.textContent = "1 · Le phare de Kerbel — the facts (paraphrased)"; content.appendChild(h1);
+const ex1 = document.createElement('div'); ex1.className='example';
+ex1.innerHTML = "A lighthouse near Lorient, on the Brittany coast, now takes paying guests for weekend stays — offering a 360° view from 25 metres up. At the top, inside its round glass tower, there's a fully-equipped studio: one large living room with a sofa bed (<i>clic-clac</i>), a bathroom, and a small kitchen. The catch: there's no elevator. To reach the bright bedroom, guests have to climb 120 steps — about the equivalent of 7 floors.";
+content.appendChild(ex1);
+
+const h1b = document.createElement('h3'); h1b.className='sub2'; h1b.textContent = "Vocabulary from the page"; content.appendChild(h1b);
+const VOC14 = [
+  ["insolite", "an-soh-LEET", "unusual/quirky"],
+  ["un lieu", "uhn lyuh", "a place"],
+  ["désormais", "day-zor-MEH", "from now on/nowadays"],
+  ["la côte", "lah koht", "the coast"],
+  ["un phare", "uhn far", "a lighthouse"],
+  ["accueillir", "ah-kuh-YEER", "to welcome/host"],
+  ["une vue", "ewn vew", "a view"],
+  ["un studio", "uhn stew-DYOH", "a studio (apartment)"],
+  ["une tour", "ewn toor", "a tower"],
+  ["une pièce à vivre", "ewn pyess ah VEEVR", "a living space/room"],
+  ["un clic-clac", "uhn kleek-KLAK", "a sofa bed (French folding style)"],
+  ["un ascenseur", "uhn nah-sahn-SUR", "an elevator/lift"],
+  ["une marche", "ewn marsh", "a (stair) step"],
+  ["un étage", "uhn nay-TAHZH", "a floor/storey"],
+];
+VOC14.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+
+/* 2. Section 7 — Regardez les photos et la légende */
+const h2 = document.createElement('h2'); h2.textContent = "7 · Regardez les photos et la légende"; content.appendChild(h2);
+const Q7 = [
+  { q:"C'est quoi ?", ph:"say KWAH ?", en:"What is it?",
+    a:"C'est un phare transformé en studio.", aph:"seh tuhn far trahn-sfor-MAY ahn stew-DYOH", aen:"It is a lighthouse converted into a studio.",
+    words:"C'est (it is — c' + est) · un phare (a lighthouse) · transformé (converted/transformed — past participle of transformer, used here as an adjective) · en (into) · un studio (a studio apartment). Literally: \"It-is a lighthouse transformed into studio.\"" },
+  { q:"C'est où ?", ph:"say OO ?", en:"Where is it?",
+    a:"C'est à Riantec, en Bretagne, près de Lorient.", aph:"seh ah ree-ahn-TEK, ahn bruh-TAHN-yuh, preh duh lor-YAHN", aen:"It's in Riantec, in Brittany, near Lorient.",
+    words:"C'est (it is) · à Riantec (in Riantec — à for a town/city) · en Bretagne (in Brittany — en for a feminine region) · près de (near) · Lorient (Lorient, the nearby larger city)." },
+  { q:"Il offre une vue magnifique à 360 degrés ?", ph:"eel OFR ewn vew mahn-yee-FEEK ah trwah-sahn-swah-sahnt duh-GRAY", en:"Does it offer a magnificent 360° view?",
+    a:"Oui, il offre une vue magnifique à 360 degrés.", aph:"WEE, eel OFR ewn vew mahn-yee-FEEK ah trwah-sahn-swah-sahnt duh-GRAY", aen:"Yes, it offers a magnificent 360° view.",
+    words:"Il (it — referring back to le phare, masculine) · offre (offers — from offrir, \"to offer\") · une vue (a view) · magnifique (magnificent — invariable adjective, same form for masc./fem.) · à 360 degrés (at 360 degrees — à here means \"of/at\" a measurement)." },
+  { q:"Est-ce que ce logement est ordinaire ?", ph:"ess-kuh suh lozh-MAHN eh tor-dee-NEHR ?", en:"Is this housing ordinary?",
+    a:"Non, ce n'est pas ordinaire — c'est un phare avec une vue à 360 degrés, mais sans ascenseur.", aph:"nohn, suh neh pah zor-dee-NEHR — seh tuhn far ah-vek ewn vew ah trwah-sahn-swah-sahnt duh-GRAY, meh sahn zah-sahn-SUR", aen:"No, it's not ordinary — it's a lighthouse with a 360° view, but no elevator.",
+    words:"Non (no) · ce n'est pas (it is not — ce + ne...pas) · ordinaire (ordinary) · c'est un phare (it's a lighthouse) · avec une vue à 360 degrés (with a 360° view) · mais (but) · sans ascenseur (without an elevator — sans + noun, no article needed)." },
+];
+Q7.forEach(item=>{
+  const div = document.createElement('div'); div.className='qa';
+  const q = document.createElement('div'); q.className='q'; q.textContent = item.q; q.onclick=()=>speak(item.q);
+  const qen = document.createElement('div'); qen.className='qen'; qen.textContent = item.ph + " — " + item.en;
+  div.appendChild(q); div.appendChild(qen);
+  const aRow = document.createElement('div'); aRow.className='a';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.onclick=()=>speak(item.a);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML = `<div class="fr">${item.a}</div><div class="ph">${item.aph}</div><div class="en">${item.aen}</div><div class="ph" style="color:var(--muted);font-style:normal;margin-top:4px;">${item.words}</div>`;
+  txt.querySelector('.fr').onclick=()=>speak(item.a);
+  aRow.appendChild(btn); aRow.appendChild(txt);
+  div.appendChild(aRow);
+  content.appendChild(div);
+  GLOBAL_VOCAB.push({fr:item.a, en:item.aen});
+});
+const note7 = document.createElement('div'); note7.className='note';
+note7.innerHTML = "<b>Grammar — past participle as adjective:</b> <i>transformé</i> is the past participle of <i>transformer</i> (to transform/convert), but here it works as an adjective describing <i>un phare</i>: \"a lighthouse [that has been] converted.\" This is very common in French descriptions — <i>une maison rénovée</i> (a renovated house), <i>un studio équipé</i> (an equipped studio) both use this same past-participle-as-adjective pattern. Like any adjective, it must agree: <i>transformé</i> (masc.) → <i>transformée</i> (fem.), e.g. <i>une usine transformée</i> (a converted factory).";
+content.appendChild(note7);
+
+/* 3. Section 8 — fiche */
+const h3 = document.createElement('h2'); h3.textContent = "8 · Lisez le texte et complétez la fiche"; content.appendChild(h3);
+const l3 = document.createElement('p'); l3.className='lead'; l3.textContent = "The book's form, filled in from the facts above:"; content.appendChild(l3);
+const ficheBox = document.createElement('div'); ficheBox.className='example';
+ficheBox.innerHTML = "<b>Type de logement :</b> touristique (not quotidien — it's a weekend rental, not someone's everyday home)<br><b>Nombre de pièces :</b> 1 (one large pièce à vivre — it's a studio)<br><b>Pièces :</b> cuisine ✓, salle de bains ✓, chambre ✓ (the pièce à vivre serves as bedroom + living room) — not salle à manger, not bureau, not salon as separate rooms<br><b>Autre :</b> ascenseur ✗ (specifically NO elevator — that's the whole point of the exercise) · cave/garage — not mentioned in the text";
+content.appendChild(ficheBox);
+
+const h3b = document.createElement('h3'); h3b.className='sub2'; h3b.textContent = "Les pièces d'un studio — rooms of a studio"; content.appendChild(h3b);
+const STUDIOPIECES = [
+  ["une pièce à vivre", "ewn pyess ah VEEVR", "a living space (combined living room/bedroom)"],
+  ["une salle de bains", "ewn sahl duh BAN", "a bathroom"],
+  ["une cuisine", "ewn kwee-ZEEN", "a kitchen"],
+  ["un clic-clac", "uhn kleek-KLAK", "a sofa bed"],
+  ["une chambre lumineuse", "ewn shahm-bruh lew-mee-NUHZ", "a bright bedroom"],
+];
+STUDIOPIECES.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+
+/* 4. Section 9 — caractéristiques extraordinaires */
+const h4 = document.createElement('h2'); h4.textContent = "9 · Notez les caractéristiques extraordinaires de ce logement"; content.appendChild(h4);
+const EXTRAORD = [
+  { fr:"Il mesure 25 mètres.", ph:"eel muh-ZEWR van-SANK MET-ruh", en:"It's 25 metres tall. (the book's own example)" },
+  { fr:"Il offre une vue à 360 degrés.", ph:"eel OFR ewn vew ah trwah-sahn-swah-sahnt duh-GRAY", en:"It offers a 360° view." },
+  { fr:"Le client doit monter 120 marches.", ph:"luh klee-AHN dwah mohn-TAY sahn-vahn marsh", en:"The guest has to climb 120 steps." },
+  { fr:"Ça équivaut à 7 étages, sans ascenseur.", ph:"sah ay-kee-voh ah SET ay-TAHZH, sahn zah-sahn-SUR", en:"That's the equivalent of 7 floors, with no elevator." },
+];
+EXTRAORD.forEach(item=>{ content.appendChild(makeRow(item.fr, item.ph, item.en)); GLOBAL_VOCAB.push({fr:item.fr, en:item.en}); });
+
+/* 5. Section 10 — adjectifs masc/fem */
+const h5 = document.createElement('h2'); h5.textContent = "10 · Adjectifs — find the feminine equivalents in the text"; content.appendChild(h5);
+const l5 = document.createElement('p'); l5.className='lead'; l5.textContent = "The book gives masculine adjectives and asks you to find their feminine form as actually used in the text. Click each to check."; content.appendChild(l5);
+const ADJ = [
+  { m:"breton", f:"bretonne", ph:"bruh-TON", en:"Breton (from Brittany)", used:"la côte bretonne" },
+  { m:"magnifique", f:"magnifique", ph:"mahn-yee-FEEK", en:"magnificent", used:"une vue magnifique — invariable: same form for masculine and feminine (already ends in -e)" },
+  { m:"rond", f:"ronde", ph:"rohnd", en:"round", used:"sa tour de verre ronde" },
+  { m:"grand", f:"grande", ph:"grahnd", en:"big/large", used:"une grande pièce à vivre" },
+  { m:"petit", f:"petite", ph:"puh-TEET", en:"small", used:"une petite cuisine" },
+  { m:"lumineux", f:"lumineuse", ph:"lew-mee-NUHZ", en:"bright/luminous", used:"sa chambre lumineuse" },
+];
+const adjDiv = document.createElement('div');
+ADJ.forEach(item=>{
+  const row = document.createElement('div'); row.className='fillrow';
+  const sent = document.createElement('div'); sent.className='sent';
+  sent.innerHTML = `<b>${item.m}</b> → <input type="text" maxlength="14"> <button>Check</button>`;
+  row.appendChild(sent);
+  const fb = document.createElement('div'); fb.className='fb';
+  row.appendChild(fb);
+  const input = sent.querySelector('input');
+  const btn = sent.querySelector('button');
+  function check(){
+    const val = input.value.trim().toLowerCase();
+    if (val === item.f) { fb.textContent = "✓ " + item.f + " (" + item.ph + ") — \"" + item.en + "\" — used in the text as: " + item.used; fb.className = 'fb ok'; }
+    else { fb.textContent = "✗ Correct answer: " + item.f + " — used in the text as: " + item.used; fb.className = 'fb bad'; }
+  }
+  btn.onclick = check;
+  input.addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); check(); } });
+  adjDiv.appendChild(row);
+  GLOBAL_VOCAB.push({fr:item.m, en:item.en + " (masc.)"});
+  GLOBAL_VOCAB.push({fr:item.f, en:item.en + " (fem.)"});
+});
+content.appendChild(adjDiv);
+const note5 = document.createElement('div'); note5.className='note';
+note5.innerHTML = "<b>The general rule:</b> most French adjectives add <b>-e</b> for the feminine (grand→grande, petit→petite, rond→ronde). Adjectives already ending in <b>-e</b> stay the same (magnifique→magnifique). Adjectives ending in <b>-eux</b> switch to <b>-euse</b> (lumineux→lumineuse). Adjectives of nationality/region ending in a consonant often double it before adding -e (breton→breto<b>nn</b>e) — same pattern as canadien→canadienne, italien→italienne from earlier lessons.";
+content.appendChild(note5);
+
+/* 6. Quiz */
+const h6 = document.createElement('h2'); h6.textContent = "11 · Quick quiz"; content.appendChild(h6);
+const quizBox = document.createElement('div'); quizBox.className='quizbox';
+quizBox.innerHTML = `<p class="lead" style="margin:0 0 8px;">Multiple-choice, mixing today's vocab.</p>`;
+const quizBtn = document.createElement('button'); quizBtn.className='quizbtn'; quizBtn.textContent='▶ Start quiz';
+const quizArea = document.createElement('div'); quizArea.className='quizarea';
+quizBox.appendChild(quizBtn); quizBox.appendChild(quizArea);
+content.appendChild(quizBox);
+
+function shuffleArr(a){ const b=[...a]; for(let i=b.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [b[i],b[j]]=[b[j],b[i]]; } return b; }
+function runQuiz(pool, area, btn){
+  btn.style.display='none';
+  const qs = shuffleArr(pool).slice(0, Math.min(8, pool.length));
+  let i = 0, score = 0;
+  function showQ(){
+    area.innerHTML = '';
+    if (i >= qs.length) {
+      const res = document.createElement('div'); res.className='quizresult';
+      res.textContent = `Score: ${score} / ${qs.length}`;
+      const retry = document.createElement('button'); retry.className='quizretry'; retry.textContent='↻ Retry';
+      retry.onclick = ()=>{ btn.style.display='inline-block'; area.innerHTML=''; };
+      area.appendChild(res); area.appendChild(retry);
+      return;
+    }
+    const item = qs[i];
+    const wrongPool = pool.filter(p=>p.en!==item.en);
+    const opts = shuffleArr([item, ...shuffleArr(wrongPool).slice(0,3)]);
+    const prog = document.createElement('div'); prog.className='quizprog'; prog.textContent = `Question ${i+1} / ${qs.length}`;
+    const fr = document.createElement('div'); fr.className='quizfr'; fr.textContent = item.fr;
+    area.appendChild(prog); area.appendChild(fr);
+    opts.forEach(o=>{
+      const b = document.createElement('button'); b.className='quizopt'; b.textContent = o.en;
+      b.onclick = ()=>{
+        [...area.querySelectorAll('.quizopt')].forEach(x=>x.disabled=true);
+        if (o.en===item.en){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); [...area.querySelectorAll('.quizopt')].find(x=>x.textContent===item.en).classList.add('correct'); }
+        setTimeout(()=>{ i++; showQ(); }, 900);
+      };
+      area.appendChild(b);
+    });
+  }
+  showQ();
+}
+quizBtn.onclick = ()=> runQuiz(GLOBAL_VOCAB, quizArea, quizBtn);
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+</body>
+</html>

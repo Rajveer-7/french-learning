@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 13 — Audio Notes</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .qa .a { display:flex; align-items:center; gap:10px; background:var(--accentbg); border-radius:10px; padding:8px 10px; margin-top:6px; }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-weight:600; color:var(--accent); margin-bottom:4px; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-right:8px; margin-bottom:6px; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:6px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 13 Audio Notes</h1>
+  <p class="sub">The Language SKOOL · 20 August 2026 · "À quoi rêvent les Français ?" — Unité 2, l'habitat (housing), the real Piste 23 listening activity</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html" class="active">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Articles.html">Articles</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "🔊 " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(text.replace(/\s+([!?])/g,'$1'));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play '+fr);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML=`<div class="fr">${fr}</div>${ph?`<div class="ph">${ph}</div>`:''}${en?`<div class="en">${en}</div>`:''}`;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+function makeCell(fr, ph){
+  const c=document.createElement('div'); c.className='cell';
+  c.innerHTML=`<div class="fr">${fr}</div><div class="ph">${ph}</div>`;
+  c.onclick=()=>speak(fr);
+  return c;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+
+const introP = document.createElement('p'); introP.className='lead';
+introP.textContent = "Today's book page (page 44, \"À quoi rêvent les Français ?\" — What do the French dream of?) opens Unité 2's housing topic. It uses the real Piste 23 recording, which is already embedded on the Book Audio page. This page covers the vocabulary and the book's own exercises.";
+content.appendChild(introP);
+
+/* 1. L'habitat vocab */
+const h1 = document.createElement('h2'); h1.textContent = "1 · L'habitat — housing vocabulary"; content.appendChild(h1);
+const l1 = document.createElement('p'); l1.className='lead'; l1.textContent = "From the book's \"Mots et expressions\" box."; content.appendChild(l1);
+const HABITAT = [
+  ["un pavillon", "uhn pah-vee-YOHN", "a suburban detached house — standard modern family house in a housing development, with its own garden/driveway/garage"],
+  ["une maison", "ewn meh-ZOHN", "a house — the broad, generic term for any standalone house (old stone cottage, farmhouse, townhouse, modern villa, or a pavillon)"],
+  ["un loft", "uhn loft", "a loft — a large open-plan apartment converted from an old industrial/commercial space"],
+  ["un appartement", "uhn nah-par-tuh-MAHN", "an apartment/flat — with normal separated rooms (unlike a loft's open layout)"],
+  ["un immeuble", "uhn nee-MUH-bluh", "an apartment building (the building itself, containing several appartements)"],
+  ["une péniche", "ewn pay-NEESH", "a houseboat/barge — a residential boat, an unusual but real French housing option"],
+];
+HABITAT.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+const note1 = document.createElement('div'); note1.className='note';
+note1.innerHTML = "<b>pavillon vs maison:</b> every pavillon is a maison, but not every maison is a pavillon. <i>Maison</i> is the umbrella term — it covers a stone farmhouse in the countryside, a modern villa, a city townhouse, or a suburban pavillon. <i>Pavillon</i> is specifically the standard detached suburban house — the kind built in a <i>lotissement</i> (housing development/subdivision), almost always with a small fenced garden and a garage. So: <i>une maison de campagne</i> (old stone countryside house) is a maison but not a pavillon; a row of matching detached houses in a suburb is a <i>quartier pavillonnaire</i>.";
+content.appendChild(note1);
+const ex1 = document.createElement('div'); ex1.className='example';
+ex1.innerHTML = "<b>J'habite dans une maison à la campagne.</b> (zhab-EET dahn zewn meh-ZOHN ah lah kahm-PAHN-yuh) — I live in a house in the countryside. &nbsp;|&nbsp; <b>Mes parents ont acheté un pavillon avec jardin en banlieue.</b> (may pah-RAHN ohn tah-SHTAY uhn pah-vee-YOHN ah-VEK zhar-DAN ahn bahn-LYUH) — My parents bought a suburban house with a garden in the suburbs.";
+content.appendChild(ex1);
+
+const h1b = document.createElement('h3'); h1b.className='sub2'; h1b.textContent = "propriétaire vs locataire"; content.appendChild(h1b);
+const OWNRENT = [
+  ["être propriétaire", "eh-truh proh-pree-ay-TEHR", "to be a homeowner/property owner"],
+  ["être locataire", "eh-truh loh-kah-TEHR", "to be a tenant/renter"],
+];
+OWNRENT.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+
+/* 2. Observez les photos */
+const h2 = document.createElement('h2'); h2.textContent = "2 · Observez les photos — what type of housing do you see?"; content.appendChild(h2);
+const l2 = document.createElement('p'); l2.className='lead'; l2.textContent = "The book shows 3 photos and asks: Quel type d'habitation voyez-vous ? Here's what the class identified for each, matched to the vocab above:"; content.appendChild(l2);
+const PHOTOS = [
+  { fr:"Photo 1 : un immeuble avec des appartements.", ph:"uhn nee-MUH-bluh ah-vek day zah-par-tuh-MAHN", en:"Photo 1: an apartment building." },
+  { fr:"Photo 2 : une maison à la campagne.", ph:"ewn meh-ZOHN ah lah kahm-PAHN-yuh", en:"Photo 2: a house in the countryside." },
+  { fr:"Photo 3 : un pavillon en banlieue.", ph:"uhn pah-vee-YOHN ahn bahn-LYUH", en:"Photo 3: a suburban house." },
+];
+PHOTOS.forEach(item=>{ content.appendChild(makeRow(item.fr, item.ph, item.en)); GLOBAL_VOCAB.push({fr:item.fr, en:item.en}); });
+const note2 = document.createElement('div'); note2.className='note';
+note2.innerHTML = "<b>Stratégie (the book's own listening tip):</b> \"Avant d'écouter, je commence par regarder les images ou les photos. Elles m'aident à trouver le contexte.\" — Before listening, start by looking at the images/photos; they help you find the context. Good general listening-exam habit for the TEF too.";
+content.appendChild(note2);
+
+/* 3. Piste 23 — the real audio */
+const h3 = document.createElement('h2'); h3.textContent = "3 · Piste 23 — the real audio (already on the Book Audio page)"; content.appendChild(h3);
+const l3 = document.createElement('p'); l3.className='lead'; l3.textContent = "This is the same recording described in the Book Audio page's track list — now it's the one actually being used in class."; content.appendChild(l3);
+const audio23 = document.createElement('audio'); audio23.controls = true; audio23.preload = 'none'; audio23.style.width = '100%';
+const src23 = document.createElement('source'); src23.src = '23piste23.mp3'; src23.type = 'audio/mpeg';
+audio23.appendChild(src23);
+content.appendChild(audio23);
+const warn23 = document.createElement('div'); warn23.className='note';
+warn23.innerHTML = "<b>⚠ No verified transcript:</b> same caveat as always — I can't listen to audio, so I can't give you a word-for-word transcript. The questions below are the book's own printed questions; the answers need to come from actually listening to the track above (or from what's discussed live in class).";
+content.appendChild(warn23);
+
+/* 4. Écoutez et répondez */
+const h4 = document.createElement('h3'); h4.className='sub2'; h4.textContent = "3 · Écoutez et répondez"; content.appendChild(h4);
+const idiomEx3 = document.createElement('div'); idiomEx3.className='riddle';
+idiomEx3.innerHTML = '<div class="prompt">a. Il s\'agit d\'une :</div>';
+const btns3a = document.createElement('div'); btns3a.className='btns';
+const fb3a = document.createElement('div'); fb3a.className='fb';
+["émission à la radio","conversation entre amis","enquête dans la rue"].forEach(opt=>{
+  const b = document.createElement('button'); b.textContent = opt;
+  b.onclick = ()=>{
+    [...btns3a.querySelectorAll('button')].forEach(x=>x.disabled=true);
+    if (opt === "émission à la radio") { fb3a.textContent = "✓ émission à la radio — a radio broadcast (the recording has that reporter-and-vox-pop feel). Still worth double-checking against the audio yourself."; fb3a.className='fb ok'; }
+    else { fb3a.textContent = "✗ Best answer is émission à la radio (a radio broadcast) — confirm against the audio."; fb3a.className='fb bad'; }
+  };
+  btns3a.appendChild(b);
+});
+idiomEx3.appendChild(btns3a); idiomEx3.appendChild(fb3a);
+content.appendChild(idiomEx3);
+
+const idiomEx3b = document.createElement('div'); idiomEx3b.className='riddle';
+idiomEx3b.innerHTML = '<div class="prompt">b. Le sujet de discussion est :</div>';
+const btns3b = document.createElement('div'); btns3b.className='btns';
+const fb3b = document.createElement('div'); fb3b.className='fb';
+["la ville","la géographie","le logement"].forEach(opt=>{
+  const b = document.createElement('button'); b.textContent = opt;
+  b.onclick = ()=>{
+    if (opt === "le logement") { fb3b.textContent = "✓ le logement (housing) fits the page's theme best — confirm against the audio."; fb3b.className='fb ok'; }
+    else { fb3b.textContent = "Your pick: " + opt + " — the page's overall theme is housing (le logement), worth double-checking against the audio."; fb3b.className='fb'; }
+  };
+  btns3b.appendChild(b);
+});
+idiomEx3b.appendChild(btns3b); idiomEx3b.appendChild(fb3b);
+content.appendChild(idiomEx3b);
+
+/* 5. Écoutez de nouveau */
+const h5 = document.createElement('h3'); h5.className='sub2'; h5.textContent = "4 · Écoutez de nouveau"; content.appendChild(h5);
+const Q4 = [
+  { q:"Combien de Français rêvent d'acheter une maison ?", ph:"kohm-byan duh frahn-SEH rev dah-shuh-TAY ewn meh-ZOHN ?", en:"How many French people dream of buying a house?",
+    a:"8 Français sur 10 rêvent d'acheter une maison.", aph:"weet frahn-SEH soor DEES rev dah-shuh-TAY ewn meh-ZOHN", aen:"8 out of 10 French people dream of buying a house (about 80%)." },
+  { q:"Combien de Français sont propriétaires ?", ph:"kohm-byan duh frahn-SEH sohn proh-pree-ay-TEHR ?", en:"How many French people are homeowners?",
+    a:"Environ 58 % des Français sont propriétaires.", aph:"ahn-vee-ROHN sank-ahnt-WEET poor-SAHN day frahn-SEH sohn proh-pree-ay-TEHR", aen:"Around 58% of French people are homeowners (roughly 6 out of 10)." },
+];
+Q4.forEach(item=>{
+  const div = document.createElement('div'); div.className='qa';
+  const q = document.createElement('div'); q.className='q'; q.textContent = item.q; q.onclick=()=>speak(item.q);
+  const qen = document.createElement('div'); qen.className='qen'; qen.textContent = item.ph + " — " + item.en;
+  div.appendChild(q); div.appendChild(qen);
+  const aRow = document.createElement('div'); aRow.className='a';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.onclick=()=>speak(item.a);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML = `<div class="fr">${item.a}</div><div class="ph">${item.aph}</div><div class="en">${item.aen}</div>`;
+  txt.querySelector('.fr').onclick=()=>speak(item.a);
+  aRow.appendChild(btn); aRow.appendChild(txt);
+  div.appendChild(aRow);
+  content.appendChild(div);
+  GLOBAL_VOCAB.push({fr:item.q, en:item.en});
+  GLOBAL_VOCAB.push({fr:item.a, en:item.aen});
+});
+const note5 = document.createElement('div'); note5.className='note';
+note5.innerHTML = "<b>⚠ These percentages are widely-cited approximate figures for France (not something I transcribed from the audio — I still can't listen to it).</b> Treat them as a reasonable working answer, but confirm against the actual recording or what's said live in class before treating them as exam-certain.";
+content.appendChild(note5);
+
+/* 6. Quiz */
+const h6 = document.createElement('h2'); h6.textContent = "6 · Quick quiz"; content.appendChild(h6);
+const quizBox = document.createElement('div'); quizBox.className='quizbox';
+quizBox.innerHTML = `<p class="lead" style="margin:0 0 8px;">Multiple-choice, mixing today's vocab.</p>`;
+const quizBtn = document.createElement('button'); quizBtn.className='quizbtn'; quizBtn.textContent='▶ Start quiz';
+const quizArea = document.createElement('div'); quizArea.className='quizarea';
+quizBox.appendChild(quizBtn); quizBox.appendChild(quizArea);
+content.appendChild(quizBox);
+
+function shuffleArr(a){ const b=[...a]; for(let i=b.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [b[i],b[j]]=[b[j],b[i]]; } return b; }
+function runQuiz(pool, area, btn){
+  btn.style.display='none';
+  const qs = shuffleArr(pool).slice(0, Math.min(8, pool.length));
+  let i = 0, score = 0;
+  function showQ(){
+    area.innerHTML = '';
+    if (i >= qs.length) {
+      const res = document.createElement('div'); res.className='quizresult';
+      res.textContent = `Score: ${score} / ${qs.length}`;
+      const retry = document.createElement('button'); retry.className='quizretry'; retry.textContent='↻ Retry';
+      retry.onclick = ()=>{ btn.style.display='inline-block'; area.innerHTML=''; };
+      area.appendChild(res); area.appendChild(retry);
+      return;
+    }
+    const item = qs[i];
+    const wrongPool = pool.filter(p=>p.en!==item.en);
+    const opts = shuffleArr([item, ...shuffleArr(wrongPool).slice(0,3)]);
+    const prog = document.createElement('div'); prog.className='quizprog'; prog.textContent = `Question ${i+1} / ${qs.length}`;
+    const fr = document.createElement('div'); fr.className='quizfr'; fr.textContent = item.fr;
+    area.appendChild(prog); area.appendChild(fr);
+    opts.forEach(o=>{
+      const b = document.createElement('button'); b.className='quizopt'; b.textContent = o.en;
+      b.onclick = ()=>{
+        [...area.querySelectorAll('.quizopt')].forEach(x=>x.disabled=true);
+        if (o.en===item.en){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); [...area.querySelectorAll('.quizopt')].find(x=>x.textContent===item.en).classList.add('correct'); }
+        setTimeout(()=>{ i++; showQ(); }, 900);
+      };
+      area.appendChild(b);
+    });
+  }
+  showQ();
+}
+quizBtn.onclick = ()=> runQuiz(GLOBAL_VOCAB, quizArea, quizBtn);
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+</body>
+</html>
