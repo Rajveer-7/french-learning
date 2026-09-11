@@ -92,9 +92,16 @@
     <a href="French_Cours18_Notes.html">Cours 18</a>
     <a href="French_Cours19_Notes.html">Cours 19</a>
     <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Cours21_Notes.html">Cours 21</a>
+    <a href="French_Cours22_Notes.html">Cours 22</a>
+    <a href="French_Cours23_Notes.html">Cours 23</a>
     <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
     <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
     <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
     <a href="French_Articles.html">Articles</a>
   </nav>
 
@@ -294,6 +301,149 @@ recapAns.innerHTML = '<tr><th>Élément</th><th>Réponse</th></tr>' +
   '<tr><td>Atout principal</td><td>Vue sur le parc, moderne, cuisine équipée</td></tr>';
 content.appendChild(recapAns);
 
+/* 5b. Phonétique — real audio, seen live on p.46 (screenshot confirmed: each box = one track) */
+const h5b = document.createElement('h2'); h5b.textContent = "5b · Phonétique — le/les and liaison (seen live, p.46)"; content.appendChild(h5b);
+const l5b = document.createElement('p'); l5b.className='lead'; l5b.textContent = "Two listening boxes at the bottom of page 46, right after the ad — confirmed from a screenshot of the actual page. Each box header carries its own track number (28 and 29), covering all three exercises inside that box."; content.appendChild(l5b);
+
+const h5b1 = document.createElement('h3'); h5b1.className='sub2'; h5b1.textContent = "Box 1 — \"Le - les\" (Piste 28)"; content.appendChild(h5b1);
+const audio28 = document.createElement('audio'); audio28.controls = true; audio28.preload = 'none'; audio28.style.width='100%';
+const src28 = document.createElement('source'); src28.src = '28piste28.mp3'; src28.type = 'audio/mpeg'; audio28.appendChild(src28);
+content.appendChild(audio28);
+
+const noteObs28 = document.createElement('div'); noteObs28.className='example';
+noteObs28.innerHTML = "<b>1. Écoutez et observez</b> — the book shows a mouth diagram for <b>le</b> vs <b>les</b>, labelled \"langue en avant\" (tongue forward): for <i>le</i>, the lips are rounded (lèvres arrondies); for <i>les</i>, the lips are spread/stretched wide (lèvres tirées). That lip shape is the main visual+audible cue separating the two.";
+content.appendChild(noteObs28);
+content.appendChild(makeRow("le", "luh", "the (masc./fem. singular) — rounded lips"));
+content.appendChild(makeRow("les", "lay", "the (plural) — spread/stretched lips"));
+
+const l5b1 = document.createElement('p'); l5b1.className='lead'; l5b1.textContent = "2. Écoutez et dites ce que vous entendez — for each pair, the recording says either the singular (le) or the plural (les); only your ear can tell, since le/les sound almost the same except for the vowel."; content.appendChild(l5b1);
+const EX2P46 = [
+  ["le voisin","luh vwah-ZAN","the neighbour (one)"],
+  ["les voisins","lay vwah-ZAN","the neighbours (more than one)"],
+  ["le locataire","luh loh-kah-TEHR","the tenant (one)"],
+  ["les locataires","lay loh-kah-TEHR","the tenants (more than one)"],
+  ["le propriétaire","luh proh-pree-ay-TEHR","the owner/landlord (one)"],
+  ["les propriétaires","lay proh-pree-ay-TEHR","the owners/landlords (more than one)"],
+];
+EX2P46.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+const note5b1 = document.createElement('div'); note5b1.className='note';
+note5b1.innerHTML = "The only audible difference between <b>le</b> (luh) and <b>les</b> (lay) is the vowel sound — le is a short \"uh\", les is a clear \"ay\". Everything after it sounds almost identical, so train your ear on that first syllable.";
+content.appendChild(note5b1);
+
+const l5b2 = document.createElement('p'); l5b2.className='lead'; l5b2.textContent = "3. Écoutez et mettez au pluriel — listen and put into the plural, saying the word with les instead of le."; content.appendChild(l5b2);
+const EX3P46 = [
+  ["le logement → les logements","luh lohzh-MAHN → lay lohzh-MAHN","the home/housing → the homes"],
+  ["le studio → les studios","luh stew-dee-OH → lay stew-dee-OH","the studio flat → the studio flats"],
+  ["le salon → les salons","luh sah-LOHN → lay sah-LOHN","the living room → the living rooms"],
+  ["le placard → les placards","luh plah-KAR → lay plah-KAR","the cupboard/closet → the cupboards"],
+];
+EX3P46.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+
+const h5b3 = document.createElement('h3'); h5b3.className='sub2'; h5b3.textContent = "Box 2 — \"La liaison\" (Piste 29)"; content.appendChild(h5b3);
+const audio29 = document.createElement('audio'); audio29.controls = true; audio29.preload = 'none'; audio29.style.width='100%';
+const src29 = document.createElement('source'); src29.src = '29piste29.mp3'; src29.type = 'audio/mpeg'; audio29.appendChild(src29);
+content.appendChild(audio29);
+
+const noteObs29 = document.createElement('div'); noteObs29.className='example';
+noteObs29.innerHTML = "<b>1. Écoutez et observez</b> — the rule, with \"les informations\" as the example: in the plural, you liaise the article to the noun whenever the noun starts with a vowel (or a silent h) — that hidden final -s is pronounced [z] between the two words. Example given: <i>les informations</i> is heard as <b>[lay-zan-for-mah-syohn]</b>, not \"lay an-for-mah-syohn\".";
+content.appendChild(noteObs29);
+content.appendChild(makeRow("les informations", "lay-zan-for-mah-syohn", "the information (liaison: lay-zan-, not lay an-)"));
+GLOBAL_VOCAB.push({fr:"les informations", en:"the information"});
+
+const l5b3 = document.createElement('p'); l5b3.className='lead'; l5b3.textContent = "2. Écoutez et notez les liaisons — des/les normally end in a silent -s, but before a word starting with a vowel, that -s is pronounced as [z]."; content.appendChild(l5b3);
+const EX2bP46 = [
+  ["Des appartements","day-zah-par-tuh-MAHN","Some apartments (liaison: dez-appartements)"],
+  ["Les entrées","lay-zahn-TRAY","The entrances (liaison: lez-entrées)"],
+  ["Les immeubles","lay-zee-MUH-bluh","The buildings (liaison: lez-immeubles)"],
+  ["Des hôtels","day-zoh-TELL","Some hotels (liaison: dez-hôtels)"],
+];
+EX2bP46.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+
+const l5b4 = document.createElement('p'); l5b4.className='lead'; l5b4.textContent = "3. Écoutez et répétez — full sentences putting that same liaison into practice."; content.appendChild(l5b4);
+const EX3bP46 = [
+  ["Je veux visiter des appartements.","zhuh vuh vee-zee-TAY day-zah-par-tuh-MAHN","I want to visit some apartments."],
+  ["Ce sont des immeubles modernes.","suh sohn day-zee-MUH-bluh moh-DEHRN","These are modern buildings."],
+  ["Ce sont des habitations originales.","suh sohn day-zah-bee-tah-syohn oh-ree-zhee-NAL","These are unusual/original homes."],
+  ["Il y a des annonces sur ce site.","eel yah day-zah-NOHNSS sewr suh SEET","There are listings/ads on this site."],
+];
+EX3bP46.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr,en}); });
+const note5b4 = document.createElement('div'); note5b4.className='example';
+note5b4.innerHTML = "Same liaison rule as Cours 16 (mon amie) and Cours 18 (les yeux, ses amis) — a normally-silent final consonant (-s, -x, -n) is pronounced when the next word starts with a vowel sound. Here it's <b>des/les</b> + a vowel-starting noun making the [z] sound.";
+content.appendChild(note5b4);
+
+/* 5c. Original parallel text */
+const h5c = document.createElement('h2'); h5c.textContent = "5c · Texte parallèle — une autre annonce"; content.appendChild(h5c);
+const l5c = document.createElement('p'); l5c.className='lead';
+l5c.textContent = "An extra rental advert, written for this page — a different flat, different details, same language as the book's. Read it, then answer the questions without looking back.";
+content.appendChild(l5c);
+
+const annonce = document.createElement('div');
+annonce.style.cssText = 'background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:14px 16px;margin:12px 0;font-size:15px;line-height:1.7;';
+annonce.innerHTML = "<b>STUDIO MEUBLÉ — QUARTIER SAINT-ROCH</b><br>" +
+  "Studio de 28 m², au quatrième étage avec ascenseur.<br>" +
+  "Loyer : 640 € par mois, charges comprises.<br>" +
+  "Cuisine équipée (plaques, frigo, micro-ondes). Salle de bains avec douche.<br>" +
+  "Immeuble calme, à côté du parc et près de la station de métro.<br>" +
+  "Libre à partir du 1<sup>er</sup> octobre.<br>" +
+  "Contact : Mme Perrin — 06 82 41 07 95";
+annonce.style.cursor='pointer';
+annonce.onclick=()=>speak("Studio meublé, quartier Saint-Roch. Studio de vingt-huit mètres carrés, au quatrième étage avec ascenseur. Loyer six cent quarante euros par mois, charges comprises. Cuisine équipée. Immeuble calme, à côté du parc et près de la station de métro.");
+content.appendChild(annonce);
+const annonceHint = document.createElement('div'); annonceHint.className='note';
+annonceHint.innerHTML = "Click the advert to hear it read aloud. Written for this page — it is not from the book, so you can use it as a genuine test.";
+content.appendChild(annonceHint);
+
+const h5c2 = document.createElement('h3'); h5c2.className='sub2'; h5c2.textContent = "Vocabulaire nouveau"; content.appendChild(h5c2);
+const ANNVOC = [
+  ["un studio meublé","uhn stew-dyoh muh-BLAY","a furnished studio flat"],
+  ["au quatrième étage","oh kat-ree-em ay-TAZH","on the fourth floor"],
+  ["des plaques","day PLAK","a hob / cooking rings"],
+  ["une douche","ewn DOOSH","a shower"],
+  ["un immeuble calme","uhn ee-muh-bluh KALM","a quiet building"],
+  ["libre à partir du 1er octobre","LEE-bruh ah par-TEER dew pruh-myay ok-TOH-bruh","available from 1 October"],
+  ["640 € par mois","see sahn kah-rahnt uh-ROH par MWAH","640 euros a month"],
+  ["28 m²","van-weet meh-truh kah-RAY","28 square metres"]
+];
+ANNVOC.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr, en:en}); });
+
+const h5c3 = document.createElement('h3'); h5c3.className='sub2'; h5c3.textContent = "Compréhension — répondez"; content.appendChild(h5c3);
+const ANNQ = [
+  { s:"1. Le studio fait combien de mètres carrés ? ___", a:["28","28 m²","vingt-huit"], en:"How big is the studio?", why:"28 m² — vingt-huit mètres carrés." },
+  { s:"2. À quel étage est le studio ? ___", a:["4","4e","quatrième","au quatrième"], en:"Which floor is it on?", why:"Au quatrième étage — and there's a lift." },
+  { s:"3. Le loyer est de combien ? ___", a:["640","640 €","640 euros","six cent quarante"], en:"How much is the rent?", why:"640 € par mois, charges comprises." },
+  { s:"4. Qu'est-ce qu'il y a à côté de l'immeuble ? ___", a:["le parc","un parc","parc"], en:"What is next to the building?", why:"Le parc — à côté du parc (de + le = du)." },
+  { s:"5. Il est libre à partir de quelle date ? ___", a:["1er octobre","le 1er octobre","premier octobre","1 octobre"], en:"From what date is it available?", why:"Le 1er octobre — premier, the only ordinal used for dates." }
+];
+ANNQ.forEach(item=>{
+  const d=document.createElement('div'); d.className='fillrow';
+  const s=document.createElement('div'); s.className='sent';
+  s.innerHTML='<span></span><div class="en"></div>';
+  s.querySelector('span').textContent=item.s;
+  s.querySelector('.en').textContent=item.en;
+  const inp=document.createElement('input'); inp.placeholder='your answer';
+  const b=document.createElement('button'); b.textContent='Check';
+  const fb=document.createElement('div'); fb.className='fb';
+  function check(){
+    const val=inp.value.toLowerCase().trim();
+    if(!val){ fb.textContent='Type something first.'; fb.className='fb'; return; }
+    if(item.a.some(a=>a.toLowerCase()===val)){ fb.textContent='✓ Correct — '+item.why; fb.className='fb ok'; }
+    else { fb.textContent='✗ '+item.why; fb.className='fb bad'; }
+  }
+  b.onclick=check; inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+  d.appendChild(s); d.appendChild(inp); d.appendChild(b); d.appendChild(fb);
+  content.appendChild(d);
+});
+
+const h5c4 = document.createElement('h3'); h5c4.className='sub2'; h5c4.textContent = "Repérez la grammaire"; content.appendChild(h5c4);
+const noteGram = document.createElement('div'); noteGram.className='example';
+noteGram.innerHTML = "Find these in the advert above:<br>· <b>Two DE contractions</b> — <i>à côté <b>du</b> parc</i>, <i>à partir <b>du</b> 1<sup>er</sup> octobre</i> (both de + le → du).<br>· <b>One uncontracted de</b> — <i>près <b>de la</b> station</i> (feminine, so no change).<br>· <b>An ordinal</b> — <i>au quatrième étage</i>, and <i>le 1<sup>er</sup></i>, the one date that uses <i>premier</i>.<br>· <b>Adjective after the noun</b> — <i>un immeuble <b>calme</b></i>, <i>une cuisine <b>équipée</b></i>.";
+content.appendChild(noteGram);
+
+const h5c5 = document.createElement('h3'); h5c5.className='sub2'; h5c5.textContent = "À vous d'écrire"; content.appendChild(h5c5);
+const writeAnn = document.createElement('div'); writeAnn.className='example';
+writeAnn.innerHTML = "<b>Write your own advert</b> for the place you live in now. Use this skeleton:<br><i>___ de ___ m², au ___ étage. Loyer : ___ € par mois. Cuisine ___. ___ à côté de ___ et près de ___. Contact : ___</i><br>Then read it aloud. If you can describe your own flat in French, you can handle any housing conversation at this level.";
+content.appendChild(writeAnn);
+
 /* 6. Quiz */
 const h6 = document.createElement('h2'); h6.textContent = "6 · Quick quiz"; content.appendChild(h6);
 const quizBox = document.createElement('div'); quizBox.className='quizbox';
@@ -346,5 +496,6 @@ document.getElementById('speed').addEventListener('click',e=>{
   e.target.classList.add('on');
 });
 </script>
+<script src="french_glossary.js"></script>
 </body>
 </html>

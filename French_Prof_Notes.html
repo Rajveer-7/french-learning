@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French — Prof's Notes (all class handouts)</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.55; }
+  .wrap { max-width:900px; margin:0 auto; padding:20px 16px 100px; }
+  h1 { font-size:28px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav.site { display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap; }
+  nav.site a { text-decoration:none; font-size:13px; padding:7px 12px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav.site a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:14px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  #search { flex:1 1 200px; min-width:160px; border:1px solid var(--line); border-radius:999px; padding:8px 14px; font-size:14px; background:var(--card); color:var(--ink); }
+  .parttabs { display:flex; gap:6px; flex-wrap:wrap; margin:14px 0 18px; position:sticky; top:0; background:var(--bg); padding:10px 0; z-index:9; border-bottom:1px solid var(--line); }
+  .parttabs button { border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:999px; padding:7px 13px; font-size:13px; cursor:pointer; }
+  .parttabs button.on { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .parthead { margin:6px 0 14px; }
+  .parthead h2 { font-size:22px; margin:0 0 4px; border:none; padding:0; }
+  .parthead p { margin:0; font-size:14px; color:var(--muted); }
+  details.chap { background:var(--card); border:1px solid var(--line); border-radius:14px; margin:10px 0; overflow:hidden; }
+  details.chap > summary { cursor:pointer; padding:13px 16px; font-size:16px; font-weight:600; list-style:none; display:flex; align-items:center; gap:10px; }
+  details.chap > summary::-webkit-details-marker { display:none; }
+  details.chap > summary::before { content:"\25B8"; color:var(--accent); font-size:14px; }
+  details.chap[open] > summary::before { content:"\25BE"; }
+  details.chap > summary:hover { background:var(--accentbg); }
+  .chapbody { padding:4px 16px 16px; border-top:1px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:18px 0 6px; color:var(--accent); }
+  p.txtp { font-size:14.5px; margin:10px 0; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--bg); border:1px solid var(--line); border-radius:12px; padding:9px 12px; margin:7px 0; }
+  .play { flex:0 0 auto; width:38px; height:38px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:15px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:16.5px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(165px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--bg); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14.5px; }
+  .cell .ph { font-size:11.5px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  table.t { width:100%; border-collapse:collapse; margin:10px 0; font-size:13.5px; }
+  table.t th, table.t td { border:1px solid var(--line); padding:7px 9px; text-align:left; vertical-align:top; }
+  table.t th { background:var(--accentbg); color:var(--accent); }
+  .fillrow { background:var(--bg); border:1px solid var(--line); border-radius:12px; padding:11px 13px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:7px; }
+  .fillrow .sent .en { font-size:12.5px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:7px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .mcq { background:var(--bg); border:1px solid var(--line); border-radius:12px; padding:11px 13px; margin:8px 0; }
+  .mcq .q { font-weight:600; font-size:14.5px; margin-bottom:8px; }
+  .mcq button.opt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:9px; padding:8px 11px; margin:5px 0; font-size:14px; cursor:pointer; }
+  .mcq button.opt:hover { border-color:var(--accent); }
+  .mcq button.opt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .mcq button.opt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .mcq .why { font-size:13px; color:var(--muted); margin-top:7px; }
+  .hidden { display:none !important; }
+  .tocbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:10px 0 16px; font-size:14px; }
+  .tocbox a { color:var(--accent); text-decoration:none; display:block; padding:3px 0; }
+  .tocbox a:hover { text-decoration:underline; }
+  .srcline { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:10px 13px; font-size:13px; color:#4a463e; margin:10px 0 14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Prof's Notes</h1>
+  <p class="sub">Every handout from class, worked through in full · pronunciation and meaning on every item · all exercises answered</p>
+
+  <nav class="site">
+    <a href="index.html">Home</a>
+    <a href="French_Prof_Notes.html" class="active">Prof's Notes</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <input id="search" placeholder="Search all handouts…">
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div class="parttabs" id="parttabs"></div>
+  <div id="book"></div>
+</div>
+
+<script>
+/* ===== speech ===== */
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice installed";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function clean(t){ return String(t).replace(/\s+([!?])/g,'$1').replace(/_+/g,'').replace(/\(.*?\)/g,'').replace(/→/g,','); }
+function speak(text){
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(clean(text));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate;
+  speechSynthesis.speak(u);
+}
+
+/* ===== block builders ===== */
+function elRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent = fr;
+  if(ph) txt.querySelector('.ph').textContent = ph;
+  if(en) txt.querySelector('.en').textContent = en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+function elGrid(items){
+  const g=document.createElement('div'); g.className='grid';
+  items.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').textContent=fr; c.querySelector('.ph').textContent=ph||'';
+    c.onclick=()=>speak(fr);
+    g.appendChild(c);
+  });
+  return g;
+}
+function elTable(head, rows){
+  const t=document.createElement('table'); t.className='t';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  rows.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; return t;
+}
+function elFill(items){
+  const box=document.createElement('div');
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent';
+    s.innerHTML='<span></span>'+(it.en?'<div class="en"></div>':'');
+    s.querySelector('span').textContent=it.s;
+    if(it.en) s.querySelector('.en').textContent=it.en;
+    const inp=document.createElement('input'); inp.placeholder='your answer';
+    const b=document.createElement('button'); b.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    const answers=(Array.isArray(it.a)?it.a:[it.a]).map(x=>String(x).toLowerCase().trim());
+    function check(){
+      const val=inp.value.toLowerCase().trim().replace(/\s+/g,' ');
+      if(!val){ fb.textContent='Type something first.'; fb.className='fb'; return; }
+      if(answers.some(a=>a===val)){
+        fb.textContent='✓ Correct — '+answers[0]+(it.why?' · '+it.why:''); fb.className='fb ok';
+        speak(it.s.replace('___',answers[0]));
+      } else { fb.textContent='✗ Answer: '+answers[0]+(it.why?' · '+it.why:''); fb.className='fb bad'; }
+    }
+    b.onclick=check; inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s); d.appendChild(inp); d.appendChild(b); d.appendChild(fb);
+    box.appendChild(d);
+  });
+  return box;
+}
+function elMcq(items){
+  const box=document.createElement('div');
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='mcq';
+    const q=document.createElement('div'); q.className='q'; q.textContent=it.q;
+    d.appendChild(q);
+    const why=document.createElement('div'); why.className='why';
+    it.opts.forEach((o,i)=>{
+      const b=document.createElement('button'); b.className='opt'; b.textContent=o;
+      b.onclick=()=>{
+        [...d.querySelectorAll('.opt')].forEach(x=>x.disabled=true);
+        if(i===it.a){ b.classList.add('correct'); }
+        else { b.classList.add('wrong'); d.querySelectorAll('.opt')[it.a].classList.add('correct'); }
+        if(it.why) why.textContent=it.why;
+      };
+      d.appendChild(b);
+    });
+    d.appendChild(why); box.appendChild(d);
+  });
+  return box;
+}
+function renderBlock(b){
+  if(b.t==='p'){ const p=document.createElement('p'); p.className='txtp'; p.innerHTML=b.x; return p; }
+  if(b.t==='h'){ const h=document.createElement('h3'); h.className='sub2'; h.textContent=b.x; return h; }
+  if(b.t==='note'){ const d=document.createElement('div'); d.className='note'; d.innerHTML=b.x; return d; }
+  if(b.t==='ex'){ const d=document.createElement('div'); d.className='example'; d.innerHTML=b.x; return d; }
+  if(b.t==='warn'){ const d=document.createElement('div'); d.className='warn'; d.innerHTML=b.x; return d; }
+  if(b.t==='src'){ const d=document.createElement('div'); d.className='srcline'; d.innerHTML=b.x; return d; }
+  if(b.t==='rows'){ const f=document.createDocumentFragment(); b.items.forEach(([fr,ph,en])=>f.appendChild(elRow(fr,ph,en))); return f; }
+  if(b.t==='grid'){ return elGrid(b.items); }
+  if(b.t==='table'){ return elTable(b.head,b.rows); }
+  if(b.t==='fill'){ return elFill(b.items); }
+  if(b.t==='mcq'){ return elMcq(b.items); }
+  return document.createTextNode('');
+}
+
+/* ===== the handouts ===== */
+const BOOK = [];
+
+BOOK.push({
+  id:'h1', part:'1 · Cours 1 — Saluer & se présenter',
+  sub:"The very first handout: greetings, introducing yourself, the alphabet, and classroom survival phrases.",
+  chapters:[
+  { title:'1.1 · Les salutations — Greetings', blocks:[
+    {t:'src', x:"From the class handout <b>FRANÇAIS A1 — COURS 1</b>: Se saluer • Se présenter • Épeler son nom. Pronunciation and extra notes added."},
+    {t:'rows', items:[
+      ['Bonjour !','bohn-ZHOOR','Hello / Good morning / Good afternoon'],
+      ['Salut !','sah-LEW','Hi / Bye (informal only)'],
+      ['Bonsoir !','bohn-SWAHR','Good evening'],
+      ['Au revoir !','oh ruh-VWAHR','Goodbye'],
+      ['À bientôt !','ah byan-TOH','See you soon']
+    ]},
+    {t:'note', x:"<b>Bonjour</b> covers the whole day until about 6pm — there is no separate \"good afternoon\". After that it becomes <b>bonsoir</b>. <b>Salut</b> works for both hello and goodbye, but only with people you'd use <i>tu</i> with."},
+    {t:'ex', x:"Extra ones worth adding to the handout's five: <b>À demain !</b> (ah duh-MAN — see you tomorrow), <b>Bonne journée !</b> (bun zhoor-NAY — have a good day, said when leaving), <b>Bonne nuit !</b> (bun NWEE — good night, only when going to bed)."},
+    {t:'rows', items:[
+      ['À demain !','ah duh-MAN','See you tomorrow'],
+      ['Bonne journée !','bun zhoor-NAY','Have a good day'],
+      ['Bonne nuit !','bun NWEE','Good night (going to bed)']
+    ]}
+  ]},
+  { title:'1.2 · Se présenter — Introducing yourself', blocks:[
+    {t:'rows', items:[
+      ["Bonjour, je m'appelle…","bohn-ZHOOR, zhuh mah-PELL","Hello, my name is…"],
+      ["Comment tu t'appelles ?","koh-MAHN tew tah-PELL","What's your name? (informal)"],
+      ["Comment vous appelez-vous ?","koh-MAHN voo-zah-play VOO","What's your name? (formal)"],
+      ["Et toi ?","ay TWAH","And you? (informal)"],
+      ["Et vous ?","ay VOO","And you? (formal)"],
+      ["Enchanté ! / Enchantée !","ahn-shahn-TAY","Nice to meet you! (m. / f.)"]
+    ]},
+    {t:'note', x:"<b>Enchanté</b> and <b>enchantée</b> sound <u>identical</u>. The extra -e is only written, and only when a woman is speaking. It describes <i>you</i>, not the person you're meeting."},
+    {t:'h', x:'tu or vous — the handout\'s rule, expanded'},
+    {t:'table', head:['','tu','vous'],
+      rows:[
+      ['Who','one friend, family, a child, a classmate','a stranger, a teacher, an official, an older person'],
+      ['Also','—','<b>any group</b>, even close friends'],
+      ['If unsure','—','<b>start with vous</b> — it is never rude']
+      ]},
+    {t:'ex', x:"How you switch: <b>On peut se tutoyer ?</b> (ohn puh suh tew-twah-YAY) — \"Shall we use tu?\" One sentence and the awkwardness is over."},
+    {t:'h', x:'The mini-dialogue from the handout'},
+    {t:'rows', items:[
+      ["A : Bonjour ! Comment tu t'appelles ?","bohn-ZHOOR, koh-MAHN tew tah-PELL","Hello! What's your name?"],
+      ["B : Je m'appelle Rajveer. Et toi ?","zhuh mah-PELL … ay TWAH","My name is Rajveer. And you?"],
+      ["A : Je m'appelle Anirudh. Enchanté !","zhuh mah-PELL … ahn-shahn-TAY","My name is Anirudh. Nice to meet you!"],
+      ["B : Enchanté !","ahn-shahn-TAY","Nice to meet you!"]
+    ]},
+    {t:'fill', items:[
+      {s:"Comment tu ___ appelles ?", a:["t'","t"], en:"What's your name?", why:"s'appeler is reflexive: tu t'appelles."},
+      {s:"Je ___ appelle Rajveer.", a:["m'","m"], en:"My name is Rajveer.", why:"je m'appelle — the pronoun shrinks before a vowel."}
+    ]}
+  ]},
+  { title:"1.3 · L'alphabet & épeler son nom", blocks:[
+    {t:'p', x:"You will spell your name constantly — at the bank, the pharmacy, on the phone. Tap any letter to hear it."},
+    {t:'grid', items:[['A','ah'],['B','bay'],['C','say'],['D','day'],['E','uh'],['F','eff'],['G','zhay'],['H','ash'],['I','ee'],['J','zhee'],['K','kah'],['L','ell'],['M','emm'],['N','enn'],['O','oh'],['P','pay'],['Q','kew'],['R','air'],['S','ess'],['T','tay'],['U','ew'],['V','vay'],['W','doo-bluh-vay'],['X','eeks'],['Y','ee-grek'],['Z','zed']]},
+    {t:'warn', x:"The three that catch everyone out: <b>G</b> (zhay) and <b>J</b> (zhee) are swapped compared to English; <b>E</b> is \"uh\" not \"ee\"; and <b>Y</b> is <i>i grec</i> — literally \"Greek i\"."},
+    {t:'rows', items:[
+      ["Comment ça s'écrit ?","koh-MAHN sah say-KREE","How is that spelled?"],
+      ["Ça s'écrit R-A-J-V-E-E-R.","sah say-KREE","It's spelled R-A-J-V-E-E-R."],
+      ["Vous pouvez épeler, s'il vous plaît ?","voo poo-VAY ay-play, seel voo PLEH","Could you spell that, please?"]
+    ]},
+    {t:'ex', x:"Useful extras when spelling aloud: <b>deux L</b> (duh ell — double L), <b>un trait d'union</b> (uhn treh dew-NYOHN — a hyphen), <b>en majuscule</b> (ahn mah-zhew-SKEWL — in capitals), <b>un espace</b> (uhn ess-PASS — a space)."}
+  ]},
+  { title:'1.4 · En classe — Classroom expressions', blocks:[
+    {t:'rows', items:[
+      ["Je ne comprends pas.","zhuh nuh kohm-PRAHN pah","I don't understand."],
+      ["Répétez, s'il vous plaît.","ray-pay-TAY, seel voo PLEH","Please repeat."],
+      ["Plus lentement, s'il vous plaît.","plew lahnt-MAHN, seel voo PLEH","More slowly, please."],
+      ["Comment dit-on ___ en français ?","koh-MAHN dee-TOHN … ahn frahn-SEH","How do you say ___ in French?"],
+      ["Qu'est-ce que ça veut dire ?","kess-kuh sah vuh DEER","What does that mean?"]
+    ]},
+    {t:'note', x:"These five are the highest-value sentences in the whole handout. They're what keep you in the lesson instead of quietly lost — learn them before the vocabulary."},
+    {t:'h', x:"The teacher's instructions you'll hear (from the Révision handout)"},
+    {t:'rows', items:[
+      ["Écoutez !","ay-koo-TAY","Listen!"],
+      ["Répétez !","ray-pay-TAY","Repeat!"],
+      ["Regardez !","ruh-gar-DAY","Look!"],
+      ["Lisez !","lee-ZAY","Read!"],
+      ["Écrivez !","ay-kree-VAY","Write!"],
+      ["Ouvrez le livre.","oo-VRAY luh LEEVR","Open the book."],
+      ["Fermez le livre.","fehr-MAY luh LEEVR","Close the book."]
+    ]},
+    {t:'ex', x:"All of those are the <b>vous</b> imperative — the teacher is addressing the class, and any group takes vous. Drop the pronoun, keep the verb: <i>vous écoutez</i> → <b>Écoutez !</b>"}
+  ]},
+  { title:'1.5 · Homework & your own introduction', blocks:[
+    {t:'p', x:"The handout asks for a 3–5 sentence self-introduction. Here's a model you can adapt — every line is one you'll reuse for years."},
+    {t:'rows', items:[
+      ["Bonjour ! Je m'appelle Rajveer.","bohn-ZHOOR, zhuh mah-PELL","Hello! My name is Rajveer."],
+      ["Je suis indien.","zhuh swee zan-DYAN","I am Indian."],
+      ["J'habite à Brampton, au Canada.","zhah-BEET ah bramp-TOHN, oh kah-nah-DAH","I live in Brampton, in Canada."],
+      ["Je travaille dans l'informatique.","zhuh trah-VYE dahn lan-for-mah-TEEK","I work in IT."],
+      ["Enchanté !","ahn-shahn-TAY","Nice to meet you!"]
+    ]},
+    {t:'warn', x:"Job titles take <b>no article</b> after être: <i>je suis professeur</i>, not <i>je suis un professeur</i>. This is one of the two errors that instantly marks a beginner — the other is using être for your age."}
+  ]}
+  ]
+});
+
+BOOK.push({
+  id:'h2', part:"2 · Lesson 2 — À l'écoute & nationalités",
+  sub:"Pronunciation, listening, and saying where you're from.",
+  chapters:[
+  { title:'2.1 · Les nationalités', blocks:[
+    {t:'src', x:"From <b>FRANÇAIS A1+ • SAISON 1 — Lesson 2 Handout</b>: À l'écoute ! • Pronunciation • Nationalities. Pronunciation column added."},
+    {t:'table', head:['Masculin','Pronunciation','Féminin','Pronunciation','English'],
+      rows:[
+      ['français','frahn-SEH','française','frahn-SEZ','French'],
+      ['anglais','ahn-GLEH','anglaise','ahn-GLEZ','English'],
+      ['américain','ah-may-ree-KAN','américaine','ah-may-ree-KEN','American'],
+      ['japonais','zhah-poh-NEH','japonaise','zhah-poh-NEZ','Japanese'],
+      ['chinois','shee-NWAH','chinoise','shee-NWAHZ','Chinese'],
+      ['turc','tewrk','turque','tewrk','Turkish']
+      ]},
+    {t:'ex', x:"<b>The pattern to hear:</b> the masculine ends in a silent consonant; the feminine adds <b>-e</b> and that consonant wakes up. <i>français</i> (frahn-SEH) → <i>française</i> (frahn-SEZ). This single rule explains most masculine/feminine pairs in French, not just nationalities."},
+    {t:'note', x:"<b>turc / turque</b> is the odd one out — both are pronounced the same (tewrk), because the -c was already being said. And nationalities are <b>not capitalised</b> when used as adjectives: <i>je suis français</i>, lowercase."},
+    {t:'h', x:'Add your own'},
+    {t:'rows', items:[
+      ['indien / indienne','an-DYAN / an-DYEN','Indian'],
+      ['canadien / canadienne','kah-nah-DYAN / kah-nah-DYEN','Canadian'],
+      ['espagnol / espagnole','es-pah-NYOL','Spanish'],
+      ['italien / italienne','ee-tal-YAN / ee-tal-YEN','Italian'],
+      ['allemand / allemande','al-MAHN / al-MAHND','German'],
+      ['marocain / marocaine','mah-roh-KAN / mah-roh-KEN','Moroccan']
+    ]},
+    {t:'note', x:"Notice the <b>-ien → -ienne</b> family (indien, canadien, italien). The masculine ends in a nasal \"an\" sound; the feminine un-nasalises it into a clear \"en\" plus the n."}
+  ]},
+  { title:'2.2 · Useful sentences & speaking practice', blocks:[
+    {t:'rows', items:[
+      ['Je suis indien / indienne.','zhuh swee zan-DYAN / zan-DYEN','I am Indian.'],
+      ['Je suis étudiant / étudiante.','zhuh swee zay-tew-DYAHN / zay-tew-DYAHNT','I am a student.'],
+      ['Je suis professeur.','zhuh swee proh-feh-SUR','I am a teacher.'],
+      ['Vous êtes français ?','voo-zet frahn-SEH','Are you French?'],
+      ['Oui, je suis… / Non, je suis…','wee, zhuh swee / nohn, zhuh swee','Yes, I am… / No, I am…']
+    ]},
+    {t:'h', x:'The handout\'s speaking dialogue'},
+    {t:'rows', items:[
+      ['A : Bonjour ! Comment vous appelez-vous ?','koh-MAHN voo-zah-play VOO','Hello! What is your name?'],
+      ["B : Je m'appelle Rajveer.","zhuh mah-PELL","My name is Rajveer."],
+      ['A : Vous êtes français ?','voo-zet frahn-SEH','Are you French?'],
+      ['B : Non, je suis indien.','nohn, zhuh swee zan-DYAN','No, I am Indian.'],
+      ['A : Enchanté !','ahn-shahn-TAY','Nice to meet you!']
+    ]},
+    {t:'note', x:"Hear the liaisons: <b>vous_êtes</b> → voo-ZET, and <b>je suis_indien</b> → zhuh swee-ZAN-dyan. The silent -s wakes up as [z] before a vowel. It's the same rule you met again in Cours 17 with <i>des appartements</i>."}
+  ]},
+  { title:'2.3 · Pronunciation corner', blocks:[
+    {t:'p', x:"The handout gives three rules. Here they are with what they actually mean in practice."},
+    {t:'ex', x:"<b>1. Listen before repeating.</b> French spelling and French sound are two different systems — if you read first, you'll import English habits. Hear it, then copy it, then look at the page."},
+    {t:'ex', x:"<b>2. Final consonants are often silent.</b> <i>petit</i> = puh-TEE, <i>français</i> = frahn-SEH, <i>beaucoup</i> = boh-KOO. Memory aid: the letters in <b>CaReFuL</b> (c, r, f, l) are the ones usually kept — <i>avec</i>, <i>bonjour</i>, <i>chef</i>, <i>il</i>."},
+    {t:'ex', x:"<b>3. Repeat each word three times aloud.</b> Not silently. The muscles in your mouth are learning a new shape, and they only learn by moving."},
+    {t:'rows', items:[
+      ['petit → petite','puh-TEE → puh-TEET','small (m. → f.) — the t comes back'],
+      ['grand → grande','grahn → grahnd','big (m. → f.) — the d comes back'],
+      ['anglais → anglaise','ahn-GLEH → ahn-GLEZ','English (m. → f.) — the s comes back as [z]']
+    ]},
+    {t:'h', x:'Minimal pairs — say each one twice'},
+    {t:'p', x:"Cover the English, say the masculine, then the feminine. The only thing that changes is whether the final consonant is heard."},
+    {t:'grid', items:[['français / française','frahn-SEH / frahn-SEZ'],['anglais / anglaise','ahn-GLEH / ahn-GLEZ'],['chinois / chinoise','shee-NWAH / shee-NWAHZ'],['japonais / japonaise','zhah-poh-NEH / zhah-poh-NEZ'],['allemand / allemande','al-MAHN / al-MAHND'],['américain / américaine','ah-may-ree-KAN / ah-may-ree-KEN'],['indien / indienne','an-DYAN / an-DYEN'],['italien / italienne','ee-tal-YAN / ee-tal-YEN']]}
+  ]},
+
+  { title:'2.4 · The four patterns — why the endings change', blocks:[
+    {t:'p', x:"Nearly every nationality in French belongs to one of four families. Learn the family and you can produce the feminine of a word you've never seen."},
+    {t:'table', head:['Pattern','Masculine','Feminine','What changes in sound'],
+      rows:[
+      ['<b>1. -ais / -ois</b>','français, anglais, chinois','française, anglaise, chinoise','the silent -s wakes up as <b>[z]</b>'],
+      ['<b>2. -ain</b>','américain, marocain, mexicain','américaine, marocaine, mexicaine','nasal <b>an</b> → clear <b>en</b> + n'],
+      ['<b>3. -ien</b>','indien, italien, canadien','indienne, italienne, canadienne','nasal <b>yan</b> → clear <b>yen</b> + n (double n in writing)'],
+      ['<b>4. no change</b>','russe, belge, suisse, turc','russe, belge, suisse, turque','nothing — already ends in a sounded consonant or -e']
+      ]},
+    {t:'ex', x:"<b>The underlying rule is always the same.</b> French masculine forms end in a consonant you don't say. Adding <b>-e</b> forces you to say it. That's it — patterns 1, 2 and 3 are just three different consonants doing the same thing (s→[z], n→[n], n→[n])."},
+    {t:'warn', x:"Pattern 4 catches people out because nothing changes in speech. <i>Il est russe / Elle est russe</i> — identical. <i>Il est belge / Elle est belge</i> — identical. Don't add an -e where there isn't one."},
+    {t:'h', x:'Country → nationality → language'},
+    {t:'table', head:['Le pays','Il est…','Elle est…','La langue'],
+      rows:[
+      ['la France','français','française','le français'],
+      ["l'Angleterre",'anglais','anglaise',"l'anglais"],
+      ["l'Inde",'indien','indienne','le hindi'],
+      ['le Canada','canadien','canadienne','le français / l\'anglais'],
+      ["l'Italie",'italien','italienne',"l'italien"],
+      ["l'Espagne",'espagnol','espagnole',"l'espagnol"],
+      ["l'Allemagne",'allemand','allemande',"l'allemand"],
+      ['le Japon','japonais','japonaise','le japonais'],
+      ['la Chine','chinois','chinoise','le chinois'],
+      ['le Maroc','marocain','marocaine',"l'arabe"]
+      ]},
+    {t:'note', x:"Three different words, three different rules. <b>The country</b> takes an article (<i>la France</i>, <i>le Japon</i>) and a capital letter. <b>The nationality adjective</b> takes no article and no capital (<i>je suis français</i>). <b>The language</b> takes <i>le</i> and no capital (<i>je parle <b>le</b> français</i> — or just <i>je parle français</i>)."},
+    {t:'warn', x:"Capital letters: <b>un Français</b> (a Frenchman, noun, capital) vs <b>il est français</b> (adjective, lowercase). At A1 you'll almost always want the lowercase adjective."}
+  ]},
+
+  { title:'2.5 · Exercices — practise it', blocks:[
+    {t:'h', x:'A. Mettez au féminin'},
+    {t:'fill', items:[
+      {s:"Il est japonais. → Elle est ___.", a:["japonaise"], en:"He is Japanese. → She is Japanese.", why:"Pattern 1: -ais → -aise, the s sounds as [z]."},
+      {s:"Il est américain. → Elle est ___.", a:["américaine","americaine"], en:"He is American. → She is American.", why:"Pattern 2: -ain → -aine, the nasal opens up."},
+      {s:"Il est indien. → Elle est ___.", a:["indienne"], en:"He is Indian. → She is Indian.", why:"Pattern 3: -ien → -ienne, double n."},
+      {s:"Il est chinois. → Elle est ___.", a:["chinoise"], en:"He is Chinese. → She is Chinese.", why:"Pattern 1: -ois → -oise."},
+      {s:"Il est allemand. → Elle est ___.", a:["allemande"], en:"He is German. → She is German.", why:"+e, and the d becomes audible."},
+      {s:"Il est suisse. → Elle est ___.", a:["suisse"], en:"He is Swiss. → She is Swiss.", why:"Pattern 4: no change at all."},
+      {s:"Il est espagnol. → Elle est ___.", a:["espagnole"], en:"He is Spanish. → She is Spanish.", why:"Written -e added, but the sound is identical."}
+    ]},
+    {t:'h', x:'B. Masculin ou féminin ? — listen to the ending'},
+    {t:'mcq', items:[
+      {q:"You hear: ahn-GLEZ. Is the person male or female?", opts:["masculin (anglais)","féminin (anglaise)"], a:1, why:"The [z] at the end means the -e is there → anglaise → feminine."},
+      {q:"You hear: an-DYAN. Male or female?", opts:["masculin (indien)","féminin (indienne)"], a:0, why:"A nasal ending with no n sounded → indien → masculine. The feminine would be an-DYEN."},
+      {q:"You hear: al-MAHND. Male or female?", opts:["masculin (allemand)","féminin (allemande)"], a:1, why:"The final d is audible → allemande → feminine."},
+      {q:"You hear: rewss (russe). Male or female?", opts:["masculin","féminin","impossible to tell"], a:2, why:"russe is identical in both genders — you'd need il/elle to know."}
+    ]},
+    {t:'h', x:'C. Pays → nationalité'},
+    {t:'fill', items:[
+      {s:"Elle vient de France. Elle est ___.", a:["française","francaise"], en:"She comes from France. She is French.", why:"feminine → française"},
+      {s:"Il vient du Japon. Il est ___.", a:["japonais"], en:"He comes from Japan. He is Japanese.", why:"masculine → japonais. Note: du Japon (masculine country)."},
+      {s:"Elle vient d'Italie. Elle est ___.", a:["italienne"], en:"She comes from Italy. She is Italian.", why:"-ien → -ienne"},
+      {s:"Il vient du Maroc. Il est ___.", a:["marocain"], en:"He comes from Morocco. He is Moroccan.", why:"-ain pattern"},
+      {s:"Elle vient d'Inde. Elle est ___.", a:["indienne"], en:"She comes from India. She is Indian.", why:"d'Inde (vowel), and indienne in the feminine."}
+    ]},
+    {t:'note', x:"Notice the preposition changing in exercise C: <b>de</b> France, <b>du</b> Japon, <b>d'</b>Italie. Feminine countries take <i>de</i>, masculine take <i>du</i>, and any country starting with a vowel takes <i>d'</i>. Same contraction family as everywhere else."},
+    {t:'h', x:'D. Complétez le dialogue'},
+    {t:'fill', items:[
+      {s:"— Bonjour ! Comment vous ___-vous ?", a:["appelez"], en:"— Hello! What is your name?", why:"Comment vous appelez-vous ?"},
+      {s:"— Je m'___ Sofia.", a:["appelle"], en:"— My name is Sofia.", why:"je m'appelle"},
+      {s:"— Vous ___ espagnole ?", a:["êtes","etes"], en:"— Are you Spanish?", why:"vous êtes"},
+      {s:"— Non, je ___ italienne.", a:["suis"], en:"— No, I'm Italian.", why:"je suis"},
+      {s:"— ___ ! (nice to meet you)", a:["enchanté","enchantée","enchante","enchantee"], en:"— Nice to meet you!", why:"Enchanté(e) — the -e is silent, written only if you're female."}
+    ]}
+  ]},
+
+  { title:'2.6 · Texte parallèle — Le cours de français', blocks:[
+    {t:'p', x:"An original short text written for this page, using only the language from this handout. Read it aloud, then answer without looking back."},
+    {t:'ex', x:"<b>Le cours de français</b><br><br>Dans mon cours de français, nous sommes six étudiants. Marta est espagnole et elle habite à Valence. Kenji est japonais ; il est ingénieur. Il y a aussi Leila, elle est marocaine et elle parle arabe et français. Moi, je suis indien et je parle hindi et anglais. Notre professeure est française : elle s'appelle Madame Clément. Elle est très sympa. Le cours est le mardi et le jeudi soir."},
+    {t:'h', x:'Glossaire du texte'},
+    {t:'rows', items:[
+      ['un cours de français','uhn koor duh frahn-SEH','a French class'],
+      ['nous sommes six étudiants','noo sum see zay-tew-DYAHN','there are six of us students'],
+      ['elle habite à Valence','ell ah-beet ah vah-LAHNSS','she lives in Valencia'],
+      ['il est ingénieur','eel eh tan-zhay-NYUR','he is an engineer'],
+      ['il y a aussi','eel yah oh-SEE','there is also'],
+      ['elle parle arabe et français','ell parl ah-RAB ay frahn-SEH','she speaks Arabic and French'],
+      ['notre professeure','notr proh-feh-SUR','our teacher (f.)'],
+      ['elle est très sympa','ell eh treh sam-PAH','she is very nice'],
+      ['le mardi et le jeudi soir','luh mar-DEE ay luh zhuh-dee SWAHR','on Tuesdays and Thursday evenings']
+    ]},
+    {t:'h', x:'Compréhension'},
+    {t:'mcq', items:[
+      {q:"Combien d'étudiants y a-t-il dans le cours ?", opts:["Quatre","Six","Huit"], a:1, why:"« nous sommes six étudiants » — six."},
+      {q:"Quelle est la nationalité de Kenji ?", opts:["chinois","japonais","coréen"], a:1, why:"« Kenji est japonais » — and note he's also an engineer."},
+      {q:"Qui parle arabe ?", opts:["Marta","Leila","Madame Clément"], a:1, why:"Leila — elle est marocaine et elle parle arabe et français."},
+      {q:"Quand est le cours ?", opts:["Le lundi et le mercredi","Le mardi et le jeudi soir","Le week-end"], a:1, why:"« Le cours est le mardi et le jeudi soir »."}
+    ]},
+    {t:'h', x:'Repérez la grammaire'},
+    {t:'note', x:"Find these in the text above:<br>· <b>Four nationalities</b>, and check the gender of each: <i>espagnole</i> (f.), <i>japonais</i> (m.), <i>marocaine</i> (f.), <i>indien</i> (m.), <i>française</i> (f.).<br>· <b>No article with nationality or job</b> — <i>il est ingénieur</i>, not \"un ingénieur\".<br>· <b>le + day = every week</b> — <i>le mardi</i> means \"on Tuesdays\", not \"on Tuesday\". Drop the <i>le</i> and it means one specific Tuesday.<br>· <b>Languages take no article after parler</b> — <i>elle parle arabe</i>."},
+    {t:'h', x:'À vous — write your own'},
+    {t:'ex', x:"Describe your own class or workplace in 5–6 sentences. Use the same frame: <i>Dans mon ___, nous sommes ___. ___ est ___ et il/elle habite à ___. Il y a aussi ___. Moi, je suis ___ et je parle ___.</i> Include at least three different nationalities and check every gender ending."}
+  ]},
+
+  { title:'2.7 · Parler — tasks and challenge', blocks:[
+    {t:'h', x:'Ask and answer'},
+    {t:'rows', items:[
+      ['Vous êtes de quel pays ?','voo-zet duh kell pay-EE','What country are you from?'],
+      ["Je viens d'Inde.","zhuh vyan DAND","I come from India."],
+      ['Vous parlez quelles langues ?','voo par-lay kell LAHNG','What languages do you speak?'],
+      ['Je parle hindi, anglais et un peu français.','zhuh parl een-DEE, ahn-GLEH ay uhn puh frahn-SEH','I speak Hindi, English and a little French.'],
+      ['Vous habitez où ?','voo-zah-bee-tay OO','Where do you live?'],
+      ["J'habite à Brampton, au Canada.","zhah-BEET ah bramp-TOHN, oh kah-nah-DAH","I live in Brampton, in Canada."]
+    ]},
+    {t:'ex', x:"<b>Class challenge (20 seconds).</b> Introduce yourself using all four: <i>Bonjour</i> · <i>Je m'appelle…</i> · <i>Je suis…</i> (nationality) · <i>Enchanté(e)</i>. Time yourself — twenty seconds is enough for four sentences, and the constraint stops you hesitating."},
+    {t:'note', x:"<b>Homework from the handout:</b> learn six nationalities, practise introducing yourself, read the vocabulary aloud three times. Add one thing to that — say each nationality in <u>both</u> genders. Half the marks in a gender exercise come from the form you didn't revise."}
+  ]}
+  ]
+});
+
+BOOK.push({
+  id:'h3', part:'3 · Les nombres 0–20 & ÊTRE',
+  sub:"Counting to twenty, and the single most important verb in the language.",
+  chapters:[
+  { title:'3.1 · Les nombres 0–20', blocks:[
+    {t:'src', x:"From <b>FRANÇAIS A1+ – Lesson Handout</b>: Les nombres (0–20) & Le verbe ÊTRE."},
+    {t:'grid', items:[['0 zéro','ZAY-roh'],['1 un','uhn'],['2 deux','duh'],['3 trois','trwah'],['4 quatre','KAT-ruh'],['5 cinq','sank'],['6 six','seess'],['7 sept','set'],['8 huit','weet'],['9 neuf','nuhf'],['10 dix','deess'],['11 onze','ohnz'],['12 douze','dooz'],['13 treize','trez'],['14 quatorze','kah-TORZ'],['15 quinze','kanz'],['16 seize','sez'],['17 dix-sept','dee-SET'],['18 dix-huit','dee-ZWEET'],['19 dix-neuf','deez-NUHF'],['20 vingt','van']]},
+    {t:'note', x:"<b>The tricky ones to say:</b> <i>six</i> and <i>dix</i> end in a hard \"ss\" when alone (seess, deess) — but the s goes silent before a consonant (<i>six livres</i> = see LEEVR) and becomes [z] before a vowel (<i>dix ans</i> = dee-ZAHN). <i>Vingt</i> is \"van\" — the g and t are both silent."},
+    {t:'ex', x:"11–16 are their own words (onze, douze, treize, quatorze, quinze, seize) and then 17–19 go back to being maths: <b>dix-sept</b> (10+7), <b>dix-huit</b> (10+8), <b>dix-neuf</b> (10+9). English does the same thing at a different point — eleven, twelve, then thir-teen."},
+    {t:'fill', items:[
+      {s:"Write 14 in French: ___", a:["quatorze"], en:"fourteen", why:"quatorze — one of the six irregular teens."},
+      {s:"Write 17 in French: ___", a:["dix-sept","dix sept"], en:"seventeen", why:"10 + 7 = dix-sept."},
+      {s:"Write 20 in French: ___", a:["vingt"], en:"twenty", why:"vingt — said \"van\", g and t silent."}
+    ]}
+  ]},
+  { title:'3.2 · Le verbe ÊTRE', blocks:[
+    {t:'table', head:['Sujet','Être','Pronunciation','English'],
+      rows:[
+      ['Je','suis','zhuh SWEE','I am'],
+      ['Tu','es','tew AY','you are'],
+      ['Il / Elle','est','eel / ell AY','he / she is'],
+      ['Nous','sommes','noo SUM','we are'],
+      ['Vous','êtes','voo ZET','you are'],
+      ['Ils / Elles','sont','eel / ell SOHN','they are']
+      ]},
+    {t:'rows', items:[
+      ['je suis','zhuh SWEE','I am'],
+      ['tu es','tew AY','you are'],
+      ['il / elle est','eel / ell AY','he / she is'],
+      ['nous sommes','noo SUM','we are'],
+      ['vous êtes','voo ZET','you are (liaison: voo-ZET)'],
+      ['ils / elles sont','eel / ell SOHN','they are']
+    ]},
+    {t:'warn', x:"<b>es</b> and <b>est</b> are pronounced identically (\"ay\"). Only the spelling differs — <i>tu es</i> vs <i>il est</i>. In speech the subject pronoun is what tells you which one you're hearing."},
+    {t:'h', x:"The handout's examples"},
+    {t:'rows', items:[
+      ['Je suis étudiant.','zhuh swee zay-tew-DYAHN','I am a student.'],
+      ['Tu es professeur.','tew ay proh-feh-SUR','You are a teacher.'],
+      ['Elle est française.','ell eh frahn-SEZ','She is French.'],
+      ['Nous sommes en classe.','noo sum ahn KLASS','We are in class.']
+    ]},
+    {t:'note', x:"Look at those four again: not one has an article before the job or nationality. <i>Je suis étudiant</i>, never <i>je suis un étudiant</i>. Where English says \"a student\", French says nothing at all."}
+  ]},
+  { title:'3.3 · Practice — the handout exercises, answered', blocks:[
+    {t:'p', x:"Section 4 of the handout. Type the right form of être."},
+    {t:'fill', items:[
+      {s:"Je ___ indien.", a:["suis"], en:"I am Indian.", why:"je → suis"},
+      {s:"Vous ___ professeur ?", a:["êtes","etes"], en:"Are you a teacher?", why:"vous → êtes (voo-ZET)"},
+      {s:"Nous ___ étudiants.", a:["sommes"], en:"We are students.", why:"nous → sommes"},
+      {s:"Ils ___ français.", a:["sont"], en:"They are French.", why:"ils → sont"},
+      {s:"Elle ___ américaine.", a:["est"], en:"She is American.", why:"elle → est"}
+    ]},
+    {t:'h', x:'Speaking task'},
+    {t:'rows', items:[
+      ['A : Bonjour !','bohn-ZHOOR','Hello!'],
+      ['A : Comment vous appelez-vous ?','koh-MAHN voo-zah-play VOO','What is your name?'],
+      ['B : Je m\'appelle Rajveer. Je suis indien.','zhuh mah-PELL … zhuh swee zan-DYAN','My name is Rajveer. I am Indian.'],
+      ['A : Enchanté(e) !','ahn-shahn-TAY','Nice to meet you!']
+    ]},
+    {t:'ex', x:"<b>Homework from the handout:</b> memorise 0–20, learn être, and write five sentences using it. A quick way to get five: name, nationality, job, where you are, and how you feel — <i>Je suis Rajveer. Je suis indien. Je suis technicien. Je suis à Brampton. Je suis fatigué !</i>"}
+  ]}
+  ]
+});
+
+BOOK.push({
+  id:'h4', part:'4 · Les nombres 70–100 & les couleurs',
+  sub:"The maths-based numbers, the colours, and more être practice.",
+  chapters:[
+  { title:'4.1 · Les nombres 70–100', blocks:[
+    {t:'src', x:"From <b>FRANÇAIS A1+ – SAISON 1</b>: Numbers 70–100 • Colours • Revision of ÊTRE."},
+    {t:'warn', x:"This is where French starts doing arithmetic. <b>70 = 60+10</b>, <b>80 = 4×20</b>, <b>90 = 4×20+10</b>. Belgium and Switzerland use the easy words <i>septante</i> and <i>nonante</i> — but France and Canada use the maths version, so this is the one you need."},
+    {t:'h', x:'70–79 — soixante + the teens'},
+    {t:'grid', items:[['70 soixante-dix','swah-sahnt-DEESS'],['71 soixante et onze','swah-sahnt ay OHNZ'],['72 soixante-douze','swah-sahnt-DOOZ'],['73 soixante-treize','swah-sahnt-TREZ'],['74 soixante-quatorze','swah-sahnt-kah-TORZ'],['75 soixante-quinze','swah-sahnt-KANZ'],['76 soixante-seize','swah-sahnt-SEZ'],['77 soixante-dix-sept','swah-sahnt-dee-SET'],['78 soixante-dix-huit','swah-sahnt-dee-ZWEET'],['79 soixante-dix-neuf','swah-sahnt-deez-NUHF']]},
+    {t:'h', x:'80–89 — quatre-vingt + 0–9'},
+    {t:'grid', items:[['80 quatre-vingts','kat-ruh-VAN'],['81 quatre-vingt-un','kat-ruh-van-UHN'],['82 quatre-vingt-deux','kat-ruh-van-DUH'],['83 quatre-vingt-trois','kat-ruh-van-TRWAH'],['84 quatre-vingt-quatre','kat-ruh-van-KAT-ruh'],['85 quatre-vingt-cinq','kat-ruh-van-SANK'],['86 quatre-vingt-six','kat-ruh-van-SEESS'],['87 quatre-vingt-sept','kat-ruh-van-SET'],['88 quatre-vingt-huit','kat-ruh-van-WEET'],['89 quatre-vingt-neuf','kat-ruh-van-NUHF']]},
+    {t:'h', x:'90–100 — quatre-vingt + the teens'},
+    {t:'grid', items:[['90 quatre-vingt-dix','kat-ruh-van-DEESS'],['91 quatre-vingt-onze','kat-ruh-van-TOHNZ'],['92 quatre-vingt-douze','kat-ruh-van-DOOZ'],['93 quatre-vingt-treize','kat-ruh-van-TREZ'],['94 quatre-vingt-quatorze','kat-ruh-van-kah-TORZ'],['95 quatre-vingt-quinze','kat-ruh-van-KANZ'],['96 quatre-vingt-seize','kat-ruh-van-SEZ'],['97 quatre-vingt-dix-sept','kat-ruh-van-dee-SET'],['98 quatre-vingt-dix-huit','kat-ruh-van-dee-ZWEET'],['99 quatre-vingt-dix-neuf','kat-ruh-van-deez-NUHF'],['100 cent','sahn']]},
+    {t:'note', x:"Two spelling traps the handout's list quietly contains. <b>71</b> is <i>soixante <u>et</u> onze</i> — the only one in the 70s with \"et\". And <b>80</b> alone is <i>quatre-vingt<u>s</u></i> with an -s, but it loses the -s as soon as a number follows: <i>quatre-vingt-un</i>."},
+    {t:'fill', items:[
+      {s:"Write 84 in French: ___", a:["quatre-vingt-quatre","quatre vingt quatre"], en:"eighty-four", why:"4×20 + 4, no -s on vingt."},
+      {s:"Write 91 in French: ___", a:["quatre-vingt-onze","quatre vingt onze"], en:"ninety-one", why:"4×20 + 11."},
+      {s:"Write 99 in French: ___", a:["quatre-vingt-dix-neuf","quatre vingt dix neuf"], en:"ninety-nine", why:"4×20 + 19 — the longest number under 100."},
+      {s:"Write 71 in French: ___", a:["soixante et onze","soixante-et-onze"], en:"seventy-one", why:"60 + 11, with the \"et\"."}
+    ]}
+  ]},
+  { title:'4.2 · Les couleurs', blocks:[
+    {t:'table', head:['Français','Pronunciation','English','Memory tip'],
+      rows:[
+      ['rouge','roozh','red','a rose 🌹'],
+      ['bleu','bluh','blue','the sky'],
+      ['vert','vehr','green','grass'],
+      ['jaune','zhohn','yellow','the sun'],
+      ['noir','nwahr','black','night'],
+      ['blanc','blahn','white','snow']
+      ]},
+    {t:'rows', items:[
+      ['rouge','roozh','red'],
+      ['bleu / bleue','bluh','blue'],
+      ['vert / verte','vehr / vehrt','green'],
+      ['jaune','zhohn','yellow'],
+      ['noir / noire','nwahr','black'],
+      ['blanc / blanche','blahn / blahnsh','white']
+    ]},
+    {t:'h', x:'The rest of the colours (from the Révision handout)'},
+    {t:'grid', items:[['orange','oh-RAHNZH'],['rose','rohz'],['violet','vee-oh-LEH'],['marron','mah-ROHN'],['gris','gree']]},
+    {t:'warn', x:"<b>Colours agree — except two.</b> Most take -e in the feminine (<i>une voiture verte</i>). But <b>orange</b> and <b>marron</b> never change, because they're really nouns (an orange, a chestnut): <i>des chaussures marron</i>, no -s. And <b>blanc</b> is irregular: blanc → <b>blanche</b>."},
+    {t:'ex', x:"Position: colours go <b>after</b> the noun, unlike English. <i>une voiture rouge</i> = a red car, literally \"a car red\"."},
+    {t:'h', x:"Exercise — complete the sentences (Révision handout, section 10)"},
+    {t:'fill', items:[
+      {s:"Le soleil est ___.", a:["jaune"], en:"The sun is yellow.", why:"jaune"},
+      {s:"L'herbe est ___.", a:["verte"], en:"The grass is green.", why:"herbe is feminine → verte, with the -e."},
+      {s:"Le ciel est ___.", a:["bleu"], en:"The sky is blue.", why:"ciel is masculine → bleu."},
+      {s:"Une tomate est ___.", a:["rouge"], en:"A tomato is red.", why:"rouge already ends in -e: no change."},
+      {s:"Le lait est ___.", a:["blanc"], en:"Milk is white.", why:"lait is masculine → blanc (feminine would be blanche)."},
+      {s:"Le charbon est ___.", a:["noir"], en:"Coal is black.", why:"noir"},
+      {s:"Une orange est ___.", a:["orange"], en:"An orange is orange.", why:"orange — invariable, never takes -e or -s."}
+    ]}
+  ]},
+  { title:'4.3 · Speaking task & challenge', blocks:[
+    {t:'rows', items:[
+      ['Quelle est votre couleur préférée ?','kell eh votr koo-LUHR pray-fay-RAY','What is your favourite colour?'],
+      ['Ma couleur préférée est le bleu.','mah koo-LUHR pray-fay-RAY eh luh BLUH','My favourite colour is blue.'],
+      ['Quel est votre numéro préféré ?','kell eh votr new-may-ROH pray-fay-RAY','What is your favourite number?'],
+      ['Mon numéro préféré est quatre-vingt-sept.','mohn new-may-ROH pray-fay-RAY eh kat-ruh-van-SET','My favourite number is eighty-seven.']
+    ]},
+    {t:'note', x:"<b>Quel / Quelle</b> agrees with the noun after it: <i>Quel</i> numéro (m.), <i>Quelle</i> couleur (f.). Both are pronounced \"kell\" — again, a written difference only."},
+    {t:'ex', x:"<b>Challenge of the day</b> — 30 seconds, include your name, nationality, favourite colour and favourite number: <i>Bonjour ! Je m'appelle Rajveer, je suis indien. Ma couleur préférée est le bleu et mon numéro préféré est quatre-vingt-sept.</i>"},
+    {t:'p', x:"<b>Number Bingo</b> (the handout's game): write six numbers between 70 and 100, the teacher calls them in French, mark them off. Good practice precisely because you can't translate in time — you have to hear <i>quatre-vingt-treize</i> as 93 directly."}
+  ]}
+  ]
+});
+
+BOOK.push({
+  id:'h5', part:'5 · Les professions',
+  sub:"Jobs, masculine and feminine forms, and talking about what people do.",
+  chapters:[
+  { title:'5.1 · Vocabulaire — les professions', blocks:[
+    {t:'src', x:"From <b>Fiche d'activités A1 – Les professions</b>."},
+    {t:'table', head:['Masculin','Féminin','Pronunciation','English'],
+      rows:[
+      ['un professeur','une professeure','proh-feh-SUR','teacher'],
+      ['un médecin','une médecin','mayd-SAN','doctor'],
+      ['un infirmier','une infirmière','an-feer-MYAY / an-feer-MYEHR','nurse'],
+      ['un acteur','une actrice','ak-TUR / ak-TREESS','actor / actress'],
+      ['un chanteur','une chanteuse','shahn-TUR / shahn-TUHZ','singer'],
+      ['un serveur','une serveuse','sehr-VUR / sehr-VUHZ','waiter / waitress'],
+      ['un cuisinier','une cuisinière','kwee-zee-NYAY / kwee-zee-NYEHR','cook'],
+      ['un vendeur','une vendeuse','vahn-DUR / vahn-DUHZ','salesperson'],
+      ['un journaliste','une journaliste','zhoor-nah-LEEST','journalist'],
+      ['un avocat','une avocate','ah-voh-KAH / ah-voh-KAHT','lawyer'],
+      ['un ingénieur','une ingénieure','an-zhay-NYUR','engineer'],
+      ['un policier','une policière','poh-lee-SYAY / poh-lee-SYEHR','police officer']
+      ]},
+    {t:'h', x:'Hear them'},
+    {t:'grid', items:[['un professeur','uhn proh-feh-SUR'],['un médecin','uhn mayd-SAN'],['une infirmière','ewn an-feer-MYEHR'],['une actrice','ewn ak-TREESS'],['une chanteuse','ewn shahn-TUHZ'],['un serveur','uhn sehr-VUR'],['une cuisinière','ewn kwee-zee-NYEHR'],['un vendeur','uhn vahn-DUR'],['un journaliste','uhn zhoor-nah-LEEST'],['une avocate','ewn ah-voh-KAHT'],['un ingénieur','uhn an-zhay-NYUR'],['un policier','uhn poh-lee-SYAY']]},
+    {t:'ex', x:"<b>The three patterns to learn</b> (the handout's À retenir):<br>· <b>-eur → -euse</b> : chanteur → chanteuse, serveur → serveuse, vendeur → vendeuse<br>· <b>-teur → -trice</b> : acteur → actrice<br>· <b>-ier → -ière</b> : infirmier → infirmière, cuisinier → cuisinière, policier → policière<br>· plain <b>+ e</b> : avocat → avocate"},
+    {t:'warn', x:"Some jobs have <b>the same form</b> for both — only the article changes: <i>un médecin / une médecin</i>, <i>un journaliste / une journaliste</i>. Modern usage also gives <i>une professeure</i> and <i>une ingénieure</i>, which is what this handout uses."}
+  ]},
+  { title:'5.2 · Activité — masculin ou féminin ?', blocks:[
+    {t:'p', x:"Complete with <b>un</b> or <b>une</b>. Listen for the ending — it usually tells you."},
+    {t:'fill', items:[
+      {s:"1. ___ médecin", a:["un","une"], en:"a doctor", why:"Both work — médecin has one form; the article does the work."},
+      {s:"2. ___ infirmière", a:["une"], en:"a nurse (f.)", why:"-ière ending → feminine → une."},
+      {s:"3. ___ acteur", a:["un"], en:"an actor", why:"-eur (m.) → un. The feminine would be une actrice."},
+      {s:"4. ___ chanteuse", a:["une"], en:"a singer (f.)", why:"-euse ending → feminine → une."},
+      {s:"5. ___ avocat", a:["un"], en:"a lawyer (m.)", why:"No -e → masculine → un."},
+      {s:"6. ___ journaliste", a:["un","une"], en:"a journalist", why:"Same form both genders — either article is correct."},
+      {s:"7. ___ cuisinière", a:["une"], en:"a cook (f.)", why:"-ière → feminine → une."},
+      {s:"8. ___ policier", a:["un"], en:"a police officer (m.)", why:"-ier → masculine → un."}
+    ]}
+  ]},
+  { title:'5.3 · Trouve la profession !', blocks:[
+    {t:'p', x:"Read the clues and guess the job."},
+    {t:'mcq', items:[
+      {q:"Je travaille dans un restaurant. Je prépare les repas. Je suis… ?", opts:["un cuisinier / une cuisinière","un serveur / une serveuse","un vendeur / une vendeuse"], a:0, why:"Préparer les repas = preparing the meals → the cook. A serveur brings them to the table."},
+      {q:"Je travaille à l'hôpital. Je soigne les personnes. Je suis… ?", opts:["un professeur","un médecin","un infirmier"], a:1, why:"soigner = to treat/care for. Médecin fits the clue as given; un infirmier also works in a hospital, so listen for whether they say 'je soigne' or 'j'assiste le médecin'."},
+      {q:"Je travaille avec des élèves. J'explique les leçons. Je suis… ?", opts:["un journaliste","un avocat","un professeur / une professeure"], a:2, why:"des élèves = pupils, expliquer les leçons = explaining lessons → the teacher."},
+      {q:"Je joue au football. Je travaille dans le sport. Je suis… ?", opts:["un footballeur / une footballeuse","un policier","un ingénieur"], a:0, why:"un footballeur — and note it follows the -eur → -euse pattern."}
+    ]},
+    {t:'rows', items:[
+      ['Je travaille dans un restaurant.','zhuh trah-VYE dahn zuhn res-toh-RAHN','I work in a restaurant.'],
+      ['Je prépare les repas.','zhuh pray-PAR lay ruh-PAH','I prepare the meals.'],
+      ["Je travaille à l'hôpital.","zhuh trah-VYE ah loh-pee-TAL","I work at the hospital."],
+      ['Je soigne les personnes.','zhuh SWAHN-yuh lay pehr-SUN','I treat people.'],
+      ["J'explique les leçons.","zhex-PLEEK lay luh-SOHN","I explain the lessons."],
+      ['Je joue au football.','zhuh zhoo oh foot-BAWL','I play football.']
+    ]}
+  ]},
+  { title:'5.4 · Change le genre & parler des autres', blocks:[
+    {t:'p', x:"Transform each sentence. Example: <i>Il est acteur.</i> → <i>Elle est actrice.</i>"},
+    {t:'fill', items:[
+      {s:"1. Il est cuisinier. → Elle est ___.", a:["cuisinière"], en:"He is a cook. → She is a cook.", why:"-ier → -ière"},
+      {s:"2. Elle est infirmière. → Il est ___.", a:["infirmier"], en:"She is a nurse. → He is a nurse.", why:"-ière → -ier"},
+      {s:"3. Il est serveur. → Elle est ___.", a:["serveuse"], en:"He is a waiter. → She is a waitress.", why:"-eur → -euse"},
+      {s:"4. Elle est avocate. → Il est ___.", a:["avocat"], en:"She is a lawyer. → He is a lawyer.", why:"drop the -e"},
+      {s:"5. Il est chanteur. → Elle est ___.", a:["chanteuse"], en:"He is a singer. → She is a singer.", why:"-eur → -euse"}
+    ]},
+    {t:'h', x:'Bonus — talking with a partner'},
+    {t:'rows', items:[
+      ['Tu veux être quoi ?','tew vuh EH-truh kwah','What do you want to be?'],
+      ["Je veux être ingénieur.","zhuh vuh EH-truh an-zhay-NYUR","I want to be an engineer."],
+      ['Pourquoi ?','poor-KWAH','Why?'],
+      ["Parce que c'est intéressant.","parss kuh seh tan-tay-reh-SAHN","Because it's interesting."],
+      ["Parce que c'est amusant.","parss kuh seh tah-mew-ZAHN","Because it's fun."],
+      ["Parce que c'est créatif.","parss kuh seh kray-ah-TEEF","Because it's creative."]
+    ]},
+    {t:'ex', x:"<b>Challenge du jour</b> — present three people around you: <i>Ma mère est professeure. Mon père est ingénieur. Mon ami est médecin.</i> Remember: no article after être, and match the form to the person."},
+    {t:'note', x:"<b>Mini-jeu « Qui suis-je ? »</b> — pick a job without saying it, give clues, let your partner guess. It forces you into <i>je travaille…</i>, <i>je prépare…</i>, <i>j'explique…</i> — present-tense -ER verbs, which is exactly the drill."}
+  ]}
+  ]
+});
+
+BOOK.push({
+  id:'h6', part:'6 · Les pronoms sujets & toniques',
+  sub:"je vs moi — the two pronoun families and when each one appears.",
+  chapters:[
+  { title:'6.1 · Les pronoms sujets', blocks:[
+    {t:'src', x:"From <b>LES PRONOMS SUJETS & TONIQUES — Niveau A1</b>."},
+    {t:'p', x:"A <b>pronom sujet</b> goes directly before the verb. It's the one doing the action."},
+    {t:'table', head:['Français','Pronunciation','English'],
+      rows:[
+      ['je','zhuh','I'],['tu','tew','you (informal)'],['il','eel','he'],['elle','ell','she'],
+      ['nous','noo','we'],['vous','voo','you (formal / plural)'],['ils','eel','they (m. or mixed)'],['elles','ell','they (f. only)']
+      ]},
+    {t:'rows', items:[
+      ['Je suis étudiant.','zhuh swee zay-tew-DYAHN','I am a student.'],
+      ['Tu aimes le football.','tew em luh foot-BAWL','You like football.'],
+      ['Elle parle français.','ell parl frahn-SEH','She speaks French.'],
+      ['Nous sommes amis.','noo sum zah-MEE','We are friends.'],
+      ['Ils aiment la musique.','eel zem lah mew-ZEEK','They like music.']
+    ]},
+    {t:'note', x:"Listen to <i>ils aiment</i> — eel-ZEM. The silent -s of <b>ils</b> links onto the vowel as [z]. Without that liaison it would sound identical to <i>il aime</i>, so the [z] is doing real work: it's the only thing telling you one person from several."},
+    {t:'warn', x:"<b>ils</b> wins over <b>elles</b>: ninety-nine women and one man is still <i>ils</i>. And French never drops the subject pronoun the way Spanish or Italian can — the verb always needs one in front of it."}
+  ]},
+  { title:'6.2 · Les pronoms toniques', blocks:[
+    {t:'p', x:"<b>Pronoms toniques</b> (stressed pronouns) are used to emphasise a person, to stand alone, and after prepositions."},
+    {t:'table', head:['Sujet','→ Tonique','Pronunciation','English'],
+      rows:[
+      ['je','<b>moi</b>','mwah','me'],['tu','<b>toi</b>','twah','you'],['il','<b>lui</b>','lwee','him'],['elle','<b>elle</b>','ell','her'],
+      ['nous','<b>nous</b>','noo','us'],['vous','<b>vous</b>','voo','you'],['ils','<b>eux</b>','uh','them (m.)'],['elles','<b>elles</b>','ell','them (f.)']
+      ]},
+    {t:'ex', x:"Only four actually change shape: <b>je→moi</b>, <b>tu→toi</b>, <b>il→lui</b>, <b>ils→eux</b>. The other four (elle, nous, vous, elles) are identical in both columns — so there are really only four to memorise."},
+    {t:'h', x:'Use 1 — emphasis (doubling the subject)'},
+    {t:'rows', items:[
+      ['Moi, je suis étudiant.','mwah, zhuh swee zay-tew-DYAHN','Me, I am a student.'],
+      ['Toi, tu aimes le rap.','twah, tew em luh RAP','You, you like rap.'],
+      ['Lui, il joue au football.','lwee, eel zhoo oh foot-BAWL','Him, he plays football.'],
+      ['Elle, elle est française.','ell, ell eh frahn-SEZ','Her, she is French.']
+    ]},
+    {t:'note', x:"This doubling looks redundant in English but is completely normal in French — it's how you contrast people. <i>Moi, je préfère le thé ; lui, il préfère le café.</i> The tonic pronoun carries the stress that English would put on the voice."},
+    {t:'h', x:'Use 2 — after prepositions'},
+    {t:'rows', items:[
+      ['Je suis avec toi.','zhuh swee zah-vek TWAH','I am with you.'],
+      ["C'est pour moi.","seh poor MWAH","It's for me."],
+      ['Je vais chez lui.','zhuh vay shay LWEE','I am going to his place.'],
+      ['Je joue au football avec eux.','zhuh zhoo oh foot-bawl ah-vek UH','I play football with them.'],
+      ["C'est pour elle.","seh poor ELL","It's for her."]
+    ]},
+    {t:'warn', x:"After <b>avec</b>, <b>pour</b>, <b>chez</b>, <b>sans</b> you must use the tonic form. <i>avec moi</i>, never \"avec je\". This is the single most common place learners slip."},
+    {t:'h', x:'Use 3 — standing alone'},
+    {t:'rows', items:[
+      ['Qui veut du café ? — Moi !','kee vuh dew kah-FAY — MWAH','Who wants coffee? — Me!'],
+      ['Et toi ?','ay TWAH','And you?'],
+      ['Lui aussi.','lwee oh-SEE','Him too.']
+    ]}
+  ]},
+  { title:'6.3 · Activités — answered', blocks:[
+    {t:'h', x:'Activity 1 — Match it!'},
+    {t:'fill', items:[
+      {s:"1. Je → ___", a:["moi","b","b. moi"], en:"I → me", why:"je → moi"},
+      {s:"2. Tu → ___", a:["toi","d","d. toi"], en:"you → you", why:"tu → toi"},
+      {s:"3. Il → ___", a:["lui","c","c. lui"], en:"he → him", why:"il → lui"},
+      {s:"4. Ils → ___", a:["eux","a","a. eux"], en:"they → them", why:"ils → eux"}
+    ]},
+    {t:'h', x:'Activity 2 — Who is it?'},
+    {t:'mcq', items:[
+      {q:"C'est un garçon. Il aime le football et les jeux vidéo. Il parle français. → C'est ___ !", opts:["elle","lui","eux"], a:1, why:"One boy → lui. After c'est you always need a tonic pronoun, never il."},
+      {q:"C'est une fille. Elle aime la musique et voyager. Elle apprend le français. → C'est ___ !", opts:["elle","lui","eux"], a:0, why:"One girl → elle (which is the same in both columns)."},
+      {q:"Ce sont des garçons. Ils aiment le rap. Ils jouent au football. → C'est ___ !", opts:["elles","lui","eux"], a:2, why:"Several boys → eux."}
+    ]},
+    {t:'note', x:"Why <i>c'est lui</i> and never <i>c'est il</i>: after <b>c'est</b> the pronoun isn't the subject of a verb any more — it's standing on its own, so it takes the tonic form. Same reason you answer <i>Moi !</i> and not <i>Je !</i>"},
+    {t:'h', x:'Activity 3 — Moi, j\'aime…'},
+    {t:'rows', items:[
+      ["Moi, j'aime le cricket.","mwah, zhem luh kree-KET","Me, I like cricket."],
+      ["Moi, j'adore la musique.","mwah, zhah-DOR lah mew-ZEEK","Me, I love music."],
+      ["Moi, je n'aime pas le froid.","mwah, zhuh nem pah luh FRWAH","Me, I don't like the cold."],
+      ['Et toi ?','ay TWAH','And you?']
+    ]},
+    {t:'ex', x:"<b>aimer / adorer / détester</b> all take <b>le / la / les</b> in French where English uses nothing: <i>j'aime <u>la</u> musique</i> = \"I like music\". Leaving the article out is a very visible error."}
+  ]}
+  ]
+});
+
+BOOK.push({
+  id:'h7', part:'7 · Travailler · la négation · les questions',
+  sub:"A full -ER verb, how to say no, and the three ways to ask a question.",
+  chapters:[
+  { title:'7.1 · Le verbe TRAVAILLER', blocks:[
+    {t:'src', x:"From <b>FRENCH A1 WORKSHEET — TRAVAILLER • LA NÉGATION • LES QUESTIONS</b>."},
+    {t:'p', x:"<b>Travailler</b> = to work. It's a regular -ER verb, so it's the template for roughly 90% of all French verbs."},
+    {t:'table', head:['Sujet','Travailler','Pronunciation','Example'],
+      rows:[
+      ['Je','travaille','zhuh trah-VYE','Je travaille à Paris.'],
+      ['Tu','travailles','tew trah-VYE','Tu travailles à Lyon.'],
+      ['Il / Elle','travaille','eel trah-VYE','Elle travaille en France.'],
+      ['Nous','travaillons','noo trah-vah-YOHN','Nous travaillons ensemble.'],
+      ['Vous','travaillez','voo trah-vah-YAY','Vous travaillez beaucoup.'],
+      ['Ils / Elles','travaillent','eel trah-VYE','Ils travaillent à Paris.']
+      ]},
+    {t:'ex', x:"<b>-ER endings:</b> je <b>-e</b> · tu <b>-es</b> · il/elle <b>-e</b> · nous <b>-ons</b> · vous <b>-ez</b> · ils/elles <b>-ent</b>.<br>Crucially, <b>the final -ent is silent</b> — so <i>travaille, travailles, travaille, travaillent</i> are all pronounced identically (trah-VYE). Only <b>nous</b> and <b>vous</b> sound different."},
+    {t:'note', x:"That silent -ent is good news for speaking and bad news for writing. Four of six forms sound the same, so you can say them without thinking — but you have to know which subject you're using to spell it right."},
+    {t:'h', x:'Exercise 2 — complete travailler'},
+    {t:'fill', items:[
+      {s:"1. Je ___ à Paris.", a:["travaille"], en:"I work in Paris.", why:"je + -e"},
+      {s:"2. Tu ___ en France.", a:["travailles"], en:"You work in France.", why:"tu + -es (silent)"},
+      {s:"3. Elle ___ dans une école.", a:["travaille"], en:"She works in a school.", why:"elle + -e"},
+      {s:"4. Nous ___ ensemble.", a:["travaillons"], en:"We work together.", why:"nous + -ons"},
+      {s:"5. Vous ___ à Lyon.", a:["travaillez"], en:"You work in Lyon.", why:"vous + -ez"},
+      {s:"6. Ils ___ beaucoup.", a:["travaillent"], en:"They work a lot.", why:"ils + -ent (silent)"},
+      {s:"7. Il ___ à l'hôpital.", a:["travaille"], en:"He works at the hospital.", why:"il + -e"},
+      {s:"8. Elles ___ en Inde.", a:["travaillent"], en:"They (f.) work in India.", why:"elles + -ent (silent)"}
+    ]}
+  ]},
+  { title:'7.2 · La négation — ne … pas', blocks:[
+    {t:'ex', x:"<b>The rule:</b> NE + VERB + PAS. The verb sits in a sandwich.<br><i>Je travaille.</i> → <i>Je <b>ne</b> travaille <b>pas</b>.</i><br>Before a vowel, <b>ne → n'</b>: <i>J'habite à Paris.</i> → <i>Je <b>n'</b>habite <b>pas</b> à Paris.</i>"},
+    {t:'rows', items:[
+      ['Je ne travaille pas.','zhuh nuh trah-VYE pah','I do not work.'],
+      ["Je n'habite pas à Paris.","zhuh nah-BEET pah zah pah-REE","I do not live in Paris."],
+      ['Elle ne parle pas anglais.','ell nuh parl pah zahn-GLEH','She does not speak English.'],
+      ['Nous ne travaillons pas le lundi.','noo nuh trah-vah-yohn pah luh luhn-DEE','We do not work on Mondays.']
+    ]},
+    {t:'h', x:'Exercise 5 — make them negative'},
+    {t:'fill', items:[
+      {s:"1. Je travaille à Paris. → ___", a:["je ne travaille pas à paris","je ne travaille pas à paris."], en:"I do not work in Paris.", why:"ne + travaille + pas"},
+      {s:"2. Tu travailles en France. → ___", a:["tu ne travailles pas en france","tu ne travailles pas en france."], en:"You do not work in France.", why:"ne … pas around the verb"},
+      {s:"3. Elle travaille beaucoup. → ___", a:["elle ne travaille pas beaucoup","elle ne travaille pas beaucoup."], en:"She does not work a lot.", why:"beaucoup stays at the end"},
+      {s:"4. Nous travaillons ensemble. → ___", a:["nous ne travaillons pas ensemble","nous ne travaillons pas ensemble."], en:"We do not work together.", why:"ne … pas"},
+      {s:"5. Ils travaillent le lundi. → ___", a:["ils ne travaillent pas le lundi","ils ne travaillent pas le lundi."], en:"They do not work on Mondays.", why:"ne … pas"}
+    ]},
+    {t:'h', x:'Exercise 6 — find the mistake'},
+    {t:'table', head:['✗ Wrong','✓ Right','What went wrong'],
+      rows:[
+      ['Je ne travaille.','Je ne <b>travaille pas</b>.','<b>pas</b> is missing — you need both halves'],
+      ['Je travaille ne pas.','Je <b>ne travaille pas</b>.','word order — ne goes <i>before</i> the verb'],
+      ['Tu ne travailles.','Tu ne <b>travailles pas</b>.','pas missing again'],
+      ['Nous ne pas travaillons.','Nous <b>ne travaillons pas</b>.','pas must come <i>after</i> the verb, not before'],
+      ['Je ne habite pas à Paris.','Je <b>n\'</b>habite pas à Paris.','ne → n\' before a vowel']
+      ]},
+    {t:'note', x:"In casual speech, French people drop the <b>ne</b> entirely — <i>je sais pas</i>, <i>c'est pas grave</i>, <i>je travaille pas</i>. Understand it when you hear it, but always write both halves. In an exam the missing <i>ne</i> is marked wrong."}
+  ]},
+  { title:'7.3 · Les questions — three methods', blocks:[
+    {t:'table', head:['Method','How','Example','When to use'],
+      rows:[
+      ['<b>1. Intonation</b>','keep the word order, raise your voice','Tu travailles à Paris ?','everyday speech'],
+      ['<b>2. Est-ce que</b>','add est-ce que at the front','Est-ce que tu travailles à Paris ?','neutral — always safe'],
+      ['<b>3. Inversion</b>','flip verb and subject','Travailles-tu à Paris ?','formal, writing, exams']
+      ]},
+    {t:'rows', items:[
+      ['Tu travailles à Paris ?','tew trah-VYE ah pah-REE','Do you work in Paris? (casual)'],
+      ['Est-ce que tu travailles à Paris ?','ess-kuh tew trah-VYE ah pah-REE','Do you work in Paris? (neutral)'],
+      ['Travailles-tu à Paris ?','trah-VYE tew ah pah-REE','Do you work in Paris? (formal)']
+    ]},
+    {t:'h', x:'Question words'},
+    {t:'table', head:['Français','Pronunciation','English','Example'],
+      rows:[
+      ['Où ?','oo','Where?','Où habites-tu ?'],
+      ['Quand ?','kahn','When?','Quand travailles-tu ?'],
+      ['Comment ?','koh-MAHN','How?','Comment tu travailles ?'],
+      ['Pourquoi ?','poor-KWAH','Why?','Pourquoi tu travailles ?'],
+      ['Qui ?','kee','Who?','Qui travaille ici ?'],
+      ["Qu'est-ce que… ?","kess-kuh","What?","Qu'est-ce que tu fais ?"]
+      ]},
+    {t:'h', x:'Exercise 9 — choose the question word'},
+    {t:'fill', items:[
+      {s:"1. ___ habites-tu ? — J'habite à Paris.", a:["où","ou"], en:"Where do you live?", why:"The answer gives a place → Où."},
+      {s:"2. ___ travailles-tu ? — Je travaille le lundi.", a:["quand"], en:"When do you work?", why:"The answer gives a day → Quand."},
+      {s:"3. ___ travailles-tu ? — Je travaille à Paris.", a:["où","ou"], en:"Where do you work?", why:"A place again → Où."},
+      {s:"4. ___ travailles-tu ? — Parce que j'aime mon travail.", a:["pourquoi"], en:"Why do you work?", why:"Parce que = because → the question was Pourquoi."},
+      {s:"5. ___ travaille ici ? — Marie travaille ici.", a:["qui"], en:"Who works here?", why:"The answer is a person → Qui."}
+    ]},
+    {t:'ex', x:"<b>Trick for this exercise type:</b> read the <i>answer</i> first. A place → Où. A time → Quand. A person → Qui. <i>Parce que…</i> → Pourquoi. The answer always gives the question away."},
+    {t:'h', x:'Exercise 10 — mixed practice'},
+    {t:'fill', items:[
+      {s:"1. Nous ___ (travailler) à Paris.", a:["travaillons"], en:"We work in Paris.", why:"nous + -ons"},
+      {s:"2. Je travaille. → Negative: ___", a:["je ne travaille pas","je ne travaille pas."], en:"I do not work.", why:"ne … pas"},
+      {s:"3. Ils travaillent. → Negative: ___", a:["ils ne travaillent pas","ils ne travaillent pas."], en:"They do not work.", why:"ne … pas"},
+      {s:"4. Tu travailles en France. → Est-ce que: ___", a:["est-ce que tu travailles en france","est-ce que tu travailles en france ?"], en:"Do you work in France?", why:"Est-ce que goes at the front, word order unchanged."},
+      {s:"5. ___ habites-tu ? — J'habite à Delhi.", a:["où","ou"], en:"Where do you live?", why:"A place → Où."},
+      {s:"6. ___ travailles-tu ? — Je travaille le matin.", a:["quand"], en:"When do you work?", why:"A time → Quand."},
+      {s:"7. ___ travaille ici ? — Paul travaille ici.", a:["qui"], en:"Who works here?", why:"A person → Qui."}
+    ]}
+  ]},
+  { title:'7.4 · Interview & challenge', blocks:[
+    {t:'p', x:"The worksheet's pair activity — ask your partner and write their answers."},
+    {t:'rows', items:[
+      ["Comment tu t'appelles ?","koh-MAHN tew tah-PELL","What's your name?"],
+      ['Où habites-tu ?','oo ah-BEET tew','Where do you live?'],
+      ['Où travailles-tu ?','oo trah-VYE tew','Where do you work?'],
+      ['Quand travailles-tu ?','kahn trah-VYE tew','When do you work?'],
+      ['Est-ce que tu travailles beaucoup ?','ess-kuh tew trah-VYE boh-KOO','Do you work a lot?']
+    ]},
+    {t:'h', x:'Challenge of the day — a mini-dialogue'},
+    {t:'rows', items:[
+      ['A : Tu travailles à Paris ?','tew trah-VYE ah pah-REE','Do you work in Paris?'],
+      ['B : Non, je ne travaille pas à Paris. Je travaille à Lyon.','nohn, zhuh nuh trah-VYE pah zah pah-REE','No, I do not work in Paris. I work in Lyon.'],
+      ['A : Est-ce que tu travailles le lundi ?','ess-kuh tew trah-VYE luh luhn-DEE','Do you work on Mondays?'],
+      ['B : Oui, je travaille le lundi.','wee, zhuh trah-VYE luh luhn-DEE','Yes, I work on Mondays.']
+    ]},
+    {t:'ex', x:"<b>Your version</b>, using your real life: <i>— Tu travailles à Toronto ? — Non, je ne travaille pas à Toronto, je travaille à Brampton. — Est-ce que tu travailles le week-end ? — Non, je ne travaille pas le week-end.</i>"}
+  ]}
+  ]
+});
+
+BOOK.push({
+  id:'h8', part:'8 · Révision générale',
+  sub:"The big revision handout — everything from class 1 to now, with every answer worked out.",
+  chapters:[
+  { title:'8.1 · Saluer — matching answers', blocks:[
+    {t:'src', x:"From <b>FRENCH A1 — RÉVISION</b>: Révision générale — Classes 1 à maintenant."},
+    {t:'table', head:['#','Français','Answer','English'],
+      rows:[
+      ['1','Bonjour','<b>d</b>','Hello / Good morning'],
+      ['2','Salut','<b>g</b>','Hi / Bye'],
+      ['3','Bonsoir','<b>b</b>','Good evening'],
+      ['4','Au revoir','<b>c</b>','Goodbye'],
+      ['5','À bientôt','<b>e</b>','See you soon'],
+      ['6','À demain','<b>a</b>','See you tomorrow'],
+      ['7','Bonne nuit','<b>f</b>','Good night']
+      ]},
+    {t:'note', x:"The pair people mix up: <b>Bonne nuit</b> is only for going to <i>bed</i>. To say goodbye in the evening it's <b>Bonne soirée</b> (have a good evening). Saying <i>bonne nuit</i> as you leave a party sounds like you're tucking everyone in."}
+  ]},
+  { title:'8.2 · Se présenter & tu/vous', blocks:[
+    {t:'h', x:'Your five-sentence introduction'},
+    {t:'rows', items:[
+      ["Bonjour ! Je m'appelle Rajveer.","bohn-ZHOOR, zhuh mah-PELL","Hello! My name is Rajveer."],
+      ["J'ai vingt-cinq ans.","zhay van-sank AHN","I am twenty-five."],
+      ['Je suis indien.','zhuh swee zan-DYAN','I am Indian.'],
+      ["J'habite à Brampton.","zhah-BEET ah bramp-TOHN","I live in Brampton."],
+      ["Je parle anglais, hindi et un peu français.","zhuh parl ahn-GLEH, een-DEE ay uhn puh frahn-SEH","I speak English, Hindi and a little French."]
+    ]},
+    {t:'warn', x:"<b>J'ai … ans</b>, never <i>je suis … ans</i>. Age runs on <b>avoir</b> — literally \"I have 25 years\". And you can't drop <i>ans</i>: <i>j'ai vingt-cinq</i> on its own means nothing."},
+    {t:'h', x:'Tu ou vous ? — answers'},
+    {t:'table', head:['Situation','Answer','Why'],
+      rows:[
+      ['Your best friend','<b>tu</b>','close friend'],
+      ['Your teacher','<b>vous</b>','authority / professional distance'],
+      ['A child','<b>tu</b>','children always take tu'],
+      ['An unknown adult','<b>vous</b>','stranger — the safe default'],
+      ['Your close friend','<b>tu</b>','close friend']
+      ]},
+    {t:'fill', items:[
+      {s:"Comment ___ t'appelles ?", a:["tu"], en:"What's your name? (informal)", why:"tu t'appelles"},
+      {s:"Comment ___ vous appelez ?", a:["vous"], en:"What's your name? (formal)", why:"vous vous appelez — yes, vous twice."},
+      {s:"Comment allez-___ ?", a:["vous"], en:"How are you? (formal)", why:"Comment allez-vous ?"}
+    ]}
+  ]},
+  { title:'8.3 · Les nombres — answers', blocks:[
+    {t:'h', x:'A. Write the numbers in French'},
+    {t:'table', head:['','French','','French'],
+      rows:[
+      ['0','zéro','30','trente'],
+      ['5','cinq','42','quarante-deux'],
+      ['10','dix','50','cinquante'],
+      ['13','treize','57','cinquante-sept'],
+      ['18','dix-huit','60','soixante'],
+      ['20','vingt','69','soixante-neuf'],
+      ['25','vingt-cinq','70','soixante-dix'],
+      ['75','soixante-quinze','80','quatre-vingts'],
+      ['81','quatre-vingt-un','90','quatre-vingt-dix'],
+      ['95','quatre-vingt-quinze','100','cent']
+      ]},
+    {t:'h', x:'B. Write the number'},
+    {t:'table', head:['French','Number','French','Number'],
+      rows:[
+      ['quarante-deux','42','quatre-vingts','80'],
+      ['cinquante-neuf','59','quatre-vingt-un','81'],
+      ['soixante-huit','68','quatre-vingt-dix','90'],
+      ['soixante-dix','70','quatre-vingt-quinze','95'],
+      ['soixante-quinze','75','cent','100']
+      ]},
+    {t:'note', x:"Watch <b>21, 31, 41, 51, 61, 71</b> — these are the only ones with <b>et</b>: <i>vingt <u>et</u> un</i>, <i>soixante <u>et</u> onze</i>. From 81 onwards the \"et\" disappears: <i>quatre-vingt-un</i>."}
+  ]},
+  { title:'8.4 · Le verbe ÊTRE — answers', blocks:[
+    {t:'table', head:['Sujet','ÊTRE','Sujet','ÊTRE'],
+      rows:[
+      ['Je','<b>suis</b>','Nous','<b>sommes</b>'],
+      ['Tu','<b>es</b>','Vous','<b>êtes</b>'],
+      ['Il','<b>est</b>','Ils','<b>sont</b>'],
+      ['Elle','<b>est</b>','Elles','<b>sont</b>']
+      ]},
+    {t:'h', x:'Fill in the blanks'},
+    {t:'fill', items:[
+      {s:"1. Je ___ étudiant.", a:["suis"], en:"I am a student.", why:"je suis"},
+      {s:"2. Tu ___ français.", a:["es"], en:"You are French.", why:"tu es"},
+      {s:"3. Elle ___ espagnole.", a:["est"], en:"She is Spanish.", why:"elle est"},
+      {s:"4. Nous ___ étudiants.", a:["sommes"], en:"We are students.", why:"nous sommes"},
+      {s:"5. Vous ___ professeur.", a:["êtes","etes"], en:"You are a teacher.", why:"vous êtes"},
+      {s:"6. Ils ___ anglais.", a:["sont"], en:"They are English.", why:"ils sont"},
+      {s:"7. Elles ___ françaises.", a:["sont"], en:"They (f.) are French.", why:"elles sont — and françaises takes -es"},
+      {s:"8. Il ___ italien.", a:["est"], en:"He is Italian.", why:"il est"}
+    ]},
+    {t:'h', x:'Put the words in order — answers'},
+    {t:'rows', items:[
+      ['Je suis français.','zhuh swee frahn-SEH','I am French.'],
+      ['Elle est française.','ell eh frahn-SEZ','She is French.'],
+      ['Nous sommes étudiants.','noo sum zay-tew-DYAHN','We are students.'],
+      ['Ils sont anglais.','eel sohn tahn-GLEH','They are English.'],
+      ['Vous êtes professeur.','voo zet proh-feh-SUR','You are a teacher.']
+    ]}
+  ]},
+  { title:'8.5 · Pays & nationalités — answers', blocks:[
+    {t:'table', head:['Pays','Nationalité (m.)','Nationalité (f.)','Pronunciation'],
+      rows:[
+      ['la France','français','française','frahn-SEH / frahn-SEZ'],
+      ["l'Angleterre",'anglais','anglaise','ahn-GLEH / ahn-GLEZ'],
+      ["l'Espagne",'espagnol','espagnole','es-pah-NYOL'],
+      ["l'Italie",'italien','italienne','ee-tal-YAN / ee-tal-YEN'],
+      ["l'Allemagne",'allemand','allemande','al-MAHN / al-MAHND'],
+      ["l'Inde",'indien','indienne','an-DYAN / an-DYEN']
+      ]},
+    {t:'fill', items:[
+      {s:"1. Je suis de France. Je suis ___.", a:["français","francais","française","francaise"], en:"I am French.", why:"français (m.) / française (f.)"},
+      {s:"2. Il est de l'Inde. Il est ___.", a:["indien"], en:"He is Indian.", why:"masculine → indien"},
+      {s:"3. Elle est d'Espagne. Elle est ___.", a:["espagnole"], en:"She is Spanish.", why:"feminine → espagnole"},
+      {s:"4. Il est d'Italie. Il est ___.", a:["italien"], en:"He is Italian.", why:"masculine → italien"},
+      {s:"5. Elle est d'Allemagne. Elle est ___.", a:["allemande"], en:"She is German.", why:"feminine → allemande"}
+    ]},
+    {t:'note', x:"Countries carry an article — <b>la</b> France, <b>l'</b>Inde, <b>l'</b>Espagne — and it shows up in <i>de</i>: <i>je viens <b>de</b> France</i> (feminine) but <i>je viens <b>du</b> Canada</i> (masculine). The nationality adjective itself stays lowercase."}
+  ]},
+  { title:'8.6 · Révision mixte — the conversation', blocks:[
+    {t:'p', x:"Section 11 of the handout, completed."},
+    {t:'rows', items:[
+      ['A : Bonjour ! Comment tu vas ?','bohn-ZHOOR, koh-MAHN tew VAH','Hello! How are you?'],
+      ['B : Bonjour ! Je vais bien, merci. Et toi ?','zhuh vay byan, mehr-SEE, ay TWAH','Hello! I am well, thanks. And you?'],
+      ["A : Ça va bien. Comment tu t'appelles ?","sah vah byan. koh-MAHN tew tah-PELL","I'm fine. What's your name?"],
+      ["B : Je m'appelle Anirudh.","zhuh mah-PELL","My name is Anirudh."],
+      ['A : Tu es français ?','tew ay frahn-SEH','Are you French?'],
+      ['B : Non, je suis indien.','nohn, zhuh swee zan-DYAN','No, I am Indian.'],
+      ['A : Quel âge as-tu ?','kell ahzh ah TEW','How old are you?'],
+      ["B : J'ai vingt-quatre ans.","zhay van-KAT-ruh ahn","I am twenty-four."],
+      ['A : Quelle est ta couleur préférée ?','kell eh tah koo-LUHR pray-fay-RAY','What is your favourite colour?'],
+      ['B : Ma couleur préférée est le bleu.','mah koo-LUHR pray-fay-RAY eh luh BLUH','My favourite colour is blue.']
+    ]},
+    {t:'ex', x:"Three different verbs doing three different jobs in that one exchange: <b>aller</b> for how you are (<i>je vais bien</i>), <b>être</b> for nationality (<i>je suis indien</i>), <b>avoir</b> for age (<i>j'ai 24 ans</i>). Getting those three right covers most of an A1 conversation."}
+  ]},
+  { title:'8.7 · Challenge & self-check', blocks:[
+    {t:'p', x:"<b>60-second introduction.</b> The handout wants seven things — here they are as a single block you can memorise and adapt."},
+    {t:'rows', items:[
+      ["Bonjour ! Je m'appelle Rajveer.","bohn-ZHOOR, zhuh mah-PELL","Hello! My name is Rajveer."],
+      ["J'ai vingt-cinq ans.","zhay van-sank AHN","I am twenty-five."],
+      ['Je suis indien.','zhuh swee zan-DYAN','I am Indian.'],
+      ["J'habite à Brampton, au Canada.","zhah-BEET ah bramp-TOHN, oh kah-nah-DAH","I live in Brampton, Canada."],
+      ['Je parle anglais, hindi et un peu français.','zhuh parl ahn-GLEH, een-DEE ay uhn puh frahn-SEH','I speak English, Hindi and a little French.'],
+      ['Ma couleur préférée est le bleu.','mah koo-LUHR pray-fay-RAY eh luh BLUH','My favourite colour is blue.'],
+      ['Enchanté !','ahn-shahn-TAY','Nice to meet you!']
+    ]},
+    {t:'note', x:"That's the checklist covered: greeting ✓ name ✓ age ✓ nationality ✓ where you live ✓ languages ✓ favourite colour ✓ — and <b>être</b> used twice (<i>je suis indien</i>, <i>ma couleur préférée <u>est</u></i>), which was the bonus condition."},
+    {t:'h', x:'Self-check — where to go if a topic feels shaky'},
+    {t:'table', head:['Topic','If unsure, revisit'],
+      rows:[
+      ['Greetings','Handout 1 above, or Complete Book Part 0.5'],
+      ['Introductions','Handout 1.5 and 8.2'],
+      ['Tu / Vous','Handout 1.2 — the table and the tutoyer phrase'],
+      ['Alphabet & spelling','Handout 1.3'],
+      ['Classroom expressions','Handout 1.4'],
+      ['Numbers 0–69','Handout 3.1, plus Complete Book Part 0.4'],
+      ['Numbers 70–100','Handout 4.1 — the maths section'],
+      ['Être','Handout 3.2 and 8.4'],
+      ['Countries & nationalities','Handout 2.1 and 8.5'],
+      ['Colours','Handout 4.2']
+      ]},
+    {t:'ex', x:"<b>Homework from this handout:</b> 8 sentences about yourself, numbers 70–100 written out, 11 colours with 5 in sentences, and the 60-second intro practised aloud. The intro is the one that matters most — it's the opening of every speaking exam you'll ever take."}
+  ]}
+  ]
+});
+
+/* ===== RENDER MARKER ===== */
+
+/* ===== renderer ===== */
+const tabsEl = document.getElementById('parttabs');
+const bookEl = document.getElementById('book');
+function renderBook(){
+  tabsEl.innerHTML=''; bookEl.innerHTML='';
+  BOOK.forEach((part, idx)=>{
+    const btn=document.createElement('button');
+    btn.textContent=part.part.split(' — ')[0];
+    if(idx===0) btn.classList.add('on');
+    btn.onclick=()=>{
+      [...tabsEl.children].forEach(b=>b.classList.remove('on'));
+      btn.classList.add('on');
+      [...bookEl.children].forEach(sec=>sec.classList.toggle('hidden', sec.id!==part.id));
+      window.scrollTo({top:0,behavior:'smooth'});
+    };
+    tabsEl.appendChild(btn);
+
+    const sec=document.createElement('section'); sec.id=part.id;
+    if(idx!==0) sec.classList.add('hidden');
+    const head=document.createElement('div'); head.className='parthead';
+    const h2=document.createElement('h2'); h2.textContent=part.part;
+    const p=document.createElement('p'); p.textContent=part.sub||'';
+    head.appendChild(h2); head.appendChild(p); sec.appendChild(head);
+
+    const toc=document.createElement('div'); toc.className='tocbox';
+    toc.innerHTML='<b>In this handout:</b>';
+    part.chapters.forEach((ch,ci)=>{
+      const a=document.createElement('a'); a.href='#'; a.textContent=ch.title;
+      a.onclick=(e)=>{ e.preventDefault();
+        const d=sec.querySelectorAll('details.chap')[ci];
+        d.open=true; d.scrollIntoView({behavior:'smooth',block:'start'});
+      };
+      toc.appendChild(a);
+    });
+    sec.appendChild(toc);
+
+    part.chapters.forEach(ch=>{
+      const d=document.createElement('details'); d.className='chap';
+      const s=document.createElement('summary'); s.textContent=ch.title;
+      const body=document.createElement('div'); body.className='chapbody';
+      ch.blocks.forEach(b=>body.appendChild(renderBlock(b)));
+      d.appendChild(s); d.appendChild(body);
+      sec.appendChild(d);
+    });
+    bookEl.appendChild(sec);
+  });
+}
+renderBook();
+
+/* ===== search ===== */
+document.getElementById('search').addEventListener('input', e=>{
+  const q=e.target.value.toLowerCase().trim();
+  const sections=[...bookEl.children];
+  if(!q){
+    sections.forEach((sec,i)=>{
+      sec.classList.toggle('hidden', !tabsEl.children[i].classList.contains('on'));
+      sec.querySelectorAll('details.chap').forEach(d=>{ d.classList.remove('hidden'); d.open=false; });
+      sec.querySelectorAll('.row,.cell').forEach(r=>r.classList.remove('hidden'));
+      const toc=sec.querySelector('.tocbox'); if(toc) toc.classList.remove('hidden');
+    });
+    return;
+  }
+  sections.forEach(sec=>{
+    sec.classList.remove('hidden');
+    const toc=sec.querySelector('.tocbox'); if(toc) toc.classList.add('hidden');
+    let any=false;
+    sec.querySelectorAll('details.chap').forEach(d=>{
+      let hits=0;
+      d.querySelectorAll('.row,.cell').forEach(r=>{
+        const m=r.textContent.toLowerCase().includes(q);
+        r.classList.toggle('hidden', !m); if(m) hits++;
+      });
+      const tm=d.querySelector('summary').textContent.toLowerCase().includes(q);
+      const show=hits>0||tm;
+      d.classList.toggle('hidden', !show); d.open=show;
+      if(show) any=true;
+    });
+    sec.classList.toggle('hidden', !any);
+  });
+});
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+<script src="french_glossary.js"></script>
+</body>
+</html>

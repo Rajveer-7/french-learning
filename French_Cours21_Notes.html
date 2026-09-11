@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 21 — Les prépositions de lieu</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .prepbox { background:var(--card); border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:10px; padding:12px 14px; margin:14px 0; }
+  .prepbox .ptitle { font-size:17px; font-weight:700; color:var(--accent); margin-bottom:2px; }
+  .prepbox .pmean { font-size:13.5px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:180px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 21: Les prépositions de lieu</h1>
+  <p class="sub">The Language SKOOL · Teacher worksheet, Lesson 12 (4 pages) · Prepositions of place — where things are</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Cours21_Notes.html" class="active">Cours 21</a>
+    <a href="French_Cours22_Notes.html">Cours 22</a>
+    <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
+    <a href="French_Articles.html">Articles</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(text.replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+
+/* intro */
+const introP = document.createElement('p'); introP.className='lead';
+introP.textContent = "This is the teacher's own \"Les Prépositions\" handout (Lesson 12) — a Language SKOOL worksheet, not the Saison 1 textbook. Each preposition below gets the worksheet's meaning and examples, plus pronunciation and English translation added.";
+content.appendChild(introP);
+
+/* Section 1 — the prepositions */
+const h1 = document.createElement('h2'); h1.textContent = "1 · The prepositions, one by one"; content.appendChild(h1);
+
+function prepBox(num, fr, en, meaning, examples, rule){
+  const box = document.createElement('div'); box.className='prepbox';
+  const t = document.createElement('div'); t.className='ptitle'; t.textContent = num + '. ' + fr + ' — ' + en;
+  const m = document.createElement('div'); m.className='pmean'; m.textContent = meaning;
+  box.appendChild(t); box.appendChild(m);
+  content.appendChild(box);
+  examples.forEach(([f,p,e])=>{ content.appendChild(makeRow(f,p,e)); GLOBAL_VOCAB.push({fr:f, en:e}); });
+  if(rule){
+    const r = document.createElement('div'); r.className='example'; r.innerHTML = rule;
+    content.appendChild(r);
+  }
+}
+
+const noteEarly = document.createElement('div'); noteEarly.className='note';
+noteEarly.innerHTML = "Items 1–5 are confirmed from the worksheet's own <b>A1 Master Table</b> (section 1b below), but page 1 scrolled past before I saw its example sentences — so the examples for these five are mine, written to match the worksheet's style. Everything from item 6 onwards is the worksheet's own.";
+content.appendChild(noteEarly);
+
+prepBox(1, "À", "AT / IN / TO", "à = at, in or to — the all-purpose location and destination word", [
+  ["Je suis à la maison.","zhuh swee ah lah meh-ZOHN","I am at home."],
+  ["Il travaille à Toronto.","eel trah-VYE ah toh-rohn-TOH","He works in Toronto."],
+  ["Nous allons à l'école.","noo-zah-LOHN ah lay-KOLL","We are going to the school."]
+], "Remember the other contraction family: <b>à + le = au</b>, <b>à + les = aux</b>. So <i>je vais <b>au</b> marché</i>, <i>je parle <b>aux</b> voisins</i> — but <i>à la</i> and <i>à l'</i> never change.");
+
+prepBox(2, "DANS", "IN / INSIDE", "dans = in, inside (something enclosed)", [
+  ["Les clés sont dans le sac.","lay klay sohn dahn luh SAK","The keys are in the bag."],
+  ["Il y a du lait dans le frigo.","eel yah dew leh dahn luh free-GOH","There is milk in the fridge."],
+  ["Nous sommes dans la cuisine.","noo sum dahn lah kwee-ZEEN","We are in the kitchen."]
+], "<b>dans</b> is physically inside something. Compare with <b>à</b>, which is more general: <i>je suis à la maison</i> (at home) vs <i>je suis dans la maison</i> (inside the house).");
+
+prepBox(3, "SUR", "ON", "sur = on, on top of", [
+  ["Le livre est sur la table.","luh leevr eh sewr lah TABL","The book is on the table."],
+  ["Il y a une photo sur le mur.","eel yah ewn foh-TOH sewr luh MEWR","There is a photo on the wall."]
+], "Careful with the pair <b>sur</b> (on) and <b>sous</b> (under) — one letter apart in writing, but clearly different out loud: <i>sewr</i> vs <i>soo</i>.");
+
+prepBox(4, "SOUS", "UNDER", "sous = under, underneath", [
+  ["Le chat est sous la table.","luh shah eh soo lah TABL","The cat is under the table."],
+  ["Mes chaussures sont sous le lit.","may shoh-SEWR sohn soo luh LEE","My shoes are under the bed."]
+], "Opposite pair: <b>sur</b> (on) ↔ <b>sous</b> (under).");
+
+prepBox(5, "DEVANT", "IN FRONT OF", "devant = in front of", [
+  ["La voiture est devant la maison.","lah vwah-TEWR eh duh-VAHN lah meh-ZOHN","The car is in front of the house."],
+  ["Je t'attends devant le cinéma.","zhuh tah-TAHN duh-VAHN luh see-nay-MAH","I'll wait for you in front of the cinema."]
+], "Opposite pair: <b>devant</b> (in front of) ↔ <b>derrière</b> (behind). Neither takes <i>de</i>, so neither contracts — <i>devant le cinéma</i>, not \"devant du cinéma\".");
+
+prepBox(6, "DERRIÈRE", "BEHIND", "derrière = behind, at the back of", [
+  ["derrière la maison","deh-RYEHR lah meh-ZOHN","behind the house"],
+  ["Le jardin est derrière l'immeuble.","luh zhar-DAN eh deh-RYEHR lee-MUH-bluh","The garden is behind the building."]
+], "Pair it with its opposite: <b>devant</b> (in front of) ↔ <b>derrière</b> (behind).");
+
+prepBox(7, "ENTRE", "BETWEEN", "entre = between", [
+  ["La banque est entre la pharmacie et la poste.","lah bahnk eh AHN-truh lah far-mah-SEE ay lah POST","The bank is between the pharmacy and the post office."],
+  ["Paul est entre Marie et Jean.","pohl eh AHN-truh mah-REE ay ZHAHN","Paul is between Marie and Jean."]
+], "Structure to memorise: <b>entre A et B</b> = between A and B. You always need the <b>et</b> — never \"entre A, B\".");
+
+prepBox(8, "À CÔTÉ DE", "NEXT TO", "à côté de = next to / beside", [
+  ["La banque est à côté de la pharmacie.","lah bahnk eh ah koh-TAY duh lah far-mah-SEE","The bank is next to the pharmacy."],
+  ["Je suis à côté de Paul.","zhuh swee ah koh-TAY duh POHL","I am next to Paul."],
+  ["Le canapé est à côté de la fenêtre.","luh kah-nah-PAY eh ah koh-TAY duh lah fuh-NETR","The sofa is next to the window."]
+], "The contraction box from the worksheet: <b>à côté de la</b> banque • <b>à côté du</b> restaurant • <b>à côté des</b> magasins. See section 2 — this is the part that trips everyone.");
+
+prepBox(9, "PRÈS DE", "NEAR", "près de = near / close to", [
+  ["J'habite près de l'école.","zhah-BEET preh duh lay-KOLL","I live near the school."],
+  ["Le café est près de la gare.","luh kah-FAY eh preh duh lah GAR","The café is near the station."],
+  ["Il y a un restaurant près de chez moi.","eel yah uhn res-toh-RAHN preh duh shay MWAH","There's a restaurant near my place."]
+], "Note the last one: <b>près de chez moi</b> — when you mean \"near someone's place\", you stack <i>près de</i> + <i>chez</i>. Very common in speech.");
+
+prepBox(10, "LOIN DE", "FAR FROM", "loin de = far from — the opposite of près de", [
+  ["J'habite loin de l'école.","zhah-BEET lwan duh lay-KOLL","I live far from the school."],
+  ["La gare est loin de la maison.","lah gar eh lwan duh lah meh-ZOHN","The station is far from the house."]
+], "Learn them as a pair: <b>près de</b> = near ↔ <b>loin de</b> = far from. Both end in DE, so both contract (loin <b>du</b> centre, loin <b>des</b> magasins).");
+
+prepBox(11, "AU BORD DE", "BY / AT THE EDGE OF", "au bord de = at the edge of / by the side of", [
+  ["J'habite au bord de la mer.","zhah-BEET oh bor duh lah MEHR","I live by the sea."],
+  ["Nous sommes au bord du lac.","noo sum oh bor dew LAK","We are by the lake."],
+  ["Il y a un restaurant au bord de la rivière.","eel yah uhn res-toh-RAHN oh bor duh lah ree-VYEHR","There's a restaurant by the river."]
+], "The worksheet notes this one is used especially with water: <b>la mer</b> (sea), <b>un lac</b> (lake), <b>une rivière</b> (river). Notice the middle example — <i>au bord <b>du</b> lac</i> — that's the de + le contraction in the wild.");
+
+const pendingLate = document.createElement('div'); pendingLate.className='pending';
+pendingLate.textContent = "Items 12 onwards (pages 3–4) not yet seen — will fill in live as the class works through them.";
+content.appendChild(pendingLate);
+
+/* Section 1b — the master table */
+const h1b = document.createElement('h2'); h1b.textContent = "1b · A1 Master Table — all eleven at a glance"; content.appendChild(h1b);
+const l1b = document.createElement('p'); l1b.className='lead';
+l1b.textContent = "The worksheet's own summary table, with pronunciation added. Tap any French word to hear it.";
+content.appendChild(l1b);
+
+const MASTER = [
+  ["à","ah","at / in / to", false],
+  ["dans","dahn","in / inside", false],
+  ["sur","sewr","on", false],
+  ["sous","soo","under", false],
+  ["devant","duh-VAHN","in front of", false],
+  ["derrière","deh-RYEHR","behind", false],
+  ["entre","AHN-truh","between", false],
+  ["à côté de","ah koh-TAY duh","next to", true],
+  ["près de","preh duh","near", true],
+  ["loin de","lwan duh","far from", true],
+  ["au bord de","oh bor duh","at the edge of / by", true]
+];
+const tableM = document.createElement('table'); tableM.className='conjt';
+let mHtml = '<tr><th>Préposition</th><th>Pronunciation</th><th>Meaning</th><th>Contracts?</th></tr>';
+MASTER.forEach(([fr,ph,en,contracts])=>{
+  mHtml += '<tr><td><b>'+fr+'</b></td><td><i>'+ph+'</i></td><td>'+en+'</td><td>'+(contracts?'<b>yes</b> — du / des':'no')+'</td></tr>';
+});
+tableM.innerHTML = mHtml;
+content.appendChild(tableM);
+MASTER.forEach(([fr,ph,en])=>{ GLOBAL_VOCAB.push({fr:fr, en:en}); });
+
+const gridM = document.createElement('div'); gridM.className='grid';
+MASTER.forEach(([fr,ph])=>{
+  const c=document.createElement('div'); c.className='cell';
+  c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+  c.querySelector('.fr').textContent=fr; c.querySelector('.ph').textContent=ph;
+  c.onclick=()=>speak(fr);
+  gridM.appendChild(c);
+});
+content.appendChild(gridM);
+
+const noteM = document.createElement('div'); noteM.className='example';
+noteM.innerHTML = "<b>The split that matters:</b> the last four all end in <b>DE</b> — and only those four contract. The first seven (à, dans, sur, sous, devant, derrière, entre) attach straight to the noun with no contraction at all. If you can sort a preposition into the right group, you've solved most of this lesson.";
+content.appendChild(noteM);
+
+/* Section 1c — the cat-and-box memory trick */
+const h1c = document.createElement('h2'); h1c.textContent = "1c · Easy way to remember — the cat and the box"; content.appendChild(h1c);
+const l1c = document.createElement('p'); l1c.className='lead';
+l1c.textContent = "In class the teacher showed a cat in eight positions around a cardboard box — one drawing per preposition. Here's the same idea drawn out below, labelled in French instead of English. Click any label to hear it.";
+content.appendChild(l1c);
+
+/* --- hand-drawn SVG diagram: le chat et la boîte --- */
+function svgBox(x,y,w,h){
+  const lf = x+','+y+' '+(x-15)+','+(y-20)+' '+(x+5)+','+(y-28)+' '+(x+21)+','+(y-6);
+  const rf = (x+w)+','+y+' '+(x+w+15)+','+(y-20)+' '+(x+w-5)+','+(y-28)+' '+(x+w-21)+','+(y-6);
+  return '<polygon points="'+lf+'" fill="#e3bd7f" stroke="#c09a5e" stroke-width="2" stroke-linejoin="round"/>'
+       + '<polygon points="'+rf+'" fill="#e3bd7f" stroke="#c09a5e" stroke-width="2" stroke-linejoin="round"/>'
+       + '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="4" fill="#f2d69b" stroke="#c09a5e" stroke-width="2"/>';
+}
+function svgHead(cx,cy,s){
+  s = s||1;
+  const r = 15*s;
+  return '<polygon points="'+(cx-r*0.85)+','+(cy-r*0.55)+' '+(cx-r*0.95)+','+(cy-r*1.7)+' '+(cx-r*0.1)+','+(cy-r*0.95)+'" fill="#2f2b38"/>'
+       + '<polygon points="'+(cx+r*0.85)+','+(cy-r*0.55)+' '+(cx+r*0.95)+','+(cy-r*1.7)+' '+(cx+r*0.1)+','+(cy-r*0.95)+'" fill="#2f2b38"/>'
+       + '<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="#2f2b38"/>'
+       + '<circle cx="'+(cx-r*0.42)+'" cy="'+(cy-r*0.1)+'" r="'+(r*0.26)+'" fill="#ffd54a"/>'
+       + '<circle cx="'+(cx+r*0.42)+'" cy="'+(cy-r*0.1)+'" r="'+(r*0.26)+'" fill="#ffd54a"/>'
+       + '<circle cx="'+(cx-r*0.42)+'" cy="'+(cy-r*0.1)+'" r="'+(r*0.11)+'" fill="#1a1720"/>'
+       + '<circle cx="'+(cx+r*0.42)+'" cy="'+(cy-r*0.1)+'" r="'+(r*0.11)+'" fill="#1a1720"/>';
+}
+function svgBody(cx,cy,rx,ry){
+  return '<ellipse cx="'+cx+'" cy="'+cy+'" rx="'+rx+'" ry="'+ry+'" fill="#2f2b38"/>';
+}
+function svgTail(x,y,dir){
+  const d = dir||1;
+  return '<path d="M'+x+' '+y+' q'+(26*d)+' 6 '+(30*d)+' -22 q'+(2*d)+' -14 '+(-8*d)+' -14" fill="none" stroke="#2f2b38" stroke-width="7" stroke-linecap="round"/>';
+}
+
+const PANELS = [
+  // dans — head peeking out from inside
+  { fr:'dans', en:'in', draw: svgHead(95,60,0.95) + svgBox(50,72,92,62) },
+  // sur — lying on top
+  { fr:'sur', en:'on', draw: svgBox(50,86,92,58) + svgTail(128,74,1) + svgBody(96,70,34,15) + svgHead(72,58,0.9) },
+  // devant — lying in front of the box
+  { fr:'devant', en:'in front of', draw: svgBox(50,62,92,62) + svgTail(126,116,1) + svgBody(94,118,35,17) + svgHead(66,114,0.9) },
+  // à côté de — sitting beside it
+  { fr:'à côté de', en:'next to', draw: svgBox(26,72,80,62) + svgTail(158,128,1) + svgBody(140,124,19,22) + svgHead(140,96,0.95) },
+  // derrière — peeking from behind
+  { fr:'derrière', en:'behind', draw: svgTail(52,60,-1) + svgHead(122,64,0.9) + svgBox(44,80,96,56) },
+  // entre — squeezed between two boxes
+  { fr:'entre', en:'between', draw: svgBox(14,84,56,54) + svgBox(120,84,56,54) + svgTail(78,74,1) + svgBody(95,120,17,20) + svgHead(95,94,0.9) },
+  // sous — wearing the box, paws sticking out
+  { fr:'sous', en:'under', draw: svgBody(95,120,22,26) + svgTail(120,140,1) + svgBox(48,74,94,56)
+      + '<circle cx="82" cy="104" r="9" fill="#2f2b38"/><circle cx="108" cy="104" r="9" fill="#2f2b38"/>'
+      + '<circle cx="82" cy="104" r="4.5" fill="#ffd54a"/><circle cx="108" cy="104" r="4.5" fill="#ffd54a"/>' },
+  // près de — close by, leaning on it
+  { fr:'près de', en:'near', draw: svgBox(30,76,78,60) + svgTail(148,126,1) + svgBody(128,122,19,22) + svgHead(128,94,0.95) }
+];
+
+const CW = 190, CH = 205;
+let svg = '<svg viewBox="0 0 760 410" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">';
+svg += '<rect x="0" y="0" width="760" height="410" rx="14" fill="#efe9f8"/>';
+PANELS.forEach((p,i)=>{
+  const ox = (i%4)*CW, oy = Math.floor(i/4)*CH;
+  svg += '<g transform="translate('+ox+','+oy+')">' + p.draw;
+  svg += '<g class="catlabel" data-fr="'+p.fr+'" style="cursor:pointer;">';
+  svg += '<rect x="30" y="158" width="130" height="30" rx="15" fill="#ffffff" stroke="#d8d2e8" stroke-width="1.5"/>';
+  svg += '<text x="95" y="178" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="15" font-weight="600" fill="#4338ca">'+p.fr+'</text>';
+  svg += '</g></g>';
+});
+svg += '</svg>';
+
+const svgWrap = document.createElement('div');
+svgWrap.style.cssText = 'background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin:12px 0;';
+svgWrap.innerHTML = svg;
+content.appendChild(svgWrap);
+svgWrap.querySelectorAll('.catlabel').forEach(g=>{
+  g.addEventListener('click', ()=>speak(g.getAttribute('data-fr')));
+});
+const svgCap = document.createElement('div'); svgCap.className='note';
+svgCap.innerHTML = "Drawn for this page — the class slide showed the same eight positions with English labels. Click any label above to hear the French. Note that only <b>à côté de</b> and <b>près de</b> carry a <i>de</i>; the other six attach straight to the noun.";
+content.appendChild(svgCap);
+
+const CATBOX = [
+  ["Le chat est dans la boîte.","luh shah eh dahn lah BWAHT","The cat is IN the box — sitting inside it, only its head showing."],
+  ["Le chat est sur la boîte.","luh shah eh sewr lah BWAHT","The cat is ON the box — perched on the lid."],
+  ["Le chat est devant la boîte.","luh shah eh duh-VAHN lah BWAHT","The cat is IN FRONT of the box — lying across the front of it."],
+  ["Le chat est à côté de la boîte.","luh shah eh ah koh-TAY duh lah BWAHT","The cat is NEXT TO the box — sitting beside it."],
+  ["Le chat est derrière la boîte.","luh shah eh deh-RYEHR lah BWAHT","The cat is BEHIND the box — only its tail and ears visible."],
+  ["Le chat est entre les boîtes.","luh shah eh AHN-truh lay BWAHT","The cat is BETWEEN the boxes — squeezed in the middle."],
+  ["Le chat est sous la boîte.","luh shah eh soo lah BWAHT","The cat is UNDER the box — wearing it like a hat."],
+  ["Le chat est près de la boîte.","luh shah eh preh duh lah BWAHT","The cat is NEAR the box — close by, leaning on it."]
+];
+CATBOX.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr, en:en.split(' —')[0]}); });
+
+const noteCat = document.createElement('div'); noteCat.className='note';
+noteCat.innerHTML = "Notice which ones needed <b>de</b> in those eight sentences: only <i>à côté <b>de</b> la boîte</i> and <i>près <b>de</b> la boîte</i>. The other six attach straight to the noun. Say all eight out loud in order — it takes about twenty seconds and it drills both the word and its contraction behaviour at once.";
+content.appendChild(noteCat);
+
+const exCat = document.createElement('div'); exCat.className='example';
+exCat.innerHTML = "<b>Make it yours:</b> swap the cat and the box for something on your desk right now. <i>Mon téléphone est sur la table. Mes clés sont à côté de l'ordinateur. Le sac est sous la chaise.</i> Describing your actual room is the fastest way to make these automatic.";
+content.appendChild(exCat);
+
+/* Section 1d — opposite pairs */
+const h1d = document.createElement('h2'); h1d.textContent = "1d · Learn them in opposite pairs"; content.appendChild(h1d);
+const l1d = document.createElement('p'); l1d.className='lead';
+l1d.textContent = "Six of the eleven come in natural opposites. Learning them two at a time roughly halves the work.";
+content.appendChild(l1d);
+const tablePairs = document.createElement('table'); tablePairs.className='conjt';
+tablePairs.innerHTML = '<tr><th>One</th><th>↔</th><th>The other</th><th>Pair meaning</th></tr>' +
+  '<tr><td><b>sur</b> (soor)</td><td>↔</td><td><b>sous</b> (soo)</td><td>on ↔ under</td></tr>' +
+  '<tr><td><b>devant</b> (duh-VAHN)</td><td>↔</td><td><b>derrière</b> (deh-RYEHR)</td><td>in front of ↔ behind</td></tr>' +
+  '<tr><td><b>près de</b> (preh duh)</td><td>↔</td><td><b>loin de</b> (lwan duh)</td><td>near ↔ far from</td></tr>';
+content.appendChild(tablePairs);
+const notePairs = document.createElement('div'); notePairs.className='note';
+notePairs.innerHTML = "And the pair that is <i>not</i> an opposite but a matter of degree: <b>à côté de</b> (immediately beside, touching) vs <b>près de</b> (in the general vicinity). See section 2 for the full comparison.";
+content.appendChild(notePairs);
+const PAIRDRILL = [
+  ["Le livre est sur la table. / Le chat dort sous le lit.","luh leevr eh soor lah TABL / luh shah dor soo luh LEE","The book is on the table. / The cat sleeps under the bed."],
+  ["Paul attend devant la porte. / Paul se cache derrière l'arbre.","pohl ah-TAHN duh-VAHN lah PORT / pohl suh kash deh-RYEHR LARBR","Paul waits in front of the door. / Paul hides behind the tree."],
+  ["J'habite près de la gare. / Mon bureau est loin de mon appartement.","zhah-BEET preh duh lah GAR / mohn bew-ROH eh lwan duh mohn nah-par-tuh-MAHN","I live near the station. / My office is far from my apartment."]
+];
+PAIRDRILL.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); });
+
+/* Section 1e — pronunciation detail */
+const h1e = document.createElement('h2'); h1e.textContent = "1e · Pronunciation — the silent letters"; content.appendChild(h1e);
+const l1e = document.createElement('p'); l1e.className='lead';
+l1e.textContent = "Several of these prepositions end in letters you never say. Getting these right is the difference between sounding studied and sounding natural.";
+content.appendChild(l1e);
+const tablePron = document.createElement('table'); tablePron.className='conjt';
+tablePron.innerHTML = '<tr><th>Written</th><th>Said</th><th>What is silent</th></tr>' +
+  '<tr><td>dan<b>s</b></td><td>dahn</td><td>the final -s</td></tr>' +
+  '<tr><td>sou<b>s</b></td><td>soo</td><td>the final -s</td></tr>' +
+  '<tr><td>devan<b>t</b></td><td>duh-VAHN</td><td>the final -t</td></tr>' +
+  '<tr><td>au bor<b>d</b> de</td><td>oh bor duh</td><td>the -d of bord</td></tr>' +
+  '<tr><td>près</td><td>preh</td><td>the final -s</td></tr>';
+content.appendChild(tablePron);
+const warnSurSous = document.createElement('div'); warnSurSous.className='warn';
+warnSurSous.innerHTML = "The one contrast to drill: <b>sur</b> (soor) uses the tight French <i>u</i> — lips pushed forward and rounded, as if saying \"ee\" through an \"oo\" mouth. <b>Sous</b> (soo) is the relaxed \"oo\" of English \"food\". Mix them up and \"on the bed\" becomes \"under the bed\".";
+content.appendChild(warnSurSous);
+content.appendChild(makeRow("sur le lit / sous le lit","soor luh LEE / soo luh LEE","on the bed / under the bed"));
+const noteNasal = document.createElement('div'); noteNasal.className='note';
+noteNasal.innerHTML = "<b>loin</b> (lwan) carries a nasal vowel — the sound goes through the nose and you never actually pronounce the n. Same nasal family as <i>pain</i>, <i>bien</i>, <i>main</i>.";
+content.appendChild(noteNasal);
+
+/* Section 2 — the contraction rule */
+const h2 = document.createElement('h2'); h2.textContent = "2 · The DE contraction — the rule that decides your marks"; content.appendChild(h2);
+const l2 = document.createElement('p'); l2.className='lead';
+l2.textContent = "Every preposition ending in DE (à côté de, près de, loin de, en face de, au-dessus de...) merges with the article that follows. This is not optional and it is where most A1 errors happen.";
+content.appendChild(l2);
+
+const tableDe = document.createElement('table'); tableDe.className='conjt';
+tableDe.innerHTML = '<tr><th>de +</th><th>becomes</th><th>Example</th><th>English</th></tr>' +
+  '<tr><td>de + <b>le</b></td><td><b>du</b></td><td>à côté <b>du</b> restaurant</td><td>next to the restaurant</td></tr>' +
+  '<tr><td>de + <b>les</b></td><td><b>des</b></td><td>à côté <b>des</b> magasins</td><td>next to the shops</td></tr>' +
+  '<tr><td>de + <b>la</b></td><td><i>no change</i> — de la</td><td>à côté <b>de la</b> banque</td><td>next to the bank</td></tr>' +
+  '<tr><td>de + <b>l\'</b></td><td><i>no change</i> — de l\'</td><td>près <b>de l\'</b>école</td><td>near the school</td></tr>' +
+  '<tr><td>de + <i>a name</i></td><td><i>no change</i> — de</td><td>à côté <b>de</b> Paul</td><td>next to Paul</td></tr>';
+content.appendChild(tableDe);
+
+const warnDe = document.createElement('div'); warnDe.className='warn';
+warnDe.innerHTML = "Never write <s>à côté de le restaurant</s> or <s>à côté de les magasins</s>. Those two combinations do not exist in French — they <b>must</b> contract to <b>du</b> and <b>des</b>. The feminine <i>de la</i> and the vowel form <i>de l'</i> stay as they are.";
+content.appendChild(warnDe);
+
+const exDe = document.createElement('div'); exDe.className='example';
+exDe.innerHTML = "Quick test you can run in your head: is the next word <b>le</b> or <b>les</b>? If yes, contract. If it's <b>la</b>, <b>l'</b> or a person's name, leave it alone.";
+content.appendChild(exDe);
+
+/* the contraction seen across several prepositions */
+const h2b = document.createElement('h3'); h2b.className='sub2'; h2b.textContent = "The same rule, across every DE preposition"; content.appendChild(h2b);
+const l2b = document.createElement('p'); l2b.className='lead';
+l2b.textContent = "It is not a quirk of à côté de — près de, loin de and au bord de all behave identically. Same four outcomes every time:";
+content.appendChild(l2b);
+const DEEXAMPLES = [
+  ["Le supermarché est près du parc.","luh soo-pehr-mar-SHAY eh preh dew PARK","The supermarket is near the park. (de + le → du)"],
+  ["La station est près de la maison.","lah stah-SYOHN eh preh duh lah meh-ZOHN","The station is near the house. (de + la, unchanged)"],
+  ["Il habite près des cinémas.","eel ah-BEET preh day see-nay-MAH","He lives near the cinemas. (de + les → des)"],
+  ["L'arrêt est à côté de l'hôpital.","lah-REH eh ah koh-TAY duh loh-pee-TAL","The stop is next to the hospital. (de + l', unchanged)"],
+  ["Nous habitons loin du centre-ville.","noo-zah-bee-TOHN lwan dew sahntr-VEEL","We live far from the city centre. (de + le → du)"]
+];
+DEEXAMPLES.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr, en:en.split(' (')[0]}); });
+
+/* the OTHER contraction family: à */
+const h2d = document.createElement('h3'); h2d.className='sub2'; h2d.textContent = "The other contraction family — à (au / aux)"; content.appendChild(h2d);
+const l2d = document.createElement('p'); l2d.className='lead';
+l2d.textContent = "Don't confuse the two systems. DE contracts to du/des. À contracts to au/aux. Same idea, different words — and à is the one you'll use every time you say where you're going.";
+content.appendChild(l2d);
+const tableA = document.createElement('table'); tableA.className='conjt';
+tableA.innerHTML = '<tr><th>à +</th><th>becomes</th><th>Example</th><th>English</th></tr>' +
+  '<tr><td>à + <b>le</b></td><td><b>au</b></td><td>Je vais <b>au</b> cinéma.</td><td>I am going to the cinema.</td></tr>' +
+  '<tr><td>à + <b>les</b></td><td><b>aux</b></td><td>Je vais <b>aux</b> toilettes.</td><td>I am going to the toilets.</td></tr>' +
+  '<tr><td>à + <b>la</b></td><td><i>no change</i> — à la</td><td>Je suis <b>à la</b> maison.</td><td>I am at home.</td></tr>' +
+  '<tr><td>à + <b>l\'</b></td><td><i>no change</i> — à l\'</td><td>Je vais <b>à l\'</b>école.</td><td>I am going to the school.</td></tr>';
+content.appendChild(tableA);
+content.appendChild(makeRow("Je suis à la maison et il est au travail.","zhuh swee zah lah meh-ZOHN ay eel eh oh trah-VYE","I am at home and he is at work."));
+GLOBAL_VOCAB.push({fr:"Je suis à la maison et il est au travail.", en:"I am at home and he is at work."});
+const noteTwoFam = document.createElement('div'); noteTwoFam.className='example';
+noteTwoFam.innerHTML = "Side by side, so it sticks:<br><b>de</b> + le = <b>du</b> · de + les = <b>des</b> &nbsp;→&nbsp; <i>à côté <b>du</b> parc</i><br><b>à</b> + le = <b>au</b> · à + les = <b>aux</b> &nbsp;→&nbsp; <i>je vais <b>au</b> parc</i><br>Both leave <b>la</b> and <b>l'</b> untouched.";
+content.appendChild(noteTwoFam);
+
+/* more in-context examples */
+const h2e = document.createElement('h3'); h2e.className='sub2'; h2e.textContent = "More examples in context"; content.appendChild(h2e);
+const MORE = [
+  ["Le stylo est sur le bureau.","luh stee-LOH eh soor luh bew-ROH","The pen is on the desk."],
+  ["Les chaussures sont sous le lit.","lay shoh-SEWR sohn soo luh LEE","The shoes are under the bed."],
+  ["Les clés sont dans le tiroir.","lay klay sohn dahn luh teer-WAHR","The keys are in the drawer."],
+  ["La voiture est garée devant l'immeuble.","lah vwah-TEWR eh gah-RAY duh-VAHN lee-MUH-bluh","The car is parked in front of the building."],
+  ["Le café est entre le cinéma et la pharmacie.","luh kah-FAY eh tahn-truh luh see-nay-MAH ay lah far-mah-SEE","The café is between the cinema and the pharmacy."],
+  ["Il est assis à côté du professeur.","eel eh tah-SEE ah koh-TAY dew proh-feh-SUR","He is sitting next to the teacher."],
+  ["Elle habite à côté du parc.","ell ah-BEET ah koh-TAY dew PARK","She lives next to the park."],
+  ["L'hôpital est très près de chez nous.","loh-pee-TAL eh treh preh duh shay NOO","The hospital is very near our place."],
+  ["L'aéroport est loin du centre.","lah-ay-roh-POR eh lwan dew SAHNTR","The airport is far from the centre."],
+  ["Nous marchons au bord de l'eau.","noo mar-SHOHN oh bor duh LOH","We are walking by the water's edge."],
+  ["Nous passons nos vacances au bord de la mer.","noo pah-SOHN noh vah-KAHNSS oh bor duh lah MEHR","We spend our holidays by the sea."]
+];
+MORE.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr, en:en}); });
+const noteMore = document.createElement('div'); noteMore.className='note';
+noteMore.innerHTML = "Count the contractions in that list: <i>à côté <b>du</b> professeur</i>, <i>à côté <b>du</b> parc</i>, <i>loin <b>du</b> centre</i> — all de + le. Meanwhile <i>près <b>de chez</b> nous</i> and <i>au bord <b>de l'</b>eau</i> stay uncontracted. That's the rule doing its work in real sentences.";
+content.appendChild(noteMore);
+
+/* nuance: à côté de vs près de */
+const h2c = document.createElement('h3'); h2c.className='sub2'; h2c.textContent = "à côté de vs près de — they are not interchangeable"; content.appendChild(h2c);
+const tableNuance = document.createElement('table'); tableNuance.className='conjt';
+tableNuance.innerHTML = '<tr><th></th><th>à côté de</th><th>près de</th></tr>' +
+  '<tr><td>Distance</td><td>immediately beside — touching or adjacent</td><td>generally close by — not necessarily adjacent</td></tr>' +
+  '<tr><td>English</td><td>next to, beside</td><td>near, close to</td></tr>' +
+  '<tr><td>Example</td><td>Le canapé est à côté de la fenêtre.<br><i>(right beside it)</i></td><td>J\'habite près de l\'école.<br><i>(a few streets away)</i></td></tr>';
+content.appendChild(tableNuance);
+const noteNuance = document.createElement('div'); noteNuance.className='note';
+noteNuance.innerHTML = "Think of it as zoom level. <b>À côté de</b> = you could reach out and touch both things at once. <b>Près de</b> = same neighbourhood, walking distance. Saying <i>j'habite à côté de l'école</i> claims you live literally next door to it — fine if true, odd if the school is ten minutes away.";
+content.appendChild(noteNuance);
+
+const noteEntre = document.createElement('div'); noteEntre.className='example';
+noteEntre.innerHTML = "And a reminder on <b>entre</b>: it describes the space separating two things, so it always needs both of them — <i>entre A <b>et</b> B</i>. It takes no <i>de</i>, so it never contracts: <i>entre le café et la banque</i>, never \"entre du café\".";
+content.appendChild(noteEntre);
+
+content.appendChild(makeRow("à côté du parc","ah koh-TAY dew PARK","next to the park (de + le)"));
+content.appendChild(makeRow("à côté des magasins","ah koh-TAY day mah-gah-ZAN","next to the shops (de + les)"));
+content.appendChild(makeRow("à côté de la gare","ah koh-TAY duh lah GAR","next to the station (de + la, unchanged)"));
+content.appendChild(makeRow("près de l'hôpital","preh duh loh-pee-TAL","near the hospital (de + l', unchanged)"));
+GLOBAL_VOCAB.push({fr:"à côté du parc", en:"next to the park"});
+GLOBAL_VOCAB.push({fr:"à côté des magasins", en:"next to the shops"});
+GLOBAL_VOCAB.push({fr:"à côté de la gare", en:"next to the station"});
+GLOBAL_VOCAB.push({fr:"près de l'hôpital", en:"near the hospital"});
+
+/* Section 3 — practice */
+const h3 = document.createElement('h2'); h3.textContent = "3 · Practice — contract it correctly"; content.appendChild(h3);
+const l3 = document.createElement('p'); l3.className='lead'; l3.textContent = "Type de la, de l', du or des."; content.appendChild(l3);
+
+const PRACTICE = [
+  { s:"La pharmacie est à côté ___ supermarché. (le supermarché)", a:["du"], en:"The pharmacy is next to the supermarket.", why:"de + le = du" },
+  { s:"J'habite près ___ écoles. (les écoles)", a:["des"], en:"I live near the schools.", why:"de + les = des" },
+  { s:"Le café est à côté ___ banque. (la banque)", a:["de la"], en:"The café is next to the bank.", why:"de + la stays de la" },
+  { s:"Nous sommes près ___ aéroport. (l'aéroport)", a:["de l'","de l"], en:"We are near the airport.", why:"de + l' stays de l'" },
+  { s:"Le parking est à côté ___ immeubles. (les immeubles)", a:["des"], en:"The car park is next to the buildings.", why:"de + les = des" },
+  { s:"Je suis assis à côté ___ Marie.", a:["de"], en:"I am sitting next to Marie.", why:"A person's name takes plain de." }
+];
+PRACTICE.forEach(item=>{
+  const d=document.createElement('div'); d.className='fillrow';
+  const s=document.createElement('div'); s.className='sent';
+  s.innerHTML='<span></span><div class="en"></div>';
+  s.querySelector('span').textContent=item.s;
+  s.querySelector('.en').textContent=item.en;
+  const inp=document.createElement('input'); inp.placeholder='de la / de l\' / du / des';
+  const b=document.createElement('button'); b.textContent='Check';
+  const fb=document.createElement('div'); fb.className='fb';
+  function check(){
+    const val=inp.value.toLowerCase().trim().replace(/\s+/g,' ');
+    if(!val){ fb.textContent='Type something first.'; fb.className='fb'; return; }
+    if(item.a.some(a=>a.toLowerCase()===val)){
+      fb.textContent='✓ Correct — '+item.a[0]+' · '+item.why; fb.className='fb ok';
+      speak(item.s.replace('___', item.a[0]).replace(/\(.*?\)/g,''));
+    } else {
+      fb.textContent='✗ Answer: '+item.a[0]+' · '+item.why; fb.className='fb bad';
+    }
+  }
+  b.onclick=check; inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+  d.appendChild(s); d.appendChild(inp); d.appendChild(b); d.appendChild(fb);
+  content.appendChild(d);
+});
+
+/* Section 3b — the worksheet's own Exercice 1 */
+const h3b = document.createElement('h2'); h3b.textContent = "3b · Exercice 1 (worksheet) — complete with the right preposition"; content.appendChild(h3b);
+const l3b = document.createElement('p'); l3b.className='lead';
+l3b.textContent = "The eleven items from page 4 of the handout. Type the preposition. Where two answers genuinely work, both are accepted.";
+content.appendChild(l3b);
+
+/* the word bank the worksheet gives you */
+const bankTitle = document.createElement('div'); bankTitle.className='example';
+bankTitle.innerHTML = "<b>Complète avec :</b> the worksheet gives you a closed list — every answer comes from these eleven. Click any of them to hear it.";
+content.appendChild(bankTitle);
+const BANK = [
+  ["à","ah"],["dans","dahn"],["sur","sewr"],["sous","soo"],["devant","duh-VAHN"],
+  ["derrière","deh-RYEHR"],["entre","AHN-truh"],["à côté de","ah koh-TAY duh"],
+  ["près de","preh duh"],["loin de","lwan duh"],["au bord de","oh bor duh"]
+];
+const bankGrid = document.createElement('div'); bankGrid.style.cssText='display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 16px;';
+BANK.forEach(([fr,ph])=>{
+  const chip=document.createElement('div');
+  chip.style.cssText='background:var(--accentbg);color:var(--accent);border:1px solid #cdc7f5;border-radius:999px;padding:7px 14px;font-size:14px;cursor:pointer;font-weight:600;';
+  chip.innerHTML=fr+' <span style="font-weight:400;font-size:12px;opacity:.75;">'+ph+'</span>';
+  chip.onclick=()=>speak(fr);
+  bankGrid.appendChild(chip);
+});
+content.appendChild(bankGrid);
+
+const EX1 = [
+  { s:"1. Le livre est ___ la table.", a:["sur"], en:"The book is on the table.", why:"On a flat surface → sur." },
+  { s:"2. Le chat est ___ le lit.", a:["sous","sur"], en:"The cat is under / on the bed.", why:"Both work grammatically. The intended answer is sous (under); sur (on) is equally correct French." },
+  { s:"3. Le téléphone est ___ mon sac.", a:["dans"], en:"The phone is in my bag.", why:"Inside something enclosed → dans." },
+  { s:"4. Paul est ___ la porte.", a:["devant","derrière"], en:"Paul is in front of / behind the door.", why:"Both are valid — devant (in front of) or derrière (behind)." },
+  { s:"5. Le jardin est ___ la maison.", a:["derrière","devant"], en:"The garden is behind / in front of the house.", why:"Both valid; derrière is the more usual picture." },
+  { s:"6. La banque est ___ la pharmacie et la poste.", a:["entre"], en:"The bank is between the pharmacy and the post office.", why:"Two landmarks joined by et → entre." },
+  { s:"7. Le café est ___ la banque.", a:["à côté de","a côté de","près de","pres de"], en:"The café is next to / near the bank.", why:"à côté de (adjacent) or près de (nearby). Note: de la banque — feminine, so no contraction." },
+  { s:"8. J'habite ___ Paris.", a:["à","a"], en:"I live in Paris.", why:"Cities take à — à Paris, à Toronto, à Montréal." },
+  { s:"9. J'habite ___ l'école. (not far)", a:["près de","pres de"], en:"I live near the school.", why:"'Not far' → près de. Before l'école it stays près de l'." },
+  { s:"10. L'aéroport est ___ la ville. (far)", a:["loin de"], en:"The airport is far from the city.", why:"'Far' → loin de. De + la stays de la." },
+  { s:"11. Nous habitons ___ la mer.", a:["au bord de"], en:"We live by the sea.", why:"By water → au bord de la mer." }
+];
+EX1.forEach(item=>{
+  const d=document.createElement('div'); d.className='fillrow';
+  const s=document.createElement('div'); s.className='sent';
+  s.innerHTML='<span></span><div class="en"></div>';
+  s.querySelector('span').textContent=item.s;
+  s.querySelector('.en').textContent=item.en;
+  const inp=document.createElement('input'); inp.placeholder='preposition';
+  const b=document.createElement('button'); b.textContent='Check';
+  const fb=document.createElement('div'); fb.className='fb';
+  function check(){
+    const val=inp.value.toLowerCase().trim().replace(/\s+/g,' ');
+    if(!val){ fb.textContent='Type something first.'; fb.className='fb'; return; }
+    if(item.a.some(a=>a.toLowerCase()===val)){
+      fb.textContent='✓ Correct — '+item.a[0]+' · '+item.why; fb.className='fb ok';
+      speak(item.s.replace(/^\d+\.\s*/,'').replace('___', item.a[0]).replace(/\(.*?\)/g,''));
+    } else {
+      fb.textContent='✗ Answer: '+item.a[0]+' · '+item.why; fb.className='fb bad';
+    }
+  }
+  b.onclick=check; inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+  d.appendChild(s); d.appendChild(inp); d.appendChild(b); d.appendChild(fb);
+  content.appendChild(d);
+});
+
+const noteEx1 = document.createElement('div'); noteEx1.className='note';
+noteEx1.innerHTML = "Watch items 7, 9, 10 and 11 — every one of them ends in <b>de</b>, so every one of them is a contraction test in disguise. Here they all happen to be followed by <i>la</i> or <i>l'</i>, so nothing changes. Swap in a masculine noun and they'd all shift: <i>près <b>du</b> parc</i>, <i>loin <b>du</b> centre</i>, <i>au bord <b>du</b> lac</i>.";
+content.appendChild(noteEx1);
+
+/* Section 3c — Exercice 2, speaking */
+const h3c = document.createElement('h2'); h3c.textContent = "3c · Exercice 2 — Parlez ! (pair speaking)"; content.appendChild(h3c);
+const l3c = document.createElement('p'); l3c.className='lead';
+l3c.textContent = "Work with a partner: Student A asks « Où est… ? » and Student B answers with a full sentence. These are the six prompts from the handout.";
+content.appendChild(l3c);
+
+const exModel = document.createElement('div'); exModel.className='example';
+exModel.innerHTML = "<b>Exemple :</b><br>A : Où est le livre ?<br>B : Le livre est <b>sur la table</b>.<br><br>Notice B repeats the noun and adds the preposition — that full-sentence answer is the whole point of the drill.";
+content.appendChild(exModel);
+
+const OU_EST = [
+  ["Où est le livre ?","oo eh luh LEEVR","Where is the book?"],
+  ["Où est le téléphone ?","oo eh luh tay-lay-FUN","Where is the phone?"],
+  ["Où est le sac ?","oo eh luh SAK","Where is the bag?"],
+  ["Où est le chat ?","oo eh luh SHAH","Where is the cat?"],
+  ["Où est la banque ?","oo eh lah BAHNK","Where is the bank?"],
+  ["Où est la pharmacie ?","oo eh lah far-mah-SEE","Where is the pharmacy?"]
+];
+OU_EST.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr, en:en}); });
+
+const h3cb = document.createElement('h3'); h3cb.className='sub2'; h3cb.textContent = "Answer patterns you can reuse"; content.appendChild(h3cb);
+const PARLEZ = [
+  ["Où est le livre ?","oo eh luh LEEVR","Where is the book?"],
+  ["Où sont mes clés ?","oo sohn may KLAY","Where are my keys?"],
+  ["Il est sur la table.","eel eh sewr lah TABL","It is on the table."],
+  ["Elles sont dans le sac.","ell sohn dahn luh SAK","They are in the bag."],
+  ["Le café est à côté de la banque.","luh kah-FAY eh ah koh-TAY duh lah BAHNK","The café is next to the bank."],
+  ["J'habite près du parc.","zhah-BEET preh dew PARK","I live near the park."],
+  ["C'est loin d'ici ?","seh lwan dee-SEE","Is it far from here?"],
+  ["Non, c'est tout près.","nohn, seh too PREH","No, it's very close."]
+];
+PARLEZ.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr, en:en}); });
+const exParlez = document.createElement('div'); exParlez.className='example';
+exParlez.innerHTML = "<b>Answer in a full sentence, not one word.</b> If your partner asks <i>Où est le chat ?</i>, don't just say <i>sous</i> — say <i>Il est sous la table.</i> That's what the exercise is training, and it's what an examiner listens for.";
+content.appendChild(exParlez);
+
+/* Section 3d — Challenge du jour */
+const h3d = document.createElement('h2'); h3d.textContent = "3d · Challenge du jour — décris ton quartier"; content.appendChild(h3d);
+const l3d = document.createElement('p'); l3d.className='lead';
+l3d.textContent = "The handout's challenge: describe your neighbourhood using at least five prepositions. Here's a version written for where you actually live — swap in your own streets and it's ready to say out loud.";
+content.appendChild(l3d);
+
+const h3d1 = document.createElement('h3'); h3d1.className='sub2'; h3d1.textContent = "Your version — Brampton"; content.appendChild(h3d1);
+const BRAMPTON = [
+  ["J'habite à Brampton, au Canada.","zhah-BEET ah bramp-TOHN, oh kah-nah-DAH","I live in Brampton, in Canada. (à + city, au + masculine country)"],
+  ["Ma maison est près d'une bibliothèque.","mah meh-ZOHN eh preh dewn bee-blee-oh-TEK","My house is near a library."],
+  ["Il y a un lac derrière mon quartier.","eel yah uhn LAK deh-RYEHR mohn kar-TYAY","There is a lake behind my neighbourhood."],
+  ["Le centre commercial est à côté de la station de bus.","luh sahntr koh-mehr-SYAL eh ah koh-TAY duh lah stah-SYOHN duh BEWSS","The mall is next to the bus stop."],
+  ["Le parc est en face de ma maison.","luh PARK eh ahn fass duh mah meh-ZOHN","The park is opposite my house."],
+  ["Le centre-ville est loin de chez moi.","luh sahntr-VEEL eh lwan duh shay MWAH","The city centre is far from my place."]
+];
+BRAMPTON.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr, en:en.split(' (')[0]}); });
+
+const noteBr = document.createElement('div'); noteBr.className='example';
+noteBr.innerHTML = "That's <b>six</b> prepositions — à, près de, derrière, à côté de, en face de, loin de — one more than the challenge asks for. Learn this as a block and you have a ready answer for \"décrivez votre quartier\", which comes up constantly in speaking exams.";
+content.appendChild(noteBr);
+
+const noteBr2 = document.createElement('div'); noteBr2.className='note';
+noteBr2.innerHTML = "Two contraction points hiding in there: <i>près <b>d'une</b> bibliothèque</i> (de + une → d'une before a vowel) and <i>loin <b>de chez</b> moi</i> (de + chez, no contraction). If you switched to a masculine noun they'd shift: <i>près <b>du</b> parc</i>, <i>loin <b>du</b> centre</i>.";
+content.appendChild(noteBr2);
+
+const h3d2 = document.createElement('h3'); h3d2.className='sub2'; h3d2.textContent = "Useful extras for talking about your area"; content.appendChild(h3d2);
+const QUARTIER = [
+  ["Le centre commercial est près d'ici ?","luh sahntr koh-mehr-SYAL eh preh dee-SEE","Is the mall near here?"],
+  ["C'est tout près.","seh too PREH","It's very close / right nearby."],
+  ["C'est à dix minutes à pied.","seh tah dee mee-NEWT ah PYAY","It's ten minutes on foot."],
+  ["une bibliothèque","ewn bee-blee-oh-TEK","a library"],
+  ["un lac","uhn LAK","a lake"],
+  ["un quartier","uhn kar-TYAY","a neighbourhood"],
+  ["le centre commercial","luh sahntr koh-mehr-SYAL","the shopping mall"],
+  ["le centre-ville","luh sahntr-VEEL","the city centre / downtown"]
+];
+QUARTIER.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr, en:en}); });
+
+const warnBib = document.createElement('div'); warnBib.className='warn';
+warnBib.innerHTML = "False friend alert: <b>une bibliothèque</b> is a <i>library</i>. A <i>bookshop</i> is <b>une librairie</b>. They are the exact opposite of what an English speaker expects.";
+content.appendChild(warnBib);
+
+const exWrite = document.createElement('div'); exWrite.className='example';
+exWrite.innerHTML = "<b>Now write your own five.</b> Use the frame: <i>J'habite à ___. Ma maison est près de ___. ___ est à côté de ___. ___ est en face de ___. ___ est loin de ___.</i> Say each one aloud as you write it — the contraction mistakes show up in speech before they show up on paper.";
+content.appendChild(exWrite);
+
+/* Section 3e — à vs dans */
+const h3e = document.createElement('h2'); h3e.textContent = "3e · À retenir — à vs dans"; content.appendChild(h3e);
+const l3e = document.createElement('p'); l3e.className='lead';
+l3e.textContent = "The handout closes on this contrast, and it's worth the space — both translate as \"in\", but they are not interchangeable.";
+content.appendChild(l3e);
+
+const tableAD = document.createElement('table'); tableAD.className='conjt';
+tableAD.innerHTML = '<tr><th></th><th>à</th><th>dans</th></tr>' +
+  '<tr><td>Meaning</td><td>in / at — a general location or a city</td><td>in / inside — physically within something</td></tr>' +
+  '<tr><td>Example</td><td>J\'habite <b>à</b> Paris.</td><td>Je suis <b>dans</b> la maison.</td></tr>' +
+  '<tr><td>English</td><td>I live in Paris.</td><td>I am inside the house.</td></tr>' +
+  '<tr><td>Used with</td><td>cities, general places</td><td>enclosed spaces, containers</td></tr>';
+content.appendChild(tableAD);
+
+const AD = [
+  ["J'habite à Paris.","zhah-BEET ah pah-REE","I live in Paris. (a city → à)"],
+  ["Je suis dans la maison.","zhuh swee dahn lah meh-ZOHN","I am inside the house. (physically within)"],
+  ["Je suis à la maison.","zhuh swee ah lah meh-ZOHN","I am at home. (general — not about being indoors)"],
+  ["Les clés sont dans le tiroir.","lay klay sohn dahn luh teer-WAHR","The keys are in the drawer."],
+  ["Il travaille à Toronto.","eel trah-VYE ah toh-rohn-TOH","He works in Toronto."]
+];
+AD.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr, en:en.split(' (')[0]}); });
+
+const noteAD = document.createElement('div'); noteAD.className='note';
+noteAD.innerHTML = "The pair worth memorising: <b>je suis à la maison</b> = I'm at home (where I am in general). <b>Je suis dans la maison</b> = I'm inside the house (as opposed to in the garden). Same building, different meaning.";
+content.appendChild(noteAD);
+
+/* Section 4 — quiz */
+const h4 = document.createElement('h2'); h4.textContent = "4 · Quick quiz"; content.appendChild(h4);
+const quizBox = document.createElement('div'); quizBox.className='quizbox';
+quizBox.innerHTML = '<p class="lead" style="margin:0 0 8px;">Multiple-choice, mixing today\'s vocab.</p>';
+const quizBtn = document.createElement('button'); quizBtn.className='quizbtn'; quizBtn.textContent='▶ Start quiz';
+const quizArea = document.createElement('div'); quizArea.className='quizarea';
+quizBox.appendChild(quizBtn); quizBox.appendChild(quizArea);
+content.appendChild(quizBox);
+
+function shuffleArr(a){ const b=[...a]; for(let i=b.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [b[i],b[j]]=[b[j],b[i]]; } return b; }
+function runQuiz(pool, area, btn){
+  btn.style.display='none';
+  const qs = shuffleArr(pool).slice(0, Math.min(8, pool.length));
+  let i = 0, score = 0;
+  function showQ(){
+    area.innerHTML = '';
+    if (i >= qs.length) {
+      const res = document.createElement('div'); res.className='quizresult';
+      res.textContent = 'Score: '+score+' / '+qs.length;
+      const retry = document.createElement('button'); retry.className='quizretry'; retry.textContent='↻ Retry';
+      retry.onclick = ()=>{ btn.style.display='inline-block'; area.innerHTML=''; };
+      area.appendChild(res); area.appendChild(retry);
+      return;
+    }
+    const item = qs[i];
+    const wrongPool = pool.filter(p=>p.en!==item.en);
+    const opts = shuffleArr([item, ...shuffleArr(wrongPool).slice(0,3)]);
+    const prog = document.createElement('div'); prog.className='quizprog'; prog.textContent = 'Question '+(i+1)+' / '+qs.length;
+    const fr = document.createElement('div'); fr.className='quizfr'; fr.textContent = item.fr;
+    area.appendChild(prog); area.appendChild(fr);
+    opts.forEach(o=>{
+      const b = document.createElement('button'); b.className='quizopt'; b.textContent = o.en;
+      b.onclick = ()=>{
+        [...area.querySelectorAll('.quizopt')].forEach(x=>x.disabled=true);
+        if (o.en===item.en){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); [...area.querySelectorAll('.quizopt')].find(x=>x.textContent===item.en).classList.add('correct'); }
+        setTimeout(()=>{ i++; showQ(); }, 900);
+      };
+      area.appendChild(b);
+    });
+  }
+  showQ();
+}
+quizBtn.onclick = ()=> runQuiz(GLOBAL_VOCAB, quizArea, quizBtn);
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+<script src="french_glossary.js"></script>
+</body>
+</html>

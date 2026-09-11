@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French — The Complete Book (Zero to B1)</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.55; }
+  .wrap { max-width:900px; margin:0 auto; padding:20px 16px 100px; }
+  h1 { font-size:28px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav.site { display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap; }
+  nav.site a { text-decoration:none; font-size:13px; padding:7px 12px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav.site a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:14px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  #search { flex:1 1 200px; min-width:160px; border:1px solid var(--line); border-radius:999px; padding:8px 14px; font-size:14px; background:var(--card); color:var(--ink); }
+  .parttabs { display:flex; gap:6px; flex-wrap:wrap; margin:14px 0 18px; position:sticky; top:0; background:var(--bg); padding:10px 0; z-index:9; border-bottom:1px solid var(--line); }
+  .parttabs button { border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:999px; padding:7px 13px; font-size:13px; cursor:pointer; }
+  .parttabs button.on { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .parthead { margin:6px 0 14px; }
+  .parthead h2 { font-size:22px; margin:0 0 4px; border:none; padding:0; }
+  .parthead p { margin:0; font-size:14px; color:var(--muted); }
+  details.chap { background:var(--card); border:1px solid var(--line); border-radius:14px; margin:10px 0; overflow:hidden; }
+  details.chap > summary { cursor:pointer; padding:13px 16px; font-size:16px; font-weight:600; list-style:none; display:flex; align-items:center; gap:10px; }
+  details.chap > summary::-webkit-details-marker { display:none; }
+  details.chap > summary::before { content:"▸"; color:var(--accent); font-size:14px; }
+  details.chap[open] > summary::before { content:"▾"; }
+  details.chap > summary:hover { background:var(--accentbg); }
+  .chapbody { padding:4px 16px 16px; border-top:1px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:18px 0 6px; color:var(--accent); }
+  p.txtp { font-size:14.5px; margin:10px 0; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:9px 12px; margin:7px 0; }
+  .play { flex:0 0 auto; width:38px; height:38px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:15px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:16.5px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(165px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14.5px; }
+  .cell .ph { font-size:11.5px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  table.t { width:100%; border-collapse:collapse; margin:10px 0; font-size:13.5px; }
+  table.t th, table.t td { border:1px solid var(--line); padding:7px 9px; text-align:left; vertical-align:top; }
+  table.t th { background:var(--accentbg); color:var(--accent); }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:11px 13px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:7px; }
+  .fillrow .sent .en { font-size:12.5px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:180px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:7px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .mcq { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:11px 13px; margin:8px 0; }
+  .mcq .q { font-weight:600; font-size:14.5px; margin-bottom:8px; }
+  .mcq button.opt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:9px; padding:8px 11px; margin:5px 0; font-size:14px; cursor:pointer; }
+  .mcq button.opt:hover { border-color:var(--accent); }
+  .mcq button.opt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .mcq button.opt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .mcq .why { font-size:13px; color:var(--muted); margin-top:7px; }
+  .reading { background:var(--card); border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:10px; padding:12px 14px; margin:12px 0; font-size:15px; }
+  .reading p { margin:8px 0; }
+  .hidden { display:none !important; }
+  .tocbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:10px 0 16px; font-size:14px; }
+  .tocbox a { color:var(--accent); text-decoration:none; display:block; padding:3px 0; }
+  .tocbox a:hover { text-decoration:underline; }
+  .pill { display:inline-block; background:var(--accentbg); color:var(--accent); border-radius:999px; padding:2px 9px; font-size:12px; margin-left:8px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — The Complete Book</h1>
+  <p class="sub">Zero to B1, written as a course book · every French item is clickable to hear it · exercises, notes and readings throughout</p>
+
+  <nav class="site">
+    <a href="index.html">Home</a>
+    <a href="French_Full_Guide.html">Full Guide (A1)</a>
+    <a href="French_Complete_Book.html" class="active">Complete Book</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
+    <a href="French_Articles.html">Articles</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <input id="search" placeholder="Search the whole book (French or English)…">
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div class="parttabs" id="parttabs"></div>
+  <div id="book"></div>
+</div>
+
+<script>
+/* ============ speech engine ============ */
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "🔊 " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice installed";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function clean(t){ return String(t).replace(/\s+([!?])/g,'$1').replace(/___/g,'').replace(/→/g,',').replace(/\(.*?\)/g,''); }
+function speak(text){
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(clean(text));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate;
+  speechSynthesis.speak(u);
+}
+
+/* ============ block builders ============ */
+function elRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play '+fr);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent = fr;
+  if(ph) txt.querySelector('.ph').textContent = ph;
+  if(en) txt.querySelector('.en').textContent = en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+function elGrid(items){
+  const g=document.createElement('div'); g.className='grid';
+  items.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').textContent=fr; c.querySelector('.ph').textContent=ph||'';
+    c.onclick=()=>speak(fr);
+    g.appendChild(c);
+  });
+  return g;
+}
+function elTable(head, rows){
+  const t=document.createElement('table'); t.className='t';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  rows.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html;
+  return t;
+}
+function elFill(items){
+  const box=document.createElement('div');
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent';
+    s.innerHTML='<span></span>'+(it.en?'<div class="en"></div>':'');
+    s.querySelector('span').textContent=it.s;
+    if(it.en) s.querySelector('.en').textContent=it.en;
+    const inp=document.createElement('input'); inp.placeholder='your answer';
+    const b=document.createElement('button'); b.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    const answers=(Array.isArray(it.a)?it.a:[it.a]).map(x=>x.toLowerCase().trim());
+    function check(){
+      const val=inp.value.toLowerCase().trim();
+      if(!val){ fb.textContent='Type something first.'; fb.className='fb'; return; }
+      if(answers.some(a=>a===val)){ fb.textContent='✓ Correct — '+answers[0]+(it.why?' · '+it.why:''); fb.className='fb ok'; speak(it.s.replace('___',answers[0])); }
+      else { fb.textContent='✗ Answer: '+answers[0]+(it.why?' · '+it.why:''); fb.className='fb bad'; }
+    }
+    b.onclick=check; inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s); d.appendChild(inp); d.appendChild(b); d.appendChild(fb);
+    box.appendChild(d);
+  });
+  return box;
+}
+function elMcq(items){
+  const box=document.createElement('div');
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='mcq';
+    const q=document.createElement('div'); q.className='q'; q.textContent=it.q;
+    d.appendChild(q);
+    const why=document.createElement('div'); why.className='why';
+    it.opts.forEach((o,i)=>{
+      const b=document.createElement('button'); b.className='opt'; b.textContent=o;
+      b.onclick=()=>{
+        [...d.querySelectorAll('.opt')].forEach(x=>x.disabled=true);
+        if(i===it.a){ b.classList.add('correct'); }
+        else { b.classList.add('wrong'); d.querySelectorAll('.opt')[it.a].classList.add('correct'); }
+        if(it.why){ why.textContent=it.why; }
+      };
+      d.appendChild(b);
+    });
+    d.appendChild(why);
+    box.appendChild(d);
+  });
+  return box;
+}
+function elReading(paras){
+  const d=document.createElement('div'); d.className='reading';
+  paras.forEach(p=>{
+    const el=document.createElement('p'); el.textContent=p; el.style.cursor='pointer';
+    el.onclick=()=>speak(p);
+    d.appendChild(el);
+  });
+  return d;
+}
+
+function renderBlock(b){
+  if(b.t==='p'){ const p=document.createElement('p'); p.className='txtp'; p.innerHTML=b.x; return p; }
+  if(b.t==='h'){ const h=document.createElement('h3'); h.className='sub2'; h.textContent=b.x; return h; }
+  if(b.t==='note'){ const d=document.createElement('div'); d.className='note'; d.innerHTML=b.x; return d; }
+  if(b.t==='ex'){ const d=document.createElement('div'); d.className='example'; d.innerHTML=b.x; return d; }
+  if(b.t==='warn'){ const d=document.createElement('div'); d.className='warn'; d.innerHTML=b.x; return d; }
+  if(b.t==='rows'){ const f=document.createDocumentFragment(); b.items.forEach(([fr,ph,en])=>f.appendChild(elRow(fr,ph,en))); return f; }
+  if(b.t==='grid'){ return elGrid(b.items); }
+  if(b.t==='table'){ return elTable(b.head,b.rows); }
+  if(b.t==='fill'){ return elFill(b.items); }
+  if(b.t==='mcq'){ return elMcq(b.items); }
+  if(b.t==='read'){ return elReading(b.paras); }
+  return document.createTextNode('');
+}
+
+/* ============ the book ============ */
+const BOOK = [];
+
+BOOK.push({
+  id:'p0', part:'Part 0 — Foundations', sub:'Before any grammar: the sounds, the letters, the numbers and the first words you need.',
+  chapters:[
+  { title:'0.1 · How French sound works (read this first)', blocks:[
+    {t:'p', x:'French spelling and French sound are two different systems. A written word is often longer than what you actually say. Four rules explain most of it:'},
+    {t:'p', x:'<b>1. Final consonants are usually silent.</b> The letters at the end of a word are often written but not pronounced.'},
+    {t:'rows', items:[
+      ['petit','puh-TEE','small (the final t is silent)'],
+      ['grand','grahn','tall/big (the d is silent)'],
+      ['français','frahn-SEH','French (the s is silent)'],
+      ['beaucoup','boh-KOO','a lot (the p is silent)']
+    ]},
+    {t:'note', x:'Memory trick: the letters <b>C, R, F, L</b> ("CaReFuL") are the ones usually <i>kept</i> at the end: <i>avec</i> (ah-VEK), <i>bonjour</i> (bohn-ZHOOR), <i>chef</i> (shef), <i>il</i> (eel).'},
+    {t:'p', x:'<b>2. Adding -e makes the consonant come back.</b> This is the whole basis of masculine vs feminine adjectives.'},
+    {t:'rows', items:[
+      ['petit → petite','puh-TEE → puh-TEET','small (m.) → small (f.)'],
+      ['grand → grande','grahn → grahnd','big (m.) → big (f.)'],
+      ['français → française','frahn-SEH → frahn-SEZ','French (m.) → French (f.)']
+    ]},
+    {t:'p', x:'<b>3. Liaison:</b> a silent final consonant wakes up when the next word starts with a vowel. The -s and -x are pronounced [z].'},
+    {t:'rows', items:[
+      ['les amis','lay-zah-MEE','the friends (les + a → [z])'],
+      ['vous avez','voo-zah-VAY','you have'],
+      ['un grand homme','uhn grahn-TOM','a tall man (d sounds like [t])'],
+      ['deux enfants','duh-zahn-FAHN','two children']
+    ]},
+    {t:'p', x:'<b>4. Nasal vowels.</b> When a vowel is followed by <b>n</b> or <b>m</b> (and no other vowel after it), the sound goes through the nose and the n/m itself is not pronounced.'},
+    {t:'rows', items:[
+      ['un pain','uhn pan','a bread (nasal "an" sound)'],
+      ['bon','bohn','good (nasal "oh")'],
+      ['brun','bruhn','brown'],
+      ['bonne','bun','good (f.) — the extra e kills the nasal, now you hear the n']
+    ]},
+    {t:'mcq', items:[
+      {q:'How do you pronounce the final -t in "petit"?', opts:['You say it clearly','It is silent','It sounds like [s]'], a:1, why:'Final consonants are usually silent — until an -e is added (petite).'},
+      {q:'"les amis" is pronounced…', opts:['lay ah-mee','lay-zah-mee','luh ah-mee'], a:1, why:'Liaison: the silent -s of les becomes [z] before a vowel.'}
+    ]}
+  ]},
+  { title:'0.2 · The alphabet and spelling out loud', blocks:[
+    {t:'p', x:'You will be asked to spell your name constantly — at the bank, at the pharmacy, on the phone. Tap each letter to hear it.'},
+    {t:'grid', items:[['A','ah'],['B','bay'],['C','say'],['D','day'],['E','uh'],['F','eff'],['G','zhay'],['H','ash'],['I','ee'],['J','zhee'],['K','kah'],['L','ell'],['M','emm'],['N','enn'],['O','oh'],['P','pay'],['Q','kew'],['R','air'],['S','ess'],['T','tay'],['U','ew'],['V','vay'],['W','doo-bluh-vay'],['X','eeks'],['Y','ee-grek'],['Z','zed']]},
+    {t:'note', x:'Careful with the pairs learners mix up most: <b>G</b> (zhay) vs <b>J</b> (zhee) — they are swapped compared to English. And <b>E</b> (uh) vs <b>I</b> (ee) vs <b>Y</b> (ee-grek, "Greek i").'},
+    {t:'h', x:'Useful spelling phrases'},
+    {t:'rows', items:[
+      ['Comment ça s\'écrit ?','koh-MAHN sah say-KREE','How is that spelled?'],
+      ['Vous pouvez épeler, s\'il vous plaît ?','voo poo-VAY ay-play, seel voo PLEH','Can you spell that, please?'],
+      ['Ça s\'écrit R-A-J-V-E-E-R.','sah say-KREE','It is spelled R-A-J-V-E-E-R.'],
+      ['en majuscule / en minuscule','ahn mah-zhew-SKEWL / ahn mee-new-SKEWL','in capitals / in lowercase'],
+      ['deux L','duh ell','double L'],
+      ['un trait d\'union','uhn treh dew-NYOHN','a hyphen'],
+      ['un espace','uhn ess-PASS','a space']
+    ]}
+  ]},
+  { title:'0.3 · Accents and the extra letters', blocks:[
+    {t:'p', x:'Accents are not decoration — they change the sound, and sometimes the meaning.'},
+    {t:'table', head:['Accent','Written','Sound','Example'],
+      rows:[
+      ['accent aigu','é','sharp "ay"','été (ay-TAY) — summer'],
+      ['accent grave','è','open "eh"','mère (mehr) — mother'],
+      ['accent grave (a/u)','à, où','no sound change, changes meaning','a (has) vs à (to) · ou (or) vs où (where)'],
+      ['accent circonflexe','ê, â, î, ô, û','often a lost old "s"','forêt = forest · hôpital = hospital'],
+      ['tréma','ë, ï','say both vowels separately','Noël (no-EL) — Christmas'],
+      ['cédille','ç','makes c sound like [s]','français (frahn-SEH)']
+      ]},
+    {t:'ex', x:'Why ç exists: <b>c</b> before a, o, u is hard [k] (<i>café</i>). Add the cédille and it becomes soft [s]: <i>ça, garçon, français</i>. Before e or i, c is already soft — no cédille needed (<i>ceci, cinéma</i>).'},
+    {t:'h', x:'Two-letter sounds worth learning now'},
+    {t:'rows', items:[
+      ['ou → nous','noo','"oo" as in food — we/us'],
+      ['u → tu','tew','tight "ew" (round your lips, say "ee") — you'],
+      ['ch → chat','shah','"sh" — cat'],
+      ['gn → montagne','mohn-TAN-yuh','"ny" as in canyon — mountain'],
+      ['ill → famille','fah-MEE-yuh','"y" sound — family'],
+      ['eu → deux','duh','soft "uh" — two'],
+      ['oi → moi','mwah','"wa" — me']
+    ]},
+    {t:'warn', x:'The single most important sound contrast for beginners: <b>tu</b> (tew) vs <b>tout</b> (too). If you cannot hear the difference yet, that is normal — round your lips as if saying "oo", then try to say "ee" without moving them. That is the French <b>u</b>.'},
+    {t:'fill', items:[
+      {s:'The word for "French" is written fran___ais (add the right letter).', a:['ç','c cédille','cedille'], en:'Hint: the c has to sound like [s] before "a".', why:'Cédille before a/o/u.'},
+      {s:'"Mother" is written m___re (which accent goes on the e?).', a:['è','e grave','accent grave'], en:'The sound is an open "eh".', why:'mère — accent grave.'}
+    ]}
+  ]},
+  { title:'0.4 · Numbers 0–100 (and beyond)', blocks:[
+    {t:'p', x:'Numbers come up in every single conversation: prices, ages, phone numbers, addresses, times. Learn 1–20 solidly, then the tens.'},
+    {t:'h', x:'0–20'},
+    {t:'grid', items:[['0 zéro','ZAY-roh'],['1 un','uhn'],['2 deux','duh'],['3 trois','trwah'],['4 quatre','KATR'],['5 cinq','sank'],['6 six','seess'],['7 sept','set'],['8 huit','weet'],['9 neuf','nuhf'],['10 dix','deess'],['11 onze','ohnz'],['12 douze','dooz'],['13 treize','trez'],['14 quatorze','kah-TORZ'],['15 quinze','kanz'],['16 seize','sez'],['17 dix-sept','dee-SET'],['18 dix-huit','dee-ZWEET'],['19 dix-neuf','deez-NUHF'],['20 vingt','van']]},
+    {t:'h', x:'The tens'},
+    {t:'grid', items:[['30 trente','trahnt'],['40 quarante','kah-RAHNT'],['50 cinquante','san-KAHNT'],['60 soixante','swah-SAHNT'],['70 soixante-dix','swah-sahnt-DEESS'],['80 quatre-vingts','katr-uh-VAN'],['90 quatre-vingt-dix','katr-uh-van-DEESS'],['100 cent','sahn']]},
+    {t:'note', x:'French does maths in the 70s–90s. <b>70 = 60+10</b> (soixante-dix), <b>71 = 60+11</b> (soixante et onze), <b>80 = 4×20</b> (quatre-vingts), <b>95 = 4×20+15</b> (quatre-vingt-quinze). Belgium and Switzerland use the easier <i>septante</i> (70) and <i>nonante</i> (90) — but France and Canada use the maths version, so learn that one.'},
+    {t:'h', x:'Building any number'},
+    {t:'rows', items:[
+      ['21 vingt et un','van-tay-UHN','note: "et" appears only in 21, 31, 41, 51, 61, 71'],
+      ['22 vingt-deux','van-DUH','all the others just use a hyphen'],
+      ['68 soixante-huit','swah-sahnt-WEET','60 + 8'],
+      ['76 soixante-seize','swah-sahnt-SEZ','60 + 16'],
+      ['81 quatre-vingt-un','katr-uh-van-UHN','4×20 + 1 (no "et" here)'],
+      ['99 quatre-vingt-dix-neuf','katr-uh-van-deez-NUHF','4×20 + 19'],
+      ['200 deux cents','duh sahn','cent takes an -s when multiplied and nothing follows'],
+      ['1 000 mille','meel','mille never takes an -s']
+    ]},
+    {t:'ex', x:'<b>Reading a phone number:</b> French speakers read them in pairs — 06 45 32 18 90 becomes <i>zéro six, quarante-cinq, trente-deux, dix-huit, quatre-vingt-dix</i>. Practise your own number that way.'},
+    {t:'fill', items:[
+      {s:'Write 75 in French: ___', a:['soixante-quinze','soixante quinze'], en:'60 + 15', why:'75 = soixante-quinze.'},
+      {s:'Write 92 in French: ___', a:['quatre-vingt-douze','quatre vingt douze'], en:'4×20 + 12', why:'92 = quatre-vingt-douze.'},
+      {s:'Write 31 in French: ___', a:['trente et un','trente-et-un'], en:'Remember the "et".', why:'31 = trente et un.'}
+    ]}
+  ]},
+  { title:'0.5 · Your first conversation: greetings and politeness', blocks:[
+    {t:'p', x:'These are the phrases you will use on day one, and still on day one thousand.'},
+    {t:'h', x:'Hello and goodbye'},
+    {t:'rows', items:[
+      ['Bonjour !','bohn-ZHOOR','Hello / Good morning (all day until evening)'],
+      ['Bonsoir !','bohn-SWAHR','Good evening (from roughly 6pm)'],
+      ['Salut !','sah-LEW','Hi / Bye (friends only, never to a stranger)'],
+      ['Au revoir !','oh ruh-VWAHR','Goodbye'],
+      ['À bientôt !','ah byan-TOH','See you soon'],
+      ['À demain !','ah duh-MAN','See you tomorrow'],
+      ['Bonne journée !','bun zhoor-NAY','Have a good day (said when leaving)'],
+      ['Bonne nuit !','bun NWEE','Good night (only when going to bed)']
+    ]},
+    {t:'h', x:'How are you'},
+    {t:'rows', items:[
+      ['Ça va ?','sah VAH','How\'s it going? (casual)'],
+      ['Comment ça va ?','koh-MAHN sah VAH','How are you? (casual)'],
+      ['Comment allez-vous ?','koh-mahn tah-lay VOO','How are you? (formal)'],
+      ['Ça va bien, merci. Et vous ?','sah vah byan, mehr-SEE. ay VOO','I\'m well, thanks. And you?'],
+      ['Ça va, et toi ?','sah VAH, ay TWAH','I\'m fine, and you? (casual)'],
+      ['Pas mal.','pah MAL','Not bad.'],
+      ['Comme ci, comme ça.','kohm SEE, kohm SAH','So-so.']
+    ]},
+    {t:'h', x:'Politeness — the words that make people help you'},
+    {t:'rows', items:[
+      ['S\'il vous plaît','seel voo PLEH','Please (formal / to a stranger)'],
+      ['S\'il te plaît','seel tuh PLEH','Please (to a friend)'],
+      ['Merci beaucoup','mehr-SEE boh-KOO','Thank you very much'],
+      ['De rien','duh RYAN','You\'re welcome'],
+      ['Excusez-moi','ex-kew-zay MWAH','Excuse me (getting attention)'],
+      ['Pardon','par-DOHN','Sorry / excuse me (squeezing past)'],
+      ['Je suis désolé(e)','zhuh swee day-zoh-LAY','I am sorry']
+    ]},
+    {t:'h', x:'tu or vous? — get this right from day one'},
+    {t:'table', head:['Use','tu','vous'],
+      rows:[
+      ['Who','one friend, family, a child, a classmate','a stranger, an official, a boss, an older person, <b>or any group</b>'],
+      ['Risk','sounds rude if used too early with a stranger','sounds cold between close friends'],
+      ['Safe rule','wait until they say "on peut se tutoyer"','<b>start here with anyone new</b>']
+      ]},
+    {t:'ex', x:'The phrase that unlocks it: <b>On peut se tutoyer ?</b> (ohn puh suh tew-twah-YAY) — "Shall we use tu?" Say it once and the awkwardness is over.'},
+    {t:'h', x:'Survival phrases for class'},
+    {t:'rows', items:[
+      ['Je ne comprends pas.','zhuh nuh kohm-PRAHN pah','I don\'t understand.'],
+      ['Pouvez-vous répéter, s\'il vous plaît ?','poo-VAY voo ray-pay-TAY','Can you repeat, please?'],
+      ['Plus lentement, s\'il vous plaît.','plew lahnt-MAHN','More slowly, please.'],
+      ['Comment dit-on "book" en français ?','koh-MAHN dee-TOHN ... ahn frahn-SEH','How do you say "book" in French?'],
+      ['Qu\'est-ce que ça veut dire ?','kess-kuh sah vuh DEER','What does that mean?'],
+      ['Je ne sais pas.','zhuh nuh say PAH','I don\'t know.']
+    ]},
+    {t:'mcq', items:[
+      {q:'You walk into a bakery at 10am. What do you say?', opts:['Salut !','Bonjour !','Bonne nuit !'], a:1, why:'Bonjour is the default with anyone you do not know. Not saying it is genuinely considered rude in France.'},
+      {q:'You are speaking to two friends at once. tu or vous?', opts:['tu','vous'], a:1, why:'vous is also the plural — any group takes vous, even close friends.'}
+    ]}
+  ]}
+  ]
+});
+
+BOOK.push({
+  id:'p1', part:'Part 1 — A1 Core Grammar', sub:'The engine room. Every sentence you build for the next two years runs on what is in this part.',
+  chapters:[
+  { title:'1.1 · Subject pronouns (je, tu, il…)', blocks:[
+    {t:'p', x:'A French verb almost never stands alone — it needs a subject pronoun in front of it.'},
+    {t:'rows', items:[
+      ['je (j\' before a vowel)','zhuh','I — j\'aime, j\'habite'],
+      ['tu','tew','you (one person you know well)'],
+      ['il','eel','he / it (masculine)'],
+      ['elle','ell','she / it (feminine)'],
+      ['on','ohn','we (in real speech) / one / people in general'],
+      ['nous','noo','we (writing and formal speech)'],
+      ['vous','voo','you (formal, or plural)'],
+      ['ils','eel','they (all male, or mixed group)'],
+      ['elles','ell','they (all female)']
+    ]},
+    {t:'note', x:'<b>on</b> is the pronoun textbooks under-teach and French people over-use. In conversation, <i>on mange</i> ("we\'re eating") is far more common than <i>nous mangeons</i>. It always takes the same verb form as <b>il/elle</b> — that is why it is so easy.'},
+    {t:'warn', x:'<b>ils</b> wins over <b>elles</b>: ninety-nine women and one man = <i>ils</i>. Grammatically fixed, not a matter of opinion.'},
+    {t:'mcq', items:[
+      {q:'You are talking to your manager for the first time. Which pronoun?', opts:['tu','vous','on'], a:1, why:'vous — formal, and the safe default with anyone new.'},
+      {q:'Which pronoun do French people actually use for "we" when chatting?', opts:['nous','on','elles'], a:1, why:'on + il/elle verb form. Nous is correct but sounds formal in speech.'}
+    ]}
+  ]},
+  { title:'1.2 · ÊTRE — to be (the most important verb)', blocks:[
+    {t:'p', x:'Irregular, unavoidable, used every few seconds. Learn it as a chant.'},
+    {t:'rows', items:[
+      ['je suis','zhuh SWEE','I am'],
+      ['tu es','tew AY','you are'],
+      ['il / elle / on est','eel / ell / ohn AY','he / she / we is-are'],
+      ['nous sommes','noo SUM','we are'],
+      ['vous êtes','voo ZET','you are (liaison: voo-ZET)'],
+      ['ils / elles sont','eel / ell SOHN','they are']
+    ]},
+    {t:'h', x:'What être is used for'},
+    {t:'rows', items:[
+      ['Je suis indien.','zhuh swee zan-DYAN','I am Indian. (nationality)'],
+      ['Elle est professeure.','ell eh proh-feh-SUR','She is a teacher. (job — note: no "a" in French!)'],
+      ['Nous sommes fatigués.','noo sum fah-tee-GAY','We are tired. (state)'],
+      ['C\'est mon frère.','seh mohn FREHR','This is my brother. (identifying)'],
+      ['Il est huit heures.','eel eh wee TUR','It is eight o\'clock. (time)']
+    ]},
+    {t:'warn', x:'<b>Jobs take no article.</b> "I am a teacher" = <i>Je suis professeur</i> — never <i>je suis un professeur</i>. Same for <i>Je suis étudiant</i>, <i>Il est médecin</i>.'},
+    {t:'fill', items:[
+      {s:'Nous ___ canadiens.', a:['sommes'], en:'We are Canadian.', why:'nous → sommes'},
+      {s:'Vous ___ prêts ?', a:['êtes','etes'], en:'Are you ready?', why:'vous → êtes (voo-ZET)'},
+      {s:'Elles ___ à la maison.', a:['sont'], en:'They (f.) are at home.', why:'ils/elles → sont'}
+    ]}
+  ]},
+  { title:'1.3 · AVOIR — to have (and age, hunger, fear…)', blocks:[
+    {t:'rows', items:[
+      ['j\'ai','zhay','I have'],
+      ['tu as','tew AH','you have'],
+      ['il / elle / on a','eel / ell / ohn AH','he / she / we has-have'],
+      ['nous avons','noo-zah-VOHN','we have'],
+      ['vous avez','voo-zah-VAY','you have'],
+      ['ils / elles ont','eel / ell ZOHN','they have']
+    ]},
+    {t:'warn', x:'Listen to the difference: <b>ils sont</b> (eel SOHN) = they <i>are</i>, but <b>ils ont</b> (eel ZOHN) = they <i>have</i>. The [z] liaison is the only clue. Beginners mix these constantly.'},
+    {t:'h', x:'Expressions where French uses AVOIR but English uses "to be"'},
+    {t:'rows', items:[
+      ['J\'ai vingt-cinq ans.','zhay van-sank AHN','I am 25 years old. (literally: I have 25 years)'],
+      ['J\'ai faim.','zhay FAN','I am hungry.'],
+      ['J\'ai soif.','zhay SWAHF','I am thirsty.'],
+      ['J\'ai froid / chaud.','zhay FRWAH / SHOH','I am cold / hot.'],
+      ['J\'ai peur.','zhay PUR','I am afraid.'],
+      ['J\'ai sommeil.','zhay soh-MAY','I am sleepy.'],
+      ['J\'ai raison / tort.','zhay ray-ZOHN / TOR','I am right / wrong.'],
+      ['J\'ai besoin de…','zhay buh-ZWAN duh','I need…']
+    ]},
+    {t:'ex', x:'Never say <i>Je suis 25</i> or <i>Je suis faim</i>. Those are the two mistakes that instantly mark a beginner. Age and physical states run on <b>avoir</b>.'},
+    {t:'fill', items:[
+      {s:'___ trente ans. (I am 30.)', a:['j\'ai','jai'], en:'Age uses avoir.', why:'J\'ai trente ans.'},
+      {s:'Ils ___ deux enfants.', a:['ont'], en:'They have two children.', why:'ils ont (eel-ZOHN)'},
+      {s:'Tu ___ soif ?', a:['as'], en:'Are you thirsty?', why:'tu as'}
+    ]}
+  ]},
+  { title:'1.4 · Nouns: gender and plural', blocks:[
+    {t:'p', x:'Every French noun is masculine or feminine — including objects. There is no logic to find; you learn the word <i>with its article</i>. Say "une table", never just "table".'},
+    {t:'h', x:'Endings that are usually feminine'},
+    {t:'table', head:['Ending','Example','Meaning'],
+      rows:[
+      ['-tion / -sion','la nation, la décision','nation, decision'],
+      ['-té','la liberté, la santé','freedom, health'],
+      ['-ette','une fourchette','a fork'],
+      ['-ance / -ence','la chance, la patience','luck, patience'],
+      ['-ure','la voiture','the car'],
+      ['-ie','la boulangerie','the bakery']
+      ]},
+    {t:'h', x:'Endings that are usually masculine'},
+    {t:'table', head:['Ending','Example','Meaning'],
+      rows:[
+      ['-age','le fromage, le voyage','cheese, trip'],
+      ['-ment','le gouvernement','government'],
+      ['-eau','le bureau, le gâteau','office, cake'],
+      ['-isme','le tourisme','tourism'],
+      ['-eur (things/jobs)','le professeur, l\'ordinateur','teacher, computer']
+      ]},
+    {t:'note', x:'Exceptions exist (<i>la page, la plage, l\'eau</i> are feminine despite the endings). Treat these lists as a 80%-accurate shortcut, not a law.'},
+    {t:'h', x:'Making things plural'},
+    {t:'rows', items:[
+      ['un livre → des livres','uhn LEEVR → day LEEVR','a book → books (add -s, silent!)'],
+      ['un journal → des journaux','uhn zhoor-NAL → day zhoor-NOH','-al becomes -aux'],
+      ['un gâteau → des gâteaux','uhn gah-TOH → day gah-TOH','-eau adds -x'],
+      ['un fils → des fils','uhn FEESS → day FEESS','already ends in -s: no change'],
+      ['un œil → des yeux','uhn NUY → day ZYUH','completely irregular: eye → eyes']
+    ]},
+    {t:'warn', x:'The plural -s is <b>silent</b>. So <i>le livre</i> and <i>les livres</i> differ only in the article — luh vs lay. That is why the le/les listening drills matter so much.'}
+  ]},
+  { title:'1.5 · Articles: le, un, du — and the contractions', blocks:[
+    {t:'h', x:'The three families'},
+    {t:'table', head:['','Masculine','Feminine','Plural','Use'],
+      rows:[
+      ['Definite (the)','le livre','la table','les livres','something specific, or a general truth'],
+      ['Indefinite (a/some)','un livre','une table','des livres','one of many, not yet identified'],
+      ['Partitive (some)','du pain','de la viande','des légumes','an uncountable quantity']
+      ]},
+    {t:'rows', items:[
+      ['le, la, l\', les','luh, lah, l, lay','the'],
+      ['un, une, des','uhn, ewn, day','a / an / some'],
+      ['du, de la, de l\', des','dew, duh lah, duh l, day','some (a portion of something)']
+    ]},
+    {t:'note', x:'<b>l\'</b> replaces le/la before a vowel or a silent h: <i>l\'ami, l\'école, l\'hôtel</i>. This is not optional.'},
+    {t:'h', x:'The partitive: French says "some" where English says nothing'},
+    {t:'rows', items:[
+      ['Je mange du pain.','zhuh mahnzh dew PAN','I eat bread. (some bread)'],
+      ['Je bois de l\'eau.','zhuh bwah duh LOH','I drink water.'],
+      ['Elle achète de la viande.','ell ah-SHET duh lah VYAND','She buys meat.'],
+      ['Il y a des nuages.','eel yah day new-AZH','There are clouds.']
+    ]},
+    {t:'h', x:'Contractions — à and de glue onto le/les'},
+    {t:'table', head:['Rule','Becomes','Example'],
+      rows:[
+      ['à + le','<b>au</b>','Je vais au cinéma. (to the cinema)'],
+      ['à + les','<b>aux</b>','Je parle aux voisins. (to the neighbours)'],
+      ['à + la / à l\'','no change','Je vais à la banque / à l\'école.'],
+      ['de + le','<b>du</b>','Je viens du Canada. (from Canada)'],
+      ['de + les','<b>des</b>','la couleur des murs (the colour of the walls)'],
+      ['de + la / de l\'','no change','Je viens de la gare.']
+      ]},
+    {t:'warn', x:'After a negative, un/une/du/de la/des all collapse into <b>de</b>: <i>J\'ai un chien</i> → <i>Je n\'ai pas <b>de</b> chien</i>. <i>Je bois du café</i> → <i>Je ne bois pas <b>de</b> café</i>. (Exception: with être — <i>Ce n\'est pas un problème</i>.)'},
+    {t:'fill', items:[
+      {s:'Je vais ___ supermarché. (à + le)', a:['au'], en:'I am going to the supermarket.', why:'à + le = au'},
+      {s:'C\'est la voiture ___ voisins. (de + les)', a:['des'], en:'It is the neighbours\' car.', why:'de + les = des'},
+      {s:'Je n\'ai pas ___ frères.', a:['de'], en:'I do not have brothers.', why:'After a negative, des → de.'}
+    ]}
+  ]},
+  { title:'1.6 · Adjectives: agreement and position', blocks:[
+    {t:'p', x:'A French adjective changes shape to match the noun: masculine/feminine, singular/plural. Four possible forms.'},
+    {t:'table', head:['','Masculine','Feminine'],
+      rows:[
+      ['Singular','grand','grande'],
+      ['Plural','grands','grandes']
+      ]},
+    {t:'h', x:'Common patterns'},
+    {t:'table', head:['Masculine ending','Feminine','Example'],
+      rows:[
+      ['(consonant)','+ e','petit → petite'],
+      ['-e already','no change','rouge → rouge, jeune → jeune'],
+      ['-eux','-euse','heureux → heureuse (happy)'],
+      ['-if','-ive','sportif → sportive'],
+      ['-er','-ère','cher → chère (expensive)'],
+      ['-on / -en','-onne / -enne','bon → bonne, indien → indienne']
+      ]},
+    {t:'h', x:'Position: most go AFTER the noun'},
+    {t:'rows', items:[
+      ['une voiture rouge','ewn vwah-TEWR ROOZH','a red car'],
+      ['un film intéressant','uhn feelm an-tay-reh-SAHN','an interesting film'],
+      ['une maison moderne','ewn meh-ZOHN moh-DEHRN','a modern house']
+    ]},
+    {t:'h', x:'…but a short list goes BEFORE (BAGS)'},
+    {t:'p', x:'<b>B</b>eauty, <b>A</b>ge, <b>G</b>oodness, <b>S</b>ize — these come before the noun: <i>beau, joli, jeune, vieux, nouveau, bon, mauvais, grand, petit, gros, long</i>.'},
+    {t:'rows', items:[
+      ['une jolie maison','ewn zhoh-LEE meh-ZOHN','a pretty house'],
+      ['un vieux quartier','uhn vyuh kar-TYAY','an old neighbourhood'],
+      ['une bonne idée','ewn bun ee-DAY','a good idea'],
+      ['de grands yeux','duh grahn ZYUH','big eyes (des → de before a plural adjective!)']
+    ]},
+    {t:'note', x:'Irregular ones worth memorising now: <b>beau / bel / belle</b>, <b>nouveau / nouvel / nouvelle</b>, <b>vieux / vieil / vieille</b>. The middle form is used before a masculine noun starting with a vowel: <i>un bel appartement, un nouvel ami, un vieil homme</i>.'},
+    {t:'fill', items:[
+      {s:'une femme ___ (heureux)', a:['heureuse'], en:'a happy woman', why:'-eux → -euse'},
+      {s:'des chaussures ___ (noir)', a:['noires'], en:'black shoes (f. plural)', why:'feminine plural: noires'},
+      {s:'un ___ appartement (beau, before a vowel)', a:['bel'], en:'a beautiful apartment', why:'beau → bel before a vowel sound.'}
+    ]}
+  ]},
+  { title:'1.7 · Regular -ER verbs (90% of all French verbs)', blocks:[
+    {t:'p', x:'Take the infinitive, drop -er, add the endings. Learn this once and you can conjugate thousands of verbs.'},
+    {t:'h', x:'parler — to speak'},
+    {t:'rows', items:[
+      ['je parle','zhuh PARL','I speak'],
+      ['tu parles','tew PARL','you speak'],
+      ['il / elle / on parle','eel PARL','he / she / we speaks'],
+      ['nous parlons','noo par-LOHN','we speak'],
+      ['vous parlez','voo par-LAY','you speak'],
+      ['ils / elles parlent','eel PARL','they speak']
+    ]},
+    {t:'note', x:'Look at the sound, not the spelling: <b>parle, parles, parle, parlent</b> are all pronounced identically (PARL). Only <i>nous</i> and <i>vous</i> sound different. French verbs are much easier to say than to write.'},
+    {t:'h', x:'High-frequency -ER verbs'},
+    {t:'grid', items:[['parler','par-LAY'],['habiter','ah-bee-TAY'],['travailler','trah-vah-YAY'],['aimer','eh-MAY'],['regarder','ruh-gar-DAY'],['écouter','ay-koo-TAY'],['manger','mahn-ZHAY'],['jouer','zhoo-AY'],['chercher','shair-SHAY'],['trouver','troo-VAY'],['donner','doh-NAY'],['acheter','ash-TAY'],['étudier','ay-tew-DYAY'],['arriver','ah-ree-VAY'],['rester','res-TAY'],['penser','pahn-SAY']]},
+    {t:'h', x:'Small spelling quirks'},
+    {t:'rows', items:[
+      ['nous mangeons','noo mahn-ZHOHN','we eat — keep the "e" so the g stays soft'],
+      ['nous commençons','noo koh-mahn-SOHN','we start — cédille keeps the c soft'],
+      ['j\'achète','zhah-SHET','I buy — è appears in je/tu/il/ils'],
+      ['je préfère','zhuh pray-FEHR','I prefer — same è pattern'],
+      ['j\'appelle','zhah-PELL','I call — double the l']
+    ]},
+    {t:'fill', items:[
+      {s:'Nous ___ à Toronto. (habiter)', a:['habitons'], en:'We live in Toronto.', why:'nous + -ons'},
+      {s:'Ils ___ la musique. (aimer)', a:['aiment'], en:'They like music.', why:'ils + -ent (silent)'},
+      {s:'Vous ___ français ? (parler)', a:['parlez'], en:'Do you speak French?', why:'vous + -ez'}
+    ]}
+  ]},
+  { title:'1.8 · -IR and -RE verbs', blocks:[
+    {t:'h', x:'Regular -IR: finir (to finish)'},
+    {t:'rows', items:[
+      ['je finis','zhuh fee-NEE','I finish'],
+      ['tu finis','tew fee-NEE','you finish'],
+      ['il / elle finit','eel fee-NEE','he / she finishes'],
+      ['nous finissons','noo fee-nee-SOHN','we finish'],
+      ['vous finissez','voo fee-nee-SAY','you finish'],
+      ['ils / elles finissent','eel fee-NEESS','they finish']
+    ]},
+    {t:'p', x:'Same family: <b>choisir</b> (to choose), <b>réussir</b> (to succeed), <b>grandir</b> (to grow), <b>réfléchir</b> (to think it over), <b>remplir</b> (to fill in).'},
+    {t:'h', x:'Regular -RE: vendre (to sell)'},
+    {t:'rows', items:[
+      ['je vends','zhuh VAHN','I sell'],
+      ['tu vends','tew VAHN','you sell'],
+      ['il / elle vend','eel VAHN','he / she sells'],
+      ['nous vendons','noo vahn-DOHN','we sell'],
+      ['vous vendez','voo vahn-DAY','you sell'],
+      ['ils / elles vendent','eel VAHND','they sell']
+    ]},
+    {t:'p', x:'Same family: <b>attendre</b> (to wait), <b>entendre</b> (to hear), <b>répondre</b> (to answer), <b>perdre</b> (to lose), <b>descendre</b> (to go down).'},
+    {t:'warn', x:'<b>attendre</b> means "to wait", not "to attend". And it needs no preposition: <i>J\'attends le bus</i> — I am waiting <u>for</u> the bus. Adding "pour" is a classic English-speaker mistake.'}
+  ]},
+  { title:'1.9 · Negation: ne … pas and friends', blocks:[
+    {t:'p', x:'French negation is a sandwich: <b>ne</b> + verb + <b>pas</b>.'},
+    {t:'rows', items:[
+      ['Je ne parle pas anglais.','zhuh nuh parl pah ahn-GLEH','I do not speak English.'],
+      ['Il n\'est pas là.','eel neh pah LAH','He is not here. (ne → n\' before a vowel)'],
+      ['Nous n\'avons pas le temps.','noo nah-vohn pah luh TAHN','We do not have time.']
+    ]},
+    {t:'h', x:'Other negative pairs'},
+    {t:'table', head:['French','Meaning','Example'],
+      rows:[
+      ['ne … jamais','never','Je ne fume jamais. — I never smoke.'],
+      ['ne … rien','nothing','Je ne vois rien. — I see nothing.'],
+      ['ne … personne','nobody','Je ne connais personne. — I know nobody.'],
+      ['ne … plus','not anymore','Je n\'habite plus ici. — I do not live here anymore.'],
+      ['ne … pas encore','not yet','Il n\'est pas encore arrivé. — He has not arrived yet.'],
+      ['ne … que','only','Je n\'ai que dix euros. — I only have ten euros.']
+      ]},
+    {t:'note', x:'In casual speech, French people <b>drop the "ne"</b> entirely: <i>Je sais pas</i>, <i>C\'est pas grave</i>, <i>J\'ai rien fait</i>. Understand it, but keep the "ne" in writing and in exams.'},
+    {t:'fill', items:[
+      {s:'Je ___ comprends ___. (I do not understand.)', a:['ne pas','ne...pas'], en:'Type: ne pas', why:'Je ne comprends pas.'},
+      {s:'Il n\'y a ___ dans le frigo. (nothing)', a:['rien'], en:'There is nothing in the fridge.', why:'ne … rien'},
+      {s:'Elle ne travaille ___ ici. (not anymore)', a:['plus'], en:'She does not work here anymore.', why:'ne … plus'}
+    ]}
+  ]},
+  { title:'1.10 · Asking questions — three levels of formality', blocks:[
+    {t:'table', head:['Style','How','Example','When'],
+      rows:[
+      ['Intonation','just raise your voice','Tu viens ?','everyday speech'],
+      ['Est-ce que','add est-ce que in front','Est-ce que tu viens ?','neutral, always safe'],
+      ['Inversion','flip verb and subject','Viens-tu ?','formal, writing, exams']
+      ]},
+    {t:'rows', items:[
+      ['Tu habites ici ?','tew ah-BEET ee-SEE','Do you live here? (casual)'],
+      ['Est-ce que tu habites ici ?','ess-kuh tew ah-BEET ee-SEE','Do you live here? (neutral)'],
+      ['Habitez-vous ici ?','ah-bee-TAY voo ee-SEE','Do you live here? (formal)']
+    ]},
+    {t:'h', x:'Question words'},
+    {t:'rows', items:[
+      ['Qui ?','kee','Who?'],
+      ['Quoi ? / Que ?','kwah / kuh','What?'],
+      ['Où ?','oo','Where?'],
+      ['Quand ?','kahn','When?'],
+      ['Comment ?','koh-MAHN','How?'],
+      ['Pourquoi ?','poor-KWAH','Why?'],
+      ['Combien ?','kohm-BYAN','How much / how many?'],
+      ['Quel / Quelle ?','kell','Which / what (+ noun)?']
+    ]},
+    {t:'ex', x:'Word order tip: in speech, the question word often goes at the <b>end</b> — <i>Tu habites où ?</i>, <i>Ça coûte combien ?</i>, <i>Tu pars quand ?</i>. This sounds completely natural and is easier than inversion.'},
+    {t:'mcq', items:[
+      {q:'Which is the safest question form in an exam?', opts:['Tu viens ?','Est-ce que tu viens ?','Tu viens quand ?'], a:1, why:'Est-ce que is always grammatically correct and never sounds too casual.'},
+      {q:'"Combien" asks about…', opts:['when','how much/many','why'], a:1, why:'Combien = how much or how many.'}
+    ]}
+  ]},
+  { title:'1.11 · Possessive adjectives (mon, ton, son…)', blocks:[
+    {t:'p', x:'The trap: French possessives agree with the <b>thing owned</b>, not with the owner.'},
+    {t:'table', head:['Owner','+ masc. noun','+ fem. noun','+ plural noun'],
+      rows:[
+      ['I','mon','ma','mes'],
+      ['you (tu)','ton','ta','tes'],
+      ['he / she','son','sa','ses'],
+      ['we','notre','notre','nos'],
+      ['you (vous)','votre','votre','vos'],
+      ['they','leur','leur','leurs']
+      ]},
+    {t:'rows', items:[
+      ['mon frère / ma sœur / mes parents','mohn frehr / mah sur / may pah-RAHN','my brother / my sister / my parents'],
+      ['son livre','sohn LEEVR','his book OR her book — the French does not tell you'],
+      ['sa voiture','sah vwah-TEWR','his car OR her car'],
+      ['notre maison / nos voisins','notr meh-ZOHN / noh vwah-ZAN','our house / our neighbours'],
+      ['leur appartement / leurs enfants','luhr ah-par-tuh-MAHN / luhr-zahn-FAHN','their apartment / their children']
+    ]},
+    {t:'warn', x:'Second trap: before a feminine noun starting with a <b>vowel</b>, you use the masculine form for sound reasons — <i>mon amie</i>, <i>ton école</i>, <i>son adresse</i>. Never <i>ma amie</i>.'},
+    {t:'fill', items:[
+      {s:'___ mère est infirmière. (my)', a:['ma'], en:'My mother is a nurse.', why:'mère is feminine → ma'},
+      {s:'Il aime ___ voiture. (his)', a:['sa'], en:'He likes his car.', why:'voiture is feminine → sa, whoever owns it'},
+      {s:'C\'est ___ amie. (my)', a:['mon'], en:'This is my (female) friend.', why:'amie starts with a vowel → mon, not ma.'}
+    ]}
+  ]},
+  { title:'1.12 · This and that: ce, cet, cette, ces', blocks:[
+    {t:'table', head:['Form','Used before','Example'],
+      rows:[
+      ['ce','masculine noun','ce livre — this book'],
+      ['cet','masculine noun starting with a vowel/silent h','cet homme, cet appartement'],
+      ['cette','feminine noun','cette maison — this house'],
+      ['ces','any plural','ces enfants — these children']
+      ]},
+    {t:'rows', items:[
+      ['ce matin','suh mah-TAN','this morning'],
+      ['cette semaine','set suh-MEN','this week'],
+      ['cet après-midi','set ah-preh-mee-DEE','this afternoon'],
+      ['ces jours-ci','say zhoor SEE','these days']
+    ]},
+    {t:'note', x:'French has one word where English has two (this/that). To insist, add <b>-ci</b> (here) or <b>-là</b> (there): <i>ce livre-ci</i> (this book) vs <i>ce livre-là</i> (that book).'}
+  ]},
+  { title:'1.13 · Time, days, months, dates', blocks:[
+    {t:'h', x:'Days (no capital letter in French!)'},
+    {t:'grid', items:[['lundi','luhn-DEE'],['mardi','mar-DEE'],['mercredi','mair-kruh-DEE'],['jeudi','zhuh-DEE'],['vendredi','vahn-druh-DEE'],['samedi','sam-DEE'],['dimanche','dee-MAHNSH']]},
+    {t:'h', x:'Months'},
+    {t:'grid', items:[['janvier','zhahn-vee-AY'],['février','fay-vree-AY'],['mars','marss'],['avril','ah-VREEL'],['mai','meh'],['juin','zhwan'],['juillet','zhwee-YEH'],['août','oot'],['septembre','sep-TAHMBR'],['octobre','ok-TOBR'],['novembre','no-VAHMBR'],['décembre','day-SAHMBR']]},
+    {t:'h', x:'Telling the time'},
+    {t:'rows', items:[
+      ['Quelle heure est-il ?','kell ur eh-TEEL','What time is it?'],
+      ['Il est trois heures.','eel eh trwah ZUR','It is three o\'clock.'],
+      ['Il est trois heures et quart.','... ay KAR','It is quarter past three.'],
+      ['Il est trois heures et demie.','... ay duh-MEE','It is half past three.'],
+      ['Il est quatre heures moins le quart.','... mwan luh KAR','It is quarter to four.'],
+      ['Il est midi / minuit.','eel eh mee-DEE / mee-NWEE','It is noon / midnight.'],
+      ['à quatorze heures trente','ah kah-torz ur TRAHNT','at 14:30 (official 24-hour clock)']
+    ]},
+    {t:'h', x:'Dates'},
+    {t:'rows', items:[
+      ['Quelle est la date aujourd\'hui ?','kell eh lah dat oh-zhoor-DWEE','What is today\'s date?'],
+      ['C\'est le 7 septembre.','seh luh set sep-TAHMBR','It is September 7th.'],
+      ['le premier mai','luh pruh-MYAY MEH','May 1st — only the 1st uses "premier"'],
+      ['en 2026','ahn duh meel van-SEESS','in 2026'],
+      ['hier / aujourd\'hui / demain','ee-YAIR / oh-zhoor-DWEE / duh-MAN','yesterday / today / tomorrow']
+    ]},
+    {t:'note', x:'Dates use plain numbers (le 2, le 15), <b>not</b> "second, fifteenth" — except <i>le premier</i> for the 1st. And months/days are never capitalised.'},
+    {t:'fill', items:[
+      {s:'C\'est le ___ janvier. (the 1st)', a:['premier','1er'], en:'It is January 1st.', why:'Only the 1st is "premier"; all others are plain numbers.'},
+      {s:'Il est huit ___ et demie. (o\'clock)', a:['heures'], en:'It is half past eight.', why:'heures — always plural after 2+.'}
+    ]}
+  ]},
+  { title:'1.14 · The irregular verbs you cannot avoid', blocks:[
+    {t:'p', x:'These eight carry an enormous share of everyday French. Learn the je/tu/il and vous forms first — they cover most conversations.'},
+    {t:'h', x:'ALLER (to go) — also builds the future'},
+    {t:'rows', items:[['je vais','zhuh VAY','I go'],['tu vas','tew VAH','you go'],['il/elle va','eel VAH','he/she goes'],['nous allons','noo-zah-LOHN','we go'],['vous allez','voo-zah-LAY','you go'],['ils/elles vont','eel VOHN','they go']]},
+    {t:'h', x:'FAIRE (to do / to make)'},
+    {t:'rows', items:[['je fais','zhuh FEH','I do'],['tu fais','tew FEH','you do'],['il/elle fait','eel FEH','he/she does'],['nous faisons','noo fuh-ZOHN','we do'],['vous faites','voo FET','you do'],['ils/elles font','eel FOHN','they do']]},
+    {t:'h', x:'The other six, in their most-used forms'},
+    {t:'table', head:['Verb','je','tu','il/elle','nous','vous','ils/elles'],
+      rows:[
+      ['<b>venir</b> (to come)','viens','viens','vient','venons','venez','viennent'],
+      ['<b>prendre</b> (to take)','prends','prends','prend','prenons','prenez','prennent'],
+      ['<b>pouvoir</b> (can)','peux','peux','peut','pouvons','pouvez','peuvent'],
+      ['<b>vouloir</b> (to want)','veux','veux','veut','voulons','voulez','veulent'],
+      ['<b>devoir</b> (must)','dois','dois','doit','devons','devez','doivent'],
+      ['<b>savoir</b> (to know)','sais','sais','sait','savons','savez','savent']
+      ]},
+    {t:'h', x:'Hear them in real sentences'},
+    {t:'rows', items:[
+      ['Je vais au travail.','zhuh vay oh trah-VYE','I am going to work.'],
+      ['Qu\'est-ce que tu fais ?','kess-kuh tew FEH','What are you doing?'],
+      ['Je viens de Chandigarh.','zhuh vyan duh...','I come from Chandigarh.'],
+      ['Je prends le bus.','zhuh prahn luh BEWSS','I take the bus.'],
+      ['Est-ce que je peux vous aider ?','ess-kuh zhuh puh voo-zeh-DAY','May I help you?'],
+      ['Je voudrais un café.','zhuh voo-DREH uhn kah-FAY','I would like a coffee. (politer than "je veux")'],
+      ['Je dois partir.','zhuh dwah par-TEER','I have to leave.'],
+      ['Je ne sais pas.','zhuh nuh say PAH','I do not know.']
+    ]},
+    {t:'warn', x:'<b>savoir vs connaître</b> — both mean "to know". <i>Savoir</i> = facts and how-to (<i>Je sais nager</i>, <i>Je sais où il habite</i>). <i>Connaître</i> = being familiar with people and places (<i>Je connais Paris</i>, <i>Je connais ta sœur</i>).'},
+    {t:'ex', x:'<b>Je voudrais</b> is the single most useful form in this chapter. It is the conditional of <i>vouloir</i> and it is how you order, request and ask for anything politely. <i>Je veux un café</i> sounds like a demand; <i>Je voudrais un café, s\'il vous plaît</i> sounds like a person.'},
+    {t:'fill', items:[
+      {s:'Nous ___ au restaurant. (aller)', a:['allons'], en:'We are going to the restaurant.', why:'nous allons'},
+      {s:'Ils ___ du sport. (faire)', a:['font'], en:'They do sport.', why:'ils font'},
+      {s:'Je ___ partir maintenant. (devoir)', a:['dois'], en:'I must leave now.', why:'je dois'}
+    ]},
+    {t:'mcq', items:[
+      {q:'Which is the polite way to order in a café?', opts:['Je veux un café.','Je voudrais un café, s\'il vous plaît.','Donnez un café.'], a:1, why:'Je voudrais = "I would like". Always use it with strangers and staff.'},
+      {q:'"Je connais Paris" or "Je sais Paris"?', opts:['Je connais Paris','Je sais Paris'], a:0, why:'Places and people take connaître.'}
+    ]}
+  ]}
+  ]
+});
+
+BOOK.push({
+  id:'p2', part:'Part 2 — Everyday French (A1+/A2)', sub:'Now you can build sentences. This part is about living in the language: routines, food, places, weather, getting around.',
+  chapters:[
+  { title:'2.1 · Talking about the future without learning a tense', blocks:[
+    {t:'p', x:'You do not need the future tense to talk about the future. Use <b>aller + infinitive</b> — exactly like English "I am going to…".'},
+    {t:'rows', items:[
+      ['Je vais manger.','zhuh vay mahn-ZHAY','I am going to eat.'],
+      ['Tu vas travailler demain ?','tew vah trah-vah-YAY duh-MAN','Are you going to work tomorrow?'],
+      ['On va partir à huit heures.','ohn vah par-TEER ah wee TUR','We are going to leave at eight.'],
+      ['Ils vont acheter une maison.','eel vohn ash-TAY ewn meh-ZOHN','They are going to buy a house.'],
+      ['Je ne vais pas sortir ce soir.','zhuh nuh vay pah sor-TEER suh SWAHR','I am not going out tonight.']
+    ]},
+    {t:'note', x:'Negation wraps the <b>conjugated</b> verb only: <i>je <b>ne</b> vais <b>pas</b> manger</i> — never around the infinitive.'},
+    {t:'h', x:'And the recent past: venir de + infinitive'},
+    {t:'rows', items:[
+      ['Je viens d\'arriver.','zhuh vyan dah-ree-VAY','I have just arrived.'],
+      ['Elle vient de partir.','ell vyan duh par-TEER','She has just left.'],
+      ['Nous venons de manger.','noo vuh-nohn duh mahn-ZHAY','We have just eaten.']
+    ]},
+    {t:'ex', x:'Two structures, one pattern — <b>aller + infinitif</b> = about to happen, <b>venir de + infinitif</b> = just happened. With these you can discuss most of your day without touching a past or future tense.'},
+    {t:'fill', items:[
+      {s:'Je ___ appeler ma mère. (going to)', a:['vais'], en:'I am going to call my mother.', why:'aller + infinitive'},
+      {s:'Il ___ de finir son travail. (has just)', a:['vient'], en:'He has just finished his work.', why:'venir de + infinitive'}
+    ]}
+  ]},
+  { title:'2.2 · Giving orders and suggestions (imperative)', blocks:[
+    {t:'p', x:'Take the present tense and drop the subject pronoun. That is the whole rule.'},
+    {t:'table', head:['Form','From','Imperative','Meaning'],
+      rows:[
+      ['tu','tu regardes','<b>Regarde !</b>','Look! (-er verbs drop the final -s)'],
+      ['vous','vous regardez','<b>Regardez !</b>','Look! (formal/plural)'],
+      ['nous','nous regardons','<b>Regardons !</b>','Let\'s look!']
+      ]},
+    {t:'rows', items:[
+      ['Écoutez bien !','ay-koo-TAY byan','Listen carefully!'],
+      ['Viens ici !','vyan ee-SEE','Come here!'],
+      ['Allons-y !','ah-lohn-ZEE','Let\'s go!'],
+      ['Ne parlez pas si vite.','nuh par-lay pah see VEET','Do not speak so fast.'],
+      ['Asseyez-vous, s\'il vous plaît.','ah-say-yay VOO','Please sit down.'],
+      ['Fais attention !','feh ah-tahn-SYOHN','Be careful!']
+    ]},
+    {t:'note', x:'Irregular but essential: <b>être</b> → sois / soyez, <b>avoir</b> → aie / ayez, <b>savoir</b> → sache / sachez. As in <i>Soyez patient</i> (be patient), <i>Ayez confiance</i> (have confidence).'},
+    {t:'warn', x:'Bare imperatives sound blunt in French. Soften them: add <i>s\'il vous plaît</i>, or better, use a question — <i>Pouvez-vous répéter ?</i> rather than <i>Répétez !</i>'}
+  ]},
+  { title:'2.3 · Reflexive verbs and your daily routine', blocks:[
+    {t:'p', x:'Some French verbs carry an extra pronoun that points back at the subject: you wash <i>yourself</i>, you get <i>yourself</i> up. They are called pronominal or reflexive verbs, and daily routine runs entirely on them.'},
+    {t:'h', x:'se lever — to get up'},
+    {t:'rows', items:[
+      ['je me lève','zhuh muh LEV','I get up'],
+      ['tu te lèves','tew tuh LEV','you get up'],
+      ['il / elle se lève','eel suh LEV','he / she gets up'],
+      ['nous nous levons','noo noo luh-VOHN','we get up'],
+      ['vous vous levez','voo voo luh-VAY','you get up'],
+      ['ils / elles se lèvent','eel suh LEV','they get up']
+    ]},
+    {t:'h', x:'A day in reflexive verbs'},
+    {t:'rows', items:[
+      ['se réveiller','suh ray-vay-YAY','to wake up'],
+      ['se lever','suh luh-VAY','to get up'],
+      ['se doucher','suh doo-SHAY','to shower'],
+      ['se brosser les dents','suh broh-say lay DAHN','to brush one\'s teeth'],
+      ['s\'habiller','sah-bee-YAY','to get dressed'],
+      ['se dépêcher','suh day-peh-SHAY','to hurry'],
+      ['se reposer','suh ruh-poh-ZAY','to rest'],
+      ['se coucher','suh koo-SHAY','to go to bed'],
+      ['s\'endormir','sahn-dor-MEER','to fall asleep']
+    ]},
+    {t:'ex', x:'<b>Your routine, out loud:</b> <i>Je me réveille à six heures, je me douche, je m\'habille, et je pars au travail. Le soir, je me repose et je me couche vers onze heures.</i> Swap the times for your real ones and you have a ready answer for any speaking exam.'},
+    {t:'note', x:'Some verbs change meaning when reflexive: <i>appeler</i> = to call someone, <b>s\'appeler</b> = to be named. <i>Comment tu t\'appelles ?</i> is literally "how do you call yourself?".'},
+    {t:'fill', items:[
+      {s:'Je ___ lève à sept heures.', a:['me'], en:'I get up at seven.', why:'je + me'},
+      {s:'Comment vous ___ -vous ? (s\'appeler)', a:['appelez'], en:'What is your name? (formal)', why:'vous vous appelez → Comment vous appelez-vous ?'}
+    ]}
+  ]},
+  { title:'2.4 · Prepositions: places, countries, time', blocks:[
+    {t:'h', x:'Where things are'},
+    {t:'rows', items:[
+      ['dans la cuisine','dahn lah kwee-ZEEN','in the kitchen'],
+      ['sur la table','sewr lah TABL','on the table'],
+      ['sous le lit','soo luh LEE','under the bed'],
+      ['devant la maison','duh-VAHN','in front of the house'],
+      ['derrière l\'immeuble','deh-RYEHR','behind the building'],
+      ['à côté de la banque','ah koh-TAY duh','next to the bank'],
+      ['en face de l\'école','ahn FASS duh','opposite the school'],
+      ['entre la poste et le café','AHN-truh','between the post office and the café'],
+      ['chez moi / chez le médecin','shay MWAH','at my place / at the doctor\'s']
+    ]},
+    {t:'h', x:'Countries and cities — the rule that trips everyone'},
+    {t:'table', head:['Type','"in / to"','"from"','Example'],
+      rows:[
+      ['Feminine country (ends -e)','<b>en</b>','<b>de</b>','en France, de France'],
+      ['Masculine country','<b>au</b>','<b>du</b>','au Canada, du Canada'],
+      ['Plural country','<b>aux</b>','<b>des</b>','aux États-Unis, des États-Unis'],
+      ['Country starting with a vowel','<b>en</b>','<b>d\'</b>','en Inde, d\'Inde'],
+      ['City','<b>à</b>','<b>de</b>','à Montréal, de Montréal']
+      ]},
+    {t:'rows', items:[
+      ['J\'habite au Canada.','zhah-BEET oh kah-nah-DAH','I live in Canada.'],
+      ['Je viens d\'Inde.','zhuh vyan DAND','I come from India.'],
+      ['Elle travaille à Toronto.','ah toh-rohn-TOH','She works in Toronto.'],
+      ['Nous allons en France.','ahn FRAHNSS','We are going to France.']
+    ]},
+    {t:'h', x:'Time prepositions'},
+    {t:'rows', items:[
+      ['à huit heures','ah wee TUR','at eight o\'clock'],
+      ['en septembre / en 2026','ahn','in September / in 2026'],
+      ['au printemps','oh pran-TAHN','in spring (but: en été, en automne, en hiver)'],
+      ['depuis deux ans','duh-PWEE','for two years (and still going)'],
+      ['pendant une heure','pahn-DAHN','for an hour (duration)'],
+      ['dans une heure','dahn-zewn UR','in an hour (from now)'],
+      ['il y a deux jours','eel yah','two days ago']
+    ]},
+    {t:'warn', x:'<b>depuis vs il y a vs dans.</b> <i>J\'habite ici depuis 2020</i> (since — still true). <i>Je suis arrivé il y a deux ans</i> (ago — finished). <i>Je pars dans deux jours</i> (in, future). Mixing these is one of the most common A2 errors.'},
+    {t:'fill', items:[
+      {s:'J\'habite ___ Canada.', a:['au'], en:'I live in Canada.', why:'Canada is masculine → au'},
+      {s:'Je viens ___ Inde.', a:['d\'','de'], en:'I come from India.', why:'Vowel start → d\''},
+      {s:'Je travaille ici ___ trois ans.', a:['depuis'], en:'I have worked here for three years.', why:'Still true now → depuis'}
+    ]}
+  ]},
+  { title:'2.5 · Food, quantities and shopping', blocks:[
+    {t:'h', x:'Quantity words — all followed by plain "de"'},
+    {t:'rows', items:[
+      ['beaucoup de sucre','boh-koo duh SEWKR','a lot of sugar'],
+      ['un peu de lait','uhn puh duh LEH','a little milk'],
+      ['assez de temps','ah-say duh TAHN','enough time'],
+      ['trop de bruit','troh duh BRWEE','too much noise'],
+      ['un kilo de pommes','uhn kee-loh duh PUM','a kilo of apples'],
+      ['une bouteille d\'eau','ewn boo-TAY DOH','a bottle of water'],
+      ['une tranche de jambon','ewn trahnsh duh zhahm-BOHN','a slice of ham']
+    ]},
+    {t:'warn', x:'After a quantity word, the article disappears: <i>beaucoup <b>de</b> sucre</i>, not <i>beaucoup du sucre</i>. This is a fixed rule with no exceptions worth worrying about at this level.'},
+    {t:'h', x:'Food vocabulary'},
+    {t:'grid', items:[['le pain','luh PAN'],['le fromage','luh froh-MAZH'],['le lait','luh LEH'],['le beurre','luh BUR'],['un œuf','uhn NUF'],['la viande','lah VYAHND'],['le poulet','luh poo-LEH'],['le poisson','luh pwah-SOHN'],['le riz','luh REE'],['les légumes','lay lay-GEWM'],['les fruits','lay FRWEE'],['une pomme','ewn PUM'],['une banane','ewn bah-NAN'],['l\'eau','LOH'],['le vin','luh VAN'],['le café','luh kah-FAY']]},
+    {t:'h', x:'At the shop or restaurant'},
+    {t:'rows', items:[
+      ['Je voudrais un kilo de tomates, s\'il vous plaît.','zhuh voo-DREH','I would like a kilo of tomatoes, please.'],
+      ['C\'est combien ?','seh kohm-BYAN','How much is it?'],
+      ['Ça fait combien ?','sah feh kohm-BYAN','How much does that come to?'],
+      ['Vous avez de la monnaie ?','voo-zah-vay duh lah moh-NEH','Do you have change?'],
+      ['L\'addition, s\'il vous plaît.','lah-dee-SYOHN','The bill, please.'],
+      ['Je suis végétarien / végétarienne.','vay-zhay-tah-RYAN / RYEN','I am vegetarian.'],
+      ['Je n\'aime pas la viande.','zhuh nem pah lah VYAHND','I do not like meat.']
+    ]},
+    {t:'note', x:'Watch the odd pronunciation of <b>un œuf</b> (uhn NUF) vs <b>des œufs</b> (day ZUH) — the f goes silent in the plural. Same with <i>un bœuf / des bœufs</i>.'}
+  ]},
+  { title:'2.6 · Describing people: looks and personality', blocks:[
+    {t:'h', x:'Build with être (height/build) and avoir (hair/eyes)'},
+    {t:'rows', items:[
+      ['Il est grand et mince.','eel eh grahn ay MANSS','He is tall and slim.'],
+      ['Elle est petite.','ell eh puh-TEET','She is short.'],
+      ['Il a les cheveux courts et bruns.','eel ah lay shuh-vuh KOOR ay BRUHN','He has short brown hair.'],
+      ['Elle a les yeux verts.','ell ah lay zyuh VEHR','She has green eyes.'],
+      ['Il porte des lunettes.','eel port day lew-NET','He wears glasses.'],
+      ['Elle a une barbe ? Non — il a une barbe.','ewn BARB','beard (feminine noun: une barbe)']
+    ]},
+    {t:'note', x:'Colour rules for eyes: always <b>marron</b> for brown (never <i>bruns</i>), and marron never changes — <i>les yeux marron</i>, no -s. For hair, use <b>châtain</b> (light brown) or <b>bruns</b> (dark).'},
+    {t:'h', x:'Personality adjectives'},
+    {t:'grid', items:[['sympa','sam-PAH'],['gentil / gentille','zhahn-TEE / zhahn-TEEY'],['drôle','DROHL'],['sérieux / sérieuse','say-RYUH / say-RYUHZ'],['timide','tee-MEED'],['bavard(e)','bah-VAR(D)'],['patient(e)','pah-SYAHN(T)'],['travailleur / travailleuse','trah-vah-YUR / YUHZ'],['généreux / généreuse','zhay-nay-RUH'],['calme','KALM']]},
+    {t:'ex', x:'<b>A full description you can reuse:</b> <i>Mon frère est grand et sportif. Il a les cheveux noirs et les yeux marron. Il est très sympa mais un peu bavard.</i> — My brother is tall and sporty. He has black hair and brown eyes. He is very nice but a bit talkative.'},
+    {t:'fill', items:[
+      {s:'Elle a les yeux ___. (brown)', a:['marron'], en:'She has brown eyes.', why:'marron — invariable, never bruns for eyes.'},
+      {s:'Il ___ les cheveux longs. (avoir)', a:['a'], en:'He has long hair.', why:'Hair takes avoir, not être.'}
+    ]}
+  ]},
+  { title:'2.7 · The home', blocks:[
+    {t:'h', x:'Rooms and spaces'},
+    {t:'grid', items:[['la cuisine','lah kwee-ZEEN'],['le salon','luh sah-LOHN'],['la chambre','lah SHAHMBR'],['la salle de bains','lah sal duh BAN'],['les toilettes','lay twah-LET'],['le couloir','luh kool-WAHR'],['le balcon','luh bal-KOHN'],['le jardin','luh zhar-DAN'],['le garage','luh gah-RAZH'],['la cave','lah KAHV']]},
+    {t:'h', x:'Furniture and equipment'},
+    {t:'grid', items:[['une table','ewn TABL'],['une chaise','ewn SHEZ'],['un canapé','uhn kah-nah-PAY'],['un lit','uhn LEE'],['une armoire','ewn ar-MWAHR'],['un placard','uhn plah-KAR'],['un four','uhn FOOR'],['un frigo','uhn free-GOH'],['un lave-vaisselle','uhn lav-veh-SELL'],['une machine à laver','ewn mah-sheen ah lah-VAY']]},
+    {t:'h', x:'Housing words you meet in adverts'},
+    {t:'rows', items:[
+      ['un appartement meublé','uhn ah-par-tuh-mahn muh-BLAY','a furnished apartment'],
+      ['le loyer','luh lwah-YAY','the rent'],
+      ['les charges comprises','lay sharzh kohm-PREEZ','utilities included'],
+      ['le rez-de-chaussée','luh ray-duh-shoh-SAY','the ground floor'],
+      ['au deuxième étage','oh duh-zyem ay-TAZH','on the second floor'],
+      ['l\'ascenseur','lah-sahn-SUR','the lift/elevator'],
+      ['un locataire / un propriétaire','loh-kah-TEHR / proh-pree-ay-TEHR','a tenant / an owner'],
+      ['60 mètres carrés','swah-sahnt meh-truh kah-RAY','60 square metres']
+    ]},
+    {t:'ex', x:'<b>Describing where you live:</b> <i>J\'habite dans un appartement de trois pièces au deuxième étage. Il y a un grand salon, une cuisine équipée et deux chambres.</i>'}
+  ]},
+  { title:'2.8 · Getting around: directions and transport', blocks:[
+    {t:'rows', items:[
+      ['Où est la gare, s\'il vous plaît ?','oo eh lah GAR','Where is the station, please?'],
+      ['Tout droit','too DRWAH','Straight ahead'],
+      ['Tournez à gauche / à droite','toor-NAY ah GOHSH / ah DRWAHT','Turn left / right'],
+      ['Prenez la première rue à droite.','pruh-NAY lah pruh-MYEHR rew','Take the first street on the right.'],
+      ['C\'est loin ?','seh LWAN','Is it far?'],
+      ['C\'est à côté / tout près.','ah koh-TAY / too PREH','It is next door / very close.'],
+      ['à cinq minutes à pied','ah sank mee-newt ah PYAY','five minutes on foot']
+    ]},
+    {t:'h', x:'Transport — note the prepositions'},
+    {t:'rows', items:[
+      ['en voiture','ahn vwah-TEWR','by car'],
+      ['en bus / en métro / en train','ahn BEWSS','by bus / metro / train'],
+      ['en avion','ahn nah-VYOHN','by plane'],
+      ['à pied','ah PYAY','on foot'],
+      ['à vélo','ah vay-LOH','by bike'],
+      ['Je prends le bus tous les jours.','zhuh prahn luh BEWSS','I take the bus every day.']
+    ]},
+    {t:'note', x:'Rule of thumb: <b>en</b> when you sit inside it, <b>à</b> when you sit on it or use your legs — en voiture, en train, but à pied, à vélo, à moto.'}
+  ]},
+  { title:'2.9 · Weather and small talk', blocks:[
+    {t:'rows', items:[
+      ['Quel temps fait-il ?','kell tahn feh-TEEL','What is the weather like?'],
+      ['Il fait beau.','eel feh BOH','The weather is nice.'],
+      ['Il fait mauvais.','eel feh moh-VEH','The weather is bad.'],
+      ['Il fait chaud / froid.','eel feh SHOH / FRWAH','It is hot / cold.'],
+      ['Il pleut.','eel PLUH','It is raining.'],
+      ['Il neige.','eel NEZH','It is snowing.'],
+      ['Il y a du vent.','eel yah dew VAHN','It is windy.'],
+      ['Il y a du soleil.','eel yah dew soh-LAY','It is sunny.'],
+      ['Il fait moins vingt !','eel feh mwan VAN','It is minus twenty!']
+    ]},
+    {t:'note', x:'Weather runs on <b>il fait</b> (impersonal "it makes"), except <i>il pleut</i> and <i>il neige</i>, which are their own verbs (pleuvoir, neiger). Never say <i>il est chaud</i> about weather — that describes an object being hot.'},
+    {t:'h', x:'Seasons'},
+    {t:'rows', items:[
+      ['au printemps','oh pran-TAHN','in spring'],
+      ['en été','ahn nay-TAY','in summer'],
+      ['en automne','ahn noh-TUN','in autumn'],
+      ['en hiver','ahn nee-VEHR','in winter']
+    ]},
+    {t:'mcq', items:[
+      {q:'How do you say "it is cold"?', opts:['Il est froid.','Il fait froid.','Il a froid.'], a:1, why:'Weather = il fait. "Il a froid" means HE is cold; "il est froid" describes an object.'},
+      {q:'"In summer" is…', opts:['au été','en été','à été'], a:1, why:'en été, en automne, en hiver — but au printemps.'}
+    ]}
+  ]}
+  ]
+});
+
+BOOK.push({
+  id:'p3', part:'Part 3 — The Past and the Pronouns (A2)', sub:'Where beginners become intermediate: telling what happened, and stopping repeating the same nouns.',
+  chapters:[
+  { title:'3.1 · Passé composé with AVOIR', blocks:[
+    {t:'p', x:'The passé composé is the everyday past tense — "I ate", "I have eaten". It is built from two pieces: a helper verb in the present, plus a past participle.'},
+    {t:'ex', x:'<b>Formula:</b> subject + <b>avoir (present)</b> + <b>past participle</b><br>J\'<b>ai</b> mang<b>é</b> — I ate / I have eaten.'},
+    {t:'h', x:'Past participle endings for regular verbs'},
+    {t:'table', head:['Verb group','Change','Example'],
+      rows:[
+      ['-er verbs','-er → <b>-é</b>','parler → parlé, manger → mangé'],
+      ['-ir verbs','-ir → <b>-i</b>','finir → fini, choisir → choisi'],
+      ['-re verbs','-re → <b>-u</b>','vendre → vendu, attendre → attendu']
+      ]},
+    {t:'rows', items:[
+      ['J\'ai mangé au restaurant.','zhay mahn-ZHAY','I ate at the restaurant.'],
+      ['Tu as fini ton travail ?','tew ah fee-NEE','Did you finish your work?'],
+      ['Elle a vendu sa voiture.','ell ah vahn-DEW','She sold her car.'],
+      ['Nous avons regardé un film.','noo-zah-vohn ruh-gar-DAY','We watched a film.'],
+      ['Ils ont attendu une heure.','eel-zohn ah-tahn-DEW','They waited an hour.']
+    ]},
+    {t:'h', x:'Negation wraps the helper, not the participle'},
+    {t:'rows', items:[
+      ['Je n\'ai pas mangé.','zhuh nay pah mahn-ZHAY','I did not eat.'],
+      ['Il n\'a rien dit.','eel nah ryan DEE','He said nothing.'],
+      ['Nous n\'avons jamais visité Paris.','noo nah-vohn zhah-MEH','We have never visited Paris.']
+    ]},
+    {t:'h', x:'Irregular past participles — learn these as vocabulary'},
+    {t:'table', head:['Verb','Participle','Verb','Participle'],
+      rows:[
+      ['avoir','<b>eu</b> (ew)','être','<b>été</b> (ay-TAY)'],
+      ['faire','<b>fait</b>','prendre','<b>pris</b>'],
+      ['voir','<b>vu</b>','boire','<b>bu</b>'],
+      ['lire','<b>lu</b>','écrire','<b>écrit</b>'],
+      ['dire','<b>dit</b>','mettre','<b>mis</b>'],
+      ['pouvoir','<b>pu</b>','vouloir','<b>voulu</b>'],
+      ['devoir','<b>dû</b>','savoir','<b>su</b>'],
+      ['connaître','<b>connu</b>','recevoir','<b>reçu</b>'],
+      ['ouvrir','<b>ouvert</b>','offrir','<b>offert</b>']
+      ]},
+    {t:'fill', items:[
+      {s:'J\'ai ___ un livre. (lire)', a:['lu'], en:'I read a book.', why:'lire → lu'},
+      {s:'Nous avons ___ le bus. (prendre)', a:['pris'], en:'We took the bus.', why:'prendre → pris'},
+      {s:'Elle a ___ ses devoirs. (faire)', a:['fait'], en:'She did her homework.', why:'faire → fait'}
+    ]}
+  ]},
+  { title:'3.2 · Passé composé with ÊTRE (and the agreement)', blocks:[
+    {t:'p', x:'A small group of verbs uses <b>être</b> instead of avoir. They are mostly verbs of movement and change of state — and with être, the participle agrees with the subject like an adjective.'},
+    {t:'h', x:'The être verbs (learn them in opposite pairs)'},
+    {t:'table', head:['Verb','Meaning','Verb','Meaning'],
+      rows:[
+      ['aller','to go','venir','to come'],
+      ['arriver','to arrive','partir','to leave'],
+      ['entrer','to enter','sortir','to go out'],
+      ['monter','to go up','descendre','to go down'],
+      ['naître','to be born','mourir','to die'],
+      ['rester','to stay','tomber','to fall'],
+      ['passer','to pass by','retourner','to return']
+      ]},
+    {t:'h', x:'The agreement in action'},
+    {t:'rows', items:[
+      ['Il est allé au marché.','eel eh tah-LAY','He went to the market.'],
+      ['Elle est allée au marché.','ell eh tah-LAY','She went to the market. (+e)'],
+      ['Ils sont allés au marché.','eel sohn tah-LAY','They (m.) went. (+s)'],
+      ['Elles sont allées au marché.','ell sohn tah-LAY','They (f.) went. (+es)'],
+      ['Je suis né en Inde.','zhuh swee NAY','I was born in India.'],
+      ['Nous sommes partis à six heures.','noo sum par-TEE','We left at six.']
+    ]},
+    {t:'note', x:'The agreement is <b>silent</b> in almost every case — allé, allée, allés, allées all sound identical (ah-LAY). It matters for writing and for exams, not for being understood in speech.'},
+    {t:'h', x:'Reflexive verbs also take être'},
+    {t:'rows', items:[
+      ['Je me suis levé(e) tôt.','zhuh muh swee luh-VAY','I got up early.'],
+      ['Elle s\'est couchée tard.','ell seh koo-SHAY','She went to bed late.'],
+      ['Nous nous sommes reposés.','noo noo sum ruh-poh-ZAY','We rested.']
+    ]},
+    {t:'warn', x:'Some verbs take <b>both</b>, with a meaning shift: <i>Je suis sorti</i> (I went out) vs <i>J\'ai sorti la poubelle</i> (I took out the bin). If the verb has a direct object, it flips to avoir.'},
+    {t:'fill', items:[
+      {s:'Elle est ___ à Paris. (aller)', a:['allée'], en:'She went to Paris.', why:'être verb + feminine subject → allée'},
+      {s:'Nous ___ arrivés hier. (être)', a:['sommes'], en:'We arrived yesterday.', why:'nous sommes arrivés'}
+    ]}
+  ]},
+  { title:'3.3 · Imparfait — the "used to / was doing" past', blocks:[
+    {t:'p', x:'Formation is beautifully regular: take the <b>nous</b> form of the present, drop -ons, add the endings. One verb only is irregular (être → ét-).'},
+    {t:'table', head:['Person','Ending','parler (nous parlons → parl-)'],
+      rows:[
+      ['je','-ais','je parlais'],
+      ['tu','-ais','tu parlais'],
+      ['il/elle','-ait','il parlait'],
+      ['nous','-ions','nous parlions'],
+      ['vous','-iez','vous parliez'],
+      ['ils/elles','-aient','ils parlaient']
+      ]},
+    {t:'rows', items:[
+      ['Quand j\'étais petit, j\'habitais en Inde.','kahn zhay-teh puh-TEE','When I was little, I lived in India.'],
+      ['Il faisait très froid.','eel fuh-ZEH treh FRWAH','It was very cold.'],
+      ['Nous allions à la plage chaque été.','noo-zah-LYOHN','We used to go to the beach every summer.'],
+      ['Elle regardait la télé quand j\'ai téléphoné.','ruh-gar-DEH','She was watching TV when I called.']
+    ]},
+    {t:'h', x:'Passé composé or imparfait? The core distinction'},
+    {t:'table', head:['Use imparfait for…','Use passé composé for…'],
+      rows:[
+      ['background, scenery, weather','a single completed action'],
+      ['habits and repeated actions ("used to")','something that happened once'],
+      ['descriptions, age, feelings, time','a sequence of events'],
+      ['an action in progress ("was …ing")','the event that interrupts it']
+      ]},
+    {t:'ex', x:'Both in one sentence: <i>Je <b>dormais</b> quand le téléphone <b>a sonné</b>.</i> — I <b>was sleeping</b> (background, imparfait) when the phone <b>rang</b> (interrupting event, passé composé). This pattern alone answers most exam questions on the topic.'},
+    {t:'fill', items:[
+      {s:'Quand j\'___ jeune, je jouais au foot. (être)', a:['étais'], en:'When I was young…', why:'être → j\'étais (the only irregular stem: ét-)'},
+      {s:'Il ___ (pleuvoir, imparfait) quand nous sommes sortis.', a:['pleuvait'], en:'It was raining when we went out.', why:'Background = imparfait.'}
+    ]},
+    {t:'mcq', items:[
+      {q:'"Every Saturday, we went to the market" →', opts:['Nous sommes allés au marché','Nous allions au marché'], a:1, why:'Repeated habit → imparfait.'},
+      {q:'"Yesterday I ate at 8pm" →', opts:['Hier j\'ai mangé à 20h','Hier je mangeais à 20h'], a:0, why:'One completed action at a set time → passé composé.'}
+    ]}
+  ]},
+  { title:'3.4 · Object pronouns (le, la, les, lui, leur)', blocks:[
+    {t:'p', x:'Instead of repeating the noun, replace it. French pronouns go <b>before</b> the verb — this is the hardest habit for English speakers to build.'},
+    {t:'h', x:'Direct objects (who/what receives the action)'},
+    {t:'table', head:['Pronoun','Replaces','Example'],
+      rows:[
+      ['me / m\'','me','Il me regarde. — He looks at me.'],
+      ['te / t\'','you','Je te vois. — I see you.'],
+      ['le / l\'','him, it (m.)','Je <b>le</b> connais. — I know him.'],
+      ['la / l\'','her, it (f.)','Je <b>la</b> vois. — I see her.'],
+      ['nous','us','Il nous invite. — He invites us.'],
+      ['vous','you','Je vous comprends. — I understand you.'],
+      ['les','them','Je <b>les</b> achète. — I buy them.']
+      ]},
+    {t:'h', x:'Indirect objects (to whom — verbs with à)'},
+    {t:'table', head:['Pronoun','Replaces','Example'],
+      rows:[
+      ['lui','to him / to her','Je <b>lui</b> parle. — I speak to him/her.'],
+      ['leur','to them','Je <b>leur</b> téléphone. — I phone them.']
+      ]},
+    {t:'rows', items:[
+      ['Tu connais Marie ? — Oui, je la connais.','zhuh lah koh-NEH','Do you know Marie? — Yes, I know her.'],
+      ['Tu as parlé à ton frère ? — Oui, je lui ai parlé.','zhuh lwee ay par-LAY','Did you speak to your brother? — Yes, I spoke to him.'],
+      ['Je les ai vus hier.','zhuh lay-zay VEW','I saw them yesterday.'],
+      ['Ne me téléphone pas ce soir.','nuh muh tay-lay-FUN pah','Do not call me tonight.']
+    ]},
+    {t:'note', x:'In the passé composé, the pronoun goes before the <b>helper</b>: <i>Je <b>l\'</b>ai vu</i>, not "j\'ai le vu". And when a direct object pronoun comes first, the participle agrees with it: <i>Les photos ? Je les ai <b>vues</b></i>.'},
+    {t:'h', x:'Y and EN — the two little words that sound native'},
+    {t:'rows', items:[
+      ['J\'y vais.','zhee VAY','I am going there. (y = to that place)'],
+      ['Tu y penses ?','tew ee PAHNSS','Are you thinking about it? (penser à)'],
+      ['J\'en veux.','zhahn VUH','I want some. (en = of it/them)'],
+      ['Il en a trois.','eel ahn ah TRWAH','He has three of them.'],
+      ['Je n\'en ai pas.','zhuh nahn ay PAH','I do not have any.']
+    ]},
+    {t:'ex', x:'Rule of thumb: <b>y</b> replaces <i>à + place/thing</i>; <b>en</b> replaces <i>de + thing</i> or any quantity. <i>Tu vas au bureau ? — Oui, j\'y vais.</i> · <i>Tu as du pain ? — Oui, j\'en ai.</i>'},
+    {t:'fill', items:[
+      {s:'Tu vois Paul ? — Oui, je ___ vois.', a:['le'], en:'Yes, I see him.', why:'Paul = direct object masculine → le'},
+      {s:'Tu téléphones à ta mère ? — Oui, je ___ téléphone.', a:['lui'], en:'Yes, I phone her.', why:'téléphoner à → indirect → lui'},
+      {s:'Tu as du café ? — Oui, j\'___ ai.', a:['en'], en:'Yes, I have some.', why:'du café → en'}
+    ]}
+  ]},
+  { title:'3.5 · Comparing things', blocks:[
+    {t:'table', head:['Meaning','Structure','Example'],
+      rows:[
+      ['more … than','plus + adj + que','Il est plus grand que moi.'],
+      ['less … than','moins + adj + que','C\'est moins cher que l\'autre.'],
+      ['as … as','aussi + adj + que','Elle est aussi rapide que lui.'],
+      ['the most','le/la/les plus','C\'est le plus beau quartier.'],
+      ['the least','le/la/les moins','C\'est la moins chère.']
+      ]},
+    {t:'rows', items:[
+      ['Mon appartement est plus grand que le tien.','plew grahn kuh','My apartment is bigger than yours.'],
+      ['Le métro est moins cher que le taxi.','mwan SHEHR kuh','The metro is cheaper than the taxi.'],
+      ['C\'est la meilleure solution.','lah may-YUR','It is the best solution.'],
+      ['Il parle mieux que moi.','myuh kuh MWAH','He speaks better than me.']
+    ]},
+    {t:'warn', x:'Two irregulars: <b>bon → meilleur</b> (good → better, adjective) and <b>bien → mieux</b> (well → better, adverb). Never say <i>plus bon</i> or <i>plus bien</i>.'},
+    {t:'fill', items:[
+      {s:'Ce livre est ___ intéressant que l\'autre. (more)', a:['plus'], en:'This book is more interesting than the other.', why:'plus … que'},
+      {s:'C\'est la ___ boulangerie du quartier. (best)', a:['meilleure'], en:'It is the best bakery in the neighbourhood.', why:'bon → meilleur(e), never "plus bon".'}
+    ]}
+  ]},
+  { title:'3.6 · Futur simple', blocks:[
+    {t:'p', x:'Add the endings straight onto the <b>infinitive</b> (for -re verbs, drop the final -e). The endings are the present tense of avoir — that is your memory hook.'},
+    {t:'table', head:['Person','Ending','parler','prendre'],
+      rows:[
+      ['je','-ai','parlerai','prendrai'],
+      ['tu','-as','parleras','prendras'],
+      ['il/elle','-a','parlera','prendra'],
+      ['nous','-ons','parlerons','prendrons'],
+      ['vous','-ez','parlerez','prendrez'],
+      ['ils/elles','-ont','parleront','prendront']
+      ]},
+    {t:'h', x:'Irregular stems (the endings never change)'},
+    {t:'table', head:['Verb','Future stem','Example'],
+      rows:[
+      ['être','ser-','je serai — I will be'],
+      ['avoir','aur-','j\'aurai — I will have'],
+      ['aller','ir-','j\'irai — I will go'],
+      ['faire','fer-','je ferai — I will do'],
+      ['venir','viendr-','je viendrai — I will come'],
+      ['pouvoir','pourr-','je pourrai — I will be able'],
+      ['vouloir','voudr-','je voudrai — I will want'],
+      ['voir','verr-','je verrai — I will see'],
+      ['devoir','devr-','je devrai — I will have to']
+      ]},
+    {t:'rows', items:[
+      ['Je serai là à huit heures.','zhuh suh-RAY lah','I will be there at eight.'],
+      ['Nous irons en France l\'année prochaine.','noo-zee-ROHN','We will go to France next year.'],
+      ['Quand tu arriveras, appelle-moi.','kahn tew ah-reev-RAH','When you arrive, call me.']
+    ]},
+    {t:'note', x:'After <b>quand</b>, French uses the future where English uses the present: <i>Quand j\'aurai le temps</i> = "when I <u>have</u> time". Marking this correctly is a quick win in written exams.'}
+  ]},
+  { title:'3.7 · Adverbs', blocks:[
+    {t:'p', x:'Most adverbs are built from the <b>feminine</b> adjective + <b>-ment</b>.'},
+    {t:'rows', items:[
+      ['lent → lente → lentement','lahnt-MAHN','slow → slowly'],
+      ['heureux → heureuse → heureusement','uh-ruhz-MAHN','happy → fortunately'],
+      ['vrai → vraiment','vray-MAHN','true → really'],
+      ['rapide → rapidement','rah-peed-MAHN','fast → quickly']
+    ]},
+    {t:'h', x:'Frequency and intensity words worth memorising'},
+    {t:'grid', items:[['toujours','too-ZHOOR'],['souvent','soo-VAHN'],['parfois','par-FWAH'],['rarement','rar-MAHN'],['jamais','zhah-MEH'],['déjà','day-ZHAH'],['encore','ahn-KOR'],['bientôt','byan-TOH'],['très','TREH'],['assez','ah-SAY'],['trop','TROH'],['un peu','uhn PUH']]},
+    {t:'note', x:'Position: short adverbs go right after the verb — <i>Je mange <b>souvent</b> ici</i>. In the passé composé they slide between the helper and the participle — <i>J\'ai <b>déjà</b> mangé</i>, <i>Il a <b>trop</b> bu</i>.'}
+  ]}
+  ]
+});
+
+BOOK.push({
+  id:'p4', part:'Part 4 — B1 Foundations',
+  sub:'Politeness, hypotheses, opinions and longer sentences. This is the level TEF Canada and CLB 7 actually test.',
+  chapters:[
+  { title:'4.1 · Conditionnel — politeness and "would"', blocks:[
+    {t:'p', x:'Formation is a gift: take the <b>future stem</b> (Part 3.6) and add the <b>imparfait endings</b>. Nothing new to memorise.'},
+    {t:'table', head:['Person','Ending','parler','être','avoir','aller'],
+      rows:[
+      ['je','-ais','parlerais','serais','aurais','irais'],
+      ['tu','-ais','parlerais','serais','aurais','irais'],
+      ['il/elle','-ait','parlerait','serait','aurait','irait'],
+      ['nous','-ions','parlerions','serions','aurions','irions'],
+      ['vous','-iez','parleriez','seriez','auriez','iriez'],
+      ['ils/elles','-aient','parleraient','seraient','auraient','iraient']
+      ]},
+    {t:'h', x:'What it is actually used for'},
+    {t:'rows', items:[
+      ['Je voudrais un café, s\'il vous plaît.','zhuh voo-DREH','I would like a coffee, please. (polite request)'],
+      ['Pourriez-vous m\'aider ?','poo-ree-ay VOO','Could you help me? (very polite)'],
+      ['J\'aimerais visiter le Québec.','zheh-muh-REH','I would like to visit Quebec. (soft wish)'],
+      ['À ta place, je partirais plus tôt.','ah tah PLASS','If I were you, I would leave earlier. (advice)'],
+      ['Il devrait faire attention.','eel duh-VREH','He should be careful. (devoir → advice)'],
+      ['On pourrait dîner ensemble ?','ohn poo-REH','Could we have dinner together? (suggestion)']
+    ]},
+    {t:'ex', x:'The three you should over-use in any exam or real conversation: <b>je voudrais</b> (I would like), <b>pourriez-vous</b> (could you), <b>vous devriez</b> (you should). They instantly raise your register from beginner to polite adult.'}
+  ]},
+  { title:'4.2 · SI clauses — the three hypotheses', blocks:[
+    {t:'table', head:['Type','si + …','main clause','Meaning'],
+      rows:[
+      ['1. Real / likely','si + <b>présent</b>','futur (or présent/impératif)','Si j\'ai le temps, je viendrai. — If I have time, I will come.'],
+      ['2. Hypothetical','si + <b>imparfait</b>','<b>conditionnel présent</b>','Si j\'avais le temps, je viendrais. — If I had time, I would come.'],
+      ['3. Regret (past)','si + <b>plus-que-parfait</b>','<b>conditionnel passé</b>','Si j\'avais eu le temps, je serais venu. — If I had had time, I would have come.']
+      ]},
+    {t:'rows', items:[
+      ['Si tu veux, on peut y aller ensemble.','see tew VUH','If you want, we can go together.'],
+      ['Si j\'étais riche, j\'achèterais une maison.','see zhay-teh REESH','If I were rich, I would buy a house.'],
+      ['Si elle avait su, elle serait restée.','see ell ah-veh SEW','If she had known, she would have stayed.']
+    ]},
+    {t:'warn', x:'<b>Never</b> put a conditional or a future directly after <b>si</b>. Not <i>si je serais</i>, not <i>si j\'aurai</i>. French teachers treat this as the cardinal sin — and it is a marked error on the TEF.'},
+    {t:'fill', items:[
+      {s:'Si j\'___ de l\'argent, je voyagerais. (avoir)', a:['avais'], en:'If I had money, I would travel.', why:'Type 2: si + imparfait → conditionnel.'},
+      {s:'Si tu ___ demain, appelle-moi. (venir, présent)', a:['viens'], en:'If you come tomorrow, call me.', why:'Type 1: si + présent.'}
+    ]}
+  ]},
+  { title:'4.3 · Subjonctif présent — feelings, doubt, necessity', blocks:[
+    {t:'p', x:'The subjunctive is not a tense but a mood: it appears after expressions of necessity, emotion, doubt and will. In practice it almost always sits after <b>que</b>.'},
+    {t:'ex', x:'<b>Formation:</b> take the <b>ils/elles</b> present form, drop -ent, add: -e, -es, -e, -ions, -iez, -ent.<br>parler → ils parl<s>ent</s> → que je <b>parle</b>, que nous <b>parlions</b>.'},
+    {t:'table', head:['Irregular','que je','que nous'],
+      rows:[
+      ['être','sois','soyons'],
+      ['avoir','aie','ayons'],
+      ['aller','aille','allions'],
+      ['faire','fasse','fassions'],
+      ['pouvoir','puisse','puissions'],
+      ['savoir','sache','sachions'],
+      ['vouloir','veuille','voulions']
+      ]},
+    {t:'h', x:'The triggers that force it'},
+    {t:'rows', items:[
+      ['Il faut que je parte.','eel foh kuh zhuh PART','I have to leave. (necessity)'],
+      ['Je veux que tu viennes.','zhuh vuh kuh tew VYEN','I want you to come. (will)'],
+      ['Je suis content que tu sois là.','kuh tew swah LAH','I am glad you are here. (emotion)'],
+      ['Il est important que nous soyons à l\'heure.','kuh noo swah-YOHN','It is important that we are on time.'],
+      ['Je ne pense pas qu\'il ait raison.','kee-LAY ray-ZOHN','I do not think he is right. (doubt/negation)'],
+      ['Bien qu\'il pleuve, je sors.','byan keel PLUV','Although it is raining, I am going out.']
+    ]},
+    {t:'note', x:'The high-value shortcut for exams: master <b>il faut que</b> + subjunctive. <i>Il faut que je travaille, il faut qu\'on parte, il faut que vous soyez prêts.</i> One structure, enormous mileage.'},
+    {t:'warn', x:'<b>Espérer</b> does <u>not</u> take the subjunctive (<i>J\'espère qu\'il vient</i>), but <b>souhaiter</b> does (<i>Je souhaite qu\'il vienne</i>). And after <i>penser</i> the subjunctive only appears in the negative or question form.'},
+    {t:'fill', items:[
+      {s:'Il faut que tu ___ tes devoirs. (faire)', a:['fasses'], en:'You have to do your homework.', why:'faire → que tu fasses'},
+      {s:'Je veux que vous ___ à l\'heure. (être)', a:['soyez'], en:'I want you to be on time.', why:'être → que vous soyez'}
+    ]}
+  ]},
+  { title:'4.4 · Relative pronouns: qui, que, où, dont', blocks:[
+    {t:'p', x:'These join two sentences into one — the single fastest way to sound less like a beginner.'},
+    {t:'table', head:['Pronoun','Replaces','Test','Example'],
+      rows:[
+      ['<b>qui</b>','the subject','followed by a verb','L\'homme <b>qui</b> parle est mon voisin.'],
+      ['<b>que</b>','the object','followed by a subject','Le film <b>que</b> j\'ai vu était bon.'],
+      ['<b>où</b>','a place or a time','where / when','La ville <b>où</b> j\'habite est petite.'],
+      ['<b>dont</b>','replaces "de + something"','of/about which, whose','Le livre <b>dont</b> je parle est ici.']
+      ]},
+    {t:'rows', items:[
+      ['C\'est la personne qui m\'a aidé.','kee mah eh-DAY','That is the person who helped me.'],
+      ['Voici le livre que j\'ai acheté.','kuh zhay ash-TAY','Here is the book that I bought.'],
+      ['Le jour où je suis arrivé, il neigeait.','luh zhoor OO','The day I arrived, it was snowing.'],
+      ['C\'est un ami dont je suis très proche.','dohn zhuh swee','He is a friend I am very close to.']
+    ]},
+    {t:'ex', x:'The <b>qui vs que</b> test that always works: look at the next word. If a <b>verb</b> follows, use <i>qui</i>. If a <b>subject</b> (je, tu, il, a noun) follows, use <i>que</i>. <i>Le train <b>qui</b> arrive</i> vs <i>Le train <b>que</b> je prends</i>.'},
+    {t:'fill', items:[
+      {s:'C\'est la femme ___ travaille ici.', a:['qui'], en:'She is the woman who works here.', why:'A verb follows → qui.'},
+      {s:'Voilà le film ___ nous avons regardé.', a:['que','qu\''], en:'That is the film we watched.', why:'A subject (nous) follows → que.'}
+    ]}
+  ]},
+  { title:'4.5 · Plus-que-parfait and the gerund', blocks:[
+    {t:'h', x:'Plus-que-parfait — the past before the past'},
+    {t:'p', x:'Built like the passé composé, but the helper goes into the <b>imparfait</b>: <i>j\'avais mangé</i> (I had eaten), <i>elle était partie</i> (she had left).'},
+    {t:'rows', items:[
+      ['J\'avais déjà mangé quand il est arrivé.','zhah-veh day-zhah mahn-ZHAY','I had already eaten when he arrived.'],
+      ['Elle était partie avant la fin.','ell ay-teh par-TEE','She had left before the end.'],
+      ['Nous n\'avions jamais vu ça.','noo nah-vyohn zhah-meh VEW','We had never seen that.']
+    ]},
+    {t:'h', x:'Gérondif — "while doing / by doing"'},
+    {t:'p', x:'Take the <b>nous</b> present form, drop -ons, add <b>-ant</b>, and put <b>en</b> in front: nous parlons → <b>en parlant</b>.'},
+    {t:'rows', items:[
+      ['J\'écoute la radio en conduisant.','ahn kohn-dwee-ZAHN','I listen to the radio while driving.'],
+      ['En travaillant, on apprend.','ahn trah-vah-YAHN','By working, one learns.'],
+      ['Il est tombé en descendant l\'escalier.','ahn day-sahn-DAHN','He fell while going down the stairs.']
+    ]},
+    {t:'note', x:'Three irregular présent participles: <b>être → étant</b>, <b>avoir → ayant</b>, <b>savoir → sachant</b>.'}
+  ]},
+  { title:'4.6 · Giving an opinion (exam gold)', blocks:[
+    {t:'p', x:'For any speaking or writing task, you need three things: a way to state a view, a way to justify it, and a way to concede the other side. Here they are.'},
+    {t:'h', x:'Stating a view'},
+    {t:'rows', items:[
+      ['À mon avis, …','ah mohn nah-VEE','In my opinion, …'],
+      ['Je pense que / Je trouve que …','zhuh pahnss kuh','I think that / I find that …'],
+      ['Selon moi, …','suh-lohn MWAH','According to me, …'],
+      ['Il me semble que …','eel muh sahmbl kuh','It seems to me that …'],
+      ['Je suis convaincu(e) que …','kohn-van-KEW','I am convinced that …']
+    ]},
+    {t:'h', x:'Structuring and justifying'},
+    {t:'rows', items:[
+      ['D\'abord, … ensuite, … enfin, …','dah-BOR / ahn-SWEET / ahn-FAN','First, … then, … finally, …'],
+      ['parce que / car','parss kuh / kar','because'],
+      ['c\'est pourquoi','seh poor-KWAH','that is why'],
+      ['par exemple','par eg-ZAHMPL','for example'],
+      ['de plus / en outre','duh PLEW','moreover'],
+      ['En conclusion, …','ahn kohn-klew-ZYOHN','In conclusion, …']
+    ]},
+    {t:'h', x:'Conceding and contrasting'},
+    {t:'rows', items:[
+      ['cependant / pourtant','suh-pahn-DAHN / poor-TAHN','however'],
+      ['par contre / en revanche','par KOHNTR','on the other hand'],
+      ['bien que + subjonctif','byan kuh','although'],
+      ['malgré + nom','mal-GRAY','despite'],
+      ['il est vrai que…, mais…','eel eh VRAY kuh','it is true that…, but…']
+    ]},
+    {t:'ex', x:'<b>A ready-made paragraph skeleton:</b> <i>À mon avis, … D\'abord, … Par exemple, … Cependant, il est vrai que … En conclusion, je pense que …</i> Fill the gaps with any topic and you have a structured B1 answer in sixty seconds.'},
+    {t:'mcq', items:[
+      {q:'Which follows "bien que"?', opts:['the indicative','the subjunctive','the infinitive'], a:1, why:'bien que always takes the subjunctive: bien qu\'il soit tard.'},
+      {q:'Which is wrong?', opts:['Si j\'avais le temps, je viendrais.','Si j\'aurais le temps, je viendrais.'], a:1, why:'Never a conditional after si.'}
+    ]}
+  ]}
+  ]
+});
+
+BOOK.push({
+  id:'p5', part:'Part 5 — Readings',
+  sub:'Original graded texts written for this book. Read, tap any paragraph to hear it, check the glossary, then answer the questions.',
+  chapters:[
+  { title:'5.1 · Niveau A1 — Ma journée', blocks:[
+    {t:'read', paras:[
+      'Je m\'appelle Rajveer. J\'habite à Toronto, au Canada. Je suis indien et je travaille dans l\'informatique.',
+      'Le matin, je me lève à six heures et demie. Je prends un café et je regarde les nouvelles. Ensuite, je prends le bus pour aller au bureau.',
+      'À midi, je mange avec mes collègues. J\'aime beaucoup le riz et les légumes. Le soir, je rentre à la maison vers six heures. J\'étudie le français pendant une heure, puis je me couche.'
+    ]},
+    {t:'h', x:'Glossaire'},
+    {t:'rows', items:[
+      ['l\'informatique','lan-for-mah-TEEK','IT / computing'],
+      ['se lever','suh luh-VAY','to get up'],
+      ['les nouvelles','lay noo-VELL','the news'],
+      ['ensuite','ahn-SWEET','then, next'],
+      ['un collègue','uhn koh-LEG','a colleague'],
+      ['rentrer','rahn-TRAY','to go back home'],
+      ['vers six heures','vehr see ZUR','around six o\'clock'],
+      ['pendant une heure','pahn-dahn ewn UR','for an hour']
+    ]},
+    {t:'h', x:'Compréhension'},
+    {t:'mcq', items:[
+      {q:'Rajveer se lève à quelle heure ?', opts:['À six heures','À six heures et demie','À sept heures'], a:1, why:'"Je me lève à six heures et demie" — half past six.'},
+      {q:'Comment va-t-il au bureau ?', opts:['En voiture','À pied','En bus'], a:2, why:'"je prends le bus pour aller au bureau".'},
+      {q:'Que fait-il le soir ?', opts:['Il étudie le français','Il regarde un film','Il travaille'], a:0, why:'"J\'étudie le français pendant une heure".'}
+    ]},
+    {t:'ex', x:'<b>Your turn:</b> rewrite this paragraph with your real routine. Keep the same skeleton — <i>Le matin, je… Ensuite, je… À midi, je… Le soir, je…</i> — and swap in your own times and activities. That is a complete A1 speaking answer.'}
+  ]},
+  { title:'5.2 · Niveau A2 — Un nouvel appartement', blocks:[
+    {t:'read', paras:[
+      'Le mois dernier, nous avons déménagé. Notre ancien appartement était trop petit et il n\'y avait pas d\'ascenseur.',
+      'Le nouveau logement se trouve au troisième étage d\'un immeuble moderne. Il y a deux chambres, un grand salon et une cuisine équipée. Le loyer est un peu plus cher, mais les charges sont comprises.',
+      'Ce que j\'aime le plus, c\'est le balcon. Le matin, j\'y prends mon café et je regarde le parc en face. Les voisins sont sympas : la femme qui habite au rez-de-chaussée nous a apporté un gâteau le premier jour.'
+    ]},
+    {t:'h', x:'Glossaire'},
+    {t:'rows', items:[
+      ['déménager','day-may-nah-ZHAY','to move house'],
+      ['ancien / ancienne','ahn-SYAN','former, old'],
+      ['se trouver','suh troo-VAY','to be located'],
+      ['une cuisine équipée','ewn kwee-zeen ay-kee-PAY','a fitted kitchen'],
+      ['le loyer','luh lwah-YAY','the rent'],
+      ['les charges comprises','lay sharzh kohm-PREEZ','utilities included'],
+      ['apporter','ah-por-TAY','to bring'],
+      ['en face','ahn FASS','opposite, across the way']
+    ]},
+    {t:'h', x:'Compréhension'},
+    {t:'mcq', items:[
+      {q:'Pourquoi ont-ils déménagé ?', opts:['L\'appartement était trop cher','L\'appartement était trop petit','Les voisins étaient bruyants'], a:1, why:'"trop petit et il n\'y avait pas d\'ascenseur".'},
+      {q:'Le nouveau logement est à quel étage ?', opts:['Au rez-de-chaussée','Au deuxième','Au troisième'], a:2, why:'"au troisième étage d\'un immeuble moderne".'},
+      {q:'Qu\'est-ce qu\'il préfère ?', opts:['La cuisine','Le balcon','Les chambres'], a:1, why:'"Ce que j\'aime le plus, c\'est le balcon."'}
+    ]},
+    {t:'note', x:'Grammar spotting: find one <b>passé composé</b> (nous avons déménagé), one <b>imparfait</b> (était / il n\'y avait pas), one <b>qui</b> clause (la femme qui habite…) and one <b>y</b> (j\'y prends mon café). Everything in Part 3 is in this short text.'}
+  ]},
+  { title:'5.3 · Niveau B1 — Le télétravail', blocks:[
+    {t:'read', paras:[
+      'Depuis quelques années, le télétravail a changé notre façon de vivre. Beaucoup d\'employés travaillent maintenant chez eux, au moins deux ou trois jours par semaine.',
+      'Les avantages sont évidents : on perd moins de temps dans les transports, on organise sa journée plus librement et on économise de l\'argent. Certains disent même qu\'ils sont plus productifs à la maison, parce qu\'il y a moins d\'interruptions.',
+      'Cependant, il y a aussi des inconvénients. Bien que la technologie facilite la communication, il est plus difficile de créer des liens avec ses collègues. Si je devais choisir, je préférerais un système hybride : quelques jours au bureau pour les réunions, et le reste à la maison pour le travail qui demande de la concentration.'
+    ]},
+    {t:'h', x:'Glossaire'},
+    {t:'rows', items:[
+      ['le télétravail','luh tay-lay-trah-VYE','remote work'],
+      ['une façon de vivre','ewn fah-sohn duh VEEVR','a way of living'],
+      ['un avantage / un inconvénient','ah-vahn-TAZH / an-kohn-vay-NYAN','an advantage / a drawback'],
+      ['économiser','ay-koh-noh-mee-ZAY','to save (money)'],
+      ['productif / productive','proh-dewk-TEEF','productive'],
+      ['créer des liens','kray-ay day LYAN','to build connections'],
+      ['une réunion','ewn ray-ew-NYOHN','a meeting'],
+      ['exiger / demander','eg-zee-ZHAY','to require']
+    ]},
+    {t:'h', x:'Compréhension'},
+    {t:'mcq', items:[
+      {q:'Selon le texte, quel est un avantage du télétravail ?', opts:['On rencontre plus de collègues','On perd moins de temps en transport','On travaille plus d\'heures'], a:1, why:'"on perd moins de temps dans les transports".'},
+      {q:'Quel inconvénient est mentionné ?', opts:['La technologie ne marche pas','Il est difficile de créer des liens','Le salaire est plus bas'], a:1, why:'"il est plus difficile de créer des liens avec ses collègues".'},
+      {q:'Que préférerait l\'auteur ?', opts:['Tout au bureau','Tout à la maison','Un système hybride'], a:2, why:'"je préférerais un système hybride".'}
+    ]},
+    {t:'ex', x:'<b>Structures to steal for your own writing:</b> <i>Les avantages sont évidents : …</i> · <i>Cependant, il y a aussi des inconvénients.</i> · <i>Bien que + subjonctif…</i> · <i>Si je devais choisir, je préférerais…</i> Four sentences that fit almost any TEF opinion question.'},
+    {t:'fill', items:[
+      {s:'Bien que la technologie ___ la communication, c\'est difficile. (faciliter, subjonctif)', a:['facilite'], en:'Although technology makes communication easier…', why:'bien que + subjonctif.'},
+      {s:'Si je ___ choisir, je préférerais rester. (devoir, imparfait)', a:['devais'], en:'If I had to choose…', why:'si + imparfait → conditionnel.'}
+    ]}
+  ]}
+  ]
+});
+
+BOOK.push({
+  id:'p6', part:'Part 6 — Reference',
+  sub:'The look-it-up section: verb tables, vocabulary by theme, expressions, traps, and exam strategy.',
+  chapters:[
+  { title:'6.1 · Verb tables — the essential twelve', blocks:[
+    {t:'p', x:'Each row gives the four forms you need most: present (je), passé composé (j\'ai/je suis…), imparfait (je), future stem. Build the conditional from the future stem + imparfait endings.'},
+    {t:'table', head:['Verb','Present (je)','Passé composé','Imparfait','Future stem'],
+      rows:[
+      ['<b>être</b> — to be','suis','ai été','étais','ser-'],
+      ['<b>avoir</b> — to have','ai','ai eu','avais','aur-'],
+      ['<b>aller</b> — to go','vais','suis allé(e)','allais','ir-'],
+      ['<b>faire</b> — to do','fais','ai fait','faisais','fer-'],
+      ['<b>venir</b> — to come','viens','suis venu(e)','venais','viendr-'],
+      ['<b>prendre</b> — to take','prends','ai pris','prenais','prendr-'],
+      ['<b>pouvoir</b> — can','peux','ai pu','pouvais','pourr-'],
+      ['<b>vouloir</b> — to want','veux','ai voulu','voulais','voudr-'],
+      ['<b>devoir</b> — must','dois','ai dû','devais','devr-'],
+      ['<b>savoir</b> — to know','sais','ai su','savais','saur-'],
+      ['<b>voir</b> — to see','vois','ai vu','voyais','verr-'],
+      ['<b>dire</b> — to say','dis','ai dit','disais','dir-']
+      ]},
+    {t:'h', x:'One verb through every tense (parler)'},
+    {t:'rows', items:[
+      ['je parle','zhuh PARL','I speak (présent)'],
+      ['j\'ai parlé','zhay par-LAY','I spoke (passé composé)'],
+      ['je parlais','zhuh par-LEH','I was speaking / used to speak (imparfait)'],
+      ['j\'avais parlé','zhah-veh par-LAY','I had spoken (plus-que-parfait)'],
+      ['je parlerai','zhuh parl-RAY','I will speak (futur)'],
+      ['je parlerais','zhuh parl-REH','I would speak (conditionnel)'],
+      ['que je parle','kuh zhuh PARL','that I speak (subjonctif)'],
+      ['parle ! / parlez !','PARL / par-LAY','speak! (impératif)']
+    ]}
+  ]},
+  { title:'6.2 · Vocabulary by theme', blocks:[
+    {t:'h', x:'Family and people'},
+    {t:'grid', items:[['la famille','lah fah-MEE'],['le père','luh PEHR'],['la mère','lah MEHR'],['le frère','luh FREHR'],['la sœur','lah SUR'],['le fils','luh FEESS'],['la fille','lah FEEY'],['les parents','lay pah-RAHN'],['le mari','luh mah-REE'],['la femme','lah FAM'],['un enfant','uhn nahn-FAHN'],['un ami / une amie','uhn nah-MEE'],['un voisin','uhn vwah-ZAN'],['un collègue','uhn koh-LEG']]},
+    {t:'h', x:'Work and study'},
+    {t:'grid', items:[['le travail','luh trah-VYE'],['un emploi','uhn nahm-PLWAH'],['une entreprise','ewn ahn-truh-PREEZ'],['un bureau','uhn bew-ROH'],['une réunion','ewn ray-ew-NYOHN'],['un salaire','uhn sah-LEHR'],['un horaire','uhn oh-REHR'],['une formation','ewn for-mah-SYOHN'],['un stage','uhn STAZH'],['un entretien','uhn nahn-truh-TYAN'],['un CV','uhn say-VAY'],['postuler','poss-tew-LAY']]},
+    {t:'h', x:'The city and services'},
+    {t:'grid', items:[['la gare','lah GAR'],['la banque','lah BAHNK'],['la poste','lah POSST'],['la mairie','lah meh-REE'],['l\'hôpital','loh-pee-TAL'],['la pharmacie','lah far-mah-SEE'],['le magasin','luh mah-gah-ZAN'],['le marché','luh mar-SHAY'],['la bibliothèque','lah bee-blee-oh-TEK'],['l\'école','lay-KOLL'],['le quartier','luh kar-TYAY'],['la rue','lah REW']]},
+    {t:'h', x:'Health'},
+    {t:'grid', items:[['un médecin','uhn mayd-SAN'],['un rendez-vous','uhn rahn-day-VOO'],['j\'ai mal à la tête','zhay mal ah lah TET'],['j\'ai mal au ventre','oh VAHNTR'],['être malade','ETR mah-LAD'],['une ordonnance','ewn or-doh-NAHNSS'],['un médicament','uhn may-dee-kah-MAHN'],['la fièvre','lah FYEVR'],['se sentir bien','suh sahn-TEER byan'],['une urgence','ewn ewr-ZHAHNSS']]},
+    {t:'h', x:'Money'},
+    {t:'grid', items:[['l\'argent','lar-ZHAHN'],['payer','pay-YAY'],['coûter','koo-TAY'],['cher / bon marché','SHEHR / bohn mar-SHAY'],['une facture','ewn fak-TEWR'],['un compte','uhn KOHNT'],['une carte bancaire','ewn kart bahn-KEHR'],['en espèces','ahn ness-PESS'],['gratuit','grah-TWEE'],['une réduction','ewn ray-dewk-SYOHN']]},
+    {t:'h', x:'Feelings'},
+    {t:'grid', items:[['content(e)','kohn-TAHN'],['triste','TREEST'],['fatigué(e)','fah-tee-GAY'],['inquiet / inquiète','an-KYEH'],['en colère','ahn koh-LEHR'],['surpris(e)','sewr-PREE'],['fier / fière','FYEHR'],['déçu(e)','day-SEW'],['stressé(e)','streh-SAY'],['soulagé(e)','soo-lah-ZHAY']]}
+  ]},
+  { title:'6.3 · Expressions that make you sound French', blocks:[
+    {t:'rows', items:[
+      ['Ça marche !','sah MARSH','Works for me / OK!'],
+      ['C\'est pas grave.','seh pah GRAHV','No worries / it does not matter.'],
+      ['Bien sûr !','byan SEWR','Of course!'],
+      ['Peut-être.','puh-TETR','Maybe.'],
+      ['Je suis d\'accord.','zhuh swee dah-KOR','I agree.'],
+      ['Ça dépend.','sah day-PAHN','It depends.'],
+      ['Tant pis.','tahn PEE','Too bad / never mind.'],
+      ['Tant mieux.','tahn MYUH','All the better.'],
+      ['Ça vaut la peine.','sah voh lah PEN','It is worth it.'],
+      ['J\'en ai marre.','zhahn ay MAR','I am fed up.'],
+      ['N\'importe quoi !','nan-port KWAH','Nonsense!'],
+      ['Du coup…','dew KOO','So / as a result… (extremely common filler)'],
+      ['En fait…','ahn FET','Actually…'],
+      ['Quand même !','kahn MEM','Still! / Even so!'],
+      ['Bref.','BREF','Anyway / in short.']
+    ]},
+    {t:'note', x:'If you learn only three of these, make it <b>du coup</b>, <b>en fait</b> and <b>quand même</b>. French speakers use them constantly, and dropping one into a sentence does more for your fluency impression than a rare verb tense.'}
+  ]},
+  { title:'6.4 · False friends and classic traps', blocks:[
+    {t:'table', head:['French word','Actually means','NOT'],
+      rows:[
+      ['actuellement','currently, right now','actually (= en fait)'],
+      ['éventuellement','possibly','eventually (= finalement)'],
+      ['assister à','to attend','to assist (= aider)'],
+      ['attendre','to wait for','to attend'],
+      ['demander','to ask','to demand (= exiger)'],
+      ['sensible','sensitive','sensible (= raisonnable)'],
+      ['librairie','bookshop','library (= bibliothèque)'],
+      ['journée','the whole day','journey (= voyage)'],
+      ['monnaie','coins, change','money (= argent)'],
+      ['passer un examen','to sit an exam','to pass (= réussir un examen)'],
+      ['rester','to stay','to rest (= se reposer)'],
+      ['blesser','to injure','to bless (= bénir)']
+      ]},
+    {t:'h', x:'The five errors examiners see most'},
+    {t:'table', head:['Wrong','Right','Why'],
+      rows:[
+      ['Je suis 25 ans','J\'ai 25 ans','Age uses avoir.'],
+      ['Je suis un professeur','Je suis professeur','No article with jobs after être.'],
+      ['Si j\'aurais le temps','Si j\'avais le temps','Never a conditional after si.'],
+      ['Je vais à le magasin','Je vais au magasin','à + le = au.'],
+      ['J\'ai allé','Je suis allé','Movement verbs take être in the passé composé.']
+      ]},
+    {t:'mcq', items:[
+      {q:'"Actuellement" means…', opts:['actually','currently','eventually'], a:1, why:'actuellement = currently. "Actually" is en fait.'},
+      {q:'Which sentence is correct?', opts:['J\'ai allé au marché.','Je suis allé au marché.'], a:1, why:'aller takes être in the passé composé.'}
+    ]}
+  ]},
+  { title:'6.5 · Study plan and exam strategy (TEF / CLB 7)', blocks:[
+    {t:'p', x:'The TEF Canada tests four skills separately: <b>compréhension orale</b> (listening), <b>compréhension écrite</b> (reading), <b>expression orale</b> (speaking), <b>expression écrite</b> (writing). CLB 7 corresponds roughly to a solid B2 in listening/reading and a strong B1+ in speaking/writing.'},
+    {t:'h', x:'A realistic weekly routine'},
+    {t:'table', head:['Focus','What to do','Time'],
+      rows:[
+      ['Listening','One audio track from this site, twice: first for the gist, then with the glossary','15 min/day'],
+      ['Speaking','Read one reading from Part 5 aloud, then retell it from memory','10 min/day'],
+      ['Grammar','One chapter from Parts 1–4, plus its exercises','20 min/day'],
+      ['Vocabulary','One theme list from 6.2 — say each word aloud, then write 3 sentences','10 min/day'],
+      ['Review','Re-do the exercises you got wrong last week','1 session/week']
+      ]},
+    {t:'h', x:'Speaking-test tactics'},
+    {t:'rows', items:[
+      ['Je voudrais savoir…','zhuh voo-dreh sah-VWAHR','I would like to know… (Section A: asking questions)'],
+      ['Pourriez-vous me dire… ?','poo-ree-ay voo muh DEER','Could you tell me…?'],
+      ['À mon avis, c\'est une bonne idée parce que…','ah mohn nah-VEE','In my opinion it is a good idea because… (Section B: persuading)'],
+      ['Je comprends votre point de vue, mais…','zhuh kohm-PRAHN','I understand your point of view, but…'],
+      ['Qu\'est-ce que vous en pensez ?','kess-kuh voo-zahn pahn-SAY','What do you think about it?']
+    ]},
+    {t:'note', x:'Exam reality: fluency and structure score higher than rare vocabulary. A candidate who says <i>À mon avis… d\'abord… cependant… en conclusion</i> with simple verbs beats one who hunts for a fancy word and stalls. Build the skeleton first, decorate later.'},
+    {t:'warn', x:'On test day, never leave a silence to "find the perfect word". Say <i>c\'est-à-dire…</i>, <i>en fait…</i>, or <i>comment dire…</i> and keep going. Hesitation phrases are natural French; silence is scored as a breakdown.'},
+    {t:'ex', x:'<b>Final advice from the whole book:</b> your biggest gains, in order — (1) the difference between <i>le</i> and <i>les</i> by ear, (2) passé composé vs imparfait, (3) pronouns before the verb, (4) <i>si</i> clauses, (5) opinion connectors. Everything else is decoration on top of these five.'}
+  ]}
+  ]
+});
+
+/* ===== RENDER MARKER — new parts get pushed above this line ===== */
+
+/* ============ renderer ============ */
+const tabsEl = document.getElementById('parttabs');
+const bookEl = document.getElementById('book');
+
+function renderBook(){
+  tabsEl.innerHTML=''; bookEl.innerHTML='';
+  BOOK.forEach((part, idx)=>{
+    const btn=document.createElement('button');
+    btn.textContent=part.part.replace(' — ',' · ');
+    btn.dataset.target=part.id;
+    if(idx===0) btn.classList.add('on');
+    btn.onclick=()=>{
+      [...tabsEl.children].forEach(b=>b.classList.remove('on'));
+      btn.classList.add('on');
+      [...bookEl.children].forEach(sec=>sec.classList.toggle('hidden', sec.id!==part.id));
+      window.scrollTo({top:0,behavior:'smooth'});
+    };
+    tabsEl.appendChild(btn);
+
+    const sec=document.createElement('section'); sec.id=part.id;
+    if(idx!==0) sec.classList.add('hidden');
+    const head=document.createElement('div'); head.className='parthead';
+    const h2=document.createElement('h2'); h2.textContent=part.part;
+    const p=document.createElement('p'); p.textContent=part.sub||'';
+    head.appendChild(h2); head.appendChild(p); sec.appendChild(head);
+
+    const toc=document.createElement('div'); toc.className='tocbox';
+    toc.innerHTML='<b>In this part:</b>';
+    part.chapters.forEach((ch,ci)=>{
+      const a=document.createElement('a'); a.href='#'; a.textContent=ch.title;
+      a.onclick=(e)=>{ e.preventDefault();
+        const d=sec.querySelectorAll('details.chap')[ci];
+        d.open=true; d.scrollIntoView({behavior:'smooth',block:'start'});
+      };
+      toc.appendChild(a);
+    });
+    sec.appendChild(toc);
+
+    part.chapters.forEach(ch=>{
+      const d=document.createElement('details'); d.className='chap';
+      const s=document.createElement('summary'); s.textContent=ch.title;
+      const body=document.createElement('div'); body.className='chapbody';
+      ch.blocks.forEach(b=>body.appendChild(renderBlock(b)));
+      d.appendChild(s); d.appendChild(body);
+      sec.appendChild(d);
+    });
+    bookEl.appendChild(sec);
+  });
+}
+renderBook();
+
+/* ============ search ============ */
+document.getElementById('search').addEventListener('input', e=>{
+  const q=e.target.value.toLowerCase().trim();
+  const sections=[...bookEl.children];
+  if(!q){
+    sections.forEach((sec,i)=>{
+      sec.classList.toggle('hidden', !tabsEl.children[i].classList.contains('on'));
+      sec.querySelectorAll('details.chap').forEach(d=>{ d.classList.remove('hidden'); d.open=false; });
+      sec.querySelectorAll('.row,.cell').forEach(r=>r.classList.remove('hidden'));
+      const toc=sec.querySelector('.tocbox'); if(toc) toc.classList.remove('hidden');
+    });
+    return;
+  }
+  sections.forEach(sec=>{
+    sec.classList.remove('hidden');
+    const toc=sec.querySelector('.tocbox'); if(toc) toc.classList.add('hidden');
+    let anyChap=false;
+    sec.querySelectorAll('details.chap').forEach(d=>{
+      let hits=0;
+      d.querySelectorAll('.row,.cell').forEach(r=>{
+        const match=r.textContent.toLowerCase().includes(q);
+        r.classList.toggle('hidden', !match);
+        if(match) hits++;
+      });
+      const titleMatch=d.querySelector('summary').textContent.toLowerCase().includes(q);
+      const show=hits>0||titleMatch;
+      d.classList.toggle('hidden', !show);
+      d.open=show;
+      if(show) anyChap=true;
+    });
+    sec.classList.toggle('hidden', !anyChap);
+  });
+});
+
+/* ============ speed ============ */
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+<script src="french_glossary.js"></script>
+</body>
+</html>

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 22 — Réagissez ! (le bruit et les voisins)</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  audio { width:100%; margin:10px 0; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .postit { background:#fdf6b2; border:1px solid #e8dc80; border-radius:4px; padding:22px 20px; margin:14px auto; max-width:340px;
+            font-family:'Segoe Script','Bradley Hand',cursive; font-size:22px; line-height:1.6; color:#3a3320; text-align:center;
+            box-shadow:0 4px 12px rgba(0,0,0,.12); transform:rotate(-1.5deg); cursor:pointer; position:relative; }
+  .postit:before { content:"📌"; position:absolute; top:-12px; left:50%; transform:translateX(-50%); font-size:22px; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+  .scenewrap { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px; margin:12px 0; }
+  .scenehint { font-size:12.5px; color:var(--muted); text-align:center; margin-top:6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 22: Réagissez !</h1>
+  <p class="sub">The Language SKOOL · Saison 1, pages 48–49 · Unité 2 — noise, neighbours and apologising</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Cours21_Notes.html">Cours 21</a>
+    <a href="French_Cours22_Notes.html" class="active">Cours 22</a>
+    <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
+    <a href="French_Articles.html">Articles</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+
+const introP = document.createElement('p'); introP.className='lead';
+introP.textContent = "Page 48 opens with two documents: a photo of the morning after a party (Doc. 1) and an apology note left for the neighbours (Doc. 2). The topic is noise, neighbours, and how to say sorry — and how to complain.";
+content.appendChild(introP);
+
+/* ========== 1. Doc 1 — the scene ========== */
+const h1 = document.createElement('h2'); h1.textContent = "1 · Doc. 1 — après la fête (the morning after)"; content.appendChild(h1);
+const l1 = document.createElement('p'); l1.className='lead';
+l1.textContent = "The book's photo shows four friends flat on the floor among the party wreckage. Rather than copy the photo, here's the same scene drawn out — click any object to hear what it's called in French.";
+content.appendChild(l1);
+
+/* --- original SVG scene --- */
+const ITEMS = [
+  { fr:"un ballon", ph:"uhn bah-LOHN", en:"a balloon", x:120, y:70,
+    shape:'<circle cx="120" cy="70" r="26" fill="#f5c542" stroke="#d9a92c" stroke-width="2"/><path d="M120 96 q6 16 -4 30" stroke="#d9a92c" stroke-width="2" fill="none"/>' },
+  { fr:"un ballon rouge", ph:"uhn bah-LOHN ROOZH", en:"a red balloon", x:330, y:58,
+    shape:'<circle cx="330" cy="58" r="22" fill="#e05252" stroke="#b93b3b" stroke-width="2"/><path d="M330 80 q-7 14 2 26" stroke="#b93b3b" stroke-width="2" fill="none"/>' },
+  { fr:"une assiette", ph:"ewn ah-SYET", en:"a plate", x:225, y:80,
+    shape:'<circle cx="225" cy="80" r="25" fill="#ffffff" stroke="#c9c4b8" stroke-width="2"/><circle cx="225" cy="80" r="15" fill="none" stroke="#dcd8ce" stroke-width="2"/>' },
+  { fr:"un gobelet", ph:"uhn gob-LEH", en:"a cup", x:430, y:92,
+    shape:'<path d="M416 74 L444 74 L439 110 L421 110 Z" fill="#7fb2e5" stroke="#5590c4" stroke-width="2"/>' },
+  { fr:"une bouteille", ph:"ewn boo-TAY", en:"a bottle", x:520, y:82,
+    shape:'<path d="M514 58 h12 v14 l6 12 v26 h-24 v-26 l6 -12 z" fill="#8fce8f" stroke="#5fa35f" stroke-width="2"/>' },
+  { fr:"des confettis", ph:"day kohn-feh-TEE", en:"confetti", x:620, y:70,
+    shape:'<rect x="600" y="52" width="9" height="9" fill="#e05252" transform="rotate(20 604 56)"/><rect x="624" y="46" width="9" height="9" fill="#7fb2e5" transform="rotate(-25 628 50)"/><rect x="640" y="66" width="9" height="9" fill="#f5c542" transform="rotate(40 644 70)"/><rect x="606" y="76" width="9" height="9" fill="#8fce8f" transform="rotate(-10 610 80)"/><rect x="632" y="84" width="9" height="9" fill="#c58fe0" transform="rotate(30 636 88)"/>' },
+  { fr:"des serpentins", ph:"day sehr-pahn-TAN", en:"streamers", x:180, y:250,
+    shape:'<path d="M120 240 q22 -20 44 0 q22 20 44 0 q22 -20 44 0" stroke="#e07fb2" stroke-width="5" fill="none" stroke-linecap="round"/>' },
+  { fr:"une guirlande", ph:"ewn geer-LAHND", en:"a garland / streamer chain", x:460, y:250,
+    shape:'<path d="M390 244 q20 -18 40 0 q20 18 40 0 q20 -18 40 0" stroke="#6ec6c6" stroke-width="5" fill="none" stroke-linecap="round"/>' },
+  { fr:"par terre", ph:"par TEHR", en:"on the floor / on the ground", x:640, y:250,
+    shape:'<path d="M580 268 h130" stroke="#b9b3a6" stroke-width="4" stroke-linecap="round"/><path d="M596 254 h98" stroke="#cdc7ba" stroke-width="3" stroke-linecap="round"/>' }
+];
+
+/* four friends lying down, drawn simply */
+function person(x, colour){
+  return '<g>'
+    + '<circle cx="'+x+'" cy="150" r="17" fill="#2f2b38"/>'
+    + '<rect x="'+(x-16)+'" y="167" width="32" height="48" rx="12" fill="'+colour+'"/>'
+    + '<rect x="'+(x-14)+'" y="213" width="28" height="42" rx="10" fill="#4a5a78"/>'
+    + '<rect x="'+(x-22)+'" y="172" width="10" height="34" rx="5" fill="'+colour+'" transform="rotate(-18 '+(x-17)+' 189)"/>'
+    + '<rect x="'+(x+12)+'" y="172" width="10" height="34" rx="5" fill="'+colour+'" transform="rotate(18 '+(x+17)+' 189)"/>'
+    + '</g>';
+}
+
+let scene = '<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">';
+scene += '<rect x="0" y="0" width="760" height="300" rx="12" fill="#dedad2"/>';
+scene += person(200,'#7fb2e5') + person(300,'#8fce8f') + person(400,'#e08a8a') + person(500,'#6fa8dc');
+ITEMS.forEach((it,i)=>{
+  scene += '<g class="sceneitem" data-i="'+i+'" style="cursor:pointer;">' + it.shape + '</g>';
+});
+scene += '</svg>';
+
+const sceneWrap = document.createElement('div'); sceneWrap.className='scenewrap';
+sceneWrap.innerHTML = scene;
+const sceneLabel = document.createElement('div'); sceneLabel.className='scenehint';
+sceneLabel.textContent = 'Click any object in the scene to hear its name.';
+sceneWrap.appendChild(sceneLabel);
+content.appendChild(sceneWrap);
+sceneWrap.querySelectorAll('.sceneitem').forEach(g=>{
+  const it = ITEMS[parseInt(g.getAttribute('data-i'),10)];
+  g.addEventListener('click', ()=>{
+    speak(it.fr);
+    sceneLabel.innerHTML = '<b style="color:var(--accent);">'+it.fr+'</b> · <i style="color:var(--green);">'+it.ph+'</i> · '+it.en;
+  });
+});
+
+const noteScene = document.createElement('div'); noteScene.className='note';
+noteScene.innerHTML = "Drawn for this page — the book's own photo stays in the book. What matters for the exercise is the vocabulary, and that's all below.";
+content.appendChild(noteScene);
+
+const h1b = document.createElement('h3'); h1b.className='sub2'; h1b.textContent = "Ce qu'on voit — what's in the picture"; content.appendChild(h1b);
+ITEMS.forEach(it=>{ content.appendChild(makeRow(it.fr, it.ph, it.en)); GLOBAL_VOCAB.push({fr:it.fr, en:it.en}); });
+
+const h1c = document.createElement('h3'); h1c.className='sub2'; h1c.textContent = "Décrire la scène — describing it out loud"; content.appendChild(h1c);
+const DECRIRE = [
+  ["Il y a des ballons par terre.","eel yah day bah-LOHN par TEHR","There are balloons on the floor."],
+  ["Les gens sont fatigués.","lay zhahn sohn fah-tee-GAY","The people are tired."],
+  ["C'est le matin après la fête.","seh luh mah-TAN ah-preh lah FET","It's the morning after the party."],
+  ["L'appartement est en désordre.","lah-par-tuh-MAHN eh tahn day-ZORDR","The flat is a mess."],
+  ["Ils ont fait la fête toute la nuit.","eel zohn feh lah FET toot lah NWEE","They partied all night."],
+  ["Il y a beaucoup de bruit.","eel yah boh-koo duh BRWEE","There's a lot of noise."]
+];
+DECRIRE.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr, en:en}); });
+
+const exFete = document.createElement('div'); exFete.className='example';
+exFete.innerHTML = "<b>faire la fête</b> (fair lah FET) = to party. Not <i>faire une fête</i> when you mean the activity — <i>on a fait la fête</i> is \"we partied\". <i>Faire une fête</i> is closer to \"throw a party\" as an event.";
+content.appendChild(exFete);
+
+/* ========== 2. Doc 2 — the note ========== */
+const h2 = document.createElement('h2'); h2.textContent = "2 · Doc. 2 — le mot d'excuse (the apology note)"; content.appendChild(h2);
+const l2 = document.createElement('p'); l2.className='lead';
+l2.textContent = "A note left for the neighbours the next morning. Click it to hear it.";
+content.appendChild(l2);
+
+const postit = document.createElement('div'); postit.className='postit';
+postit.textContent = "Je suis désolé pour le bruit hier soir.";
+postit.onclick = ()=>speak("Je suis désolé pour le bruit hier soir.");
+content.appendChild(postit);
+
+content.appendChild(makeRow("Je suis désolé pour le bruit hier soir.","zhuh swee day-zoh-LAY poor luh brwee ee-YEHR SWAHR","I'm sorry about the noise last night."));
+GLOBAL_VOCAB.push({fr:"Je suis désolé pour le bruit hier soir.", en:"I'm sorry about the noise last night."});
+
+const h2b = document.createElement('h3'); h2b.className='sub2'; h2b.textContent = "Word by word"; content.appendChild(h2b);
+const MOT = [
+  ["je suis désolé / désolée","zhuh swee day-zoh-LAY","I am sorry (add -e if you're female — sounds the same)"],
+  ["pour","poor","for / about"],
+  ["le bruit","luh BRWEE","the noise"],
+  ["hier","ee-YEHR","yesterday"],
+  ["hier soir","ee-YEHR SWAHR","last night / yesterday evening"],
+  ["ce matin","suh mah-TAN","this morning"],
+  ["un mot","uhn MOH","a note (also: a word)"],
+  ["s'excuser","sex-kew-ZAY","to apologise"]
+];
+MOT.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr, en:en}); });
+
+const noteDesole = document.createElement('div'); noteDesole.className='note';
+noteDesole.innerHTML = "<b>désolé</b> agrees like an adjective: a man writes <i>désolé</i>, a woman writes <i>désolée</i>. The extra -e is silent, so this only matters in writing — but it matters in an exam.";
+content.appendChild(noteDesole);
+
+const warnHier = document.createElement('div'); warnHier.className='warn';
+warnHier.innerHTML = "<b>hier soir</b> = last night (the evening just gone). Don't say <i>la nuit dernière</i> for a party — that means the night-time hours, and sounds odd here. For evenings and social events, French uses <b>soir</b>.";
+content.appendChild(warnHier);
+
+/* ========== 3. Apologising ========== */
+const h3 = document.createElement('h2'); h3.textContent = "3 · S'excuser — how to apologise"; content.appendChild(h3);
+const l3 = document.createElement('p'); l3.className='lead'; l3.textContent = "From the mildest to the most formal."; content.appendChild(l3);
+const EXCUSES = [
+  ["Pardon.","par-DOHN","Sorry. (quick, in passing)"],
+  ["Excusez-moi.","ex-kew-zay MWAH","Excuse me. (formal)"],
+  ["Excuse-moi.","ex-kewz MWAH","Sorry. (to a friend)"],
+  ["Je suis désolé(e).","zhuh swee day-zoh-LAY","I'm sorry."],
+  ["Je suis vraiment désolé(e).","zhuh swee vray-MAHN day-zoh-LAY","I'm really sorry."],
+  ["Je m'excuse pour le bruit.","zhuh mex-KEWZ poor luh BRWEE","I apologise for the noise."],
+  ["Ce n'était pas volontaire.","suh nay-teh pah voh-lohn-TEHR","It wasn't on purpose."],
+  ["Ça ne se reproduira plus.","sah nuh suh ruh-proh-dwee-RAH PLEW","It won't happen again."],
+  ["Toutes mes excuses.","toot may-zex-KEWZ","My apologies. (formal, written)"]
+];
+EXCUSES.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr, en:en}); });
+
+const h3b = document.createElement('h3'); h3b.className='sub2'; h3b.textContent = "Accepting an apology"; content.appendChild(h3b);
+const REPONSES = [
+  ["Ce n'est pas grave.","suh neh pah GRAHV","It's not a problem."],
+  ["C'est pas grave.","seh pah GRAHV","No worries. (spoken)"],
+  ["Ne vous inquiétez pas.","nuh voo-zan-kyay-TAY pah","Don't worry. (formal)"],
+  ["Il n'y a pas de mal.","eel nyah pah duh MAL","No harm done."],
+  ["Ça arrive.","sah ah-REEV","It happens."]
+];
+REPONSES.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr, en:en}); });
+
+/* ========== 4. Complaining ========== */
+const h4 = document.createElement('h2'); h4.textContent = "4 · Se plaindre — how to complain (politely)"; content.appendChild(h4);
+const l4 = document.createElement('p'); l4.className='lead';
+l4.textContent = "The other side of the conversation. French complaints stay indirect — notice how many of these are questions or conditionals rather than commands.";
+content.appendChild(l4);
+const PLAINTES = [
+  ["Il y a trop de bruit.","eel yah troh duh BRWEE","There's too much noise."],
+  ["Vous pourriez baisser la musique ?","voo poo-ree-AY beh-SAY lah mew-ZEEK","Could you turn the music down?"],
+  ["Je n'arrive pas à dormir.","zhuh nah-REEV pah ah dor-MEER","I can't get to sleep."],
+  ["C'est un peu fort.","seh tuhn puh FOR","It's a bit loud."],
+  ["Il est tard.","eel eh TAR","It's late."],
+  ["Ça me dérange.","sah muh day-RAHNZH","It bothers me."],
+  ["Est-ce que vous pouvez faire moins de bruit ?","ess-kuh voo poo-VAY fair mwan duh BRWEE","Could you make less noise?"]
+];
+PLAINTES.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr, en:en}); });
+
+const exPoli = document.createElement('div'); exPoli.className='example';
+exPoli.innerHTML = "<b>Vous pourriez… ?</b> is the key structure here — the conditional of <i>pouvoir</i>. <i>Vous pourriez baisser la musique ?</i> lands as a request; <i>Baissez la musique !</i> lands as an order. With a neighbour you have to live beside, use the first one.";
+content.appendChild(exPoli);
+
+/* ========== 5. Doc 3 / Piste 30 ========== */
+const h5 = document.createElement('h2'); h5.textContent = "5 · Doc. 3 — « C'est la fête » (Piste 30)"; content.appendChild(h5);
+const l5 = document.createElement('p'); l5.className='lead';
+l5.textContent = "Doc. 3 is an audio document titled « C'est la fête », and the exercise marks it as track 30 — confirmed from the page itself. Here it is.";
+content.appendChild(l5);
+content.appendChild(makeRow("C'est la fête !","seh lah FET","It's party time!"));
+GLOBAL_VOCAB.push({fr:"C'est la fête !", en:"It's party time!"});
+const audio30 = document.createElement('audio'); audio30.controls = true; audio30.preload = 'none';
+const src30 = document.createElement('source'); src30.src = '30piste30.mp3'; src30.type = 'audio/mpeg';
+audio30.appendChild(src30);
+content.appendChild(audio30);
+const note30 = document.createElement('div'); note30.className='note';
+note30.innerHTML = "⚠ No verified transcript for this track yet — I can't listen to audio. Send me one (or tell me what's in it) and I'll add the full summary and glossary the way Cours 18 has for Piste 26.";
+content.appendChild(note30);
+
+/* Exercise 1 — the book's own questions */
+const h5b = document.createElement('h3'); h5b.className='sub2'; h5b.textContent = "Exercice 1 — Regardez, lisez et écoutez les documents"; content.appendChild(h5b);
+const l5b = document.createElement('p'); l5b.className='lead';
+l5b.textContent = "Five comprehension questions covering all three documents together. Answers that need the audio are marked — fill those in as the class goes over them.";
+content.appendChild(l5b);
+
+const EX1Q = [
+  { q:"a. C'est qui ?", en:"Who is it?",
+    a:"Deux amis qui parlent d'une fête. L'un connaît Marc et Chloé ; Chloé est la copine de Marc.", known:true,
+    aph:"duh zah-MEE kee parl dewn FET", aen:"Two friends talking about a party. One of them knows Marc and Chloé — Chloé is Marc's girlfriend." },
+  { q:"b. C'est où ?", en:"Where is it?",
+    a:"Chez eux, dans un appartement — the photo shows the floor of a flat the morning after a party.", known:true,
+    aph:"shay UH, dahn zuhn ah-par-tuh-MAHN", aen:"At their place, in a flat." },
+  { q:"c. C'est quoi « le petit mot » ?", en:"What is 'the little note'?",
+    a:"C'est le mot d'excuse de Doc. 2 — « Je suis désolé pour le bruit hier soir. »", known:true,
+    aph:"seh luh moh dex-KEWZ", aen:"It's the apology note in Doc. 2 — the one about the noise." },
+  { q:"d. Qu'est-ce qu'ils vont faire pour l'anniversaire de Chloé ?", en:"What are they going to do for Chloé's birthday?",
+    a:"Manger, danser et chanter — une fête à la maison, entre copains.", known:true,
+    aph:"mahn-ZHAY, dahn-SAY ay shahn-TAY", aen:"Eat, dance and sing — a party at home with friends." },
+  { q:"e. Que reproche la fille au garçon ?", en:"What does the girl reproach the boy for?",
+    a:"Son indifférence envers les voisins : il dit « tant pis » pour le bruit, et elle répond que ce n'est pas bien de dire ça.", known:true,
+    aph:"sohn an-dee-fay-RAHNSS ahn-vehr lay vwah-ZAN", aen:"His indifference towards the neighbours: he shrugs off the noise with \"tant pis\", and she tells him that's not a nice thing to say." }
+];
+EX1Q.forEach(item=>{
+  const qa=document.createElement('div'); qa.className='qa';
+  qa.innerHTML='<div class="q"></div><div class="qen"></div>';
+  qa.querySelector('.q').textContent=item.q;
+  qa.querySelector('.qen').textContent=item.en;
+  qa.querySelector('.q').onclick=()=>speak(item.q.replace(/^[a-e]\.\s*/,''));
+  content.appendChild(qa);
+  if(item.known){ content.appendChild(makeRow(item.a, item.aph||'', item.aen||'')); }
+  else {
+    const p=document.createElement('div'); p.className='pending'; p.textContent=item.a;
+    content.appendChild(p);
+  }
+  GLOBAL_VOCAB.push({fr:item.q.replace(/^[a-e]\.\s*/,''), en:item.en});
+});
+
+const noteChloe = document.createElement('div'); noteChloe.className='example';
+noteChloe.innerHTML = "Question d mentions <b>Chloé</b> — the same name as the new neighbour in Cours 18 (Piste 26). Unité 2 runs a continuing cast, so it's likely the same character. Worth confirming in class, but the thread is: Chloé moves in, and now there's a birthday being planned.";
+content.appendChild(noteChloe);
+
+const noteQuestions = document.createElement('div'); noteQuestions.className='note';
+noteQuestions.innerHTML = "Three of these are the everyday spoken question forms: <b>C'est qui ?</b> (who is it), <b>C'est où ?</b> (where is it), <b>C'est quoi… ?</b> (what is…). In writing you'd use <i>Qui est-ce ?</i>, <i>Où est-ce ?</i>, <i>Qu'est-ce que c'est ?</i> — but nobody says those casually. Learn both registers.";
+content.appendChild(noteQuestions);
+
+/* Communication box */
+const h5c = document.createElement('h3'); h5c.className='sub2'; h5c.textContent = "Encadré Communication — Reprocher"; content.appendChild(h5c);
+const l5c = document.createElement('p'); l5c.className='lead';
+l5c.textContent = "The book's phrase box for blaming someone — the flip side of apologising.";
+content.appendChild(l5c);
+const REPROCHER = [
+  ["Ce n'est pas bien de dire ça.","suh neh pah byan duh deer SAH","It's not right to say that."],
+  ["Ce n'est pas gentil de dire ça.","suh neh pah zhahn-TEE duh deer SAH","That's not a nice thing to say."],
+  ["C'est (de) ta faute.","seh (duh) tah FOHT","It's your fault."],
+  ["C'est mal.","seh MAL","That's bad / that's wrong."]
+];
+REPROCHER.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr, en:en}); });
+const noteRepr = document.createElement('div'); noteRepr.className='note';
+noteRepr.innerHTML = "<b>reprocher</b> (ruh-proh-SHAY) = to reproach, to blame. Structure: <i>reprocher quelque chose <b>à</b> quelqu'un</i> — you reproach something <u>to</u> someone. That's why question e reads <i>Que reproche la fille <b>au</b> garçon ?</i> (à + le = au).";
+content.appendChild(noteRepr);
+const noteFaute = document.createElement('div'); noteFaute.className='example';
+noteFaute.innerHTML = "<b>une faute</b> = a fault or a mistake. <i>C'est ta faute</i> = it's your fault. You'll also meet <i>faire une faute</i> = to make a mistake (in spelling, grammar). Both senses, one word.";
+content.appendChild(noteFaute);
+
+/* Exercise 2 */
+const h5d = document.createElement('h3'); h5d.className='sub2'; h5d.textContent = "Exercice 2 — Reprochez, excusez-vous"; content.appendChild(h5d);
+const l5d = document.createElement('p'); l5d.className='lead';
+l5d.textContent = "A speaking task: you're given a situation, one of you reproaches, the other apologises. The first prompt is about a flatmate who never closes the fridge door.";
+content.appendChild(l5d);
+const EX2SET = [
+  ["Votre colocataire ne ferme jamais la porte du réfrigérateur.","voh-truh koh-loh-kah-TEHR nuh fehrm zhah-meh lah port dew ray-free-zhay-rah-TUR","Your flatmate never closes the fridge door."],
+  ["un colocataire / une colocataire","uhn koh-loh-kah-TEHR","a flatmate / roommate"],
+  ["le réfrigérateur (le frigo)","luh ray-free-zhay-rah-TUR (luh free-GOH)","the fridge (everyday: le frigo)"],
+  ["fermer / ne… jamais","fehr-MAY / nuh… zhah-MEH","to close / never"]
+];
+EX2SET.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr, en:en}); });
+const modelEx2 = document.createElement('div'); modelEx2.className='example';
+modelEx2.innerHTML = "<b>Model exchange you can reuse:</b><br>A : <i>Tu ne fermes jamais la porte du frigo ! Ce n'est pas gentil, c'est de ta faute si tout est chaud.</i><br>B : <i>Oh, je suis vraiment désolé. Ce n'était pas volontaire — ça ne se reproduira plus.</i><br>Swap the situation, keep the shape: reproach → apologise → promise.";
+content.appendChild(modelEx2);
+const pendingEx2 = document.createElement('div'); pendingEx2.className='pending';
+pendingEx2.textContent = "The remaining Exercice 2 situations haven't scrolled into view yet — will add them as they appear.";
+content.appendChild(pendingEx2);
+content.appendChild(makeRow("Ce soir, on fait une petite fête avec les copains.","suh swahr, ohn feh ewn puh-teet fet ah-vek lay koh-PAN","Tonight we're having a little get-together with friends."));
+GLOBAL_VOCAB.push({fr:"Ce soir, on fait une petite fête avec les copains.", en:"Tonight we're having a little get-together with friends."});
+
+/* ========== 6. Practice ========== */
+const h6 = document.createElement('h2'); h6.textContent = "6 · Practice"; content.appendChild(h6);
+const PRACTICE = [
+  { s:"Je suis ___ pour le bruit. (sorry)", a:["désolé","desole","désolée","desolee"], en:"I'm sorry about the noise.", why:"désolé (m.) / désolée (f.) — the -e is silent." },
+  { s:"Il y a trop de ___. (noise)", a:["bruit"], en:"There's too much noise.", why:"le bruit — noise." },
+  { s:"Vous ___ baisser la musique ? (could — pouvoir, conditional)", a:["pourriez"], en:"Could you turn the music down?", why:"vous pourriez — the polite conditional." },
+  { s:"Ce n'est pas ___. (it's not serious)", a:["grave"], en:"It's not a problem.", why:"Ce n'est pas grave — the standard reply to an apology." },
+  { s:"On a fait la fête ___ soir. (last night)", a:["hier"], en:"We partied last night.", why:"hier soir = last night." }
+];
+PRACTICE.forEach(item=>{
+  const d=document.createElement('div'); d.className='fillrow';
+  const s=document.createElement('div'); s.className='sent';
+  s.innerHTML='<span></span><div class="en"></div>';
+  s.querySelector('span').textContent=item.s;
+  s.querySelector('.en').textContent=item.en;
+  const inp=document.createElement('input'); inp.placeholder='your answer';
+  const b=document.createElement('button'); b.textContent='Check';
+  const fb=document.createElement('div'); fb.className='fb';
+  function check(){
+    const val=inp.value.toLowerCase().trim();
+    if(!val){ fb.textContent='Type something first.'; fb.className='fb'; return; }
+    if(item.a.some(a=>a.toLowerCase()===val)){
+      fb.textContent='✓ Correct — '+item.a[0]+' · '+item.why; fb.className='fb ok';
+      speak(item.s.replace('___', item.a[0]).replace(/\(.*?\)/g,''));
+    } else { fb.textContent='✗ Answer: '+item.a[0]+' · '+item.why; fb.className='fb bad'; }
+  }
+  b.onclick=check; inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+  d.appendChild(s); d.appendChild(inp); d.appendChild(b); d.appendChild(fb);
+  content.appendChild(d);
+});
+
+const roleplay = document.createElement('div'); roleplay.className='example';
+roleplay.innerHTML = "<b>Jeu de rôle :</b> your neighbour knocks at 8am. A complains about last night's noise, B apologises and promises it won't happen again. Two lines each — use <i>Il y a trop de bruit</i>, <i>Je n'arrive pas à dormir</i>, <i>Je suis vraiment désolé</i>, <i>Ça ne se reproduira plus</i>.";
+content.appendChild(roleplay);
+
+const pendingEx = document.createElement('div'); pendingEx.className='pending';
+pendingEx.textContent = "The book's own exercise questions for these two documents haven't scrolled into view yet — they'll be added here with worked answers as soon as they appear.";
+content.appendChild(pendingEx);
+
+/* ========== 7. Quiz ========== */
+const h7 = document.createElement('h2'); h7.textContent = "7 · Quick quiz"; content.appendChild(h7);
+const quizBox = document.createElement('div'); quizBox.className='quizbox';
+quizBox.innerHTML = '<p class="lead" style="margin:0 0 8px;">Multiple-choice, mixing today\'s vocab.</p>';
+const quizBtn = document.createElement('button'); quizBtn.className='quizbtn'; quizBtn.textContent='▶ Start quiz';
+const quizArea = document.createElement('div'); quizArea.className='quizarea';
+quizBox.appendChild(quizBtn); quizBox.appendChild(quizArea);
+content.appendChild(quizBox);
+
+function shuffleArr(a){ const b=[...a]; for(let i=b.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [b[i],b[j]]=[b[j],b[i]]; } return b; }
+function runQuiz(pool, area, btn){
+  btn.style.display='none';
+  const qs = shuffleArr(pool).slice(0, Math.min(8, pool.length));
+  let i = 0, score = 0;
+  function showQ(){
+    area.innerHTML = '';
+    if (i >= qs.length) {
+      const res = document.createElement('div'); res.className='quizresult';
+      res.textContent = 'Score: '+score+' / '+qs.length;
+      const retry = document.createElement('button'); retry.className='quizretry'; retry.textContent='↻ Retry';
+      retry.onclick = ()=>{ btn.style.display='inline-block'; area.innerHTML=''; };
+      area.appendChild(res); area.appendChild(retry);
+      return;
+    }
+    const item = qs[i];
+    const wrongPool = pool.filter(p=>p.en!==item.en);
+    const opts = shuffleArr([item, ...shuffleArr(wrongPool).slice(0,3)]);
+    const prog = document.createElement('div'); prog.className='quizprog'; prog.textContent = 'Question '+(i+1)+' / '+qs.length;
+    const fr = document.createElement('div'); fr.className='quizfr'; fr.textContent = item.fr;
+    area.appendChild(prog); area.appendChild(fr);
+    opts.forEach(o=>{
+      const b = document.createElement('button'); b.className='quizopt'; b.textContent = o.en;
+      b.onclick = ()=>{
+        [...area.querySelectorAll('.quizopt')].forEach(x=>x.disabled=true);
+        if (o.en===item.en){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); [...area.querySelectorAll('.quizopt')].find(x=>x.textContent===item.en).classList.add('correct'); }
+        setTimeout(()=>{ i++; showQ(); }, 900);
+      };
+      area.appendChild(b);
+    });
+  }
+  showQ();
+}
+quizBtn.onclick = ()=> runQuiz(GLOBAL_VOCAB, quizArea, quizBtn);
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+<script src="french_glossary.js"></script>
+</body>
+</html>

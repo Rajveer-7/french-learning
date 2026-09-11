@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French — Audio Library (all 85 tracks)</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.55; }
+  .wrap { max-width:900px; margin:0 auto; padding:20px 16px 100px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav.site { display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap; }
+  nav.site a { text-decoration:none; font-size:13px; padding:7px 12px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav.site a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .controls { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin:14px 0 6px; padding:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; }
+  .controls label { font-size:13px; color:var(--muted); }
+  select, .controls input { border:1px solid var(--line); border-radius:8px; padding:7px 10px; font-size:14px; background:#fff; color:var(--ink); }
+  .controls input { flex:1 1 180px; min-width:150px; }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 12px; font-size:12.5px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  .stats { font-size:12.5px; color:var(--muted); margin:8px 2px 14px; }
+  .tgrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(112px,1fr)); gap:8px; margin-bottom:18px; }
+  .tbtn { border:1px solid var(--line); background:var(--card); border-radius:10px; padding:9px 8px; font-size:13px; cursor:pointer; text-align:left; color:var(--ink); }
+  .tbtn:hover { border-color:var(--accent); }
+  .tbtn.on { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .tbtn .u { display:block; font-size:11px; color:var(--muted); }
+  .tbtn.on .u { color:#dcd9f7; }
+  .tbtn .dot { display:inline-block; width:7px; height:7px; border-radius:50%; margin-right:5px; background:#d9cfa8; }
+  .tbtn .dot.done { background:var(--green); }
+  .panel { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 18px; }
+  .panel h2 { font-size:20px; margin:0 0 2px; }
+  .panel .meta { font-size:13px; color:var(--muted); margin-bottom:10px; }
+  audio { width:100%; margin:10px 0 14px; }
+  h3.sub2 { font-size:15px; margin:20px 0 8px; color:var(--accent); border-bottom:1px solid var(--line); padding-bottom:5px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--bg); border:1px solid var(--line); border-radius:12px; padding:9px 12px; margin:7px 0; }
+  .play { flex:0 0 auto; width:38px; height:38px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:15px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:16.5px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .qa { background:var(--bg); border:1px solid var(--line); border-radius:12px; padding:11px 13px; margin:8px 0; }
+  .qa .q { font-weight:600; font-size:14.5px; }
+  .qa .qen { font-size:12.5px; color:var(--muted); margin-bottom:6px; }
+  .badge { display:inline-block; border-radius:999px; padding:2px 10px; font-size:12px; margin-left:8px; }
+  .badge.done { background:#eefaf3; color:#155c37; border:1px solid #bfe6cf; }
+  .badge.todo { background:#fff8e6; color:#6b5a1e; border:1px solid #f0e0a8; }
+  .cta { background:var(--accentbg); border:1px solid #cdc7f5; border-radius:12px; padding:14px 16px; font-size:14px; color:#33308a; margin:14px 0; }
+  .cta b { color:var(--accent); }
+  a.crosslink { color:var(--accent); font-weight:600; text-decoration:none; }
+  a.crosslink:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Audio Library</h1>
+  <p class="sub">All 85 Saison 1 tracks in one place · pick a unit, pick a track · summaries, word-by-word glossaries, questions and grammar as they get documented</p>
+
+  <nav class="site">
+    <a href="index.html">Home</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
+    <a href="French_Audio_Library.html" class="active">Audio Library</a>
+    <a href="French_Book_Audio.html">Book Audio (list)</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+  </nav>
+
+  <div class="controls">
+    <label for="unitSel">Unit:</label>
+    <select id="unitSel"></select>
+    <label for="statusSel">Show:</label>
+    <select id="statusSel">
+      <option value="all">All tracks</option>
+      <option value="done">Documented only</option>
+      <option value="todo">Awaiting transcript</option>
+    </select>
+    <input id="search" placeholder="Search tracks…">
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+  </div>
+  <div class="stats" id="stats"></div>
+
+  <div class="tgrid" id="tgrid"></div>
+  <div class="panel" id="panel"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function speak(t){
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(String(t).replace(/\s+([!?])/g,'$1'));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate;
+  speechSynthesis.speak(u);
+}
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='\u25B6';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const TRACKS = [
+  {"n": 1, "unit": "Unité 0", "file": "01piste01.mp3", "desc": "Unité 0 — Activité 2a: three greeting dialogues at different formality levels (casual friend, formal \"vous\", formal group)", "cue": "Salut ! Ça va ? — Ça va bien, merci. Et toi ?", "ph": "sah-LEW ! sah VAH ? — sah vah byan, mehr-SEE. ay TWAH ?", "en": "Hi! How's it going? — Going well, thanks. And you?", "cours": null, "done": false},
+  {"n": 2, "unit": "Unité 0", "file": "02piste02.mp3", "desc": "Unité 0 — Activité 2b: four short goodbye/leave-taking exchanges (hotel, family, casual)", "cue": "Bonne journée ! — Merci, à vous aussi.", "ph": "bun zhoor-NAY ! — mehr-SEE, ah voo oh-SEE", "en": "Have a good day! — Thanks, you too.", "cours": null, "done": false},
+  {"n": 3, "unit": "Unité 0", "file": "03piste03.mp3", "desc": "Unité 0 — Activité 3: alphabet/spelling drill — letters are read aloud and spell out a hidden word", "cue": "S — A — L — U — T. Ça fait quel mot ?", "ph": "ess — ah — el — ew — tay. sah feh kel MOH ?", "en": "S — A — L — U — T. What word does that spell?", "cours": null, "done": false},
+  {"n": 4, "unit": "Unité 0", "file": "04piste04.mp3", "desc": "Unité 0 — À l'écoute, Activité 1: four everyday sounds to identify (keys in a lock, car horn, footsteps, crowd noise) — no dialogue", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 5, "unit": "Unité 0", "file": "05piste05.mp3", "desc": "Unité 0 — Activité 2: seven more everyday sounds to identify (phone ringing, a splash, knocking, a door closing, an alarm, a horn, a tired sigh) — no dialogue", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 6, "unit": "Unité 1", "file": "06piste06.mp3", "desc": "p.20 — \"Tendez l'oreille\" (a): écoutez et retrouvez la nationalité de chaque personne", "cue": "Elle est italienne, il est japonais.", "ph": "ell eh ee-tal-YEN, eel eh zha-poh-NEH", "en": "She is Italian, he is Japanese.", "cours": "French_Cours2_Notes.html", "done": false},
+  {"n": 7, "unit": "Unité 1", "file": "07piste07.mp3", "desc": "p.20 — \"Tendez l'oreille\" (b): féminin ou masculin — écoutez et complétez le tableau", "cue": "français / française — masculin ou féminin ?", "ph": "frahn-SEH / frahn-SEZ", "en": "French (m.) / French (f.) — masculine or feminine?", "cours": "French_Cours2_Notes.html", "done": false},
+  {"n": 8, "unit": "Unité 1", "file": "08piste08.mp3", "desc": "p.20–21 — \"Tendez l'oreille\" (c)/(d): question ou affirmation, and syllable count", "cue": "Tu es canadien ?", "ph": "tü eh kah-nah-dyEN", "en": "Are you Canadian? — question or statement?", "cours": "French_Cours2_Notes.html", "done": false},
+  {"n": 9, "unit": "Unité 1", "file": "09piste09.mp3", "desc": "\"1, 2, 3 Couleurs\" — Activité 2: five flags described purely by their colours, to identify", "cue": "Mon drapeau préféré est vert, blanc et rouge.", "ph": "mohn drah-poh pray-fay-RAY eh vehr, blahn ay ROOZH", "en": "My favourite flag is green, white and red.", "cours": null, "done": false},
+  {"n": 10, "unit": "Unité 1", "file": "10piste10.mp3", "desc": "\"C'est combien ?\" — Activité 3: three short shopping scenes (a market stall, a bakery, a museum ticket booth) practicing quantities and prices", "cue": "Je voudrais trois pommes et une baguette, s'il vous plaît. — Ça fait combien ?", "ph": "zhuh voo-DREH twah pom ay ewn bah-GET, seel voo PLEH — sah feh kohm-BYAN", "en": "I'd like three apples and a baguette, please. — How much does that come to?", "cours": null, "done": false},
+  {"n": 11, "unit": "Unité 1", "file": "11piste11.mp3", "desc": "\"Drôle de sensations\" — Activité 1: three short reactions to a sensory experience (touch, general enthusiasm, smell)", "cue": "Mmm, comme c'est bon !", "ph": "mmm, kum say BOHN", "en": "Mmm, that's so good!", "cours": null, "done": false},
+  {"n": 12, "unit": "Unité 1", "file": "12piste12.mp3", "desc": "p.22 — \"La France en fête\": écoutez et retrouvez les rendez-vous festifs de l'année", "cue": "En juillet, c'est la fête nationale.", "ph": "ahn zhwee-YEH, seh lah fet nah-syoh-NAL", "en": "In July, it's the national holiday.", "cours": null, "done": false},
+  {"n": 13, "unit": "Unité 1", "file": "13piste13.mp3", "desc": "p.23 — \"J'ai rendez-vous !\" — Activité 3: two people are described (name, age, nationality, where they live/study) and the class has to figure out who's who", "cue": "Lui, c'est Karim. Il a vingt-deux ans. Il est étudiant à Lyon.", "ph": "lwee, say kah-REEM. eel ah vahn-duh AHN. eel eh tay-tew-DYAHN ah lee-OHN", "en": "Him, that's Karim. He's twenty-two. He's a student in Lyon.", "cours": null, "done": false},
+  {"n": 14, "unit": "Unité 1", "file": "14piste14.mp3", "desc": "\"Personnalités francophones\" — listening ex.2–3: Roger Federer, Philippe Geluck, Julie Payette, Amadou et Mariam — order of presentation and matching nationality + profession", "cue": "Il est suisse, il joue au tennis.", "ph": "eel eh sü-EES, eel zhoo oh teh-NEES", "en": "He is Swiss, he plays tennis.", "cours": null, "done": false},
+  {"n": 15, "unit": "Unité 1", "file": "15piste15.mp3", "desc": "\"Personnalités francophones\" — \"Tendez l'oreille\" (ex.4): identifying which sound each word ends in", "cue": "-eur, -euse, -ien, -ienne — écoutez la fin du mot.", "ph": "ur / uz / yEN / yen", "en": "-eur, -euse, -ien, -ienne — listen to the end of the word.", "cours": null, "done": false},
+  {"n": 16, "unit": "Unité 1", "file": "16piste16.mp3", "desc": "\"C'est qui ?\" — Activité 8: a \"guess who\" conversation about two celebrities — a nationality is guessed wrong at first, then corrected", "cue": "C'est qui ? — C'est une chanteuse. Elle est très célèbre.", "ph": "say KEE ? — say tewn shahn-TUHZ. ell eh tray say-LEBR", "en": "Who's that? — She's a singer. She's very famous.", "cours": null, "done": false},
+  {"n": 17, "unit": "Unité 1", "file": "17piste17.mp3", "desc": "\"Qu'est-ce que vous avez dans votre sac ?\" — ex.4–6: reordering the travel documents, completing the fiche (nom/prénom/âge/nationalité/destination), and listening for what's in the woman's bag", "cue": "Quel est votre nom ? Quelle est votre nationalité ?", "ph": "kel eh votr NOHM ? kel eh votr nah-syoh-nah-lee-TAY ?", "en": "What is your name? What is your nationality?", "cours": null, "done": false},
+  {"n": 18, "unit": "Unité 1", "file": "18piste18.mp3", "desc": "\"Tendez l'oreille\" — distinguishing the nasal sound [ɛ̃] (un) from the oral sound [yn] (une)", "cue": "un — une : écoutez la différence.", "ph": "AN — ÜN", "en": "un — une: listen to the difference.", "cours": null, "done": false},
+  {"n": 19, "unit": "Unité 1", "file": "19piste19.mp3", "desc": "\"Observez ces phrases\" — tonic pronoun examples (moi, toi, lui...); listen and underline the stressed word in each sentence", "cue": "Moi, je suis fatigué. Et toi ?", "ph": "mwah, zhuh swee fah-tee-GAY. ay TWAH ?", "en": "Me, I'm tired. What about you?", "cours": null, "done": false},
+  {"n": 20, "unit": "Unité 1", "file": "20piste20.mp3", "desc": "Phonétique — masculine/feminine nationality-adjective pairs: listening for which final consonant becomes audible in the feminine form", "cue": "Il est grand. Elle est grande.", "ph": "eel eh GRAHN. ell eh GRAHND", "en": "He is tall. She is tall.", "cours": null, "done": false},
+  {"n": 21, "unit": "Unité 1", "file": "21piste21.mp3", "desc": "Point Étape — Phonétique: un / une — hearing the difference between the nasal and oral vowel sound", "cue": "un ami — une amie", "ph": "un-ah-MEE — ün-ah-MEE", "en": "a (male) friend — a (female) friend", "cours": null, "done": false},
+  {"n": 22, "unit": "Unité 2", "file": "22piste22.mp3", "desc": "\"Demander poliment\" — Atelier d'expression orale: two short scenes about asking politely — a child mixing up \"the magic word\", and a comic exchange between two adults. See Cours 11 for the full write-up.", "cue": "", "ph": "", "en": "", "cours": "French_Cours11_Notes.html", "done": true},
+  {"n": 23, "unit": "Unité 2", "file": "23piste23.mp3", "desc": "Unité 2 — \"Chacun chez soi\": a radio-style segment introducing how French people typically live (renting vs owning, apartments, houses, and more unusual homes like houseboats or treehouses) — not yet covered in class", "cue": "Beaucoup de Français rêvent d'acheter une maison avec un jardin.", "ph": "boh-koo duh frahn-SEH rev dah-shuh-TAY ewn meh-ZOHN ah-vek uhn zhar-DAN", "en": "Many French people dream of buying a house with a garden.", "cours": "French_Cours13_Notes.html", "done": true},
+  {"n": 24, "unit": "Unité 2", "file": "24piste24.mp3", "desc": "Unité 2 — le/les listening drill: not yet matched to a confirmed page (a screenshot of p.46 showed the \"Le - les\" box is actually Piste 28, not this one) — still to be identified", "cue": "Le logement — les logements.", "ph": "luh lohzh-MAHN — lay lohzh-MAHN", "en": "The home (sing.) — the homes (pl.).", "cours": null, "done": false},
+  {"n": 25, "unit": "Unité 2", "file": "25piste25.mp3", "desc": "Unité 2 — a phone call asking about renting an apartment (rent price, kitchen appliances, arranging a viewing, leaving contact details) — not yet covered in class", "cue": "Le loyer est de combien, s'il vous plaît ?", "ph": "luh lwah-YAY eh duh kohm-BYAN, seel voo PLEH", "en": "How much is the rent, please?", "cours": null, "done": false},
+  {"n": 26, "unit": "Unité 2", "file": "26piste26.mp3", "desc": "Unité 2 — \"Maud et ses nouveaux voisins\": a friend asks Maud about her new neighbours (Chloé, her sons Alex and Noé, and her husband Marc) — full summary, comprehension answers, and word-by-word glossary on the Cours 18 page", "cue": "Elle est grande et brune, et elle a un petit garçon.", "ph": "ell eh grahnd ay brewn, ay ell ah uhn puh-tee gar-SOHN", "en": "She's tall and dark-haired, and she has a little boy.", "cours": "French_Cours18_Notes.html", "done": true},
+  {"n": 27, "unit": "Unité 2", "file": "27piste27.mp3", "desc": "Unité 2 — liaison practice with the [z] sound before a vowel — not yet matched to a confirmed page (a screenshot of p.46 showed \"La liaison\" is actually Piste 29, not this one) — still to be identified", "cue": "des informations", "ph": "day-zan-for-mah-SYOHN", "en": "some information (liaison: \"day-zan\", not \"day an\")", "cours": null, "done": false},
+  {"n": 28, "unit": "Unité 2", "file": "28piste28.mp3", "desc": "p.46 — \"Le - les\" box (confirmed from a page screenshot, track number printed right on the page): mouth-shape diagram, le/les listening drill (voisin/locataire/propriétaire), and le/les pluralizing (logement/studio/salon/placard) — full breakdown on the Cours 17 page", "cue": "le salon — les salons", "ph": "luh sah-LOHN — lay sah-LOHN", "en": "the living room — the living rooms", "cours": "French_Cours17_Notes.html", "done": true},
+  {"n": 29, "unit": "Unité 2", "file": "29piste29.mp3", "desc": "p.46 — \"La liaison\" box (confirmed from a page screenshot, track number printed right on the page): the des/les + vowel liaison rule (les informations), liaison spotting (des appartements, les entrées...), and repeat-after-me sentences — full breakdown on the Cours 17 page", "cue": "Je visite des appartements modernes.", "ph": "zhuh vee-ZEET day-zah-par-tuh-mahn mo-DAIRN", "en": "I'm visiting some modern apartments.", "cours": "French_Cours17_Notes.html", "done": true},
+  {"n": 30, "unit": "Unité 2", "file": "30piste30.mp3", "desc": "p.48 — Doc. 3 « C'est la fête » (confirmed: exercise 1 is tagged track 30). The party-aftermath photo, the apology note, and Chloé's birthday. Full write-up on Cours 22", "cue": "Ce soir, on fait une petite fête avec les copains.", "ph": "suh swahr, ohn feh ewn puh-teet fet ah-vek lay koh-PAN", "en": "Tonight, we're having a little get-together with friends.", "cours": "French_Cours22_Notes.html", "done": true},
+  {"n": 31, "unit": "Unité 2", "file": "31piste31.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 32, "unit": "Unité 2", "file": "32piste32.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 33, "unit": "Unité 2", "file": "33piste33.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 34, "unit": "Unité 3", "file": "34piste34.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 35, "unit": "Unité 3", "file": "35piste35.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 36, "unit": "Unité 3", "file": "36piste36.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 37, "unit": "Unité 3", "file": "37piste37.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 38, "unit": "Unité 3", "file": "38piste38.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 39, "unit": "Unité 3", "file": "39piste39.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 40, "unit": "Unité 3", "file": "40piste40.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 41, "unit": "Unité 3", "file": "41piste41.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 42, "unit": "Unité 3", "file": "42piste42.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 43, "unit": "Unité 3", "file": "43piste43.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 44, "unit": "Unité 3", "file": "44piste44.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 45, "unit": "Unité 3", "file": "45piste45.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 46, "unit": "Unité 4", "file": "46piste46.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 47, "unit": "Unité 4", "file": "47piste47.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 48, "unit": "Unité 4", "file": "48piste48.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 49, "unit": "Unité 4", "file": "49piste49.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 50, "unit": "Unité 4", "file": "50piste50.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 51, "unit": "Unité 4", "file": "51piste51.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 52, "unit": "Unité 4", "file": "52piste52.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 53, "unit": "Unité 4", "file": "53piste53.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 54, "unit": "Unité 4", "file": "54piste54.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 55, "unit": "Unité 4", "file": "55piste55.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 56, "unit": "Unité 4", "file": "56piste56.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 57, "unit": "Unité 4", "file": "57piste57.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 58, "unit": "Unité 5", "file": "58piste58.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 59, "unit": "Unité 5", "file": "59piste59.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 60, "unit": "Unité 5", "file": "60piste60.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 61, "unit": "Unité 5", "file": "61piste61.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 62, "unit": "Unité 5", "file": "62piste62.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 63, "unit": "Unité 5", "file": "63piste63.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 64, "unit": "Unité 5", "file": "64piste64.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 65, "unit": "Unité 5", "file": "65piste65.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 66, "unit": "Unité 5", "file": "66piste66.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 67, "unit": "Unité 5", "file": "67piste67.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 68, "unit": "Unité 5", "file": "68piste68.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 69, "unit": "Unité 5", "file": "69piste69.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 70, "unit": "Unité 6", "file": "70piste70.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 71, "unit": "Unité 6", "file": "71piste71.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 72, "unit": "Unité 6", "file": "72piste72.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 73, "unit": "Unité 6", "file": "73piste73.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 74, "unit": "Unité 6", "file": "74piste74.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 75, "unit": "Unité 6", "file": "75piste75.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 76, "unit": "Unité 6", "file": "76piste76.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 77, "unit": "Unité 6", "file": "77piste77.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 78, "unit": "Unité 6", "file": "78piste78.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 79, "unit": "Unité 6", "file": "79piste79.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 80, "unit": "Unité 7+", "file": "80piste80.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 81, "unit": "Unité 7+", "file": "81piste81.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 82, "unit": "Unité 7+", "file": "82piste82.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 83, "unit": "Unité 7+", "file": "83piste83.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 84, "unit": "Unité 7+", "file": "84piste84.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false},
+  {"n": 85, "unit": "Unité 7+", "file": "85piste85.mp3", "desc": "Saison 1 audio CD — not yet matched to a page (identify by listening, or we'll tag it as we reach it in class)", "cue": "", "ph": "", "en": "", "cours": null, "done": false}
+];
+
+/* =========================================================================
+   CONTENT — full study material per track.
+   Add an entry here as each transcript comes in. Shape:
+     CONTENT[n] = {
+       summary: "what happens in the recording, in plain English",
+       gloss:    [ ["le mot","proh-nun-see-AY-shun","the meaning"], ... ],
+       questions:[ {q:"French question", en:"English", a:"French answer", aen:"English answer"} ],
+       grammar:  [ {h:"Point name", x:"explanation, can include <b>html</b>"} ],
+       practice: [ ["phrase to drill","pron","meaning"] ]
+     }
+   ========================================================================= */
+const CONTENT = {};
+
+/* ---------- Unité 0 ---------- */
+
+CONTENT[1] = {
+  summary: "Three greeting exchanges at three levels of formality. First two friends (Sophie and Philippe) greeting each other casually with « ça va ». Then a more polite exchange using « vous allez bien ». Finally someone addressing a whole room — « Mesdames, messieurs, bonsoir ». The point of the track is to hear formality rise across the three.",
+  gloss: [
+    ["Tiens, salut !","tyan, sah-LEW","Oh, hi! (tiens = surprise at seeing someone)"],
+    ["Ça va ?","sah VAH","How's it going?"],
+    ["Ça va, et toi ?","sah VAH, ay TWAH","I'm fine, and you?"],
+    ["Bien, merci.","byan, mehr-SEE","Fine, thanks."],
+    ["Vous allez bien ?","voo-zah-lay BYAN","Are you well? (formal)"],
+    ["Oui merci, et vous ?","wee mehr-SEE, ay VOO","Yes thanks, and you?"],
+    ["Très bien, merci.","treh byan, mehr-SEE","Very well, thank you."],
+    ["Mesdames, messieurs","may-DAM, may-SYUH","Ladies and gentlemen"],
+    ["Bonsoir !","bohn-SWAHR","Good evening!"]
+  ],
+  questions: [
+    {q:"Quel est le niveau de langue dans chaque dialogue ?", en:"What register is each dialogue in?",
+     a:"1. familier (tu, salut, ça va) · 2. poli (vous allez bien) · 3. formel, à un groupe (Mesdames, messieurs, bonsoir).",
+     aen:"1. casual · 2. polite · 3. formal, addressed to a group."}
+  ],
+  grammar: [
+    {h:"The formality ladder", x:"<b>Salut + ça va</b> → friends. <b>Bonjour + vous allez bien</b> → someone you don't know well. <b>Mesdames, messieurs + bonsoir</b> → an audience. Same function, three registers — choosing wrong is the most common social slip for learners."},
+    {h:"aller for health", x:"How you <i>are</i> uses <b>aller</b>, not être: <i>je vais bien</i>, <i>vous allez bien ?</i> Literally \"I go well\"."}
+  ],
+  practice: [
+    ["Salut ! Ça va ?","sah-LEW, sah VAH","Hi! How's it going?"],
+    ["Bonjour ! Vous allez bien ?","bohn-ZHOOR, voo-zah-lay BYAN","Hello! Are you well?"]
+  ]
+};
+
+CONTENT[2] = {
+  summary: "Four short leave-taking scenes: a shop or bakery (« bonne journée »), a hotel where a guest is handed the key to room 2, a parent saying goodnight to a child, and two friends parting casually. Each ends with a different goodbye formula — the track is teaching you which one fits which moment.",
+  gloss: [
+    ["Voilà, madame.","vwah-LAH, mah-DAM","Here you are, madam."],
+    ["Bonne journée !","bun zhoor-NAY","Have a good day!"],
+    ["Merci, à vous aussi.","mehr-SEE, ah voo oh-SEE","Thanks, you too."],
+    ["la chambre 2","lah SHAHM-bruh duh","room 2"],
+    ["Voici la clé !","vwah-SEE lah KLAY","Here's the key!"],
+    ["Bonne soirée.","bun swah-RAY","Have a good evening."],
+    ["À demain, chérie.","ah duh-MAN, shay-REE","See you tomorrow, darling."],
+    ["Dors bien !","dor BYAN","Sleep well!"],
+    ["Bonne nuit, papa.","bun nwee, pah-PAH","Goodnight, dad."],
+    ["Ouais, salut !","weh, sah-LEW","Yeah, bye!"]
+  ],
+  questions: [
+    {q:"Où se passe chaque scène ?", en:"Where does each scene take place?",
+     a:"1. dans un magasin · 2. à l'hôtel (la clé, la chambre) · 3. à la maison, le soir · 4. entre amis.",
+     aen:"1. in a shop · 2. at a hotel · 3. at home in the evening · 4. between friends."}
+  ],
+  grammar: [
+    {h:"journée vs soirée vs nuit", x:"<b>Bonne journée</b> = have a good day (said as someone leaves, daytime). <b>Bonne soirée</b> = have a good evening (leaving, evening). <b>Bonne nuit</b> = goodnight — <u>only</u> when someone is going to bed. Using <i>bonne nuit</i> to leave a party sounds like you're putting everyone to sleep."},
+    {h:"ouais", x:"<b>ouais</b> (weh) is the spoken form of <i>oui</i> — like \"yeah\". Fine with friends, wrong in an exam or with a stranger."}
+  ],
+  practice: [
+    ["Bonne journée ! — Merci, à vous aussi.","bun zhoor-NAY — mehr-SEE, ah voo oh-SEE","Have a good day! — Thanks, you too."],
+    ["Bonne nuit, dors bien.","bun nwee, dor BYAN","Goodnight, sleep well."]
+  ]
+};
+
+CONTENT[3] = {
+  summary: "A spelling exercise. Letters are read out one by one and you have to reassemble them into a word — the letters come scrambled, so you must hold the sounds in your head before writing. Pure alphabet training.",
+  gloss: [
+    ["Je vous écoute.","zhuh voo-zay-KOOT","I'm listening."],
+    ["épeler","ay-PLAY","to spell"],
+    ["Comment ça s'écrit ?","koh-MAHN sah say-KREE","How is that spelled?"],
+    ["une lettre","ewn LEH-truh","a letter"],
+    ["un mot","uhn MOH","a word"]
+  ],
+  questions: [
+    {q:"Qu'est-ce qu'il faut faire ?", en:"What do you have to do?",
+     a:"Écouter les lettres et retrouver le mot — les lettres sont dans le désordre.",
+     aen:"Listen to the letters and work out the word — they come out of order."}
+  ],
+  grammar: [
+    {h:"The letters that trip you up", x:"<b>G</b> (zhay) and <b>J</b> (zhee) are swapped relative to English. <b>E</b> is \"uh\", <b>I</b> is \"ee\", <b>Y</b> is <i>i grec</i>. And <b>W</b> is <i>double-vé</i>. Those five account for most spelling mistakes at A1."}
+  ],
+  practice: [
+    ["Ça s'écrit comment ?","sah say-KREE koh-MAHN","How do you spell it?"],
+    ["B-O-N-J-O-U-R","bay-oh-enn-zhee-oh-ew-air","B-O-N-J-O-U-R"]
+  ]
+};
+
+CONTENT[4] = {
+  summary: "Four everyday sounds to identify — no speech at all. You hear a saucepan, a car horn, a fountain and a railway station, and match each to a picture. It's an ear-opening exercise before any French is asked of you.",
+  gloss: [
+    ["un bruit","uhn BRWEE","a noise / a sound"],
+    ["une casserole","ewn kass-ROLL","a saucepan"],
+    ["un klaxon","uhn klak-SOHN","a car horn"],
+    ["une fontaine","ewn fohn-TEN","a fountain"],
+    ["une gare","ewn GAR","a railway station"],
+    ["Qu'est-ce que c'est ?","kess-kuh SEH","What is it?"]
+  ],
+  questions: [
+    {q:"Il y a combien de bruits ?", en:"How many sounds are there?",
+     a:"Quatre bruits : une casserole, un klaxon de voiture, une fontaine, une gare.",
+     aen:"Four: a saucepan, a car horn, a fountain, a station."}
+  ],
+  grammar: [
+    {h:"Why a listening course starts with noises", x:"Before you can pick words out of French speech you have to get used to listening without understanding. Sound-identification tracks train attention without vocabulary load — don't skip them thinking they're childish."}
+  ]
+};
+
+CONTENT[5] = {
+  summary: "Seven more everyday sounds: a doorbell, something falling into water, knocking, a door slamming, an alarm clock, a horn, and a person shivering. Same idea as Piste 4, extended.",
+  gloss: [
+    ["une sonnette","ewn soh-NET","a doorbell"],
+    ["tomber dans l'eau","tohm-BAY dahn LOH","to fall into the water"],
+    ["frapper à la porte","frah-PAY ah lah PORT","to knock at the door"],
+    ["une porte qui claque","ewn port kee KLAK","a door slamming"],
+    ["un réveil","uhn ray-VAY","an alarm clock"],
+    ["grelotter","gruh-loh-TAY","to shiver"],
+    ["quelqu'un","kel-KUHN","someone"]
+  ],
+  questions: [
+    {q:"Combien de bruits ?", en:"How many sounds?",
+     a:"Sept.", aph:"SET", aen:"Seven."}
+  ],
+  grammar: [
+    {h:"qui + verb to describe a noise", x:"<i>une porte <b>qui</b> claque</i>, <i>quelqu'un <b>qui</b> frappe</i> — French describes the sound by naming the thing plus a relative clause. That <b>qui</b> is the same one from Cours 23: it's followed by a verb."}
+  ]
+};
+
+CONTENT[6] = {
+  summary: "Six people introduce themselves and give their nationality: a Chinese man, a Danish woman, a Colombian man, an English man, an American woman and a Turkish woman. You listen and match each name to a nationality.",
+  gloss: [
+    ["Je m'appelle…","zhuh mah-PELL","My name is…"],
+    ["Moi, c'est Emma.","mwah, seh EM-mah","I'm Emma."],
+    ["chinois / chinoise","shee-NWAH / shee-NWAHZ","Chinese"],
+    ["danois / danoise","dah-NWAH / dah-NWAHZ","Danish"],
+    ["colombien / colombienne","koh-lohm-BYAN / koh-lohm-BYEN","Colombian"],
+    ["anglais / anglaise","ahn-GLEH / ahn-GLEZ","English"],
+    ["américain / américaine","ah-may-ree-KAN / ah-may-ree-KEN","American"],
+    ["turc / turque","tewrk","Turkish"]
+  ],
+  questions: [
+    {q:"Comment se présentent-ils ?", en:"How do they introduce themselves?",
+     a:"Avec « Je m'appelle… » ou « Moi, c'est… », puis « je suis + nationalité ».",
+     aen:"With \"Je m'appelle…\" or \"Moi, c'est…\", then \"je suis + nationality\"."}
+  ],
+  grammar: [
+    {h:"Moi, c'est…", x:"<b>Moi, c'est Emma</b> is the relaxed alternative to <i>je m'appelle</i>. Note it needs the <b>tonic</b> pronoun moi — never \"je, c'est\"."},
+    {h:"No article with nationality", x:"<i>Je suis chinois</i>, not \"je suis un chinois\". Same rule as jobs."},
+    {h:"Hearing masculine vs feminine", x:"<i>danois</i> (dah-NWAH) → <i>danoise</i> (dah-NWAHZ). The feminine -e wakes the final consonant. That single contrast is what the whole track is drilling."}
+  ]
+};
+
+CONTENT[7] = {
+  summary: "Six statements, each giving someone's nationality — American, Vietnamese, Swedish, French, Brazilian, Japanese. You listen and decide whether the person described is male or female, using only the sound of the adjective.",
+  gloss: [
+    ["Elle est américaine.","ell eh tah-may-ree-KEN","She is American."],
+    ["Il est vietnamien.","eel eh vyet-nah-MYAN","He is Vietnamese."],
+    ["suédois / suédoise","sway-DWAH / sway-DWAHZ","Swedish"],
+    ["français / française","frahn-SEH / frahn-SEZ","French"],
+    ["brésilien / brésilienne","bray-zee-LYAN / bray-zee-LYEN","Brazilian"],
+    ["japonais / japonaise","zhah-poh-NEH / zhah-poh-NEZ","Japanese"]
+  ],
+  questions: [
+    {q:"Masculin ou féminin — comment le savoir ?", en:"Masculine or feminine — how can you tell?",
+     a:"Par le son final : le féminin fait entendre une consonne (-se, -ne) que le masculin garde muette.",
+     aen:"By the final sound: the feminine makes a consonant audible that the masculine leaves silent."}
+  ],
+  grammar: [
+    {h:"The two big patterns", x:"<b>-ais/-ois → -aise/-oise</b> : the final s becomes a [z] — français/française, japonais/japonaise.<br><b>-ien → -ienne</b> : the nasal opens into a clear \"en\" + n — brésilien/brésilienne, vietnamien/vietnamienne."}
+  ]
+};
+
+CONTENT[8] = {
+  summary: "Short exchanges where you decide whether what you hear is a question or a statement — the words are the same, only the intonation changes. It also revisits masculine/feminine nationality pairs (étudiant/étudiante, américain/américaine, canadien, mexicain, espagnol).",
+  gloss: [
+    ["Tu es étudiant ?","tew ay zay-tew-DYAHN","Are you a student?"],
+    ["Oui, je suis étudiante.","wee, zhuh swee zay-tew-DYAHNT","Yes, I'm a student (f.)."],
+    ["Elle est américaine ?","ell eh tah-may-ree-KEN","Is she American?"],
+    ["canadien / canadienne","kah-nah-DYAN / kah-nah-DYEN","Canadian"],
+    ["mexicain / mexicaine","mex-ee-KAN / mex-ee-KEN","Mexican"],
+    ["espagnol / espagnole","es-pah-NYOL","Spanish"]
+  ],
+  questions: [
+    {q:"Question ou affirmation ?", en:"Question or statement?",
+     a:"Seule l'intonation change : la voix monte à la fin pour une question, elle descend pour une affirmation.",
+     aen:"Only the intonation changes: the voice rises at the end for a question, falls for a statement."}
+  ],
+  grammar: [
+    {h:"The cheapest question form in French", x:"You don't have to change a single word — just lift your voice. <i>Tu es étudiant.</i> → <i>Tu es étudiant ?</i> This is how most questions actually get asked in speech."},
+    {h:"espagnol is the odd one", x:"Unlike the others, <b>espagnol / espagnole</b> sounds identical in both genders — the l is already pronounced. Only the spelling differs."}
+  ]
+};
+
+CONTENT[9] = {
+  summary: "Five flags described only by their colours, for you to identify: black-yellow-red; blue-white-red; red with a green star; green-yellow-red; and red with a white cross. Colour vocabulary plus listening.",
+  gloss: [
+    ["un drapeau","uhn drah-POH","a flag"],
+    ["noir, jaune et rouge","nwahr, zhohn ay ROOZH","black, yellow and red"],
+    ["bleu, blanc, rouge","bluh, blahn, ROOZH","blue, white, red"],
+    ["une étoile verte","ewn ay-TWAHL VEHRT","a green star"],
+    ["une croix blanche","ewn krwah BLAHNSH","a white cross"],
+    ["vert, jaune et rouge","vehr, zhohn ay ROOZH","green, yellow and red"]
+  ],
+  questions: [
+    {q:"Quels drapeaux sont décrits ?", en:"Which flags are described?",
+     a:"Par les couleurs : Belgique (noir-jaune-rouge), France (bleu-blanc-rouge), Maroc (rouge à étoile verte), Sénégal/Mali (vert-jaune-rouge), Suisse (rouge à croix blanche).",
+     aen:"By colour: Belgium, France, Morocco, Senegal/Mali, Switzerland."}
+  ],
+  grammar: [
+    {h:"Colour agreement in action", x:"<i>une étoile <b>verte</b></i> and <i>une croix <b>blanche</b></i> — both nouns are feminine, so the colour takes the feminine form. <i>vert → verte</i>, and the irregular <i>blanc → blanche</i>."}
+  ]
+};
+
+CONTENT[10] = {
+  summary: "Three short shopping scenes: buying tomatoes, apricots and apples; buying a baguette; and buying a ticket for the Louvre at 12 euros. Numbers, quantities and prices in real transactions.",
+  gloss: [
+    ["Je voudrais…","zhuh voo-DREH","I would like…"],
+    ["six tomates","see toh-MAT","six tomatoes"],
+    ["quatre abricots","kat-ruh ah-bree-KOH","four apricots"],
+    ["deux pommes","duh PUM","two apples"],
+    ["une baguette","ewn bah-GET","a baguette"],
+    ["Ce sera tout ?","suh suh-rah TOO","Will that be all?"],
+    ["un ticket","uhn tee-KEH","a ticket"],
+    ["C'est combien ?","seh kohm-BYAN","How much is it?"],
+    ["douze euros","dooz uh-ROH","twelve euros"],
+    ["J'en prends deux.","zhahn prahn DUH","I'll take two (of them)."]
+  ],
+  questions: [
+    {q:"Comment demande-t-on poliment ?", en:"How do you ask politely?",
+     a:"Avec « Je voudrais… , s'il vous plaît » — jamais « je veux ».",
+     aen:"With \"Je voudrais…, s'il vous plaît\" — never \"je veux\"."},
+    {q:"Combien coûte le ticket ?", en:"How much is the ticket?",
+     a:"Douze euros.", aph:"dooz uh-ROH", aen:"Twelve euros."}
+  ],
+  grammar: [
+    {h:"Je voudrais is the magic word", x:"The conditional of <i>vouloir</i>. <i>Je veux un café</i> sounds like a demand; <i>je voudrais un café</i> sounds like a person. Use it every time you buy anything."},
+    {h:"en = of them", x:"<i>J'<b>en</b> prends deux</i> — \"I'll take two <u>of them</u>\". French can't leave <i>en</i> out the way English drops \"of them\"."}
+  ],
+  practice: [
+    ["Je voudrais une baguette, s'il vous plaît.","zhuh voo-DREH ewn bah-GET, seel voo PLEH","I'd like a baguette, please."],
+    ["Ça fait combien ?","sah feh kohm-BYAN","How much does that come to?"]
+  ]
+};
+
+CONTENT[11] = {
+  summary: "Three short reactions to sensory experiences — one to touch (how soft something is), one of general enthusiasm, and one to a smell. Very short, all about expressive intonation.",
+  gloss: [
+    ["Comme c'est doux !","kum seh DOO","How soft it is!"],
+    ["C'est super !","seh sew-PEHR","It's great!"],
+    ["Ça sent bon !","sah sahn BOHN","That smells good!"],
+    ["doux / douce","doo / dooss","soft, gentle"],
+    ["sentir","sahn-TEER","to smell"]
+  ],
+  questions: [
+    {q:"Quels sens sont concernés ?", en:"Which senses are involved?",
+     a:"Le toucher (comme c'est doux), l'enthousiasme général (c'est super), l'odorat (ça sent bon).",
+     aen:"Touch, general enthusiasm, and smell."}
+  ],
+  grammar: [
+    {h:"Comme + adjective = exclamation", x:"<b>Comme c'est doux !</b> = \"How soft it is!\" A ready-made exclamation frame: <i>Comme c'est beau ! Comme c'est bon !</i>"},
+    {h:"sentir does double duty", x:"<i>Ça sent bon</i> = that smells good. But <i>je me sens bien</i> = I feel well. Same verb, two senses — the reflexive form is the \"feel\" one."}
+  ]
+};
+
+CONTENT[12] = {
+  summary: "A short piece on the French festive calendar: the 14th of July is the national holiday, May brings the Cannes festival, and September–October is the grape harvest season.",
+  gloss: [
+    ["le 14 juillet","luh kah-TORZ zhwee-YEH","the 14th of July"],
+    ["la fête nationale","lah fet nah-syoh-NAL","the national holiday"],
+    ["en mai","ahn MEH","in May"],
+    ["le festival de Cannes","luh fes-tee-VAL duh KAN","the Cannes film festival"],
+    ["en septembre-octobre","ahn sep-TAHM-bruh ok-TOH-bruh","in September–October"],
+    ["les vendanges","lay vahn-DAHNZH","the grape harvest"],
+    ["un rendez-vous","uhn rahn-day-VOO","an appointment / a date in the calendar"]
+  ],
+  questions: [
+    {q:"Quels sont les trois rendez-vous ?", en:"What are the three events?",
+     a:"Le 14 juillet (fête nationale), le festival de Cannes en mai, les vendanges en septembre-octobre.",
+     aen:"14 July (national day), Cannes in May, the grape harvest in September–October."}
+  ],
+  grammar: [
+    {h:"Dates and months", x:"Months take <b>en</b>: <i>en mai</i>, <i>en octobre</i>. Dates take <b>le</b> + plain number: <i>le 14 juillet</i> — not \"quatorzième\". Only the 1st is special: <i>le premier mai</i>."},
+    {h:"No capitals", x:"French months and days are lowercase: <i>juillet</i>, <i>mai</i>, <i>lundi</i>."}
+  ]
+};
+
+CONTENT[13] = {
+  summary: "Two people are described so you can work out who's who: Paul, an American student in France, twenty years old; and Mathilde, French, living in Paris, eighteen — or maybe nineteen — who also speaks English.",
+  gloss: [
+    ["Lui, c'est Paul.","lwee, seh POHL","That's Paul."],
+    ["Elle, c'est Mathilde.","ell, seh mah-TEELD","That's Mathilde."],
+    ["il est étudiant en France","eel eh tay-tew-dyahn ahn FRAHNSS","he is a student in France"],
+    ["Il a 20 ans.","eel ah van AHN","He is 20."],
+    ["Elle habite à Paris.","ell ah-beet ah pah-REE","She lives in Paris."],
+    ["Elle a 18 ans, je crois.","ell ah dee-ZWEET ahn, zhuh KRWAH","She's 18, I think."],
+    ["Peut-être 19.","puh-TEH-truh deez-NUHF","Maybe 19."],
+    ["Elle parle anglais.","ell parl ahn-GLEH","She speaks English."]
+  ],
+  questions: [
+    {q:"Qui est américain ?", en:"Who is American?",
+     a:"Paul — il est américain et étudiant en France.", aen:"Paul — he's American and a student in France."},
+    {q:"Quel âge a Mathilde ?", en:"How old is Mathilde?",
+     a:"18 ans, peut-être 19 — le locuteur n'est pas sûr.", aen:"18, maybe 19 — the speaker isn't certain."}
+  ],
+  grammar: [
+    {h:"Lui, c'est… / Elle, c'est…", x:"Pointing someone out uses the <b>tonic</b> pronoun: <i>Lui, c'est Paul</i>. Never \"il, c'est\". Same rule as <i>c'est lui</i>."},
+    {h:"Hedging", x:"<b>je crois</b> (I think) and <b>peut-être</b> (maybe) let you be approximate. Very useful in a speaking exam when you're unsure — much better than stopping."}
+  ]
+};
+
+/* ---------- Unité 1 ---------- */
+
+CONTENT[14] = {
+  summary: "A radio show called « Carte de visite » introduces five French-speaking public figures and asks each to confirm what they do and where they're from: the Belgian cartoonist behind Le Chat, the Swiss tennis player ranked world number 5, the Malian musical duo who had just won a music award, and the Québec-born astronaut who works in Canada. It's a listening exercise on jobs, countries and nationalities.",
+  gloss: [
+    ["une carte de visite","ewn kart duh vee-ZEET","a business card"],
+    ["une émission","ewn ay-mee-SYOHN","a programme / show"],
+    ["une personnalité","ewn pehr-soh-nah-lee-TAY","a public figure"],
+    ["francophone","frahn-koh-FUN","French-speaking"],
+    ["un dessinateur","uhn deh-see-nah-TUR","a cartoonist / illustrator"],
+    ["la bande dessinée","lah bahnd deh-see-NAY","the comic strip / graphic novel"],
+    ["un joueur de tennis","uhn zhoo-UR duh teh-NEESS","a tennis player"],
+    ["numéro 5 mondial","new-may-roh sank mohn-DYAL","world number 5"],
+    ["Vous venez de Suisse.","voo vuh-nay duh SWEESS","You come from Switzerland."],
+    ["un musicien / une musicienne","uhn mew-zee-SYAN","a musician"],
+    ["Vous êtes née à Montréal.","voo-zet nay ah mohn-ray-AL","You were born in Montreal."],
+    ["un astronaute","uhn ah-stroh-NOHT","an astronaut"]
+  ],
+  questions: [
+    {q:"Comment le journaliste vérifie-t-il les informations ?", en:"How does the presenter check the facts?",
+     a:"Il affirme et attend confirmation : « Vous venez de Suisse ? » — « Oui, c'est bien ça. »",
+     aen:"He states something and waits for confirmation: \"You're from Switzerland?\" — \"Yes, that's right.\""}
+  ],
+  grammar: [
+    {h:"Countries: venir de / du / des", x:"<b>de</b> + feminine country (<i>de Suisse, de France</i>), <b>du</b> + masculine (<i>du Mali, du Canada</i>), <b>des</b> + plural (<i>des États-Unis</i>). The same contraction family as Cours 21."},
+    {h:"être né(e)", x:"<i>Vous êtes <b>née</b> à Montréal</i> — born, with être, and the participle agrees: <i>né</i> for a man, <i>née</i> for a woman. Silent difference, visible in writing."},
+    {h:"Confirming", x:"<b>C'est bien ça</b> = that's right. Handy alongside <i>tout à fait</i> (exactly) and <i>exactement</i>."}
+  ],
+  practice: [
+    ["Vous êtes dessinateur ?","voo-zet deh-see-nah-TUR","Are you a cartoonist?"],
+    ["Je viens du Canada.","zhuh vyan dew kah-nah-DAH","I come from Canada."],
+    ["Oui, c'est bien ça.","wee, seh byan SAH","Yes, that's right."]
+  ]
+};
+
+CONTENT[15] = {
+  summary: "A two-item answer check on nationalities: the first person is English (feminine form), the second is Lebanese (masculine form). Short, purely for checking gender endings by ear.",
+  gloss: [
+    ["anglaise","ahn-GLEZ","English (f.)"],
+    ["libanais","lee-bah-NEH","Lebanese (m.)"],
+    ["libanaise","lee-bah-NEZ","Lebanese (f.)"]
+  ],
+  questions: [
+    {q:"Les réponses", en:"The answers",
+     a:"1. Anglaise · 2. Libanais", aen:"1. English (f.) · 2. Lebanese (m.)"}
+  ],
+  grammar: [
+    {h:"Listen to the last sound", x:"<i>libanais</i> (lee-bah-NEH) ends on a vowel; <i>libanaise</i> (lee-bah-NEZ) ends on [z]. That buzzing z is the whole difference between he and she."}
+  ]
+};
+
+CONTENT[16] = {
+  summary: "A guessing conversation about two celebrities. One is identified as a very famous English actress — the speaker first assumes she's American and is corrected. The other is a singer who sings in French but isn't French; he turns out to be Lebanese. The track is about correcting wrong assumptions with « si » and « non ».",
+  gloss: [
+    ["C'est qui ?","seh KEE","Who is it?"],
+    ["Tu ne la connais pas ?","tew nuh lah koh-neh PAH","Don't you know her?"],
+    ["une actrice","ewn ak-TREESS","an actress"],
+    ["très célèbre","treh say-LEH-bruh","very famous"],
+    ["Comment s'appelle-t-elle ?","koh-MAHN sah-pell TELL","What's her name?"],
+    ["Elle est américaine ?","ell eh tah-may-ree-KEN","Is she American?"],
+    ["Non, elle n'est pas américaine.","nohn, ell neh pah ah-may-ree-KEN","No, she isn't American."],
+    ["un chanteur","uhn shahn-TUR","a singer"],
+    ["Il n'est pas francophone ?","eel neh pah frahn-koh-FUN","Isn't he French-speaking?"],
+    ["Si, il chante en français.","see, eel shahnt ahn frahn-SEH","Yes he is — he sings in French."]
+  ],
+  questions: [
+    {q:"Pourquoi répond-on « si » et non « oui » ?", en:"Why answer \"si\" instead of \"oui\"?",
+     a:"Parce que la question est négative. « Si » contredit une question négative.",
+     aen:"Because the question was negative. \"Si\" contradicts a negative question."}
+  ],
+  grammar: [
+    {h:"si — the third yes", x:"French has <b>two words for yes</b>. After a normal question you answer <i>oui</i>. After a <u>negative</u> question you answer <b>si</b> to disagree: <i>— Il n'est pas français ? — <b>Si</b> !</i> (Yes he is!). English has no equivalent, so this one has to be learned deliberately."},
+    {h:"Inversion with -t-", x:"<i>Comment s'appelle-<b>t</b>-elle ?</i> — when inversion would put two vowels together, French inserts a -t- for sound. Same in <i>a-t-il</i>, <i>va-t-elle</i>."}
+  ],
+  practice: [
+    ["— Tu n'aimes pas le café ? — Si, j'adore ça !","tew nem pah luh kah-FAY — see, zhah-DOR sah","— Don't you like coffee? — Yes, I love it!"]
+  ]
+};
+
+CONTENT[17] = {
+  summary: "A customs officer questions a traveller: he asks her name, where she lives, her age and where she's from, then what's in her bag — a purse, a helmet, a hairbrush, a camera, some euros and a phone. A bottle she's carrying isn't allowed. He then turns to a man, who has a computer and two books, and to a baby, who has no bag at all.",
+  gloss: [
+    ["un douanier","uhn dwah-NYAY","a customs officer"],
+    ["votre passeport","votr pass-POR","your passport"],
+    ["Quel est votre nom ?","kell eh votr NOHN","What is your name?"],
+    ["Vous habitez où ?","voo-zah-bee-tay OO","Where do you live?"],
+    ["Vous avez quel âge ?","voo-zah-vay kell AHZH","How old are you?"],
+    ["Vous venez d'où ?","voo vuh-nay DOO","Where do you come from?"],
+    ["un porte-monnaie","uhn port-moh-NEH","a purse / coin wallet"],
+    ["un casque","uhn KASK","a helmet"],
+    ["une brosse à cheveux","ewn bross ah shuh-VUH","a hairbrush"],
+    ["un appareil photo","uhn ah-pah-ray foh-TOH","a camera"],
+    ["une bouteille","ewn boo-TAY","a bottle"],
+    ["C'est interdit !","seh tan-tehr-DEE","That's forbidden!"],
+    ["un ordinateur","uhn or-dee-nah-TUR","a computer"],
+    ["Il n'a pas de sac.","eel nah pah duh SAK","He doesn't have a bag."]
+  ],
+  questions: [
+    {q:"Qu'est-ce qu'il y a dans le sac de la femme ?", en:"What's in the woman's bag?",
+     a:"Un porte-monnaie, un casque, une brosse à cheveux, un appareil photo, quelques euros et un téléphone.",
+     aen:"A purse, a helmet, a hairbrush, a camera, some euros and a phone."},
+    {q:"Pourquoi la bouteille pose-t-elle un problème ?", en:"Why is the bottle a problem?",
+     a:"Parce que c'est interdit — on ne peut pas l'emporter.", aen:"Because it's forbidden — she can't take it through."}
+  ],
+  grammar: [
+    {h:"Negative + de", x:"<i>Il n'a pas <b>de</b> sac</i> — after a negative, <i>un/une/des</i> all collapse to <b>de</b>. Not \"pas un sac\". This is one of the highest-frequency rules in French."},
+    {h:"Question words at the end", x:"<i>Vous habitez <b>où</b> ?</i> and <i>Vous venez <b>d'où</b> ?</i> — in speech the question word often sits at the end. Easier than inversion and completely natural."},
+    {h:"quel + noun", x:"<i><b>Quel</b> est votre nom ?</i> · <i>Vous avez <b>quel</b> âge ?</i> — quel agrees with the noun it asks about: quel nom (m.), quelle adresse (f.)."}
+  ],
+  practice: [
+    ["Qu'est-ce qu'il y a dans votre sac ?","kess-keel yah dahn votr SAK","What's in your bag?"],
+    ["Je n'ai pas de sac.","zhuh nay pah duh SAK","I don't have a bag."]
+  ]
+};
+
+CONTENT[18] = {
+  summary: "The answer list for the bag-contents exercise — the seven items named in order.",
+  gloss: [
+    ["un porte-monnaie","uhn port-moh-NEH","a purse"],
+    ["un casque","uhn KASK","a helmet"],
+    ["une brosse à cheveux","ewn bross ah shuh-VUH","a hairbrush"],
+    ["un appareil photo","uhn ah-pah-ray foh-TOH","a camera"],
+    ["un téléphone","uhn tay-lay-FUN","a phone"],
+    ["une bouteille","ewn boo-TAY","a bottle"],
+    ["un ordinateur","uhn or-dee-nah-TUR","a computer"]
+  ],
+  questions: [
+    {q:"Les réponses, dans l'ordre", en:"The answers, in order",
+     a:"1. Un porte-monnaie · 2. Un casque · 3. Une brosse à cheveux · 4. Un appareil photo · 5. Un téléphone · 6. Une bouteille · 7. Un ordinateur",
+     aen:"Purse, helmet, hairbrush, camera, phone, bottle, computer."}
+  ],
+  grammar: [
+    {h:"un or une — learn it with the word", x:"There's no way to guess most of these. <i>un</i> casque but <i>une</i> bouteille; <i>un</i> appareil but <i>une</i> brosse. Always store the article with the noun."}
+  ]
+};
+
+CONTENT[19] = {
+  summary: "A very short follow-up: someone asks what you've got in your bag, and answers by contrasting themselves with another person — I have a computer, he doesn't have a bag.",
+  gloss: [
+    ["Vous avez quoi dans votre sac ?","voo-zah-vay kwah dahn votr SAK","What have you got in your bag?"],
+    ["Moi, j'ai un ordinateur.","mwah, zhay uhn or-dee-nah-TUR","Me, I've got a computer."],
+    ["Lui, il n'a pas de sac.","lwee, eel nah pah duh SAK","Him, he hasn't got a bag."]
+  ],
+  grammar: [
+    {h:"Tonic pronouns for contrast", x:"<b>Moi, j'ai…</b> / <b>Lui, il n'a pas…</b> — doubling the subject with a tonic pronoun is how French contrasts two people. Straight out of the Pronoms handout in Prof's Notes."}
+  ],
+  practice: [
+    ["Moi, j'ai un téléphone. Lui, il a un ordinateur.","mwah zhay uhn tay-lay-FUN. lwee eel ah uhn or-dee-nah-TUR","Me, I have a phone. Him, he has a computer."]
+  ]
+};
+
+CONTENT[20] = {
+  summary: "A gender drill built on nationalities: you hear a masculine form and give the feminine, or vice versa — English, Lebanese, German, American, French.",
+  gloss: [
+    ["Il est anglais. — Elle est anglaise.","eel eh tahn-GLEH — ell eh tahn-GLEZ","He is English. — She is English."],
+    ["Il est américain. — Elle est américaine.","eel eh tah-may-ree-KAN — ell eh tah-may-ree-KEN","He is American. — She is American."],
+    ["libanais / libanaise","lee-bah-NEH / lee-bah-NEZ","Lebanese"],
+    ["allemand / allemande","al-MAHN / al-MAHND","German"],
+    ["français / française","frahn-SEH / frahn-SEZ","French"]
+  ],
+  questions: [
+    {q:"Les réponses", en:"The answers",
+     a:"a. Français · b. Libanaise · c. Allemande · d. Américain. Puis : il est anglais – elle est anglaise ; il est américain – elle est américaine ; il est libanais – elle est libanaise ; il est allemand – elle est allemande.",
+     aen:"a. French · b. Lebanese (f.) · c. German (f.) · d. American (m.) — then each pair said both ways."}
+  ],
+  grammar: [
+    {h:"The consonant wakes up", x:"Every pair here works the same way: the masculine ends in a silent consonant, the feminine adds -e and you suddenly hear it. <i>allemand</i> (al-MAHN) → <i>allemande</i> (al-MAHND) — the d appears."}
+  ]
+};
+
+CONTENT[21] = {
+  summary: "An un/une drill using job words, including several that keep the same form for both genders — a journalist, an astronaut, a judge, an artist, a pianist. Only the article tells you the gender.",
+  gloss: [
+    ["un / une","uhn / ewn","a (m.) / a (f.)"],
+    ["un journaliste / une journaliste","zhoor-nah-LEEST","a journalist"],
+    ["un astronaute / une astronaute","ah-stroh-NOHT","an astronaut"],
+    ["un juge / une juge","zhewzh","a judge"],
+    ["un artiste / une artiste","ar-TEEST","an artist"],
+    ["un pianiste / une pianiste","pyah-NEEST","a pianist"]
+  ],
+  questions: [
+    {q:"Les réponses", en:"The answers",
+     a:"a. Un · b. Une journaliste · c. Un astronaute. Puis : a. Un – une · b. Un juge – une juge · c. Un artiste – une artiste · d. Un pianiste – une pianiste.",
+     aen:"The article is the only thing that changes in each pair."}
+  ],
+  grammar: [
+    {h:"-iste and -naute don't change", x:"Nouns ending in <b>-iste</b> (journaliste, artiste, pianiste, dentiste) and <b>-naute</b> (astronaute) are identical in both genders. Only <i>un</i> vs <i>une</i> marks the difference — so in speech the article carries all the information."},
+    {h:"Hearing un vs une", x:"<b>un</b> is nasal (uhn, no n pronounced); <b>une</b> is not nasal and the n is clearly sounded (ewn). This is the contrast drilled in Piste 21 and again later in the unit."}
+  ]
+};
+
+CONTENT[22] = {
+  summary: "Two situations about politeness. In the first, a child keeps demanding an apple and is asked for « le mot magique » — the magic word — and jokes that it's abracadabra rather than s'il te plaît. In the second, someone very insistently and elaborately apologises for disturbing a woman, asks a string of questions, and finally just wants to know what day it is. Both are about register and politeness formulas.",
+  gloss: [
+    ["le mot magique","luh moh mah-ZHEEK","the magic word"],
+    ["Je veux une pomme !","zhuh vuh ewn PUM","I want an apple!"],
+    ["Je ne sais pas.","zhuh nuh say PAH","I don't know."],
+    ["Si, tu sais !","see, tew SEH","Yes you do!"],
+    ["pardon","par-DOHN","sorry / excuse me"],
+    ["excusez-moi de vous déranger","ex-kew-zay mwah duh voo day-rahn-ZHAY","sorry to bother you"],
+    ["Que puis-je pour vous ?","kuh pwee-zhuh poor VOO","What can I do for you?"],
+    ["avec plaisir","ah-vek play-ZEER","with pleasure"],
+    ["Je vous en prie.","zhuh voo-zahn PREE","You're welcome / please do."],
+    ["Quel jour sommes-nous ?","kell zhoor sum NOO","What day is it?"],
+    ["Je vous remercie.","zhuh voo ruh-mehr-SEE","Thank you."],
+    ["De rien.","duh RYAN","You're welcome."]
+  ],
+  questions: [
+    {q:"Quel est « le mot magique » ?", en:"What is \"the magic word\"?",
+     a:"S'il te plaît (ou s'il vous plaît) — pas abracadabra !",
+     aen:"Please — not abracadabra!"},
+    {q:"Que veut savoir la personne dans la situation 2 ?", en:"What does the person in situation 2 want to know?",
+     a:"Simplement quel jour on est — jeudi.", aen:"Simply what day it is — Thursday."}
+  ],
+  grammar: [
+    {h:"Politeness has levels too", x:"<b>Je vous en prie</b> and <b>je vous remercie</b> are the formal register; <b>de rien</b> and <b>merci</b> are everyday. The comedy in situation 2 comes from someone piling on formal politeness for a trivial question."},
+    {h:"si again", x:"<i>— Je ne sais pas. — <b>Si</b>, tu sais !</i> Same rule as Piste 16: contradicting a negative takes <b>si</b>, never <i>oui</i>."}
+  ],
+  practice: [
+    ["S'il te plaît / S'il vous plaît","seel tuh PLEH / seel voo PLEH","Please (informal / formal)"],
+    ["Excusez-moi de vous déranger.","ex-kew-zay mwah duh voo day-rahn-ZHAY","Sorry to bother you."],
+    ["Quel jour sommes-nous ? — Jeudi.","kell zhoor sum NOO — zhuh-DEE","What day is it? — Thursday."]
+  ]
+};
+
+CONTENT[23] = {
+  summary: "A radio programme called « Chacun chez soi » on French people and housing. The presenter reports that two thirds of French people own their home and the rest rent; most live in a flat in the town centre, a pavillon with a small garden, or an old house. Luckier ones have a villa with a pool by the sea or a wooden chalet in the mountains. The romantics live on the water — on a péniche (barge) — or in a cabin in the trees. And some dream of living in a château.",
+  gloss: [
+    ["Chacun chez soi","shah-kuhn shay SWAH","Each to their own home"],
+    ["l'habitat","lah-bee-TAH","housing, living space"],
+    ["les deux tiers","lay duh TYEHR","two thirds"],
+    ["un propriétaire","uhn proh-pree-ay-TEHR","an owner"],
+    ["un locataire","uhn loh-kah-TEHR","a tenant"],
+    ["le plus souvent","luh plew soo-VAHN","most often"],
+    ["en centre-ville","ahn sahntr-VEEL","in the town centre"],
+    ["un pavillon","uhn pah-vee-YOHN","a detached suburban house"],
+    ["une maison ancienne","ewn meh-zohn ahn-SYEN","an old house"],
+    ["une villa avec piscine","ewn vee-LAH ah-vek pee-SEEN","a villa with a pool"],
+    ["au bord de la mer","oh bor duh lah MEHR","by the sea"],
+    ["un chalet en bois","uhn shah-LEH ahn BWAH","a wooden chalet"],
+    ["à la montagne","ah lah mohn-TAN-yuh","in the mountains"],
+    ["une péniche","ewn pay-NEESH","a barge / houseboat"],
+    ["une cabane dans les arbres","ewn kah-BAN dahn lay ZARBR","a treehouse"],
+    ["un château","uhn shah-TOH","a castle"],
+    ["rêver de","reh-VAY duh","to dream of"]
+  ],
+  questions: [
+    {q:"Quel est le thème de l'émission ?", en:"What is the programme's theme?",
+     a:"Les Français et l'habitat — où et comment ils habitent.", aen:"French people and housing — where and how they live."},
+    {q:"Combien de Français sont propriétaires ?", en:"How many French people are homeowners?",
+     a:"Les deux tiers sont propriétaires ; les autres sont locataires.", aen:"Two thirds are owners; the rest are tenants."}
+  ],
+  grammar: [
+    {h:"Fractions", x:"<b>les deux tiers</b> = two thirds. Also useful: <i>la moitié</i> (half), <i>un quart</i> (a quarter), <i>les trois quarts</i> (three quarters)."},
+    {h:"rêver de + noun", x:"<i>Ils rêvent <b>d'</b>une maison</i> — to dream <u>of</u> something. Ends in <b>de</b>, so it contracts: <i>rêver <b>du</b> confort</i>, <i>rêver <b>des</b> vacances</i>."}
+  ],
+  practice: [
+    ["Les deux tiers sont propriétaires.","lay duh tyehr sohn proh-pree-ay-TEHR","Two thirds are homeowners."],
+    ["J'habite dans un appartement en centre-ville.","zhah-BEET dahn zuhn ah-par-tuh-mahn ahn sahntr-VEEL","I live in a flat in the town centre."],
+    ["Je rêve d'une maison au bord de la mer.","zhuh rev dewn meh-ZOHN oh bor duh lah MEHR","I dream of a house by the sea."]
+  ]
+};
+
+CONTENT[24] = {
+  summary: "A short listening-check track for the housing programme: you hear six items and identify which word or phrase was used. It's a le/les and vocabulary-recognition drill built from Piste 23.",
+  gloss: [
+    ["le thème","luh TEM","the theme / topic"],
+    ["les Français","lay frahn-SEH","French people"],
+    ["les deux tiers","lay duh TYEHR","two thirds"],
+    ["les autres","lay ZOHTR","the others"],
+    ["le plus souvent","luh plew soo-VAHN","most often"],
+    ["les châteaux","lay shah-TOH","castles"]
+  ],
+  questions: [
+    {q:"Activité 5 b, page 42 — les réponses", en:"Activity 5b, page 42 — the answers",
+     a:"1. Le thème · 2. Les Français · 3. Les deux tiers · 4. Les autres · 5. Le plus souvent · 6. Les châteaux",
+     aen:"Those are the six items, in order."}
+  ],
+  grammar: [
+    {h:"What this track is really testing", x:"Every answer begins with <b>le</b> or <b>les</b>. The exercise isn't about vocabulary — it's training your ear to hear the difference between <i>luh</i> and <i>lay</i>, which is the only thing separating singular from plural in speech. Same skill as Piste 28."}
+  ]
+};
+
+CONTENT[25] = {
+  summary: "A phone call about a rental advert. The caller rings for information, checks the flat is still available, asks the rent (1 200 euros) and whether the kitchen has a dishwasher — it has a dishwasher, a washing machine and a microwave. He asks to visit, the landlord checks his diary, takes the caller's phone number and email, and promises to call back during the day.",
+  gloss: [
+    ["des renseignements","day rahn-sen-yuh-MAHN","information"],
+    ["une annonce","ewn ah-NOHNSS","an advert / listing"],
+    ["toujours à louer","too-zhoor ah loo-AY","still available to rent"],
+    ["louer","loo-AY","to rent"],
+    ["le loyer","luh lwah-YAY","the rent"],
+    ["C'est de combien ?","seh duh kohm-BYAN","How much is it?"],
+    ["un lave-vaisselle","uhn lav-veh-SELL","a dishwasher"],
+    ["un lave-linge","uhn lav-LANZH","a washing machine"],
+    ["un four à micro-ondes","uhn foor ah mee-kroh-OHND","a microwave oven"],
+    ["visiter","vee-zee-TAY","to view (a property)"],
+    ["mon agenda","mohn ah-zhahn-DAH","my diary / calendar"],
+    ["vos coordonnées","voh koh-or-doh-NAY","your contact details"],
+    ["mon adresse mail","mohn ah-DRESS mel","my email address"],
+    ["je vous rappelle","zhuh voo rah-PELL","I'll call you back"],
+    ["dans la journée","dahn lah zhoor-NAY","during the day"]
+  ],
+  questions: [
+    {q:"Pourquoi est-ce qu'il téléphone ?", en:"Why is he calling?",
+     a:"Pour avoir des renseignements sur l'annonce — il veut savoir si l'appartement est toujours à louer.",
+     aen:"To get information about the advert — he wants to know if the flat is still available."},
+    {q:"Quel est le loyer ?", en:"What is the rent?",
+     a:"Mille deux cents euros par mois.", aph:"meel duh sahn zuh-ROH par MWAH", aen:"1,200 euros a month."},
+    {q:"Qu'est-ce qu'il y a dans la cuisine ?", en:"What is there in the kitchen?",
+     a:"Un lave-vaisselle, un lave-linge et un four à micro-ondes.",
+     aph:"uhn lav-veh-SELL, uhn lav-LANZH ay uhn foor ah mee-kroh-OHND",
+     aen:"A dishwasher, a washing machine and a microwave oven."}
+  ],
+  grammar: [
+    {h:"Est-ce que for polite enquiries", x:"<i>Est-ce qu'il est toujours à louer ?</i> — on the phone with a stranger, <b>est-ce que</b> is the safest question form. Intonation alone can sound abrupt; inversion can sound stiff."},
+    {h:"toujours = still, not always", x:"<i>Est-ce qu'il est <b>toujours</b> à louer ?</i> means \"is it <u>still</u> available?\" — not \"always\". Context decides, and with a present-tense state like this it's nearly always \"still\"."},
+    {h:"Reading a phone number", x:"French numbers are read in <b>pairs</b>: 07 53 89 10 51 → zéro sept, cinquante-trois, quatre-vingt-neuf, dix, cinquante et un. Practise yours this way — it's how you'll always hear it."}
+  ],
+  practice: [
+    ["Est-ce qu'il est toujours à louer ?","ess-keel eh too-zhoor ah loo-AY","Is it still available to rent?"],
+    ["Le loyer est de combien ?","luh lwah-YAY eh duh kohm-BYAN","How much is the rent?"],
+    ["Je peux le visiter ?","zhuh puh luh vee-zee-TAY","Can I view it?"],
+    ["Vous pouvez me donner vos coordonnées ?","voo poo-VAY muh doh-NAY voh koh-or-doh-NAY","Could you give me your contact details?"]
+  ]
+};
+
+CONTENT[27] = {
+  summary: "A very short phonetics prompt: the phrase « des informations », used to isolate the [z] liaison between des and a vowel-starting noun.",
+  gloss: [
+    ["des informations","day-zan-for-mah-SYOHN","information (liaison: day-ZAN, not day AN)"]
+  ],
+  grammar: [
+    {h:"Why this single phrase is a whole track", x:"<b>des</b> ends in a silent -s. Before a vowel that -s wakes up as <b>[z]</b> and glues onto the next word: <i>des_informations</i> → day-ZAN-for-mah-syohn. Get this one phrase right and the whole des/les liaison family follows."}
+  ],
+  practice: [
+    ["des informations","day-zan-for-mah-SYOHN","information"],
+    ["des amis","day-zah-MEE","friends"],
+    ["des appartements","day-zah-par-tuh-MAHN","apartments"],
+    ["des hôtels","day-zoh-TELL","hotels (silent h — liaison still happens)"]
+  ]
+};
+
+CONTENT[28] = {
+  summary: "The « Le - les » phonetics box from page 46: first a mouth-shape demonstration of le vs les, then a listening drill where you decide which one you heard (le/les voisin(s), locataire(s), propriétaire(s)), then a transformation drill turning singular housing words into the plural.",
+  gloss: [
+    ["le / les","luh / lay","the (singular) / the (plural)"],
+    ["un voisin / les voisins","uhn vwah-ZAN / lay vwah-ZAN","a neighbour / the neighbours"],
+    ["un locataire / les locataires","uhn loh-kah-TEHR / lay loh-kah-TEHR","a tenant / the tenants"],
+    ["un propriétaire / les propriétaires","uhn proh-pree-ay-TEHR / lay proh-pree-ay-TEHR","an owner / the owners"],
+    ["le logement / les logements","luh lohzh-MAHN / lay lohzh-MAHN","the home / the homes"],
+    ["le studio / les studios","luh stew-DYOH / lay stew-DYOH","the studio flat / the studio flats"],
+    ["le salon / les salons","luh sah-LOHN / lay sah-LOHN","the living room / the living rooms"],
+    ["le placard / les placards","luh plah-KAR / lay plah-KAR","the cupboard / the cupboards"]
+  ],
+  questions: [
+    {q:"Activités 1, 2 et 3, page 46 — les réponses", en:"Activities 1, 2 and 3, page 46 — the answers",
+     a:"a. Le · b. Les voisins · c. Les locataires · d. Les propriétaires. Puis : le logement → les logements ; le studio → les studios ; le salon → les salons ; le placard → les placards.",
+     aen:"a. Le · b. Les voisins · c. Les tenants · d. Les propriétaires — then each singular turned plural."}
+  ],
+  grammar: [
+    {h:"Why you can't rely on the noun", x:"The plural -s is <b>silent</b>. <i>voisin</i> and <i>voisins</i> sound identical. The article is the only clue, so the whole exercise rests on hearing <b>luh</b> versus <b>lay</b>."},
+    {h:"The mouth shapes", x:"For <b>le</b> the lips are rounded; for <b>les</b> they're spread wide, as if starting a smile. If you can see a speaker's mouth you can often see which one is coming before you hear it."}
+  ],
+  practice: [
+    ["le voisin / les voisins","luh vwah-ZAN / lay vwah-ZAN","the neighbour / the neighbours"],
+    ["le placard / les placards","luh plah-KAR / lay plah-KAR","the cupboard / the cupboards"]
+  ]
+};
+
+CONTENT[29] = {
+  summary: "The « La liaison » box from page 46: the rule that a plural article links onto a vowel-starting noun with a [z] sound, then a spotting drill (des appartements, les entrées, les immeubles, des hôtels) and finally repeat-after-me sentences putting the liaison into full sentences about housing.",
+  gloss: [
+    ["les informations","lay-zan-for-mah-SYOHN","the information"],
+    ["des appartements","day-zah-par-tuh-MAHN","some apartments"],
+    ["les entrées","lay-zahn-TRAY","the entrances"],
+    ["les immeubles","lay-zee-MUH-bluh","the buildings"],
+    ["des hôtels","day-zoh-TELL","some hotels"],
+    ["des immeubles modernes","day-zee-muh-bluh moh-DEHRN","modern buildings"],
+    ["des habitations originales","day-zah-bee-tah-syohn oh-ree-zhee-NAL","unusual homes"],
+    ["des annonces","day-zah-NOHNSS","adverts / listings"]
+  ],
+  questions: [
+    {q:"Activités 1, 2 et 3, page 46 — les réponses", en:"Activities 1, 2 and 3, page 46 — the answers",
+     a:"a. Des appartements · b. Les entrées · c. Les immeubles · d. Des hôtels. Puis les phrases : Je veux visiter des appartements. Ce sont des immeubles modernes. Ce sont des habitations originales. Il y a des annonces sur ce site.",
+     aen:"a. Des appartements · b. Les entrées · c. Les immeubles · d. Des hôtels — then four full sentences to repeat."}
+  ],
+  grammar: [
+    {h:"The rule in one line", x:"In the plural, the article links to the noun whenever the noun begins with a <b>vowel or a silent h</b>, and you hear <b>[z]</b> between the two words."},
+    {h:"Silent h counts as a vowel", x:"<i>des hôtels</i> → day-zoh-TELL. The h isn't pronounced, so the liaison happens exactly as if the word started with o. (A few words have an \"h aspiré\" that blocks liaison — <i>les haricots</i> — but they're rare at this level.)"},
+    {h:"Same rule, other places", x:"You've met this in <i>les yeux</i> and <i>ses amis</i> (Cours 18), and in <i>mon amie</i> (Cours 16). One mechanism, three lessons."}
+  ],
+  practice: [
+    ["Je veux visiter des appartements.","zhuh vuh vee-zee-TAY day-zah-par-tuh-MAHN","I want to visit some apartments."],
+    ["Ce sont des immeubles modernes.","suh sohn day-zee-muh-bluh moh-DEHRN","These are modern buildings."],
+    ["Il y a des annonces sur ce site.","eel yah day-zah-NOHNSS sewr suh SEET","There are listings on this site."]
+  ]
+};
+
+CONTENT[30] = {
+  summary: "Two friends talk about a party happening that evening. It's Chloé's birthday — Chloé being Marc's girlfriend — and the plan is to eat, dance and sing. When one of them asks what about the neighbours, the other shrugs it off with « tant pis » (too bad), and gets told that's not a nice way to talk. That last exchange is where the Reprocher phrases on page 48 come from.",
+  gloss: [
+    ["Ce soir","suh SWAHR","tonight / this evening"],
+    ["les copains","lay koh-PAN","mates, friends"],
+    ["C'est la fête !","seh lah FET","It's party time!"],
+    ["Ah bon ?","ah BOHN","Oh really?"],
+    ["fêter","feh-TAY","to celebrate"],
+    ["l'anniversaire","lah-nee-vehr-SEHR","the birthday"],
+    ["la copine de Marc","lah koh-PEEN duh MARK","Marc's girlfriend"],
+    ["Ben oui, bien sûr !","bahn wee, byan SEWR","Well yes, of course!"],
+    ["Vous faites quoi ?","voo fet KWAH","What are you doing?"],
+    ["manger, danser, chanter","mahn-ZHAY, dahn-SAY, shahn-TAY","to eat, to dance, to sing"],
+    ["sympa","sam-PAH","nice, fun"],
+    ["Et les voisins ?","ay lay vwah-ZAN","And what about the neighbours?"],
+    ["Tant pis !","tahn PEE","Too bad! / Never mind!"],
+    ["Ce n'est pas bien de dire ça.","suh neh pah byan duh deer SAH","That's not a nice thing to say."]
+  ],
+  questions: [
+    {q:"a. C'est qui ?", en:"Who is it?",
+     a:"Deux amis qui parlent d'une fête. L'un connaît Marc et Chloé.",
+     aen:"Two friends talking about a party. One of them knows Marc and Chloé."},
+    {q:"b. C'est où ?", en:"Where is it?",
+     a:"Chez eux — une fête à la maison, dans l'immeuble.",
+     aen:"At their place — a party at home, in the building."},
+    {q:"d. Qu'est-ce qu'ils vont faire pour l'anniversaire de Chloé ?", en:"What will they do for Chloé's birthday?",
+     a:"Manger, danser et chanter.", aph:"mahn-ZHAY, dahn-SAY ay shahn-TAY", aen:"Eat, dance and sing."},
+    {q:"e. Que reproche la fille au garçon ?", en:"What does she reproach him for?",
+     a:"Son « tant pis » à propos des voisins — elle lui dit que ce n'est pas bien de dire ça.",
+     aen:"His \"tant pis\" about the neighbours — she tells him that's not a nice thing to say."}
+  ],
+  grammar: [
+    {h:"Answering « Vous faites quoi ? » with infinitives", x:"The reply is a string of bare infinitives — <i>manger, danser, chanter</i>. Listing activities this way is completely natural in French and much easier than conjugating: <i>Ce week-end ? Dormir, lire, cuisiner.</i>"},
+    {h:"un copain / une copine", x:"Two meanings, decided by context and the possessive. <i>des copains</i> = mates. But <b>sa copine</b> / <b>son copain</b> usually means girlfriend / boyfriend — which is how Chloé is introduced here."},
+    {h:"Tant pis vs tant mieux", x:"<b>Tant pis</b> = too bad, never mind (resignation). Its opposite is <b>tant mieux</b> = all the better, good. Two of the most-used little phrases in spoken French."}
+  ],
+  practice: [
+    ["Ce soir, on fête l'anniversaire de Chloé.","suh swahr, ohn fet lah-nee-vehr-SEHR duh kloh-AY","Tonight we're celebrating Chloé's birthday."],
+    ["On va manger, danser et chanter.","ohn vah mahn-ZHAY, dahn-SAY ay shahn-TAY","We're going to eat, dance and sing."],
+    ["Et les voisins ? — Oh, tant pis !","ay lay vwah-ZAN — oh, tahn PEE","And the neighbours? — Oh, never mind!"],
+    ["Ce n'est pas bien de dire ça.","suh neh pah byan duh deer SAH","That's not a nice thing to say."]
+  ]
+};
+
+CONTENT[26] = {
+  summary: "A friend asks Maud how things are going with her new neighbours. Maud describes Chloé (tall, blonde, ground floor, looks like Maud's sister Juliette), her two sons Alex (slim teenager, curly blonde hair) and Noé (chubby baby, 10 kg, blue eyes), and the father Marc (light-brown hair, funny, floral shirts).",
+  gloss: [
+    ["Ça se passe bien ?","sah suh pass byan","Is it going well?"],
+    ["une femme très sympa","ewn fam treh sam-PAH","a very nice woman"],
+    ["elle ressemble à ma sœur","ell ruh-SAHM-bluh ah mah sur","she looks like my sister"],
+    ["au rez-de-chaussée","oh ray-duh-shoh-SAY","on the ground floor"],
+    ["c'est un ado","seh-tuhn-nah-doh","he's a teenager"],
+    ["les cheveux blonds et bouclés","lay shuh-vuh blohn-zay boo-klay","blonde, curly hair"],
+    ["il pèse 10 kilos","eel pehz deess kee-loh","he weighs 10 kilos"],
+    ["de beaux yeux bleus","duh boh-zyuh bluh","beautiful blue eyes"],
+    ["il est châtain","eel eh shah-TAN","he has light-brown hair"],
+    ["une chemise à fleurs","ewn shuh-meez ah fluhr","a floral shirt"]
+  ],
+  questions: [
+    {q:"Est-ce que les femmes se connaissent ?", en:"Do the women know each other?",
+     a:"Oui, elles se connaissent bien — ce sont des amies, elles se tutoient.", aen:"Yes, they know each other well — they are friends and use tu."},
+    {q:"Qui ressemble à Juliette ?", en:"Who looks like Juliette?",
+     a:"C'est Chloé, sauf que Juliette a les cheveux noirs.", aen:"Chloé — except Juliette has black hair."}
+  ],
+  grammar: [
+    {h:"être vs avoir for descriptions", x:"<b>être + adjective</b> for overall build (il est mince), <b>avoir + les + noun + adjective</b> for hair and eyes (il a les cheveux blonds). The adjective agrees with cheveux/yeux, not with the person."},
+    {h:"des → de", x:"Before a plural adjective placed before the noun, des becomes de: <i>de beaux yeux</i>, <i>de grands yeux</i> — never <i>des beaux yeux</i>."}
+  ]
+};
+
+const unitSel=document.getElementById('unitSel'), statusSel=document.getElementById('statusSel'),
+      searchEl=document.getElementById('search'), grid=document.getElementById('tgrid'),
+      panel=document.getElementById('panel'), statsEl=document.getElementById('stats');
+
+const UNITS = [...new Set(TRACKS.map(t=>t.unit))];
+unitSel.innerHTML = '<option value="all">All units</option>' + UNITS.map(u=>'<option>'+u+'</option>').join('');
+
+let current = null;
+
+function visibleTracks(){
+  const u=unitSel.value, s=statusSel.value, q=searchEl.value.toLowerCase().trim();
+  return TRACKS.filter(t=>{
+    if(u!=='all' && t.unit!==u) return false;
+    const documented = t.done || CONTENT[t.n];
+    if(s==='done' && !documented) return false;
+    if(s==='todo' && documented) return false;
+    if(q){
+      const hay=(t.n+' '+t.unit+' '+t.desc+' '+t.cue+' '+t.en).toLowerCase();
+      if(!hay.includes(q)) return false;
+    }
+    return true;
+  });
+}
+
+function renderGrid(){
+  const list=visibleTracks();
+  grid.innerHTML='';
+  list.forEach(t=>{
+    const b=document.createElement('button'); b.className='tbtn';
+    const documented = t.done || CONTENT[t.n];
+    b.innerHTML='<span class="dot'+(documented?' done':'')+'"></span>Piste '+t.n+'<span class="u">'+t.unit+'</span>';
+    if(current && current.n===t.n) b.classList.add('on');
+    b.onclick=()=>{ current=t; renderGrid(); renderPanel(t); panel.scrollIntoView({behavior:'smooth',block:'start'}); };
+    grid.appendChild(b);
+  });
+  const total=TRACKS.length, done=TRACKS.filter(t=>t.done||CONTENT[t.n]).length;
+  statsEl.textContent = list.length+' shown · '+done+' of '+total+' documented · '+(total-done)+' awaiting transcripts';
+}
+
+function renderPanel(t){
+  panel.innerHTML='';
+  const documented = t.done || CONTENT[t.n];
+  const h=document.createElement('h2');
+  h.innerHTML='Piste '+t.n+'<span class="badge '+(documented?'done':'todo')+'">'+(documented?'documented':'awaiting transcript')+'</span>';
+  panel.appendChild(h);
+  const meta=document.createElement('div'); meta.className='meta'; meta.textContent=t.unit+' · '+t.file;
+  panel.appendChild(meta);
+
+  const audio=document.createElement('audio'); audio.controls=true; audio.preload='none';
+  const src=document.createElement('source'); src.src=t.file; src.type='audio/mpeg';
+  audio.appendChild(src); panel.appendChild(audio);
+
+  if(t.desc){ const d=document.createElement('p'); d.style.fontSize='14px'; d.textContent=t.desc; panel.appendChild(d); }
+  if(t.cours){
+    const cl=document.createElement('p');
+    cl.innerHTML='Full class notes: <a class="crosslink" href="'+t.cours+'">open the Cours page \u2192</a>';
+    panel.appendChild(cl);
+  }
+  if(t.cue){
+    const hh=document.createElement('h3'); hh.className='sub2'; hh.textContent='Sample line from this track';
+    panel.appendChild(hh);
+    panel.appendChild(makeRow(t.cue, t.ph, t.en));
+  }
+
+  const C = CONTENT[t.n];
+  if(C){
+    if(C.summary){
+      const hh=document.createElement('h3'); hh.className='sub2'; hh.textContent='What happens in this recording';
+      panel.appendChild(hh);
+      const s=document.createElement('div'); s.className='example'; s.textContent=C.summary; panel.appendChild(s);
+    }
+    if(C.gloss && C.gloss.length){
+      const hh=document.createElement('h3'); hh.className='sub2'; hh.textContent='Word-by-word glossary';
+      panel.appendChild(hh);
+      C.gloss.forEach(([fr,ph,en])=>panel.appendChild(makeRow(fr,ph,en)));
+    }
+    if(C.questions && C.questions.length){
+      const hh=document.createElement('h3'); hh.className='sub2'; hh.textContent='Questions & answers';
+      panel.appendChild(hh);
+      C.questions.forEach(q=>{
+        const d=document.createElement('div'); d.className='qa';
+        d.innerHTML='<div class="q"></div><div class="qen"></div>';
+        d.querySelector('.q').textContent=q.q; d.querySelector('.qen').textContent=q.en;
+        d.querySelector('.q').onclick=()=>speak(q.q);
+        panel.appendChild(d);
+        if(q.a) panel.appendChild(makeRow(q.a, q.aph||'', q.aen||''));
+      });
+    }
+    if(C.grammar && C.grammar.length){
+      const hh=document.createElement('h3'); hh.className='sub2'; hh.textContent='Grammar in this track';
+      panel.appendChild(hh);
+      C.grammar.forEach(g=>{
+        const d=document.createElement('div'); d.className='note';
+        d.innerHTML='<b>'+g.h+'</b> \u2014 '+g.x;
+        panel.appendChild(d);
+      });
+    }
+    if(C.practice && C.practice.length){
+      const hh=document.createElement('h3'); hh.className='sub2'; hh.textContent='Say it yourself';
+      panel.appendChild(hh);
+      C.practice.forEach(([fr,ph,en])=>panel.appendChild(makeRow(fr,ph,en)));
+    }
+  } else {
+    const cta=document.createElement('div'); cta.className='cta';
+    cta.innerHTML='<b>Nothing documented for this track yet.</b><br>Send me the transcript for Piste '+t.n+' and this panel fills in with: a plain-English summary of what happens, a word-by-word glossary (every word, pronunciation + meaning), the comprehension questions with worked answers, and the grammar points it demonstrates.';
+    panel.appendChild(cta);
+  }
+}
+
+unitSel.onchange=renderGrid; statusSel.onchange=renderGrid; searchEl.oninput=renderGrid;
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+
+renderGrid();
+renderPanel(TRACKS.find(t=>t.n===26) || TRACKS[0]);
+current = TRACKS.find(t=>t.n===26) || TRACKS[0];
+renderGrid();
+</script>
+<script src="french_glossary.js"></script>
+</body>
+</html>

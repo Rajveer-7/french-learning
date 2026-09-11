@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 23 — Écrire un portrait</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 23: Écrire un portrait</h1>
+  <p class="sub">The Language SKOOL · Saison 1, page 49 · Unité 2 — the writing workshop: how to describe a person on the page</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Cours21_Notes.html">Cours 21</a>
+    <a href="French_Cours22_Notes.html">Cours 22</a>
+    <a href="French_Cours23_Notes.html" class="active">Cours 23</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
+    <a href="French_Articles.html">Articles</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+
+/* ===== 1. The source text ===== */
+const h1 = document.createElement('h2'); h1.textContent = "1 · The document — a literary portrait"; content.appendChild(h1);
+
+const src = document.createElement('div'); src.className='source';
+src.innerHTML = "<b>Source :</b> <i>Jus de chaussettes</i>, Vincent Remède — collection Mondes en VF, éditions Didier, 2013.<br><br>This is a published novel, not textbook filler — so the passage itself stays in your book rather than being copied here. What follows is a summary in my own words, the vocabulary glossed, and the exercises worked through. Read the original on page 49 alongside this.";
+content.appendChild(src);
+
+const h1b = document.createElement('h3'); h1b.className='sub2'; h1b.textContent = "Who is Martine Gomez? — summary"; content.appendChild(h1b);
+const summary = document.createElement('div'); summary.className='example';
+summary.innerHTML = "The narrator paints a bleak picture of a woman in her sixties living near the canal Saint-Martin in Paris, where she has been for over thirty years. Her routine is fixed and narrow: she crosses the canal on foot every morning by the same bridge to catch the metro to work, in an office near the Opéra. She is described as small, friendless, worn out by her job, afraid of water, and disinclined to go outside — she rarely leaves her studio flat, where a large television takes pride of place. The whole portrait is built from small, unglamorous details, and the cumulative effect is a life that has narrowed to almost nothing.";
+content.appendChild(summary);
+
+const noteTone = document.createElement('div'); noteTone.className='note';
+noteTone.innerHTML = "Notice what the author is doing: he never writes \"she is lonely\" or \"her life is empty\". He lists <b>facts</b> — no friends, never walks, rarely goes out, afraid of the canal — and lets you draw the conclusion. That is the technique the lesson wants you to copy when you write your own portrait.";
+content.appendChild(noteTone);
+
+/* ===== 2. Vocabulary ===== */
+const h2 = document.createElement('h2'); h2.textContent = "2 · Vocabulaire du texte"; content.appendChild(h2);
+const l2 = document.createElement('p'); l2.className='lead'; l2.textContent = "Every word you'll need to read the passage in your book."; content.appendChild(l2);
+
+const h2a = document.createElement('h3'); h2a.className='sub2'; h2a.textContent = "Le lieu — place"; content.appendChild(h2a);
+const LIEU = [
+  ["un canal","uhn kah-NAL","a canal"],
+  ["un pont","uhn POHN","a bridge"],
+  ["traverser","trah-vehr-SAY","to cross"],
+  ["une place","ewn PLASS","a square (e.g. place de la République)"],
+  ["un quartier","uhn kar-TYAY","a neighbourhood"],
+  ["un bureau","uhn bew-ROH","an office (also: a desk)"],
+  ["un studio","uhn stew-DYOH","a studio flat"],
+  ["sur cour","sewr KOOR","facing the courtyard (not the street)"]
+];
+LIEU.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr, en:en}); });
+
+const h2b = document.createElement('h3'); h2b.className='sub2'; h2b.textContent = "La personne — the person"; content.appendChild(h2b);
+const PERSONNE = [
+  ["triste","TREEST","sad"],
+  ["épuisé / épuisée","ay-pwee-ZAY","exhausted, worn out"],
+  ["la peau","lah POH","the skin"],
+  ["avoir peur de","ah-vwahr PUR duh","to be afraid of"],
+  ["se promener","suh prom-NAY","to go for a walk"],
+  ["sortir","sor-TEER","to go out"],
+  ["sortir peu","sor-teer PUH","to rarely go out"],
+  ["ne pas avoir d'amis","nuh pah ah-vwahr dah-MEE","to have no friends"]
+];
+PERSONNE.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr, en:en}); });
+
+const h2c = document.createElement('h3'); h2c.className='sub2'; h2c.textContent = "Le temps — time expressions"; content.appendChild(h2c);
+const TEMPS = [
+  ["depuis plus de trente ans","duh-PWEE plew duh trahnt AHN","for more than thirty years"],
+  ["tous les matins","too lay mah-TAN","every morning"],
+  ["à soixante ans","ah swah-sahnt AHN","at sixty years old"],
+  ["ne… jamais","nuh… zhah-MEH","never"]
+];
+TEMPS.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr, en:en}); });
+
+/* ===== 3. Exercice 1 ===== */
+const h3 = document.createElement('h2'); h3.textContent = "3 · Exercice 1 — Réaction"; content.appendChild(h3);
+
+const h3a = document.createElement('h3'); h3a.className='sub2'; h3a.textContent = "a. D'après vous, ce document est extrait :"; content.appendChild(h3a);
+const r1 = document.createElement('div'); r1.className='riddle';
+r1.innerHTML = '<div class="prompt">In your view, this document is taken from…</div>';
+const r1b = document.createElement('div'); r1b.className='btns';
+const r1f = document.createElement('div'); r1f.className='fb';
+[["d'une petite annonce","a classified ad"],["d'un article de journal","a newspaper article"],["d'un texte littéraire","a literary text"]].forEach(([opt,en])=>{
+  const b=document.createElement('button'); b.textContent=opt;
+  b.onclick=()=>{
+    speak(opt);
+    if(opt==="d'un texte littéraire"){
+      r1f.textContent = "✓ Correct — d'un texte littéraire. The source line under the passage names a novel, an author and a publisher. The style gives it away too: descriptive detail, a narrator's judgement, no practical information.";
+      r1f.className='fb ok';
+    } else {
+      r1f.textContent = "✗ Not quite. An ad would list facts to sell something; an article would report news. This has a narrator describing a character — that's fiction. Answer: d'un texte littéraire.";
+      r1f.className='fb bad';
+    }
+  };
+  r1b.appendChild(b);
+});
+r1.appendChild(r1b); r1.appendChild(r1f);
+content.appendChild(r1);
+
+const h3b = document.createElement('h3'); h3b.className='sub2'; h3b.textContent = "b. Quelle description correspond le mieux au document ?"; content.appendChild(h3b);
+const l3bb = document.createElement('p'); l3bb.className='lead';
+l3bb.textContent = "The book offers three photographs. Pick the one that matches the woman in the passage.";
+content.appendChild(l3bb);
+
+const r2 = document.createElement('div'); r2.className='riddle';
+r2.innerHTML = '<div class="prompt">Which photo best matches the document?</div>';
+const r2b = document.createElement('div'); r2b.className='btns';
+const r2f = document.createElement('div'); r2f.className='fb';
+const PHOTOS = [
+  { label:"Photo 1 — une jeune femme souriante dans un parc, avec un bébé",
+    correct:false,
+    why:"✗ No. A smiling young mother outdoors in a park is the opposite of the portrait: Martine is sixty, has no family mentioned, and never walks in her neighbourhood." },
+  { label:"Photo 2 — une personne de dos, seule, à l'intérieur",
+    correct:true,
+    why:"✓ Correct. Seen from behind, alone, indoors, older — it matches a woman who rarely goes out, has no friends, and spends her time inside her studio. Being photographed from behind even echoes how little we're allowed to know about her." },
+  { label:"Photo 3 — une jeune femme blonde qui sourit, au bord de l'eau",
+    correct:false,
+    why:"✗ No. Young, smiling, and standing beside water — Martine is afraid of the water and avoids the canal entirely." }
+];
+PHOTOS.forEach(p=>{
+  const b=document.createElement('button'); b.textContent=p.label;
+  b.onclick=()=>{
+    r2f.textContent = p.why;
+    r2f.className = 'fb ' + (p.correct ? 'ok' : 'bad');
+  };
+  r2b.appendChild(b);
+});
+r2.appendChild(r2b); r2.appendChild(r2f);
+content.appendChild(r2);
+
+const noteB = document.createElement('div'); noteB.className='note';
+noteB.innerHTML = "The way to do this kind of exercise: don't look for what the photo <i>shows</i>, look for what the text <b>rules out</b>. Two of these three are eliminated instantly — one by <i>elle a peur de l'eau</i>, the other by <i>elle ne se promène jamais dans son quartier</i>. That leaves one answer without you having to weigh it up.";
+content.appendChild(noteB);
+
+const vocabB = document.createElement('h3'); vocabB.className='sub2'; vocabB.textContent = "Useful words for talking about the photos"; content.appendChild(vocabB);
+const PHOTOVOC = [
+  ["de dos","duh DOH","from behind / with their back to us"],
+  ["de face","duh FASS","from the front, facing us"],
+  ["de profil","duh proh-FEEL","in profile, from the side"],
+  ["seul / seule","SUL","alone"],
+  ["souriant / souriante","soo-ree-AHN / soo-ree-AHNT","smiling"],
+  ["à l'intérieur / à l'extérieur","ah lan-tay-RYUR / ah lex-tay-RYUR","indoors / outdoors"],
+  ["Cette photo correspond le mieux au texte.","set foh-TOH koh-res-POHN luh myuh oh TEX","This photo matches the text best."],
+  ["Ça ne correspond pas parce que…","sah nuh koh-res-POHN pah parss kuh","That doesn't match because…"]
+];
+PHOTOVOC.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr, en:en}); });
+const exJustify = document.createElement('div'); exJustify.className='example';
+exJustify.innerHTML = "<b>Always justify your answer out loud.</b> Don't just point — say <i>C'est la photo 2, parce qu'elle est seule et à l'intérieur. Ça ne peut pas être la photo 3 parce qu'elle a peur de l'eau.</i> That <i>parce que</i> sentence is worth more marks than the right answer on its own.";
+content.appendChild(exJustify);
+
+/* ===== 4. Grammar in the passage ===== */
+const h4 = document.createElement('h2'); h4.textContent = "4 · Grammar hiding in the passage"; content.appendChild(h4);
+const l4 = document.createElement('p'); l4.className='lead';
+l4.textContent = "This short text quietly uses four structures you already know. Spotting them in real writing is the point.";
+content.appendChild(l4);
+
+const h4a = document.createElement('h3'); h4a.className='sub2'; h4a.textContent = "1. ne… jamais — never"; content.appendChild(h4a);
+const JAMAIS = [
+  ["Elle ne fait jamais de grandes choses.","ell nuh feh zhah-meh duh grahnd SHOHZ","She never does anything big."],
+  ["Elle ne se promène jamais.","ell nuh suh prom-nen zhah-MEH","She never goes for a walk."],
+  ["Je ne fume jamais.","zhuh nuh fewm zhah-MEH","I never smoke."]
+];
+JAMAIS.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr, en:en}); });
+const noteJamais = document.createElement('div'); noteJamais.className='note';
+noteJamais.innerHTML = "<b>ne… jamais</b> wraps the verb exactly like <i>ne… pas</i>. And like <i>pas</i>, it turns <i>des/du/de la</i> into plain <b>de</b>: <i>elle ne fait jamais <b>de</b> grandes choses</i>. Repeating the negative is what makes this portrait feel so closed-in — count how many times it appears.";
+content.appendChild(noteJamais);
+
+const h4b = document.createElement('h3'); h4b.className='sub2'; h4b.textContent = "2. depuis — for / since"; content.appendChild(h4b);
+const DEPUIS = [
+  ["Elle habite ici depuis plus de trente ans.","ell ah-beet ee-see duh-pwee plew duh trahnt AHN","She has lived here for more than thirty years."],
+  ["J'apprends le français depuis un an.","zhah-PRAHN luh frahn-seh duh-pwee uhn AHN","I have been learning French for a year."]
+];
+DEPUIS.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr, en:en}); });
+const warnDepuis = document.createElement('div'); warnDepuis.className='warn';
+warnDepuis.innerHTML = "Key difference from English: French uses the <b>présent</b> with depuis where English uses a perfect tense. <i>Elle habite depuis trente ans</i> = \"she <u>has lived</u> for thirty years\". Writing <i>elle a habité depuis…</i> is a common and very visible error.";
+content.appendChild(warnDepuis);
+
+const h4c = document.createElement('h3'); h4c.className='sub2'; h4c.textContent = "3. avoir peur de — to be afraid of"; content.appendChild(h4c);
+const PEUR = [
+  ["Elle a peur de l'eau.","ell ah pur duh LOH","She is afraid of water."],
+  ["J'ai peur du noir.","zhay pur dew NWAHR","I am afraid of the dark. (de + le = du)"],
+  ["Il a peur des chiens.","eel ah pur day SHYAN","He is afraid of dogs. (de + les = des)"]
+];
+PEUR.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr, en:en}); });
+const noteePeur = document.createElement('div'); noteePeur.className='example';
+noteePeur.innerHTML = "Another <b>avoir</b> expression where English uses \"to be\" — same family as <i>avoir faim</i>, <i>avoir froid</i>, <i>avoir vingt ans</i>. And it ends in <b>de</b>, so it contracts: <i>peur <b>du</b> canal</i>, <i>peur <b>des</b> chiens</i>.";
+content.appendChild(noteePeur);
+
+const h4d = document.createElement('h3'); h4d.className='sub2'; h4d.textContent = "4. Place prepositions — straight from Cours 21"; content.appendChild(h4d);
+const PREPS = [
+  ["à côté du canal","ah koh-TAY dew kah-NAL","next to the canal (de + le = du)"],
+  ["près de l'Opéra","preh duh loh-pay-RAH","near the Opéra"],
+  ["au fond d'un grand bureau","oh fohn duhn grahn bew-ROH","at the back of a big office"],
+  ["dans son quartier","dahn sohn kar-TYAY","in her neighbourhood"],
+  ["sur le pont","sewr luh POHN","on the bridge"]
+];
+PREPS.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr, en:en}); });
+const noteePrep = document.createElement('div'); noteePrep.className='example';
+noteePrep.innerHTML = "Yesterday's lesson, doing real work: <b>à côté du</b> canal and <b>près de l'</b>Opéra — both contractions behaving exactly as the rule predicts. Plus a new one worth adding to your list: <b>au fond de</b> = at the back of / deep inside.";
+content.appendChild(noteePrep);
+
+/* ===== 5. How to write a portrait ===== */
+const h5 = document.createElement('h2'); h5.textContent = "5 · Écrire un portrait — the method"; content.appendChild(h5);
+const l5 = document.createElement('p'); l5.className='lead';
+l5.textContent = "A portrait is not just a physical description. Four layers, and the passage uses all of them.";
+content.appendChild(l5);
+
+const tableMethod = document.createElement('table'); tableMethod.className='conjt';
+tableMethod.innerHTML = '<tr><th>Layer</th><th>What to write</th><th>Useful language</th></tr>' +
+  '<tr><td><b>1. Identité</b></td><td>name, age, job</td><td>Elle s\'appelle… / Elle a soixante ans. / Elle travaille dans…</td></tr>' +
+  '<tr><td><b>2. Physique</b></td><td>build, hair, eyes</td><td>Elle est petite. / Il a les cheveux courts. (see Cours 19)</td></tr>' +
+  '<tr><td><b>3. Lieu et habitudes</b></td><td>where they live, daily routine</td><td>Elle habite à côté de… depuis… / Tous les matins, elle…</td></tr>' +
+  '<tr><td><b>4. Caractère</b></td><td>personality, fears, what they avoid</td><td>Elle est triste. / Elle a peur de… / Elle ne… jamais…</td></tr>';
+content.appendChild(tableMethod);
+
+const exMethod = document.createElement('div'); exMethod.className='example';
+exMethod.innerHTML = "<b>Show, don't tell.</b> Instead of <i>elle est seule</i> (she is lonely), write <i>elle n'a pas d'amis et elle ne sort jamais</i>. Instead of <i>il est fatigué</i>, write <i>il travaille douze heures par jour</i>. Concrete details score better than adjectives in a writing exam, and they read better too.";
+content.appendChild(exMethod);
+
+const h5b = document.createElement('h3'); h5b.className='sub2'; h5b.textContent = "Sentence frames you can reuse"; content.appendChild(h5b);
+const FRAMES = [
+  ["Il / Elle s'appelle ___ et il / elle a ___ ans.","eel / ell sah-PELL … ay … AHN","His/Her name is ___ and he/she is ___ years old."],
+  ["Il / Elle habite à ___ depuis ___ ans.","ah-BEET ah … duh-PWEE … AHN","He/She has lived in ___ for ___ years."],
+  ["Tous les matins, il / elle ___.","too lay mah-TAN","Every morning, he/she ___."],
+  ["Il / Elle travaille près de ___.","trah-VYE preh duh","He/She works near ___."],
+  ["Il / Elle n'aime pas ___ et il / elle ne ___ jamais.","nem pah … nuh … zhah-MEH","He/She doesn't like ___ and never ___."],
+  ["Il / Elle a peur de ___.","ah PUR duh","He/She is afraid of ___."]
+];
+FRAMES.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); });
+
+/* ===== 6. Practice ===== */
+const h6 = document.createElement('h2'); h6.textContent = "6 · Practice"; content.appendChild(h6);
+const PRACTICE = [
+  { s:"Elle ne sort ___ de chez elle. (never)", a:["jamais"], en:"She never leaves her home.", why:"ne … jamais wraps the verb." },
+  { s:"J'habite ici ___ cinq ans. (for)", a:["depuis"], en:"I have lived here for five years.", why:"depuis + present tense." },
+  { s:"Il a peur ___ chiens. (de + les)", a:["des"], en:"He is afraid of dogs.", why:"de + les = des." },
+  { s:"Elle travaille à côté ___ canal. (de + le)", a:["du"], en:"She works next to the canal.", why:"de + le = du." },
+  { s:"Elle ne fait jamais ___ grandes choses. (des → ?)", a:["de"], en:"She never does anything big.", why:"After a negative, des becomes de." }
+];
+PRACTICE.forEach(item=>{
+  const d=document.createElement('div'); d.className='fillrow';
+  const s=document.createElement('div'); s.className='sent';
+  s.innerHTML='<span></span><div class="en"></div>';
+  s.querySelector('span').textContent=item.s;
+  s.querySelector('.en').textContent=item.en;
+  const inp=document.createElement('input'); inp.placeholder='your answer';
+  const b=document.createElement('button'); b.textContent='Check';
+  const fb=document.createElement('div'); fb.className='fb';
+  function check(){
+    const val=inp.value.toLowerCase().trim();
+    if(!val){ fb.textContent='Type something first.'; fb.className='fb'; return; }
+    if(item.a.some(a=>a.toLowerCase()===val)){
+      fb.textContent='✓ Correct — '+item.a[0]+' · '+item.why; fb.className='fb ok';
+      speak(item.s.replace('___', item.a[0]).replace(/\(.*?\)/g,''));
+    } else { fb.textContent='✗ Answer: '+item.a[0]+' · '+item.why; fb.className='fb bad'; }
+  }
+  b.onclick=check; inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+  d.appendChild(s); d.appendChild(inp); d.appendChild(b); d.appendChild(fb);
+  content.appendChild(d);
+});
+
+const writeTask = document.createElement('div'); writeTask.className='example';
+writeTask.innerHTML = "<b>Your turn — write a portrait of about 60 words.</b> Pick someone real or invented. Use all four layers from section 5, and include at least one <i>ne… jamais</i>, one <i>depuis</i>, and two place prepositions. That combination is exactly what a TEF writing task rewards.";
+content.appendChild(writeTask);
+
+/* ===== Préparation ===== */
+const h8 = document.createElement('h2'); h8.textContent = "7 · Exercice 2 — Préparation"; content.appendChild(h8);
+
+const h8a = document.createElement('h3'); h8a.className='sub2'; h8a.textContent = "1. Soulignez les éléments qui correspondent à Martine Gomez"; content.appendChild(h8a);
+const l8a = document.createElement('p'); l8a.className='lead';
+l8a.textContent = "Eight statements — underline only the ones that are true of her. Click each to check. Three of them are deliberate near-misses.";
+content.appendChild(l8a);
+
+const SOULIGNEZ = [
+  { fr:"Elle est grande.", en:"She is tall.", ok:false,
+    why:"✗ False — the text opens by calling her petite (small). The very first adjective in the passage." },
+  { fr:"Elle a une vie triste.", en:"She has a sad life.", ok:true,
+    why:"✓ True — stated almost directly: sa vie est triste." },
+  { fr:"Elle habite à côté de l'Opéra.", en:"She lives next to the Opéra.", ok:false,
+    why:"✗ False, and this is the trap. She <b>works</b> near the Opéra; she <b>lives</b> beside the canal Saint-Martin. The place is right, the verb is wrong." },
+  { fr:"Elle va travailler tous les matins au bureau.", en:"She goes to work at the office every morning.", ok:true,
+    why:"✓ True — she crosses the bridge every morning to take the metro to her office." },
+  { fr:"Elle n'aime pas se promener dans son quartier.", en:"She doesn't like walking in her neighbourhood.", ok:true,
+    why:"✓ True — the text says she never walks there. Note the softening: the book writes elle n'aime pas, the novel writes elle ne se promène jamais." },
+  { fr:"Elle a peur du canal.", en:"She is afraid of the canal.", ok:true,
+    why:"✓ True — afraid of water, and therefore of the canal. Note the contraction: peur du canal (de + le)." },
+  { fr:"Elle est fatiguée.", en:"She is tired.", ok:true,
+    why:"✓ True — described as épuisée par le travail (worn out by work). Épuisé is a stronger word than fatigué." },
+  { fr:"Elle habite un studio avec un jardin.", en:"She lives in a studio with a garden.", ok:false,
+    why:"✗ False — a studio yes, but sur cour: facing the inner courtyard, not a garden. A classic Parisian detail, and the opposite of pleasant." }
+];
+SOULIGNEZ.forEach(item=>{
+  const d=document.createElement('div'); d.className='riddle';
+  const p=document.createElement('div'); p.className='prompt'; p.textContent=item.fr;
+  p.style.cursor='pointer'; p.onclick=()=>speak(item.fr);
+  const enl=document.createElement('div'); enl.className='en'; enl.textContent=item.en; enl.style.marginBottom='8px';
+  const btns=document.createElement('div'); btns.className='btns';
+  const fb=document.createElement('div'); fb.className='fb';
+  [['Vrai',true],['Faux',false]].forEach(([label,val])=>{
+    const b=document.createElement('button'); b.textContent=label;
+    b.onclick=()=>{
+      fb.innerHTML=item.why;
+      fb.className='fb ' + (val===item.ok ? 'ok' : 'bad');
+    };
+    btns.appendChild(b);
+  });
+  d.appendChild(p); d.appendChild(enl); d.appendChild(btns); d.appendChild(fb);
+  content.appendChild(d);
+  GLOBAL_VOCAB.push({fr:item.fr, en:item.en});
+});
+const noteSoul = document.createElement('div'); noteSoul.className='note';
+noteSoul.innerHTML = "Five true, three false. Every false one is a <b>near miss</b> built from real words in the text — the Opéra is there but attached to the wrong verb, the studio is there but the garden isn't. That's how reading-comprehension distractors are built, on exams too: they reuse your vocabulary and change one relationship.";
+content.appendChild(noteSoul);
+
+const h8b = document.createElement('h3'); h8b.className='sub2'; h8b.textContent = "2. Classez les éléments dans trois catégories"; content.appendChild(h8b);
+const l8b = document.createElement('p'); l8b.className='lead';
+l8b.textContent = "Sort what you underlined into three buckets — this is the planning step for your own writing.";
+content.appendChild(l8b);
+const tableCat = document.createElement('table'); tableCat.className='conjt';
+tableCat.innerHTML = '<tr><th>Catégorie</th><th>What goes in it</th><th>From this text</th></tr>' +
+  '<tr><td><b>a. Les aspects physiques</b><br><i>lay-zas-PEH fee-ZEEK</i></td><td>height, eye and hair colour, age</td><td>elle est petite · à soixante ans · elle est fatiguée / épuisée</td></tr>' +
+  '<tr><td><b>b. Les émotions</b><br><i>lay-zay-moh-SYOHN</i></td><td>feelings and fears</td><td>sa vie est triste · elle a peur de l\'eau et du canal</td></tr>' +
+  '<tr><td><b>c. Ses goûts</b><br><i>say GOO</i></td><td>likes, dislikes, habits</td><td>elle n\'aime pas se promener · elle sort peu · elle ne fait jamais de grandes choses</td></tr>';
+content.appendChild(tableCat);
+const CATVOC = [
+  ["les aspects physiques","lay-zas-peh fee-ZEEK","physical features"],
+  ["les émotions","lay-zay-moh-SYOHN","emotions"],
+  ["les goûts","lay GOO","tastes, likes and dislikes"],
+  ["classer","klah-SAY","to sort, to classify"],
+  ["souligner","soo-lee-NYAY","to underline"]
+];
+CATVOC.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr, en:en}); });
+const noteCat = document.createElement('div'); noteCat.className='example';
+noteCat.innerHTML = "These three categories are your paragraph plan. A portrait that covers physique, émotions and goûts will always feel complete — and if one bucket is empty when you finish planning, you know exactly what's missing.";
+content.appendChild(noteCat);
+
+/* ===== Rédaction ===== */
+const h9 = document.createElement('h2'); h9.textContent = "8 · Exercice 3 — Rédaction (the writing task)"; content.appendChild(h9);
+const taskBox = document.createElement('div'); taskBox.className='example';
+taskBox.innerHTML = "<b>Vous imaginez votre voisin dans 30 ans. Faites son portrait !</b><br><i>voo-zee-mah-ZHEE-nay voh-truh vwah-ZAN dahn trahnt AHN. fet sohn por-TREH</i><br>Imagine your neighbour in 30 years' time. Write their portrait.";
+content.appendChild(taskBox);
+content.appendChild(makeRow("Vous imaginez votre voisin dans 30 ans.","voo-zee-mah-zhee-NAY voh-truh vwah-ZAN dahn trahnt AHN","Imagine your neighbour in 30 years."));
+GLOBAL_VOCAB.push({fr:"Vous imaginez votre voisin dans 30 ans.", en:"Imagine your neighbour in 30 years."});
+
+const noteFuture = document.createElement('div'); noteFuture.className='note';
+noteFuture.innerHTML = "<b>dans 30 ans</b> = in 30 years <i>from now</i> — so this is a future task. You have two ways to write it: the easy one, <b>aller + infinitif</b> (<i>il va habiter, il va être</i>), or the futur simple (<i>il habitera, il sera</i>). Either is accepted at this level; pick one and stay consistent.";
+content.appendChild(noteFuture);
+
+const h9b = document.createElement('h3'); h9b.className='sub2'; h9b.textContent = "Model portrait — written for this page"; content.appendChild(h9b);
+const MODEL = [
+  ["Mon voisin s'appelle Daniel. Aujourd'hui il a quarante ans.","mohn vwah-ZAN sah-pell dah-nee-ELL. oh-zhoor-DWEE eel ah kah-RAHNT ahn","My neighbour is called Daniel. Today he is forty."],
+  ["Dans trente ans, il aura soixante-dix ans.","dahn trahnt AHN, eel oh-RAH swah-sahnt-deez AHN","In thirty years, he will be seventy."],
+  ["Il sera petit et un peu gros, avec les cheveux blancs.","eel suh-RAH puh-TEE ay uhn puh GROH, ah-vek lay shuh-vuh BLAHN","He will be short and a bit heavy, with white hair."],
+  ["Il habitera toujours dans le même appartement, à côté du parc.","eel ah-bee-tuh-RAH too-ZHOOR dahn luh mem ah-par-tuh-MAHN, ah koh-TAY dew PARK","He will still live in the same flat, next to the park."],
+  ["Tous les matins, il promènera son chien près du lac.","too lay mah-TAN, eel prom-nuh-RAH sohn shyan preh dew LAK","Every morning, he will walk his dog near the lake."],
+  ["Il sera heureux mais un peu seul.","eel suh-rah uh-RUH meh zuhn puh SUL","He will be happy but a little lonely."],
+  ["Il n'aimera jamais l'hiver et il aura peur du froid.","eel neh-muh-rah zhah-MEH lee-VEHR ay eel oh-rah pur dew FRWAH","He will never like winter and he will be afraid of the cold."]
+];
+MODEL.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr, en:en}); });
+
+const noteModel = document.createElement('div'); noteModel.className='example';
+noteModel.innerHTML = "Count what's in those seven sentences: <b>physique</b> (petit, gros, cheveux blancs), <b>émotions</b> (heureux, seul, peur du froid), <b>goûts</b> (promener son chien, n'aimera jamais l'hiver) — all three categories. Plus <i>ne… jamais</i>, <i>avoir peur de</i>, and three place prepositions (<i>à côté du</i> parc, <i>près du</i> lac, <i>dans</i> le même appartement). That's the whole lesson in one paragraph.";
+content.appendChild(noteModel);
+
+const checklist = document.createElement('div'); checklist.className='note';
+checklist.innerHTML = "<b>Checklist before you hand it in:</b><br>· Did you cover all three categories (physique / émotions / goûts)?<br>· Is your future consistent — either all <i>aller + infinitif</i> or all futur simple?<br>· At least one <i>ne… jamais</i>?<br>· Do your <i>de</i> prepositions contract correctly — <i>du</i>, <i>des</i>, but <i>de la</i> and <i>de l'</i> unchanged?<br>· Do adjectives agree with the person you're describing?";
+content.appendChild(checklist);
+
+const yourTurn = document.createElement('div'); yourTurn.className='example';
+yourTurn.innerHTML = "<b>Your turn.</b> Use the model as scaffolding and swap in your own neighbour: <i>Mon voisin s'appelle ___. Dans trente ans, il aura ___ ans. Il sera ___. Il habitera ___. Tous les matins, il ___. Il sera ___ mais ___. Il n'aimera jamais ___.</i> Sixty words is plenty.";
+content.appendChild(yourTurn);
+
+/* ===== 7. Quiz ===== */
+const h7 = document.createElement('h2'); h7.textContent = "7 · Quick quiz"; content.appendChild(h7);
+const quizBox = document.createElement('div'); quizBox.className='quizbox';
+quizBox.innerHTML = '<p class="lead" style="margin:0 0 8px;">Multiple-choice, mixing today\'s vocab.</p>';
+const quizBtn = document.createElement('button'); quizBtn.className='quizbtn'; quizBtn.textContent='▶ Start quiz';
+const quizArea = document.createElement('div'); quizArea.className='quizarea';
+quizBox.appendChild(quizBtn); quizBox.appendChild(quizArea);
+content.appendChild(quizBox);
+
+function shuffleArr(a){ const b=[...a]; for(let i=b.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [b[i],b[j]]=[b[j],b[i]]; } return b; }
+function runQuiz(pool, area, btn){
+  btn.style.display='none';
+  const qs = shuffleArr(pool).slice(0, Math.min(8, pool.length));
+  let i = 0, score = 0;
+  function showQ(){
+    area.innerHTML = '';
+    if (i >= qs.length) {
+      const res = document.createElement('div'); res.className='quizresult';
+      res.textContent = 'Score: '+score+' / '+qs.length;
+      const retry = document.createElement('button'); retry.className='quizretry'; retry.textContent='↻ Retry';
+      retry.onclick = ()=>{ btn.style.display='inline-block'; area.innerHTML=''; };
+      area.appendChild(res); area.appendChild(retry);
+      return;
+    }
+    const item = qs[i];
+    const wrongPool = pool.filter(p=>p.en!==item.en);
+    const opts = shuffleArr([item, ...shuffleArr(wrongPool).slice(0,3)]);
+    const prog = document.createElement('div'); prog.className='quizprog'; prog.textContent = 'Question '+(i+1)+' / '+qs.length;
+    const fr = document.createElement('div'); fr.className='quizfr'; fr.textContent = item.fr;
+    area.appendChild(prog); area.appendChild(fr);
+    opts.forEach(o=>{
+      const b = document.createElement('button'); b.className='quizopt'; b.textContent = o.en;
+      b.onclick = ()=>{
+        [...area.querySelectorAll('.quizopt')].forEach(x=>x.disabled=true);
+        if (o.en===item.en){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); [...area.querySelectorAll('.quizopt')].find(x=>x.textContent===item.en).classList.add('correct'); }
+        setTimeout(()=>{ i++; showQ(); }, 900);
+      };
+      area.appendChild(b);
+    });
+  }
+  showQ();
+}
+quizBtn.onclick = ()=> runQuiz(GLOBAL_VOCAB, quizArea, quizBtn);
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+<script src="french_glossary.js"></script>
+</body>
+</html>

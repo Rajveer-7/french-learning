@@ -81,9 +81,16 @@
     <a href="French_Cours18_Notes.html" class="active">Cours 18</a>
     <a href="French_Cours19_Notes.html">Cours 19</a>
     <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Cours21_Notes.html">Cours 21</a>
+    <a href="French_Cours22_Notes.html">Cours 22</a>
+    <a href="French_Cours23_Notes.html">Cours 23</a>
     <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
     <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
     <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
     <a href="French_Articles.html">Articles</a>
   </nav>
 
@@ -165,7 +172,7 @@ const note3 = document.createElement('div'); note3.className='note';
 note3.innerHTML = "⚠ No verified line-by-line transcript here — I can't listen to audio directly, and the dialogue itself is the textbook's copyrighted audio script, so it isn't reproduced word-for-word. What follows is a plain-language summary plus the book's own comprehension questions and answers, confirmed from class.";
 content.appendChild(note3);
 const summary3 = document.createElement('div'); summary3.className='example';
-summary3.innerHTML = "<b>Gist of the conversation:</b> a friend asks Maud how things are going with her new neighbours. Maud says it's going well and describes a woman, <b>Chloé</b>, who lives on the ground floor (<i>le rez-de-chaussée</i>) and looks a bit like Maud's sister Juliette (except Juliette has black hair). Chloé has two sons — <b>Alex</b>, a slim teenager with curly blonde hair, and <b>Noé</b>, a chubby baby who weighs about 10 kg and has nice blue eyes. The friend then asks about the father; Maud says he's not blonde, his name is <b>Marc</b>, he has light-brown (châtain) hair, and he's funny, always in floral shirts.";
+summary3.innerHTML = "<b>Gist of the conversation:</b> Maud's friend <b>Jennifer</b> asks how things are going with the new neighbours. Maud says it's going well and describes a very nice woman, <b>Chloé</b> — tall and blonde, living on the ground floor (<i>le rez-de-chaussée</i>), who reminds her of her sister Juliette, though Juliette's hair is long. Chloé has two sons: <b>Alex</b>, a slim teenager with curly blonde hair, and <b>Noé</b>, a chubby baby who weighs 10 kilos and has lovely blue eyes. Jennifer asks whether the father is blonde too; Maud says no — he's <b>Marc</b>, châtain (light brown), and funny, always in floral shirts.";
 content.appendChild(summary3);
 
 /* 3b. Word-by-word glossary for Piste 26 */
@@ -206,9 +213,9 @@ const EX6 = [
     aph:"el parl day noo-VOH vwah-ZAN duh mohd.",
     aen:"They're talking about Maud's new neighbours — Chloé, her husband Marc, and their two sons Alex and Noé." },
   { q:"c. Qui ressemble à Juliette ?", en:"Who looks like Juliette?",
-    a:"C'est Chloé qui ressemble à Juliette, la sœur de Maud — sauf que Juliette a les cheveux noirs.",
+    a:"C'est Chloé qui ressemble à Juliette, la sœur de Maud — sauf que Juliette a les cheveux longs.",
     aph:"seh kloh-AY kee ruh-SAHM-bluh ah zhoo-lee-ET.",
-    aen:"It's Chloé who looks like Juliette, Maud's sister — except Juliette has black hair." },
+    aen:"It's Chloé who looks like Juliette, Maud's sister — except Juliette's hair is long." },
   { q:"d. D'après la description, retrouvez sur la photo : Chloé, Alex, Noé et Marc.", en:"Based on the description, find in the photo: Chloé, Alex, Noé and Marc.",
     a:"Chloé = grande femme blonde, au rez-de-chaussée. Alex = l'ado mince aux cheveux blonds et bouclés. Noé = le bébé (gros, 10 kg, beaux yeux bleus). Marc = l'homme aux cheveux châtains, en chemise à fleurs.",
     aph:"",
@@ -222,7 +229,7 @@ EX6.forEach(item=>{
   GLOBAL_VOCAB.push({fr:item.q, en:item.en});
 });
 const note4 = document.createElement('div'); note4.className='note';
-note4.innerHTML = "Names to know: <b>Chloé</b> (new neighbour, tall/blonde, ground floor), <b>Alex</b> (her teenage son, slim, curly blonde hair), <b>Noé</b> (her baby son, 10 kg, blue eyes), <b>Marc</b> (the father, light-brown hair, floral shirts), <b>Juliette</b> (Maud's sister — Chloé resembles her, minus the black hair).";
+note4.innerHTML = "Names to know: <b>Maud</b> and her friend <b>Jennifer</b> (the two speakers), <b>Chloé</b> (new neighbour, tall and blonde, ground floor), <b>Alex</b> (her teenage son, slim, curly blonde hair), <b>Noé</b> (her baby son, 10 kg, blue eyes), <b>Marc</b> (the father, châtain, floral shirts), <b>Juliette</b> (Maud's sister — Chloé resembles her, but Juliette's hair is long).";
 content.appendChild(note4);
 
 /* Character recap table */
@@ -230,7 +237,7 @@ const h4b = document.createElement('h3'); h4b.className='sub2'; h4b.textContent 
 const table6 = document.createElement('table'); table6.className='conjt';
 table6.innerHTML = '<tr><th>Personnage</th><th>Rôle</th><th>Lieu de vie</th><th>Description</th></tr>' +
   '<tr><td>Chloé</td><td>Nouvelle voisine</td><td>Rez-de-chaussée</td><td>Grande, blonde, très sympa</td></tr>' +
-  '<tr><td>Juliette</td><td>Sœur de Maud</td><td>—</td><td>Ressemble à Chloé, mais cheveux noirs</td></tr>' +
+  '<tr><td>Juliette</td><td>Sœur de Maud</td><td>—</td><td>Ressemble à Chloé, mais cheveux longs</td></tr>' +
   '<tr><td>Alex</td><td>Fils aîné de Chloé</td><td>Rez-de-chaussée</td><td>Ado, mince, cheveux blonds et bouclés</td></tr>' +
   '<tr><td>Noé</td><td>Deuxième fils</td><td>Rez-de-chaussée</td><td>Gros bébé (10 kg), beaux yeux bleus</td></tr>' +
   '<tr><td>Marc</td><td>Le père</td><td>Rez-de-chaussée</td><td>Châtain, drôle, chemises à fleurs</td></tr>';
@@ -356,5 +363,6 @@ document.getElementById('speed').addEventListener('click',e=>{
   e.target.classList.add('on');
 });
 </script>
+<script src="french_glossary.js"></script>
 </body>
 </html>

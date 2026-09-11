@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French — Dialogues & Écoute</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.55; }
+  .wrap { max-width:900px; margin:0 auto; padding:20px 16px 100px; }
+  h1 { font-size:28px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav.site { display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap; }
+  nav.site a { text-decoration:none; font-size:13px; padding:7px 12px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav.site a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:14px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  .dtabs { display:flex; gap:6px; flex-wrap:wrap; margin:14px 0 18px; position:sticky; top:0; background:var(--bg); padding:10px 0; z-index:9; border-bottom:1px solid var(--line); }
+  .dtabs button { border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:999px; padding:7px 13px; font-size:13px; cursor:pointer; }
+  .dtabs button.on { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .dtabs button .lv { font-size:11px; opacity:.7; display:block; }
+  .dhead { margin:6px 0 12px; }
+  .dhead h2 { font-size:22px; margin:0 0 4px; border:none; padding:0; }
+  .dhead p { margin:0; font-size:14px; color:var(--muted); }
+  .lvbadge { display:inline-block; background:var(--accentbg); color:var(--accent); border-radius:999px; padding:2px 10px; font-size:12px; margin-left:8px; }
+  .playall { display:inline-flex; align-items:center; gap:8px; border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:10px 20px; font-size:15px; cursor:pointer; margin:8px 8px 14px 0; }
+  .playall:hover { filter:brightness(1.08); }
+  .stopbtn { border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:999px; padding:10px 18px; font-size:14px; cursor:pointer; }
+  .script { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:6px 8px; margin:10px 0 16px; }
+  .dline { display:flex; align-items:flex-start; gap:10px; padding:9px 10px; border-radius:10px; margin:3px 0; }
+  .dline.on { background:var(--accentbg); }
+  .dline .who { flex:0 0 auto; min-width:58px; font-size:12.5px; font-weight:700; color:var(--accent); padding-top:3px; }
+  .dline .body { flex:1 1 auto; min-width:0; cursor:pointer; }
+  .dline .fr { font-size:16.5px; font-weight:600; }
+  .dline .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .dline .en { font-size:13px; color:var(--muted); }
+  h3.sub2 { font-size:15px; margin:20px 0 8px; color:var(--accent); border-bottom:1px solid var(--line); padding-bottom:5px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:9px 12px; margin:7px 0; }
+  .play { flex:0 0 auto; width:38px; height:38px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:15px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:16.5px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .mcq { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:11px 13px; margin:8px 0; }
+  .mcq .q { font-weight:600; font-size:14.5px; margin-bottom:8px; }
+  .mcq button.opt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:var(--bg); border-radius:9px; padding:8px 11px; margin:5px 0; font-size:14px; cursor:pointer; }
+  .mcq button.opt:hover { border-color:var(--accent); }
+  .mcq button.opt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .mcq button.opt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .mcq .why { font-size:13px; color:var(--muted); margin-top:7px; }
+  .hidden { display:none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Dialogues & Écoute</h1>
+  <p class="sub">Original dialogues written for this site · press play and the whole conversation is read aloud, line by line · full script, glossary, questions and grammar for each</p>
+
+  <nav class="site">
+    <a href="index.html">Home</a>
+    <a href="French_Dialogues.html" class="active">Dialogues</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="0.85" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div class="dtabs" id="dtabs"></div>
+  <div id="stage"></div>
+</div>
+
+<script>
+let rate = 0.85, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function clean(t){ return String(t).replace(/\s+([!?])/g,'$1').replace(/…/g,'...'); }
+function speak(text){
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(clean(text));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate;
+  speechSynthesis.speak(u);
+}
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+/* ============================================================
+   DIALOGUES — all original, written for this site.
+   ============================================================ */
+const DIALOGUES = [
+{
+ id:'d1', tab:'1. Bonjour !', level:'A1 · débutant',
+ title:'Bonjour ! — saying hello',
+ intro:"Two short exchanges: first two friends meeting in the street, then the same situation with someone you don't know. Listen for how the second one changes.",
+ lines:[
+  {who:'Léa', fr:"Salut Tom ! Ça va ?", ph:"sah-LEW tom, sah VAH", en:"Hi Tom! How's it going?"},
+  {who:'Tom', fr:"Ça va bien, merci. Et toi ?", ph:"sah vah byan, mehr-SEE. ay TWAH", en:"I'm fine, thanks. And you?"},
+  {who:'Léa', fr:"Très bien ! À bientôt.", ph:"treh BYAN. ah byan-TOH", en:"Very well! See you soon."},
+  {who:'Tom', fr:"Salut !", ph:"sah-LEW", en:"Bye!"},
+  {who:'—', fr:"— — —", ph:"", en:"(now the polite version)"},
+  {who:'Léa', fr:"Bonjour madame. Vous allez bien ?", ph:"bohn-ZHOOR mah-DAM. voo-zah-lay BYAN", en:"Hello madam. Are you well?"},
+  {who:'Mme R.', fr:"Très bien, merci. Et vous ?", ph:"treh byan, mehr-SEE. ay VOO", en:"Very well, thank you. And you?"},
+  {who:'Léa', fr:"Ça va, merci. Bonne journée !", ph:"sah VAH, mehr-SEE. bun zhoor-NAY", en:"I'm fine, thanks. Have a good day!"},
+  {who:'Mme R.', fr:"Merci, à vous aussi. Au revoir.", ph:"mehr-SEE, ah voo oh-SEE. oh ruh-VWAHR", en:"Thank you, you too. Goodbye."}
+ ],
+ gloss:[
+  ["Salut !","sah-LEW","Hi / Bye (friends only)"],
+  ["Ça va ?","sah VAH","How's it going?"],
+  ["Ça va bien.","sah vah BYAN","I'm fine."],
+  ["Et toi ? / Et vous ?","ay TWAH / ay VOO","And you? (informal / formal)"],
+  ["Vous allez bien ?","voo-zah-lay BYAN","Are you well? (formal)"],
+  ["Bonne journée !","bun zhoor-NAY","Have a good day!"],
+  ["à vous aussi","ah voo oh-SEE","you too"],
+  ["Au revoir.","oh ruh-VWAHR","Goodbye."]
+ ],
+ questions:[
+  {q:"In the first exchange, which word tells you they're friends?", opts:["Bonjour","Salut","Madame"], a:1, why:"Salut is only used with people you'd call tu. With a stranger it sounds over-familiar."},
+  {q:"Why does Léa say « et vous ? » in the second exchange?", opts:["Because she's talking to a group","Because it's a polite/formal situation","Because it's the evening"], a:1, why:"vous is both the plural and the polite singular. Here it's politeness — she doesn't know Mme R. well."}
+ ],
+ grammar:[
+  {h:"Two registers, same conversation", x:"Notice what swapped: <i>salut → bonjour</i>, <i>ça va ? → vous allez bien ?</i>, <i>et toi ? → et vous ?</i> The structure is identical; only the register changes. Practise both versions of every greeting you learn."},
+  {h:"aller for wellbeing", x:"How you are uses <b>aller</b>: <i>je vais bien</i>, <i>vous allez bien ?</i> — literally \"I go well\". Never <i>je suis bien</i> for this."}
+ ],
+ task:"Record yourself doing both versions back to back. If you can switch registers cleanly, you've understood the single most important social rule in French."
+},
+{
+ id:'d2', tab:'2. Je m\'appelle…', level:'A1 · débutant',
+ title:"Je m'appelle… — introductions and spelling",
+ intro:"Two people meet at a language class. Watch how the spelling question comes up — it will happen to you constantly.",
+ lines:[
+  {who:'Ana', fr:"Bonjour ! Comment tu t'appelles ?", ph:"bohn-ZHOOR, koh-MAHN tew tah-PELL", en:"Hello! What's your name?"},
+  {who:'Rajveer', fr:"Je m'appelle Rajveer. Et toi ?", ph:"zhuh mah-PELL raj-VEER. ay TWAH", en:"My name is Rajveer. And you?"},
+  {who:'Ana', fr:"Moi, c'est Ana. Comment ça s'écrit, Rajveer ?", ph:"mwah, seh ah-NAH. koh-MAHN sah say-KREE", en:"I'm Ana. How do you spell Rajveer?"},
+  {who:'Rajveer', fr:"R-A-J-V-E-E-R. Deux E.", ph:"air-ah-zhee-vay-uh-uh-air. duh UH", en:"R-A-J-V-E-E-R. Two E's."},
+  {who:'Ana', fr:"Merci ! Tu es étudiant ?", ph:"mehr-SEE. tew ay zay-tew-DYAHN", en:"Thanks! Are you a student?"},
+  {who:'Rajveer', fr:"Non, je travaille dans l'informatique. Et toi ?", ph:"nohn, zhuh trah-VYE dahn lan-for-mah-TEEK", en:"No, I work in IT. And you?"},
+  {who:'Ana', fr:"Moi, je suis professeure. Enchantée !", ph:"mwah, zhuh swee proh-feh-SUR. ahn-shahn-TAY", en:"Me, I'm a teacher. Nice to meet you!"},
+  {who:'Rajveer', fr:"Enchanté !", ph:"ahn-shahn-TAY", en:"Nice to meet you!"}
+ ],
+ gloss:[
+  ["Comment tu t'appelles ?","koh-MAHN tew tah-PELL","What's your name?"],
+  ["Je m'appelle…","zhuh mah-PELL","My name is…"],
+  ["Moi, c'est Ana.","mwah, seh ah-NAH","I'm Ana."],
+  ["Comment ça s'écrit ?","koh-MAHN sah say-KREE","How is that spelled?"],
+  ["deux E","duh UH","two E's"],
+  ["Tu es étudiant ?","tew ay zay-tew-DYAHN","Are you a student?"],
+  ["je travaille dans l'informatique","zhuh trah-VYE dahn lan-for-mah-TEEK","I work in IT"],
+  ["Enchanté / Enchantée","ahn-shahn-TAY","Nice to meet you (m. / f.)"]
+ ],
+ questions:[
+  {q:"What does Rajveer do?", opts:["He's a student","He works in IT","He's a teacher"], a:1, why:"« je travaille dans l'informatique » — he corrects Ana's guess that he's a student."},
+  {q:"Why does Ana write « Enchantée » with two e's?", opts:["It's a spelling mistake","Because she is female","Because she's being extra polite"], a:1, why:"Enchanté agrees with the speaker. The extra -e is silent — you only see it in writing."},
+  {q:"« Moi, c'est Ana » — why moi and not je?", opts:["After c'est you need a tonic pronoun","It's more polite","Both are equally correct"], a:0, why:"c'est takes a tonic pronoun: moi, toi, lui, elle. Never « je, c'est »."}
+ ],
+ grammar:[
+  {h:"Reflexive s'appeler", x:"Literally \"to call oneself\". <i>Je <b>m'</b>appelle</i>, <i>tu <b>t'</b>appelles</i>, <i>il <b>s'</b>appelle</i>. The extra pronoun isn't optional — leaving it out is one of the most common beginner errors."},
+  {h:"No article with jobs", x:"<i>Je suis professeure</i>, not <i>une professeure</i>. Same for <i>je suis étudiant</i>. Where English needs \"a\", French needs nothing."},
+  {h:"Spelling out loud", x:"<b>deux E</b> for a double letter, <b>un trait d'union</b> for a hyphen, <b>en majuscule</b> for a capital. You'll use these at every appointment, bank and pharmacy."}
+ ],
+ task:"Spell your own full name aloud in French, then your street name. Do it until you don't have to think about G (zhay) and J (zhee)."
+},
+{
+ id:'d3', tab:'3. Tu es d\'où ?', level:'A1 · débutant',
+ title:"Tu es d'où ? — countries and nationalities",
+ intro:"Three classmates compare where they're from. Listen for the gender endings and the prepositions in front of each country.",
+ lines:[
+  {who:'Marta', fr:"Tu es d'où, Kenji ?", ph:"tew ay DOO, ken-ZHEE", en:"Where are you from, Kenji?"},
+  {who:'Kenji', fr:"Je viens du Japon. Je suis japonais.", ph:"zhuh vyan dew zhah-POHN. zhuh swee zhah-poh-NEH", en:"I come from Japan. I'm Japanese."},
+  {who:'Marta', fr:"Moi, je viens d'Espagne. Je suis espagnole.", ph:"mwah, zhuh vyan des-PAN-yuh. zhuh swee zes-pah-NYOL", en:"Me, I come from Spain. I'm Spanish."},
+  {who:'Kenji', fr:"Et Rajveer, il est indien, non ?", ph:"ay raj-VEER, eel eh tan-DYAN, NOHN", en:"And Rajveer, he's Indian, isn't he?"},
+  {who:'Marta', fr:"Oui, il vient d'Inde mais il habite au Canada.", ph:"wee, eel vyan DAND meh zeel ah-beet oh kah-nah-DAH", en:"Yes, he comes from India but he lives in Canada."},
+  {who:'Kenji', fr:"Il parle quelles langues ?", ph:"eel parl kell LAHNG", en:"What languages does he speak?"},
+  {who:'Marta', fr:"Hindi, anglais, et un peu français !", ph:"een-DEE, ahn-GLEH, ay uhn puh frahn-SEH", en:"Hindi, English, and a little French!"}
+ ],
+ gloss:[
+  ["Tu es d'où ?","tew ay DOO","Where are you from?"],
+  ["Je viens du Japon.","zhuh vyan dew zhah-POHN","I come from Japan."],
+  ["Je viens d'Espagne.","zhuh vyan des-PAN-yuh","I come from Spain."],
+  ["il vient d'Inde","eel vyan DAND","he comes from India"],
+  ["il habite au Canada","eel ah-beet oh kah-nah-DAH","he lives in Canada"],
+  ["Il parle quelles langues ?","eel parl kell LAHNG","What languages does he speak?"],
+  ["un peu","uhn PUH","a little"],
+  ["japonais / japonaise","zhah-poh-NEH / zhah-poh-NEZ","Japanese"],
+  ["espagnol / espagnole","es-pah-NYOL","Spanish"],
+  ["indien / indienne","an-DYAN / an-DYEN","Indian"]
+ ],
+ questions:[
+  {q:"Why « du Japon » but « d'Espagne »?", opts:["Japon is masculine, Espagne is feminine","It's random","Japon is further away"], a:0, why:"Masculine countries take du, feminine take de, and any country starting with a vowel takes d'. Japon is masculine, Espagne is feminine."},
+  {q:"Why « au Canada » and not « en Canada »?", opts:["Canada is masculine","Canada is plural","It's a mistake"], a:0, why:"For living in: en + feminine country, au + masculine country. Canada is masculine → au Canada."},
+  {q:"Marta says « je suis espagnole ». What would a man say?", opts:["espagnole","espagnol","espagnolle"], a:1, why:"Written without the -e for a man — though both sound exactly the same."}
+ ],
+ grammar:[
+  {h:"The country preposition table", x:"<b>Living in:</b> en France (f.), au Japon (m.), aux États-Unis (pl.), à Paris (city).<br><b>Coming from:</b> de France, du Japon, des États-Unis, de Paris. Vowel-starting countries take <b>d'</b>: d'Inde, d'Espagne, d'Italie."},
+  {h:"Three different words", x:"<i>le Japon</i> (country, capital, article) · <i>japonais</i> (nationality, lowercase, no article) · <i>le japonais</i> (the language). Same root, three jobs."}
+ ],
+ task:"Answer out loud: Tu es d'où ? Tu habites où ? Tu parles quelles langues ? Three sentences that come up in every single introduction."
+},
+{
+ id:'d4', tab:'4. Au marché', level:'A1 · débutant',
+ title:"Au marché — numbers, quantities and prices",
+ intro:"Buying fruit and vegetables at a market stall. This is where numbers stop being an exercise and start being useful.",
+ lines:[
+  {who:'Vendeur', fr:"Bonjour madame ! Vous désirez ?", ph:"bohn-ZHOOR mah-DAM. voo day-zee-RAY", en:"Hello madam! What would you like?"},
+  {who:'Cliente', fr:"Bonjour. Je voudrais un kilo de tomates, s'il vous plaît.", ph:"bohn-ZHOOR. zhuh voo-DREH uhn kee-loh duh toh-MAT", en:"Hello. I'd like a kilo of tomatoes, please."},
+  {who:'Vendeur', fr:"Voilà. Et avec ça ?", ph:"vwah-LAH. ay ah-vek SAH", en:"Here you are. Anything else?"},
+  {who:'Cliente', fr:"Six pommes et une bouteille d'eau.", ph:"see PUM ay ewn boo-tay DOH", en:"Six apples and a bottle of water."},
+  {who:'Vendeur', fr:"Très bien. Ce sera tout ?", ph:"treh BYAN. suh suh-rah TOO", en:"Very good. Will that be all?"},
+  {who:'Cliente', fr:"Oui, c'est tout. Ça fait combien ?", ph:"wee, seh TOO. sah feh kohm-BYAN", en:"Yes, that's all. How much does that come to?"},
+  {who:'Vendeur', fr:"Neuf euros quarante, s'il vous plaît.", ph:"nuhf uh-roh kah-RAHNT", en:"Nine euros forty, please."},
+  {who:'Cliente', fr:"Voilà dix euros.", ph:"vwah-LAH dee zuh-ROH", en:"Here's ten euros."},
+  {who:'Vendeur', fr:"Merci, et soixante centimes pour vous. Bonne journée !", ph:"mehr-SEE, ay swah-sahnt sahn-TEEM poor VOO", en:"Thank you, and sixty cents for you. Have a good day!"}
+ ],
+ gloss:[
+  ["Vous désirez ?","voo day-zee-RAY","What would you like?"],
+  ["Je voudrais…","zhuh voo-DREH","I would like…"],
+  ["un kilo de tomates","uhn kee-loh duh toh-MAT","a kilo of tomatoes"],
+  ["Et avec ça ?","ay ah-vek SAH","Anything else?"],
+  ["une bouteille d'eau","ewn boo-tay DOH","a bottle of water"],
+  ["Ce sera tout ?","suh suh-rah TOO","Will that be all?"],
+  ["Ça fait combien ?","sah feh kohm-BYAN","How much does that come to?"],
+  ["neuf euros quarante","nuhf uh-roh kah-RAHNT","nine euros forty"],
+  ["soixante centimes","swah-sahnt sahn-TEEM","sixty cents"]
+ ],
+ questions:[
+  {q:"How much does she pay in total?", opts:["9,40 €","10 €","0,60 €"], a:0, why:"Neuf euros quarante = 9.40 €. She hands over 10 € and gets 60 cents back."},
+  {q:"Why « un kilo de tomates » and not « de les tomates »?", opts:["After a quantity, you use plain de","It's an exception","Tomates is feminine"], a:0, why:"Quantity words drop the article entirely: un kilo de, beaucoup de, un peu de, une bouteille de."},
+  {q:"What's the politest way she could have asked?", opts:["Je veux des tomates","Je voudrais un kilo de tomates, s'il vous plaît","Donnez-moi des tomates"], a:1, why:"Je voudrais + s'il vous plaît. « Je veux » sounds like a demand."}
+ ],
+ grammar:[
+  {h:"Quantity + de, always", x:"<i>un kilo <b>de</b> tomates</i>, <i>une bouteille <b>d'</b>eau</i>, <i>beaucoup <b>de</b> pommes</i>. The article vanishes after a quantity expression. No exceptions worth worrying about at this level."},
+  {h:"Prices out loud", x:"9,40 € is said <b>neuf euros quarante</b> — the word euros goes in the middle, and you don't say \"centimes\" unless there's no euro part. A French comma is a decimal point."}
+ ],
+ task:"Order a real shopping list out loud: three items with quantities, then ask the price. Use « je voudrais » every time."
+},
+{
+ id:'d5', tab:'5. Ma famille', level:'A1+ · élémentaire',
+ title:"Ma famille — family and possessives",
+ intro:"Showing a photo of the family. Every sentence here is built on a possessive adjective — watch which word they agree with.",
+ lines:[
+  {who:'Chloé', fr:"C'est une photo de ta famille ?", ph:"seh tewn foh-toh duh tah fah-MEEY", en:"Is that a photo of your family?"},
+  {who:'Sami', fr:"Oui ! Ça, c'est mon père et ma mère.", ph:"WEE. sah, seh mohn PEHR ay mah MEHR", en:"Yes! That's my father and my mother."},
+  {who:'Chloé', fr:"Et la fille à côté de ta mère ?", ph:"ay lah feey ah koh-tay duh tah MEHR", en:"And the girl next to your mother?"},
+  {who:'Sami', fr:"C'est ma sœur Inès. Elle a dix-neuf ans.", ph:"seh mah sur ee-NESS. ell ah deez-nuhf AHN", en:"That's my sister Inès. She's nineteen."},
+  {who:'Chloé', fr:"Elle est étudiante ?", ph:"ell eh tay-tew-DYAHNT", en:"Is she a student?"},
+  {who:'Sami', fr:"Oui, elle étudie à Lyon. Et ça, c'est mon frère avec son chien.", ph:"wee, ell ay-tew-dee ah lee-OHN. ay sah, seh mohn frehr ah-vek sohn SHYAN", en:"Yes, she studies in Lyon. And that's my brother with his dog."},
+  {who:'Chloé', fr:"Il est grand ! Comment il s'appelle ?", ph:"eel eh GRAHN. koh-MAHN eel sah-PELL", en:"He's tall! What's his name?"},
+  {who:'Sami', fr:"Mon frère ou le chien ?", ph:"mohn FREHR oo luh SHYAN", en:"My brother or the dog?"}
+ ],
+ gloss:[
+  ["une photo de ta famille","ewn foh-toh duh tah fah-MEEY","a photo of your family"],
+  ["mon père / ma mère","mohn PEHR / mah MEHR","my father / my mother"],
+  ["ma sœur","mah SUR","my sister"],
+  ["mon frère","mohn FREHR","my brother"],
+  ["à côté de","ah koh-TAY duh","next to"],
+  ["Elle a dix-neuf ans.","ell ah deez-nuhf AHN","She is nineteen."],
+  ["elle étudie à Lyon","ell ay-tew-dee ah lee-OHN","she studies in Lyon"],
+  ["son chien","sohn SHYAN","his dog"],
+  ["Comment il s'appelle ?","koh-MAHN eel sah-PELL","What's his name?"]
+ ],
+ questions:[
+  {q:"How old is Inès?", opts:["Seventeen","Nineteen","Twenty-nine"], a:1, why:"« Elle a dix-neuf ans » — 19. And note: age uses avoir, not être."},
+  {q:"« son chien » — whose dog is it?", opts:["Chloé's","Sami's brother's","We can't tell from son"], a:1, why:"Context tells us it's his brother's. son/sa agree with the thing owned (chien, masculine), not the owner — so son could be his or her."},
+  {q:"Why « mon frère » but « ma sœur »?", opts:["frère is masculine, sœur is feminine","Because he likes his brother more","No reason"], a:0, why:"Possessives agree with the noun that follows: mon + masculine, ma + feminine."}
+ ],
+ grammar:[
+  {h:"Possessives agree with the thing, not the owner", x:"<b>mon</b> frère, <b>ma</b> sœur, <b>mes</b> parents. It's the gender of frère/sœur that decides, never the gender of the speaker. This is the single biggest trap in the whole topic."},
+  {h:"son = his OR her", x:"<i>son chien</i> can mean his dog or her dog. French simply doesn't mark the owner's gender here — you get it from context."},
+  {h:"Age takes avoir", x:"<i>Elle <b>a</b> dix-neuf ans</i> — and you can't drop <i>ans</i>. <i>Elle a dix-neuf</i> means nothing."}
+ ],
+ task:"Describe a real photo on your phone: who each person is, their age, and one detail. Aim for five sentences with five different possessives."
+},
+{
+ id:'d6', tab:'6. Mon appartement', level:'A1+ · élémentaire',
+ title:"Mon appartement — housing and prepositions of place",
+ intro:"A friend visits a new flat. Almost every line contains a preposition of place — and several of them contract.",
+ lines:[
+  {who:'Yanis', fr:"Alors, c'est ton nouvel appartement ? Il est joli !", ph:"ah-LOR, seh tohn noo-vell ah-par-tuh-MAHN. eel eh zhoh-LEE", en:"So this is your new flat? It's nice!"},
+  {who:'Nour', fr:"Merci ! Il fait quarante mètres carrés, au troisième étage.", ph:"mehr-SEE. eel feh kah-rahnt meh-truh kah-RAY, oh trwah-zyem ay-TAZH", en:"Thanks! It's forty square metres, on the third floor."},
+  {who:'Yanis', fr:"Il y a un ascenseur ?", ph:"eel yah uhn ah-sahn-SUR", en:"Is there a lift?"},
+  {who:'Nour', fr:"Oui, heureusement ! La cuisine est à côté du salon.", ph:"wee, uh-ruhz-MAHN. lah kwee-ZEEN eh ah koh-tay dew sah-LOHN", en:"Yes, luckily! The kitchen is next to the living room."},
+  {who:'Yanis', fr:"Et la chambre ?", ph:"ay lah SHAHM-bruh", en:"And the bedroom?"},
+  {who:'Nour', fr:"Derrière cette porte. La salle de bains est en face.", ph:"deh-RYEHR set PORT. lah sal duh ban eh tahn FASS", en:"Behind that door. The bathroom is opposite."},
+  {who:'Yanis', fr:"C'est loin du centre-ville ?", ph:"seh lwan dew sahntr-VEEL", en:"Is it far from the town centre?"},
+  {who:'Nour', fr:"Non, c'est tout près. Il y a un parc juste devant l'immeuble.", ph:"nohn, seh too PREH. eel yah uhn park zhewst duh-vahn lee-MUH-bluh", en:"No, it's very close. There's a park right in front of the building."},
+  {who:'Yanis', fr:"Tu as de la chance !", ph:"tew ah duh lah SHAHNSS", en:"You're lucky!"}
+ ],
+ gloss:[
+  ["ton nouvel appartement","tohn noo-vell ah-par-tuh-MAHN","your new flat"],
+  ["quarante mètres carrés","kah-rahnt meh-truh kah-RAY","forty square metres"],
+  ["au troisième étage","oh trwah-zyem ay-TAZH","on the third floor"],
+  ["un ascenseur","uhn ah-sahn-SUR","a lift"],
+  ["heureusement","uh-ruhz-MAHN","luckily"],
+  ["à côté du salon","ah koh-tay dew sah-LOHN","next to the living room"],
+  ["derrière cette porte","deh-RYEHR set PORT","behind that door"],
+  ["en face","ahn FASS","opposite"],
+  ["loin du centre-ville","lwan dew sahntr-VEEL","far from the town centre"],
+  ["tout près","too PREH","very close"],
+  ["juste devant l'immeuble","zhewst duh-vahn lee-MUH-bluh","right in front of the building"],
+  ["Tu as de la chance !","tew ah duh lah SHAHNSS","You're lucky!"]
+ ],
+ questions:[
+  {q:"Which floor is the flat on?", opts:["The second","The third","The fourth"], a:1, why:"« au troisième étage » — the third floor, and there's a lift."},
+  {q:"Where is the park?", opts:["Behind the building","In front of the building","Next to the kitchen"], a:1, why:"« un parc juste devant l'immeuble » — right in front of it."},
+  {q:"Why « du salon » but « de la chance »?", opts:["de + le = du (salon is masculine); de la doesn't contract","It's a typo","Chance is plural"], a:0, why:"de + le contracts to du. de + la never changes."},
+  {q:"Why « nouvel appartement » and not « nouveau »?", opts:["Before a masculine noun starting with a vowel","Because it's plural","It's a mistake"], a:0, why:"beau/bel, nouveau/nouvel, vieux/vieil — the middle form appears before a vowel sound."}
+ ],
+ grammar:[
+  {h:"Which prepositions contract", x:"Only the ones ending in <b>de</b>: <i>à côté <b>du</b> salon</i>, <i>loin <b>du</b> centre</i>, <i>en face <b>du</b> parc</i>. Plain ones don't: <i>derrière la porte</i>, <i>devant l'immeuble</i>, <i>dans la cuisine</i>."},
+  {h:"Il y a = there is / there are", x:"One form for both: <i>il y a un parc</i>, <i>il y a deux chambres</i>. Negative: <i>il n'y a pas de parc</i> — and des/un become <b>de</b> after the negative."},
+  {h:"avoir de la chance", x:"Another avoir expression where English uses \"to be\": <i>tu as de la chance</i> = you're lucky. Same family as avoir faim, avoir froid, avoir vingt ans."}
+ ],
+ task:"Give a tour of your own home in six sentences. Include at least three prepositions that contract and one that doesn't."
+},
+{
+ id:'d7', tab:'7. Le nouveau voisin', level:'A1+ · élémentaire',
+ title:"Le nouveau voisin — describing people",
+ intro:"Two neighbours discuss someone who's just moved in. Listen for the switch between être and avoir.",
+ lines:[
+  {who:'Fatou', fr:"Tu as vu le nouveau voisin du deuxième ?", ph:"tew ah vew luh noo-voh vwah-zan dew duh-ZYEM", en:"Have you seen the new neighbour on the second floor?"},
+  {who:'Paul', fr:"Non, il est comment ?", ph:"nohn, eel eh koh-MAHN", en:"No, what's he like?"},
+  {who:'Fatou', fr:"Il est grand et assez mince. Il a les cheveux courts et bruns.", ph:"eel eh grahn ay ah-say MANSS. eel ah lay shuh-vuh koor ay BRUHN", en:"He's tall and quite slim. He has short brown hair."},
+  {who:'Paul', fr:"Il a quel âge, à peu près ?", ph:"eel ah kell AHZH, ah puh PREH", en:"Roughly how old is he?"},
+  {who:'Fatou', fr:"Trente ans peut-être. Il porte toujours des lunettes rondes.", ph:"trahnt ahn puh-TEH-truh. eel port too-zhoor day lew-net ROHND", en:"Thirty maybe. He always wears round glasses."},
+  {who:'Paul', fr:"Il est sympa ?", ph:"eel eh sam-PAH", en:"Is he nice?"},
+  {who:'Fatou', fr:"Très ! Il est drôle et très poli. Il ressemble un peu à mon cousin.", ph:"TREH. eel eh drohl ay treh poh-LEE. eel ruh-sahm-bluh uhn puh ah mohn koo-ZAN", en:"Very! He's funny and very polite. He looks a bit like my cousin."},
+  {who:'Paul', fr:"Il habite seul ?", ph:"eel ah-beet SUL", en:"Does he live alone?"},
+  {who:'Fatou', fr:"Non, avec un chat énorme !", ph:"nohn, ah-vek uhn shah ay-NORM", en:"No, with an enormous cat!"}
+ ],
+ gloss:[
+  ["le nouveau voisin","luh noo-voh vwah-ZAN","the new neighbour"],
+  ["Il est comment ?","eel eh koh-MAHN","What's he like?"],
+  ["grand et assez mince","grahn ay ah-say MANSS","tall and quite slim"],
+  ["Il a les cheveux courts.","eel ah lay shuh-vuh KOOR","He has short hair."],
+  ["Il a quel âge ?","eel ah kell AHZH","How old is he?"],
+  ["à peu près","ah puh PREH","roughly, about"],
+  ["Il porte des lunettes.","eel port day lew-NET","He wears glasses."],
+  ["drôle","drohl","funny"],
+  ["poli / polie","poh-LEE","polite"],
+  ["Il ressemble à mon cousin.","eel ruh-sahm-bluh ah mohn koo-ZAN","He looks like my cousin."],
+  ["Il habite seul.","eel ah-beet SUL","He lives alone."],
+  ["énorme","ay-NORM","enormous"]
+ ],
+ questions:[
+  {q:"What does the neighbour look like?", opts:["Short with long blond hair","Tall and slim with short brown hair","Tall with a beard"], a:1, why:"« grand et assez mince… les cheveux courts et bruns »."},
+  {q:"Why « il est grand » but « il a les cheveux courts »?", opts:["être for build, avoir for hair and eyes","No reason","être is more polite"], a:0, why:"Build and height take être; hair and eyes take avoir + les + noun."},
+  {q:"In « les lunettes rondes », why does rondes end in -es?", opts:["Because lunettes is feminine plural","Because glasses are round","It's a spelling error"], a:0, why:"lunettes is feminine and always plural, so the adjective takes -es."}
+ ],
+ grammar:[
+  {h:"être vs avoir, one more time", x:"<b>être + adjective</b> for overall build: <i>il est grand, il est mince</i>. <b>avoir + les + noun + adjective</b> for hair and eyes: <i>il a les cheveux courts</i>. The adjective there agrees with <i>cheveux</i> (masculine plural), not with the person."},
+  {h:"porter for what people wear", x:"<i>Il <b>porte</b> des lunettes</i> — wears. You can also say <i>il a des lunettes</i>, but porter is more precise."},
+  {h:"ressembler à", x:"Always with <b>à</b>: <i>il ressemble <b>à</b> mon cousin</i>. And it contracts: <i>elle ressemble <b>au</b> professeur</i>."}
+ ],
+ task:"Describe someone in the room, or a friend, in five sentences — two with être, two with avoir, one with porter."
+},
+{
+ id:'d8', tab:'8. La fête', level:'A2 · pré-intermédiaire',
+ title:"La fête — apologising and complaining politely",
+ intro:"The morning after a noisy party. Two ways of handling the same problem — one that escalates and one that doesn't.",
+ lines:[
+  {who:'Mme Blanc', fr:"Bonjour. Excusez-moi de vous déranger.", ph:"bohn-ZHOOR. ex-kew-zay mwah duh voo day-rahn-ZHAY", en:"Hello. Sorry to bother you."},
+  {who:'Théo', fr:"Bonjour madame. Il y a un problème ?", ph:"bohn-ZHOOR mah-DAM. eel yah uhn proh-BLEM", en:"Hello madam. Is there a problem?"},
+  {who:'Mme Blanc', fr:"Hier soir, il y avait beaucoup de bruit. Je n'ai pas pu dormir.", ph:"ee-yehr SWAHR, eel yah-veh boh-koo duh BRWEE. zhuh nay pah pew dor-MEER", en:"Last night there was a lot of noise. I couldn't sleep."},
+  {who:'Théo', fr:"Oh, je suis vraiment désolé. C'était l'anniversaire de ma sœur.", ph:"oh, zhuh swee vray-mahn day-zoh-LAY. say-teh lah-nee-vehr-sehr duh mah SUR", en:"Oh, I'm really sorry. It was my sister's birthday."},
+  {who:'Mme Blanc', fr:"Je comprends, mais il était deux heures du matin.", ph:"zhuh kohm-PRAHN, meh zeel ay-teh duh zur dew mah-TAN", en:"I understand, but it was two in the morning."},
+  {who:'Théo', fr:"Vous avez raison. Ça ne se reproduira plus, je vous promets.", ph:"voo-zah-vay ray-ZOHN. sah nuh suh ruh-proh-dwee-rah PLEW", en:"You're right. It won't happen again, I promise."},
+  {who:'Mme Blanc', fr:"Merci. Ce n'est pas grave, mais prévenez-moi la prochaine fois.", ph:"mehr-SEE. suh neh pah GRAHV, meh pray-vuh-nay mwah lah proh-shen FWAH", en:"Thank you. It's not a problem, but let me know next time."},
+  {who:'Théo', fr:"Bien sûr. Encore désolé !", ph:"byan SEWR. ahn-kor day-zoh-LAY", en:"Of course. Sorry again!"}
+ ],
+ gloss:[
+  ["Excusez-moi de vous déranger.","ex-kew-zay mwah duh voo day-rahn-ZHAY","Sorry to bother you."],
+  ["Il y a un problème ?","eel yah uhn proh-BLEM","Is there a problem?"],
+  ["il y avait beaucoup de bruit","eel yah-veh boh-koo duh BRWEE","there was a lot of noise"],
+  ["Je n'ai pas pu dormir.","zhuh nay pah pew dor-MEER","I couldn't sleep."],
+  ["Je suis vraiment désolé.","zhuh swee vray-mahn day-zoh-LAY","I'm really sorry."],
+  ["C'était l'anniversaire de ma sœur.","say-teh lah-nee-vehr-sehr duh mah SUR","It was my sister's birthday."],
+  ["deux heures du matin","duh zur dew mah-TAN","two in the morning"],
+  ["Vous avez raison.","voo-zah-vay ray-ZOHN","You're right."],
+  ["Ça ne se reproduira plus.","sah nuh suh ruh-proh-dwee-rah PLEW","It won't happen again."],
+  ["Ce n'est pas grave.","suh neh pah GRAHV","It's not a problem."],
+  ["prévenez-moi","pray-vuh-nay MWAH","let me know"],
+  ["la prochaine fois","lah proh-shen FWAH","next time"]
+ ],
+ questions:[
+  {q:"Why couldn't Mme Blanc sleep?", opts:["She was ill","There was a lot of noise","She was working"], a:1, why:"« il y avait beaucoup de bruit » — the party next door."},
+  {q:"How does Théo respond to the complaint?", opts:["He denies it","He apologises and promises it won't happen again","He blames his sister"], a:1, why:"He apologises, explains, accepts she's right, and promises. That's the full de-escalation sequence."},
+  {q:"« Excusez-moi de vous déranger » — why start with this?", opts:["It softens the complaint before it lands","It's required by law","It means the same as bonjour"], a:0, why:"French complaints almost always open with an apology for the intrusion. Skipping it makes the complaint sound aggressive."}
+ ],
+ grammar:[
+  {h:"How to complain without a fight", x:"The whole structure: <b>apologise for intruding</b> (excusez-moi de vous déranger) → <b>state the facts</b> (il y avait du bruit) → <b>say the effect on you</b> (je n'ai pas pu dormir). No accusation anywhere. Then the other side apologises and promises."},
+  {h:"il y avait = there was", x:"The past of <i>il y a</i>. You'll hear it constantly: <i>il y avait beaucoup de monde</i> (there were a lot of people)."},
+  {h:"Ce n'est pas grave", x:"The standard way to accept an apology. In speech the <i>ne</i> drops: <b>c'est pas grave</b>."}
+ ],
+ task:"Role-play both sides: complain about noise without being rude, then apologise convincingly. Use « excusez-moi de vous déranger » and « ça ne se reproduira plus »."
+},
+{
+ id:'d9', tab:'9. Au café', level:'A1 · débutant',
+ title:"Au café — ordering food and drink",
+ intro:"Ordering at a café terrace. Short, high-frequency, and you'll use it the day you land.",
+ lines:[
+  {who:'Serveur', fr:"Bonjour ! Qu'est-ce que je vous sers ?", ph:"bohn-ZHOOR. kess-kuh zhuh voo SEHR", en:"Hello! What can I get you?"},
+  {who:'Client', fr:"Bonjour. Un café, s'il vous plaît.", ph:"bohn-ZHOOR. uhn kah-FAY, seel voo PLEH", en:"Hello. A coffee, please."},
+  {who:'Serveur', fr:"Un express ou un café au lait ?", ph:"uhn nex-PRESS oo uhn kah-fay oh LEH", en:"An espresso or a coffee with milk?"},
+  {who:'Client', fr:"Un café au lait. Et vous avez des croissants ?", ph:"uhn kah-fay oh LEH. ay voo-zah-vay day krwah-SAHN", en:"A coffee with milk. And do you have croissants?"},
+  {who:'Serveur', fr:"Oui, bien sûr. Un ou deux ?", ph:"wee, byan SEWR. uhn oo DUH", en:"Yes, of course. One or two?"},
+  {who:'Client', fr:"Un seul, merci. Et un verre d'eau.", ph:"uhn SUL, mehr-SEE. ay uhn vehr DOH", en:"Just one, thanks. And a glass of water."},
+  {who:'Serveur', fr:"Très bien. Je vous apporte ça.", ph:"treh BYAN. zhuh voo-zah-port SAH", en:"Very good. I'll bring it over."},
+  {who:'Client', fr:"Merci ! … L'addition, s'il vous plaît.", ph:"mehr-SEE. lah-dee-SYOHN, seel voo PLEH", en:"Thank you! … The bill, please."},
+  {who:'Serveur', fr:"Voilà. Six euros cinquante.", ph:"vwah-LAH. see zuh-roh san-KAHNT", en:"Here you are. Six euros fifty."}
+ ],
+ gloss:[
+  ["Qu'est-ce que je vous sers ?","kess-kuh zhuh voo SEHR","What can I get you?"],
+  ["un café / un express","uhn kah-FAY / uhn nex-PRESS","a coffee / an espresso"],
+  ["un café au lait","uhn kah-fay oh LEH","a coffee with milk"],
+  ["Vous avez des croissants ?","voo-zah-vay day krwah-SAHN","Do you have croissants?"],
+  ["un seul","uhn SUL","just one"],
+  ["un verre d'eau","uhn vehr DOH","a glass of water"],
+  ["Je vous apporte ça.","zhuh voo-zah-port SAH","I'll bring it over."],
+  ["L'addition, s'il vous plaît.","lah-dee-SYOHN, seel voo PLEH","The bill, please."],
+  ["six euros cinquante","see zuh-roh san-KAHNT","six euros fifty"]
+ ],
+ questions:[
+  {q:"What does the customer order?", opts:["An espresso and two croissants","A coffee with milk, one croissant and a glass of water","Tea and a croissant"], a:1, why:"un café au lait, un seul croissant, et un verre d'eau."},
+  {q:"How do you ask for the bill?", opts:["L'addition, s'il vous plaît","Le menu, s'il vous plaît","Combien ?"], a:0, why:"L'addition = the bill. In a café you usually ask for it rather than waiting."},
+  {q:"« un verre d'eau » — why d' and not de l'?", opts:["After a container word you use plain de","It's a mistake","Eau is masculine"], a:0, why:"Container and quantity words take plain de: un verre d'eau, une bouteille de vin, une tasse de thé."}
+ ],
+ grammar:[
+  {h:"Ordering is just « un/une + noun + s'il vous plaît »", x:"You don't need a verb at all. <i>Un café, s'il vous plaît.</i> is complete and polite. Adding <i>je voudrais</i> makes it warmer still."},
+  {h:"Container + de", x:"<i>un verre <b>d'</b>eau</i>, <i>une tasse <b>de</b> thé</i>, <i>une bouteille <b>de</b> vin</i>. The article after <i>de</i> disappears — same rule as <i>un kilo de tomates</i>."}
+ ],
+ task:"Order your actual breakfast in French, then ask for the bill. Three lines, said out loud."
+},
+{
+ id:'d10', tab:'10. À la gare', level:'A1+ · élémentaire',
+ title:"À la gare — travel, times and platforms",
+ intro:"Buying a train ticket. This one is dense with numbers — times, platform numbers and prices all at once.",
+ lines:[
+  {who:'Voyageuse', fr:"Bonjour, je voudrais un billet pour Lyon, s'il vous plaît.", ph:"bohn-ZHOOR, zhuh voo-dreh uhn bee-YEH poor lee-OHN", en:"Hello, I'd like a ticket to Lyon, please."},
+  {who:'Guichet', fr:"Aller simple ou aller-retour ?", ph:"ah-lay SAM-pluh oo ah-lay ruh-TOOR", en:"One way or return?"},
+  {who:'Voyageuse', fr:"Aller-retour. Je rentre dimanche.", ph:"ah-lay ruh-TOOR. zhuh rahntr dee-MAHNSH", en:"Return. I'm coming back on Sunday."},
+  {who:'Guichet', fr:"Il y a un train à quatorze heures dix.", ph:"eel yah uhn tran ah kah-torz ur DEESS", en:"There's a train at 14:10."},
+  {who:'Voyageuse', fr:"Il arrive à quelle heure ?", ph:"eel ah-reev ah kell UR", en:"What time does it arrive?"},
+  {who:'Guichet', fr:"À seize heures quarante-cinq. Ça fait soixante-douze euros.", ph:"ah sez ur kah-rahnt-SANK. sah feh swah-sahnt-dooz uh-ROH", en:"At 16:45. That's seventy-two euros."},
+  {who:'Voyageuse', fr:"D'accord. C'est quel quai ?", ph:"dah-KOR. seh kell KAY", en:"Alright. Which platform is it?"},
+  {who:'Guichet', fr:"Quai numéro huit. Bon voyage !", ph:"kay new-may-roh WEET. bohn vwah-YAZH", en:"Platform eight. Have a good trip!"},
+  {who:'Voyageuse', fr:"Merci beaucoup !", ph:"mehr-SEE boh-KOO", en:"Thank you very much!"}
+ ],
+ gloss:[
+  ["un billet","uhn bee-YEH","a ticket"],
+  ["un aller simple","uhn nah-lay SAM-pluh","a one-way ticket"],
+  ["un aller-retour","uhn nah-lay ruh-TOOR","a return ticket"],
+  ["Je rentre dimanche.","zhuh rahntr dee-MAHNSH","I'm coming back on Sunday."],
+  ["à quatorze heures dix","ah kah-torz ur DEESS","at 14:10"],
+  ["Il arrive à quelle heure ?","eel ah-reev ah kell UR","What time does it arrive?"],
+  ["à seize heures quarante-cinq","ah sez ur kah-rahnt-SANK","at 16:45"],
+  ["soixante-douze euros","swah-sahnt-dooz uh-ROH","seventy-two euros"],
+  ["C'est quel quai ?","seh kell KAY","Which platform is it?"],
+  ["quai numéro huit","kay new-may-roh WEET","platform eight"],
+  ["Bon voyage !","bohn vwah-YAZH","Have a good trip!"]
+ ],
+ questions:[
+  {q:"What time does the train leave and arrive?", opts:["14:10 and 16:45","4:10 and 6:45","14:45 and 16:10"], a:0, why:"quatorze heures dix = 14:10; seize heures quarante-cinq = 16:45."},
+  {q:"How much is the ticket?", opts:["62 €","72 €","82 €"], a:1, why:"soixante-douze = 72. Listen for soixante-DOUZE, not soixante-DEUX (62)."},
+  {q:"Why « quatorze heures » rather than « deux heures » ?", opts:["Timetables use the 24-hour clock","It's more polite","It means something different"], a:0, why:"Transport, tickets and official times always use the 24-hour clock in French."}
+ ],
+ grammar:[
+  {h:"The 24-hour clock", x:"For anything scheduled — trains, flights, appointments, cinema — French uses 13h to 23h. <i>quatorze heures dix</i> = 14:10. In casual conversation you'd say <i>deux heures dix</i> and add <i>de l'après-midi</i> if needed."},
+  {h:"The 62 / 72 trap", x:"<b>soixante-deux</b> (62) and <b>soixante-douze</b> (72) differ by one syllable and cost you ten euros. Drill the pair until it's automatic."},
+  {h:"quel agrees", x:"<i><b>quel</b> quai</i> (m.), <i><b>quelle</b> heure</i> (f.) — same sound, different spelling."}
+ ],
+ task:"Book a ticket out loud: destination, return or not, ask the arrival time and the platform. Use the 24-hour clock throughout."
+},
+{
+ id:'d11', tab:'11. Chez le médecin', level:'A1+ · élémentaire',
+ title:"Chez le médecin — at the doctor's",
+ intro:"A first appointment. All the sentences you'd need if you felt unwell abroad — and a lot of avoir expressions.",
+ lines:[
+  {who:'Médecin', fr:"Bonjour, asseyez-vous. Qu'est-ce qui ne va pas ?", ph:"bohn-ZHOOR, ah-say-yay VOO. kess-kee nuh vah PAH", en:"Hello, have a seat. What's wrong?"},
+  {who:'Patient', fr:"J'ai mal à la tête depuis deux jours.", ph:"zhay mal ah lah TET duh-pwee duh ZHOOR", en:"I've had a headache for two days."},
+  {who:'Médecin', fr:"Vous avez de la fièvre ?", ph:"voo-zah-vay duh lah FYEH-vruh", en:"Do you have a temperature?"},
+  {who:'Patient', fr:"Un peu, oui. Et j'ai mal à la gorge aussi.", ph:"uhn puh, WEE. ay zhay mal ah lah GORZH oh-SEE", en:"A little, yes. And my throat hurts too."},
+  {who:'Médecin', fr:"Vous êtes fatigué ?", ph:"voo-zet fah-tee-GAY", en:"Are you tired?"},
+  {who:'Patient', fr:"Très fatigué. Je ne dors pas bien.", ph:"treh fah-tee-GAY. zhuh nuh dor pah BYAN", en:"Very tired. I'm not sleeping well."},
+  {who:'Médecin', fr:"Ce n'est pas grave. C'est une angine.", ph:"suh neh pah GRAHV. seh tewn ahn-ZHEEN", en:"It's nothing serious. It's a throat infection."},
+  {who:'Médecin', fr:"Je vous donne une ordonnance. Reposez-vous bien.", ph:"zhuh voo dun ewn or-doh-NAHNSS. ruh-poh-zay voo BYAN", en:"I'll give you a prescription. Get plenty of rest."},
+  {who:'Patient', fr:"Merci docteur. Au revoir !", ph:"mehr-SEE dok-TUR. oh ruh-VWAHR", en:"Thank you doctor. Goodbye!"}
+ ],
+ gloss:[
+  ["Asseyez-vous.","ah-say-yay VOO","Have a seat."],
+  ["Qu'est-ce qui ne va pas ?","kess-kee nuh vah PAH","What's wrong?"],
+  ["J'ai mal à la tête.","zhay mal ah lah TET","I have a headache."],
+  ["J'ai mal à la gorge.","zhay mal ah lah GORZH","I have a sore throat."],
+  ["depuis deux jours","duh-pwee duh ZHOOR","for two days"],
+  ["de la fièvre","duh lah FYEH-vruh","a temperature / fever"],
+  ["Je ne dors pas bien.","zhuh nuh dor pah BYAN","I'm not sleeping well."],
+  ["Ce n'est pas grave.","suh neh pah GRAHV","It's nothing serious."],
+  ["une ordonnance","ewn or-doh-NAHNSS","a prescription"],
+  ["Reposez-vous bien.","ruh-poh-zay voo BYAN","Get plenty of rest."]
+ ],
+ questions:[
+  {q:"What are the patient's symptoms?", opts:["Headache, sore throat, tiredness, slight fever","Stomach ache and fever","A broken arm"], a:0, why:"mal à la tête, mal à la gorge, très fatigué, un peu de fièvre."},
+  {q:"How long has it been going on?", opts:["Two hours","Two days","Two weeks"], a:1, why:"« depuis deux jours » — and note depuis takes the present tense."},
+  {q:"« J'ai mal à la tête » — why à la?", opts:["avoir mal à + the body part","It's a fixed phrase with no logic","It should be de la"], a:0, why:"avoir mal à + body part, and à contracts: mal à la tête, mal au dos, mal aux dents."}
+ ],
+ grammar:[
+  {h:"avoir mal à — and it contracts", x:"<i>J'ai mal <b>à la</b> tête</i> (f.) · <i>j'ai mal <b>au</b> dos</i> (à + le) · <i>j'ai mal <b>aux</b> dents</i> (à + les). The same à-contraction family from Cours 21."},
+  {h:"depuis + present", x:"<i>J'ai mal depuis deux jours</i> = I've had it <u>for</u> two days and still do. French keeps the present tense where English switches to a perfect."},
+  {h:"Polite imperatives", x:"<b>Asseyez-vous</b>, <b>reposez-vous</b> — reflexive verbs in the imperative put the pronoun <i>after</i> the verb with a hyphen."}
+ ],
+ task:"Describe three symptoms using « j'ai mal à… » with three different body parts — one feminine, one masculine, one plural, so you practise all three contractions."
+},
+{
+ id:'d12', tab:'12. Ma journée', level:'A1+ · élémentaire',
+ title:"Ma journée — daily routine and reflexive verbs",
+ intro:"Someone describes an ordinary weekday. Almost every verb here is reflexive — the pattern that daily routine runs on.",
+ lines:[
+  {who:'Ami', fr:"Tu te lèves à quelle heure en semaine ?", ph:"tew tuh lev ah kell ur ahn suh-MEN", en:"What time do you get up on weekdays?"},
+  {who:'Nadia', fr:"Je me réveille à six heures, mais je me lève à six heures et quart.", ph:"zhuh muh ray-VAY ah see ZUR, meh zhuh muh lev ah see zur ay KAR", en:"I wake up at six, but I get up at quarter past."},
+  {who:'Ami', fr:"Et ensuite ?", ph:"ay ahn-SWEET", en:"And then?"},
+  {who:'Nadia', fr:"Je me douche, je m'habille et je prends un café.", ph:"zhuh muh DOOSH, zhuh mah-BEEY ay zhuh prahn uhn kah-FAY", en:"I shower, get dressed and have a coffee."},
+  {who:'Ami', fr:"Tu pars au travail à quelle heure ?", ph:"tew par oh trah-VYE ah kell UR", en:"What time do you leave for work?"},
+  {who:'Nadia', fr:"Vers sept heures et demie. Je prends le métro.", ph:"vehr set ur ay duh-MEE. zhuh prahn luh may-TROH", en:"Around half past seven. I take the metro."},
+  {who:'Ami', fr:"Et le soir ?", ph:"ay luh SWAHR", en:"And in the evening?"},
+  {who:'Nadia', fr:"Je rentre vers dix-huit heures, je dîne, et je me couche vers vingt-trois heures.", ph:"zhuh rahntr vehr dee-zweet UR, zhuh DEEN, ay zhuh muh koosh vehr van-trwah ZUR", en:"I get home around six, have dinner, and go to bed around eleven."},
+  {who:'Ami', fr:"Tu ne te reposes jamais !", ph:"tew nuh tuh ruh-pohz zhah-MEH", en:"You never rest!"}
+ ],
+ gloss:[
+  ["se réveiller","suh ray-vay-YAY","to wake up"],
+  ["se lever","suh luh-VAY","to get up"],
+  ["se doucher","suh doo-SHAY","to shower"],
+  ["s'habiller","sah-bee-YAY","to get dressed"],
+  ["se coucher","suh koo-SHAY","to go to bed"],
+  ["se reposer","suh ruh-poh-ZAY","to rest"],
+  ["en semaine","ahn suh-MEN","on weekdays"],
+  ["à six heures et quart","ah see zur ay KAR","at quarter past six"],
+  ["vers sept heures et demie","vehr set ur ay duh-MEE","around half past seven"],
+  ["Je prends le métro.","zhuh prahn luh may-TROH","I take the metro."],
+  ["Je rentre.","zhuh RAHNTR","I get home."],
+  ["Je dîne.","zhuh DEEN","I have dinner."]
+ ],
+ questions:[
+  {q:"What's the difference between « je me réveille » and « je me lève »?", opts:["They mean the same","Wake up vs actually get out of bed","One is polite"], a:1, why:"se réveiller = your eyes open; se lever = you physically get up. Nadia does them fifteen minutes apart."},
+  {q:"What time does she go to bed?", opts:["21:00","23:00","18:00"], a:1, why:"vingt-trois heures = 23:00, i.e. 11pm."},
+  {q:"Why « je me douche » and not « je douche »?", opts:["It's reflexive — you shower yourself","No reason","je douche is also correct"], a:0, why:"Without the pronoun, doucher means to shower someone else. The me is what makes it you."}
+ ],
+ grammar:[
+  {h:"Reflexive pronouns change with the subject", x:"je <b>me</b> lève · tu <b>te</b> lèves · il <b>se</b> lève · nous <b>nous</b> levons · vous <b>vous</b> levez · ils <b>se</b> lèvent. The pronoun always sits between the subject and the verb."},
+  {h:"Telling the time", x:"<b>et quart</b> (quarter past), <b>et demie</b> (half past), <b>moins le quart</b> (quarter to). <i>vers</i> = around, and it's what makes you sound natural rather than robotic."},
+  {h:"Negation wraps both pieces", x:"<i>Tu <b>ne</b> te reposes <b>jamais</b></i> — ne goes before the reflexive pronoun, not between it and the verb."}
+ ],
+ task:"Narrate your own weekday from waking to sleeping in six sentences. Use at least four reflexive verbs and three different times."
+},
+{
+ id:'d13', tab:'13. Le week-end dernier', level:'A2 · pré-intermédiaire',
+ title:"Le week-end dernier — talking about the past",
+ intro:"Two colleagues catch up on Monday. This is the passé composé in its natural habitat — and both helper verbs appear.",
+ lines:[
+  {who:'Karim', fr:"Tu as passé un bon week-end ?", ph:"tew ah pah-say uhn bohn week-END", en:"Did you have a good weekend?"},
+  {who:'Julie', fr:"Oui ! Samedi, je suis allée à Montréal avec ma sœur.", ph:"WEE. sam-DEE, zhuh swee zah-lay ah mohn-ray-AL", en:"Yes! On Saturday I went to Montreal with my sister."},
+  {who:'Karim', fr:"Vous avez fait quoi ?", ph:"voo-zah-vay feh KWAH", en:"What did you do?"},
+  {who:'Julie', fr:"On a visité le Vieux-Port et on a mangé dans un petit restaurant.", ph:"ohn nah vee-zee-tay luh vyuh POR ay ohn nah mahn-ZHAY", en:"We visited the Old Port and ate in a little restaurant."},
+  {who:'Karim', fr:"C'était bien ?", ph:"say-teh BYAN", en:"Was it good?"},
+  {who:'Julie', fr:"Très bien, mais il a plu tout l'après-midi !", ph:"treh BYAN, meh zeel ah plew too lah-preh-mee-DEE", en:"Really good, but it rained all afternoon!"},
+  {who:'Karim', fr:"Ah, dommage. Vous êtes rentrées tard ?", ph:"ah, doh-MAZH. voo-zet rahn-TRAY TAR", en:"Ah, shame. Did you get back late?"},
+  {who:'Julie', fr:"Vers minuit. Et toi, qu'est-ce que tu as fait ?", ph:"vehr mee-NWEE. ay TWAH, kess-kuh tew ah FEH", en:"Around midnight. And you, what did you do?"},
+  {who:'Karim', fr:"Rien du tout ! Je suis resté à la maison.", ph:"ryan dew TOO. zhuh swee res-TAY ah lah meh-ZOHN", en:"Nothing at all! I stayed at home."}
+ ],
+ gloss:[
+  ["Tu as passé un bon week-end ?","tew ah pah-say uhn bohn week-END","Did you have a good weekend?"],
+  ["je suis allée","zhuh swee zah-LAY","I went (f.)"],
+  ["Vous avez fait quoi ?","voo-zah-vay feh KWAH","What did you do?"],
+  ["on a visité","ohn nah vee-zee-TAY","we visited"],
+  ["on a mangé","ohn nah mahn-ZHAY","we ate"],
+  ["C'était bien ?","say-teh BYAN","Was it good?"],
+  ["il a plu","eel ah PLEW","it rained"],
+  ["tout l'après-midi","too lah-preh-mee-DEE","all afternoon"],
+  ["Dommage.","doh-MAZH","Shame. / That's a pity."],
+  ["vous êtes rentrées","voo-zet rahn-TRAY","you got home (f. pl.)"],
+  ["vers minuit","vehr mee-NWEE","around midnight"],
+  ["Rien du tout !","ryan dew TOO","Nothing at all!"],
+  ["je suis resté","zhuh swee res-TAY","I stayed"]
+ ],
+ questions:[
+  {q:"Why « je suis allée » but « on a mangé »?", opts:["aller takes être, manger takes avoir","Random","allée is feminine so it needs être"], a:0, why:"A small group of movement/state verbs (aller, rester, rentrer…) take être; everything else takes avoir."},
+  {q:"Why does « allée » have two e's?", opts:["Spelling error","Julie is female — with être the participle agrees","It's plural"], a:1, why:"With être the past participle agrees with the subject, like an adjective. Julie → allée."},
+  {q:"What spoiled the day?", opts:["The restaurant was closed","It rained all afternoon","They got lost"], a:1, why:"« il a plu tout l'après-midi » — plu is the past participle of pleuvoir."}
+ ],
+ grammar:[
+  {h:"Two helpers, one tense", x:"<b>avoir</b> for most verbs (<i>j'ai mangé, on a visité</i>) and <b>être</b> for movement and change-of-state verbs (<i>je suis allé, je suis resté, vous êtes rentrées</i>). Learn the être list as opposite pairs: aller/venir, arriver/partir, entrer/sortir, monter/descendre, rester/tomber."},
+  {h:"Agreement only with être", x:"<i>je suis all<b>ée</b></i> (f.), <i>vous êtes rentr<b>ées</b></i> (f. pl.) — but <i>on a mangé</i> never changes. The agreement is silent in speech and marked in writing."},
+  {h:"on = we, in real speech", x:"<i>On a visité</i>, <i>on a mangé</i> — French speakers say <b>on</b> far more than <b>nous</b>, and it takes the il/elle form, which makes it easier too."}
+ ],
+ task:"Tell your own last weekend in five sentences. Use at least one être verb (with the right agreement) and three avoir verbs."
+},
+{
+ id:'d14', tab:'14. Des projets', level:'A2 · pré-intermédiaire',
+ title:"Des projets — making plans and talking about the future",
+ intro:"Arranging to meet. Built on aller + infinitive, with a couple of polite conditionals for suggesting things.",
+ lines:[
+  {who:'Sofia', fr:"Qu'est-ce que tu fais ce week-end ?", ph:"kess-kuh tew feh suh week-END", en:"What are you doing this weekend?"},
+  {who:'Théo', fr:"Rien de spécial. Je vais rester à la maison, je pense.", ph:"ryan duh spay-SYAL. zhuh vay res-TAY ah lah meh-ZOHN", en:"Nothing special. I'm going to stay home, I think."},
+  {who:'Sofia', fr:"On pourrait aller au cinéma ? Il y a un bon film.", ph:"ohn poo-REH ah-lay oh see-nay-MAH", en:"We could go to the cinema? There's a good film on."},
+  {who:'Théo', fr:"Bonne idée ! Il commence à quelle heure ?", ph:"bun ee-DAY. eel koh-mahnss ah kell UR", en:"Good idea! What time does it start?"},
+  {who:'Sofia', fr:"À vingt heures. On peut manger avant, si tu veux.", ph:"ah van TUR. ohn puh mahn-zhay ah-VAHN, see tew VUH", en:"At eight. We can eat before, if you like."},
+  {who:'Théo', fr:"D'accord. On se retrouve où ?", ph:"dah-KOR. ohn suh ruh-TROOV OO", en:"Alright. Where shall we meet?"},
+  {who:'Sofia', fr:"Devant le cinéma, vers dix-neuf heures ?", ph:"duh-vahn luh see-nay-MAH, vehr deez-nuhf UR", en:"In front of the cinema, around seven?"},
+  {who:'Théo', fr:"Parfait. Je vais réserver les billets.", ph:"par-FEH. zhuh vay ray-zehr-VAY lay bee-YEH", en:"Perfect. I'll book the tickets."},
+  {who:'Sofia', fr:"Super, à samedi !", ph:"sew-PEHR, ah sam-DEE", en:"Great, see you Saturday!"}
+ ],
+ gloss:[
+  ["Qu'est-ce que tu fais ce week-end ?","kess-kuh tew feh suh week-END","What are you doing this weekend?"],
+  ["Rien de spécial.","ryan duh spay-SYAL","Nothing special."],
+  ["Je vais rester à la maison.","zhuh vay res-TAY ah lah meh-ZOHN","I'm going to stay home."],
+  ["On pourrait aller au cinéma ?","ohn poo-REH ah-lay oh see-nay-MAH","Could we go to the cinema?"],
+  ["Bonne idée !","bun ee-DAY","Good idea!"],
+  ["Il commence à quelle heure ?","eel koh-mahnss ah kell UR","What time does it start?"],
+  ["si tu veux","see tew VUH","if you like"],
+  ["On se retrouve où ?","ohn suh ruh-TROOV OO","Where shall we meet?"],
+  ["devant le cinéma","duh-vahn luh see-nay-MAH","in front of the cinema"],
+  ["Je vais réserver les billets.","zhuh vay ray-zehr-VAY lay bee-YEH","I'll book the tickets."],
+  ["à samedi !","ah sam-DEE","see you Saturday!"]
+ ],
+ questions:[
+  {q:"What time are they meeting, and what time does the film start?", opts:["19:00 and 20:00","20:00 and 21:00","18:00 and 19:00"], a:0, why:"Meeting « vers dix-neuf heures » (19:00), film « à vingt heures » (20:00)."},
+  {q:"« On pourrait aller… » — why the conditional?", opts:["It softens a suggestion","It's about the past","It's a mistake"], a:0, why:"pourrait = could. « On peut aller » would be blunter; the conditional makes it an invitation rather than an instruction."},
+  {q:"How does Théo say he'll book the tickets?", opts:["Futur simple","aller + infinitive","Passé composé"], a:1, why:"« je vais réserver » — the easy future, and the one you should use at this level."}
+ ],
+ grammar:[
+  {h:"aller + infinitive is all the future you need", x:"<i>je vais rester</i>, <i>je vais réserver</i>. Conjugate <b>aller</b>, then add the plain infinitive. Negation wraps only the conjugated part: <i>je <b>ne</b> vais <b>pas</b> rester</i>."},
+  {h:"Suggesting politely", x:"<b>On pourrait… ?</b> (could we…?) and <b>si tu veux</b> (if you like) are the two phrases that turn a plan into an invitation. Compare the blunt <i>on va au cinéma</i> — that's telling, not asking."},
+  {h:"à + time = see you then", x:"<b>À samedi !</b> <b>À demain !</b> <b>À bientôt !</b> <b>À tout à l'heure !</b> — a whole family of goodbyes built on à."}
+ ],
+ task:"Invite a friend to something: suggest it with « on pourrait », give a time, agree a meeting place, and close with « à + day »."
+}
+];
+
+/* ===== render ===== */
+const tabsEl = document.getElementById('dtabs');
+const stage = document.getElementById('stage');
+let playing = false, timer = null;
+
+function stopAll(){
+  playing = false;
+  if(timer){ clearTimeout(timer); timer = null; }
+  speechSynthesis.cancel();
+  document.querySelectorAll('.dline.on').forEach(el=>el.classList.remove('on'));
+}
+
+function playDialogue(d, container){
+  stopAll();
+  playing = true;
+  const rows = container.querySelectorAll('.dline');
+  let i = 0;
+  function step(){
+    if(!playing) return;
+    if(i >= d.lines.length){ stopAll(); return; }
+    rows.forEach(r=>r.classList.remove('on'));
+    const line = d.lines[i];
+    if(line.fr === '— — —'){ i++; timer = setTimeout(step, 400); return; }
+    rows[i].classList.add('on');
+    rows[i].scrollIntoView({behavior:'smooth', block:'center'});
+    const u = new SpeechSynthesisUtterance(clean(line.fr));
+    u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate;
+    u.onend = ()=>{ i++; timer = setTimeout(step, 550); };
+    u.onerror = ()=>{ i++; timer = setTimeout(step, 550); };
+    speechSynthesis.speak(u);
+  }
+  step();
+}
+
+function renderDialogue(d){
+  stopAll();
+  stage.innerHTML = '';
+
+  const head = document.createElement('div'); head.className='dhead';
+  head.innerHTML = '<h2></h2><p></p>';
+  head.querySelector('h2').innerHTML = d.title + '<span class="lvbadge">'+d.level+'</span>';
+  head.querySelector('p').textContent = d.intro;
+  stage.appendChild(head);
+
+  const btn = document.createElement('button'); btn.className='playall';
+  btn.innerHTML = '▶ Écouter le dialogue';
+  const stop = document.createElement('button'); stop.className='stopbtn'; stop.textContent = '■ Stop';
+  stage.appendChild(btn); stage.appendChild(stop);
+
+  const script = document.createElement('div'); script.className='script';
+  d.lines.forEach(line=>{
+    const row = document.createElement('div'); row.className='dline';
+    const who = document.createElement('div'); who.className='who'; who.textContent = line.who;
+    const body = document.createElement('div'); body.className='body';
+    body.innerHTML = '<div class="fr"></div>'+(line.ph?'<div class="ph"></div>':'')+'<div class="en"></div>';
+    body.querySelector('.fr').textContent = line.fr;
+    if(line.ph) body.querySelector('.ph').textContent = line.ph;
+    body.querySelector('.en').textContent = line.en;
+    if(line.fr !== '— — —') body.onclick = ()=>{ stopAll(); speak(line.fr); };
+    row.appendChild(who); row.appendChild(body);
+    script.appendChild(row);
+  });
+  stage.appendChild(script);
+  btn.onclick = ()=> playDialogue(d, script);
+  stop.onclick = stopAll;
+
+  const hint = document.createElement('div'); hint.className='note';
+  hint.innerHTML = "Press <b>Écouter le dialogue</b> and the whole conversation is read aloud, highlighting each line as it goes. Click any single line to hear just that one. Switch to <b>Slow</b> above if it runs away from you.";
+  stage.appendChild(hint);
+
+  const gh = document.createElement('h3'); gh.className='sub2'; gh.textContent='Glossaire — every phrase from the dialogue';
+  stage.appendChild(gh);
+  d.gloss.forEach(([fr,ph,en])=> stage.appendChild(makeRow(fr,ph,en)));
+
+  const qh = document.createElement('h3'); qh.className='sub2'; qh.textContent='Compréhension';
+  stage.appendChild(qh);
+  d.questions.forEach(it=>{
+    const box=document.createElement('div'); box.className='mcq';
+    const q=document.createElement('div'); q.className='q'; q.textContent=it.q;
+    box.appendChild(q);
+    const why=document.createElement('div'); why.className='why';
+    it.opts.forEach((o,i)=>{
+      const b=document.createElement('button'); b.className='opt'; b.textContent=o;
+      b.onclick=()=>{
+        [...box.querySelectorAll('.opt')].forEach(x=>x.disabled=true);
+        if(i===it.a) b.classList.add('correct');
+        else { b.classList.add('wrong'); box.querySelectorAll('.opt')[it.a].classList.add('correct'); }
+        why.textContent = it.why;
+      };
+      box.appendChild(b);
+    });
+    box.appendChild(why);
+    stage.appendChild(box);
+  });
+
+  const grh = document.createElement('h3'); grh.className='sub2'; grh.textContent='La grammaire du dialogue';
+  stage.appendChild(grh);
+  d.grammar.forEach(g=>{
+    const n=document.createElement('div'); n.className='note';
+    n.innerHTML = '<b>'+g.h+'</b> — '+g.x;
+    stage.appendChild(n);
+  });
+
+  const t=document.createElement('div'); t.className='example';
+  t.innerHTML = '<b>À vous —</b> '+d.task;
+  stage.appendChild(t);
+}
+
+DIALOGUES.forEach((d,idx)=>{
+  const b=document.createElement('button');
+  b.innerHTML = d.tab + '<span class="lv">'+d.level.split(' · ')[0]+'</span>';
+  if(idx===0) b.classList.add('on');
+  b.onclick=()=>{
+    [...tabsEl.children].forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    renderDialogue(d);
+    window.scrollTo({top:0,behavior:'smooth'});
+  };
+  tabsEl.appendChild(b);
+});
+renderDialogue(DIALOGUES[0]);
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+<script src="french_glossary.js"></script>
+</body>
+</html>
