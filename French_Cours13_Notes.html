@@ -60,6 +60,40 @@
   .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
   .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
 </style>
+<style id="xp-style">
+  .xp h2 { font-size:18px; margin:26px 0 6px; padding-bottom:6px; border-bottom:2px solid #e6e3dc; color:#23201b; }
+  .xp h3 { font-size:15px; margin:16px 0 6px; color:#4338ca; }
+  .xp p.xp-lead { font-size:14px; color:#6b675f; margin:0 0 10px; }
+  .xp .xp-note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .xp .xp-ex { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .xp .xp-warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .xp .xp-row { display:flex; align-items:center; gap:12px; background:#fff; border:1px solid #e6e3dc; border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .xp .xp-play { flex:0 0 auto; width:38px; height:38px; border-radius:50%; border:1px solid #e6e3dc; background:#eceafe; color:#4338ca; font-size:15px; cursor:pointer; }
+  .xp .xp-txt { flex:1 1 auto; min-width:0; }
+  .xp .xp-fr { font-size:16px; font-weight:600; cursor:pointer; }
+  .xp .xp-fr:hover { color:#4338ca; }
+  .xp .xp-ph { font-size:13px; color:#0f7a54; font-style:italic; }
+  .xp .xp-en { font-size:13px; color:#6b675f; }
+  .xp table.xp-t { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .xp table.xp-t th, .xp table.xp-t td { border:1px solid #e6e3dc; padding:8px 10px; text-align:left; vertical-align:top; }
+  .xp table.xp-t th { background:#eceafe; color:#4338ca; }
+  .xp .xp-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .xp .xp-cell { background:#fff; border:1px solid #e6e3dc; border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .xp .xp-cell:hover { border-color:#4338ca; }
+  .xp .xp-cell b { display:block; font-size:14px; }
+  .xp .xp-cell i { font-size:11px; color:#0f7a54; font-style:italic; }
+  .xp .xp-fill { background:#fff; border:1px solid #e6e3dc; border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .xp .xp-fill .s { font-size:15px; margin-bottom:8px; }
+  .xp .xp-fill input { border:1px solid #e6e3dc; border-radius:8px; padding:6px 10px; font-size:14px; width:230px; }
+  .xp .xp-fill button { border:1px solid #4338ca; background:#4338ca; color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .xp .xp-fb { font-size:13px; margin-top:8px; }
+  .xp .xp-fb.ok { color:#155c37; } .xp .xp-fb.bad { color:#a33; }
+  .xp .xp-q { background:#fff; border:1px solid #e6e3dc; border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .xp .xp-q .prompt { font-size:15px; font-weight:600; margin-bottom:8px; }
+  .xp .xp-q .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .xp .xp-q .btns button { border:1px solid #e6e3dc; background:#fff; color:#23201b; border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .xp .xp-q .btns button:hover { border-color:#4338ca; }
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -91,14 +125,34 @@
     <a href="French_Cours21_Notes.html">Cours 21</a>
     <a href="French_Cours22_Notes.html">Cours 22</a>
     <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
     <a href="French_Conversations.html">Conversations</a>
     <a href="French_Dialogues.html">Dialogues</a>
     <a href="French_Full_Guide.html">Full Guide</a>
     <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
     <a href="French_Prof_Notes.html">Prof's Notes</a>
     <a href="French_Book_Audio.html">Book Audio</a>
     <a href="French_Audio_Library.html">Audio Library</a>
     <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
   </nav>
 
   <div class="bar">
@@ -111,6 +165,7 @@
   </div>
 
   <div id="content"></div>
+  <div class="xp" id="xpand"></div>
 </div>
 
 <script>
@@ -314,6 +369,218 @@ document.getElementById('speed').addEventListener('click',e=>{
   [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
   e.target.classList.add('on');
 });
+</script>
+<script>
+
+(function(){
+  var C = document.getElementById('xpand');
+  function sp(t){ try{ if(typeof speak==='function'){ speak(t); return; } }catch(e){}
+    try{ speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(String(t).replace(/_+/g,'')); u.lang='fr-FR';
+      var v=speechSynthesis.getVoices().find(function(x){return /^fr/i.test(x.lang);}); if(v)u.voice=v;
+      if(typeof rate!=='undefined') u.rate=rate; speechSynthesis.speak(u);}catch(e){} }
+  function el(tag,cls,html){ var e=document.createElement(tag); if(cls)e.className=cls; if(html!=null)e.innerHTML=html; return e; }
+  function h2(t){ C.appendChild(el('h2',null,t)); }
+  function h3(t){ C.appendChild(el('h3',null,t)); }
+  function lead(t){ C.appendChild(el('p','xp-lead',t)); }
+  function note(t){ C.appendChild(el('div','xp-note',t)); }
+  function ex(t){ C.appendChild(el('div','xp-ex',t)); }
+  function warn(t){ C.appendChild(el('div','xp-warn',t)); }
+  function rows(list){ list.forEach(function(r){
+    var fr=r[0], ph=r[1], en=r[2];
+    var row=el('div','xp-row');
+    var b=el('button','xp-play','&#9654;'); b.onclick=function(){sp(fr);};
+    var t=el('div','xp-txt');
+    var f=el('div','xp-fr'); f.textContent=fr; f.onclick=function(){sp(fr);};
+    t.appendChild(f);
+    if(ph){ var p=el('div','xp-ph'); p.textContent=ph; t.appendChild(p); }
+    if(en){ var e2=el('div','xp-en'); e2.textContent=en; t.appendChild(e2); }
+    row.appendChild(b); row.appendChild(t); C.appendChild(row);
+    try{ if(typeof GLOBAL_VOCAB!=='undefined') GLOBAL_VOCAB.push({fr:fr,en:en||''}); }catch(e){}
+  }); }
+  function grid(list){ var g=el('div','xp-grid');
+    list.forEach(function(r){ var c=el('div','xp-cell','<b></b><i></i>');
+      c.querySelector('b').textContent=r[0]; c.querySelector('i').textContent=r[1]||'';
+      c.onclick=function(){sp(r[0]);}; g.appendChild(c); });
+    C.appendChild(g); }
+  function table(head, body){ var t=el('table','xp-t');
+    var html='<tr>'; head.forEach(function(h){ html+='<th>'+h+'</th>'; }); html+='</tr>';
+    body.forEach(function(r){ html+='<tr>'; r.forEach(function(c){ html+='<td>'+c+'</td>'; }); html+='</tr>'; });
+    t.innerHTML=html; C.appendChild(t); }
+  function fill(items){ items.forEach(function(it){
+    var d=el('div','xp-fill'); d.appendChild(el('div','s',it.s));
+    var inp=document.createElement('input'); inp.placeholder='...';
+    var btn=document.createElement('button'); btn.textContent='Check';
+    var fb=el('div','xp-fb');
+    function chk(){ var v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      var ok=it.a.some(function(a){return a.toLowerCase()===v;});
+      if(ok){ fb.className='xp-fb ok'; fb.innerHTML='\u2713 '+it.a[0]+' \u2014 '+it.why; sp(it.a[0]); }
+      else { fb.className='xp-fb bad'; fb.innerHTML='\u2717 Answer: <b>'+it.a[0]+'</b> \u2014 '+it.why; } }
+    btn.onclick=chk; inp.addEventListener('keydown',function(e){ if(e.key==='Enter') chk(); });
+    var line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn); d.appendChild(line);
+    if(it.en){ var t=el('div','xp-en',''); t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb); C.appendChild(d); }); }
+  function mcq(items){ items.forEach(function(it){
+    var d=el('div','xp-q'); d.appendChild(el('div','prompt',it.q));
+    var b=el('div','btns'); var fb=el('div','xp-fb');
+    it.opts.forEach(function(o,i){ var btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=function(){ if(i===it.a){ fb.className='xp-fb ok'; fb.innerHTML='\u2713 '+o+' \u2014 '+it.why; sp(o); }
+        else { fb.className='xp-fb bad'; fb.innerHTML='\u2717 The answer is <b>'+it.opts[it.a]+'</b> \u2014 '+it.why; } };
+      b.appendChild(btn); });
+    d.appendChild(b); d.appendChild(fb); C.appendChild(d); }); }
+  h2("Deep dive — l'habitat : tout le vocabulaire du logement");
+lead("Cours 13 opened the housing topic. Here is the full vocabulary set, the grammar you need to describe where you live, and a parallel text to practise on.");
+
+h2("1 · Les types de logement");
+rows([
+ ["un appartement","uhn nah-par-tuh-MAHN","a flat / apartment"],
+ ["une maison","ewn may-ZOHN","a house"],
+ ["un studio","uhn stew-DYOH","a studio flat"],
+ ["un immeuble","uhn nee-MUH-bluh","a block of flats"],
+ ["une villa","ewn vee-LAH","a villa"],
+ ["une ferme","ewn FEHRM","a farm"],
+ ["un château","uhn shah-TOH","a castle"],
+ ["une péniche","ewn pay-NEESH","a houseboat"],
+ ["une caravane","ewn kah-rah-VAN","a caravan"],
+ ["une cabane","ewn kah-BAN","a hut / cabin"],
+ ["un chalet","uhn shah-LEH","a chalet"],
+ ["une colocation","ewn koh-loh-kah-SYOHN","a flatshare"]
+]);
+warn("<b>un appartement</b> is masculine but starts with a vowel, so you'll hear <i>un<b>⁀</b>appartement</i> = uh-<b>N</b>ah-par-tuh-MAHN, and <i>mon appartement</i>, never <i>ma</i>. Same for <b>un immeuble</b>.<br><br>And <b>une maison</b> is feminine — which changes every adjective: <i>une <b>petite</b> maison</i>, <i>elle est <b>confortable</b></i>, not <i>il est</i>.");
+
+h2("2 · Les pièces");
+grid([["l'entrée","lahn-TRAY"],["le salon","luh sah-LOHN"],["le séjour","luh say-ZHOOR"],["la salle à manger","lah sal ah mahn-ZHAY"],["la cuisine","lah kwee-ZEEN"],["la chambre","lah SHAHM-bruh"],["la salle de bains","lah sal duh BAN"],["les toilettes","lay twah-LET"],["le bureau","luh bew-ROH"],["le couloir","luh koo-LWAHR"],["le balcon","luh bal-KOHN"],["la terrasse","lah teh-RASS"],["le garage","luh gah-RAHZH"],["le sous-sol","luh soo-SOL"],["le grenier","luh gruh-NYAY"],["la cave","lah KAHV"]]);
+warn("<b>la cave</b> = <u>cellar</u>, not a cave. A cave is <i>une grotte</i>. And <b>la chambre</b> is specifically a <u>bedroom</u> — a room in general is <i>une pièce</i>.");
+
+h2("3 · Décrire son logement");
+h3("La taille");
+rows([
+ ["C'est grand.","seh GRAHN","It's big."],
+ ["C'est petit.","seh puh-TEE","It's small."],
+ ["Il fait soixante mètres carrés.","eel feh swah-sahnt meh-truh kah-RAY","It's sixty square metres."],
+ ["Il y a cinq pièces.","eel-ee-ah sank PYESS","There are five rooms."],
+ ["C'est spacieux.","seh spah-SYUH","It's spacious."],
+ ["C'est étroit.","seh tay-TRWAH","It's narrow."]
+]);
+h3("Le confort");
+rows([
+ ["C'est confortable.","seh kohn-for-TAH-bluh","It's comfortable."],
+ ["C'est lumineux.","seh lew-mee-NUH","It's bright."],
+ ["C'est sombre.","seh SOHM-bruh","It's dark."],
+ ["C'est calme.","seh KALM","It's quiet."],
+ ["C'est bruyant.","seh brwee-YAHN","It's noisy."],
+ ["C'est moderne.","seh moh-DEHRN","It's modern."],
+ ["C'est ancien.","seh tahn-SYAN","It's old."],
+ ["C'est meublé.","seh muh-BLAY","It's furnished."]
+]);
+h3("La situation");
+rows([
+ ["au rez-de-chaussée","oh ray-duh-shoh-SAY","on the ground floor"],
+ ["au premier étage","oh pruh-myay ay-TAHZH","on the first floor"],
+ ["au centre-ville","oh sahn-truh-VEEL","in the town centre"],
+ ["en banlieue","ahn bahn-LYUH","in the suburbs"],
+ ["à la campagne","ah lah kahm-PAHN-yuh","in the countryside"],
+ ["près du métro","preh dew may-TROH","near the metro"],
+ ["loin du centre","lwan dew SAHN-truh","far from the centre"],
+ ["avec vue sur le parc","ah-vek vew sewr luh PARK","with a view over the park"]
+]);
+
+h2("4 · Louer ou acheter — le vocabulaire pratique");
+rows([
+ ["louer","loo-AY","to rent"],
+ ["acheter","ash-TAY","to buy"],
+ ["le loyer","luh lwah-YAY","the rent"],
+ ["les charges","lay SHARZH","the bills / service charges"],
+ ["charges comprises","sharzh kohm-PREEZ","bills included"],
+ ["le propriétaire","luh proh-pree-ay-TEHR","the landlord / owner"],
+ ["le locataire","luh loh-kah-TEHR","the tenant"],
+ ["un bail","uhn BYE","a lease"],
+ ["une annonce","ewn ah-NOHNSS","an advert"],
+ ["déménager","day-may-nah-ZHAY","to move house"],
+ ["emménager","ahn-may-nah-ZHAY","to move in"]
+]);
+note("<b>louer</b> is a two-way word: the landlord <i>loue</i> the flat (lets it out) and the tenant <i>loue</i> it too (rents it). Context decides. And watch the near-identical pair <b>déménager</b> (move out / move house) vs <b>emménager</b> (move in) — one letter apart.");
+
+h2("5 · La grammaire du logement");
+h3("Il y a — the universal \"there is / there are\"");
+ex("<b>Il y a</b> never changes. One form covers singular and plural, which makes it the single most useful structure for describing a place.");
+rows([
+ ["Il y a un salon.","eel-ee-ah uhn sah-LOHN","There's a living room."],
+ ["Il y a trois chambres.","eel-ee-ah trwah SHAHM-bruh","There are three bedrooms."],
+ ["Il n'y a pas de garage.","eel nyah pah duh gah-RAHZH","There's no garage."],
+ ["Est-ce qu'il y a un balcon ?","ess keel-ee-ah uhn bal-KOHN","Is there a balcony?"],
+ ["Qu'est-ce qu'il y a dans la cuisine ?","kess keel-ee-ah dahn lah kwee-ZEEN","What's in the kitchen?"]
+]);
+warn("<b>Negative: un / une / des → de.</b> <i>Il y a <b>un</b> garage</i> becomes <i>Il n'y a pas <b>de</b> garage</i>. The quantity is zero, so the indefinite article collapses. This catches everyone.");
+h3("Les prépositions de lieu");
+table(["Préposition","Prononciation","Exemple"],[
+ ["<b>dans</b>","dahn","Le lit est <b>dans</b> la chambre."],
+ ["<b>sur</b>","sewr","La lampe est <b>sur</b> la table."],
+ ["<b>sous</b>","soo","Le tapis est <b>sous</b> la table."],
+ ["<b>devant</b>","duh-VAHN","Le canapé est <b>devant</b> la fenêtre."],
+ ["<b>derrière</b>","deh-RYEHR","Le jardin est <b>derrière</b> la maison."],
+ ["<b>à côté de</b>","ah koh-TAY duh","La cuisine est <b>à côté du</b> salon."],
+ ["<b>entre</b>","AHN-truh","La salle de bains est <b>entre</b> les deux chambres."],
+ ["<b>en face de</b>","ahn fass duh","Ma chambre est <b>en face de</b> la sienne."]
+]);
+note("<b>à côté <u>de</u></b> and <b>en face <u>de</u></b> contract: <i>de + le = <b>du</b></i>, <i>de + les = <b>des</b></i>. So <i>à côté <b>du</b> salon</i>, <i>en face <b>des</b> toilettes</i> — but <i>à côté <b>de la</b> cuisine</i>.");
+
+h2("6 · Exercices");
+h3("Exercice 1 — quelle pièce ?");
+mcq([
+ {q:"Je prends une douche ici.", opts:["la cuisine","la salle de bains","le salon"], a:1, why:"une douche → la salle de bains."},
+ {q:"Je gare ma voiture ici.", opts:["le garage","le grenier","la cave"], a:0, why:"garer une voiture → le garage."},
+ {q:"Je mange avec ma famille ici.", opts:["la chambre","la salle à manger","le couloir"], a:1, why:"manger → la salle à manger."},
+ {q:"C'est sous la maison, et il fait froid.", opts:["le grenier","le balcon","la cave"], a:2, why:"la cave = the cellar, below the house. <i>Le grenier</i> is above."}
+]);
+h3("Exercice 2 — il y a ou il n'y a pas de ?");
+fill([
+ {s:"Dans mon appartement, ______ un balcon. (+)", a:["il y a"], en:"In my flat there's a balcony.", why:"Positive → il y a + un."},
+ {s:"______ garage. (−)", a:["il n'y a pas de","il ny a pas de"], en:"There's no garage.", why:"Negative → <i>un</i> collapses to <b>de</b>."},
+ {s:"______ trois chambres. (+)", a:["il y a"], en:"There are three bedrooms.", why:"Same form for plural — il y a never changes."},
+ {s:"______ ascenseur. (−)", a:["il n'y a pas d'","il ny a pas d'"], en:"There's no lift.", why:"<i>de</i> → <b>d'</b> before the vowel of <i>ascenseur</i>."}
+]);
+h3("Exercice 3 — la bonne préposition");
+fill([
+ {s:"La lampe est ______ la table. (on)", a:["sur"], en:"The lamp is on the table.", why:"sur = on."},
+ {s:"Le chat est ______ le lit. (under)", a:["sous"], en:"The cat is under the bed.", why:"sous = under."},
+ {s:"La cuisine est à côté ______ salon. (de + le)", a:["du"], en:"The kitchen is next to the living room.", why:"de + le = <b>du</b>."},
+ {s:"Le jardin est ______ la maison. (behind)", a:["derrière","derriere"], en:"The garden is behind the house.", why:"derrière = behind."}
+]);
+h3("Exercice 4 — accordez l'adjectif");
+fill([
+ {s:"une ______ maison (petit)", a:["petite"], en:"a small house", why:"<i>maison</i> is feminine → petite."},
+ {s:"un ______ appartement (grand)", a:["grand"], en:"a big flat", why:"<i>appartement</i> is masculine → grand."},
+ {s:"des chambres ______ (lumineux)", a:["lumineuses"], en:"bright bedrooms", why:"Feminine plural: -eux → -euses."},
+ {s:"Elle est ______ (confortable)", a:["confortable"], en:"It's comfortable.", why:"Already ends in -e — no change in the feminine."}
+]);
+
+h2("7 · Texte parallèle — Deux logements très différents");
+ex("<b>Chez Sophie et chez Marc</b><br><br>Sophie habite dans un petit studio au centre-ville. Il fait vingt-cinq mètres carrés : il y a une pièce principale, une petite cuisine et une salle de bains. Il n'y a pas de balcon et il n'y a pas d'ascenseur — elle habite au quatrième étage ! Mais c'est lumineux, c'est moderne, et c'est près du métro. Le loyer est de huit cents euros par mois, charges comprises.<br><br>Marc, lui, habite à la campagne, dans une grande maison ancienne. Il y a sept pièces : un salon, une salle à manger, une cuisine, trois chambres et deux salles de bains. Derrière la maison, il y a un jardin avec des arbres. C'est très calme — peut-être trop calme ! Mais c'est loin de son travail : il fait une heure de voiture le matin.<br><br>Sophie préfère la ville ; Marc préfère la campagne. Et vous ?");
+h3("Glossaire du texte");
+rows([
+ ["une pièce principale","ewn pyess pran-see-PAL","a main room"],
+ ["Il n'y a pas d'ascenseur.","eel nyah pah dah-sahn-SUR","There's no lift."],
+ ["au quatrième étage","oh kah-tree-em ay-TAHZH","on the fourth floor"],
+ ["c'est près du métro","seh preh dew may-TROH","it's near the metro"],
+ ["huit cents euros par mois","wee sahn zuh-roh par MWAH","eight hundred euros a month"],
+ ["une grande maison ancienne","ewn grahnd may-zohn ahn-SYEN","a big old house"],
+ ["avec des arbres","ah-vek day ZAR-bruh","with trees"],
+ ["peut-être trop calme","puh-teh-truh troh KALM","maybe too quiet"],
+ ["loin de son travail","lwan duh sohn trah-VYE","far from his work"],
+ ["une heure de voiture","ewn ur duh vwah-TEWR","an hour's drive"]
+]);
+h3("Compréhension");
+mcq([
+ {q:"Combien de mètres carrés fait le studio de Sophie ?", opts:["Quinze","Vingt-cinq","Trente-cinq"], a:1, why:"« Il fait vingt-cinq mètres carrés »."},
+ {q:"Quel est le problème de son immeuble ?", opts:["Il est sombre","Il n'y a pas d'ascenseur","Il est loin du métro"], a:1, why:"« il n'y a pas d'ascenseur — elle habite au quatrième étage ! »"},
+ {q:"Combien de pièces a la maison de Marc ?", opts:["Cinq","Sept","Trois"], a:1, why:"« Il y a sept pièces »."},
+ {q:"Quel est l'inconvénient de la maison de Marc ?", opts:["Elle est trop petite","Elle est loin de son travail","Elle est bruyante"], a:1, why:"« c'est loin de son travail : il fait une heure de voiture le matin »."}
+]);
+note("<b>Repérez la grammaire :</b><br>· <b>Quatre « il y a »</b> et <b>deux négations</b> — <i>il n'y a pas <u>de</u> balcon</i>, <i>il n'y a pas <u>d'</u>ascenseur</i>. Both show the article collapsing.<br>· <b>Les accords féminins</b> — une <b>petite</b> cuisine, une <b>grande</b> maison <b>ancienne</b><br>· <b>Une préposition de lieu</b> — <i>derrière la maison</i><br>· <b>Deux contractions</b> — <i>près <b>du</b> métro</i>, <i>loin <b>de son</b> travail</i><br>· <b>Un pronom tonique</b> — <i>Marc, <b>lui</b>, habite…</i>");
+ex("<b>À vous —</b> describe your own home in eight sentences:<br>☐ the type (<i>une maison</i> / <i>un appartement</i>)<br>☐ the size in m² <u>or</u> the number of <i>pièces</i><br>☐ three rooms, using <b>il y a</b><br>☐ one thing you <u>don't</u> have, using <b>il n'y a pas de</b><br>☐ one preposition of place<br>☐ two adjectives, correctly agreed<br>☐ where it is (<i>au centre-ville</i> / <i>en banlieue</i> / <i>à la campagne</i>)<br>☐ one opinion — what you like or don't like about it");
+
+})();
+
 </script>
 <script src="french_glossary.js"></script>
 </body>

@@ -47,6 +47,40 @@
   .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
   .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
 </style>
+<style id="xp-style">
+  .xp h2 { font-size:18px; margin:26px 0 6px; padding-bottom:6px; border-bottom:2px solid #e6e3dc; color:#23201b; }
+  .xp h3 { font-size:15px; margin:16px 0 6px; color:#4338ca; }
+  .xp p.xp-lead { font-size:14px; color:#6b675f; margin:0 0 10px; }
+  .xp .xp-note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .xp .xp-ex { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .xp .xp-warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .xp .xp-row { display:flex; align-items:center; gap:12px; background:#fff; border:1px solid #e6e3dc; border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .xp .xp-play { flex:0 0 auto; width:38px; height:38px; border-radius:50%; border:1px solid #e6e3dc; background:#eceafe; color:#4338ca; font-size:15px; cursor:pointer; }
+  .xp .xp-txt { flex:1 1 auto; min-width:0; }
+  .xp .xp-fr { font-size:16px; font-weight:600; cursor:pointer; }
+  .xp .xp-fr:hover { color:#4338ca; }
+  .xp .xp-ph { font-size:13px; color:#0f7a54; font-style:italic; }
+  .xp .xp-en { font-size:13px; color:#6b675f; }
+  .xp table.xp-t { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .xp table.xp-t th, .xp table.xp-t td { border:1px solid #e6e3dc; padding:8px 10px; text-align:left; vertical-align:top; }
+  .xp table.xp-t th { background:#eceafe; color:#4338ca; }
+  .xp .xp-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .xp .xp-cell { background:#fff; border:1px solid #e6e3dc; border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .xp .xp-cell:hover { border-color:#4338ca; }
+  .xp .xp-cell b { display:block; font-size:14px; }
+  .xp .xp-cell i { font-size:11px; color:#0f7a54; font-style:italic; }
+  .xp .xp-fill { background:#fff; border:1px solid #e6e3dc; border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .xp .xp-fill .s { font-size:15px; margin-bottom:8px; }
+  .xp .xp-fill input { border:1px solid #e6e3dc; border-radius:8px; padding:6px 10px; font-size:14px; width:230px; }
+  .xp .xp-fill button { border:1px solid #4338ca; background:#4338ca; color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .xp .xp-fb { font-size:13px; margin-top:8px; }
+  .xp .xp-fb.ok { color:#155c37; } .xp .xp-fb.bad { color:#a33; }
+  .xp .xp-q { background:#fff; border:1px solid #e6e3dc; border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .xp .xp-q .prompt { font-size:15px; font-weight:600; margin-bottom:8px; }
+  .xp .xp-q .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .xp .xp-q .btns button { border:1px solid #e6e3dc; background:#fff; color:#23201b; border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .xp .xp-q .btns button:hover { border-color:#4338ca; }
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -78,14 +112,34 @@
     <a href="French_Cours21_Notes.html">Cours 21</a>
     <a href="French_Cours22_Notes.html">Cours 22</a>
     <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
     <a href="French_Conversations.html">Conversations</a>
     <a href="French_Dialogues.html">Dialogues</a>
     <a href="French_Full_Guide.html">Full Guide</a>
     <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
     <a href="French_Prof_Notes.html">Prof's Notes</a>
     <a href="French_Book_Audio.html">Book Audio</a>
     <a href="French_Audio_Library.html">Audio Library</a>
     <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
   </nav>
 
   <div class="bar">
@@ -98,6 +152,7 @@
   </div>
 
   <div id="content"></div>
+  <div class="xp" id="xpand"></div>
 </div>
 
 <script>
@@ -232,6 +287,237 @@ document.getElementById('speed').addEventListener('click',e=>{
   [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
   e.target.classList.add('on');
 });
+</script>
+<script>
+
+(function(){
+  var C = document.getElementById('xpand');
+  function sp(t){ try{ if(typeof speak==='function'){ speak(t); return; } }catch(e){}
+    try{ speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(String(t).replace(/_+/g,'')); u.lang='fr-FR';
+      var v=speechSynthesis.getVoices().find(function(x){return /^fr/i.test(x.lang);}); if(v)u.voice=v;
+      if(typeof rate!=='undefined') u.rate=rate; speechSynthesis.speak(u);}catch(e){} }
+  function el(tag,cls,html){ var e=document.createElement(tag); if(cls)e.className=cls; if(html!=null)e.innerHTML=html; return e; }
+  function h2(t){ C.appendChild(el('h2',null,t)); }
+  function h3(t){ C.appendChild(el('h3',null,t)); }
+  function lead(t){ C.appendChild(el('p','xp-lead',t)); }
+  function note(t){ C.appendChild(el('div','xp-note',t)); }
+  function ex(t){ C.appendChild(el('div','xp-ex',t)); }
+  function warn(t){ C.appendChild(el('div','xp-warn',t)); }
+  function rows(list){ list.forEach(function(r){
+    var fr=r[0], ph=r[1], en=r[2];
+    var row=el('div','xp-row');
+    var b=el('button','xp-play','&#9654;'); b.onclick=function(){sp(fr);};
+    var t=el('div','xp-txt');
+    var f=el('div','xp-fr'); f.textContent=fr; f.onclick=function(){sp(fr);};
+    t.appendChild(f);
+    if(ph){ var p=el('div','xp-ph'); p.textContent=ph; t.appendChild(p); }
+    if(en){ var e2=el('div','xp-en'); e2.textContent=en; t.appendChild(e2); }
+    row.appendChild(b); row.appendChild(t); C.appendChild(row);
+    try{ if(typeof GLOBAL_VOCAB!=='undefined') GLOBAL_VOCAB.push({fr:fr,en:en||''}); }catch(e){}
+  }); }
+  function grid(list){ var g=el('div','xp-grid');
+    list.forEach(function(r){ var c=el('div','xp-cell','<b></b><i></i>');
+      c.querySelector('b').textContent=r[0]; c.querySelector('i').textContent=r[1]||'';
+      c.onclick=function(){sp(r[0]);}; g.appendChild(c); });
+    C.appendChild(g); }
+  function table(head, body){ var t=el('table','xp-t');
+    var html='<tr>'; head.forEach(function(h){ html+='<th>'+h+'</th>'; }); html+='</tr>';
+    body.forEach(function(r){ html+='<tr>'; r.forEach(function(c){ html+='<td>'+c+'</td>'; }); html+='</tr>'; });
+    t.innerHTML=html; C.appendChild(t); }
+  function fill(items){ items.forEach(function(it){
+    var d=el('div','xp-fill'); d.appendChild(el('div','s',it.s));
+    var inp=document.createElement('input'); inp.placeholder='...';
+    var btn=document.createElement('button'); btn.textContent='Check';
+    var fb=el('div','xp-fb');
+    function chk(){ var v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      var ok=it.a.some(function(a){return a.toLowerCase()===v;});
+      if(ok){ fb.className='xp-fb ok'; fb.innerHTML='\u2713 '+it.a[0]+' \u2014 '+it.why; sp(it.a[0]); }
+      else { fb.className='xp-fb bad'; fb.innerHTML='\u2717 Answer: <b>'+it.a[0]+'</b> \u2014 '+it.why; } }
+    btn.onclick=chk; inp.addEventListener('keydown',function(e){ if(e.key==='Enter') chk(); });
+    var line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn); d.appendChild(line);
+    if(it.en){ var t=el('div','xp-en',''); t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb); C.appendChild(d); }); }
+  function mcq(items){ items.forEach(function(it){
+    var d=el('div','xp-q'); d.appendChild(el('div','prompt',it.q));
+    var b=el('div','btns'); var fb=el('div','xp-fb');
+    it.opts.forEach(function(o,i){ var btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=function(){ if(i===it.a){ fb.className='xp-fb ok'; fb.innerHTML='\u2713 '+o+' \u2014 '+it.why; sp(o); }
+        else { fb.className='xp-fb bad'; fb.innerHTML='\u2717 The answer is <b>'+it.opts[it.a]+'</b> \u2014 '+it.why; } };
+      b.appendChild(btn); });
+    d.appendChild(b); d.appendChild(fb); C.appendChild(d); }); }
+  h2("Deep dive — les pièces, la description physique et la liaison [z]");
+lead("Cours 20 was built around two classroom games. Here is the full vocabulary each game draws on, so you can actually win them — plus the phonetics section properly worked out.");
+
+h2("1 · Les pièces de la maison");
+rows([
+ ["l'entrée","lahn-TRAY","the entrance hall"],
+ ["le salon","luh sah-LOHN","the living room"],
+ ["la salle à manger","lah sal ah mahn-ZHAY","the dining room"],
+ ["la cuisine","lah kwee-ZEEN","the kitchen"],
+ ["la chambre","lah SHAHM-bruh","the bedroom"],
+ ["la salle de bains","lah sal duh BAN","the bathroom"],
+ ["les toilettes","lay twah-LET","the toilet"],
+ ["le bureau","luh bew-ROH","the study / the office"],
+ ["le couloir","luh koo-LWAHR","the corridor"],
+ ["le balcon","luh bal-KOHN","the balcony"],
+ ["le garage","luh gah-RAHZH","the garage"],
+ ["le sous-sol","luh soo-SOL","the basement"],
+ ["le grenier","luh gruh-NYAY","the attic"],
+ ["le jardin","luh zhar-DAN","the garden"]
+]);
+warn("<b>Deux faux amis dangereux :</b><br>· <b>la chambre</b> = <u>bedroom</u>, not any room. A room in general is <i>une pièce</i>, and a hotel room is <i>une chambre</i>.<br>· <b>le bureau</b> = both the <u>study</u> and the <u>desk</u> in it — and also the office you work in. Context decides.<br><br>Also: <b>les toilettes</b> is always <u>plural</u> in French, even for one.");
+h3("Compter les pièces");
+rows([
+ ["Il y a combien de pièces ?","eel-ee-ah kohn-byan duh PYESS","How many rooms are there?"],
+ ["Il y a cinq pièces.","eel-ee-ah sank PYESS","There are five rooms."],
+ ["un trois-pièces","uhn trwah-PYESS","a two-bedroom flat (3 rooms total)"],
+ ["C'est au rez-de-chaussée.","seh toh ray-duh-shoh-SAY","It's on the ground floor."],
+ ["C'est au premier étage.","seh toh pruh-myay ay-TAHZH","It's on the first floor."]
+]);
+note("<b>Un trois-pièces</b> counts <u>living rooms and bedrooms</u> but <u>not</u> kitchen or bathroom. So a French \"trois-pièces\" is roughly a Canadian two-bedroom. And the <b>rez-de-chaussée</b> is the ground floor — the <i>premier étage</i> is one flight up, exactly as in British English, not American.");
+
+h2("2 · L'équipement — les meubles");
+grid([["un lit","uhn LEE"],["une table","ewn TAH-bluh"],["une chaise","ewn SHEZ"],["un canapé","uhn kah-nah-PAY"],["un fauteuil","uhn foh-TUY"],["une armoire","ewn ar-MWAHR"],["une étagère","ewn ay-tah-ZHEHR"],["un placard","uhn plah-KAR"],["un miroir","uhn mee-RWAHR"],["un tapis","uhn tah-PEE"],["des rideaux","day ree-DOH"],["une lampe","ewn LAHMP"],["un frigo","uhn free-GOH"],["une cuisinière","ewn kwee-zee-NYEHR"],["une douche","ewn DOOSH"],["une baignoire","ewn ben-YWAHR"]]);
+h3("Dire où sont les choses");
+rows([
+ ["Le lit est dans la chambre.","luh lee eh dahn lah SHAHM-bruh","The bed is in the bedroom."],
+ ["Il y a un canapé dans le salon.","eel-ee-ah uhn kah-nah-PAY dahn luh sah-LOHN","There's a sofa in the living room."],
+ ["La lampe est sur la table.","lah lahmp eh sewr lah TAH-bluh","The lamp is on the table."],
+ ["Le tapis est sous la table.","luh tah-PEE eh soo lah TAH-bluh","The rug is under the table."],
+ ["Le miroir est à côté de la porte.","luh mee-RWAHR eh tah koh-TAY duh lah PORT","The mirror is next to the door."]
+]);
+
+h2("3 · La description physique — vocabulaire complet");
+h3("La taille et la carrure");
+rows([
+ ["Il est grand. / Elle est grande.","eel eh GRAHN / ell eh GRAHND","He's tall. / She's tall."],
+ ["Il est petit. / Elle est petite.","eel eh puh-TEE / ell eh puh-TEET","He's short. / She's short."],
+ ["Il est de taille moyenne.","eel eh duh tye mwah-YEN","He's of medium height."],
+ ["Il est mince.","eel eh MANSS","He's slim."],
+ ["Il est fort.","eel eh FOR","He's well-built."]
+]);
+h3("Les cheveux");
+rows([
+ ["Il a les cheveux courts.","eel ah lay shuh-VUH KOOR","He has short hair."],
+ ["Elle a les cheveux longs.","ell ah lay shuh-VUH LOHN","She has long hair."],
+ ["Elle a les cheveux rais.. (non : raides)","— rehd","straight hair"],
+ ["Il a les cheveux bouclés.","… boo-KLAY","curly hair"],
+ ["Elle a les cheveux blonds.","… BLOHN","blond hair"],
+ ["Il a les cheveux bruns.","… BRUHN","brown hair"],
+ ["Elle a les cheveux châtains.","… shah-TAN","light brown / chestnut hair"],
+ ["Il a les cheveux noirs.","… NWAHR","black hair"],
+ ["Il est chauve.","eel eh SHOHV","He's bald."]
+]);
+warn("<b>Trois mots pour « brown », et ils ne sont pas interchangeables :</b><br>· <b>brun</b> — dark brown hair, and describes the person too (<i>un brun</i> = a dark-haired man)<br>· <b>châtain</b> — light/chestnut brown, <u>hair only</u><br>· <b>marron</b> — brown for objects and <b>eyes</b>, and it never agrees<br><br>So: <i>les cheveux brun<b>s</b></i> but <i>les yeux <b>marron</b></i> — no -s, ever.");
+h3("Les yeux");
+rows([
+ ["Il a les yeux bleus.","eel ah lay zyuh BLUH","He has blue eyes."],
+ ["Elle a les yeux verts.","ell ah lay zyuh VEHR","She has green eyes."],
+ ["Il a les yeux marron.","eel ah lay zyuh mah-ROHN","He has brown eyes."],
+ ["Elle a les yeux noisette.","ell ah lay zyuh nwah-ZET","She has hazel eyes."],
+ ["Elle porte des lunettes.","ell port day lew-NET","She wears glasses."]
+]);
+note("<b>Both marron and noisette are invariable</b> — they're nouns being used as colours (a chestnut, a hazelnut), so they refuse to take -s. <i>les yeux marron</i>, <i>les yeux noisette</i>. The others agree normally: <i>les yeux bleu<b>s</b></i>, <i>vert<b>s</b></i>.");
+h3("Être ou Avoir pour décrire ?");
+table(["Avec Être + adjectif","Avec Avoir + les + partie du corps"],[
+ ["Il <b>est</b> grand.","Il <b>a</b> les cheveux courts."],
+ ["Elle <b>est</b> mince.","Elle <b>a</b> les yeux bleus."],
+ ["Il <b>est</b> chauve.","Il <b>a</b> une barbe."],
+ ["Elle <b>est</b> jeune.","Elle <b>a</b> des lunettes."]
+]);
+ex("<b>The pattern:</b> an adjective about the whole person → <b>être</b>. A body part with its own description → <b>avoir + les + noun + adjective</b>.<br><br>And note it's <i>il a <b>les</b> cheveux courts</i>, with the <u>definite</u> article — not <i>ses cheveux</i>. French uses <b>le/la/les</b> for body parts where English uses a possessive.");
+h3("Le caractère");
+grid([["sympa","san-PAH"],["gentil / gentille","zhahn-TEE / zhahn-TEEY"],["calme","KALM"],["timide","tee-MEED"],["drôle","DROHL"],["sérieux / sérieuse","say-RYUH / say-RYUHZ"],["patient / patiente","pah-SYAHN / pah-SYAHNT"],["bavard / bavarde","bah-VAR / bah-VARD"],["souriant / souriante","soo-ree-AHN / -AHNT"],["travailleur / travailleuse","trah-vah-YUR / -YUHZ"]]);
+
+h2("4 · Phonétique — la liaison [z]");
+lead("The section the lesson flagged. This single sound carries most of the plural information in spoken French.");
+ex("When a word ends in a silent <b>s</b>, <b>x</b> or <b>z</b> and the next word begins with a <b>vowel or silent h</b>, that letter wakes up and is pronounced <b>[z]</b>, attached to the following word.");
+table(["Écrit","Prononcé","Sens"],[
+ ["le<b>s</b>⁀amis","lay-<b>Z</b>ah-MEE","the friends"],
+ ["de<b>s</b>⁀enfants","day-<b>Z</b>ahn-FAHN","children"],
+ ["no<b>s</b>⁀amis","noh-<b>Z</b>ah-MEE","our friends"],
+ ["deu<b>x</b>⁀heures","duh-<b>Z</b>UR","two o'clock"],
+ ["troi<b>s</b>⁀ans","trwah-<b>Z</b>AHN","three years"],
+ ["il<b>s</b>⁀ont","eel-<b>Z</b>OHN","they have"],
+ ["vou<b>s</b>⁀êtes","voo-<b>Z</b>ET","you are"],
+ ["nou<b>s</b>⁀avons","noo-<b>Z</b>ah-VOHN","we have"],
+ ["le<b>s</b>⁀yeux","lay-<b>Z</b>YUH","the eyes"],
+ ["che<b>z</b>⁀eux","shay-<b>Z</b>UH","at their place"]
+]);
+warn("<b>Why this matters more than it looks.</b> Compare:<br>· <i>il habite</i> — eel-ah-BEET — <u>he</u> lives<br>· <i>ils habitent</i> — eel-<b>Z</b>ah-BEET — <u>they</u> live<br><br>The spellings differ by three letters; the <u>sounds</u> differ by one [z]. Drop it and your listener genuinely cannot tell one person from several. The liaison isn't decoration — it's the only plural marker you can hear.");
+h3("Pas de liaison devant une consonne");
+table(["Avec liaison","Sans liaison"],[
+ ["les<b>⁀</b>amis — lay-ZAH-mee","les livres — lay LEE-vruh"],
+ ["les<b>⁀</b>enfants — lay-ZAHN-fahn","les garçons — lay gar-SOHN"],
+ ["deux<b>⁀</b>heures — duh-ZUR","deux livres — duh LEE-vruh"],
+ ["ils<b>⁀</b>ont — eel-ZOHN","ils sont — eel SOHN"]
+]);
+note("The last pair is the one to drill hardest: <b>ils ont</b> (they have) vs <b>ils sont</b> (they are). One [z], one [s], two different verbs — and in the passé composé both are auxiliaries, so context won't rescue you.");
+h3("Le « h » muet compte comme une voyelle");
+rows([
+ ["les hôtels","lay zoh-TEL","the hotels"],
+ ["les hommes","lay ZUM","the men"],
+ ["nous habitons","noo zah-bee-TOHN","we live"],
+ ["ils habitent","eel zah-BEET","they live"]
+]);
+
+h2("Exercices");
+h3("Exercice 1 — quelle pièce ?");
+mcq([
+ {q:"Je prépare le dîner ici.", opts:["la cuisine","la chambre","la salle de bains"], a:0, why:"préparer le dîner → la cuisine."},
+ {q:"Je dors ici.", opts:["le salon","la chambre","le bureau"], a:1, why:"dormir → la chambre. Remember: <i>chambre</i> = bedroom specifically."},
+ {q:"Je regarde la télé avec ma famille ici.", opts:["la cuisine","le garage","le salon"], a:2, why:"le salon = the living room."},
+ {q:"Je gare la voiture ici.", opts:["le jardin","le garage","le balcon"], a:1, why:"garer = to park → le garage."}
+]);
+h3("Exercice 2 — être ou avoir ?");
+fill([
+ {s:"Il ______ grand.", a:["est"], en:"He is tall.", why:"An adjective about the whole person → être."},
+ {s:"Elle ______ les yeux bleus.", a:["a"], en:"She has blue eyes.", why:"A body part → avoir + les."},
+ {s:"Ils ______ les cheveux courts.", a:["ont"], en:"They have short hair.", why:"avoir → ils ont, eel-ZOHN."},
+ {s:"Nous ______ de taille moyenne.", a:["sommes"], en:"We are of medium height.", why:"A description of the person → être."}
+]);
+h3("Exercice 3 — accordez");
+fill([
+ {s:"Elle a les yeux ______ (marron).", a:["marron"], en:"She has brown eyes.", why:"<b>marron is invariable</b> — no -s, ever."},
+ {s:"Il a les cheveux ______ (court).", a:["courts"], en:"He has short hair.", why:"<i>cheveux</i> is masculine plural → courts."},
+ {s:"Elle est ______ (grand).", a:["grande"], en:"She is tall.", why:"Feminine → grande, and the -e makes the d audible."},
+ {s:"Ils sont ______ (gentil).", a:["gentils"], en:"They are kind.", why:"Masculine plural → gentils."}
+]);
+h3("Exercice 4 — liaison ou pas ?");
+mcq([
+ {q:"« les yeux »", opts:["lay YUH","lay ZYUH","lay SYUH"], a:1, why:"<i>yeux</i> begins with a vowel sound → liaison [z]."},
+ {q:"« les cheveux »", opts:["lay ZSHUH-vuh","lay shuh-VUH","lay TSHUH-vuh"], a:1, why:"<i>cheveux</i> starts with a consonant → no liaison."},
+ {q:"« ils ont les yeux verts »", opts:["eel SOHN lay VEHR","eel ZOHN lay ZYUH VEHR","eel OHN lay YUH VEHR"], a:1, why:"Two liaisons: ils⁀ont and les⁀yeux."},
+ {q:"« deux heures »", opts:["duh UR","duh ZUR","duh TUR"], a:1, why:"x → [z] before a vowel."}
+]);
+
+h2("Texte parallèle — Mon colocataire");
+ex("<b>Anirudh</b><br><br>J'habite dans une maison avec un colocataire. Il s'appelle Anirudh et il est indien, comme moi.<br><br>Physiquement, il est grand et mince. Il a les cheveux noirs et courts, et il a les yeux marron. Il porte des lunettes pour travailler. Il n'est pas chauve — pas encore !<br><br>Il est très sympa et très calme, mais un peu bavard le soir. Il est ingénieur et il travaille beaucoup.<br><br>La maison a six pièces : un salon, une cuisine, trois chambres et une salle de bains. Il y a aussi un sous-sol et un petit jardin. Sa chambre est au premier étage ; la mienne est au rez-de-chaussée.<br><br>On s'entend bien. C'est un bon colocataire !");
+h3("Glossaire du texte");
+rows([
+ ["un colocataire","uhn koh-loh-kah-TEHR","a flatmate / housemate"],
+ ["comme moi","kom MWAH","like me"],
+ ["Physiquement","fee-zeek-MAHN","Physically"],
+ ["Il porte des lunettes.","eel port day lew-NET","He wears glasses."],
+ ["pas encore !","pah zahn-KOR","not yet!"],
+ ["un peu bavard","uhn puh bah-VAR","a bit talkative"],
+ ["Il travaille beaucoup.","eel trah-VYE boh-KOO","He works a lot."],
+ ["Sa chambre est au premier étage.","sah SHAHM-bruh eh toh pruh-myay ay-TAHZH","His room is on the first floor."],
+ ["la mienne","lah MYEN","mine (f.)"],
+ ["On s'entend bien.","ohn sahn-TAHN BYAN","We get on well."]
+]);
+h3("Compréhension");
+mcq([
+ {q:"De quelle couleur sont ses yeux ?", opts:["Bleus","Marron","Verts"], a:1, why:"« il a les yeux marron » — and note: no -s."},
+ {q:"Combien de chambres y a-t-il ?", opts:["Deux","Trois","Six"], a:1, why:"« trois chambres ». Six is the total number of <i>pièces</i>."},
+ {q:"Où est la chambre d'Anirudh ?", opts:["Au rez-de-chaussée","Au premier étage","Au sous-sol"], a:1, why:"« Sa chambre est au premier étage ; la mienne est au rez-de-chaussée. »"},
+ {q:"Quel est son métier ?", opts:["Administrateur","Ingénieur","Étudiant"], a:1, why:"« Il est ingénieur » — and no article after être."}
+]);
+note("<b>Repérez la grammaire :</b><br>· <b>Être pour la personne</b> — il est grand, mince, sympa, calme, ingénieur<br>· <b>Avoir + les pour le corps</b> — il a les cheveux noirs, il a les yeux marron<br>· <b>Une couleur invariable</b> — <i>marron</i>, with no -s despite <i>les yeux</i><br>· <b>Deux accords pluriels</b> — cheveux noir<b>s</b> et court<b>s</b><br>· <b>Sept pièces nommées</b> — count them<br>· <b>Deux liaisons [z]</b> — <i>pas⁀encore</i>, <i>des⁀lunettes</i>… check which ones really liaise");
+ex("<b>À vous —</b> describe someone you live or work with, in eight sentences:<br>☐ two with <b>être</b> + adjective (agreed)<br>☐ two with <b>avoir les</b> + body part<br>☐ one invariable colour (<i>marron</i> or <i>noisette</i>)<br>☐ two character traits<br>☐ one sentence about where they live or work<br>☐ finish with an opinion: <i>C'est un bon…</i> / <i>On s'entend bien.</i>");
+
+})();
+
 </script>
 <script src="french_glossary.js"></script>
 </body>

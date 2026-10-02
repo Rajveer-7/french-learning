@@ -31,6 +31,49 @@
   .en { font-size:13px; color:var(--muted); }
   .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
 </style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
+<style id="xp-style">
+  .xp h2 { font-size:18px; margin:26px 0 6px; padding-bottom:6px; border-bottom:2px solid #e6e3dc; color:#23201b; }
+  .xp h3 { font-size:15px; margin:16px 0 6px; color:#4338ca; }
+  .xp p.xp-lead { font-size:14px; color:#6b675f; margin:0 0 10px; }
+  .xp .xp-note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .xp .xp-ex { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .xp .xp-warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .xp .xp-row { display:flex; align-items:center; gap:12px; background:#fff; border:1px solid #e6e3dc; border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .xp .xp-play { flex:0 0 auto; width:38px; height:38px; border-radius:50%; border:1px solid #e6e3dc; background:#eceafe; color:#4338ca; font-size:15px; cursor:pointer; }
+  .xp .xp-txt { flex:1 1 auto; min-width:0; }
+  .xp .xp-fr { font-size:16px; font-weight:600; cursor:pointer; }
+  .xp .xp-fr:hover { color:#4338ca; }
+  .xp .xp-ph { font-size:13px; color:#0f7a54; font-style:italic; }
+  .xp .xp-en { font-size:13px; color:#6b675f; }
+  .xp table.xp-t { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .xp table.xp-t th, .xp table.xp-t td { border:1px solid #e6e3dc; padding:8px 10px; text-align:left; vertical-align:top; }
+  .xp table.xp-t th { background:#eceafe; color:#4338ca; }
+  .xp .xp-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .xp .xp-cell { background:#fff; border:1px solid #e6e3dc; border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .xp .xp-cell:hover { border-color:#4338ca; }
+  .xp .xp-cell b { display:block; font-size:14px; }
+  .xp .xp-cell i { font-size:11px; color:#0f7a54; font-style:italic; }
+  .xp .xp-fill { background:#fff; border:1px solid #e6e3dc; border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .xp .xp-fill .s { font-size:15px; margin-bottom:8px; }
+  .xp .xp-fill input { border:1px solid #e6e3dc; border-radius:8px; padding:6px 10px; font-size:14px; width:230px; }
+  .xp .xp-fill button { border:1px solid #4338ca; background:#4338ca; color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .xp .xp-fb { font-size:13px; margin-top:8px; }
+  .xp .xp-fb.ok { color:#155c37; } .xp .xp-fb.bad { color:#a33; }
+  .xp .xp-q { background:#fff; border:1px solid #e6e3dc; border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .xp .xp-q .prompt { font-size:15px; font-weight:600; margin-bottom:8px; }
+  .xp .xp-q .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .xp .xp-q .btns button { border:1px solid #e6e3dc; background:#fff; color:#23201b; border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .xp .xp-q .btns button:hover { border-color:#4338ca; }
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -62,15 +105,42 @@
     <a href="French_Cours21_Notes.html">Cours 21</a>
     <a href="French_Cours22_Notes.html">Cours 22</a>
     <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
     <a href="French_Conversations.html">Conversations</a>
     <a href="French_Dialogues.html">Dialogues</a>
     <a href="French_Full_Guide.html">Full Guide</a>
     <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
     <a href="French_Prof_Notes.html">Prof's Notes</a>
     <a href="French_Book_Audio.html">Book Audio</a>
     <a href="French_Audio_Library.html">Audio Library</a>
     <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
   </nav>
+
+<div class="whybox">
+  <h4><span>Pourquoi ça marche comme ça</span>Pourquoi les consignes du prof finissent toutes en -EZ</h4>
+  <p><b>Écoutez ! Répétez ! Regardez !</b> — these are not special words. They are the ordinary <b>vous</b> form with the pronoun deleted.<br><br>· vous <i>écoutez</i> → <b>Écoutez !</b><br>· vous <i>répétez</i> → <b>Répétez !</b><br><br>That is the entire rule for forming commands with <i>vous</i>. Once you see it, you can build an imperative from any verb you know — and you stop treating classroom instructions as vocabulary to memorise.</p>
+  <a class="more" href="French_A1_Verbes.html">Aller plus loin →</a>
+</div>
+
 
   <div class="bar">
     <span>Speed:</span>
@@ -86,6 +156,7 @@
   <div class="note" id="pronNote">
     The clever idea on this page: the alphabet is grouped by <b>mouth shape</b>, not A–Z. Letters in the same row share the same core vowel sound. Tap a row to hear all its letters — feel your mouth hold one shape across the whole row.
   </div>
+  <div class="xp" id="xpand"></div>
 </div>
 
 <script>
@@ -216,6 +287,203 @@ document.getElementById('speed').addEventListener('click',e=>{
   [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
   e.target.classList.add('on');
 });
+</script>
+<script>
+
+(function(){
+  var C = document.getElementById('xpand');
+  function sp(t){ try{ if(typeof speak==='function'){ speak(t); return; } }catch(e){}
+    try{ speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(String(t).replace(/_+/g,'')); u.lang='fr-FR';
+      var v=speechSynthesis.getVoices().find(function(x){return /^fr/i.test(x.lang);}); if(v)u.voice=v;
+      if(typeof rate!=='undefined') u.rate=rate; speechSynthesis.speak(u);}catch(e){} }
+  function el(tag,cls,html){ var e=document.createElement(tag); if(cls)e.className=cls; if(html!=null)e.innerHTML=html; return e; }
+  function h2(t){ C.appendChild(el('h2',null,t)); }
+  function h3(t){ C.appendChild(el('h3',null,t)); }
+  function lead(t){ C.appendChild(el('p','xp-lead',t)); }
+  function note(t){ C.appendChild(el('div','xp-note',t)); }
+  function ex(t){ C.appendChild(el('div','xp-ex',t)); }
+  function warn(t){ C.appendChild(el('div','xp-warn',t)); }
+  function rows(list){ list.forEach(function(r){
+    var fr=r[0], ph=r[1], en=r[2];
+    var row=el('div','xp-row');
+    var b=el('button','xp-play','&#9654;'); b.onclick=function(){sp(fr);};
+    var t=el('div','xp-txt');
+    var f=el('div','xp-fr'); f.textContent=fr; f.onclick=function(){sp(fr);};
+    t.appendChild(f);
+    if(ph){ var p=el('div','xp-ph'); p.textContent=ph; t.appendChild(p); }
+    if(en){ var e2=el('div','xp-en'); e2.textContent=en; t.appendChild(e2); }
+    row.appendChild(b); row.appendChild(t); C.appendChild(row);
+    try{ if(typeof GLOBAL_VOCAB!=='undefined') GLOBAL_VOCAB.push({fr:fr,en:en||''}); }catch(e){}
+  }); }
+  function grid(list){ var g=el('div','xp-grid');
+    list.forEach(function(r){ var c=el('div','xp-cell','<b></b><i></i>');
+      c.querySelector('b').textContent=r[0]; c.querySelector('i').textContent=r[1]||'';
+      c.onclick=function(){sp(r[0]);}; g.appendChild(c); });
+    C.appendChild(g); }
+  function table(head, body){ var t=el('table','xp-t');
+    var html='<tr>'; head.forEach(function(h){ html+='<th>'+h+'</th>'; }); html+='</tr>';
+    body.forEach(function(r){ html+='<tr>'; r.forEach(function(c){ html+='<td>'+c+'</td>'; }); html+='</tr>'; });
+    t.innerHTML=html; C.appendChild(t); }
+  function fill(items){ items.forEach(function(it){
+    var d=el('div','xp-fill'); d.appendChild(el('div','s',it.s));
+    var inp=document.createElement('input'); inp.placeholder='...';
+    var btn=document.createElement('button'); btn.textContent='Check';
+    var fb=el('div','xp-fb');
+    function chk(){ var v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      var ok=it.a.some(function(a){return a.toLowerCase()===v;});
+      if(ok){ fb.className='xp-fb ok'; fb.innerHTML='\u2713 '+it.a[0]+' \u2014 '+it.why; sp(it.a[0]); }
+      else { fb.className='xp-fb bad'; fb.innerHTML='\u2717 Answer: <b>'+it.a[0]+'</b> \u2014 '+it.why; } }
+    btn.onclick=chk; inp.addEventListener('keydown',function(e){ if(e.key==='Enter') chk(); });
+    var line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn); d.appendChild(line);
+    if(it.en){ var t=el('div','xp-en',''); t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb); C.appendChild(d); }); }
+  function mcq(items){ items.forEach(function(it){
+    var d=el('div','xp-q'); d.appendChild(el('div','prompt',it.q));
+    var b=el('div','btns'); var fb=el('div','xp-fb');
+    it.opts.forEach(function(o,i){ var btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=function(){ if(i===it.a){ fb.className='xp-fb ok'; fb.innerHTML='\u2713 '+o+' \u2014 '+it.why; sp(o); }
+        else { fb.className='xp-fb bad'; fb.innerHTML='\u2717 The answer is <b>'+it.opts[it.a]+'</b> \u2014 '+it.why; } };
+      b.appendChild(btn); });
+    d.appendChild(b); d.appendChild(fb); C.appendChild(d); }); }
+  h2("Deep dive — la salle de classe, la bouche et les sons");
+lead("Cours 2 covered classroom instructions, mouth vocabulary and the first nationalities. Here is each of those taken properly, plus the survival phrases that make a live class usable.");
+
+h2("1 · Les consignes — ce que le prof vous dit");
+lead("These are imperatives — commands. You don't need to produce them; you need to <b>recognise them instantly</b>, because the whole lesson depends on it.");
+rows([
+ ["Écoutez !","ay-koo-TAY","Listen!"],
+ ["Répétez !","ray-pay-TAY","Repeat!"],
+ ["Regardez !","ruh-gar-DAY","Look!"],
+ ["Lisez !","lee-ZAY","Read!"],
+ ["Écrivez !","ay-kree-VAY","Write!"],
+ ["Complétez !","kohn-play-TAY","Complete / fill in!"],
+ ["Ouvrez votre livre.","oo-vray votr LEE-vruh","Open your book."],
+ ["Fermez votre livre.","fair-may votr LEE-vruh","Close your book."],
+ ["Travaillez à deux.","trah-vah-yay ah DUH","Work in pairs."],
+ ["Par groupes de trois.","par groop duh TRWAH","In groups of three."],
+ ["Encore une fois.","ahn-kor ewn FWAH","Once more."],
+ ["Tous ensemble !","too zahn-SAHM-bluh","All together!"],
+ ["Silence, s'il vous plaît.","see-LAHNSS, seel voo PLEH","Quiet, please."],
+ ["Vous avez compris ?","voo zah-vay kohn-PREE","Did you understand?"]
+]);
+ex("<b>Why they all end in -ez.</b> The teacher is addressing the class as <b>vous</b>, so every command carries the vous ending. Drop the pronoun and you have the imperative:<br><br>· vous <i>écoutez</i> → <b>Écoutez !</b><br>· vous <i>répétez</i> → <b>Répétez !</b><br><br>That's the entire rule for forming commands with vous: take the present tense and delete the subject.");
+note("<b>Écoutez</b> (ay-koo-TAY) vs <b>Écrivez</b> (ay-kree-VAY) vs <b>Écrivez</b> — when a teacher says one at speed, listen for the <u>middle</u> syllable: <b>koo</b> = listen, <b>kree</b> = write, <b>gar</b> = look, <b>pay</b> = repeat.");
+
+h2("2 · Se débrouiller en classe — what YOU say");
+lead("These are worth more than any vocabulary list. A student who can say « Pouvez-vous répéter ? » learns twice as fast as one who freezes.");
+rows([
+ ["Je ne comprends pas.","zhuh nuh kohn-PRAHN PAH","I don't understand."],
+ ["Pouvez-vous répéter, s'il vous plaît ?","poo-vay-voo ray-pay-TAY, seel voo PLEH","Can you repeat that, please?"],
+ ["Plus lentement, s'il vous plaît.","plew lahnt-MAHN","More slowly, please."],
+ ["Comment dit-on « … » en français ?","koh-mahn dee-TOHN … ahn frahn-SEH","How do you say \"…\" in French?"],
+ ["Qu'est-ce que ça veut dire ?","kess kuh sah vuh DEER","What does that mean?"],
+ ["Comment ça s'écrit ?","koh-mahn sah say-KREE","How is that spelled?"],
+ ["Je ne sais pas.","zhuh nuh seh PAH","I don't know."],
+ ["Un instant, s'il vous plaît.","uhn nan-STAHN","One moment, please."],
+ ["J'ai une question.","zhay ewn kess-TYOHN","I have a question."],
+ ["Excusez-moi, je suis en retard.","ex-kew-zay-MWAH, zhuh swee zahn ruh-TAR","Sorry, I'm late."],
+ ["Vous pouvez répéter plus fort ?","voo poo-vay ray-pay-tay plew FOR","Can you repeat that louder?"],
+ ["C'est à quelle page ?","seh tah kell PAHZH","Which page is it on?"]
+]);
+warn("<b>Memorise these before any vocabulary.</b> They're the tools that let you learn everything else. <i>Comment dit-on … en français ?</i> in particular turns every gap in your knowledge into a question you can ask <u>in French</u> — which is itself what an examiner wants to see.");
+
+h2("3 · La bouche — comment les sons se fabriquent");
+lead("French uses parts of the mouth English leaves idle. Knowing the anatomy makes the sounds reproducible instead of guesswork.");
+rows([
+ ["la bouche","lah BOOSH","the mouth"],
+ ["les lèvres","lay LEH-vruh","the lips"],
+ ["la langue","lah LAHNG","the tongue (also: language)"],
+ ["les dents","lay DAHN","the teeth"],
+ ["la gorge","lah GORZH","the throat"],
+ ["le palais","luh pah-LEH","the palate"],
+ ["le nez","luh NAY","the nose"]
+]);
+h3("Les trois sons qui n'existent pas en anglais");
+table(["Son","Comment le faire","Exemples"],[
+ ["<b>U</b> [y]","Say <b>ee</b>, then round your lips as if for <b>oo</b> — without moving your tongue.","t<b>u</b>, r<b>u</b>e, s<b>u</b>r, b<b>u</b>reau"],
+ ["<b>R</b> [ʁ]","From the <b>back of the throat</b>, like a soft gargle. Not the English r at all.","<b>r</b>ouge, pa<b>r</b>is, <b>r</b>ega<b>r</b>de<b>r</b>"],
+ ["<b>Nasales</b>","Start the vowel, then let the air out through your <b>nose</b>. Never touch the n.","bo<b>n</b>, vi<b>n</b>, bla<b>nc</b>, u<b>n</b>"]
+]);
+warn("<b>The U is the one that matters most.</b> <i>tu</i> [y] and <i>tout</i> [u] are different words; so are <i>rue</i> (street) and <i>roue</i> (wheel), <i>dessus</i> (above) and <i>dessous</i> (below). Writing <i>tu</i> as \"too\" in your notes will teach you the wrong vowel — write it <b>tew</b>.");
+h3("Les quatre voyelles nasales");
+grid([["an / en — blanc","ahn"],["on — bon","ohn"],["in / ain — vin, pain","an"],["un — brun","uhn"]]);
+note("Say <b>bon</b> and stop before your tongue touches the roof of your mouth. If you hear a clear <b>n</b> at the end, you've said an English word. The nasal is the vowel itself, not vowel + n.");
+
+h2("4 · Tendez l'oreille — les consonnes finales");
+ex("<b>The single most useful sound rule in French:</b> a final consonant is usually <u>silent</u> — but adding <b>-e</b> wakes it up.");
+table(["Masculin (silencieux)","Féminin (sonore)","Le son qui apparaît"],[
+ ["françai<b>s</b> — frahn-SEH","françai<b>se</b> — frahn-SEZ","[z]"],
+ ["gran<b>d</b> — grahn","gran<b>de</b> — grahnd","[d]"],
+ ["peti<b>t</b> — puh-TEE","peti<b>te</b> — puh-TEET","[t]"],
+ ["étudian<b>t</b> — ay-tew-DYAHN","étudian<b>te</b> — ay-tew-DYAHNT","[t]"],
+ ["heureu<b>x</b> — uh-RUH","heureu<b>se</b> — uh-RUHZ","[z]"],
+ ["blan<b>c</b> — blahn","blan<b>che</b> — blahnsh","[sh]"]
+]);
+note("<b>The exception set: C, R, F, L</b> — these four final consonants usually <u>are</u> pronounced. Remember them with the English word <b>CaReFuL</b>:<br>· <b>C</b> — avec, lac, parc<br>· <b>R</b> — bonjour, hiver, professeur<br>· <b>F</b> — neuf, chef, actif<br>· <b>L</b> — il, avril, soleil<br><br>(The big exception to the exception: <b>-er</b> at the end of a verb is silent — <i>parler</i> = par-LAY.)");
+
+h2("5 · La liaison — quand les mots se collent");
+ex("When a word ending in a silent consonant is followed by one starting with a <b>vowel or silent h</b>, that consonant wakes up and jumps across. This is why spoken French sounds like one long ribbon rather than separate words.");
+table(["Lettre finale","Son de liaison","Exemple"],[
+ ["s, x, z","[<b>z</b>]","le<b>s</b>⁀amis = lay-<b>Z</b>ah-MEE"],
+ ["t, d","[<b>t</b>]","un gran<b>d</b>⁀homme = uhn grahn-<b>T</b>UM"],
+ ["n","[<b>n</b>]","u<b>n</b>⁀ami = uh-<b>N</b>ah-MEE"],
+ ["f","[<b>v</b>]","neu<b>f</b>⁀heures = nuh-<b>V</b>UR"]
+]);
+rows([
+ ["les amis","lay ZAH-mee","the friends"],
+ ["vous êtes","voo ZET","you are"],
+ ["nous avons","noo zah-VOHN","we have"],
+ ["ils ont","eel ZOHN","they have"],
+ ["un ami","uh NAH-mee","a friend"],
+ ["deux heures","duh ZUR","two o'clock"],
+ ["neuf heures","nuh VUR","nine o'clock"],
+ ["C'est un professeur.","seh tuhn proh-feh-SUR","He's a teacher."]
+]);
+warn("<b>The liaison is often the only thing marking the plural.</b> <i>il habite</i> and <i>ils habitent</i> are spelled very differently but sound the same except for one [z]: eel-ah-BEET vs eel-<b>Z</b>ah-BEET. Drop it and your listener genuinely cannot tell one person from several.");
+
+h2("6 · Les nationalités — les quatre modèles");
+table(["Modèle","Masculin → Féminin","Exemples"],[
+ ["<b>-ais / -ois</b> → + e","français → française","anglais, japonais, chinois, suédois"],
+ ["<b>-ain</b> → + e","américain → américaine","mexicain, marocain"],
+ ["<b>-ien</b> → -ienne","indien → indienne","canadien, italien, brésilien"],
+ ["<b>déjà en -e</b> → aucun changement","belge → belge","russe, suisse"]
+]);
+rows([
+ ["Je suis indien. / Je suis indienne.","zhuh swee zan-DYAN / zan-DYEN","I am Indian. (m. / f.)"],
+ ["Il est canadien.","eel eh kah-nah-DYAN","He is Canadian."],
+ ["Elle est canadienne.","ell eh kah-nah-DYEN","She is Canadian."],
+ ["Vous êtes de quelle nationalité ?","voo zet duh kell nah-syoh-nah-lee-TAY","What nationality are you?"]
+]);
+warn("<b>Trois règles d'un coup :</b><br>· nationalities are <b>lowercase</b> — <i>indien</i>, not <i>Indien</i><br>· <b>no article</b> after être — <i>je suis indien</i>, not <i>un indien</i><br>· the feminine ending <b>changes the sound</b> — an-DYAN becomes an-DYEN, with the nasal opening into a clear EN");
+
+h2("Exercices");
+h3("Exercice 1 — que dit le prof ?");
+mcq([
+ {q:"The teacher wants you to say it again.", opts:["Écoutez !","Répétez !","Lisez !"], a:1, why:"répéter = to repeat."},
+ {q:"The teacher wants the class in pairs.", opts:["Travaillez à deux.","Par groupes de trois.","Tous ensemble !"], a:0, why:"à deux = in twos, in pairs."},
+ {q:"The teacher wants the books closed.", opts:["Ouvrez votre livre.","Fermez votre livre.","Regardez le livre."], a:1, why:"fermer = to close. Ouvrir = to open."},
+ {q:"You missed what was said. What do you say?", opts:["Je ne sais pas.","Pouvez-vous répéter ?","Vous avez compris ?"], a:1, why:"Asking for a repeat. <i>Je ne sais pas</i> means you don't know the answer — a different problem."}
+]);
+h3("Exercice 2 — liaison ou pas ?");
+mcq([
+ {q:"« les amis »", opts:["lay ah-MEE","lay ZAH-mee","lay SAH-mee"], a:1, why:"The silent s of <i>les</i> links as [z] before the vowel."},
+ {q:"« les livres »", opts:["lay ZLEE-vruh","lay LEE-vruh","lay TLEE-vruh"], a:1, why:"<i>livres</i> starts with a consonant — no liaison is possible."},
+ {q:"« vous êtes »", opts:["voo ET","voo ZET","voo TET"], a:1, why:"s → [z] before the vowel of <i>êtes</i>."},
+ {q:"« neuf heures »", opts:["nuf UR","nuh VUR","nuh FUR"], a:1, why:"The f of <i>neuf</i> becomes a <b>v</b> — but only before <i>heures</i> and <i>ans</i>."}
+]);
+h3("Exercice 3 — masculin ou féminin ?");
+fill([
+ {s:"Elle est ______ (français).", a:["française","francaise"], en:"She is French.", why:"-ais → -aise, and the s now sounds like z: frahn-SEZ."},
+ {s:"Il est ______ (canadien).", a:["canadien"], en:"He is Canadian.", why:"Masculine stays as it is: kah-nah-DYAN."},
+ {s:"Elle est ______ (indien).", a:["indienne"], en:"She is Indian.", why:"-ien → -ienne. The sound opens from an-DYAN to an-DYEN."},
+ {s:"Elle est ______ (américain).", a:["américaine","americaine"], en:"She is American.", why:"-ain → -aine: ah-may-ree-KEN."}
+]);
+
+h2("Phrases à savoir par cœur");
+ex("Ten lines that will carry you through every class from now on. Say each one aloud five times today, and again tomorrow.<br><br>1. Bonjour !<br>2. Je ne comprends pas.<br>3. Pouvez-vous répéter, s'il vous plaît ?<br>4. Plus lentement, s'il vous plaît.<br>5. Comment dit-on « … » en français ?<br>6. Qu'est-ce que ça veut dire ?<br>7. Comment ça s'écrit ?<br>8. J'ai une question.<br>9. Je ne sais pas.<br>10. Merci beaucoup !");
+
+})();
+
 </script>
 <script src="french_glossary.js"></script>
 </body>

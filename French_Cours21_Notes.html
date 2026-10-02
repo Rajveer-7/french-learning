@@ -63,6 +63,15 @@
   .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
   .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
 </style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -94,15 +103,42 @@
     <a href="French_Cours21_Notes.html" class="active">Cours 21</a>
     <a href="French_Cours22_Notes.html">Cours 22</a>
     <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
     <a href="French_Conversations.html">Conversations</a>
     <a href="French_Dialogues.html">Dialogues</a>
     <a href="French_Full_Guide.html">Full Guide</a>
     <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
     <a href="French_Prof_Notes.html">Prof's Notes</a>
     <a href="French_Book_Audio.html">Book Audio</a>
     <a href="French_Audio_Library.html">Audio Library</a>
     <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
   </nav>
+
+<div class="whybox">
+  <h4><span>Pourquoi ça marche comme ça</span>Pourquoi « à côté DU parc » et pas « à côté DE LE parc »</h4>
+  <p><i>de + le</i> and <i>à + le</i> do not exist in French. They are <u>always</u> contracted to <b>du</b> and <b>au</b>.<br><br>Unlike English contractions — <i>don't</i>, <i>can't</i> — these are not informal and not optional. They are the only forms. Writing <i>à le cinéma</i> is not casual; it is impossible.<br><br>And note which ones contract: only the <b>masculine</b> and the <b>plural</b>. <i>à la</i> and <i>de la</i> stay as they are, because there is no vowel collision to fix.</p>
+  <a class="more" href="French_Grammaire.html">Aller plus loin →</a>
+</div>
+
 
   <div class="bar">
     <span>Speed:</span>
@@ -233,9 +269,33 @@ prepBox(11, "AU BORD DE", "BY / AT THE EDGE OF", "au bord de = at the edge of / 
   ["Il y a un restaurant au bord de la rivière.","eel yah uhn res-toh-RAHN oh bor duh lah ree-VYEHR","There's a restaurant by the river."]
 ], "The worksheet notes this one is used especially with water: <b>la mer</b> (sea), <b>un lac</b> (lake), <b>une rivière</b> (river). Notice the middle example — <i>au bord <b>du</b> lac</i> — that's the de + le contraction in the wild.");
 
-const pendingLate = document.createElement('div'); pendingLate.className='pending';
-pendingLate.textContent = "Items 12 onwards (pages 3–4) not yet seen — will fill in live as the class works through them.";
-content.appendChild(pendingLate);
+/* --- extra practice written for this page --- */
+const xH = document.createElement('h3'); xH.className='sub2'; xH.textContent = "Extra practice — the eleven prepositions in sentences";
+content.appendChild(xH);
+const xL = document.createElement('p'); xL.className='lead';
+xL.innerHTML = "Pages 3–4 of the worksheet weren't shown in class, so here is my own practice set covering the same ground. Read each sentence aloud, then cover the English.";
+content.appendChild(xL);
+[
+ ["Le chat est dans la boîte.","luh shah eh dahn lah BWAHT","The cat is in the box."],
+ ["Le livre est sur la table.","luh LEE-vruh eh sewr lah TAH-bluh","The book is on the table."],
+ ["Les chaussures sont sous le lit.","lay shoh-SEWR sohn soo luh LEE","The shoes are under the bed."],
+ ["La voiture est devant la maison.","lah vwah-TEWR eh duh-vahn lah may-ZOHN","The car is in front of the house."],
+ ["Le jardin est derrière l'immeuble.","luh zhar-DAN eh deh-ryehr lee-MUH-bluh","The garden is behind the building."],
+ ["La pharmacie est à côté de la boulangerie.","lah far-mah-SEE eh tah koh-tay duh lah boo-lahn-zhuh-REE","The chemist is next to the bakery."],
+ ["La banque est en face du parc.","lah bahnk eh tahn fass dew PARK","The bank is opposite the park."],
+ ["Ma maison est près d'un lac.","mah may-ZOHN eh preh duhn LAK","My house is near a lake."],
+ ["L'école est loin du centre-ville.","lay-KOL eh lwan dew sahn-truh-VEEL","The school is far from the town centre."],
+ ["La boulangerie est entre la banque et la poste.","lah boo-lahn-zhuh-REE eh tahn-truh lah bahnk ay lah POST","The bakery is between the bank and the post office."],
+ ["Il y a un parc au bord du lac.","eel-ee-ah uhn park oh bor dew LAK","There's a park by the lake."]
+].forEach(function(r){ content.appendChild(makeRow(r[0],r[1],r[2])); GLOBAL_VOCAB.push({fr:r[0],en:r[2]}); });
+
+const xN = document.createElement('div'); xN.className='note';
+xN.innerHTML = "<b>The four that take « de » — and therefore contract.</b><br>\u00b7 à côté <b>de</b> · en face <b>de</b> · près <b>de</b> · loin <b>de</b> · au bord <b>de</b><br><br>de + le = <b>du</b> · de + les = <b>des</b> · de + la = <b>de la</b> · de + l' = <b>de l'</b><br><br>So: <i>en face <b>du</b> parc</i>, <i>près <b>des</b> magasins</i>, but <i>à côté <b>de la</b> gare</i>. The contraction is automatic — <i>de le</i> simply doesn't exist in French.";
+content.appendChild(xN);
+
+const xW = document.createElement('div'); xW.className='note';
+xW.innerHTML = "<b>Three pairs worth separating:</b><br>\u00b7 <b>sur</b> (on) vs <b>sous</b> (under) — one letter apart, opposite meanings. sewr / soo.<br>\u00b7 <b>devant</b> (in front of) vs <b>avant</b> (before, in time). Devant is space; avant is time.<br>\u00b7 <b>dans</b> (inside) vs <b>à</b> (at). <i>Je suis <b>dans</b> la maison</i> = inside it. <i>Je suis <b>à</b> la maison</i> = at home, as a location.";
+content.appendChild(xW);
 
 /* Section 1b — the master table */
 const h1b = document.createElement('h2'); h1b.textContent = "1b · A1 Master Table — all eleven at a glance"; content.appendChild(h1b);

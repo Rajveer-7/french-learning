@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 26 — Le futur proche et « on »</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+</style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 26: Le futur proche et « on »</h1>
+  <p class="sub">The Language SKOOL · Fiche de cours A1 — aller + infinitif, and the word French speakers really use for "we"</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Cours21_Notes.html">Cours 21</a>
+    <a href="French_Cours22_Notes.html">Cours 22</a>
+    <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html" class="active">Cours 26</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
+    <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
+  </nav>
+
+<div class="whybox">
+  <h4><span>Pourquoi ça marche comme ça</span>Pourquoi le futur se construit avec un verbe de mouvement</h4>
+  <p><i>Je vais manger</i> is literally "I go to eat". French uses <b>motion through space</b> as a metaphor for <b>motion through time</b> — and so does English ("I'm going to eat").<br><br>The mirror image is <b>venir de</b>: <i>je viens de manger</i>, "I come from eating" = I've just eaten. Time as a road you walk along, with <i>aller</i> pointing forward and <i>venir de</i> pointing back.<br><br>Both constructions park the second verb in the infinitive and conjugate only the small one. That pattern gives you three tenses for the price of one.</p>
+  <a class="more" href="French_Grammaire.html">Aller plus loin →</a>
+</div>
+
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').textContent=fr; c.querySelector('.ph').textContent=ph;
+    c.onclick=()=>speak(fr); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+/* ===== 1 ===== */
+h2("1 · Deux outils pour parler du futur et de « nous »");
+src("<b>Source :</b> <i>Le futur proche et « on »</i>, The Language SKOOL, 13 pages. All of the teacher's material worked through, with extra explanation, examples and practice added around it.");
+ex("<b>Le futur proche</b> is how you say what you're <i>going to</i> do. It needs no new verb endings — you conjugate <b>aller</b> and park a second verb behind it, unchanged.<br><br><b>« On »</b> is the word French speakers actually use for <i>we</i>. Textbooks teach <i>nous</i>; conversation runs almost entirely on <i>on</i>. Knowing this one word instantly makes your French sound less like a textbook.");
+
+/* ===== 2 ===== */
+h2("2 · Le verbe ALLER — la base de tout");
+lead("You cannot build the futur proche without this. Learn it cold.");
+table(["Sujet","Aller","Prononciation","Exemple"],[
+ ["je","<b>vais</b>","zhuh VEH","je vais manger"],
+ ["tu","<b>vas</b>","tew VAH","tu vas partir"],
+ ["il / elle / <b>on</b>","<b>va</b>","eel / ell / ohn VAH","on va sortir"],
+ ["nous","<b>allons</b>","noo <b>z</b>ah-LOHN","nous allons voyager"],
+ ["vous","<b>allez</b>","voo <b>z</b>ah-LAY","vous allez comprendre"],
+ ["ils / elles","<b>vont</b>","eel / ell VOHN","ils vont arriver"]
+]);
+warn("<b>Three liaisons that are compulsory:</b><br>· nous<b>‿</b>allons = noo-<b>z</b>ah-LOHN<br>· vous<b>‿</b>allez = voo-<b>z</b>ah-LAY<br>· on<b>‿</b>a (with avoir) = ohn-<b>N</b>AH<br><br>Skip them and the sentence sounds broken to a French ear.");
+note("<b>The three-way confusion set.</b> These differ by one consonant and all three are extremely common:<br>· ils <b>ont</b> — eel <b>Z</b>OHN — they <i>have</i><br>· ils <b>sont</b> — eel <b>S</b>OHN — they <i>are</i><br>· ils <b>vont</b> — eel <b>V</b>OHN — they <i>go / are going to</i><br><br>Say the set aloud daily until it's automatic. Mishearing one of these changes the tense of the whole sentence.");
+
+/* ===== 3 ===== */
+h2("3 · La formule du futur proche");
+ex("<b>Sujet + ALLER (conjugué) + INFINITIF</b><br><br>The second verb <u>never</u> changes. Whatever the subject, whatever the time, it stays in the infinitive.");
+rows([
+ ["Je vais manger.","zhuh veh mahn-ZHAY","I'm going to eat."],
+ ["Tu vas partir.","tew vah par-TEER","You're going to leave."],
+ ["Il va travailler.","eel vah trah-vah-YAY","He's going to work."],
+ ["Elle va étudier.","ell vah ay-tew-DYAY","She's going to study."],
+ ["On va sortir.","ohn vah sor-TEER","We're going to go out."],
+ ["Nous allons voyager.","noo zah-lohn vwah-yah-ZHAY","We're going to travel."],
+ ["Vous allez regarder un film.","voo zah-lay ruh-gar-DAY uhn FEELM","You're going to watch a film."],
+ ["Ils vont jouer au football.","eel vohn zhoo-AY oh foot-BAWL","They're going to play football."]
+]);
+note("<b>Compare it with the passé composé and you'll see the same architecture:</b><br>· futur proche — <b>aller</b> + infinitif — <i>je <u>vais</u> manger</i><br>· passé composé — <b>avoir</b> + participe — <i>j'<u>ai</u> mangé</i><br><br>Conjugate the small helper verb, park the big one. Two tenses, one habit of mind.");
+warn("<b>The spelling trap this creates.</b> <i>manger</i> and <i>mangé</i> sound <u>identical</u> — mahn-ZHAY. Only the grammar tells you which to write:<br>· after <b>aller</b> → <b>-er</b> : je vais mang<b>er</b><br>· after <b>avoir</b> → <b>-é</b> : j'ai mang<b>é</b><br>Your ear gives you no help here at all.");
+
+/* ===== 4 ===== */
+h2("4 · Quand ALLER n'est pas un auxiliaire");
+lead("The same word does two jobs. What follows it tells you which.");
+table(["Ce qui suit","Sens d'aller","Exemple"],[
+ ["un <b>infinitif</b>","auxiliaire du futur","On <b>va</b> regarder un film. — <i>We're going to watch a film.</i>"],
+ ["un <b>lieu</b>","le vrai verbe « aller »","On <b>va</b> au cinéma. — <i>We're going to the cinema.</i>"]
+]);
+rows([
+ ["Je vais à Paris.","zhuh veh ah pah-REE","I'm going to Paris. (place)"],
+ ["Je vais visiter Paris.","zhuh veh vee-zee-TAY pah-REE","I'm going to visit Paris. (future)"],
+ ["On va au restaurant.","ohn vah oh res-toh-RAHN","We're going to the restaurant. (place)"],
+ ["On va manger au restaurant.","ohn vah mahn-ZHAY oh res-toh-RAHN","We're going to eat at the restaurant. (future)"]
+]);
+ex("<b>Rappel des contractions :</b> à + le → <b>au</b> · à + les → <b>aux</b> · à + la → <b>à la</b> · à + l' → <b>à l'</b><br><br>au cinéma · au restaurant · au travail · <b>à la</b> maison · <b>à l'</b>école · <b>aux</b> États-Unis");
+
+/* ===== 5 ===== */
+h2("5 · La négation au futur proche");
+ex("<b>ne … pas</b> wraps <u>only</u> the conjugated verb. The infinitive stays outside the sandwich.");
+rows([
+ ["Je ne vais pas travailler.","zhuh nuh veh pah trah-vah-YAY","I'm not going to work."],
+ ["On ne va pas sortir ce soir.","ohn nuh vah pah sor-TEER suh SWAHR","We're not going out tonight."],
+ ["Il ne va pas venir.","eel nuh vah pah vuh-NEER","He's not going to come."],
+ ["Nous n'allons pas voyager.","noo nah-lohn pah vwah-yah-ZHAY","We're not going to travel."],
+ ["Je ne vais rien faire !","zhuh nuh veh ryan FEHR","I'm not going to do anything!"],
+ ["Je ne sais pas encore.","zhuh nuh seh pah zahn-KOR","I don't know yet."]
+]);
+warn("<b>✗ Je ne vais travailler pas.</b> — a very common error. The <i>pas</i> must come before the infinitive, never after it. Think of it as <b>ne + vais + pas</b> being one welded block, with the infinitive trailing behind.");
+
+h3("Les verbes pronominaux au futur proche");
+ex("The reflexive pronoun sits in front of the <b>infinitive</b>, and it matches the <b>subject</b> — not the infinitive.");
+rows([
+ ["Je vais me reposer.","zhuh veh muh ruh-poh-ZAY","I'm going to rest."],
+ ["Tu vas te coucher tôt.","tew vah tuh koo-SHAY TOH","You're going to go to bed early."],
+ ["On va se promener.","ohn vah suh prom-NAY","We're going to go for a walk."],
+ ["Nous allons nous préparer.","noo zah-lohn noo pray-pah-RAY","We're going to get ready."],
+ ["Je ne vais pas me lever tôt.","zhuh nuh veh pah muh luh-VAY TOH","I'm not going to get up early."]
+]);
+warn("<b>✗ Je me vais reposer.</b> The pronoun belongs to the second verb, so it travels with it: <b>je vais <u>me</u> reposer</b>.");
+
+/* ===== 6 ===== */
+h2("6 · Les marqueurs de temps");
+lead("These are what tell your listener the action hasn't happened yet.");
+grid([["ce soir","suh SWAHR"],["ce week-end","suh week-END"],["demain","duh-MAN"],["demain matin","duh-man mah-TAN"],["après-demain","ah-preh-duh-MAN"],["la semaine prochaine","lah suh-men proh-SHEN"],["le mois prochain","luh mwah proh-SHAN"],["l'année prochaine","lah-nay proh-SHEN"],["dans deux jours","dahn duh ZHOOR"],["bientôt","byan-TOH"],["tout à l'heure","too tah LUR"],["plus tard","plew TAR"]]);
+note("<b>prochain / prochaine agrees</b>, just like <i>dernier / dernière</i>: le mois procha<b>in</b> (m.) but la semaine procha<b>ine</b> and l'année procha<b>ine</b> (f.).<br><br>And note the mirror pair for the past: <i>la semaine <b>dernière</b></i> (last week) vs <i>la semaine <b>prochaine</b></i> (next week).");
+
+h3("Le présent peut aussi dire le futur");
+ex("When a time marker makes the timing obvious, French uses the plain <b>present</b> for near-future plans — exactly like English \"What are we doing tonight?\"<br><br>· <b>Qu'est-ce qu'on fait ce soir ?</b> — présent, but about tonight<br>· <b>Qu'est-ce qu'on va faire ?</b> — futur proche, no time given<br><br>Both are correct. Use the futur proche when there's no time marker, or to stress that it's still just an intention.");
+
+/* ===== 7 ===== */
+h2("7 · « ON » — le mot le plus utile du français parlé");
+lead("Three meanings, one verb form. This is the word that will most quickly make you sound natural.");
+table(["Sens","Exemple","Traduction"],[
+ ["<b>nous</b> (conversation)","On va au cinéma.","<b>We</b>'re going to the cinema."],
+ ["<b>les gens</b> (people in general)","En France, on mange à midi.","In France, <b>people</b> eat at noon."],
+ ["<b>quelqu'un</b> (someone)","On a sonné à la porte.","<b>Someone</b> rang the doorbell."]
+]);
+warn("<b>« On » always takes the il / elle form of the verb.</b> It looks plural in meaning but is singular in grammar:<br>· ✓ on <b>va</b> · ✗ on allons<br>· ✓ on <b>est</b> · ✗ on sommes<br>· ✓ on <b>a</b> · ✗ on avons<br>· ✓ on <b>fait</b> · ✗ on faisons<br><br>This is the single most tested point about <i>on</i>.");
+rows([
+ ["On va sortir ce soir.","ohn vah sor-TEER suh SWAHR","We're going out tonight."],
+ ["On est fatigués.","ohn eh fah-tee-GAY","We're tired."],
+ ["On a faim.","ohn nah FAN","We're hungry."],
+ ["On y va !","ohn nee VAH","Let's go!"],
+ ["Qu'est-ce qu'on fait ?","kess kohn FEH","What are we doing?"],
+ ["Qu'est-ce qu'on va faire ?","kess kohn vah FEHR","What are we going to do?"]
+]);
+
+h3("« qu'on » — pourquoi l'apostrophe ?");
+ex("<b>que</b> elides to <b>qu'</b> before a vowel, and <i>on</i> starts with one. So it's always written <b>qu'on</b>, never <i>que on</i> — and it's a single syllable: <b>kohn</b>.<br><br>In careful writing you'll sometimes see <b>que l'on</b> instead. The extra <i>l'</i> exists only because <i>qu'on</i> happens to sound like a crude French word, and writers dodge the collision. Same meaning, higher register. You never need to produce it, but you'll read it.");
+
+h3("nous ou on ?");
+table(["","nous","on"],[
+ ["Registre","écrit, formel","parlé, quotidien"],
+ ["Verbe","1re pers. pluriel — <i>allons</i>","3e pers. singulier — <i>va</i>"],
+ ["Exemple","Nous allons au cinéma.","On va au cinéma."],
+ ["Fréquence à l'oral","rare","partout"]
+]);
+note("<b>The accord trap.</b> Because <i>on</i> is grammatically singular but usually means several people, adjectives and past participles follow the <u>meaning</u>: <i>On est fatigué<b>s</b></i>, <i>On est allé<b>s</b> au cinéma</i>. The verb stays singular; the adjective goes plural. French is being pragmatic here rather than consistent.");
+
+/* ===== 8 ===== */
+h2("8 · Exercices");
+
+h3("Exercice 1 — Complétez avec ALLER");
+lead("Word bank: <b>vais — vas — va — allons — allez — vont</b>");
+fill([
+ {s:"1. Je ______ travailler.", a:["vais"], en:"I'm going to work.", why:"je → vais."},
+ {s:"2. Tu ______ manger.", a:["vas"], en:"You're going to eat.", why:"tu → vas."},
+ {s:"3. Elle ______ étudier.", a:["va"], en:"She's going to study.", why:"elle → va."},
+ {s:"4. Nous ______ voyager.", a:["allons"], en:"We're going to travel.", why:"nous → allons. Liaison: noo-Zah-LOHN."},
+ {s:"5. Vous ______ regarder un film.", a:["allez"], en:"You're going to watch a film.", why:"vous → allez. Liaison: voo-Zah-LAY."},
+ {s:"6. Ils ______ jouer au football.", a:["vont"], en:"They're going to play football.", why:"ils → vont. Liaison: eel-Zohn... no — <b>eel VOHN</b>. Don't confuse with ils ont (eel ZOHN)."},
+ {s:"7. On ______ sortir.", a:["va"], en:"We're going to go out.", why:"⚠ The key item. <i>on</i> takes the il/elle form → <b>va</b>, never <i>allons</i>."},
+ {s:"8. Je ______ dormir.", a:["vais"], en:"I'm going to sleep.", why:"je → vais."}
+]);
+warn("<b>Item 7 is what the whole exercise is built around.</b> <i>On</i> means \"we\", so the instinct is <i>allons</i>. It takes <b>va</b>. Get that one right and you've understood the lesson.");
+
+h3("Exercice 3 — Choisissez la bonne réponse");
+mcq([
+ {q:"Je (vais / va) travailler.", opts:["vais","va"], a:0, why:"je → vais."},
+ {q:"Tu (vas / vont) manger.", opts:["vas","vont"], a:0, why:"tu → vas."},
+ {q:"On (va / allons) au cinéma.", opts:["va","allons"], a:0, why:"on → va. And here <i>aller</i> is the real verb — a place follows, not an infinitive."},
+ {q:"Nous (allons / allez) voyager.", opts:["allons","allez"], a:0, why:"nous → allons."},
+ {q:"Ils (vont / va) sortir.", opts:["vont","va"], a:0, why:"ils → vont."},
+ {q:"Elle (va / vas) étudier.", opts:["va","vas"], a:0, why:"elle → va. <i>vas</i> belongs to tu."}
+]);
+
+h3("Exercice 5 — Qu'est-ce qu'on va faire ? (associez)");
+lead("Match each situation to the activity it calls for.");
+mcq([
+ {q:"Nous avons faim. 🍕", opts:["On va manger.","On va dormir.","On va étudier."], a:0, why:"<i>avoir faim</i> = to be hungry → manger."},
+ {q:"Il est tard. 🌙", opts:["On va sortir.","On va dormir.","On va voyager."], a:1, why:"<i>Il est tard</i> = it's late → dormir."},
+ {q:"Nous avons un examen demain. 📚", opts:["On va étudier.","On va manger.","On va dormir."], a:0, why:"An exam tomorrow → étudier."},
+ {q:"Il fait beau. ☀️", opts:["On va dormir.","On va sortir.","On va étudier."], a:1, why:"<i>Il fait beau</i> = the weather's nice → sortir."},
+ {q:"Nous sommes au cinéma. 🎬", opts:["On va regarder un film.","On va manger.","On va voyager."], a:0, why:"At the cinema → regarder un film."},
+ {q:"Nous sommes en vacances. ✈️", opts:["On va étudier.","On va travailler.","On va voyager."], a:2, why:"<i>en vacances</i> = on holiday → voyager."}
+]);
+note("<b>Notice the design of this exercise:</b> every situation is <i>nous</i> and every answer is <i>on</i>. That's the lesson in miniature — you hear <i>nous</i> and you answer with <i>on</i>, because that's what spoken French does.");
+
+h3("Les expressions avec AVOIR");
+ex("Item 1 above hides a whole family. In English these states use <b>to be</b>; in French they use <b>avoir</b>. Saying <i>je suis faim</i> is a marked error.");
+rows([
+ ["j'ai faim","zhay FAN","I'm hungry"],
+ ["j'ai soif","zhay SWAHF","I'm thirsty"],
+ ["j'ai froid","zhay FRWAH","I'm cold"],
+ ["j'ai chaud","zhay SHOH","I'm hot"],
+ ["j'ai sommeil","zhay soh-MAY","I'm sleepy"],
+ ["j'ai peur","zhay PUR","I'm scared"],
+ ["j'ai raison","zhay ray-ZOHN","I'm right"],
+ ["j'ai tort","zhay TOR","I'm wrong"],
+ ["j'ai vingt-trois ans","zhay van-trwah ZAHN","I'm twenty-three"]
+]);
+
+h3("Exercice 6 — Complétez avec vos idées");
+lead("Open-ended. One rule: after <i>je vais</i> comes an <b>infinitive</b>.");
+rows([
+ ["Ce soir, je vais regarder un film.","suh SWAHR, zhuh veh ruh-gar-DAY uhn FEELM","Tonight I'm going to watch a film."],
+ ["Demain, je vais travailler chez Sobeys.","duh-MAN, zhuh veh trah-vah-YAY shay soh-BEE","Tomorrow I'm going to work at Sobeys."],
+ ["Ce week-end, je vais jouer au cricket.","suh week-END, zhuh veh zhoo-AY oh kree-KET","This weekend I'm going to play cricket."],
+ ["Avec mes amis, je vais manger au restaurant.","ah-vek may zah-MEE, zhuh veh mahn-ZHAY oh res-toh-RAHN","With my friends I'm going to eat at a restaurant."],
+ ["Après le cours, je vais étudier le français.","ah-PREH luh KOOR, zhuh veh ay-tew-DYAY luh frahn-SEH","After class I'm going to study French."],
+ ["Pendant les vacances, je vais voyager en Inde.","pahn-DAHN lay vah-KAHNSS, zhuh veh vwah-yah-ZHAY ahn NAND","During the holidays I'm going to travel to India."]
+]);
+
+h3("Exercice 7 — nous → on");
+fill([
+ {s:"Nous allons au cinéma. → ______ va au cinéma.", a:["on"], en:"We're going to the cinema.", why:"nous → on, and the verb drops to the singular <b>va</b>."},
+ {s:"Nous sommes fatigués. → ______ est fatigués.", a:["on"], en:"We're tired.", why:"on <b>est</b> — singular verb — but <i>fatigués</i> stays plural, following the meaning."},
+ {s:"Nous avons faim. → ______ a faim.", a:["on"], en:"We're hungry.", why:"on <b>a</b>, pronounced ohn-NAH with the liaison."},
+ {s:"Nous mangeons à midi. → ______ mange à midi.", a:["on"], en:"We eat at noon.", why:"on <b>mange</b> — the il/elle form, so the awkward <i>mangeons</i> disappears."}
+]);
+
+/* ===== 9 ===== */
+h2("9 · Texte parallèle — Le week-end prochain");
+lead("An original text written for this page, built entirely from the futur proche and « on ».");
+ex("<b>Le week-end prochain</b><br><br>Salut ! Qu'est-ce qu'on fait ce week-end ?<br><br>Samedi matin, on va se lever tard — on ne va pas travailler ! Après le petit-déjeuner, on va aller au parc avec mes amis. On va jouer au cricket si le temps le permet. S'il pleut, on va rester à la maison et on va regarder un film.<br><br>Le soir, on va manger au restaurant. Il y a un nouveau restaurant indien près de chez moi ; je vais réserver une table pour six personnes.<br><br>Dimanche, je ne vais rien faire. Je vais me reposer, je vais écouter de la musique, et je vais peut-être appeler ma famille en Inde.<br><br>Lundi, tout recommence : je vais me lever à six heures et demie et je vais retourner au bureau. Mais ça, c'est lundi !");
+
+h3("Glossaire du texte");
+rows([
+ ["Qu'est-ce qu'on fait ce week-end ?","kess kohn feh suh week-END","What are we doing this weekend?"],
+ ["on va se lever tard","ohn vah suh luh-VAY TAR","we're going to get up late"],
+ ["on ne va pas travailler","ohn nuh vah pah trah-vah-YAY","we're not going to work"],
+ ["on va aller au parc","ohn vah ah-LAY oh PARK","we're going to go to the park"],
+ ["si le temps le permet","see luh tahn luh pair-MEH","if the weather allows"],
+ ["S'il pleut","seel PLUH","If it rains"],
+ ["on va rester à la maison","ohn vah res-TAY ah lah may-ZOHN","we're going to stay home"],
+ ["un nouveau restaurant indien","uhn noo-VOH res-toh-rahn an-DYAN","a new Indian restaurant"],
+ ["près de chez moi","preh duh shay MWAH","near my place"],
+ ["je vais réserver une table","zhuh veh ray-zair-VAY ewn TAH-bluh","I'm going to book a table"],
+ ["je ne vais rien faire","zhuh nuh veh ryan FEHR","I'm not going to do anything"],
+ ["je vais peut-être appeler","zhuh veh puh-teh-truh ah-puh-LAY","I'm maybe going to call"],
+ ["tout recommence","too ruh-koh-MAHNSS","everything starts again"],
+ ["je vais retourner au bureau","zhuh veh ruh-toor-NAY oh bew-ROH","I'm going to go back to the office"]
+]);
+
+h3("Compréhension");
+mcq([
+ {q:"Que vont-ils faire samedi matin ?", opts:["Travailler","Se lever tard et aller au parc","Manger au restaurant"], a:1, why:"« on va se lever tard… on va aller au parc »."},
+ {q:"Et s'il pleut ?", opts:["Ils vont jouer au cricket","Ils vont rester à la maison","Ils vont travailler"], a:1, why:"« S'il pleut, on va rester à la maison et on va regarder un film. »"},
+ {q:"Pour combien de personnes va-t-il réserver ?", opts:["Quatre","Six","Dix"], a:1, why:"« une table pour six personnes »."},
+ {q:"Que va-t-il faire dimanche ?", opts:["Rien de spécial","Travailler","Voyager"], a:0, why:"« Dimanche, je ne vais rien faire. » — se reposer, écouter de la musique, appeler sa famille."},
+ {q:"À quelle heure va-t-il se lever lundi ?", opts:["À six heures","À six heures et demie","À sept heures"], a:1, why:"« je vais me lever à six heures et demie »."}
+]);
+
+h3("Repérez la grammaire");
+note("Find these in the text:<br>· <b>Un présent qui dit le futur</b> — <i>Qu'est-ce qu'on <u>fait</u> ce week-end ?</i> (the time marker does the work)<br>· <b>Deux négations au futur proche</b> — <i>on ne va <u>pas</u> travailler</i>, <i>je ne vais <u>rien</u> faire</i><br>· <b>Trois verbes pronominaux au futur proche</b> — <i>on va <u>se</u> lever</i>, <i>je vais <u>me</u> reposer</i>, <i>je vais <u>me</u> lever</i><br>· <b>« aller » deux fois de suite</b> — <i>on va <u>aller</u> au parc</i>: the auxiliary and the real verb in one phrase. Perfectly correct, and worth noticing.<br>· <b>Cinq « on » pour « nous »</b> — and not one <i>nous</i> in the whole text. That's natural spoken French.");
+ex("<b>À vous —</b> write eight sentences about your own coming weekend. Requirements:<br>☐ open with <b>Qu'est-ce qu'on fait…?</b> or <b>Ce week-end, je vais…</b><br>☐ use <b>on</b> at least three times, always with the singular verb<br>☐ include one <b>negative</b> (<i>je ne vais pas…</i>)<br>☐ include one <b>pronominal verb</b> (<i>je vais me…</i>)<br>☐ use three different <b>time markers</b><br>☐ finish with something about <b>lundi</b>");
+/* ===== 7. Quiz ===== */
+const h7 = document.createElement('h2'); h7.textContent = "10 · Quick quiz"; content.appendChild(h7);
+const quizBox = document.createElement('div'); quizBox.className='quizbox';
+quizBox.innerHTML = '<p class="lead" style="margin:0 0 8px;">Multiple-choice, mixing today\'s vocab.</p>';
+const quizBtn = document.createElement('button'); quizBtn.className='quizbtn'; quizBtn.textContent='▶ Start quiz';
+const quizArea = document.createElement('div'); quizArea.className='quizarea';
+quizBox.appendChild(quizBtn); quizBox.appendChild(quizArea);
+content.appendChild(quizBox);
+
+function shuffleArr(a){ const b=[...a]; for(let i=b.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [b[i],b[j]]=[b[j],b[i]]; } return b; }
+function runQuiz(pool, area, btn){
+  btn.style.display='none';
+  const qs = shuffleArr(pool).slice(0, Math.min(8, pool.length));
+  let i = 0, score = 0;
+  function showQ(){
+    area.innerHTML = '';
+    if (i >= qs.length) {
+      const res = document.createElement('div'); res.className='quizresult';
+      res.textContent = 'Score: '+score+' / '+qs.length;
+      const retry = document.createElement('button'); retry.className='quizretry'; retry.textContent='↻ Retry';
+      retry.onclick = ()=>{ btn.style.display='inline-block'; area.innerHTML=''; };
+      area.appendChild(res); area.appendChild(retry);
+      return;
+    }
+    const item = qs[i];
+    const wrongPool = pool.filter(p=>p.en!==item.en);
+    const opts = shuffleArr([item, ...shuffleArr(wrongPool).slice(0,3)]);
+    const prog = document.createElement('div'); prog.className='quizprog'; prog.textContent = 'Question '+(i+1)+' / '+qs.length;
+    const fr = document.createElement('div'); fr.className='quizfr'; fr.textContent = item.fr;
+    area.appendChild(prog); area.appendChild(fr);
+    opts.forEach(o=>{
+      const b = document.createElement('button'); b.className='quizopt'; b.textContent = o.en;
+      b.onclick = ()=>{
+        [...area.querySelectorAll('.quizopt')].forEach(x=>x.disabled=true);
+        if (o.en===item.en){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); [...area.querySelectorAll('.quizopt')].find(x=>x.textContent===item.en).classList.add('correct'); }
+        setTimeout(()=>{ i++; showQ(); }, 900);
+      };
+      area.appendChild(b);
+    });
+  }
+  showQ();
+}
+quizBtn.onclick = ()=> runQuiz(GLOBAL_VOCAB, quizArea, quizBtn);
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+<script src="french_glossary.js"></script>
+</body>
+</html>

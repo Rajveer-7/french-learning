@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French — La nourriture et le restaurant (A1)</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>La nourriture et le restaurant</h1>
+  <p class="sub">A1 theme · food vocabulary, the partitive article in action, and every phrase you need in a restaurant</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Cours21_Notes.html">Cours 21</a>
+    <a href="French_Cours22_Notes.html">Cours 22</a>
+    <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
+    <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_A1_Nourriture.html" class="active">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').textContent=fr; c.querySelector('.ph').textContent=ph;
+    c.onclick=()=>speak(fr); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+h2("1 · Les repas de la journée");
+rows([
+ ["le petit-déjeuner","luh puh-tee-day-zhuh-NAY","breakfast"],
+ ["le déjeuner","luh day-zhuh-NAY","lunch"],
+ ["le goûter","luh goo-TAY","afternoon snack"],
+ ["le dîner","luh dee-NAY","dinner"],
+ ["un repas","uhn ruh-PAH","a meal"],
+ ["une entrée","ewn ahn-TRAY","a starter"],
+ ["un plat principal","uhn plah pran-see-PAL","a main course"],
+ ["un dessert","uhn deh-SEHR","a dessert"]
+]);
+warn("<b>Two false friends in one line.</b><br>· <b>une entrée</b> is the <u>starter</u>, not the main course — the opposite of North American usage.<br>· <b>le déjeuner</b> is <u>lunch</u> in France, but in Québec it means <b>breakfast</b>. Québec uses <i>déjeuner / dîner / souper</i> for breakfast / lunch / dinner. Since you're aiming at Canada, learn both sets.");
+table(["Repas","France","Québec"],[
+ ["Breakfast","le petit-déjeuner","le <b>déjeuner</b>"],
+ ["Lunch","le déjeuner","le <b>dîner</b>"],
+ ["Dinner","le dîner","le <b>souper</b>"]
+]);
+h3("Les verbes des repas");
+rows([
+ ["prendre le petit-déjeuner","prahn-druh luh puh-tee-day-zhuh-NAY","to have breakfast"],
+ ["déjeuner","day-zhuh-NAY","to have lunch"],
+ ["dîner","dee-NAY","to have dinner"],
+ ["manger","mahn-ZHAY","to eat"],
+ ["boire","bwahr","to drink"],
+ ["cuisiner / faire la cuisine","kwee-zee-NAY","to cook"],
+ ["goûter","goo-TAY","to taste"],
+ ["avoir faim / avoir soif","ah-vwahr FAN / SWAHF","to be hungry / thirsty"]
+]);
+note("<b>prendre, not avoir, for meals and drinks.</b> <i>Je <b>prends</b> un café</i>, <i>je <b>prends</b> le petit-déjeuner</i>. Saying <i>j'ai un café</i> means you physically possess one, not that you're drinking it.");
+
+h2("2 · Le vocabulaire de la nourriture");
+h3("Les fruits");
+grid([["une pomme","ewn POM"],["une banane","ewn bah-NAN"],["une orange","ewn oh-RAHNZH"],["une fraise","ewn FREZ"],["un citron","uhn see-TROHN"],["une pêche","ewn PESH"],["un raisin","uhn reh-ZAN"],["une poire","ewn PWAHR"],["une mangue","ewn MAHNG"],["un ananas","uhn nah-nah-NAH"]]);
+h3("Les légumes");
+grid([["une tomate","ewn toh-MAHT"],["une carotte","ewn kah-ROT"],["une pomme de terre","ewn pom duh TEHR"],["un oignon","uhn noh-NYOHN"],["une salade","ewn sah-LAHD"],["un champignon","uhn shahn-pee-NYOHN"],["un poivron","uhn pwah-VROHN"],["des haricots","day ah-ree-KOH"],["de l'ail","duh LYE"],["des épinards","day zay-pee-NAR"]]);
+warn("<b>un oignon</b> is said <b>oh-NYOHN</b> — the first o is pronounced but the i is silent, swallowed into the <i>gn</i> sound. And <b>des haricots</b> keeps an <u>aspirated h</u>: you say <i>lay ah-ree-KOH</i>, with <b>no liaison</b>. This is one of the rare h's that blocks liaison instead of allowing it.");
+h3("La viande et le poisson");
+grid([["le poulet","luh poo-LEH"],["le bœuf","luh BUF"],["le porc","luh POR"],["l'agneau","lah-NYOH"],["le jambon","luh zhahn-BOHN"],["un œuf","uhn NUF"],["des œufs","day ZUH"],["le poisson","luh pwah-SOHN"],["le saumon","luh soh-MOHN"],["les crevettes","lay kruh-VET"]]);
+warn("<b>un œuf</b> = uhn <b>NUF</b> (you hear the f), but <b>des œufs</b> = day <b>ZUH</b> (the f vanishes). One of the strangest singular/plural pairs in French. Same thing happens with <i>un bœuf</i> (BUF) → <i>des bœufs</i> (BUH).");
+h3("Épicerie de base");
+grid([["le pain","luh PAN"],["une baguette","ewn bah-GET"],["le riz","luh REE"],["les pâtes","lay PAHT"],["le fromage","luh froh-MAHZH"],["le beurre","luh BUR"],["le lait","luh LEH"],["le sucre","luh SEW-kruh"],["le sel","luh SEL"],["le poivre","luh PWAH-vruh"],["l'huile","LWEEL"],["un gâteau","uhn gah-TOH"]]);
+h3("Les boissons");
+grid([["de l'eau","duh LOH"],["un café","uhn kah-FAY"],["un thé","uhn TAY"],["un jus d'orange","uhn zhew doh-RAHNZH"],["du vin","dew VAN"],["une bière","ewn BYEHR"],["du lait","dew LEH"],["un chocolat chaud","uhn shoh-koh-lah SHOH"],["de l'eau gazeuse","duh loh gah-ZUHZ"],["de l'eau plate","duh loh PLAHT"]]);
+
+h2("3 · La grammaire de la nourriture — l'article partitif");
+ex("<b>Everything you say about food runs on the partitive.</b> This is the single most important grammar point on the page, and it's the trio from the Articles page applied:<br><br>· <i>J'aime <b>le</b> poisson.</i> — I like fish. (in general → <b>défini</b>)<br>· <i>Je mange <b>du</b> poisson.</i> — I'm eating fish. (some → <b>partitif</b>)<br>· <i>Je prends <b>un</b> poisson.</i> — I'll take a (whole) fish. (one → <b>indéfini</b>)");
+table(["","Partitif","Exemple"],[
+ ["<b>Masculin</b>","<b>du</b>","du pain, du fromage, du vin, du riz"],
+ ["<b>Féminin</b>","<b>de la</b>","de la viande, de la salade, de la confiture"],
+ ["<b>Devant voyelle</b>","<b>de l'</b>","de l'eau, de l'huile"],
+ ["<b>Pluriel</b>","<b>des</b>","des légumes, des fruits, des pâtes"]
+]);
+warn("<b>And after a negation it all collapses to DE.</b><br>· Je mange <b>du</b> pain. → Je ne mange pas <b>de</b> pain.<br>· Je bois <b>de l'</b>eau. → Je ne bois pas <b>d'</b>eau.<br>· Je prends <b>des</b> légumes. → Je ne prends pas <b>de</b> légumes.<br><br>This is the error that will be most visible when you order food.");
+h3("Les quantités — toutes avec DE");
+rows([
+ ["un kilo de pommes","uhn kee-loh duh POM","a kilo of apples"],
+ ["un litre de lait","uhn lee-truh duh LEH","a litre of milk"],
+ ["une bouteille d'eau","ewn boo-tay DOH","a bottle of water"],
+ ["un paquet de pâtes","uhn pah-keh duh PAHT","a packet of pasta"],
+ ["une tranche de jambon","ewn trahnsh duh zhahn-BOHN","a slice of ham"],
+ ["un morceau de fromage","uhn mor-soh duh froh-MAHZH","a piece of cheese"],
+ ["une douzaine d'œufs","ewn doo-zen DUH","a dozen eggs"],
+ ["beaucoup de sucre","boh-koo duh SEW-kruh","a lot of sugar"],
+ ["un peu de sel","uhn puh duh SEL","a little salt"]
+]);
+
+h2("4 · Au restaurant — le dialogue complet");
+h3("Arriver");
+rows([
+ ["Bonjour, une table pour deux, s'il vous plaît.","… ewn tah-bluh poor DUH","Hello, a table for two, please."],
+ ["Vous avez une réservation ?","voo zah-vay ewn ray-zair-vah-SYOHN","Do you have a reservation?"],
+ ["Oui, au nom de Singh.","wee, oh nohn duh SANG","Yes, under the name Singh."],
+ ["Non, nous n'avons pas réservé.","nohn, noo nah-vohn pah ray-zair-VAY","No, we haven't booked."],
+ ["Suivez-moi, s'il vous plaît.","swee-vay-MWAH","Follow me, please."]
+]);
+h3("Commander");
+rows([
+ ["La carte, s'il vous plaît.","lah KART, seel voo PLEH","The menu, please."],
+ ["Qu'est-ce que vous recommandez ?","kess kuh voo ruh-koh-mahn-DAY","What do you recommend?"],
+ ["Quel est le plat du jour ?","kell eh luh plah dew ZHOOR","What's today's special?"],
+ ["Je voudrais le poulet, s'il vous plaît.","zhuh voo-DREH luh poo-LEH","I'd like the chicken, please."],
+ ["Je vais prendre la salade.","zhuh veh prahn-druh lah sah-LAHD","I'll have the salad."],
+ ["Pour moi, le poisson.","poor mwah, luh pwah-SOHN","For me, the fish."],
+ ["Et comme boisson ?","ay kom bwah-SOHN","And to drink?"],
+ ["Une carafe d'eau, s'il vous plaît.","ewn kah-RAHF DOH","A jug of tap water, please."]
+]);
+note("<b>Une carafe d'eau</b> is free tap water, and you are entitled to it in any French restaurant. Ask for <i>de l'eau</i> on its own and you may be brought an expensive bottle. This is a genuinely useful piece of practical knowledge.");
+h3("Pendant et après le repas");
+rows([
+ ["C'est délicieux !","seh day-lee-SYUH","It's delicious!"],
+ ["C'est très bon.","seh treh BOHN","It's very good."],
+ ["Encore un peu de pain, s'il vous plaît.","ahn-kor uhn puh duh PAN","A bit more bread, please."],
+ ["L'addition, s'il vous plaît.","lah-dee-SYOHN, seel voo PLEH","The bill, please."],
+ ["On peut payer par carte ?","ohn puh pay-yay par KART","Can we pay by card?"],
+ ["C'est pour emporter.","seh poor ahn-por-TAY","It's to take away."],
+ ["Sur place ou à emporter ?","sewr plass oo ah ahn-por-TAY","Eat in or take away?"]
+]);
+h3("Les régimes et les allergies");
+rows([
+ ["Je suis végétarien / végétarienne.","zhuh swee vay-zhay-tah-RYAN / -RYEN","I'm vegetarian."],
+ ["Je ne mange pas de viande.","zhuh nuh mahnzh pah duh VYAHND","I don't eat meat."],
+ ["Je ne mange pas de porc.","zhuh nuh mahnzh pah duh POR","I don't eat pork."],
+ ["Je suis allergique aux noix.","zhuh swee zah-lair-ZHEEK oh NWAH","I'm allergic to nuts."],
+ ["Est-ce qu'il y a de la viande dedans ?","ess keel-ee-ah duh lah vyahnd duh-DAHN","Is there meat in it?"],
+ ["Sans gluten, s'il vous plaît.","sahn glew-TEN","Gluten-free, please."]
+]);
+warn("<b>Je suis végétarien</b> — no article, because it works like a nationality or a job after <i>être</i>. And note the negation: <i>je ne mange pas <b>de</b> viande</i>, with the article collapsed.");
+
+h2("5 · Les goûts — aimer, préférer, détester");
+table(["Expression","Force","Exemple"],[
+ ["j'adore","+++","J'adore le chocolat."],
+ ["j'aime beaucoup","++","J'aime beaucoup les pâtes."],
+ ["j'aime","+","J'aime le poisson."],
+ ["j'aime bien","+ (mild)","J'aime bien la salade."],
+ ["je n'aime pas beaucoup","−","Je n'aime pas beaucoup le fromage."],
+ ["je n'aime pas","−−","Je n'aime pas le café."],
+ ["je déteste","−−−","Je déteste les oignons."]
+]);
+warn("<b>All of these take le / la / les — never the partitive.</b><br>· ✓ J'aime <b>le</b> poisson. · ✗ J'aime du poisson.<br><br>And the article <u>survives the negation</u>: <i>je n'aime pas <b>le</b> café</i>, not <i>pas de café</i>. This is the exception to the de-rule, because <i>aimer</i> is about the thing in general, not a quantity of it.");
+note("<b>j'aime bien is weaker than j'aime</b>, which is the opposite of what English intuition suggests. <i>Bien</i> softens rather than strengthens. If you want to intensify, use <b>beaucoup</b>: <i>j'aime beaucoup</i>.");
+
+h2("6 · Exercices");
+h3("Exercice 1 — quel article ?");
+fill([
+ {s:"1. J'aime ______ poisson. (in general)", a:["le"], en:"I like fish.", why:"After <i>aimer</i> → definite article, always."},
+ {s:"2. Je mange ______ poisson. (some)", a:["du"], en:"I'm eating fish.", why:"An unspecified amount → partitive <b>du</b>."},
+ {s:"3. Je bois ______ eau.", a:["de l'","de l"], en:"I'm drinking water.", why:"Partitive before a vowel → <b>de l'</b>."},
+ {s:"4. Elle mange ______ salade.", a:["de la"], en:"She's eating salad.", why:"<i>salade</i> is feminine → <b>de la</b>."},
+ {s:"5. Nous prenons ______ légumes.", a:["des"], en:"We're having vegetables.", why:"Plural partitive → <b>des</b>."},
+ {s:"6. Je ne mange pas ______ viande.", a:["de"], en:"I don't eat meat.", why:"Negation → everything collapses to <b>de</b>."},
+ {s:"7. Je n'aime pas ______ café.", a:["le"], en:"I don't like coffee.", why:"⚠ After <i>aimer</i> the definite article <u>survives</u> the negation."}
+]);
+h3("Exercice 2 — les quantités");
+fill([
+ {s:"un kilo ______ pommes", a:["de"], en:"a kilo of apples", why:"After a quantity, only <b>de</b> — never <i>des</i>."},
+ {s:"une bouteille ______ eau", a:["d'","d"], en:"a bottle of water", why:"<b>d'</b> before a vowel."},
+ {s:"beaucoup ______ sucre", a:["de"], en:"a lot of sugar", why:"Quantity word → <b>de</b>, never <i>du</i>."},
+ {s:"une douzaine ______ œufs", a:["d'","d"], en:"a dozen eggs", why:"<b>d'</b> before the vowel of <i>œufs</i>."}
+]);
+h3("Exercice 3 — au restaurant : que dites-vous ?");
+mcq([
+ {q:"You want to see the menu.", opts:["L'addition, s'il vous plaît.","La carte, s'il vous plaît.","Une table pour deux."], a:1, why:"<b>la carte</b> = the menu. <i>Le menu</i> in France usually means a <u>set menu</u> at a fixed price."},
+ {q:"You want to pay.", opts:["La carte, s'il vous plaît.","L'addition, s'il vous plaît.","Le plat du jour."], a:1, why:"<b>l'addition</b> = the bill."},
+ {q:"You want free tap water.", opts:["De l'eau, s'il vous plaît.","Une carafe d'eau, s'il vous plaît.","Une bouteille d'eau."], a:1, why:"<b>une carafe d'eau</b> is the free tap water. The others may get you a bottle you pay for."},
+ {q:"You're vegetarian.", opts:["Je suis un végétarien.","Je suis végétarien.","J'ai végétarien."], a:1, why:"No article after <i>être</i> — it behaves like a nationality."}
+]);
+h3("Exercice 4 — la prononciation piège");
+mcq([
+ {q:"« des œufs » se prononce…", opts:["day ZUF","day ZUH","day ZUHF"], a:1, why:"The f <b>disappears</b> in the plural: day ZUH. But <i>un œuf</i> is uhn NUF, with the f."},
+ {q:"« des haricots » se prononce…", opts:["day zah-ree-KOH","day ah-ree-KOH","dez ree-KOH"], a:1, why:"⚠ Aspirated h — it <b>blocks</b> the liaison. No [z]."},
+ {q:"« un oignon » se prononce…", opts:["uhn nwa-NYOHN","uhn noh-NYOHN","uhn oh-ee-NYOHN"], a:1, why:"The i is silent, swallowed into the <i>gn</i>."}
+]);
+
+h2("7 · Texte parallèle — Un dîner au restaurant");
+ex("<b>Vendredi soir</b><br><br>Vendredi soir, je vais au restaurant avec Anirudh. C'est un petit restaurant indien près de chez moi.<br><br>— Bonsoir. Une table pour deux, s'il vous plaît.<br>— Vous avez une réservation ?<br>— Oui, au nom de Singh.<br>— Très bien. Suivez-moi. Voici la carte.<br><br>Je regarde la carte. Il y a beaucoup de choix ! Anirudh prend du poulet avec du riz. Moi, je suis végétarien : je ne mange pas de viande. Je prends des légumes et du pain.<br><br>— Et comme boisson ?<br>— Une carafe d'eau et un jus de mangue, s'il vous plaît.<br><br>Le serveur apporte les plats. C'est délicieux ! J'adore la cuisine indienne — c'est la cuisine de mon pays. Anirudh aime beaucoup le poulet, mais il trouve que c'est un peu épicé.<br><br>À la fin, nous prenons un dessert : un gâteau au chocolat pour moi, un café pour lui.<br><br>— L'addition, s'il vous plaît. On peut payer par carte ?<br>— Bien sûr. Ça fait quarante-deux dollars.<br><br>Nous sortons à vingt-deux heures. Il fait froid, mais nous sommes contents !");
+h3("Glossaire du texte");
+rows([
+ ["Il y a beaucoup de choix !","eel-ee-ah boh-koo duh SHWAH","There's a lot of choice!"],
+ ["Anirudh prend du poulet avec du riz.","… prahn dew poo-leh ah-vek dew REE","Anirudh has chicken with rice."],
+ ["Je ne mange pas de viande.","zhuh nuh mahnzh pah duh VYAHND","I don't eat meat."],
+ ["Et comme boisson ?","ay kom bwah-SOHN","And to drink?"],
+ ["un jus de mangue","uhn zhew duh MAHNG","a mango juice"],
+ ["Le serveur apporte les plats.","luh sehr-VUR ah-port lay PLAH","The waiter brings the dishes."],
+ ["J'adore la cuisine indienne.","zhah-DOR lah kwee-zeen an-DYEN","I love Indian food."],
+ ["la cuisine de mon pays","lah kwee-zeen duh mohn pay-EE","the food of my country"],
+ ["il trouve que c'est un peu épicé","eel troov kuh seh tuhn puh ay-pee-SAY","he finds it a bit spicy"],
+ ["À la fin","ah lah FAN","At the end"],
+ ["un gâteau au chocolat","uhn gah-toh oh shoh-koh-LAH","a chocolate cake"],
+ ["Ça fait quarante-deux dollars.","sah feh kah-rahnt-duh doh-LAR","That comes to forty-two dollars."]
+]);
+h3("Compréhension");
+mcq([
+ {q:"Que prend Anirudh ?", opts:["Des légumes","Du poulet avec du riz","Un gâteau"], a:1, why:"« Anirudh prend du poulet avec du riz. »"},
+ {q:"Pourquoi le narrateur ne prend-il pas de viande ?", opts:["Il n'aime pas ça","Il est végétarien","C'est trop cher"], a:1, why:"« je suis végétarien : je ne mange pas de viande »."},
+ {q:"Que pense Anirudh du poulet ?", opts:["C'est trop froid","C'est un peu épicé","Ce n'est pas bon"], a:1, why:"« il trouve que c'est un peu épicé » — he likes it, but finds it spicy."},
+ {q:"Combien coûte le repas ?", opts:["32 $","42 $","22 $"], a:1, why:"« quarante-deux dollars ». Twenty-two is the time they leave."}
+]);
+h3("Repérez la grammaire");
+note("Find one of each in the text:<br>· <b>Quatre partitifs</b> — <i>du poulet, du riz, des légumes, du pain</i><br>· <b>Un article défini après aimer</b> — <i>j'adore <b>la</b> cuisine indienne</i>, <i>il aime beaucoup <b>le</b> poulet</i><br>· <b>Une négation avec DE</b> — <i>je ne mange pas <b>de</b> viande</i><br>· <b>Une quantité avec DE</b> — <i>beaucoup <b>de</b> choix</i><br>· <b>Un métier/état sans article</b> — <i>je suis végétarien</i><br>· <b>Un pronom tonique</b> — <i>un café pour <b>lui</b></i>, <i><b>Moi</b>, je suis végétarien</i><br>· <b>Une heure au format 24h</b> — <i>vingt-deux heures</i>");
+ex("<b>À vous —</b> write your own restaurant visit in twelve lines, as a dialogue. Requirements — tick them off:<br>☐ ask for a table and say whether you've booked<br>☐ ask for the menu or the <i>plat du jour</i><br>☐ order using <b>je voudrais</b> or <b>je vais prendre</b><br>☐ use three <b>partitifs</b><br>☐ one <b>négation</b> with <i>pas de</i> (something you don't eat)<br>☐ one <b>opinion</b> with <i>j'aime / j'adore / je déteste</i> + definite article<br>☐ order a drink<br>☐ ask for the bill and whether you can pay by card<br><br>Then read both parts aloud — yours and the waiter's. You'll need both halves in real life.");
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+<script src="french_glossary.js"></script>
+</body>
+</html>

@@ -102,14 +102,34 @@
     <a href="French_Cours21_Notes.html">Cours 21</a>
     <a href="French_Cours22_Notes.html" class="active">Cours 22</a>
     <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
     <a href="French_Conversations.html">Conversations</a>
     <a href="French_Dialogues.html">Dialogues</a>
     <a href="French_Full_Guide.html">Full Guide</a>
     <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
     <a href="French_Prof_Notes.html">Prof's Notes</a>
     <a href="French_Book_Audio.html">Book Audio</a>
     <a href="French_Audio_Library.html">Audio Library</a>
     <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
   </nav>
 
   <div class="bar">
@@ -419,9 +439,23 @@ EX2SET.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VO
 const modelEx2 = document.createElement('div'); modelEx2.className='example';
 modelEx2.innerHTML = "<b>Model exchange you can reuse:</b><br>A : <i>Tu ne fermes jamais la porte du frigo ! Ce n'est pas gentil, c'est de ta faute si tout est chaud.</i><br>B : <i>Oh, je suis vraiment désolé. Ce n'était pas volontaire — ça ne se reproduira plus.</i><br>Swap the situation, keep the shape: reproach → apologise → promise.";
 content.appendChild(modelEx2);
-const pendingEx2 = document.createElement('div'); pendingEx2.className='pending';
-pendingEx2.textContent = "The remaining Exercice 2 situations haven't scrolled into view yet — will add them as they appear.";
-content.appendChild(pendingEx2);
+const xh2 = document.createElement('h3'); xh2.className='sub2'; xh2.textContent = "More situations — written for this page";
+content.appendChild(xh2);
+const xl2 = document.createElement('p'); xl2.className='lead';
+xl2.innerHTML = "The rest of the worksheet's Exercice 2 wasn't shown in class, so here are my own situations on the same pattern: someone tells you something, and you react appropriately.";
+content.appendChild(xl2);
+[
+ ["— Excusez-moi, la musique est trop forte.","ex-kew-zay-MWAH, lah mew-ZEEK eh troh FORT","— Excuse me, the music is too loud."],
+ ["— Oh, pardon ! Je baisse tout de suite.","oh, par-DOHN ! zhuh bess too duh SWEET","— Oh, sorry! I'll turn it down right away."],
+ ["— Il est minuit, et j'ai cours demain.","eel eh mee-NWEE, ay zhay koor duh-MAN","— It's midnight, and I have class tomorrow."],
+ ["— Vous avez raison, je suis désolé.","voo zah-vay ray-ZOHN, zhuh swee day-zoh-LAY","— You're right, I'm sorry."],
+ ["— Ce n'est pas grave, mais la prochaine fois, prévenez-moi.","suh neh pah GRAHV, meh lah proh-shen FWAH, pray-vuh-nay-MWAH","— It's fine, but next time let me know."],
+ ["— Bien sûr. Bonne nuit !","byan SEWR. bun NWEE","— Of course. Good night!"]
+].forEach(function(r){ content.appendChild(makeRow(r[0],r[1],r[2])); GLOBAL_VOCAB.push({fr:r[0],en:r[2]}); });
+
+const xn2 = document.createElement('div'); xn2.className='note';
+xn2.innerHTML = "<b>The shape of a polite complaint in French</b> — three moves, in this order:<br>1. <b>Soften the opening</b> — <i>Excusez-moi…</i> / <i>Je suis désolé de vous déranger…</i><br>2. <b>State the fact, not the blame</b> — <i>la musique est forte</i>, not <i>vous faites trop de bruit</i><br>3. <b>Leave them a way out</b> — <i>Ce n'est pas grave, mais…</i><br><br>And the standard apology ladder: <b>Pardon</b> (light) ‹ <b>Excusez-moi</b> ‹ <b>Je suis désolé(e)</b> ‹ <b>Je suis vraiment désolé(e)</b>.";
+content.appendChild(xn2);
 content.appendChild(makeRow("Ce soir, on fait une petite fête avec les copains.","suh swahr, ohn feh ewn puh-teet fet ah-vek lay koh-PAN","Tonight we're having a little get-together with friends."));
 GLOBAL_VOCAB.push({fr:"Ce soir, on fait une petite fête avec les copains.", en:"Tonight we're having a little get-together with friends."});
 
@@ -460,9 +494,25 @@ const roleplay = document.createElement('div'); roleplay.className='example';
 roleplay.innerHTML = "<b>Jeu de rôle :</b> your neighbour knocks at 8am. A complains about last night's noise, B apologises and promises it won't happen again. Two lines each — use <i>Il y a trop de bruit</i>, <i>Je n'arrive pas à dormir</i>, <i>Je suis vraiment désolé</i>, <i>Ça ne se reproduira plus</i>.";
 content.appendChild(roleplay);
 
-const pendingEx = document.createElement('div'); pendingEx.className='pending';
-pendingEx.textContent = "The book's own exercise questions for these two documents haven't scrolled into view yet — they'll be added here with worked answers as soon as they appear.";
-content.appendChild(pendingEx);
+const xh3 = document.createElement('h3'); xh3.className='sub2'; xh3.textContent = "Comprehension questions — written for this page";
+content.appendChild(xh3);
+const xl3 = document.createElement('p'); xl3.className='lead';
+xl3.innerHTML = "The book's own questions for these two documents weren't shown in class, so here are equivalent ones with worked answers.";
+content.appendChild(xl3);
+[
+ ["Qui organise la fête ?","kee or-gah-NEEZ lah FET","Who is organising the party?"],
+ ["— Ce sont les voisins du dessus.","suh sohn lay vwah-ZAN dew duh-SEW","— It's the upstairs neighbours."],
+ ["À quelle heure commence la fête ?","ah kell ur koh-MAHNSS lah FET","What time does the party start?"],
+ ["— Elle commence à vingt heures.","ell koh-MAHNSS ah van TUR","— It starts at eight p.m."],
+ ["Pourquoi le voisin n'est-il pas content ?","poor-KWAH luh vwah-ZAN neh-teel pah kohn-TAHN","Why is the neighbour unhappy?"],
+ ["— Parce qu'il y a trop de bruit et qu'il travaille tôt demain.","parss keel-ee-ah troh duh BRWEE ay keel trah-VYE toh duh-MAN","— Because there's too much noise and he works early tomorrow."],
+ ["Comment réagissent-ils ?","koh-mahn ray-ah-ZHEESS-teel","How do they react?"],
+ ["— Ils s'excusent et baissent la musique.","eel sex-KEWZ ay bess lah mew-ZEEK","— They apologise and turn the music down."]
+].forEach(function(r){ content.appendChild(makeRow(r[0],r[1],r[2])); GLOBAL_VOCAB.push({fr:r[0],en:r[2]}); });
+
+const xn3 = document.createElement('div'); xn3.className='note';
+xn3.innerHTML = "<b>Two question structures to notice.</b><br>\u00b7 <i>Pourquoi le voisin <b>n'est-il pas</b> content ?</i> — inversion <u>plus</u> negation. The <i>ne…pas</i> wraps the whole inverted block.<br>\u00b7 <i>Comment <b>réagissent-ils</b> ?</i> — inversion with a plural verb, and the hyphen is compulsory.<br><br>Also: answers to <b>pourquoi</b> start with <b>parce que</b> (parss kuh), which becomes <b>parce qu'</b> before a vowel.";
+content.appendChild(xn3);
 
 /* ========== 7. Quiz ========== */
 const h7 = document.createElement('h2'); h7.textContent = "7 · Quick quiz"; content.appendChild(h7);

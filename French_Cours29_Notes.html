@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 29 — Démonstratifs, venir/finir/sortir, fréquence</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+</style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 29: Les démonstratifs, venir · finir · sortir, et les adverbes de fréquence</h1>
+  <p class="sub">The Language SKOOL · Fiche de cours A1 — pointing at things, three -ir verbs that behave differently, and where adverbs go</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Cours21_Notes.html">Cours 21</a>
+    <a href="French_Cours22_Notes.html">Cours 22</a>
+    <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
+    <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html" class="active">Cours 29</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
+  </nav>
+
+<div class="whybox">
+  <h4><span>Pourquoi ça marche comme ça</span>Pourquoi CET existe</h4>
+  <p><i>Ce</i> ends in a vowel sound. <i>Ami</i> begins with one. <i>Ce ami</i> is awkward to say, so French inserts a <b>t</b>: <b>cet ami</b>.<br><br>That is the entire reason. Not gender, not a separate rule to memorise — just a consonant borrowed to keep two vowels apart.<br><br>Compare English <i>a</i> → <i>an</i> before a vowel. Identical motive, identical solution, two different languages arriving at it independently.</p>
+  <a class="more" href="French_A1_Articles.html">Aller plus loin →</a>
+</div>
+
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').textContent=fr; c.querySelector('.ph').textContent=ph;
+    c.onclick=()=>speak(fr); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+h2("1 · Ce que couvre cette fiche");
+src("<b>Source :</b> <i>Fiche de cours A1 — Les adjectifs démonstratifs · Venir, Finir, Sortir · Les adverbes de fréquence</i>, The Language SKOOL, 14 pages. Every section and every exercise worked through, with extra explanation and examples added.");
+ex("<b>Three topics that look unrelated but aren't.</b> All three are about <u>pointing precisely</u>:<br><br>· <b>les démonstratifs</b> point at a <i>thing</i> — <i>this one, not that one</i><br>· <b>venir / finir / sortir</b> are three verbs that look alike and behave completely differently — pointing at the right pattern<br>· <b>les adverbes de fréquence</b> point at <i>how often</i> — and sit in a place English speakers get wrong");
+
+h2("2 · PARTIE 1 — Les adjectifs démonstratifs");
+lead("English has four words — this, that, these, those. French has four too, but it splits them differently: by <b>gender and sound</b>, not by distance.");
+table(["Nom qui suit","Démonstratif","Prononciation","Exemple"],[
+ ["masculin + <b>consonne</b>","<b>ce</b>","suh","<b>ce</b> livre"],
+ ["masculin + <b>voyelle / h muet</b>","<b>cet</b>","set","<b>cet</b> étudiant"],
+ ["<b>féminin</b>","<b>cette</b>","set","<b>cette</b> fille"],
+ ["<b>pluriel</b> (m. ou f.)","<b>ces</b>","say","<b>ces</b> livres"]
+]);
+h3("CE — masculin + consonne");
+rows([
+ ["ce livre","suh LEE-vruh","this book"],
+ ["ce garçon","suh gar-SOHN","this boy"],
+ ["ce professeur","suh proh-feh-SUR","this teacher"],
+ ["ce restaurant","suh res-toh-RAHN","this restaurant"],
+ ["ce téléphone","suh tay-lay-FUN","this phone"]
+]);
+h3("CET — masculin + voyelle ou h muet");
+rows([
+ ["cet étudiant","set ay-tew-DYAHN","this student"],
+ ["cet homme","set UM","this man"],
+ ["cet hôtel","set oh-TEL","this hotel"],
+ ["cet ami","set ah-MEE","this friend"],
+ ["cet appartement","set ah-par-tuh-MAHN","this flat"]
+]);
+ex("<b>Why CET exists at all.</b> French refuses to let <i>ce</i> sit next to a vowel — <i>ce ami</i> is physically awkward to say. So a <b>t</b> appears to bridge the gap, exactly as it does in <i>a</i> → <i>an</i> in English.<br><br>Compare: <i>ce garçon</i> (consonant → ce) vs <i>cet étudiant</i> (vowel → cet).");
+h3("CETTE — féminin singulier");
+rows([
+ ["cette fille","set FEEY","this girl"],
+ ["cette femme","set FAM","this woman"],
+ ["cette maison","set may-ZOHN","this house"],
+ ["cette école","set ay-KOL","this school"],
+ ["cette voiture","set vwah-TEWR","this car"]
+]);
+h3("CES — pluriel, masculin et féminin");
+rows([
+ ["ces garçons","say gar-SOHN","these boys"],
+ ["ces livres","say LEE-vruh","these books"],
+ ["ces étudiants","say zay-tew-DYAHN","these students"],
+ ["ces filles","say FEEY","these girls"],
+ ["ces maisons","say may-ZOHN","these houses"]
+]);
+warn("<b>CET and CETTE are pronounced identically — both « set ».</b> The difference is <u>only on the page</u>: <b>cet</b> is masculine before a vowel, <b>cette</b> is feminine. <i>cet homme</i> and <i>cette femme</i> start with exactly the same sound.<br><br>So when you <b>hear</b> « set », you cannot tell the gender — you have to know the noun. When you <b>write</b> it, you must choose.");
+note("<b>CES liaises before a vowel:</b> <i>ces<b>⁀</b>étudiants</i> = say-<b>Z</b>ay-tew-DYAHN, <i>ces<b>⁀</b>amis</i> = say-<b>Z</b>ah-MEE. That [z] is often the only way a listener knows it's plural, since <i>étudiant</i> and <i>étudiants</i> sound the same.");
+h3("Pour vraiment distinguer « this » de « that »");
+ex("French doesn't normally bother — <i>ce livre</i> covers both \"this book\" and \"that book\". If you genuinely need the contrast, add <b>-ci</b> (here) or <b>-là</b> (there) to the <u>noun</u>:<br><br>· <i>ce livre-<b>ci</b></i> — <b>this</b> book<br>· <i>ce livre-<b>là</b></i> — <b>that</b> book<br>· <i>Je préfère cette voiture-<b>ci</b>, pas celle-<b>là</b>.</i><br><br>In a shop this is how you point without pointing: <b>Je prends celui-là, s'il vous plaît.</b>");
+
+h2("3 · Exercices — les démonstratifs");
+h3("Exercice 1 — CE, CET, CETTE ou CES ?");
+fill([
+ {s:"1. ______ garçon", a:["ce"], en:"this boy", why:"Masculine + consonant → <b>ce</b>."},
+ {s:"2. ______ fille", a:["cette"], en:"this girl", why:"Feminine → <b>cette</b>."},
+ {s:"3. ______ étudiant", a:["cet"], en:"this student", why:"Masculine + <b>vowel</b> → <b>cet</b>."},
+ {s:"4. ______ maison", a:["cette"], en:"this house", why:"Feminine → <b>cette</b>."},
+ {s:"5. ______ livres", a:["ces"], en:"these books", why:"Plural → <b>ces</b>."},
+ {s:"6. ______ hôtel", a:["cet"], en:"this hotel", why:"Masculine + <b>silent h</b>, which counts as a vowel → <b>cet</b>."},
+ {s:"7. ______ voiture", a:["cette"], en:"this car", why:"Feminine → <b>cette</b>."},
+ {s:"8. ______ amis", a:["ces"], en:"these friends", why:"Plural → <b>ces</b>, and it liaises: say-Zah-MEE."},
+ {s:"9. ______ professeur", a:["ce"], en:"this teacher", why:"Masculine + consonant → <b>ce</b>."},
+ {s:"10. ______ école", a:["cette"], en:"this school", why:"⚠ <i>école</i> starts with a vowel, but it is <b>feminine</b> — so <b>cette</b>, not <i>cet</i>. Gender beats the vowel rule."}
+]);
+warn("<b>Item 10 is the trap.</b> <i>cet</i> is for <u>masculine</u> nouns before a vowel. <i>École</i> begins with a vowel but is feminine, so it takes <b>cette</b> — which already ends in a consonant sound and needs no help. Only masculines get the <i>cet</i> fix.");
+h3("Exercice 2 — Complétez");
+fill([
+ {s:"1. J'aime ______ restaurant.", a:["ce"], en:"I like this restaurant.", why:"<i>restaurant</i> — masculine + consonant → ce."},
+ {s:"2. ______ fille est française.", a:["Cette","cette"], en:"This girl is French.", why:"Feminine → cette."},
+ {s:"3. ______ étudiants sont très sympas.", a:["Ces","ces"], en:"These students are very nice.", why:"Plural → ces, with the liaison."},
+ {s:"4. ______ homme est mon professeur.", a:["Cet","cet"], en:"This man is my teacher.", why:"Masculine + silent h → cet."},
+ {s:"5. ______ maison est grande.", a:["Cette","cette"], en:"This house is big.", why:"Feminine → cette."},
+ {s:"6. ______ livre est intéressant.", a:["Ce","ce"], en:"This book is interesting.", why:"Masculine + consonant → ce."},
+ {s:"7. ______ hôtel est très beau.", a:["Cet","cet"], en:"This hotel is very beautiful.", why:"Masculine + silent h → cet."},
+ {s:"8. ______ voitures sont rouges.", a:["Ces","ces"], en:"These cars are red.", why:"Plural → ces."}
+]);
+
+h2("4 · PARTIE 2 — VENIR, FINIR, SORTIR");
+lead("Three verbs, three completely different patterns — and two of them end in <b>-ir</b>, which is exactly what makes them confusing.");
+h3("VENIR — to come");
+table(["Sujet","Forme","Prononciation","Exemple"],[
+ ["je","<b>viens</b>","zhuh VYAN","Je viens de Paris."],
+ ["tu","<b>viens</b>","tew VYAN","Tu viens avec moi ?"],
+ ["il / elle / on","<b>vient</b>","eel VYAN","Elle vient demain."],
+ ["nous","<b>venons</b>","noo vuh-NOHN","Nous venons en voiture."],
+ ["vous","<b>venez</b>","voo vuh-NAY","Vous venez ce soir ?"],
+ ["ils / elles","<b>viennent</b>","eel VYEN","Ils viennent au restaurant."]
+]);
+ex("<b>The handout's Attention box, explained.</b> The stem changes:<br>· <b>vien-</b> in je, tu, il, ils — said <b>VYAN</b> (or VYEN in the plural)<br>· <b>ven-</b> in nous, vous — said <b>vuh-</b><br><br>Drawn in a table, the four changed forms sit at the corners and the bottom, making the shape of a <b>boot</b>. <u>Dozens</u> of irregular verbs follow exactly this shape, so once you can see it you can predict it.<br><br>Same family, same pattern: <b>tenir</b> (hold), <b>devenir</b> (become), <b>revenir</b> (come back), <b>obtenir</b> (obtain), <b>appartenir</b> (belong). One pattern, six verbs.");
+note("<b>venir de + lieu</b> = to come from. <i>Je viens <b>d'</b>Inde</i>, <i>je viens <b>du</b> Canada</i>, <i>je viens <b>de</b> Paris</i> — with the usual contractions. It's the standard way to say where you're from, alongside <i>je suis indien</i>.");
+h3("FINIR — to finish");
+table(["Sujet","Forme","Prononciation","Exemple"],[
+ ["je","<b>finis</b>","zhuh fee-NEE","Je finis le travail à 18h."],
+ ["tu","<b>finis</b>","tew fee-NEE","Tu finis à quelle heure ?"],
+ ["il / elle / on","<b>finit</b>","eel fee-NEE","Elle finit son cours."],
+ ["nous","<b>finissons</b>","noo fee-nee-SOHN","Nous finissons à 17h."],
+ ["vous","<b>finissez</b>","voo fee-nee-SAY","Vous finissez votre travail."],
+ ["ils / elles","<b>finissent</b>","eel fee-NEESS","Ils finissent le film."]
+]);
+ex("<b>The marker of this group is the -ISS-</b> that appears in all three plural forms. If you hear <i>-issons / -issez / -issent</i>, the verb belongs here.<br><br>Same group: <b>choisir</b> (choose), <b>réussir</b> (succeed), <b>grandir</b> (grow), <b>remplir</b> (fill), <b>réfléchir</b> (think about), <b>obéir</b> (obey), <b>ralentir</b> (slow down).");
+h3("SORTIR — to go out / to leave");
+table(["Sujet","Forme","Prononciation","Exemple"],[
+ ["je","<b>sors</b>","zhuh SOR","Je sors avec mes amis."],
+ ["tu","<b>sors</b>","tew SOR","Tu sors ce soir ?"],
+ ["il / elle / on","<b>sort</b>","eel SOR","Elle sort du travail."],
+ ["nous","<b>sortons</b>","noo sor-TOHN","Nous sortons samedi."],
+ ["vous","<b>sortez</b>","voo sor-TAY","Vous sortez ce soir ?"],
+ ["ils / elles","<b>sortent</b>","eel SORT","Ils sortent au restaurant."]
+]);
+ex("<b>The trick for this group:</b> the singular <u>drops the last consonant of the stem</u> and the plural puts it back.<br>· sort- → je sor<b>s</b> (no t), but nous sor<b>t</b>ons<br><br>Same family: <b>partir</b> (leave), <b>dormir</b> (sleep), <b>mentir</b> (lie), <b>sentir</b> (feel), <b>servir</b> (serve).<br><br>These are the -ir verbs that are <u>not</u> in the finir group — no <i>-iss-</i> anywhere.");
+h3("⭐ Les trois côte à côte");
+table(["","VENIR","FINIR","SORTIR"],[
+ ["je","vien<b>s</b>","fini<b>s</b>","sor<b>s</b>"],
+ ["nous","<b>ven</b>ons","fin<b>iss</b>ons","sort<b>ons</b>"],
+ ["ils","<b>vienn</b>ent","fin<b>iss</b>ent","sort<b>ent</b>"],
+ ["Le modèle","stem change (boot)","adds <b>-iss-</b>","drops/restores a consonant"]
+]);
+warn("<b>This is why -ir verbs are the hardest group.</b> <i>finir</i> and <i>sortir</i> look identical in the infinitive, and the <b>je</b> forms are nearly identical too — <i>je finis</i>, <i>je sors</i>. The difference only shows up in the plural.<br><br>There is no rule that tells you which group an -ir verb belongs to. You have to meet each one. The good news: the <i>finir</i> group is much larger, so <b>-iss-</b> is the safer default guess for an unfamiliar verb.");
+
+h2("5 · Exercices — les verbes");
+h3("Exercice 3 — Conjuguez VENIR");
+fill([
+ {s:"1. Je ______ de Paris.", a:["viens"], en:"I come from Paris.", why:"je → viens (inside the boot)."},
+ {s:"2. Nous ______ demain.", a:["venons"], en:"We're coming tomorrow.", why:"nous → ven-ons. The stem reverts."},
+ {s:"3. Tu ______ avec nous ?", a:["viens"], en:"Are you coming with us?", why:"tu → viens."},
+ {s:"4. Ils ______ ce soir.", a:["viennent"], en:"They're coming tonight.", why:"ils → viennent (VYEN), double n."},
+ {s:"5. Elle ______ au restaurant.", a:["vient"], en:"She's coming to the restaurant.", why:"elle → vient."}
+]);
+h3("Exercice 3b — Conjuguez FINIR");
+fill([
+ {s:"1. Je ______ mon travail à 18h.", a:["finis"], en:"I finish my work at 6 p.m.", why:"je → -is."},
+ {s:"2. Nous ______ le cours à 17h.", a:["finissons"], en:"We finish the class at 5 p.m.", why:"nous → -issons, with the marker."},
+ {s:"3. Tu ______ ton devoir.", a:["finis"], en:"You finish your homework.", why:"tu → -is."},
+ {s:"4. Ils ______ leur travail.", a:["finissent"], en:"They finish their work.", why:"ils → -issent (fee-NEESS)."},
+ {s:"5. Elle ______ son café.", a:["finit"], en:"She finishes her coffee.", why:"elle → -it."}
+]);
+h3("Exercice 3c — Conjuguez SORTIR");
+fill([
+ {s:"1. Je ______ avec mes amis.", a:["sors"], en:"I go out with my friends.", why:"je → sors, the t drops."},
+ {s:"2. Nous ______ samedi soir.", a:["sortons"], en:"We're going out on Saturday evening.", why:"nous → sortons, the t returns."},
+ {s:"3. Tu ______ ce soir ?", a:["sors"], en:"Are you going out tonight?", why:"tu → sors."},
+ {s:"4. Ils ______ du restaurant.", a:["sortent"], en:"They're leaving the restaurant.", why:"ils → sortent (SORT)."},
+ {s:"5. Elle ______ avec sa sœur.", a:["sort"], en:"She's going out with her sister.", why:"elle → sort."}
+]);
+h3("Exercice 4 — Choisissez le bon verbe");
+fill([
+ {s:"1. Je ______ mon travail à 18h.", a:["finis"], en:"I finish my work at 6 p.m.", why:"\"finish\" → <b>finir</b> → je finis."},
+ {s:"2. Nous ______ au cinéma samedi.", a:["sortons","allons"], en:"We're going out to the cinema on Saturday.", why:"Going out → <b>sortir</b> → nous sortons."},
+ {s:"3. Tu ______ avec moi ?", a:["viens","sors"], en:"Are you coming with me?", why:"\"come with me\" → <b>venir</b> → tu viens."},
+ {s:"4. Ils ______ de Paris.", a:["viennent"], en:"They come from Paris.", why:"<i>venir de</i> + place → ils viennent."},
+ {s:"5. Elle ______ son cours à 16h.", a:["finit"], en:"She finishes her class at 4 p.m.", why:"\"finishes\" → elle finit."},
+ {s:"6. Vous ______ ce soir ?", a:["venez","sortez"], en:"Are you coming / going out tonight?", why:"Both work — <i>venez</i> (coming here) or <i>sortez</i> (going out)."},
+ {s:"7. On ______ chez nous après le cours.", a:["vient"], en:"We're coming to our place after class.", why:"⚠ <b>on</b> takes the il/elle form → <b>vient</b>, never <i>venons</i>."},
+ {s:"8. Mes amis ______ demain.", a:["viennent","sortent"], en:"My friends are coming tomorrow.", why:"Plural subject → viennent."}
+]);
+note("<b>Item 7 is the one to watch.</b> <i>On</i> means \"we\" but takes the <b>third person singular</b>. <i>On vient</i>, never <i>on venons</i> — the same rule you met with <i>on va</i> and <i>on a</i>.");
+
+h2("6 · PARTIE 3 — Les adverbes de fréquence");
+lead("How often you do something — and the one placement rule English speakers reliably break.");
+table(["Adverbe","Prononciation","Sens","À peu près"],[
+ ["<b>toujours</b>","too-ZHOOR","always","100 %"],
+ ["<b>souvent</b>","soo-VAHN","often","80 %"],
+ ["<b>parfois / quelquefois</b>","par-FWAH / kel-kuh-FWAH","sometimes","50 %"],
+ ["<b>rarement</b>","rar-MAHN","rarely","10 %"],
+ ["<b>ne… jamais</b>","zhah-MEH","never","0 %"]
+]);
+h3("🧠 Où placer l'adverbe ?");
+warn("<b>The handout's own example:</b><br>✗ <i>Je <b>toujours</b> joue au football.</i><br>✓ <i>Je joue <b>toujours</b> au football.</i><br><br><b>The rule: short adverbs go AFTER the conjugated verb</b>, never before it. English puts them before the verb and French puts them after — so direct translation produces the error every time.");
+rows([
+ ["Je mange toujours à huit heures.","zhuh mahnzh too-zhoor ah wee TUR","I always eat at eight."],
+ ["Je regarde souvent des films.","zhuh ruh-gard soo-vahn day FEELM","I often watch films."],
+ ["Je vais parfois au restaurant.","zhuh veh par-fwah oh res-toh-RAHN","I sometimes go to a restaurant."],
+ ["Je joue rarement au tennis.","zhuh zhoo rar-mahn oh tay-NEESS","I rarely play tennis."],
+ ["Je ne regarde jamais la télévision.","zhuh nuh ruh-gard zhah-meh lah tay-lay-vee-ZYOHN","I never watch television."]
+]);
+h3("JAMAIS — le cas spécial");
+ex("<b>jamais is a negation</b>, so it needs <b>ne</b> in front of the verb and replaces <i>pas</i>:<br><br><b>ne + verbe + jamais</b><br><br>· <i>Je <b>ne</b> regarde <b>jamais</b> la télévision.</i><br>· <i>Je <b>ne</b> joue <b>jamais</b> au golf.</i><br>· <i>Je <b>ne</b> fume <b>jamais</b>.</i><br><br>Never <i>je ne regarde pas jamais</i> — one negative word is enough.");
+note("<b>And after jamais, un/une/des collapse to DE</b>, like any negation: <i>Je ne mange <b>jamais de</b> poisson.</i>");
+h3("D'autres expressions de fréquence");
+rows([
+ ["tous les jours","too lay ZHOOR","every day"],
+ ["une fois par semaine","ewn fwah par suh-MEN","once a week"],
+ ["deux fois par mois","duh fwah par MWAH","twice a month"],
+ ["de temps en temps","duh tahn zahn TAHN","from time to time"],
+ ["d'habitude","dah-bee-TEWD","usually"],
+ ["généralement","zhay-nay-ral-MAHN","generally"],
+ ["tout le temps","too luh TAHN","all the time"]
+]);
+note("<b>Longer expressions are freer.</b> <i>Tous les jours</i>, <i>d'habitude</i> and <i>une fois par semaine</i> can go at the <u>start</u> or the <u>end</u> of the sentence — only the short one-word adverbs are locked in after the verb.<br><br>· <i><b>D'habitude</b>, je me lève à six heures.</i> ✓<br>· <i>Je fais du sport <b>trois fois par semaine</b>.</i> ✓");
+
+h2("7 · Exercices — la fréquence");
+h3("Exercice 5 — Complétez avec l'adverbe");
+fill([
+ {s:"1. Je ______ bois du café le matin. (100 %)", a:["bois toujours","toujours"], en:"I always drink coffee in the morning.", why:"100 % → <b>toujours</b>, placed <u>after</u> the verb: <i>je bois toujours</i>."},
+ {s:"2. Je ______ vais au cinéma. (not very often)", a:["vais rarement","rarement"], en:"I rarely go to the cinema.", why:"Not very often → <b>rarement</b>, after the verb: <i>je vais rarement</i>."},
+ {s:"3. Je ______ joue au football avec mes amis. (often)", a:["joue souvent","souvent"], en:"I often play football with my friends.", why:"Often → <b>souvent</b>: <i>je joue souvent</i>."},
+ {s:"4. Je ______ mange au restaurant. (sometimes)", a:["mange parfois","parfois","quelquefois"], en:"I sometimes eat at a restaurant.", why:"Sometimes → <b>parfois</b> or <b>quelquefois</b>: <i>je mange parfois</i>."},
+ {s:"5. Je ne mange ______ de poisson. (0 %)", a:["jamais"], en:"I never eat fish.", why:"0 % → <b>jamais</b>, and notice the <i>ne</i> was already there plus <b>de</b> instead of <i>du</i>."}
+]);
+warn("<b>The exercise as printed is a trap.</b> The blanks sit <u>before</u> the verb, which is exactly where the adverb must <b>not</b> go. The correct answers require moving it: not <i>je toujours bois</i> but <b>je bois toujours</b>. If your teacher accepts the blank as printed, fine — but learn the real word order.");
+h3("Exercice 6 — Remettez les mots dans l'ordre");
+fill([
+ {s:"souvent / Je / regarde / des films →", a:["je regarde souvent des films","je regarde souvent des films."], en:"I often watch films.", why:"Adverb after the verb: je regarde <b>souvent</b> des films."},
+ {s:"au cinéma / parfois / Je / vais →", a:["je vais parfois au cinéma","je vais parfois au cinema"], en:"I sometimes go to the cinema.", why:"je vais <b>parfois</b> au cinéma."},
+ {s:"jamais / Je / ne / fume →", a:["je ne fume jamais","je ne fume jamais."], en:"I never smoke.", why:"<b>ne + verbe + jamais</b>."},
+ {s:"joue / Il / souvent / au football →", a:["il joue souvent au football"], en:"He often plays football.", why:"il joue <b>souvent</b> au football."},
+ {s:"restaurant / rarement / Nous / au / mangeons →", a:["nous mangeons rarement au restaurant"], en:"We rarely eat at a restaurant.", why:"nous mangeons <b>rarement</b> au restaurant. Note <i>mangeons</i> keeps its protective e."}
+]);
+h3("Exercice 7 — Parlez de vous");
+lead("The handout asks for your own sentences. Here are models built from your life — swap in your own details.");
+rows([
+ ["Je vais toujours au travail en voiture.","zhuh veh too-zhoor oh trah-VYE ahn vwah-TEWR","I always go to work by car."],
+ ["J'écoute souvent de la musique indienne.","zhay-KOOT soo-vahn duh lah mew-zeek an-DYEN","I often listen to Indian music."],
+ ["Je joue parfois au cricket le week-end.","zhuh zhoo par-fwah oh kree-ket luh week-END","I sometimes play cricket at the weekend."],
+ ["Je mange rarement au restaurant.","zhuh mahnzh rar-mahn oh res-toh-RAHN","I rarely eat at a restaurant."],
+ ["Je ne regarde jamais la télé le matin.","zhuh nuh ruh-gard zhah-meh lah tay-LAY luh mah-TAN","I never watch TV in the morning."]
+]);
+
+h2("8 · Activité orale — « Mes habitudes »");
+lead("The handout's pair activity, with answers ready.");
+rows([
+ ["Tu regardes souvent des films ?","tew ruh-gard soo-vahn day FEELM","Do you often watch films?"],
+ ["— Oui, je regarde souvent des films.","wee, zhuh ruh-gard soo-VAHN","— Yes, I often watch films."],
+ ["Tu vas souvent au cinéma ?","tew vah soo-vahn oh see-nay-MAH","Do you often go to the cinema?"],
+ ["— Non, je vais rarement au cinéma.","nohn, zhuh veh rar-MAHN","— No, I rarely go to the cinema."],
+ ["Tu joues parfois au sport ?","tew zhoo par-fwah oh SPOR","Do you sometimes play sport?"],
+ ["— Oui, je joue au cricket une fois par semaine.","wee, zhuh zhoo oh kree-KET ewn fwah par suh-MEN","— Yes, I play cricket once a week."],
+ ["Tu manges souvent au restaurant ?","tew mahnzh soo-vahn oh res-toh-RAHN","Do you often eat out?"],
+ ["— Non, je mange rarement au restaurant.","nohn, zhuh mahnzh rar-MAHN","— No, I rarely eat out."],
+ ["Tu sors souvent avec tes amis ?","tew sor soo-vahn ah-vek tay zah-MEE","Do you often go out with your friends?"],
+ ["— Oui, je sors le week-end.","wee, zhuh sor luh week-END","— Yes, I go out at the weekend."],
+ ["Tu finis tes cours à quelle heure ?","tew fee-nee tay koor ah kell UR","What time do your classes finish?"],
+ ["— Je finis à vingt et une heures.","zhuh fee-nee ah van tay ewn UR","— I finish at nine p.m."],
+ ["Tu viens souvent ici ?","tew vyan soo-vahn ee-SEE","Do you come here often?"],
+ ["— Oui, je viens deux fois par semaine.","wee, zhuh vyan duh fwah par suh-MEN","— Yes, I come twice a week."]
+]);
+note("<b>Notice how the answer echoes the question's verb.</b> <i>Tu regardes… ?</i> → <i>je regarde…</i>. That echo is what makes a reply sound like an answer rather than a recitation, and it's free marks in a speaking exam.");
+
+h2("9 · Challenge du jour");
+ex("The handout asks for <b>five sentences</b> using: one demonstrative · <i>venir</i> · <i>finir</i> · <i>sortir</i> · one frequency adverb.<br><br><b>Modèle :</b>");
+rows([
+ ["Cette semaine, je viens souvent au cours de français.","set suh-men, zhuh vyan soo-vahn oh koor duh frahn-SEH","This week I'm often coming to French class."],
+ ["Je finis toujours mon travail à dix-sept heures.","zhuh fee-nee too-zhoor mohn trah-VYE ah dee-set UR","I always finish my work at five."],
+ ["Je sors parfois avec mes amis le samedi.","zhuh sor par-fwah ah-vek may zah-MEE luh sahm-DEE","I sometimes go out with my friends on Saturdays."],
+ ["Ces exercices sont difficiles, mais je ne rate jamais un cours.","say zeg-zair-SEESS sohn dee-fee-SEEL","These exercises are hard, but I never miss a class."],
+ ["Cet été, je viens au Canada — non, j'y suis déjà !","set ay-TAY, zhuh vyan oh kah-nah-DAH","This summer I'm coming to Canada — no, I'm already here!"]
+]);
+
+h2("10 · Texte parallèle — Mes habitudes");
+ex("<b>Une semaine chez moi</b><br><br>Cette année, j'apprends le français. Je viens au cours deux fois par semaine : le mardi et le jeudi. Ce cours est difficile, mais ce professeur est très patient et ces étudiants sont sympas.<br><br>Je finis toujours mon travail à dix-sept heures. Après, je rentre à la maison et je révise. Je ne sors jamais le mardi soir — j'ai cours !<br><br>Le week-end, c'est différent. Je sors souvent avec mes amis. Nous allons parfois au restaurant, mais nous mangeons rarement en ville : c'est cher. D'habitude, on reste chez moi et on regarde un film.<br><br>Cet été, mon frère vient me voir. Il finit ses études en juin et il arrive en juillet. Je suis content : il ne vient jamais au Canada !<br><br>Et vous ? Vous venez souvent ici ? Vous finissez à quelle heure ? Vous sortez le week-end ?");
+h3("Glossaire du texte");
+rows([
+ ["Cette année, j'apprends le français.","set ah-NAY, zhah-prahn luh frahn-SEH","This year I'm learning French."],
+ ["Je viens au cours deux fois par semaine.","zhuh vyan oh KOOR duh fwah par suh-MEN","I come to class twice a week."],
+ ["Ce cours est difficile.","suh koor eh dee-fee-SEEL","This class is difficult."],
+ ["ces étudiants sont sympas","say zay-tew-dyahn sohn san-PAH","these students are nice"],
+ ["je révise","zhuh ray-VEEZ","I revise"],
+ ["Je ne sors jamais le mardi soir.","zhuh nuh sor zhah-meh luh mar-dee SWAHR","I never go out on Tuesday evenings."],
+ ["nous mangeons rarement en ville","noo mahn-zhohn rar-mahn ahn VEEL","we rarely eat out in town"],
+ ["D'habitude, on reste chez moi.","dah-bee-TEWD, ohn rest shay MWAH","Usually we stay at my place."],
+ ["mon frère vient me voir","mohn frehr vyan muh VWAHR","my brother is coming to see me"],
+ ["Il finit ses études en juin.","eel fee-nee say zay-TEWD ahn ZHWAN","He finishes his studies in June."],
+ ["il ne vient jamais au Canada","eel nuh vyan zhah-meh oh kah-nah-DAH","he never comes to Canada"]
+]);
+h3("Compréhension");
+mcq([
+ {q:"Combien de fois par semaine vient-il au cours ?", opts:["Une fois","Deux fois","Trois fois"], a:1, why:"« deux fois par semaine : le mardi et le jeudi »."},
+ {q:"Pourquoi ne sort-il jamais le mardi soir ?", opts:["Il est fatigué","Il a cours","C'est trop cher"], a:1, why:"« Je ne sors jamais le mardi soir — j'ai cours ! »"},
+ {q:"Pourquoi mangent-ils rarement en ville ?", opts:["Ce n'est pas bon","C'est cher","C'est loin"], a:1, why:"« nous mangeons rarement en ville : c'est cher »."},
+ {q:"Quand son frère arrive-t-il ?", opts:["En juin","En juillet","Cet été mais on ne sait pas quand"], a:1, why:"« Il finit ses études en juin et il arrive en juillet. » June is when he finishes."}
+]);
+h3("Repérez la grammaire");
+note("Find one of each in the text:<br>· <b>Les quatre démonstratifs</b> — <i><b>Cette</b> année</i>, <i><b>Ce</b> cours</i>, <i><b>ce</b> professeur</i>, <i><b>ces</b> étudiants</i>, <i><b>Cet</b> été</i><br>· <b>VENIR trois fois</b> — <i>je viens</i>, <i>mon frère vient</i>, <i>il ne vient jamais</i><br>· <b>FINIR deux fois</b> — <i>je finis</i>, <i>il finit</i>, <i>vous finissez</i><br>· <b>SORTIR deux fois</b> — <i>je ne sors jamais</i>, <i>je sors souvent</i><br>· <b>Cinq adverbes de fréquence</b>, all placed <u>after</u> the verb — toujours, souvent, parfois, rarement, jamais<br>· <b>Deux négations avec jamais</b> — and notice there is no <i>pas</i> anywhere<br>· <b>Une protection orthographique</b> — <i>nous mang<b>e</b>ons</i>");
+ex("<b>À vous —</b> write about your own habits in ten sentences. Requirements — tick them off:<br>☐ all four demonstratives: <b>ce, cet, cette, ces</b><br>☐ <b>venir</b>, <b>finir</b> and <b>sortir</b>, at least once each<br>☐ four different frequency adverbs, all placed <b>after the verb</b><br>☐ one <b>ne… jamais</b><br>☐ one longer expression (<i>d'habitude</i>, <i>deux fois par semaine</i>, <i>tous les jours</i>)<br>☐ finish with two questions to the reader<br><br>Then read it aloud and check: is every short adverb <u>after</u> its verb? That's the one thing this lesson is really testing.");
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+<script src="french_glossary.js"></script>
+</body>
+</html>

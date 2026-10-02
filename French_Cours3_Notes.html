@@ -34,6 +34,49 @@
   .bigplay:active { transform:scale(.97); }
   .row.active { border-color:var(--accent); background:var(--accentbg); }
 </style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
+<style id="xp-style">
+  .xp h2 { font-size:18px; margin:26px 0 6px; padding-bottom:6px; border-bottom:2px solid #e6e3dc; color:#23201b; }
+  .xp h3 { font-size:15px; margin:16px 0 6px; color:#4338ca; }
+  .xp p.xp-lead { font-size:14px; color:#6b675f; margin:0 0 10px; }
+  .xp .xp-note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .xp .xp-ex { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .xp .xp-warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .xp .xp-row { display:flex; align-items:center; gap:12px; background:#fff; border:1px solid #e6e3dc; border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .xp .xp-play { flex:0 0 auto; width:38px; height:38px; border-radius:50%; border:1px solid #e6e3dc; background:#eceafe; color:#4338ca; font-size:15px; cursor:pointer; }
+  .xp .xp-txt { flex:1 1 auto; min-width:0; }
+  .xp .xp-fr { font-size:16px; font-weight:600; cursor:pointer; }
+  .xp .xp-fr:hover { color:#4338ca; }
+  .xp .xp-ph { font-size:13px; color:#0f7a54; font-style:italic; }
+  .xp .xp-en { font-size:13px; color:#6b675f; }
+  .xp table.xp-t { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .xp table.xp-t th, .xp table.xp-t td { border:1px solid #e6e3dc; padding:8px 10px; text-align:left; vertical-align:top; }
+  .xp table.xp-t th { background:#eceafe; color:#4338ca; }
+  .xp .xp-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .xp .xp-cell { background:#fff; border:1px solid #e6e3dc; border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .xp .xp-cell:hover { border-color:#4338ca; }
+  .xp .xp-cell b { display:block; font-size:14px; }
+  .xp .xp-cell i { font-size:11px; color:#0f7a54; font-style:italic; }
+  .xp .xp-fill { background:#fff; border:1px solid #e6e3dc; border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .xp .xp-fill .s { font-size:15px; margin-bottom:8px; }
+  .xp .xp-fill input { border:1px solid #e6e3dc; border-radius:8px; padding:6px 10px; font-size:14px; width:230px; }
+  .xp .xp-fill button { border:1px solid #4338ca; background:#4338ca; color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .xp .xp-fb { font-size:13px; margin-top:8px; }
+  .xp .xp-fb.ok { color:#155c37; } .xp .xp-fb.bad { color:#a33; }
+  .xp .xp-q { background:#fff; border:1px solid #e6e3dc; border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .xp .xp-q .prompt { font-size:15px; font-weight:600; margin-bottom:8px; }
+  .xp .xp-q .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .xp .xp-q .btns button { border:1px solid #e6e3dc; background:#fff; color:#23201b; border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .xp .xp-q .btns button:hover { border-color:#4338ca; }
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -65,15 +108,42 @@
     <a href="French_Cours21_Notes.html">Cours 21</a>
     <a href="French_Cours22_Notes.html">Cours 22</a>
     <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
     <a href="French_Conversations.html">Conversations</a>
     <a href="French_Dialogues.html">Dialogues</a>
     <a href="French_Full_Guide.html">Full Guide</a>
     <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
     <a href="French_Prof_Notes.html">Prof's Notes</a>
     <a href="French_Book_Audio.html">Book Audio</a>
     <a href="French_Audio_Library.html">Audio Library</a>
     <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
   </nav>
+
+<div class="whybox">
+  <h4><span>Pourquoi ça marche comme ça</span>Pourquoi ÊTRE est irrégulier (et pourquoi c'est normal)</h4>
+  <p><b>Suis, es, est, sommes, êtes, sont</b> — six forms, six different words. There is no pattern because there never was one.<br><br>The reason is <b>frequency</b>. A word used a hundred times a day is never tidied up by analogy; a rare word is. English does the same thing — <i>be / am / is / are / was / were</i> is just as chaotic, and for exactly the same reason.<br><br>So the irregularity is not French being difficult. It is a mark of how important the verb is.</p>
+  <a class="more" href="French_Grammaire.html">Aller plus loin →</a>
+</div>
+
 
   <div class="bar">
     <span>Speed:</span>
@@ -92,6 +162,7 @@
   <div id="lines"></div>
 
   <div class="note">Your version: Je m'appelle Rajveer. Je suis indien. Je parle Hindi, anglais et un peu français. Je suis administrateur système. Je travaille chez Sobeys.</div>
+  <div class="xp" id="xpand"></div>
 </div>
 
 <script>
@@ -177,6 +248,212 @@ document.getElementById('speed').addEventListener('click',e=>{
   [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
   e.target.classList.add('on');
 });
+</script>
+<script>
+
+(function(){
+  var C = document.getElementById('xpand');
+  function sp(t){ try{ if(typeof speak==='function'){ speak(t); return; } }catch(e){}
+    try{ speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(String(t).replace(/_+/g,'')); u.lang='fr-FR';
+      var v=speechSynthesis.getVoices().find(function(x){return /^fr/i.test(x.lang);}); if(v)u.voice=v;
+      if(typeof rate!=='undefined') u.rate=rate; speechSynthesis.speak(u);}catch(e){} }
+  function el(tag,cls,html){ var e=document.createElement(tag); if(cls)e.className=cls; if(html!=null)e.innerHTML=html; return e; }
+  function h2(t){ C.appendChild(el('h2',null,t)); }
+  function h3(t){ C.appendChild(el('h3',null,t)); }
+  function lead(t){ C.appendChild(el('p','xp-lead',t)); }
+  function note(t){ C.appendChild(el('div','xp-note',t)); }
+  function ex(t){ C.appendChild(el('div','xp-ex',t)); }
+  function warn(t){ C.appendChild(el('div','xp-warn',t)); }
+  function rows(list){ list.forEach(function(r){
+    var fr=r[0], ph=r[1], en=r[2];
+    var row=el('div','xp-row');
+    var b=el('button','xp-play','&#9654;'); b.onclick=function(){sp(fr);};
+    var t=el('div','xp-txt');
+    var f=el('div','xp-fr'); f.textContent=fr; f.onclick=function(){sp(fr);};
+    t.appendChild(f);
+    if(ph){ var p=el('div','xp-ph'); p.textContent=ph; t.appendChild(p); }
+    if(en){ var e2=el('div','xp-en'); e2.textContent=en; t.appendChild(e2); }
+    row.appendChild(b); row.appendChild(t); C.appendChild(row);
+    try{ if(typeof GLOBAL_VOCAB!=='undefined') GLOBAL_VOCAB.push({fr:fr,en:en||''}); }catch(e){}
+  }); }
+  function grid(list){ var g=el('div','xp-grid');
+    list.forEach(function(r){ var c=el('div','xp-cell','<b></b><i></i>');
+      c.querySelector('b').textContent=r[0]; c.querySelector('i').textContent=r[1]||'';
+      c.onclick=function(){sp(r[0]);}; g.appendChild(c); });
+    C.appendChild(g); }
+  function table(head, body){ var t=el('table','xp-t');
+    var html='<tr>'; head.forEach(function(h){ html+='<th>'+h+'</th>'; }); html+='</tr>';
+    body.forEach(function(r){ html+='<tr>'; r.forEach(function(c){ html+='<td>'+c+'</td>'; }); html+='</tr>'; });
+    t.innerHTML=html; C.appendChild(t); }
+  function fill(items){ items.forEach(function(it){
+    var d=el('div','xp-fill'); d.appendChild(el('div','s',it.s));
+    var inp=document.createElement('input'); inp.placeholder='...';
+    var btn=document.createElement('button'); btn.textContent='Check';
+    var fb=el('div','xp-fb');
+    function chk(){ var v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      var ok=it.a.some(function(a){return a.toLowerCase()===v;});
+      if(ok){ fb.className='xp-fb ok'; fb.innerHTML='\u2713 '+it.a[0]+' \u2014 '+it.why; sp(it.a[0]); }
+      else { fb.className='xp-fb bad'; fb.innerHTML='\u2717 Answer: <b>'+it.a[0]+'</b> \u2014 '+it.why; } }
+    btn.onclick=chk; inp.addEventListener('keydown',function(e){ if(e.key==='Enter') chk(); });
+    var line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn); d.appendChild(line);
+    if(it.en){ var t=el('div','xp-en',''); t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb); C.appendChild(d); }); }
+  function mcq(items){ items.forEach(function(it){
+    var d=el('div','xp-q'); d.appendChild(el('div','prompt',it.q));
+    var b=el('div','btns'); var fb=el('div','xp-fb');
+    it.opts.forEach(function(o,i){ var btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=function(){ if(i===it.a){ fb.className='xp-fb ok'; fb.innerHTML='\u2713 '+o+' \u2014 '+it.why; sp(o); }
+        else { fb.className='xp-fb bad'; fb.innerHTML='\u2717 The answer is <b>'+it.opts[it.a]+'</b> \u2014 '+it.why; } };
+      b.appendChild(btn); });
+    d.appendChild(b); d.appendChild(fb); C.appendChild(d); }); }
+  h2("Deep dive — ÊTRE, and the verbs of self-presentation");
+lead("Cours 3 introduced être, habiter and parler. Here is everything those three verbs can do, with the traps that catch first-time learners.");
+
+h3("ÊTRE — the most irregular, most important verb in French");
+table(["Sujet","Être","Prononciation","Exemple"],[
+ ["je","<b>suis</b>","zhuh SWEE","Je suis indien."],
+ ["tu","<b>es</b>","tew EH","Tu es étudiant ?"],
+ ["il / elle / on","<b>est</b>","eel / ell / ohn EH","Elle est française."],
+ ["nous","<b>sommes</b>","noo SUM","Nous sommes amis."],
+ ["vous","<b>êtes</b>","voo <b>Z</b>ET","Vous êtes professeur ?"],
+ ["ils / elles","<b>sont</b>","eel / ell SOHN","Ils sont canadiens."]
+]);
+warn("<b>Six forms, six different words.</b> There is no pattern to extract and no shortcut — être is irregular because it is used more than any other verb in the language, and heavy use wears words into odd shapes. Recite it daily until it is automatic. Everything else in French is built on top of it.");
+note("<b>Three pronunciation points:</b><br>· <i>tu <b>es</b></i> and <i>il <b>est</b></i> are both just <b>EH</b> — the s and the st are silent.<br>· <i>vous <b>êtes</b></i> liaises: voo-<b>Z</b>ET. Without the [z] it sounds broken.<br>· <i>ils <b>sont</b></i> = eel <b>S</b>OHN, but <i>ils <b>ont</b></i> (they have) = eel <b>Z</b>OHN. One consonant apart, two different verbs. Drill the pair.");
+
+h3("Les sept emplois d'Être");
+table(["Emploi","Exemple","Traduction"],[
+ ["Identité","Je <b>suis</b> Rajveer.","I am Rajveer."],
+ ["Nationalité","Je <b>suis</b> indien.","I am Indian."],
+ ["Profession","Je <b>suis</b> administrateur.","I am an administrator."],
+ ["Description","Il <b>est</b> grand.","He is tall."],
+ ["État / humeur","Je <b>suis</b> fatigué.","I am tired."],
+ ["Lieu","Je <b>suis</b> à la maison.","I am at home."],
+ ["L'heure","Il <b>est</b> huit heures.","It is eight o'clock."]
+]);
+ex("<b>Three of those seven forbid the article</b> — nationality, profession and (usually) identity: <i>je suis indien</i>, <i>je suis administrateur</i>. The others behave normally. Noticing which is which is most of what être demands of you at A1.");
+
+h3("C'est vs Il est — the distinction worth learning early");
+table(["Structure","Suivi de","Exemple"],[
+ ["<b>il / elle est</b>","un nom <u>nu</u> ou un adjectif","Il est médecin. · Elle est grande."],
+ ["<b>c'est</b>","un <u>article</u> + nom","C'est un médecin. · C'est une bonne idée."],
+ ["<b>c'est</b>","un nom propre","C'est Rajveer."],
+ ["<b>c'est</b>","un pronom tonique","C'est moi. · C'est lui."]
+]);
+rows([
+ ["Il est administrateur.","eel eh tad-mee-nee-strah-TUR","He's an administrator. (bare job)"],
+ ["C'est un bon administrateur.","seh tuhn bohn ad-mee-nee-strah-TUR","He's a good administrator. (article + adjective)"],
+ ["C'est moi !","seh MWAH","It's me!"],
+ ["Ce sont mes amis.","suh sohn may zah-MEE","These are my friends. (plural of c'est)"]
+]);
+warn("After <b>c'est</b> you must use a <b>tonic pronoun</b>, never a subject pronoun: <i>c'est <b>moi</b></i>, never <i>c'est je</i>. Same reason you answer a question with <i>Moi !</i> and not <i>Je !</i>");
+
+h3("La négation d'Être");
+rows([
+ ["Je ne suis pas français.","zhuh nuh swee pah frahn-SEH","I am not French."],
+ ["Il n'est pas là.","eel neh pah LAH","He isn't here."],
+ ["Nous ne sommes pas étudiants.","noo nuh sum pah zay-tew-DYAHN","We aren't students."],
+ ["Ce n'est pas grave.","suh neh pah GRAHV","It doesn't matter."]
+]);
+note("<b>ne</b> becomes <b>n'</b> before <i>est</i> and <i>êtes</i>, because they start with a vowel. And notice <i>ce n'est pas un médecin</i> keeps its article — the usual \"un → de after a negation\" rule does <u>not</u> apply after être, because être expresses no quantity.");
+
+h2("HABITER — your first regular -ER verb");
+lead("Regular -ER verbs are about 90% of all French verbs. Learn this one pattern and you have thousands.");
+table(["Sujet","Habiter","Prononciation"],[
+ ["j'","<b>habite</b>","zhah-BEET"],
+ ["tu","<b>habites</b>","tew ah-BEET"],
+ ["il / elle / on","<b>habite</b>","eel ah-BEET"],
+ ["nous","<b>habitons</b>","noo <b>z</b>ah-bee-TOHN"],
+ ["vous","<b>habitez</b>","voo <b>z</b>ah-bee-TAY"],
+ ["ils / elles","<b>habitent</b>","eel <b>z</b>ah-BEET"]
+]);
+ex("<b>The six endings: -e, -es, -e, -ons, -ez, -ent.</b><br><br>And the crucial fact: <b>-e, -es and -ent are all silent</b>. So <i>habite</i>, <i>habites</i>, <i>habitent</i> are pronounced <u>identically</u> — ah-BEET. Only <b>nous</b> and <b>vous</b> sound different.<br><br>That's good news for speaking (four forms need no thought) and bad news for writing (you must know the subject to spell it).");
+warn("<b>Two things happen because habiter starts with a silent h:</b><br>· <i>je</i> elides → <b>j'habite</b><br>· <i>nous / vous / ils</i> liaise → noo-<b>z</b>ah-bee-TOHN, voo-<b>z</b>ah-bee-TAY, eel-<b>z</b>ah-BEET<br><br>That [z] on <i>ils habitent</i> is the <u>only</u> audible difference from <i>il habite</i>. It is doing real work: it's the only thing telling a listener one person from several.");
+
+h3("D'autres verbes du même modèle");
+grid([["parler — to speak","par-LAY"],["écouter — to listen","ay-koo-TAY"],["regarder — to watch","ruh-gar-DAY"],["travailler — to work","trah-vah-YAY"],["aimer — to like","eh-MAY"],["étudier — to study","ay-tew-DYAY"],["chercher — to look for","shair-SHAY"],["jouer — to play","zhoo-AY"],["manger — to eat","mahn-ZHAY"],["donner — to give","doh-NAY"],["arriver — to arrive","ah-ree-VAY"],["trouver — to find","troo-VAY"]]);
+note("<b>manger</b> keeps an extra e in <i>nous mange<b>o</b>ns</i>. Without it, \"mangons\" would be said with a hard g. The e protects the soft [zh] sound — the same job the cedilla does in <i>nous commençons</i>.");
+
+h2("Vocabulaire élargi — se présenter");
+h3("Les mots de l'identité");
+rows([
+ ["le prénom","luh pray-NOHN","first name"],
+ ["le nom (de famille)","luh nohn duh fah-MEEY","surname"],
+ ["l'âge","LAHZH","age"],
+ ["la nationalité","lah nah-syoh-nah-lee-TAY","nationality"],
+ ["le métier","luh may-TYAY","profession"],
+ ["l'adresse","lah-DRESS","address"],
+ ["le numéro de téléphone","luh new-may-roh duh tay-lay-FUN","phone number"],
+ ["l'adresse e-mail","lah-dress ee-MEL","email address"]
+]);
+h3("Étudiant ou travailleur ?");
+rows([
+ ["Je suis étudiant.","zhuh swee zay-tew-DYAHN","I'm a student. (m.)"],
+ ["Je suis étudiante.","zhuh swee zay-tew-DYAHNT","I'm a student. (f.)"],
+ ["J'étudie l'informatique.","zhay-tew-DEE lan-for-mah-TEEK","I study IT."],
+ ["Je travaille.","zhuh trah-VYE","I work."],
+ ["Je suis à la retraite.","zhuh swee zah lah ruh-TRET","I'm retired."]
+]);
+warn("<b>étudiant</b> (ay-tew-DYAHN) vs <b>étudiante</b> (ay-tew-DYAHNT) — the feminine -e makes the final <b>t</b> audible. This is the single most useful sound rule in French: a final consonant is usually silent, but <b>adding -e wakes it up</b>.<br><br>· étudian<u>t</u> → étudian<u>te</u><br>· françai<u>s</u> → françai<u>se</u><br>· gran<u>d</u> → gran<u>de</u><br>· peti<u>t</u> → peti<u>te</u>");
+
+h2("Exercices");
+h3("Exercice 1 — conjuguez Être");
+fill([
+ {s:"1. Je ______ indien.", a:["suis"], en:"I am Indian.", why:"je → suis."},
+ {s:"2. Tu ______ étudiant ?", a:["es"], en:"Are you a student?", why:"tu → es (said EH, silent s)."},
+ {s:"3. Elle ______ française.", a:["est"], en:"She is French.", why:"elle → est (said EH)."},
+ {s:"4. Nous ______ amis.", a:["sommes"], en:"We are friends.", why:"nous → sommes."},
+ {s:"5. Vous ______ professeur ?", a:["êtes","etes"], en:"Are you a teacher?", why:"vous → êtes, with the liaison voo-ZET."},
+ {s:"6. Ils ______ canadiens.", a:["sont"], en:"They are Canadian.", why:"ils → sont (eel SOHN, not eel ZOHN)."}
+]);
+h3("Exercice 2 — conjuguez HABITER");
+fill([
+ {s:"1. J'______ à Brampton.", a:["habite"], en:"I live in Brampton.", why:"je + -e, with elision → j'habite."},
+ {s:"2. Tu ______ où ?", a:["habites"], en:"Where do you live?", why:"tu + -es, silent."},
+ {s:"3. Nous ______ au Canada.", a:["habitons"], en:"We live in Canada.", why:"nous + -ons. Liaison: noo-Zah-bee-TOHN."},
+ {s:"4. Ils ______ en Inde.", a:["habitent"], en:"They live in India.", why:"ils + -ent, silent — but the liaison [z] marks the plural."},
+ {s:"5. Vous ______ à Paris ?", a:["habitez"], en:"Do you live in Paris?", why:"vous + -ez."}
+]);
+h3("Exercice 3 — c'est ou il est ?");
+mcq([
+ {q:"______ médecin.", opts:["Il est","C'est","Ce sont"], a:0, why:"A bare job with no article → il est."},
+ {q:"______ un bon médecin.", opts:["Il est","C'est","Ils sont"], a:1, why:"There's an article (<i>un</i>) → c'est."},
+ {q:"______ moi !", opts:["Il est","C'est","Je suis"], a:1, why:"A tonic pronoun → c'est."},
+ {q:"______ mes amis.", opts:["C'est","Ce sont","Il est"], a:1, why:"Plural → <b>ce sont</b>, the plural of c'est."}
+]);
+h3("Exercice 4 — trouvez l'erreur");
+mcq([
+ {q:"« Je suis un administrateur. »", opts:["Correct","Je suis administrateur.","J'ai administrateur."], a:1, why:"No article with a bare job after être."},
+ {q:"« Je suis vingt-trois ans. »", opts:["Correct","J'ai vingt-trois ans.","Je suis vingt-trois."], a:1, why:"Age takes <b>avoir</b>, and <i>ans</i> is compulsory."},
+ {q:"« Je habite à Brampton. »", opts:["Correct","J'habite à Brampton.","Je habites à Brampton."], a:1, why:"<i>je</i> elides to <b>j'</b> before the silent h."},
+ {q:"« Ils sont à Paris depuis deux ans. »", opts:["Correct — nothing wrong","Ils ont à Paris","Ils est à Paris"], a:0, why:"This one is already correct. <i>Sont</i> = are, which is what a location needs."}
+]);
+
+h2("Texte parallèle — Trois présentations");
+ex("<b>Trois personnes se présentent</b><br><br>— Bonjour ! Je m'appelle Rajveer. Je suis indien et j'habite à Brampton, au Canada. Je suis administrateur système et je travaille chez Sobeys. Je parle anglais, hindi et un peu français.<br><br>— Salut ! Moi, c'est Sophie. Je suis française, de Lyon, mais maintenant j'habite à Montréal. Je suis étudiante : j'étudie l'informatique. Je ne parle pas hindi, mais je parle anglais et espagnol.<br><br>— Bonsoir. Je m'appelle Monsieur Lemaire. Je suis canadien et j'habite ici, à Toronto. Je suis professeur de français. Nous sommes tous différents, mais nous sommes tous ici pour la même raison : apprendre !");
+h3("Glossaire du texte");
+rows([
+ ["Moi, c'est Sophie.","mwah, seh soh-FEE","I'm Sophie."],
+ ["de Lyon","duh lee-OHN","from Lyon"],
+ ["mais maintenant","meh man-tuh-NAHN","but now"],
+ ["Je ne parle pas hindi.","zhuh nuh parl pah een-DEE","I don't speak Hindi."],
+ ["professeur de français","proh-feh-sur duh frahn-SEH","French teacher"],
+ ["Nous sommes tous différents.","noo sum too dee-fay-RAHN","We are all different."],
+ ["pour la même raison","poor lah mem ray-ZOHN","for the same reason"],
+ ["apprendre","ah-PRAHN-druh","to learn"]
+]);
+h3("Compréhension");
+mcq([
+ {q:"Où habite Sophie maintenant ?", opts:["À Lyon","À Montréal","À Toronto"], a:1, why:"« je suis française, de Lyon, mais maintenant j'habite à Montréal » — Lyon is where she's from, not where she lives."},
+ {q:"Quelles langues parle Sophie ?", opts:["Anglais et hindi","Anglais et espagnol","Français seulement"], a:1, why:"« Je ne parle pas hindi, mais je parle anglais et espagnol » — plus French, obviously."},
+ {q:"Quel est le métier de Monsieur Lemaire ?", opts:["Administrateur","Étudiant","Professeur de français"], a:2, why:"« Je suis professeur de français » — and note: no article."},
+ {q:"Qui utilise le registre le plus formel ?", opts:["Rajveer","Sophie","Monsieur Lemaire"], a:2, why:"« Bonsoir » + « Monsieur » + full sentences. Sophie uses « Salut » and « Moi, c'est… », which are the most casual."}
+]);
+note("<b>Repérez la grammaire :</b><br>· <b>Trois registres</b> — Bonjour (neutre), Salut (familier), Bonsoir + Monsieur (formel)<br>· <b>Deux façons de donner son nom</b> — <i>Je m'appelle…</i> et <i>Moi, c'est…</i><br>· <b>Quatre nationalités sans article</b> — indien, française, canadien<br>· <b>Trois métiers sans article</b> — administrateur, étudiante, professeur<br>· <b>Une négation</b> — <i>je ne parle pas hindi</i><br>· <b>Un féminin</b> — <i>étudiant</i> → <i>étudiant<b>e</b></i>, with the t now audible");
+ex("<b>À vous —</b> write a fourth presentation for an invented person: a different nationality, a different city, a different job, and at least one <i>je ne parle pas…</i>. Then read all four aloud in a row and notice how the same seven blocks produce four different people.");
+
+})();
+
 </script>
 <script src="french_glossary.js"></script>
 </body>

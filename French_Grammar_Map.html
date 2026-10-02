@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French — Carte de la grammaire (A1 → C1)</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Carte de la grammaire — A1 → C1</h1>
+  <p class="sub">Every grammar topic in French, mapped by level · what's covered on this site, what's still to build, and the four things that are genuinely hard</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Cours21_Notes.html">Cours 21</a>
+    <a href="French_Cours22_Notes.html">Cours 22</a>
+    <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
+    <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html" class="active">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').textContent=fr; c.querySelector('.ph').textContent=ph;
+    c.onclick=()=>speak(fr); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+h2("À quoi sert cette page");
+ex("<b>This is the complete grammar of French, mapped.</b> Thirty topics — the standard chapter structure of a full reference grammar — showing for each one: what level it belongs to, whether this site covers it yet, and where to find it.<br><br>Use it two ways:<br>· <b>As a checklist</b> — tick things off as you learn them, so you always know what's left<br>· <b>As an index</b> — when you hit something you don't recognise, find it here and follow the link");
+warn("<b>Do not learn these in order.</b> The list is organised by <i>topic</i>, not by difficulty. Chapter 10 (the subjunctive) sits next to Chapter 9 (the conditional) because they're both moods — not because you should learn them next. Follow the <b>Niveau</b> column instead, and the roadmap on the Study Guide page.");
+note("<b>A note on sources.</b> The topic list follows the standard architecture used by full French reference grammars — the same thirty-odd areas appear in all of them, because that's simply how the language divides up. Every explanation, example and exercise on this site is <b>written from scratch for you</b>; nothing is copied from a published grammar. Where a textbook explains something better than I have, the right move is to read the textbook, not to paste it here.");
+
+h2("Niveau A1 — les fondations");
+lead("Everything you need to introduce yourself, describe your life, and talk about yesterday and tomorrow.");
+table(["Sujet","État","Où le trouver"],[
+ ["<b>Les nombres</b> — cardinaux 0–100, ordinaux","✅ complet","Cours 5 · Prof's Notes 3–4 · Heure+Dates"],
+ ["<b>Le présent</b> — les trois groupes réguliers","✅ complet","<b>Les verbes au présent</b>"],
+ ["<b>Le présent</b> — les irréguliers essentiels","✅ complet","<b>Les verbes au présent</b> · Cours 29"],
+ ["<b>Les articles</b> — défini, indéfini, partitif","✅ complet","<b>Les articles &amp; quantités</b> · Articles"],
+ ["<b>Le nom</b> — genre et pluriel","✅ complet","Articles · Complete Book Part 1"],
+ ["<b>L'adjectif qualificatif</b> — accord et place","✅ complet","Cours 15 · Cours 20 · Cours 5"],
+ ["<b>Les adjectifs possessifs</b> — mon, ma, mes…","✅ complet","Cours 16"],
+ ["<b>Les adjectifs démonstratifs</b> — ce, cet, cette, ces","✅ complet","<b>Cours 29</b> · Les articles &amp; quantités"],
+ ["<b>Les pronoms personnels sujets</b> — je, tu, il…","✅ complet","Prof's Notes 6 · Cours 10"],
+ ["<b>Les pronoms toniques</b> — moi, toi, lui, eux","✅ complet","Prof's Notes 6 · Cours 10"],
+ ["<b>La négation</b> — ne…pas, jamais, plus, rien","✅ complet","Cours 27 · Prof's Notes 7"],
+ ["<b>Les questions</b> — les trois registres","✅ complet","Cours 24 · Prof's Notes 7"],
+ ["<b>Quel / quelle / quels / quelles</b>","✅ complet","<b>Cours 24</b>"],
+ ["<b>Les verbes pronominaux</b> — se lever, s'habiller","✅ complet","<b>Cours 24</b>"],
+ ["<b>Le futur proche</b> — aller + infinitif","✅ complet","<b>Cours 26</b>"],
+ ["<b>Le passé composé avec avoir</b>","✅ complet","<b>Cours 27</b>"],
+ ["<b>Les prépositions de lieu</b>","✅ complet","Cours 21"],
+ ["<b>Les prépositions de pays</b> — en, au, aux, à","✅ complet","Cours 6 · Cours 9"],
+ ["<b>Les adverbes de fréquence</b> — et leur place","✅ complet","<b>Cours 29</b> · Heure+Dates"],
+ ["<b>L'heure, les jours, les dates</b>","✅ complet","<b>L'heure &amp; les dates</b>"],
+ ["<b>Les accents</b> — é, è, ê, ë, ï, ç","✅ complet","<b>Cours 25</b>"],
+ ["<b>La météo</b> — il fait / il y a / il pleut","✅ complet","<b>Cours 28</b>"],
+ ["<b>Le passé récent</b> — venir de + infinitif","✅ complet","<b>Grammaire</b> ch. 5"],
+ ["<b>L'impératif</b> — formes et emploi","✅ complet","<b>L'impératif</b>"],
+ ["<b>Le passé composé avec être</b>","✅ complet","<b>PC avec être</b>"]
+]);
+
+h2("Niveau A2 — la suite immédiate");
+lead("What comes next. These are the topics that turn \"I can introduce myself\" into \"I can hold a conversation\".");
+table(["Sujet","État","Priorité"],[
+ ["<b>L'imparfait</b> — formation et emploi","✅ complet","<b>L'imparfait</b>"],
+ ["<b>Imparfait vs passé composé</b> — le choix","✅ complet","<b>L'imparfait</b> § 4"],
+ ["<b>Le passé composé avec être</b> + accord","❌ à construire","🔴 haute"],
+ ["<b>Le futur simple</b>","❌ à construire","🟠 moyenne"],
+ ["<b>Les pronoms COD</b> — le, la, les","✅ complet","<b>Grammaire</b> ch. 6"],
+ ["<b>Les pronoms COI</b> — lui, leur","✅ complet","<b>Grammaire</b> ch. 6b"],
+ ["<b>Les pronoms EN et Y</b>","✅ complet","<b>Grammaire</b> ch. 6b"],
+ ["<b>Le comparatif et le superlatif</b>","⚠ partiel","🟠 moyenne — début dans Cours 14"],
+ ["<b>L'impératif complet</b> + pronoms","✅ complet","<b>L'impératif</b>"],
+ ["<b>Les verbes + infinitif</b> — à, de, ou rien","❌ à construire","🟠 moyenne"],
+ ["<b>Les pronoms relatifs</b> — qui, que","❌ à construire","🟠 moyenne"],
+ ["<b>Depuis, pendant, il y a, dans</b>","✅ complet","— (Heure+Dates)"],
+ ["<b>Les adverbes</b> — formation en -ment","❌ à construire","🟡 basse"],
+ ["<b>Les nombres au-delà de 1000</b>","⚠ partiel","🟡 basse"]
+]);
+
+h2("Niveau B1 — le long milieu");
+table(["Sujet","État"],[
+ ["<b>Le subjonctif présent</b> — formation et déclencheurs","❌ à construire"],
+ ["<b>Le conditionnel présent</b>","❌ à construire"],
+ ["<b>Les phrases avec SI</b> — les trois types","❌ à construire"],
+ ["<b>Le plus-que-parfait</b>","❌ à construire"],
+ ["<b>Les pronoms relatifs</b> — dont, où, ce qui, ce que","❌ à construire"],
+ ["<b>Les doubles pronoms</b> — je le lui donne","❌ à construire"],
+ ["<b>Les pronoms possessifs</b> — le mien, le tien","❌ à construire"],
+ ["<b>Les pronoms démonstratifs</b> — celui, celle, ceux","⚠ partiel"],
+ ["<b>Le discours indirect</b>","❌ à construire"],
+ ["<b>La voix passive</b>","❌ à construire"],
+ ["<b>Les adjectifs et pronoms indéfinis</b> — tout, chaque, quelques","❌ à construire"],
+ ["<b>Les conjonctions</b> — coordination et subordination","❌ à construire"]
+]);
+
+h2("Niveau B2–C1 — la finition");
+table(["Sujet","État"],[
+ ["<b>Le subjonctif passé</b>","❌ à construire"],
+ ["<b>Le conditionnel passé</b> — le regret","❌ à construire"],
+ ["<b>Le participe présent et le gérondif</b> — en faisant","❌ à construire"],
+ ["<b>L'infinitif passé</b> — après avoir mangé","❌ à construire"],
+ ["<b>Le passé simple</b> — reconnaissance seulement","❌ à construire"],
+ ["<b>Les connecteurs logiques</b> — bien que, afin que, à moins que","❌ à construire"],
+ ["<b>Les négations nuancées</b> — ne… que, ne… guère","❌ à construire"],
+ ["<b>Les noms problématiques</b> — genre, pluriels irréguliers","❌ à construire"],
+ ["<b>Les faux amis</b> — le catalogue","⚠ partiel — éparpillé sur le site"],
+ ["<b>Le registre</b> — soutenu, courant, familier","⚠ partiel"]
+]);
+
+h2("Les quatre murs — et quand les franchir");
+ex("Most of the list above is detail. <b>Four things</b> are genuinely hard, and they arrive in this order:");
+table(["Le mur","Pourquoi c'est dur","Quand"],[
+ ["<b>1. Imparfait vs passé composé</b>","English has no equivalent choice. You must decide, for every past verb, whether it's a <i>completed event</i> or a <i>background state</i> — and the same verb can be either.","A2, juste après"],
+ ["<b>2. Les pronoms</b> — COD, COI, en, y","They go <u>before</u> the verb, in a fixed order, and English puts them after. <i>Je le lui donne</i> = \"I give it to him\" with the words almost reversed.","A2–B1"],
+ ["<b>3. Le subjonctif</b>","Not a tense but a <i>mood</i>. Triggered by specific verbs and conjunctions rather than by meaning, so there's a list to learn.","B1"],
+ ["<b>4. Le genre des noms</b>","Never finished. Every new noun carries a gender you must memorise with it, and errors here are the most visible thing in your writing.","Tous les niveaux"]
+]);
+note("<b>On the fourth one — a habit worth starting today.</b> Never write a noun down alone. Write <b>un</b> livre, <b>une</b> table, <b>le</b> pain, <b>la</b> maison. The article <u>is</u> part of the word. Learning <i>maison</i> and then learning its gender separately is doing the work twice, and the second half never quite sticks.");
+
+h2("Comment utiliser cette page");
+ex("<b>1. Right now:</b> everything marked ✅ at A1 is on this site, worked through. If something there feels shaky, that's where to go first — don't move up until A1 is solid.<br><br><b>2. Next:</b> the four 🔴 items at A2 — <i>l'imparfait</i>, <i>imparfait vs passé composé</i>, <i>le passé composé avec être</i>, and <i>les pronoms COD/COI</i>. Those four unlock most of A2.<br><br><b>3. Later:</b> we build each remaining topic as you reach it. Building the subjunctive now, while the passé composé is weeks old, would be wasted effort — you'd learn it, not use it, and forget it.<br><br><b>4. Always:</b> when your class covers something new, it gets its own Cours page with the same treatment — vocabulary, explanation, worked exercises, parallel text.");
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+<script src="french_glossary.js"></script>
+</body>
+</html>

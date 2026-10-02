@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 27 — Le passé composé</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+</style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 27: Le passé composé</h1>
+  <p class="sub">The Language SKOOL · Fiche de cours A1 — avoir + participe passé: the tense for everything that has already happened</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Cours21_Notes.html">Cours 21</a>
+    <a href="French_Cours22_Notes.html">Cours 22</a>
+    <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html" class="active">Cours 27</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
+    <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
+  </nav>
+
+<div class="whybox">
+  <h4><span>Pourquoi ça marche comme ça</span>Pourquoi « j'ai mangé » veut dire deux choses en anglais</h4>
+  <p>English splits the past into <i>I ate</i> and <i>I have eaten</i>, and the choice is grammatical. French does not split it at all — <b>j'ai mangé</b> covers both.<br><br>So half the difficulty you expect simply is not there.<br><br>But French splits the past <u>somewhere else</u> instead: between <b>passé composé</b> (a finished event) and <b>imparfait</b> (a situation or habit). That is the real division, and it is the first genuine wall at A2.</p>
+  <a class="more" href="French_A2_Imparfait.html">Aller plus loin →</a>
+</div>
+
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').textContent=fr; c.querySelector('.ph').textContent=ph;
+    c.onclick=()=>speak(fr); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+/* ===== 1 ===== */
+h2("1 · Qu'est-ce que le passé composé ?");
+src("<b>Source :</b> <i>Le passé composé — A1 French Lesson</i>, The Language SKOOL, 12 pages, plus the teacher's whiteboard introduction. Everything worked through in full, with extra explanation, memory techniques and practice added.");
+ex("<b>The passé composé is the tense for finished actions.</b> Your teacher's phrasing on the board: <i>\"actions which have ended come in passé composé.\"</i><br><br>And the single most useful fact about it: <b>it covers two English tenses at once.</b><br><br>· <b>J'ai mangé.</b> = \"I ate.\" <u>and</u> \"I have eaten.\"<br><br>English forces you to choose between the simple past and the present perfect. French doesn't — one form does both jobs. Half the difficulty you expect simply isn't there.");
+
+h3("Les exemples du tableau");
+rows([
+ ["J'ai regardé un film.","zhay ruh-gar-DAY uhn FEELM","I watched a film."],
+ ["J'ai terminé ma licence.","zhay tair-mee-NAY mah lee-SAHNSS","I completed my bachelor's."],
+ ["J'ai vu une étoile filante.","zhay VEW ewn ay-TWAHL fee-LAHNT","I saw a shooting star."],
+ ["J'ai étudié le français l'année dernière.","zhay ay-tew-DYAY luh frahn-SEH lah-NAY dair-NYEHR","I studied French last year."]
+]);
+warn("<b>Two false friends hiding in those sentences.</b><br><br><b>le bac ≠ bachelor's.</b> <i>Le baccalauréat</i> is the <u>high-school leaving exam</u>, taken at 18. A bachelor's degree is <b>une licence</b>. Saying <i>j'ai terminé mon bac</i> undersells you by three years.<br>· le baccalauréat / le bac — high-school diploma<br>· la licence — bachelor's<br>· le master — master's<br><br><b>le collège ≠ college.</b> <i>Le collège</i> is <u>middle school</u> (11–15).<br>· l'école primaire — primary<br>· le collège — middle school<br>· le lycée — high school<br>· l'université / la fac — university");
+
+/* ===== 2 ===== */
+h2("2 · La structure");
+ex("<b>Sujet + AVOIR (conjugué) + PARTICIPE PASSÉ + complément</b><br><br>Je + ai + regardé + un film → <b>J'ai regardé un film.</b><br>Nous + avons + mangé + au restaurant → <b>Nous avons mangé au restaurant.</b><br><br>Two pieces: a small helper verb that you conjugate, and a participle that you don't.");
+note("<b>You already know this architecture.</b> Compare it with the futur proche from last week:<br>· futur proche — <b>aller</b> + <u>infinitif</u> — <i>je <b>vais</b> manger</i><br>· passé composé — <b>avoir</b> + <u>participe</u> — <i>j'<b>ai</b> mangé</i><br><br>Conjugate the small verb, park the big one. Two tenses, one habit of mind.");
+
+h3("L'auxiliaire AVOIR");
+table(["Sujet","Avoir","Prononciation","Exemple"],[
+ ["je","<b>j'ai</b>","zhay","j'ai regardé"],
+ ["tu","<b>as</b>","tew AH","tu as regardé"],
+ ["il / elle / <b>on</b>","<b>a</b>","eel ah / ohn <b>N</b>AH","on a regardé"],
+ ["nous","<b>avons</b>","noo <b>z</b>ah-VOHN","nous avons regardé"],
+ ["vous","<b>avez</b>","voo <b>z</b>ah-VAY","vous avez regardé"],
+ ["ils / elles","<b>ont</b>","eel <b>Z</b>OHN","ils ont regardé"]
+]);
+warn("<b>Four of the six forms liaise, and the liaisons are compulsory:</b><br>· on<b>‿</b>a = ohn-<b>N</b>AH<br>· nous<b>‿</b>avons = noo-<b>Z</b>ah-VOHN<br>· vous<b>‿</b>avez = voo-<b>Z</b>ah-VAY<br>· ils<b>‿</b>ont = eel-<b>Z</b>OHN<br><br>This is why a French speaker saying <i>nous avons étudié</i> sounds like one long word: noo-zah-vohn-zay-tew-DYAY, no gaps.");
+note("<b>The three-way confusion set — drill this daily.</b><br>· ils <b>ont</b> — eel <b>Z</b>OHN — they <i>have</i><br>· ils <b>sont</b> — eel <b>S</b>OHN — they <i>are</i><br>· ils <b>vont</b> — eel <b>V</b>OHN — they <i>go / are going to</i><br><br>One consonant apart, three different tenses. <i>Ils ont mangé</i> and <i>ils sont partis</i> are both passé composé, so context won't rescue you — only the consonant will.");
+
+/* ===== 3 ===== */
+h2("3 · Former le participe passé");
+lead("Three groups. Two are mechanical; only the third costs you memory.");
+table(["L'infinitif finit en…","Participe","Exemple"],[
+ ["<b>-er</b>","chop, add <b>-é</b>","parler → parl<b>é</b>"],
+ ["<b>-ir</b>","chop, add <b>-i</b>","finir → fin<b>i</b>"],
+ ["autre chose","<b>à mémoriser</b>","faire → fait"]
+]);
+
+h3("Groupe 1 — les verbes en -ER (≈90 % des verbes)");
+rows([
+ ["manger → mangé","mahn-ZHAY","to eat → eaten"],
+ ["parler → parlé","par-LAY","to speak → spoken"],
+ ["regarder → regardé","ruh-gar-DAY","to watch → watched"],
+ ["travailler → travaillé","trah-vah-YAY","to work → worked"],
+ ["écouter → écouté","ay-koo-TAY","to listen → listened"],
+ ["jouer → joué","zhoo-AY","to play → played"],
+ ["étudier → étudié","ay-tew-DYAY","to study → studied"],
+ ["acheter → acheté","ah-shuh-TAY","to buy → bought"],
+ ["appeler → appelé","ah-puh-LAY","to call → called"],
+ ["cuisiner → cuisiné","kwee-zee-NAY","to cook → cooked"]
+]);
+note("<b>Two spelling catches in that list.</b><br>· <b>acheter</b> — the è of <i>j'achète</i> disappears in the participle: <b>acheté</b>, no accent grave.<br>· <b>appeler</b> — the double l of <i>j'appelle</i> disappears too: <b>appelé</b>, one l.<br>The participle is always built from the <u>infinitive</u>, never from the present tense.");
+
+h3("Groupe 2 — les verbes en -IR");
+rows([
+ ["finir → fini","fee-NEE","to finish → finished"],
+ ["choisir → choisi","shwah-ZEE","to choose → chosen"],
+ ["réussir → réussi","ray-ew-SEE","to succeed → succeeded"],
+ ["grandir → grandi","grahn-DEE","to grow → grown"],
+ ["remplir → rempli","rahm-PLEE","to fill → filled"]
+]);
+warn("<b>-i, with no accent.</b> Writing <i>finé</i> or <i>choisé</i> is the error this group exists to catch. And note <b>réussir un examen</b> = to <u>pass</u> an exam, while <b>passer un examen</b> = to <u>sit</u> one. A classic false friend.");
+
+h3("Groupe 3 — les participes irréguliers");
+lead("Short, very common verbs. Grouped by ending so they're easier to hold.");
+table(["Terminaison","Verbes"],[
+ ["<b>-u</b>","avoir → <b>eu</b> · boire → <b>bu</b> · lire → <b>lu</b> · voir → <b>vu</b> · vouloir → <b>voulu</b> · pouvoir → <b>pu</b> · savoir → <b>su</b> · devoir → <b>dû</b> · venir → <b>venu</b> · courir → <b>couru</b>"],
+ ["<b>-is</b>","prendre → <b>pris</b> · mettre → <b>mis</b> · apprendre → <b>appris</b> · comprendre → <b>compris</b> · permettre → <b>permis</b>"],
+ ["<b>-it</b>","faire → <b>fait</b> · dire → <b>dit</b> · écrire → <b>écrit</b>"],
+ ["à part","être → <b>été</b>"]
+]);
+rows([
+ ["J'ai eu de la chance.","zhay EW duh lah SHAHNSS","I was lucky."],
+ ["J'ai fait mes devoirs.","zhay FEH may duh-VWAHR","I did my homework."],
+ ["J'ai pris le bus.","zhay PREE luh BEWSS","I took the bus."],
+ ["J'ai bu un café.","zhay BEW uhn kah-FAY","I drank a coffee."],
+ ["J'ai lu un livre.","zhay LEW uhn LEE-vruh","I read a book."],
+ ["J'ai vu un film.","zhay VEW uhn FEELM","I saw a film."],
+ ["J'ai été malade.","zhay ay-TAY mah-LAHD","I was ill."]
+]);
+note("<b>Learn one stem, get three verbs.</b> <i>prendre → pris</i> brings <i>ap<b>prendre</b> → ap<b>pris</b></i> and <i>com<b>prendre</b> → com<b>pris</b></i> with it. Same with <i>mettre → mis</i>, which gives <i>per<b>mettre</b> → per<b>mis</b></i> (and <i>un permis</i> = a licence).");
+warn("<b>« eu » is pronounced just « ew ».</b> The a, the v and the o all vanish. <i>J'ai eu</i> = zhay EW. It looks like it should be two syllables; it isn't.");
+
+/* ===== 4 ===== */
+h2("4 · Le piège : -er ou -é ?");
+warn("<b>❌ J'ai manger une pizza. → ✅ J'ai mangé une pizza.</b><br><br>This is the most-committed error in all of French, and here is exactly why it happens: <b>-er and -é are pronounced identically</b>. <i>manger</i> and <i>mangé</i> are both <b>mahn-ZHAY</b>. Your ear gives you no warning at all — it is purely a writing decision.");
+table(["Après…","Forme","Exemple"],[
+ ["<b>avoir</b> (passé composé)","<b>-é</b>","j'ai mang<b>é</b>"],
+ ["<b>aller</b> (futur proche)","<b>-er</b>","je vais mang<b>er</b>"],
+ ["un autre verbe","<b>-er</b>","je veux mang<b>er</b> · j'aime mang<b>er</b>"],
+ ["une préposition","<b>-er</b>","pour mang<b>er</b> · sans mang<b>er</b> · avant de mang<b>er</b>"]
+]);
+ex("<b>The test:</b> after <b>ai / as / a / avons / avez / ont</b>, it is <u>always</u> <b>-é</b>. An infinitive can never follow an auxiliary.<br><br>So the two tenses you now know sit on opposite sides of one sound:<br>· je vais mang<b>er</b> — I'm going to eat<br>· j'ai mang<b>é</b> — I ate<br><br>Identical in the second half. Different spelling, different time. Hold that pair straight and you've beaten the hardest thing on this page.");
+
+h3("Le test de substitution");
+ex("If you're unsure, swap in an <b>-IR</b> or irregular verb, where the two forms <u>do</u> sound different:<br><br>· <i>J'ai mang__ une pizza</i> → try <i>prendre</i>: <b>J'ai pris</b> une pizza ✓ (not <i>j'ai prendre</i>) → so it's the <b>participle</b> → <b>mangé</b><br>· <i>Je vais mang__</i> → try <i>prendre</i>: <b>Je vais prendre</b> ✓ (not <i>je vais pris</i>) → so it's the <b>infinitive</b> → <b>manger</b><br><br>This trick works every time and it's what French schoolchildren are taught.");
+
+/* ===== 5 ===== */
+h2("5 · La négation et la question");
+h3("Négation — ne … pas enveloppe l'auxiliaire");
+ex("The <b>ne … pas</b> wraps <u>only</u> the conjugated auxiliary. The participle stays outside.");
+rows([
+ ["Je n'ai pas travaillé hier.","zhuh nay pah trah-vah-YAY ee-YEHR","I didn't work yesterday."],
+ ["Il n'a pas mangé.","eel nah pah mahn-ZHAY","He didn't eat."],
+ ["Nous n'avons pas compris.","noo nah-vohn pah kohn-PREE","We didn't understand."],
+ ["Je n'ai jamais vu ce film.","zhuh nay zhah-meh VEW suh FEELM","I've never seen that film."],
+ ["Je n'ai rien fait.","zhuh nay ryan FEH","I didn't do anything."],
+ ["Il n'a pas encore fini.","eel nah pah zahn-kor fee-NEE","He hasn't finished yet."]
+]);
+warn("<b>✗ J'ai ne pas mangé. ✗ J'ai pas mangé hier… </b>(the second is acceptable in casual speech but never in writing). The correct frame is <b>n' + ai + pas + participe</b>. Note that <i>ne</i> becomes <b>n'</b> before every form of avoir, since they all start with a vowel.");
+
+h3("Question");
+table(["Registre","Exemple","Prononciation"],[
+ ["Intonation","Tu as mangé ?","tew ah mahn-ZHAY"],
+ ["Est-ce que","Est-ce que tu as mangé ?","ess-kuh tew ah mahn-ZHAY"],
+ ["Inversion","As-tu mangé ?","ah-TEW mahn-ZHAY"]
+]);
+rows([
+ ["Qu'est-ce que tu as fait hier ?","kess kuh tew ah feh ee-YEHR","What did you do yesterday?"],
+ ["Où est-ce que tu es allé ?","oo ess kuh tew eh ah-LAY","Where did you go?"],
+ ["Tu as bien dormi ?","tew ah byan dor-MEE","Did you sleep well?"]
+]);
+note("In the inverted form, only the <b>auxiliary</b> flips with the subject: <i>As-tu mangé ?</i> — never <i>Mangé as-tu ?</i> The participle stays at the end. Same logic as the négation: everything happens around the little verb.");
+
+/* ===== 6 ===== */
+h2("6 · Les marqueurs de temps du passé");
+lead("These are what signal to your listener that the action is closed.");
+grid([["hier","ee-YEHR"],["hier soir","ee-yehr SWAHR"],["avant-hier","ah-vahn-tee-YEHR"],["ce matin","suh mah-TAN"],["la semaine dernière","lah suh-men dair-NYEHR"],["samedi dernier","sahm-dee dair-NYAY"],["le mois dernier","luh mwah dair-NYAY"],["l'année dernière","lah-NAY dair-NYEHR"],["il y a deux jours","eel-ee-ah duh ZHOOR"],["déjà","day-ZHAH"],["récemment","ray-sah-MAHN"],["une fois","ewn FWAH"]]);
+note("<b>dernier / dernière agrees</b> with its noun: le mois dern<b>ier</b> (m.) but la semaine dern<b>ière</b> and l'année dern<b>ière</b> (f.) — the same agreement logic as <i>quel</i>.<br><br>And <b>il y a</b> here means <b>\"ago\"</b>, not \"there is\": <i>il y a deux jours</i> = two days ago. Context decides.");
+table(["Passé","Futur"],[
+ ["hier","demain"],
+ ["la semaine <b>dernière</b>","la semaine <b>prochaine</b>"],
+ ["le mois <b>dernier</b>","le mois <b>prochain</b>"],
+ ["l'année <b>dernière</b>","l'année <b>prochaine</b>"]
+]);
+
+/* ===== 7 ===== */
+h2("7 · Exercices");
+
+h3("Exercice 1 — Transformez au passé composé");
+fill([
+ {s:"1. Je mange une pizza. → ______ une pizza.", a:["j'ai mangé","jai mangé"], en:"I ate a pizza.", why:"je → j'ai · manger → mangé."},
+ {s:"2. Tu regardes une série. → ______ une série.", a:["tu as regardé"], en:"You watched a series.", why:"tu → as · regarder → regardé."},
+ {s:"3. Elle travaille à la maison. → ______ à la maison.", a:["elle a travaillé"], en:"She worked at home.", why:"elle → a · travailler → travaillé."},
+ {s:"4. Nous parlons français. → ______ français.", a:["nous avons parlé"], en:"We spoke French.", why:"nous → avons (liaison noo-Zah-vohn) · parler → parlé."},
+ {s:"5. Vous écoutez de la musique. → ______ de la musique.", a:["vous avez écouté","vous avez ecouté"], en:"You listened to music.", why:"Double liaison: voo-Zah-vay-Zay-koo-TAY. The hardest one here to say cleanly."},
+ {s:"6. Ils jouent au football. → ______ au football.", a:["ils ont joué"], en:"They played football.", why:"⚠ ils → <b>ont</b>, not <i>sont</i>. eel-ZOHN zhoo-AY."},
+ {s:"7. Je finis mes devoirs. → ______ mes devoirs.", a:["j'ai fini","jai fini"], en:"I finished my homework.", why:"-IR verb → <b>fini</b>, no accent."},
+ {s:"8. Il choisit un restaurant. → ______ un restaurant.", a:["il a choisi"], en:"He chose a restaurant.", why:"-IR verb → <b>choisi</b>."}
+]);
+
+h3("Exercice 2 — Complétez avec AVOIR");
+lead("Word bank: <b>ai / as / a / avons / avez / ont</b>");
+fill([
+ {s:"1. J'______ regardé un film.", a:["ai"], en:"I watched a film.", why:"je → ai."},
+ {s:"2. Tu ______ mangé une pizza.", a:["as"], en:"You ate a pizza.", why:"tu → as."},
+ {s:"3. Elle ______ travaillé hier.", a:["a"], en:"She worked yesterday.", why:"elle → a."},
+ {s:"4. Nous ______ joué au football.", a:["avons"], en:"We played football.", why:"nous → avons."},
+ {s:"5. Vous ______ étudié le français.", a:["avez"], en:"You studied French.", why:"vous → avez."},
+ {s:"6. Ils ______ écouté de la musique.", a:["ont"], en:"They listened to music.", why:"⚠ ils → <b>ont</b>, never <i>sont</i>. And it links twice: eel-zohn-tay-koo-TAY."},
+ {s:"7. On ______ parlé avec le professeur.", a:["a"], en:"We spoke with the teacher.", why:"⚠ <b>on</b> takes the il/elle form → <b>a</b>, never <i>avons</i>. Pronounced ohn-NAH."},
+ {s:"8. J'______ fini mes devoirs.", a:["ai"], en:"I finished my homework.", why:"je → ai."}
+]);
+warn("<b>Items 6 and 7 are the whole exercise.</b> Item 6 tests <i>ont</i> vs <i>sont</i>; item 7 tests whether you remember that <b>on</b> is grammatically singular. Everything else is routine.");
+
+h3("Exercice 3 — Participe passé");
+fill([
+ {s:"1. manger → ______", a:["mangé"], en:"eaten", why:"-ER → -é."},
+ {s:"2. parler → ______", a:["parlé"], en:"spoken", why:"-ER → -é."},
+ {s:"3. regarder → ______", a:["regardé"], en:"watched", why:"-ER → -é."},
+ {s:"4. travailler → ______", a:["travaillé"], en:"worked", why:"-ER → -é."},
+ {s:"5. écouter → ______", a:["écouté","ecouté"], en:"listened", why:"-ER → -é."},
+ {s:"6. finir → ______", a:["fini"], en:"finished", why:"-IR → -i, no accent."},
+ {s:"7. choisir → ______", a:["choisi"], en:"chosen", why:"-IR → -i."},
+ {s:"8. faire → ______", a:["fait"], en:"done / made", why:"irrégulier — fait (feh)."},
+ {s:"9. prendre → ______", a:["pris"], en:"taken", why:"irrégulier — pris (pree), silent s."},
+ {s:"10. boire → ______", a:["bu"], en:"drunk", why:"irrégulier — bu (bew)."}
+]);
+note("The exercise is built in three blocks on purpose: <b>1–5 regular -ER</b>, <b>6–7 regular -IR</b>, <b>8–10 irregular</b>. It's testing whether you can classify the verb <u>before</u> transforming it.");
+
+h3("Exercice 4 — Ma journée d'hier");
+lead("The handout's writing task: seven sentences, all beginning <b>j'ai…</b>");
+rows([
+ ["Le matin, j'ai pris mon petit-déjeuner.","luh mah-TAN, zhay PREE mohn puh-tee-day-zhuh-NAY","In the morning I had breakfast."],
+ ["J'ai bu un café pour le petit-déjeuner.","zhay BEW uhn kah-FAY","I drank a coffee for breakfast."],
+ ["À midi, j'ai mangé avec mes collègues.","ah mee-DEE, zhay mahn-ZHAY ah-vek may koh-LEG","At noon I ate with my colleagues."],
+ ["L'après-midi, j'ai travaillé au bureau.","lah-preh-mee-DEE, zhay trah-vah-YAY oh bew-ROH","In the afternoon I worked at the office."],
+ ["Après, j'ai appelé ma famille.","ah-PREH, zhay ah-puh-LAY mah fah-MEEY","Afterwards I called my family."],
+ ["Le soir, j'ai regardé un match de cricket.","luh SWAHR, zhay ruh-gar-DAY uhn match duh kree-KET","In the evening I watched a cricket match."],
+ ["Avant de dormir, j'ai étudié le français.","ah-vahn duh dor-MEER, zhay ay-tew-DYAY luh frahn-SEH","Before sleeping I studied French."]
+]);
+ex("<b>The shape that carries this exercise:</b><br><b>marqueur de temps + j'ai + participe + complément</b><br><br>Six time expressions in seven sentences — <i>Le matin, À midi, L'après-midi, Après, Le soir, Avant de dormir</i>. That stacking is the real skill: French narration hangs on time markers, and they're what turn seven isolated facts into a day.<br><br>Note <b>avant de + infinitif</b> — <i>avant de dormir</i> = before sleeping. After <i>avant de</i>, always an infinitive, never a participle.");
+warn("<b>Careful with « sortir ».</b> It appears in the handout's word bank, but it takes <b>être</b>, not avoir: <i>je <u>suis</u> sorti</i>. The être-verbs haven't been taught yet, so pick a different verb for now.");
+
+/* ===== 8 ===== */
+h2("8 · Texte parallèle — Mon week-end dernier");
+lead("An original text written for this page, using only the passé composé with avoir.");
+ex("<b>Mon week-end dernier</b><br><br>Samedi dernier, j'ai passé une très bonne journée.<br><br>Le matin, j'ai dormi jusqu'à dix heures — je n'ai pas travaillé ! J'ai pris mon petit-déjeuner tranquillement et j'ai bu deux cafés. Ensuite, j'ai lu un peu et j'ai écouté de la musique indienne.<br><br>L'après-midi, mes amis ont téléphoné. Nous avons joué au cricket pendant trois heures. Il a fait très beau — nous avons eu de la chance !<br><br>Le soir, on a mangé au restaurant. J'ai choisi un plat indien et mon ami Anirudh a pris une pizza. Nous avons beaucoup parlé et nous avons bien ri.<br><br>Avant de dormir, j'ai regardé un film et j'ai étudié le français pendant vingt minutes. Je n'ai pas fini mes exercices, mais ce n'est pas grave !");
+
+h3("Glossaire du texte");
+rows([
+ ["j'ai passé une très bonne journée","zhay pah-SAY ewn treh bun zhoor-NAY","I had a very good day"],
+ ["j'ai dormi jusqu'à dix heures","zhay dor-MEE zhews-kah dee ZUR","I slept until ten"],
+ ["je n'ai pas travaillé","zhuh nay pah trah-vah-YAY","I didn't work"],
+ ["tranquillement","trahn-keel-MAHN","peacefully, in a relaxed way"],
+ ["j'ai bu deux cafés","zhay bew duh kah-FAY","I drank two coffees"],
+ ["j'ai lu un peu","zhay lew uhn PUH","I read a bit"],
+ ["mes amis ont téléphoné","may zah-MEE zohn tay-lay-foh-NAY","my friends phoned"],
+ ["pendant trois heures","pahn-DAHN trwah ZUR","for three hours"],
+ ["Il a fait très beau.","eel ah feh treh BOH","The weather was lovely."],
+ ["nous avons eu de la chance","noo zah-vohn zew duh lah SHAHNSS","we were lucky"],
+ ["j'ai choisi un plat indien","zhay shwah-ZEE uhn plah an-DYAN","I chose an Indian dish"],
+ ["nous avons bien ri","noo zah-vohn byan REE","we laughed a lot"],
+ ["pendant vingt minutes","pahn-DAHN van mee-NEWT","for twenty minutes"],
+ ["ce n'est pas grave","suh neh pah GRAHV","it doesn't matter"]
+]);
+
+h3("Compréhension");
+mcq([
+ {q:"Jusqu'à quelle heure a-t-il dormi ?", opts:["Huit heures","Dix heures","Midi"], a:1, why:"« j'ai dormi jusqu'à dix heures »."},
+ {q:"Combien de cafés a-t-il bu ?", opts:["Un","Deux","Trois"], a:1, why:"« j'ai bu deux cafés »."},
+ {q:"Combien de temps ont-ils joué au cricket ?", opts:["Une heure","Deux heures","Trois heures"], a:2, why:"« pendant trois heures »."},
+ {q:"Qu'a pris Anirudh au restaurant ?", opts:["Un plat indien","Une pizza","Un café"], a:1, why:"« mon ami Anirudh a pris une pizza »."},
+ {q:"A-t-il fini ses exercices ?", opts:["Oui","Non","Il n'en avait pas"], a:1, why:"« Je n'ai pas fini mes exercices, mais ce n'est pas grave ! »"}
+]);
+
+h3("Repérez la grammaire");
+note("Find these in the text:<br>· <b>Deux négations</b> — <i>je n'ai <u>pas</u> travaillé</i>, <i>je n'ai <u>pas</u> fini</i>. Both wrap the auxiliary only.<br>· <b>Cinq participes irréguliers</b> — <i>dormi, pris, bu, lu, eu, fait, choisi, ri</i>. How many can you trace back to the infinitive?<br>· <b>Trois auxiliaires différents à la 3e personne</b> — <i>mes amis <u>ont</u> téléphoné</i>, <i>Anirudh <u>a</u> pris</i>, <i>on <u>a</u> mangé</i>.<br>· <b>Un « on » pour « nous »</b> — <i>on a mangé au restaurant</i>, with the singular <i>a</i>.<br>· <b>Un verbe météo au passé</b> — <i>Il <u>a fait</u> très beau.</i><br>· <b>Six marqueurs de temps</b> — samedi dernier, le matin, ensuite, l'après-midi, le soir, avant de dormir.");
+ex("<b>À vous — écrivez votre week-end dernier.</b> Ten sentences. Requirements:<br>☐ open with <b>Samedi dernier</b> or <b>Le week-end dernier</b><br>☐ at least <b>six different participles</b>, including <b>two irregulars</b><br>☐ at least <b>three different subjects</b> (je, nous/on, mes amis…)<br>☐ one <b>negative</b> (<i>je n'ai pas…</i>)<br>☐ one <b>weather</b> sentence (<i>il a fait…</i>)<br>☐ at least <b>five time markers</b><br><br>Then read it aloud and check every participle: if it follows <i>ai/as/a/avons/avez/ont</i>, it must end in <b>-é</b>, <b>-i</b>, <b>-u</b>, <b>-is</b> or <b>-it</b> — never <b>-er</b>.");
+/* ===== 7. Quiz ===== */
+const h7 = document.createElement('h2'); h7.textContent = "9 · Quick quiz"; content.appendChild(h7);
+const quizBox = document.createElement('div'); quizBox.className='quizbox';
+quizBox.innerHTML = '<p class="lead" style="margin:0 0 8px;">Multiple-choice, mixing today\'s vocab.</p>';
+const quizBtn = document.createElement('button'); quizBtn.className='quizbtn'; quizBtn.textContent='▶ Start quiz';
+const quizArea = document.createElement('div'); quizArea.className='quizarea';
+quizBox.appendChild(quizBtn); quizBox.appendChild(quizArea);
+content.appendChild(quizBox);
+
+function shuffleArr(a){ const b=[...a]; for(let i=b.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [b[i],b[j]]=[b[j],b[i]]; } return b; }
+function runQuiz(pool, area, btn){
+  btn.style.display='none';
+  const qs = shuffleArr(pool).slice(0, Math.min(8, pool.length));
+  let i = 0, score = 0;
+  function showQ(){
+    area.innerHTML = '';
+    if (i >= qs.length) {
+      const res = document.createElement('div'); res.className='quizresult';
+      res.textContent = 'Score: '+score+' / '+qs.length;
+      const retry = document.createElement('button'); retry.className='quizretry'; retry.textContent='↻ Retry';
+      retry.onclick = ()=>{ btn.style.display='inline-block'; area.innerHTML=''; };
+      area.appendChild(res); area.appendChild(retry);
+      return;
+    }
+    const item = qs[i];
+    const wrongPool = pool.filter(p=>p.en!==item.en);
+    const opts = shuffleArr([item, ...shuffleArr(wrongPool).slice(0,3)]);
+    const prog = document.createElement('div'); prog.className='quizprog'; prog.textContent = 'Question '+(i+1)+' / '+qs.length;
+    const fr = document.createElement('div'); fr.className='quizfr'; fr.textContent = item.fr;
+    area.appendChild(prog); area.appendChild(fr);
+    opts.forEach(o=>{
+      const b = document.createElement('button'); b.className='quizopt'; b.textContent = o.en;
+      b.onclick = ()=>{
+        [...area.querySelectorAll('.quizopt')].forEach(x=>x.disabled=true);
+        if (o.en===item.en){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); [...area.querySelectorAll('.quizopt')].find(x=>x.textContent===item.en).classList.add('correct'); }
+        setTimeout(()=>{ i++; showQ(); }, 900);
+      };
+      area.appendChild(b);
+    });
+  }
+  showQ();
+}
+quizBtn.onclick = ()=> runQuiz(GLOBAL_VOCAB, quizArea, quizBtn);
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+<script src="french_glossary.js"></script>
+</body>
+</html>

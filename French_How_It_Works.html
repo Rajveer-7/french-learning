@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French — Comment le français fonctionne</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Comment le français fonctionne</h1>
+  <p class="sub">The logic underneath the rules · why French lost its endings, hates vowel collisions, protects its sounds with spelling, and sounds nothing like it looks</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Cours21_Notes.html">Cours 21</a>
+    <a href="French_Cours22_Notes.html">Cours 22</a>
+    <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
+    <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html" class="active">How French Works</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').textContent=fr; c.querySelector('.ph').textContent=ph;
+    c.onclick=()=>speak(fr); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+h2("Pourquoi cette page existe");
+ex("<b>Grammar rules tell you <u>what</u> to do. This page tells you <u>why</u>.</b><br><br>Most of what looks arbitrary in French isn't. The silent letters, the genders, the liaisons, the accents, the word order — nearly all of it follows from a small number of underlying forces. Once you see those forces, dozens of separate \"rules\" collapse into a handful of ideas, and the language starts feeling designed rather than invented to annoy you.<br><br>Read this once now, and again in six months. It will mean more the second time.");
+
+h2("1 · Le français est une langue qui a perdu ses fins de mots");
+ex("<b>This single fact explains more than any other.</b><br><br>Two thousand years ago French was Latin, and Latin marked everything at the <u>end</u> of words — case, number, person. Over centuries, French speakers gradually stopped pronouncing those endings. The spellings stayed; the sounds went.<br><br>So French ended up with a writing system describing a language that no longer sounds that way.");
+table(["Écrit","Prononcé","Ce qui s'est perdu"],[
+ ["je parle","parl","the -e"],
+ ["tu parles","parl","the -es"],
+ ["il parle","parl","the -e"],
+ ["ils parlent","parl","the -ent"],
+ ["les amis","lay-zah-MEE","the -s (except as a liaison)"],
+ ["grande","grahnd","nothing — the -e saved the d"]
+]);
+warn("<b>Three consequences you meet every single day:</b><br><br><b>1. Silent endings.</b> Final consonants are usually silent — <i>peti<u>t</u></i>, <i>françai<u>s</u></i>, <i>gran<u>d</u></i>. They're there because they were once pronounced.<br><br><b>2. Four verb forms sound identical.</b> In the present and the imparfait, je/tu/il/ils are the same sound. That's why French <b>cannot drop the subject pronoun</b> the way Spanish and Italian can — those languages kept their endings, so <i>hablo</i> already means \"I speak\". French lost them, so <i>parle</i> on its own means nothing.<br><br><b>3. The pronoun became compulsory.</b> It isn't politeness or style. It's the only thing carrying the information the endings used to carry.");
+note("<b>And the one letter that rescues the others:</b> adding <b>-e</b> wakes a silent consonant back up.<br>· peti<b>t</b> (puh-TEE) → peti<b>te</b> (puh-TEET)<br>· françai<b>s</b> (frahn-SEH) → françai<b>se</b> (frahn-SEZ)<br>· gran<b>d</b> (grahn) → gran<b>de</b> (grahnd)<br><br>This is why the feminine is so often audible when the masculine isn't. The -e isn't a sound in itself — it's a sign saying \"pronounce the letter before me\".");
+
+h2("2 · Le français déteste deux voyelles qui se touchent");
+ex("<b>French will do almost anything to avoid two vowel sounds colliding.</b> This one aversion generates at least five \"rules\" you've already met as separate things.");
+table(["Le problème","La solution","Le nom"],[
+ ["je + ai","<b>j'</b>ai","élision"],
+ ["le + ami","<b>l'</b>ami","élision"],
+ ["ce + ami","<b>cet</b> ami","consonne de soutien"],
+ ["ma + amie","<b>mon</b> amie","changement de genre apparent"],
+ ["les + amis","les<b>⁀z</b>amis","liaison"],
+ ["a-t-il","a<b>-t-</b>il","t euphonique"],
+ ["si + il","s<b>'</b>il","élision"]
+]);
+ex("<b>Look at what that unifies.</b> Elision, liaison, the mysterious <i>cet</i>, the <i>-t-</i> in <i>a-t-il</i>, and the strange fact that a feminine noun takes <b>mon</b> instead of <b>ma</b> — these are not five rules. They are <u>one preference</u>, solved five different ways depending on what tools were available.<br><br>Once you know this, you stop memorising and start predicting. Any time a word ending in a vowel meets a word starting with one, something is going to happen.");
+note("<b>And the exception that proves it:</b> the <b>h aspiré</b>. A handful of words — <i>le héros</i>, <i>les haricots</i>, <i>le hall</i> — behave as if they started with a consonant and <u>block</u> the liaison. These are mostly words borrowed from Germanic languages, where the h really was pronounced. The language is still, a thousand years later, treating them as foreign.");
+
+h2("3 · L'orthographe protège la prononciation");
+ex("<b>French spelling looks chaotic. It isn't — it's defensive.</b> Several letters change their sound depending on what follows, and the spelling bends to keep the sound constant.");
+table(["Lettre","Dure devant","Douce devant","La défense"],[
+ ["<b>c</b>","a, o, u — [k]","e, i, y — [s]","<b>ç</b> forces [s]: fran<b>ç</b>ais, nous commen<b>ç</b>ons"],
+ ["<b>g</b>","a, o, u — [g]","e, i, y — [zh]","<b>e</b> forces [zh]: nous mang<b>e</b>ons, nous voyag<b>e</b>ons"]
+]);
+ex("<b>So the cedilla and the silent e in « mangeons » are the same invention.</b> Both exist to stop a following <b>o</b> from hardening the consonant.<br><br>And this is why <i>je commence</i> has no cedilla but <i>nous commençons</i> does: the <b>e</b> of <i>-e</i> already keeps the c soft, so no defence is needed. The cedilla appears only where the threat appears.");
+h3("Le même principe pour les accents");
+table(["Forme","Pourquoi"],[
+ ["je me l<b>è</b>ve","the ending is silent, so the stress lands on the stem → open vowel → è"],
+ ["nous l<b>e</b>vons","the ending is heard, so the stem is unstressed → reduced vowel → plain e"],
+ ["je préf<b>è</b>re","same rule"],
+ ["nous préf<b>é</b>rons","same rule"]
+]);
+ex("<b>The accent isn't decoration — it's a stress mark.</b> French words are stressed on the <u>last pronounced syllable</u>. When the ending is silent, the stem becomes the last syllable and the vowel opens. When the ending is pronounced, the stem is no longer stressed and the vowel reduces.<br><br>The accent is simply writing down what your mouth was going to do anyway.");
+
+h2("4 · Le genre n'est pas du sexe — c'est un système d'accord");
+ex("<b>The question \"why is a table feminine?\" has no answer, and asking it leads you nowhere.</b> Gender in French isn't about the thing. It's a <u>classification system</u> — arbitrary like a filing cabinet — whose job is to let the rest of the sentence agree and stay connected.");
+table(["La phrase","Ce que l'accord fait"],[
+ ["<b>La</b> peti<b>te</b> maison blanch<b>e</b> est jolie.","Four words all marked feminine — you know they belong together"],
+ ["<b>Les</b> peti<b>ts</b> livre<b>s</b> ver<b>ts</b> sont là.","Four words all marked plural"]
+]);
+ex("<b>Agreement is redundancy, and redundancy is useful.</b> If you mishear one word in a noisy room, the other three still tell you the number and gender. English achieves the same robustness with rigid word order; French achieves it with agreement — which is also why French can move words around more freely than English.<br><br>So gender isn't a bug. It's doing a job. It's just a job you have to pay for in memorisation.");
+warn("<b>The practical consequence:</b> never learn a noun alone. Learn <b>une</b> table, <b>un</b> livre, <b>la</b> maison, <b>le</b> pain. The article <u>is</u> part of the word.<br><br>Learning <i>table</i> and then separately learning its gender is doing the work twice, and the second half never sticks. This is the single most important study habit on this page.");
+note("<b>Some endings are reliable, though:</b><br>· <b>-tion, -sion, -té, -ure, -ence, -ance, -ette</b> → féminin (la nation, la liberté, la voiture, la différence)<br>· <b>-ment, -age, -eau, -isme, -oir</b> → masculin (le gouvernement, le voyage, le bureau, le tourisme)<br><br>Those cover a large slice of the abstract vocabulary you'll meet from B1 onwards.");
+
+h2("5 · Le français place les mots autrement");
+h3("A · L'adjectif vient après");
+table(["Français","Anglais"],[
+ ["une voiture <b>rouge</b>","a <b>red</b> car"],
+ ["un film <b>intéressant</b>","an <b>interesting</b> film"],
+ ["la cuisine <b>indienne</b>","<b>Indian</b> food"]
+]);
+ex("<b>The logic:</b> French names the thing first, then describes it. English describes first, then names. Neither is more natural — but it means you must <u>hold the adjective back</u> while speaking, which feels unnatural for a long time.<br><br>The exceptions are the short, very common, very old adjectives: <b>beau, bon, grand, petit, jeune, vieux, nouveau, joli, gros, mauvais</b>. These come <u>before</u>. You can remember them as <b>BAGS</b> — Beauty, Age, Goodness, Size — the four things humans judge instantly.");
+h3("B · Les pronoms viennent avant le verbe");
+table(["Français","Anglais","Littéralement"],[
+ ["Je <b>le</b> vois.","I see <b>it</b>.","I it see"],
+ ["Je <b>lui</b> parle.","I speak <b>to him</b>.","I to-him speak"],
+ ["Je <b>te</b> le donne.","I give <b>it to you</b>.","I to-you it give"]
+]);
+warn("<b>This is the second wall</b> (the first is imparfait vs passé composé), and it's coming at A2. The pronouns go <u>before</u> the verb, in a <u>fixed order</u>, which is close to the reverse of English. There's no shortcut — it takes drilling until the order is physical rather than thought.");
+h3("C · La négation entoure le verbe");
+ex("<b>ne … pas</b> is a sandwich, not a word. The <i>ne</i> goes before the verb and the <i>pas</i> after it, and everything attached to the verb goes inside:<br><br>· Je <b>ne</b> parle <b>pas</b>.<br>· Je <b>ne</b> <u>me</u> lève <b>pas</b>. — the reflexive pronoun is inside<br>· Je <b>n'</b><u>ai</u> <b>pas</b> mangé. — only the auxiliary is inside; the participle sits outside<br>· Je <b>ne</b> <u>vais</u> <b>pas</b> manger. — same: only the conjugated verb<br><br>Once you see that only the <b>conjugated</b> verb goes inside the sandwich, every negation in French becomes predictable.");
+note("<b>And in speech, half the sandwich disappears.</b> French people say <i>je sais pas</i>, <i>c'est pas grave</i>, <i>j'ai pas faim</i>. The <b>ne</b> is dropped constantly. Understand it, expect it — but keep the <i>ne</i> in your own speech and always in writing. A TEF examiner will notice its absence.");
+
+h2("6 · Le français préfère le nom là où l'anglais préfère le verbe");
+table(["Français","Anglais littéral","Anglais naturel"],[
+ ["J'<b>ai faim</b>.","I have hunger.","I'm hungry."],
+ ["J'<b>ai vingt ans</b>.","I have twenty years.","I'm twenty."],
+ ["Il <b>fait</b> froid.","It makes cold.","It's cold."],
+ ["J'<b>ai besoin de</b>…","I have need of…","I need…"],
+ ["<b>avoir</b> peur / raison / sommeil","to have fear / reason / sleep","to be afraid / right / sleepy"]
+]);
+ex("<b>This is a real difference in how the two languages see the world.</b> English treats hunger as a <u>state you are in</u>; French treats it as a <u>thing you have</u>. Neither is more logical.<br><br>At higher levels this grows into <b>nominalisation</b> — formal French prefers nouns where English prefers verbs. <i>La mise en œuvre du projet</i> rather than \"implementing the project\". It's one of the markers of C1 writing, and the <i>avoir faim</i> family is where it starts.");
+
+h2("7 · Le français est une langue de registres");
+ex("<b>French marks social distance more sharply than English does.</b> The clearest case is <b>tu / vous</b>, which English lost around 1700 — but it runs through the whole language.");
+table(["Familier","Courant","Soutenu"],[
+ ["T'as l'heure ?","Tu as l'heure ?","Auriez-vous l'heure ?"],
+ ["Je sais pas.","Je ne sais pas.","Je l'ignore."],
+ ["C'est quoi ?","Qu'est-ce que c'est ?","Qu'est-ce que cela ?"],
+ ["On y va ?","On y va ?","Nous y allons ?"],
+ ["Je veux…","Je voudrais…","Je souhaiterais…"]
+]);
+ex("<b>Three practical consequences:</b><br><br><b>1. The three question forms are a register scale</b>, not three equivalent options. <i>Tu viens ?</i> (familier) · <i>Est-ce que tu viens ?</i> (courant) · <i>Viens-tu ?</i> (soutenu). The exam wants the third in writing.<br><br><b>2. <b>on</b> replaces <b>nous</b> almost entirely in speech</b> — but not in writing. Using <i>nous</i> in conversation sounds stiff; using <i>on</i> in an exam essay sounds careless.<br><br><b>3. <b>Je voudrais</b>, not <b>je veux</b>.</b> The conditional is the politeness tense, and in a shop or a restaurant the indicative lands as rude.");
+warn("<b>For the TEF this matters directly.</b> The written paper is marked on <u>soutenu/courant</u> norms: keep the <i>ne</i>, use <i>nous</i>, use inversion or <i>est-ce que</i>, avoid <i>on</i> and <i>ça</i>. The oral is more forgiving, but the examiner is still listening for whether you can <u>choose</u> a register rather than only having one.");
+
+h2("8 · Le français parlé et le français écrit sont presque deux langues");
+ex("<b>This is the thing that most surprises learners, and it explains why listening is so hard.</b><br><br>French is written as separate words and spoken as a continuous stream. Liaisons, elisions and dropped sounds glue everything together, so a sentence you'd read easily becomes unrecognisable at speed.");
+table(["Écrit","Prononcé lentement","Prononcé normalement"],[
+ ["Je ne sais pas.","zhuh nuh seh PAH","<b>shay PAH</b>"],
+ ["Il n'y a pas de problème.","eel nyah pah duh proh-BLEM","<b>ya pah d'proh-BLEM</b>"],
+ ["Qu'est-ce que tu fais ?","kess kuh tew FEH","<b>kess-tew FEH</b> / <b>tu fais KWAH</b>"],
+ ["Nous avons étudié.","noo zah-vohn zay-tew-DYAY","<b>noozavonzaytewdyay</b> — one block"]
+]);
+warn("<b>So if you can read French but not understand it, nothing is wrong with you.</b> You are experiencing a real property of the language, not a personal failure.<br><br>The fix is not more grammar. It's <b>hours of listening</b> — ideally the same audio twice, once without the transcript and once with. That second pass is where your ear learns to cut the stream back into words.");
+
+h2("9 · Ce que le français vous donne gratuitement");
+ex("It's worth being fair to the language. Several things are <b>easier</b> than in English:");
+table(["Ce qui est plus facile","Pourquoi"],[
+ ["<b>Un seul présent</b>","<i>je parle</i> = I speak / I am speaking / I do speak. No continuous form to build."],
+ ["<b>Un seul passé composé</b>","<i>j'ai mangé</i> = I ate / I have eaten. English forces a choice; French doesn't."],
+ ["<b>Le futur proche</b>","<i>aller</i> + infinitive. No new endings at all."],
+ ["<b>DEPUIS + présent</b>","<i>j'habite ici depuis deux ans</i> expresses a perfect tense using only the present."],
+ ["<b>L'imparfait</b>","One formation rule, one exception in the whole language."],
+ ["<b>L'orthographe est prévisible à la lecture</b>","Unlike English, if you know the rules you can pronounce any written word. (The reverse isn't true.)"],
+ ["<b>60 % du vocabulaire anglais vient du français</b>","<i>important, nation, problème, impossible, restaurant, service</i> — thousands of words you already know."]
+]);
+note("<b>That last point is the biggest gift and the most underused.</b> After 1066, English absorbed an enormous quantity of French vocabulary — especially in law, government, food, art and abstract thought. Which means <b>the harder and more formal the French word, the more likely you already know it</b>.<br><br>This is why C1 reading is often easier than A2 conversation: <i>néanmoins</i> is harder than <i>considérablement</i>, but <i>considérablement</i> is free. Lean on it.");
+
+h2("10 · Les quatre faux amis les plus dangereux");
+table(["Le mot","Ce que ça <u>n'est pas</u>","Ce que c'est"],[
+ ["<b>actuellement</b>","actually","currently, at the moment"],
+ ["<b>éventuellement</b>","eventually","possibly, if need be"],
+ ["<b>assister à</b>","to assist","to attend"],
+ ["<b>rester</b>","to rest","to stay"],
+ ["<b>la journée</b>","journey","the day"],
+ ["<b>la librairie</b>","library","bookshop (library = la bibliothèque)"],
+ ["<b>sensible</b>","sensible","sensitive"],
+ ["<b>la monnaie</b>","money","loose change (money = l'argent)"],
+ ["<b>le collège</b>","college","middle school (11–15)"],
+ ["<b>le bac</b>","bachelor's degree","high-school leaving exam"]
+]);
+warn("<b>Faux amis are more dangerous than unknown words</b>, because an unknown word stops you and makes you ask. A false friend lets you carry on confidently in the wrong direction — and your listener may not realise either. The ones above are the ones that will actually cost you.");
+
+h2("11 · Comment utiliser tout ça");
+ex("<b>Four habits that follow directly from this page:</b><br><br><b>1. Learn nouns with their article.</b> <i>une</i> table, never <i>table</i>. Gender is part of the word.<br><br><b>2. When a rule looks arbitrary, ask what sound it's protecting.</b> Nine times out of ten that's the answer — the cedilla, the <i>cet</i>, the <i>-t-</i>, the accents, the liaisons.<br><br><b>3. Listen to the same thing twice.</b> Once cold, once with the transcript. The gap between what you heard and what was said <u>is</u> the language.<br><br><b>4. Read aloud, always.</b> French makes four verb forms sound identical and glues words together — neither of which you'll ever internalise by reading silently.");
+note("<b>And one thing to stop doing.</b> Stop asking \"why is it like that?\" about <u>gender</u> and <u>irregular verbs</u> specifically. Those two really are arbitrary — the residue of two thousand years of sound change — and no explanation will make them memorable. Everything <i>else</i> on this page has a reason. Those two just have history.");
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+<script src="french_glossary.js"></script>
+</body>
+</html>

@@ -40,6 +40,49 @@
   .bigplay { display:inline-flex; align-items:center; gap:8px; border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:10px 18px; font-size:15px; cursor:pointer; margin:6px 0 16px; }
   .row.active { border-color:var(--accent); background:var(--accentbg); }
 </style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
+<style id="xp-style">
+  .xp h2 { font-size:18px; margin:26px 0 6px; padding-bottom:6px; border-bottom:2px solid #e6e3dc; color:#23201b; }
+  .xp h3 { font-size:15px; margin:16px 0 6px; color:#4338ca; }
+  .xp p.xp-lead { font-size:14px; color:#6b675f; margin:0 0 10px; }
+  .xp .xp-note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .xp .xp-ex { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .xp .xp-warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .xp .xp-row { display:flex; align-items:center; gap:12px; background:#fff; border:1px solid #e6e3dc; border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .xp .xp-play { flex:0 0 auto; width:38px; height:38px; border-radius:50%; border:1px solid #e6e3dc; background:#eceafe; color:#4338ca; font-size:15px; cursor:pointer; }
+  .xp .xp-txt { flex:1 1 auto; min-width:0; }
+  .xp .xp-fr { font-size:16px; font-weight:600; cursor:pointer; }
+  .xp .xp-fr:hover { color:#4338ca; }
+  .xp .xp-ph { font-size:13px; color:#0f7a54; font-style:italic; }
+  .xp .xp-en { font-size:13px; color:#6b675f; }
+  .xp table.xp-t { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .xp table.xp-t th, .xp table.xp-t td { border:1px solid #e6e3dc; padding:8px 10px; text-align:left; vertical-align:top; }
+  .xp table.xp-t th { background:#eceafe; color:#4338ca; }
+  .xp .xp-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .xp .xp-cell { background:#fff; border:1px solid #e6e3dc; border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .xp .xp-cell:hover { border-color:#4338ca; }
+  .xp .xp-cell b { display:block; font-size:14px; }
+  .xp .xp-cell i { font-size:11px; color:#0f7a54; font-style:italic; }
+  .xp .xp-fill { background:#fff; border:1px solid #e6e3dc; border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .xp .xp-fill .s { font-size:15px; margin-bottom:8px; }
+  .xp .xp-fill input { border:1px solid #e6e3dc; border-radius:8px; padding:6px 10px; font-size:14px; width:230px; }
+  .xp .xp-fill button { border:1px solid #4338ca; background:#4338ca; color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .xp .xp-fb { font-size:13px; margin-top:8px; }
+  .xp .xp-fb.ok { color:#155c37; } .xp .xp-fb.bad { color:#a33; }
+  .xp .xp-q { background:#fff; border:1px solid #e6e3dc; border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .xp .xp-q .prompt { font-size:15px; font-weight:600; margin-bottom:8px; }
+  .xp .xp-q .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .xp .xp-q .btns button { border:1px solid #e6e3dc; background:#fff; color:#23201b; border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .xp .xp-q .btns button:hover { border-color:#4338ca; }
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -71,15 +114,42 @@
     <a href="French_Cours21_Notes.html">Cours 21</a>
     <a href="French_Cours22_Notes.html">Cours 22</a>
     <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
     <a href="French_Conversations.html">Conversations</a>
     <a href="French_Dialogues.html">Dialogues</a>
     <a href="French_Full_Guide.html">Full Guide</a>
     <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
     <a href="French_Prof_Notes.html">Prof's Notes</a>
     <a href="French_Book_Audio.html">Book Audio</a>
     <a href="French_Audio_Library.html">Audio Library</a>
     <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
   </nav>
+
+<div class="whybox">
+  <h4><span>Pourquoi ça marche comme ça</span>Pourquoi on « a » faim au lieu d'« être » faim</h4>
+  <p>English treats hunger as a <u>state you are in</u>. French treats it as a <u>thing you possess</u>: <i>j'ai faim</i>, literally "I have hunger".<br><br>Neither is more logical — they are two different metaphors for the same feeling. But the French one is older: Latin did the same thing.<br><br>This matters beyond A1. At B2 and C1, formal French keeps reaching for nouns where English reaches for verbs — <i>la mise en œuvre du projet</i> rather than "implementing the project". <b>J'ai faim</b> is where that habit starts.</p>
+  <a class="more" href="French_Grammaire.html">Aller plus loin →</a>
+</div>
+
 
   <div class="bar">
     <span>Speed:</span>
@@ -96,6 +166,7 @@
   <p class="lead">Following today's whiteboard checklist: name → age → profession → where you live → nationality → languages.</p>
   <button class="bigplay" id="playAll">▶ Play whole introduction</button>
   <div id="lines"></div>
+  <div class="xp" id="xpand"></div>
 </div>
 
 <script>
@@ -266,6 +337,201 @@ document.getElementById('speed').addEventListener('click',e=>{
   [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
   e.target.classList.add('on');
 });
+</script>
+<script>
+
+(function(){
+  var C = document.getElementById('xpand');
+  function sp(t){ try{ if(typeof speak==='function'){ speak(t); return; } }catch(e){}
+    try{ speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(String(t).replace(/_+/g,'')); u.lang='fr-FR';
+      var v=speechSynthesis.getVoices().find(function(x){return /^fr/i.test(x.lang);}); if(v)u.voice=v;
+      if(typeof rate!=='undefined') u.rate=rate; speechSynthesis.speak(u);}catch(e){} }
+  function el(tag,cls,html){ var e=document.createElement(tag); if(cls)e.className=cls; if(html!=null)e.innerHTML=html; return e; }
+  function h2(t){ C.appendChild(el('h2',null,t)); }
+  function h3(t){ C.appendChild(el('h3',null,t)); }
+  function lead(t){ C.appendChild(el('p','xp-lead',t)); }
+  function note(t){ C.appendChild(el('div','xp-note',t)); }
+  function ex(t){ C.appendChild(el('div','xp-ex',t)); }
+  function warn(t){ C.appendChild(el('div','xp-warn',t)); }
+  function rows(list){ list.forEach(function(r){
+    var fr=r[0], ph=r[1], en=r[2];
+    var row=el('div','xp-row');
+    var b=el('button','xp-play','&#9654;'); b.onclick=function(){sp(fr);};
+    var t=el('div','xp-txt');
+    var f=el('div','xp-fr'); f.textContent=fr; f.onclick=function(){sp(fr);};
+    t.appendChild(f);
+    if(ph){ var p=el('div','xp-ph'); p.textContent=ph; t.appendChild(p); }
+    if(en){ var e2=el('div','xp-en'); e2.textContent=en; t.appendChild(e2); }
+    row.appendChild(b); row.appendChild(t); C.appendChild(row);
+    try{ if(typeof GLOBAL_VOCAB!=='undefined') GLOBAL_VOCAB.push({fr:fr,en:en||''}); }catch(e){}
+  }); }
+  function grid(list){ var g=el('div','xp-grid');
+    list.forEach(function(r){ var c=el('div','xp-cell','<b></b><i></i>');
+      c.querySelector('b').textContent=r[0]; c.querySelector('i').textContent=r[1]||'';
+      c.onclick=function(){sp(r[0]);}; g.appendChild(c); });
+    C.appendChild(g); }
+  function table(head, body){ var t=el('table','xp-t');
+    var html='<tr>'; head.forEach(function(h){ html+='<th>'+h+'</th>'; }); html+='</tr>';
+    body.forEach(function(r){ html+='<tr>'; r.forEach(function(c){ html+='<td>'+c+'</td>'; }); html+='</tr>'; });
+    t.innerHTML=html; C.appendChild(t); }
+  function fill(items){ items.forEach(function(it){
+    var d=el('div','xp-fill'); d.appendChild(el('div','s',it.s));
+    var inp=document.createElement('input'); inp.placeholder='...';
+    var btn=document.createElement('button'); btn.textContent='Check';
+    var fb=el('div','xp-fb');
+    function chk(){ var v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      var ok=it.a.some(function(a){return a.toLowerCase()===v;});
+      if(ok){ fb.className='xp-fb ok'; fb.innerHTML='\u2713 '+it.a[0]+' \u2014 '+it.why; sp(it.a[0]); }
+      else { fb.className='xp-fb bad'; fb.innerHTML='\u2717 Answer: <b>'+it.a[0]+'</b> \u2014 '+it.why; } }
+    btn.onclick=chk; inp.addEventListener('keydown',function(e){ if(e.key==='Enter') chk(); });
+    var line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn); d.appendChild(line);
+    if(it.en){ var t=el('div','xp-en',''); t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb); C.appendChild(d); }); }
+  function mcq(items){ items.forEach(function(it){
+    var d=el('div','xp-q'); d.appendChild(el('div','prompt',it.q));
+    var b=el('div','btns'); var fb=el('div','xp-fb');
+    it.opts.forEach(function(o,i){ var btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=function(){ if(i===it.a){ fb.className='xp-fb ok'; fb.innerHTML='\u2713 '+o+' \u2014 '+it.why; sp(o); }
+        else { fb.className='xp-fb bad'; fb.innerHTML='\u2717 The answer is <b>'+it.opts[it.a]+'</b> \u2014 '+it.why; } };
+      b.appendChild(btn); });
+    d.appendChild(b); d.appendChild(fb); C.appendChild(d); }); }
+  h2("Deep dive — AVOIR, les émotions et l'auto-présentation");
+lead("Cours 7 covered emotions and the verb avoir. Here is the full picture: avoir's own conjugation, the twenty expressions that use it where English uses \"to be\", and the complete emotional vocabulary.");
+
+h2("1 · AVOIR — conjugaison complète");
+table(["Sujet","Avoir","Prononciation","Exemple"],[
+ ["j'","<b>ai</b>","zhay","J'ai vingt-trois ans."],
+ ["tu","<b>as</b>","tew AH","Tu as faim ?"],
+ ["il / elle / on","<b>a</b>","eel ah / ohn <b>N</b>AH","Elle a un frère."],
+ ["nous","<b>avons</b>","noo <b>z</b>ah-VOHN","Nous avons cours."],
+ ["vous","<b>avez</b>","voo <b>z</b>ah-VAY","Vous avez raison."],
+ ["ils / elles","<b>ont</b>","eel <b>Z</b>OHN","Ils ont peur."]
+]);
+warn("<b>Quatre liaisons obligatoires :</b> on<b>⁀</b>a (ohn-NAH), nous<b>⁀</b>avons (noo-Zah-VOHN), vous<b>⁀</b>avez (voo-Zah-VAY), ils<b>⁀</b>ont (eel-ZOHN).<br><br>And the pair you must separate by ear:<br>· ils <b>ont</b> — eel <b>Z</b>OHN — they <i>have</i><br>· ils <b>sont</b> — eel <b>S</b>OHN — they <i>are</i>");
+
+h2("2 · Les expressions avec AVOIR");
+lead("English says \"I <b>am</b> hungry\". French says \"I <b>have</b> hunger\". This is one of the biggest sources of beginner error, and the list is short enough to learn in one sitting.");
+rows([
+ ["j'ai faim","zhay FAN","I'm hungry"],
+ ["j'ai soif","zhay SWAHF","I'm thirsty"],
+ ["j'ai froid","zhay FRWAH","I'm cold"],
+ ["j'ai chaud","zhay SHOH","I'm hot"],
+ ["j'ai sommeil","zhay soh-MAY","I'm sleepy"],
+ ["j'ai peur","zhay PUR","I'm scared"],
+ ["j'ai mal","zhay MAL","I'm in pain / it hurts"],
+ ["j'ai raison","zhay ray-ZOHN","I'm right"],
+ ["j'ai tort","zhay TOR","I'm wrong"],
+ ["j'ai de la chance","zhay duh lah SHAHNSS","I'm lucky"],
+ ["j'ai envie de…","zhay ahn-VEE duh","I feel like…"],
+ ["j'ai besoin de…","zhay buh-ZWAN duh","I need…"],
+ ["j'ai vingt-trois ans","zhay van-trwah ZAHN","I'm twenty-three"]
+]);
+warn("<b>✗ Je suis faim.</b> — the classic error, and immediately audible as foreign. There is no <i>être</i> anywhere in this family.<br><br>And note: <b>no article</b> in most of them — <i>j'ai faim</i>, not <i>j'ai la faim</i>. The exceptions are <i>j'ai <b>de la</b> chance</i> and <i>j'ai <b>mal à la</b> tête</i>.");
+h3("Avoir mal — dire où ça fait mal");
+rows([
+ ["J'ai mal à la tête.","zhay mal ah lah TET","I have a headache."],
+ ["J'ai mal au ventre.","zhay mal oh VAHN-truh","I have a stomach ache."],
+ ["J'ai mal à la gorge.","zhay mal ah lah GORZH","I have a sore throat."],
+ ["J'ai mal au dos.","zhay mal oh DOH","My back hurts."],
+ ["J'ai mal aux dents.","zhay mal oh DAHN","I have toothache."]
+]);
+note("The pattern is <b>avoir mal à + le/la/les</b>, with the usual contractions: <b>à + le = au</b>, <b>à + les = aux</b>. So <i>au ventre</i>, <i>au dos</i>, <i>aux dents</i>, but <i>à la tête</i>, <i>à la gorge</i>.");
+
+h2("3 · Les émotions — vocabulaire complet");
+h3("Avec Être — les états");
+rows([
+ ["Je suis content / contente.","zhuh swee kohn-TAHN / kohn-TAHNT","I'm happy."],
+ ["Je suis heureux / heureuse.","zhuh swee uh-RUH / uh-RUHZ","I'm happy. (deeper)"],
+ ["Je suis triste.","zhuh swee TREEST","I'm sad."],
+ ["Je suis fatigué / fatiguée.","zhuh swee fah-tee-GAY","I'm tired."],
+ ["Je suis énervé / énervée.","zhuh swee zay-nair-VAY","I'm annoyed."],
+ ["Je suis nerveux / nerveuse.","zhuh swee nair-VUH / nair-VUHZ","I'm nervous."],
+ ["Je suis surpris / surprise.","zhuh swee sewr-PREE / sewr-PREEZ","I'm surprised."],
+ ["Je suis inquiet / inquiète.","zhuh swee an-KYEH / an-KYET","I'm worried."],
+ ["Je suis stressé / stressée.","zhuh swee stress-SAY","I'm stressed."],
+ ["Je suis de bonne humeur.","zhuh swee duh bun ew-MUR","I'm in a good mood."],
+ ["Je suis de mauvaise humeur.","zhuh swee duh moh-vez ew-MUR","I'm in a bad mood."]
+]);
+warn("<b>L'accord de l'adjectif.</b> After être, the adjective agrees with <u>you</u>:<br>· <i>content</i> (kohn-TAHN) → <i>content<b>e</b></i> (kohn-TAHN<b>T</b>) — the -e wakes the t<br>· <i>heureu<b>x</b></i> → <i>heureu<b>se</b></i> — x becomes z<br>· <i>inquie<b>t</b></i> → <i>inqui<b>ète</b></i> — and an accent appears<br>· <i>fatigué</i> → <i>fatigué<b>e</b></i> — identical in sound<br><br>Some agreements you hear, some you only write. Both matter on paper.");
+h3("Demander comment ça va");
+rows([
+ ["Comment allez-vous ?","koh-mahn tah-lay-VOO","How are you? (formal)"],
+ ["Comment ça va ?","koh-mahn sah VAH","How's it going?"],
+ ["Ça va ?","sah VAH","You OK?"],
+ ["Ça va bien, merci. Et vous ?","sah vah BYAN, mair-SEE. ay VOO","I'm fine, thanks. And you?"],
+ ["Ça va, merci.","sah VAH, mair-SEE","I'm OK, thanks."],
+ ["Ça ne va pas très bien.","sah nuh vah pah treh BYAN","I'm not doing great."],
+ ["Pas mal.","pah MAL","Not bad."],
+ ["Comme ci, comme ça.","kom see, kom SAH","So-so."]
+]);
+note("<b>Ça va</b> is the most useful three letters in French. It is a question (<i>Ça va ?</i>), an answer (<i>Ça va.</i>), and a reassurance (<i>Ça va, ce n'est pas grave.</i>) — all with the same two words, separated only by intonation.");
+
+h2("4 · Être ou Avoir ? — la table de décision");
+table(["Avec Être","Avec Avoir"],[
+ ["Je <b>suis</b> fatigué.","J'<b>ai</b> sommeil."],
+ ["Je <b>suis</b> content.","J'<b>ai</b> de la chance."],
+ ["Je <b>suis</b> indien.","J'<b>ai</b> vingt-trois ans."],
+ ["Je <b>suis</b> administrateur.","J'<b>ai</b> un travail."],
+ ["Je <b>suis</b> malade.","J'<b>ai</b> mal à la tête."],
+ ["Je <b>suis</b> prêt.","J'<b>ai</b> besoin d'aide."]
+]);
+ex("<b>The rough rule:</b> être for <u>what you are</u> (identity, nationality, job, mood, adjective); avoir for <u>what you have</u> (age, possessions, and that fixed list of sensations: faim, soif, froid, chaud, peur, sommeil, mal, raison, tort).<br><br>The sensations are the only genuinely counter-intuitive part, and they're worth learning as a block, out loud, until they come without thinking.");
+
+h2("Exercices");
+h3("Exercice 1 — être ou avoir ?");
+mcq([
+ {q:"Je ______ faim.", opts:["suis","ai","es"], a:1, why:"Hunger is something you <b>have</b> in French: j'ai faim."},
+ {q:"Je ______ fatigué.", opts:["suis","ai","a"], a:0, why:"<i>fatigué</i> is an adjective → être."},
+ {q:"Je ______ sommeil.", opts:["suis","ai","es"], a:1, why:"<i>sommeil</i> is a noun (sleepiness) → avoir. Compare: <i>je suis fatigué</i> (adjective) vs <i>j'ai sommeil</i> (noun)."},
+ {q:"Elle ______ vingt ans.", opts:["est","a","sont"], a:1, why:"Age always uses avoir — and <i>ans</i> is compulsory."},
+ {q:"Nous ______ contents.", opts:["avons","sommes","ont"], a:1, why:"<i>contents</i> is an adjective → être, and it agrees: content<b>s</b>."},
+ {q:"Ils ______ raison.", opts:["sont","ont","est"], a:1, why:"<i>avoir raison</i> = to be right. eel-ZOHN, not eel-SOHN."},
+ {q:"Vous ______ peur ?", opts:["êtes","avez","est"], a:1, why:"<i>avoir peur</i> = to be scared."},
+ {q:"Tu ______ malade ?", opts:["es","as","est"], a:0, why:"<i>malade</i> is an adjective → être. But <i>tu as mal</i> uses avoir — different word, different verb."}
+]);
+h3("Exercice 2 — complétez l'expression");
+fill([
+ {s:"1. Il fait trente degrés ! J'ai ______.", a:["chaud"], en:"It's thirty degrees! I'm hot.", why:"avoir chaud."},
+ {s:"2. Je n'ai pas mangé depuis ce matin. J'ai ______.", a:["faim"], en:"I haven't eaten since this morning. I'm hungry.", why:"avoir faim."},
+ {s:"3. Il est minuit. J'ai ______.", a:["sommeil"], en:"It's midnight. I'm sleepy.", why:"avoir sommeil."},
+ {s:"4. Deux et deux font quatre. Tu as ______ !", a:["raison"], en:"Two and two make four. You're right!", why:"avoir raison."},
+ {s:"5. Il y a une araignée ! J'ai ______ !", a:["peur"], en:"There's a spider! I'm scared!", why:"avoir peur."}
+]);
+h3("Exercice 3 — accordez l'adjectif");
+fill([
+ {s:"Elle est ______ (content).", a:["contente"], en:"She is happy.", why:"Feminine → contente, and the -e makes the t audible."},
+ {s:"Ils sont ______ (fatigué).", a:["fatigués","fatigues"], en:"They are tired.", why:"Masculine plural → fatigués. Silent -s."},
+ {s:"Elle est ______ (heureux).", a:["heureuse"], en:"She is happy.", why:"-eux → -euse. The x becomes a z sound."},
+ {s:"Nous sommes ______ (prêt).", a:["prêts","prets"], en:"We are ready.", why:"Masculine plural → prêts."}
+]);
+
+h2("Texte parallèle — Une mauvaise journée");
+ex("<b>Lundi matin</b><br><br>Ce matin, je ne suis pas de bonne humeur. J'ai mal à la tête et j'ai sommeil — hier soir, j'ai regardé un film jusqu'à une heure du matin.<br><br>Il est sept heures et je suis déjà en retard. Je n'ai pas le temps de prendre mon petit-déjeuner, alors j'ai faim. Dehors, il fait froid et j'ai oublié mon manteau : j'ai très froid.<br><br>Au bureau, mes collègues sont de bonne humeur. Sylvie est contente parce que c'est son anniversaire — elle a trente ans aujourd'hui. Elle a apporté un gâteau. Finalement, j'ai de la chance : j'ai un gâteau et un café, et je ne suis plus fatigué.<br><br>Ça va mieux !");
+h3("Glossaire du texte");
+rows([
+ ["je ne suis pas de bonne humeur","zhuh nuh swee pah duh bun ew-MUR","I'm not in a good mood"],
+ ["jusqu'à une heure du matin","zhews-kah ewn ur dew mah-TAN","until one in the morning"],
+ ["je suis déjà en retard","zhuh swee day-ZHAH ahn ruh-TAR","I'm already late"],
+ ["Je n'ai pas le temps.","zhuh nay pah luh TAHN","I don't have time."],
+ ["j'ai oublié mon manteau","zhay oo-blee-AY mohn mahn-TOH","I forgot my coat"],
+ ["c'est son anniversaire","seh sohn nah-nee-vair-SEHR","it's her birthday"],
+ ["Elle a apporté un gâteau.","ell ah ah-por-TAY uhn gah-TOH","She brought a cake."],
+ ["Finalement, j'ai de la chance.","fee-nal-MAHN, zhay duh lah SHAHNSS","In the end, I'm lucky."],
+ ["je ne suis plus fatigué","zhuh nuh swee plew fah-tee-GAY","I'm not tired any more"],
+ ["Ça va mieux !","sah vah MYUH","Things are better!"]
+]);
+h3("Compréhension");
+mcq([
+ {q:"Pourquoi a-t-il sommeil ?", opts:["Il est malade","Il a regardé un film tard","Il a trop travaillé"], a:1, why:"« hier soir, j'ai regardé un film jusqu'à une heure du matin »."},
+ {q:"Pourquoi a-t-il froid ?", opts:["Il a oublié son manteau","La fenêtre est ouverte","Il est malade"], a:0, why:"« j'ai oublié mon manteau : j'ai très froid »."},
+ {q:"Quel âge a Sylvie aujourd'hui ?", opts:["Vingt ans","Trente ans","Quarante ans"], a:1, why:"« elle a trente ans aujourd'hui » — avoir, not être."},
+ {q:"Comment finit la journée ?", opts:["Mal","Mieux","Elle ne finit pas"], a:1, why:"« Ça va mieux ! » — the cake and coffee turn it around."}
+]);
+note("<b>Repérez la grammaire :</b><br>· <b>Six expressions avec avoir</b> — j'ai mal, j'ai sommeil, j'ai faim, j'ai froid, elle a trente ans, j'ai de la chance<br>· <b>Quatre adjectifs avec être</b> — de bonne humeur, en retard, contente, fatigué<br>· <b>Un accord féminin</b> — Sylvie est content<b>e</b><br>· <b>Deux négations différentes</b> — <i>je ne suis <u>pas</u></i> et <i>je ne suis <u>plus</u></i> (not any more)<br>· <b>Le piège évité</b> — the text never once says <i>je suis faim</i>");
+ex("<b>À vous —</b> write eight sentences about a good or bad day. Requirements: use <b>four</b> expressions with <i>avoir</i>, <b>three</b> adjectives with <i>être</i> (agreed correctly), one <i>ne… plus</i>, and finish with <i>Ça va mieux !</i> or <i>Ça ne va pas du tout !</i>");
+
+})();
+
 </script>
 <script src="french_glossary.js"></script>
 </body>

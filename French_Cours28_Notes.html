@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 28 — Les saisons et le temps</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+</style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 28: Les saisons et le temps</h1>
+  <p class="sub">The Language SKOOL · Fiche de cours A1 — the four seasons, and the three structures French uses for weather</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Cours21_Notes.html">Cours 21</a>
+    <a href="French_Cours22_Notes.html">Cours 22</a>
+    <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html" class="active">Cours 28</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
+    <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
+  </nav>
+
+<div class="whybox">
+  <h4><span>Pourquoi ça marche comme ça</span>Pourquoi « il » ne veut rien dire dans « il pleut »</h4>
+  <p>Nobody is raining. The <b>il</b> in <i>il pleut</i> and <i>il fait froid</i> refers to nothing at all — it is an empty placeholder, exactly like the "it" in English "it's raining".<br><br>French requires every sentence to have a subject, so when there is no real one, it supplies a dummy. That is also why the <i>il</i> never becomes <i>elle</i>, and why you never see <i>fait chaud</i> standing alone.<br><br>Same mechanism in <b>il y a</b> and <b>il faut</b> — two more phrases where <i>il</i> is holding a seat for nobody.</p>
+  <a class="more" href="French_Grammaire.html">Aller plus loin →</a>
+</div>
+
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').textContent=fr; c.querySelector('.ph').textContent=ph;
+    c.onclick=()=>speak(fr); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+/* ===== 1 ===== */
+h2("1 · Objectifs du cours");
+src("<b>Source :</b> <i>A1 French — Les Saisons et le Temps</i>, The Language SKOOL, 4 pages. Worked through in full, with extra vocabulary, explanation and practice added.");
+ex("<b>Ce que vous allez savoir faire :</b><br>· nommer les quatre saisons<br>· parler de la météo<br>· dire quelle saison vous aimez ou n'aimez pas<br>· parler de vos activités préférées selon le temps<br>· utiliser <b>il fait</b> / <b>il y a</b> / <b>il pleut</b> / <b>il neige</b><br><br>That last line is the heart of the lesson. French splits the weather across <b>three different structures</b>, and choosing between them is the only real difficulty here.");
+
+/* ===== 2 ===== */
+h2("2 · Les quatre saisons");
+rows([
+ ["le printemps","luh pran-TAHN","spring"],
+ ["l'été","lay-TAY","summer"],
+ ["l'automne","loh-TUN","autumn / fall"],
+ ["l'hiver","lee-VEHR","winter"]
+]);
+warn("<b>Trois pièges de prononciation :</b><br>· <b>l'automne</b> — the <b>m is silent</b>: loh-<b>TUN</b>, not \"oh-TOM-nuh\". (It comes back in <i>automnal</i>.)<br>· <b>le printemps</b> — the <b>-mps is entirely silent</b>: pran-TAHN. Three letters you write and never say.<br>· <b>l'hiver</b> — silent h, so the article elides: <i>l'hiver</i>, never <i>le hiver</i>.");
+note("All four seasons are <b>masculine</b>: le printemps, l'été, l'automne, l'hiver.");
+
+h3("« in + saison » — la règle du cours");
+table(["Saison","Préposition","Prononciation"],[
+ ["le printemps","<b>au</b> printemps","oh pran-TAHN"],
+ ["l'été","<b>en</b> été","ahn <b>n</b>ay-TAY"],
+ ["l'automne","<b>en</b> automne","ahn <b>n</b>oh-TUN"],
+ ["l'hiver","<b>en</b> hiver","ahn <b>n</b>ee-VEHR"]
+]);
+ex("<b>Why is spring the odd one out?</b> The other three begin with a <u>vowel</u>, so <i>en</i> glides onto them with a linking [n] — <i>en‿été</i>, <i>en‿automne</i>, <i>en‿hiver</i>. <i>Printemps</i> starts with a consonant, so that liaison can't happen, and French reaches for <b>au</b> instead.<br><br>Remember it as: <b>« au printemps, en everything else. »</b>");
+rows([
+ ["Au printemps, il fait doux.","oh pran-TAHN, eel feh DOO","In spring it's mild."],
+ ["En été, il fait chaud.","ahn nay-TAY, eel feh SHOH","In summer it's hot."],
+ ["En automne, il y a du vent.","ahn noh-TUN, eel-ee-ah dew VAHN","In autumn it's windy."],
+ ["En hiver, il fait froid.","ahn nee-VEHR, eel feh FRWAH","In winter it's cold."],
+ ["J'aime le printemps.","zhem luh pran-TAHN","I like spring."],
+ ["Je n'aime pas l'hiver.","zhuh nem pah lee-VEHR","I don't like winter."]
+]);
+note("<b>Two different structures, one word.</b> <i>J'aime <u>le</u> printemps</i> needs the article, because <i>aimer</i> always does. <i>Au printemps</i> has no article, because the preposition has absorbed it (à + le = au). Don't let one contaminate the other.");
+
+/* ===== 3 ===== */
+h2("3 · Les trois structures de la météo");
+lead("This is the section to actually understand. Everything else on the page is vocabulary.");
+table(["Structure","Ce qui suit","Pourquoi","Exemple"],[
+ ["<b>Il fait</b> …","un <b>adjectif</b>","a quality you feel","Il fait chaud."],
+ ["<b>Il y a</b> …","un <b>nom</b>","a thing present in the sky","Il y a du vent."],
+ ["<b>Il pleut / Il neige</b>","<b>rien</b>","rain and snow have their own verbs","Il pleut."]
+]);
+ex("<b>The one-question test:</b> is the weather word an <u>adjective</u>, a <u>noun</u>, or a <u>verb</u>?<br>· adjectif → <b>il fait</b><br>· nom → <b>il y a</b><br>· verbe → <b>il stands alone</b><br><br>Classify the word and you can never get this wrong. And the classification is usually visible: a <b>du / de la / des</b> in front means it's a noun.");
+
+h3("A · Il fait + adjectif");
+rows([
+ ["Il fait chaud.","eel feh SHOH","It's hot."],
+ ["Il fait froid.","eel feh FRWAH","It's cold."],
+ ["Il fait beau.","eel feh BOH","The weather's nice."],
+ ["Il fait mauvais.","eel feh moh-VEH","The weather's bad."],
+ ["Il fait frais.","eel feh FREH","It's cool."],
+ ["Il fait doux.","eel feh DOO","It's mild."],
+ ["Il fait très chaud.","eel feh treh SHOH","It's very hot."],
+ ["Il fait moins dix.","eel feh mwan DEESS","It's minus ten."]
+]);
+
+h3("B · Il y a + nom");
+rows([
+ ["Il y a du soleil.","eel-ee-ah dew soh-LAY","It's sunny."],
+ ["Il y a des nuages.","eel-ee-ah day new-AHZH","There are clouds."],
+ ["Il y a du vent.","eel-ee-ah dew VAHN","It's windy."],
+ ["Il y a du brouillard.","eel-ee-ah dew broo-YAR","There's fog."],
+ ["Il y a un orage.","eel-ee-ah uhn noh-RAHZH","There's a storm."],
+ ["Il y a de la glace.","eel-ee-ah duh lah GLASS","There's ice."]
+]);
+note("<b>The du / de la / des here is the partitive article</b> — \"some\". Never <i>il y a <u>le</u> soleil</i>, always <b>du soleil</b>.<br>· masculin → <b>du</b> soleil, <b>du</b> vent, <b>du</b> brouillard<br>· féminin → <b>de la</b> pluie, <b>de la</b> neige, <b>de la</b> glace<br>· pluriel → <b>des</b> nuages<br><br>Same system as <i>je bois <b>du</b> café</i> and <i>j'écoute <b>de la</b> musique</i>.");
+
+h3("C · Il pleut · Il neige");
+rows([
+ ["Il pleut.","eel PLUH","It's raining."],
+ ["Il pleut beaucoup.","eel pluh boh-KOO","It's raining a lot."],
+ ["Il neige.","eel NEZH","It's snowing."],
+ ["Il neige en hiver.","eel nezh ahn nee-VEHR","It snows in winter."],
+ ["Il gèle.","eel ZHEL","It's freezing."]
+]);
+warn("<b>L'Attention du cours :</b><br>❌ Il fait pluie → ✅ <b>Il pleut</b><br>❌ Il fait neige → ✅ <b>Il neige</b><br><br>English treats rain as a thing (\"there's rain\"), so learners reach for <i>il fait</i> or <i>il y a</i>. But French gives rain and snow their <b>own verbs</b> — they're the only two weather events important enough to earn one. <i>Il pleut</i> is already a complete sentence: subject + verb. Adding anything in front breaks it.");
+
+h3("Nom ou verbe ?");
+table(["Le nom","Le verbe"],[
+ ["<b>la pluie</b> (lah PLWEE) — the rain","<b>il pleut</b> (eel PLUH) — it's raining"],
+ ["<b>la neige</b> (lah NEZH) — the snow","<b>il neige</b> (eel NEZH) — it's snowing"]
+]);
+ex("<i>J'aime <b>la pluie</b>.</i> — noun, takes an article.<br><i><b>Il pleut</b>.</i> — verb, no article.<br><br>Note that <b>neige</b> looks identical in both columns. Only the <i>il</i> in front tells you which one you're reading: <i>La neige est blanche</i> vs <i>Il neige beaucoup</i>.");
+
+h3("« Il » ne veut rien dire");
+note("In <i>il fait chaud</i> and <i>il pleut</i>, the <b>il</b> refers to nothing at all. It's an empty placeholder, exactly like the \"it\" in English \"it's raining\" — nobody is raining. French requires a subject in every sentence, so it supplies a dummy one. That's why you never see <i>fait chaud</i> alone, and why the <i>il</i> never becomes <i>elle</i>.");
+
+h3("Pleuvoir et neiger aux autres temps");
+ex("These are <b>impersonal verbs</b> — they exist in one person only. There is no <i>je pleus</i>, no <i>nous neigeons</i>. Which makes them the easiest verbs in French to put into other tenses:");
+table(["Temps","Pluie","Neige","Le temps qu'il fait"],[
+ ["Présent","il <b>pleut</b>","il <b>neige</b>","il <b>fait</b> beau"],
+ ["Futur proche","il <b>va pleuvoir</b>","il <b>va neiger</b>","il <b>va faire</b> beau"],
+ ["Passé composé","il <b>a plu</b>","il <b>a neigé</b>","il <b>a fait</b> beau"],
+ ["Imparfait","il <b>pleuvait</b>","il <b>neigeait</b>","il <b>faisait</b> beau"]
+]);
+rows([
+ ["Il va pleuvoir demain.","eel vah pluh-VWAHR duh-MAN","It's going to rain tomorrow."],
+ ["Il a plu hier.","eel ah PLEW ee-YEHR","It rained yesterday."],
+ ["Il va neiger ce soir.","eel vah nay-ZHAY suh SWAHR","It's going to snow tonight."],
+ ["Il a fait très beau samedi.","eel ah feh treh BOH sahm-DEE","The weather was lovely on Saturday."]
+]);
+note("<b>il a plu</b> — the participle of <i>pleuvoir</i> is <b>plu</b>, and it sounds exactly like <i>plus</i>. Both last week's tenses apply to the weather with zero complications, since there's only ever one person to conjugate.");
+
+/* ===== 4 ===== */
+h2("4 · Vocabulaire — La météo");
+rows([
+ ["le soleil","luh soh-LAY","the sun"],
+ ["la pluie","lah PLWEE","the rain"],
+ ["un nuage","uhn new-AHZH","a cloud"],
+ ["le vent","luh VAHN","the wind"],
+ ["la neige","lah NEZH","the snow"],
+ ["le brouillard","luh broo-YAR","the fog"],
+ ["la température","lah tahm-pay-rah-TEWR","the temperature"],
+ ["un arc-en-ciel","uhn ark-ahn-SYEL","a rainbow"],
+ ["un orage","uhn noh-RAHZH","a storm"],
+ ["chaud","shoh","hot"],
+ ["froid","frwah","cold"],
+ ["frais","freh","cool"]
+]);
+note("<b>Genres :</b> <i>le</i> soleil, <i>le</i> vent, <i>le</i> brouillard, <i>un</i> nuage, <i>un</i> orage, <i>un</i> arc-en-ciel are masculine. Only <b>la pluie</b>, <b>la neige</b> and <b>la température</b> are feminine.<br><br><b>un arc-en-ciel</b> is literally \"an arc in sky\". Plural: <i>des arc<b>s</b>-en-ciel</i> — the s goes on <i>arc</i>, the part being counted.");
+
+h3("Vocabulaire supplémentaire — l'hiver canadien");
+rows([
+ ["une tempête de neige","ewn tahm-PET duh NEZH","a snowstorm"],
+ ["le verglas","luh vair-GLAH","black ice"],
+ ["la grêle","lah GREL","hail"],
+ ["le gel","luh ZHEL","frost"],
+ ["humide","ew-MEED","humid, damp"],
+ ["sec / sèche","sek / sesh","dry"],
+ ["nuageux","new-ah-ZHUH","cloudy"],
+ ["ensoleillé","ahn-soh-lay-YAY","sunny"],
+ ["pluvieux","plew-VYUH","rainy"],
+ ["Il fait moins vingt.","eel feh mwan VAN","It's minus twenty."]
+]);
+
+h3("Poser la question");
+rows([
+ ["Quel temps fait-il ?","kell tahn feh-TEEL","What's the weather like?"],
+ ["Quel temps fait-il aujourd'hui ?","kell tahn feh-teel oh-zhoor-DWEE","What's the weather like today?"],
+ ["Il fait combien ?","eel feh kohn-BYAN","What's the temperature?"],
+ ["Quelle est ta saison préférée ?","kell eh tah say-ZOHN pray-fay-RAY","What's your favourite season?"],
+ ["Tu préfères l'été ou l'hiver ?","tew pray-FEHR lay-TAY oo lee-VEHR","Do you prefer summer or winter?"]
+]);
+note("<b>Quel temps fait-il ?</b> uses <i>quel</i> agreeing with <i>temps</i> (masculin singulier), and <b>Quelle est ta saison préférée ?</b> uses <i>quelle</i> agreeing with <i>saison</i> (féminin singulier) — straight from Cours 24. And note the <b>-t-</b> in <i>fait-il</i>: French inserts it to avoid two vowels colliding.");
+
+/* ===== 5 ===== */
+h2("5 · Parler du temps aux trois temps");
+table(["Quand","Phrase","Prononciation"],[
+ ["<b>Aujourd'hui</b>","il <b>fait</b> chaud","oh-zhoor-DWEE, eel feh SHOH"],
+ ["<b>Demain</b>","il <b>va pleuvoir</b>","duh-MAN, eel vah pluh-VWAHR"],
+ ["<b>Hier</b>","il <b>faisait</b> froid","ee-YEHR, eel fuh-ZEH FRWAH"]
+]);
+ex("<b>Le cours vous prévient :</b> <i>« À ce niveau, les élèves peuvent surtout reconnaître “il faisait” sans encore maîtriser l'imparfait. »</i><br><br>Good advice. <b>Il faisait</b> is the <i>imparfait</i>, a tense you haven't been taught. Treat it for now as a <b>fixed phrase</b> meaning \"it was (weather)\". Don't try to derive it.");
+note("<b>But here's why the weather prefers the imparfait</b>, since you'll meet this distinction properly later:<br><br>· <i>Il <b>a fait</b> froid hier.</i> — possible, but frames the cold as one closed event.<br>· <i>Il <b>faisait</b> froid hier.</i> — the natural choice: weather is a <b>background state</b>, not an event with a start and a finish.<br><br>That's the whole imparfait / passé composé split in one example: <b>décors et états → imparfait</b>, <b>actions ponctuelles → passé composé</b>. Weather is almost always background.");
+rows([
+ ["Il faisait beau.","eel fuh-zeh BOH","The weather was nice."],
+ ["Il faisait froid.","eel fuh-zeh FRWAH","It was cold."],
+ ["Il pleuvait.","eel pluh-VEH","It was raining."],
+ ["Il neigeait.","eel nay-ZHEH","It was snowing."]
+]);
+ex("Four phrases, learned whole. That's everything you need from the imparfait today.");
+
+/* ===== 6 ===== */
+h2("6 · Exercices");
+
+h3("Exercice 2 — Complétez");
+lead("Mots : <b>chaud — froid — soleil — neige — vent — pleut</b>");
+fill([
+ {s:"1. En été, il fait ______.", a:["chaud"], en:"In summer it's hot.", why:"After <b>il fait</b> you need an <b>adjective</b> → chaud."},
+ {s:"2. En hiver, il fait ______.", a:["froid"], en:"In winter it's cold.", why:"<b>il fait</b> + adjectif → froid."},
+ {s:"3. Aujourd'hui, il y a du ______.", a:["soleil"], en:"Today it's sunny.", why:"After <b>il y a du</b> you need a <b>noun</b> → soleil."},
+ {s:"4. En hiver, il ______.", a:["neige"], en:"In winter it snows.", why:"Nothing between <i>il</i> and the blank → it must be a <b>verb</b> → neige."},
+ {s:"5. En automne, il y a du ______.", a:["vent"], en:"In autumn it's windy.", why:"<b>il y a du</b> + nom → vent."},
+ {s:"6. En automne, il ______ souvent.", a:["pleut"], en:"In autumn it often rains.", why:"<b>il</b> + verbe → pleut. And <i>souvent</i> points to rain, which recurs."}
+]);
+ex("<b>You can solve this without reading the word bank.</b> Look at what precedes the blank:<br>· <b>il fait</b> ___ → adjectif (1, 2)<br>· <b>il y a du</b> ___ → nom (3, 5)<br>· <b>il</b> ___ → verbe (4, 6)<br><br>Six blanks, three structures, two of each — and the word bank splits perfectly along those lines.");
+note("<b>« souvent » goes after the verb</b>, not before: <i>il pleut <u>souvent</u></i>, never <i>il souvent pleut</i>. Same for <i>toujours</i>, <i>beaucoup</i>, <i>parfois</i> — short adverbs sit immediately after the conjugated verb.");
+
+h3("Exercice 3 — Il fait, il y a ou il pleut ?");
+mcq([
+ {q:"______ chaud.", opts:["Il fait","Il y a","Il pleut"], a:0, why:"<i>chaud</i> is an adjective → il fait."},
+ {q:"______ du vent.", opts:["Il fait","Il y a","Il pleut"], a:1, why:"<i>du vent</i> is a noun with a partitive article → il y a."},
+ {q:"______ beaucoup aujourd'hui.", opts:["Il fait","Il y a","Il pleut"], a:2, why:"Nothing else follows except an adverb → the verb stands alone."},
+ {q:"______ des nuages.", opts:["Il fait","Il y a","Il neige"], a:1, why:"<i>des nuages</i> is a plural noun → il y a."},
+ {q:"______ mauvais.", opts:["Il fait","Il y a","Il pleut"], a:0, why:"<i>mauvais</i> is an adjective → il fait."},
+ {q:"______ du brouillard.", opts:["Il fait","Il y a","Il neige"], a:1, why:"<i>du brouillard</i> is a noun → il y a."}
+]);
+
+h3("Exercice 4 — Quelle saison ?");
+mcq([
+ {q:"Il fait très chaud. Je vais à la plage et je mange une glace.", opts:["C'est l'été.","C'est l'hiver.","C'est l'automne."], a:0, why:"<i>la plage</i> + <i>une glace</i> + très chaud → l'été."},
+ {q:"Il fait froid. Je porte un manteau et je bois un chocolat chaud.", opts:["C'est le printemps.","C'est l'hiver.","C'est l'été."], a:1, why:"<i>un manteau</i> + <i>un chocolat chaud</i> + froid → l'hiver."},
+ {q:"Il y a du vent. Je porte une veste et je regarde les feuilles tomber.", opts:["C'est l'été.","C'est l'automne.","C'est l'hiver."], a:1, why:"<i>les feuilles tomber</i> — falling leaves can only be autumn."},
+ {q:"Il fait doux. Je fais du vélo et je me promène.", opts:["C'est le printemps.","C'est l'hiver.","C'est l'automne."], a:0, why:"<i>doux</i> (mild) + outdoor activity without heat → le printemps."}
+]);
+
+h3("Vocabulaire des situations");
+rows([
+ ["la plage","lah PLAHZH","the beach"],
+ ["une glace","ewn GLASS","an ice cream"],
+ ["un manteau","uhn mahn-TOH","a coat"],
+ ["un chocolat chaud","uhn shoh-koh-lah SHOH","a hot chocolate"],
+ ["une veste","ewn VEST","a jacket"],
+ ["les feuilles","lay FUY","the leaves"],
+ ["tomber","tohn-BAY","to fall"],
+ ["faire du vélo","fehr dew vay-LOH","to cycle"],
+ ["se promener","suh prom-NAY","to go for a walk"]
+]);
+note("<b>faire du vélo</b> — <i>faire</i> + partitif is how French builds most sports and hobbies: <i>faire <b>du</b> sport</i>, <i>faire <b>de la</b> natation</i>, <i>faire <b>du</b> ski</i>. Compare <b>jouer à</b> for team games with a ball: <i>jouer <b>au</b> cricket</i>, <i>jouer <b>au</b> football</i>. Two patterns, both common.");
+
+h3("Exercice 5 — Corrigez l'erreur");
+mcq([
+ {q:"❌ En hiver, il fait neige.", opts:["En hiver, il neige.","En hiver, il y a neige.","C'est correct."], a:0, why:"<i>neiger</i> is a <b>verb</b> — it stands alone. No <i>il fait</i> in front."},
+ {q:"❌ En été, il y a chaud.", opts:["En été, il fait chaud.","En été, il pleut chaud.","C'est correct."], a:0, why:"<i>chaud</i> is an <b>adjective</b> → il fait, not il y a."},
+ {q:"❌ En automne, il fait du vent.", opts:["En automne, il y a du vent.","En automne, il vente.","C'est correct."], a:0, why:"<i>du vent</i> is a <b>noun</b> → il y a."}
+]);
+ex("Three errors, three different directions — the exercise checks you can move between all three structures, not just recognise one:<br>· <i>il fait neige</i> — treating a verb as an adjective<br>· <i>il y a chaud</i> — treating an adjective as a noun<br>· <i>il fait du vent</i> — treating a noun as an adjective");
+
+/* ===== 7 ===== */
+h2("7 · Texte parallèle — Les quatre saisons à Brampton");
+lead("An original text written for this page, using every structure above.");
+ex("<b>Les quatre saisons chez moi</b><br><br>J'habite à Brampton, au Canada, et ici les quatre saisons sont très différentes.<br><br><b>Au printemps</b>, il fait doux et il y a beaucoup de soleil. Les arbres sont verts et je me promène après le travail. C'est ma saison préférée.<br><br><b>En été</b>, il fait très chaud — parfois trente degrés ! Le week-end, je joue au cricket avec mes amis. Mais il y a aussi des orages : hier, il a plu pendant deux heures.<br><br><b>En automne</b>, il fait frais et il y a du vent. Les feuilles tombent et il y a souvent du brouillard le matin. J'aime beaucoup les couleurs — rouge, orange, jaune.<br><br><b>En hiver</b>, il fait très froid. Il neige beaucoup et il fait parfois moins vingt ! Je ne sors pas ; je reste à la maison et je bois un chocolat chaud. Je suis indien, pas pingouin !<br><br>Et chez vous, quel temps fait-il ?");
+
+h3("Glossaire du texte");
+rows([
+ ["les quatre saisons sont très différentes","lay katr say-ZOHN sohn treh dee-fay-RAHNT","the four seasons are very different"],
+ ["il y a beaucoup de soleil","eel-ee-ah boh-koo duh soh-LAY","there's a lot of sun"],
+ ["Les arbres sont verts.","lay ZAR-bruh sohn VEHR","The trees are green."],
+ ["je me promène après le travail","zhuh muh prom-NEN ah-preh luh trah-VYE","I go for a walk after work"],
+ ["C'est ma saison préférée.","seh mah say-ZOHN pray-fay-RAY","It's my favourite season."],
+ ["parfois trente degrés","par-FWAH trahnt duh-GRAY","sometimes thirty degrees"],
+ ["des orages","day zoh-RAHZH","storms"],
+ ["il a plu pendant deux heures","eel ah PLEW pahn-dahn duh ZUR","it rained for two hours"],
+ ["Les feuilles tombent.","lay fuy TOHM-buh","The leaves fall."],
+ ["du brouillard le matin","dew broo-YAR luh mah-TAN","fog in the morning"],
+ ["il fait parfois moins vingt","eel feh par-fwah mwan VAN","it's sometimes minus twenty"],
+ ["Je ne sors pas.","zhuh nuh sor PAH","I don't go out."],
+ ["je reste à la maison","zhuh rest ah lah may-ZOHN","I stay at home"],
+ ["Et chez vous ?","ay shay VOO","And where you are?"]
+]);
+
+h3("Compréhension");
+mcq([
+ {q:"Quelle est sa saison préférée ?", opts:["L'été","Le printemps","L'automne"], a:1, why:"« Au printemps… C'est ma saison préférée. »"},
+ {q:"Que fait-il en été le week-end ?", opts:["Il se promène","Il joue au cricket","Il reste à la maison"], a:1, why:"« Le week-end, je joue au cricket avec mes amis. »"},
+ {q:"Combien de temps a-t-il plu hier ?", opts:["Une heure","Deux heures","Toute la journée"], a:1, why:"« il a plu pendant deux heures » — and note the passé composé of pleuvoir."},
+ {q:"Qu'est-ce qu'il y a souvent le matin en automne ?", opts:["Du soleil","Du brouillard","De la neige"], a:1, why:"« il y a souvent du brouillard le matin »."},
+ {q:"Que fait-il en hiver ?", opts:["Il sort beaucoup","Il reste à la maison","Il joue au cricket"], a:1, why:"« Je ne sors pas ; je reste à la maison et je bois un chocolat chaud. »"}
+]);
+
+h3("Repérez la grammaire");
+note("Find one of each in the text:<br>· <b>Les quatre prépositions de saison</b> — <i>au</i> printemps, <i>en</i> été, <i>en</i> automne, <i>en</i> hiver<br>· <b>Il fait + adjectif</b> — doux, très chaud, frais, très froid, moins vingt<br>· <b>Il y a + nom</b> — du soleil, des orages, du vent, du brouillard<br>· <b>Un verbe météo seul</b> — <i>il neige beaucoup</i><br>· <b>Un verbe météo au passé composé</b> — <i>il <u>a plu</u> pendant deux heures</i><br>· <b>Une négation</b> — <i>je ne sors pas</i><br>· <b>Un verbe pronominal</b> — <i>je me promène</i><br>· <b>Une question avec quel</b> — <i>quel temps fait-il ?</i>");
+
+h3("À vous — écrivez");
+ex("Write eight sentences about the seasons where you live. Requirements — tick them off:<br>☐ use all <b>four season prepositions</b> (au printemps, en été, en automne, en hiver)<br>☐ use <b>il fait</b> at least twice<br>☐ use <b>il y a</b> at least twice<br>☐ use <b>il pleut</b> or <b>il neige</b> at least once<br>☐ say which season is your favourite with <i>C'est ma saison préférée</i><br>☐ include one activity per season<br>☐ finish with a question to the reader: <i>Et chez vous, quel temps fait-il ?</i><br><br>Then check every weather sentence against the three-structure test before you hand it in.");
+/* ===== 7. Quiz ===== */
+const h7 = document.createElement('h2'); h7.textContent = "8 · Quick quiz"; content.appendChild(h7);
+const quizBox = document.createElement('div'); quizBox.className='quizbox';
+quizBox.innerHTML = '<p class="lead" style="margin:0 0 8px;">Multiple-choice, mixing today\'s vocab.</p>';
+const quizBtn = document.createElement('button'); quizBtn.className='quizbtn'; quizBtn.textContent='▶ Start quiz';
+const quizArea = document.createElement('div'); quizArea.className='quizarea';
+quizBox.appendChild(quizBtn); quizBox.appendChild(quizArea);
+content.appendChild(quizBox);
+
+function shuffleArr(a){ const b=[...a]; for(let i=b.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [b[i],b[j]]=[b[j],b[i]]; } return b; }
+function runQuiz(pool, area, btn){
+  btn.style.display='none';
+  const qs = shuffleArr(pool).slice(0, Math.min(8, pool.length));
+  let i = 0, score = 0;
+  function showQ(){
+    area.innerHTML = '';
+    if (i >= qs.length) {
+      const res = document.createElement('div'); res.className='quizresult';
+      res.textContent = 'Score: '+score+' / '+qs.length;
+      const retry = document.createElement('button'); retry.className='quizretry'; retry.textContent='↻ Retry';
+      retry.onclick = ()=>{ btn.style.display='inline-block'; area.innerHTML=''; };
+      area.appendChild(res); area.appendChild(retry);
+      return;
+    }
+    const item = qs[i];
+    const wrongPool = pool.filter(p=>p.en!==item.en);
+    const opts = shuffleArr([item, ...shuffleArr(wrongPool).slice(0,3)]);
+    const prog = document.createElement('div'); prog.className='quizprog'; prog.textContent = 'Question '+(i+1)+' / '+qs.length;
+    const fr = document.createElement('div'); fr.className='quizfr'; fr.textContent = item.fr;
+    area.appendChild(prog); area.appendChild(fr);
+    opts.forEach(o=>{
+      const b = document.createElement('button'); b.className='quizopt'; b.textContent = o.en;
+      b.onclick = ()=>{
+        [...area.querySelectorAll('.quizopt')].forEach(x=>x.disabled=true);
+        if (o.en===item.en){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); [...area.querySelectorAll('.quizopt')].find(x=>x.textContent===item.en).classList.add('correct'); }
+        setTimeout(()=>{ i++; showQ(); }, 900);
+      };
+      area.appendChild(b);
+    });
+  }
+  showQ();
+}
+quizBtn.onclick = ()=> runQuiz(GLOBAL_VOCAB, quizArea, quizBtn);
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+<script src="french_glossary.js"></script>
+</body>
+</html>

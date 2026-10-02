@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French — Les verbes au présent (A1 complet)</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Les verbes au présent — le livre complet</h1>
+  <p class="sub">A1 reference · the three regular groups, every essential irregular, and the spelling-change verbs — with pronunciation on every form</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Cours21_Notes.html">Cours 21</a>
+    <a href="French_Cours22_Notes.html">Cours 22</a>
+    <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
+    <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html" class="active">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').textContent=fr; c.querySelector('.ph').textContent=ph;
+    c.onclick=()=>speak(fr); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+h2("Comment lire cette page");
+ex("<b>This is the complete A1 present tense.</b> Every verb you need before B1, conjugated in full, with pronunciation on every form.<br><br>Work through it in this order:<br><b>1.</b> The three regular groups — these are patterns, not vocabulary. Learn the pattern once.<br><b>2.</b> The eight verbs that matter most — être, avoir, aller, faire, venir, pouvoir, vouloir, devoir. These are irregular because they are used constantly.<br><b>3.</b> The rest, in families — irregular verbs cluster, so learning one often gives you three.<br><b>4.</b> The spelling-change verbs — regular in sound, awkward on the page.");
+warn("<b>The single most important sound fact on this page.</b> In the present tense, the endings <b>-e, -es, -ent</b> are all <u>silent</u>. So for every regular -ER verb, <b>four of the six forms sound identical</b>:<br><br><i>je parle · tu parles · il parle · ils parlent</i> — all <b>parl</b><br><br>Only <b>nous</b> (-ons) and <b>vous</b> (-ez) sound different. This is good news for speaking and bad news for writing, and it is why the pronoun in front is doing so much work.");
+
+h2("1 · Les trois groupes réguliers");
+h3("Groupe 1 — les verbes en -ER (≈90 % de tous les verbes)");
+table(["Sujet","Terminaison","parler","Prononciation"],[
+ ["je","<b>-e</b>","parl<b>e</b>","zhuh PARL"],
+ ["tu","<b>-es</b>","parl<b>es</b>","tew PARL"],
+ ["il / elle / on","<b>-e</b>","parl<b>e</b>","eel PARL"],
+ ["nous","<b>-ons</b>","parl<b>ons</b>","noo par-LOHN"],
+ ["vous","<b>-ez</b>","parl<b>ez</b>","voo par-LAY"],
+ ["ils / elles","<b>-ent</b>","parl<b>ent</b>","eel PARL"]
+]);
+ex("<b>The method:</b> take the infinitive, remove <b>-er</b>, add the ending. <i>parler → parl- → je parle</i>.<br><br>This works for thousands of verbs: <i>habiter, travailler, écouter, regarder, aimer, chercher, trouver, donner, jouer, manger, arriver, rentrer, étudier, voyager, rester, porter, commencer, oublier, appeler, acheter, préparer, déjeuner, dîner, téléphoner, inviter, réparer, réserver, coûter, payer, visiter, danser, chanter, nager, marcher, penser, parler…</i>");
+h3("Groupe 2 — les verbes en -IR (type finir)");
+table(["Sujet","Terminaison","finir","Prononciation"],[
+ ["je","<b>-is</b>","fin<b>is</b>","zhuh fee-NEE"],
+ ["tu","<b>-is</b>","fin<b>is</b>","tew fee-NEE"],
+ ["il / elle","<b>-it</b>","fin<b>it</b>","eel fee-NEE"],
+ ["nous","<b>-issons</b>","fin<b>issons</b>","noo fee-nee-SOHN"],
+ ["vous","<b>-issez</b>","fin<b>issez</b>","voo fee-nee-SAY"],
+ ["ils / elles","<b>-issent</b>","fin<b>issent</b>","eel fee-NEESS"]
+]);
+note("<b>The marker of this group is the <u>-iss-</b></b> that appears in the plural. If a verb ends in -ir and you hear <i>-issons / -issez / -issent</i>, it belongs here.<br><br>Members: <b>finir</b> (finish), <b>choisir</b> (choose), <b>réussir</b> (succeed), <b>grandir</b> (grow), <b>remplir</b> (fill), <b>réfléchir</b> (think about), <b>obéir</b> (obey), <b>applaudir</b> (applaud), <b>ralentir</b> (slow down).");
+warn("<b>Not every -ir verb is in this group.</b> <i>partir, sortir, dormir, venir, tenir, ouvrir</i> look the same in the infinitive but behave completely differently — they're in section 3. There is no rule; they have to be recognised individually.");
+h3("Groupe 3 — les verbes en -RE (type vendre)");
+table(["Sujet","Terminaison","vendre","Prononciation"],[
+ ["je","<b>-s</b>","vend<b>s</b>","zhuh VAHN"],
+ ["tu","<b>-s</b>","vend<b>s</b>","tew VAHN"],
+ ["il / elle","<b>—</b>","vend","eel VAHN"],
+ ["nous","<b>-ons</b>","vend<b>ons</b>","noo vahn-DOHN"],
+ ["vous","<b>-ez</b>","vend<b>ez</b>","voo vahn-DAY"],
+ ["ils / elles","<b>-ent</b>","vend<b>ent</b>","eel VAHND"]
+]);
+note("<b>Watch the third person singular — it takes <u>no ending at all</u>:</b> <i>il vend</i>, not <i>il vendt</i>.<br><br>Members: <b>vendre</b> (sell), <b>attendre</b> (wait), <b>entendre</b> (hear), <b>descendre</b> (go down), <b>répondre</b> (answer), <b>perdre</b> (lose), <b>rendre</b> (give back).<br><br>And listen to <i>ils vend<b>ent</b></i> = eel VAHN<b>D</b> — the silent -ent makes the <b>d</b> audible, which is the only way to hear the plural.");
+rows([
+ ["J'attends le bus.","zhah-TAHN luh BEWSS","I'm waiting for the bus."],
+ ["Il répond à la question.","eel ray-POHN ah lah kess-TYOHN","He answers the question."],
+ ["Nous entendons la musique.","noo zahn-tahn-DOHN lah mew-ZEEK","We hear the music."],
+ ["Ils vendent leur voiture.","eel VAHND lur vwah-TEWR","They're selling their car."]
+]);
+warn("<b>attendre = to wait FOR.</b> The \"for\" is built in — <i>j'attends le bus</i>, never <i>j'attends pour le bus</i>. Same with <b>chercher</b> (to look FOR) and <b>écouter</b> (to listen TO) and <b>regarder</b> (to look AT). Four verbs that swallow their English preposition.");
+
+h2("2 · Les huit verbes essentiels");
+lead("These eight carry more of the language than the next fifty combined. They are irregular precisely because they are used so much. Learn them cold.");
+h3("ÊTRE — to be");
+table(["Sujet","Forme","Prononciation","Exemple"],[
+ ["je","<b>suis</b>","zhuh SWEE","Je suis indien."],
+ ["tu","<b>es</b>","tew EH","Tu es prêt ?"],
+ ["il / elle / on","<b>est</b>","eel EH","Elle est française."],
+ ["nous","<b>sommes</b>","noo SUM","Nous sommes amis."],
+ ["vous","<b>êtes</b>","voo <b>Z</b>ET","Vous êtes professeur ?"],
+ ["ils / elles","<b>sont</b>","eel SOHN","Ils sont canadiens."]
+]);
+h3("AVOIR — to have");
+table(["Sujet","Forme","Prononciation","Exemple"],[
+ ["j'","<b>ai</b>","zhay","J'ai vingt-trois ans."],
+ ["tu","<b>as</b>","tew AH","Tu as faim ?"],
+ ["il / elle / on","<b>a</b>","eel AH / ohn <b>N</b>AH","On a cours."],
+ ["nous","<b>avons</b>","noo <b>z</b>ah-VOHN","Nous avons le temps."],
+ ["vous","<b>avez</b>","voo <b>z</b>ah-VAY","Vous avez raison."],
+ ["ils / elles","<b>ont</b>","eel <b>Z</b>OHN","Ils ont peur."]
+]);
+warn("<b>The three-way set you must separate by ear:</b><br>· ils <b>ont</b> — eel <b>Z</b>OHN — they <i>have</i><br>· ils <b>sont</b> — eel <b>S</b>OHN — they <i>are</i><br>· ils <b>vont</b> — eel <b>V</b>OHN — they <i>go</i><br><br>One consonant apart, three different verbs, and all three are auxiliaries — so context will not rescue you. Say the set aloud daily.");
+h3("ALLER — to go");
+table(["Sujet","Forme","Prononciation","Exemple"],[
+ ["je","<b>vais</b>","zhuh VEH","Je vais au travail."],
+ ["tu","<b>vas</b>","tew VAH","Tu vas où ?"],
+ ["il / elle / on","<b>va</b>","eel VAH","On va au cinéma."],
+ ["nous","<b>allons</b>","noo <b>z</b>ah-LOHN","Nous allons à Paris."],
+ ["vous","<b>allez</b>","voo <b>z</b>ah-LAY","Vous allez bien ?"],
+ ["ils / elles","<b>vont</b>","eel VOHN","Ils vont au marché."]
+]);
+ex("<b>Aller does three jobs:</b><br>· <b>movement</b> — <i>je vais à Paris</i><br>· <b>the futur proche</b> — <i>je vais manger</i> (I'm going to eat)<br>· <b>health / how things are</b> — <i>ça va ?</i>, <i>je vais bien</i><br><br>That third one is why \"How are you?\" is <i>Comment allez-vous ?</i> — literally \"how do you go?\"");
+h3("FAIRE — to do / to make");
+table(["Sujet","Forme","Prononciation","Exemple"],[
+ ["je","<b>fais</b>","zhuh FEH","Je fais mes devoirs."],
+ ["tu","<b>fais</b>","tew FEH","Tu fais quoi ?"],
+ ["il / elle / on","<b>fait</b>","eel FEH","Il fait froid."],
+ ["nous","<b>faisons</b>","noo fuh-ZOHN","Nous faisons du sport."],
+ ["vous","<b>faites</b>","voo FET","Vous faites quoi dans la vie ?"],
+ ["ils / elles","<b>font</b>","eel FOHN","Ils font la cuisine."]
+]);
+warn("<b>Two forms break every pattern in French.</b><br>· <b>vous faites</b> — not <i>faisez</i>. Only three verbs in the whole language do this: <i>faire, dire, être</i>.<br>· <b>nous faisons</b> is said <b>fuh-ZOHN</b>, not \"feh-ZOHN\" — the <i>ai</i> is reduced. This is a genuine irregularity of sound, not just spelling.");
+ex("<b>Faire is everywhere.</b> It covers weather (<i>il fait beau</i>), sports and activities (<i>faire du sport, du vélo, de la natation</i>), chores (<i>faire la cuisine, les courses, le ménage</i>), and distance/time (<i>ça fait deux heures</i>, <i>ça fait vingt euros</i>). When English reaches for a specific verb, French very often reaches for <i>faire</i>.");
+h3("VENIR — to come");
+table(["Sujet","Forme","Prononciation","Exemple"],[
+ ["je","<b>viens</b>","zhuh VYAN","Je viens d'Inde."],
+ ["tu","<b>viens</b>","tew VYAN","Tu viens avec moi ?"],
+ ["il / elle / on","<b>vient</b>","eel VYAN","Elle vient de Lyon."],
+ ["nous","<b>venons</b>","noo vuh-NOHN","Nous venons du Canada."],
+ ["vous","<b>venez</b>","voo vuh-NAY","Vous venez d'où ?"],
+ ["ils / elles","<b>viennent</b>","eel VYEN","Ils viennent demain."]
+]);
+note("<b>The boot pattern.</b> Look at where the stem changes: <i>vien-</i> in je/tu/il/ils, but <i>ven-</i> in nous/vous. Drawn in a table, the changed forms make the shape of a boot — four corners plus the bottom row. <b>Dozens of irregular verbs follow exactly this shape</b>, so once you see it you can predict it.<br><br>Same family: <b>tenir</b> (hold), <b>devenir</b> (become), <b>revenir</b> (come back), <b>obtenir</b> (obtain). One pattern, five verbs.");
+h3("POUVOIR · VOULOIR · DEVOIR — the three modals");
+table(["Sujet","pouvoir (can)","vouloir (want)","devoir (must)"],[
+ ["je","<b>peux</b> — puh","<b>veux</b> — vuh","<b>dois</b> — dwah"],
+ ["tu","<b>peux</b> — puh","<b>veux</b> — vuh","<b>dois</b> — dwah"],
+ ["il / elle","<b>peut</b> — puh","<b>veut</b> — vuh","<b>doit</b> — dwah"],
+ ["nous","<b>pouvons</b> — poo-VOHN","<b>voulons</b> — voo-LOHN","<b>devons</b> — duh-VOHN"],
+ ["vous","<b>pouvez</b> — poo-VAY","<b>voulez</b> — voo-LAY","<b>devez</b> — duh-VAY"],
+ ["ils / elles","<b>peuvent</b> — PUHV","<b>veulent</b> — VUHL","<b>doivent</b> — DWAHV"]
+]);
+ex("<b>All three are followed directly by an infinitive</b> — no preposition in between:<br>· <i>Je <b>peux</b> venir.</i> — I can come.<br>· <i>Je <b>veux</b> apprendre le français.</i> — I want to learn French.<br>· <i>Je <b>dois</b> travailler demain.</i> — I must work tomorrow.<br><br>And all three follow the <b>boot pattern</b>: the stem changes in je/tu/il/ils and reverts in nous/vous.");
+warn("<b>Je veux vs je voudrais.</b> <i>Je veux</i> (\"I want\") is blunt — in a shop or a restaurant it lands as rude. Use <b>je voudrais</b> (zhuh voo-DREH, \"I would like\"). It's the conditional, which you'll learn properly at B1, but memorise it now as a fixed phrase. Every French person says it fifty times a week.");
+rows([
+ ["Je peux vous aider ?","zhuh puh voo zay-DAY","Can I help you?"],
+ ["Est-ce que je peux… ?","ess kuh zhuh PUH","May I…?"],
+ ["Je voudrais un café, s'il vous plaît.","zhuh voo-DREH uhn kah-FAY","I'd like a coffee, please."],
+ ["Tu veux venir ?","tew vuh vuh-NEER","Do you want to come?"],
+ ["Je dois partir.","zhuh dwah par-TEER","I have to go."],
+ ["On doit réserver.","ohn dwah ray-zair-VAY","We have to book."]
+]);
+
+h2("3 · Les autres verbes irréguliers, par famille");
+lead("Irregular verbs cluster. Learn one stem and you often get three verbs free.");
+h3("Famille PRENDRE");
+table(["Sujet","prendre","apprendre","comprendre"],[
+ ["je","<b>prends</b> — prahn","apprends","comprends"],
+ ["tu","<b>prends</b> — prahn","apprends","comprends"],
+ ["il / elle","<b>prend</b> — prahn","apprend","comprend"],
+ ["nous","<b>prenons</b> — pruh-NOHN","apprenons","comprenons"],
+ ["vous","<b>prenez</b> — pruh-NAY","apprenez","comprenez"],
+ ["ils / elles","<b>prennent</b> — PREN","apprennent","comprennent"]
+]);
+rows([
+ ["Je prends le bus.","zhuh prahn luh BEWSS","I take the bus."],
+ ["J'apprends le français.","zhah-PRAHN luh frahn-SEH","I'm learning French."],
+ ["Je ne comprends pas.","zhuh nuh kohn-PRAHN PAH","I don't understand."],
+ ["Vous prenez un café ?","voo pruh-nay uhn kah-FAY","Are you having a coffee?"]
+]);
+note("<b>prendre</b> is not only \"to take\" — it's also the verb for <b>having food and drink</b>: <i>je prends un café</i>, <i>je prends le petit-déjeuner</i>. Using <i>avoir</i> there would be wrong.");
+h3("Famille PARTIR / SORTIR / DORMIR");
+table(["Sujet","partir (leave)","sortir (go out)","dormir (sleep)"],[
+ ["je","<b>pars</b> — par","<b>sors</b> — sor","<b>dors</b> — dor"],
+ ["tu","<b>pars</b>","<b>sors</b>","<b>dors</b>"],
+ ["il / elle","<b>part</b>","<b>sort</b>","<b>dort</b>"],
+ ["nous","<b>partons</b> — par-TOHN","<b>sortons</b>","<b>dormons</b>"],
+ ["vous","<b>partez</b> — par-TAY","<b>sortez</b>","<b>dormez</b>"],
+ ["ils / elles","<b>partent</b> — PART","<b>sortent</b> — SORT","<b>dorment</b> — DORM"]
+]);
+ex("<b>The trick for this family:</b> the singular <u>drops the last consonant of the stem</u> — <i>part- → je par<b>s</b></i> — and the plural puts it back — <i>nous par<b>t</b>ons</i>. Same for sortir, dormir, mentir, sentir, servir.<br><br>These are the -ir verbs that are <u>not</u> in the <i>finir</i> group — no <i>-iss-</i> anywhere.");
+h3("Autres verbes courants");
+table(["Infinitif","je","nous","ils","Sens"],[
+ ["<b>savoir</b>","sais (seh)","savons","savent (SAHV)","to know (a fact)"],
+ ["<b>connaître</b>","connais (koh-NEH)","connaissons","connaissent","to know (a person/place)"],
+ ["<b>voir</b>","vois (vwah)","voyons","voient (VWAH)","to see"],
+ ["<b>dire</b>","dis (dee)","disons","disent (DEEZ)","to say"],
+ ["<b>lire</b>","lis (lee)","lisons","lisent (LEEZ)","to read"],
+ ["<b>écrire</b>","écris (ay-KREE)","écrivons","écrivent","to write"],
+ ["<b>boire</b>","bois (bwah)","buvons","boivent (BWAHV)","to drink"],
+ ["<b>mettre</b>","mets (meh)","mettons","mettent (MET)","to put / put on"],
+ ["<b>ouvrir</b>","ouvre (OO-vruh)","ouvrons","ouvrent","to open"]
+]);
+warn("<b>savoir vs connaître</b> — both mean \"to know\", and French keeps them strictly apart:<br>· <b>savoir</b> + a fact, a skill, or a clause — <i>je sais nager</i>, <i>je sais qu'il est là</i>, <i>je ne sais pas</i><br>· <b>connaître</b> + a person, place or thing you're familiar with — <i>je connais Paris</i>, <i>je connais Marie</i><br><br>Rule of thumb: if a <u>noun</u> follows, it's usually <i>connaître</i>. If a <u>verb</u> or <i>que</i> follows, it's <i>savoir</i>. And <b>ouvrir</b> is the odd one out above — an -ir verb that takes <u>-ER endings</u>: <i>j'ouvr<b>e</b></i>, not <i>j'ouvris</i>.");
+
+h2("4 · Les verbes à changement orthographique");
+lead("Regular in sound, awkward on the page. All of them follow one principle: <b>the spelling bends to protect the pronunciation</b>.");
+h3("A · e → è (acheter, lever, se promener)");
+table(["Sujet","acheter","se lever"],[
+ ["je","ach<b>è</b>te — ah-SHET","me l<b>è</b>ve — muh LEV"],
+ ["tu","ach<b>è</b>tes","te l<b>è</b>ves"],
+ ["il / elle","ach<b>è</b>te","se l<b>è</b>ve"],
+ ["nous","ach<b>e</b>tons — ash-TOHN","nous l<b>e</b>vons"],
+ ["vous","ach<b>e</b>tez — ash-TAY","vous l<b>e</b>vez"],
+ ["ils / elles","ach<b>è</b>tent","se l<b>è</b>vent"]
+]);
+ex("<b>The rule:</b> accent grave when the ending is <u>silent</u>; plain e when you can <u>hear</u> the ending. So four forms take the accent and only <i>nous</i> / <i>vous</i> don't — the boot shape again.");
+h3("B · é → è (préférer, espérer, répéter)");
+table(["Sujet","préférer","Prononciation"],[
+ ["je","préf<b>è</b>re","zhuh pray-FEHR"],
+ ["nous","préf<b>é</b>rons","noo pray-fay-ROHN"],
+ ["ils","préf<b>è</b>rent","eel pray-FEHR"]
+]);
+h3("C · doubled consonant (appeler, jeter)");
+table(["Sujet","appeler","s'appeler"],[
+ ["je","appe<b>ll</b>e — ah-PELL","je m'appe<b>ll</b>e"],
+ ["nous","appe<b>l</b>ons — ah-puh-LOHN","nous nous appe<b>l</b>ons"],
+ ["ils","appe<b>ll</b>ent","ils s'appe<b>ll</b>ent"]
+]);
+h3("D · the soft-sound protectors (manger, commencer)");
+table(["Verbe","nous","Pourquoi"],[
+ ["<b>manger</b>","nous mang<b>e</b>ons","Without the e, <i>mangons</i> would have a hard g."],
+ ["<b>voyager</b>","nous voyag<b>e</b>ons","Same."],
+ ["<b>commencer</b>","nous commen<b>ç</b>ons","Without the cedilla, <i>commencons</i> would have a hard k."]
+]);
+note("<b>These two tricks are the same idea.</b> <b>g</b> and <b>c</b> are soft before <i>e</i> and <i>i</i>, hard before <i>a, o, u</i>. The <i>-ons</i> ending starts with <b>o</b>, which would harden them — so French inserts a silent <b>e</b> after the g, or hooks a <b>cedilla</b> under the c. Nothing changes in the sound; the spelling is defending it.");
+
+h2("5 · Le présent — trois sens en anglais");
+ex("<b>French has one present tense where English has three.</b><br><br><i>Je parle français</i> can mean:<br>· I <b>speak</b> French<br>· I <b>am speaking</b> French<br>· I <b>do speak</b> French<br><br>There is no continuous form to build and no auxiliary to choose. This is a genuine simplification — one of the few places where French asks less of you than English.");
+warn("<b>So never translate \"I am …ing\" literally.</b> <i>Je suis parlant</i> is not French. If you want to stress that something is happening right now, French uses <b>être en train de + infinitif</b>: <i>Je suis en train de manger</i> — I'm (in the middle of) eating.");
+
+h2("6 · Exercices");
+h3("Exercice 1 — les trois groupes réguliers");
+fill([
+ {s:"1. Nous ______ (parler) français.", a:["parlons"], en:"We speak French.", why:"-ER → nous + -ons."},
+ {s:"2. Elle ______ (finir) à cinq heures.", a:["finit"], en:"She finishes at five.", why:"-IR (finir group) → elle + -it."},
+ {s:"3. J'______ (attendre) le bus.", a:["attends"], en:"I'm waiting for the bus.", why:"-RE → je + -s."},
+ {s:"4. Ils ______ (choisir) un film.", a:["choisissent"], en:"They're choosing a film.", why:"-IR → ils + -issent, with the -iss- marker."},
+ {s:"5. Tu ______ (vendre) ta voiture ?", a:["vends"], en:"Are you selling your car?", why:"-RE → tu + -s."},
+ {s:"6. Il ______ (répondre) à la question.", a:["répond","repond"], en:"He answers the question.", why:"-RE → il + <b>nothing</b>. Not <i>répondt</i>."}
+]);
+h3("Exercice 2 — les verbes essentiels");
+fill([
+ {s:"1. Je ______ (aller) au travail.", a:["vais"], en:"I'm going to work.", why:"je → vais."},
+ {s:"2. Vous ______ (faire) quoi dans la vie ?", a:["faites"], en:"What do you do for a living?", why:"<b>vous faites</b> — one of only three verbs with this ending."},
+ {s:"3. Nous ______ (venir) du Canada.", a:["venons"], en:"We come from Canada.", why:"nous → ven-ons. The stem reverts outside the boot."},
+ {s:"4. Ils ______ (pouvoir) venir demain.", a:["peuvent"], en:"They can come tomorrow.", why:"ils → peuvent (PUHV)."},
+ {s:"5. Je ______ (devoir) partir.", a:["dois"], en:"I have to go.", why:"je → dois."},
+ {s:"6. On ______ (avoir) cours à neuf heures.", a:["a"], en:"We have class at nine.", why:"<b>on</b> takes the il/elle form → a. Pronounced ohn-NAH."}
+]);
+h3("Exercice 3 — savoir ou connaître ?");
+mcq([
+ {q:"Je ______ Paris.", opts:["sais","connais"], a:1, why:"A place you're familiar with → <b>connaître</b>."},
+ {q:"Je ______ nager.", opts:["sais","connais"], a:0, why:"A skill, followed by a verb → <b>savoir</b>."},
+ {q:"Tu ______ Marie ?", opts:["sais","connais"], a:1, why:"A person → <b>connaître</b>."},
+ {q:"Je ne ______ pas où il est.", opts:["sais","connais"], a:0, why:"Followed by a clause → <b>savoir</b>."}
+]);
+h3("Exercice 4 — orthographe");
+fill([
+ {s:"Nous ______ (manger) à midi.", a:["mangeons"], en:"We eat at noon.", why:"The e protects the soft g: mang<b>e</b>ons."},
+ {s:"Nous ______ (commencer) à huit heures.", a:["commençons","commencons"], en:"We start at eight.", why:"The cedilla protects the soft c: commen<b>ç</b>ons."},
+ {s:"J'______ (acheter) du pain.", a:["achète","achete"], en:"I'm buying bread.", why:"Silent ending → accent grave: ach<b>è</b>te."},
+ {s:"Nous ______ (acheter) du pain.", a:["achetons"], en:"We're buying bread.", why:"You hear the -ons → no accent: ach<b>e</b>tons."},
+ {s:"Je m'______ (appeler) Rajveer.", a:["appelle"], en:"My name is Rajveer.", why:"Doubled l when the ending is silent: appe<b>ll</b>e."}
+]);
+h3("Exercice 5 — trouvez l'erreur");
+mcq([
+ {q:"« Vous faisez du sport ? »", opts:["Correct","Vous faites du sport ?","Vous faitez du sport ?"], a:1, why:"<b>vous faites</b> — irregular, and one of only three verbs that do this."},
+ {q:"« J'attends pour le bus. »", opts:["Correct","J'attends le bus.","J'attends à le bus."], a:1, why:"<i>attendre</i> swallows the \"for\". No preposition."},
+ {q:"« Je suis parlant français. »", opts:["Correct","Je parle français.","Je suis parle français."], a:1, why:"French has no continuous form. The simple present covers it."},
+ {q:"« Il répondt à la question. »", opts:["Correct","Il répond à la question.","Il réponds à la question."], a:1, why:"-RE verbs take <b>no ending at all</b> in the third person singular."}
+]);
+
+h2("7 · Texte parallèle — Une semaine ordinaire");
+ex("<b>Ma semaine</b><br><br>Je m'appelle Rajveer et j'habite à Brampton. Du lundi au vendredi, je me lève à six heures et demie. Je prends mon petit-déjeuner, puis je pars au travail à huit heures moins le quart.<br><br>Je travaille dans l'informatique. Je répare les ordinateurs et je réponds aux questions de mes collègues. Nous commençons à huit heures et nous finissons à cinq heures. À midi, nous mangeons ensemble — mon collègue Anirudh prend toujours un sandwich, moi je préfère un plat chaud.<br><br>Le soir, je rentre, je dîne et je lis un peu. J'apprends le français : trois fois par semaine, je vais à mon cours et j'écris des exercices. Je ne comprends pas tout, mais je fais des progrès.<br><br>Le week-end, je ne travaille pas. Je dors tard, je sors avec mes amis, et nous jouons au cricket s'il fait beau. S'il pleut, nous restons à la maison et nous regardons un film.<br><br>Je sais que c'est long, mais je veux réussir. Je dois continuer !");
+h3("Glossaire du texte");
+rows([
+ ["Du lundi au vendredi","dew luhn-DEE oh vahn-druh-DEE","From Monday to Friday"],
+ ["je pars au travail","zhuh par oh trah-VYE","I leave for work"],
+ ["à huit heures moins le quart","ah wee-tur mwan luh KAR","at quarter to eight"],
+ ["je réponds aux questions","zhuh ray-POHN oh kess-TYOHN","I answer the questions"],
+ ["nous commençons","noo koh-mahn-SOHN","we start"],
+ ["nous finissons","noo fee-nee-SOHN","we finish"],
+ ["prend toujours un sandwich","prahn too-ZHOOR uhn sahnd-WEECH","always has a sandwich"],
+ ["je préfère un plat chaud","zhuh pray-FEHR uhn plah SHOH","I prefer a hot dish"],
+ ["je lis un peu","zhuh lee uhn PUH","I read a bit"],
+ ["trois fois par semaine","trwah fwah par suh-MEN","three times a week"],
+ ["j'écris des exercices","zhay-KREE day zeg-zair-SEESS","I write exercises"],
+ ["je fais des progrès","zhuh feh day proh-GREH","I'm making progress"],
+ ["je dors tard","zhuh dor TAR","I sleep late"],
+ ["je sors avec mes amis","zhuh sor ah-vek may zah-MEE","I go out with my friends"],
+ ["s'il fait beau","seel feh BOH","if the weather's nice"],
+ ["Je dois continuer !","zhuh dwah kohn-tee-NWAY","I have to keep going!"]
+]);
+h3("Compréhension");
+mcq([
+ {q:"À quelle heure part-il au travail ?", opts:["À six heures et demie","À huit heures moins le quart","À huit heures"], a:1, why:"« je pars au travail à huit heures moins le quart » = 7:45. Six-thirty is when he gets up; eight is when work starts."},
+ {q:"Que prend Anirudh à midi ?", opts:["Un plat chaud","Un sandwich","Un café"], a:1, why:"« Anirudh prend toujours un sandwich, moi je préfère un plat chaud. »"},
+ {q:"Combien de fois par semaine va-t-il à son cours ?", opts:["Deux","Trois","Cinq"], a:1, why:"« trois fois par semaine »."},
+ {q:"Que font-ils s'il pleut le week-end ?", opts:["Ils jouent au cricket","Ils restent à la maison","Ils sortent"], a:1, why:"« S'il pleut, nous restons à la maison et nous regardons un film. »"}
+]);
+h3("Repérez les verbes");
+note("Find one example of each in the text:<br>· <b>Un verbe en -ER</b> — j'habite, je travaille, je rentre, nous jouons, nous regardons, nous restons<br>· <b>Un verbe en -IR du groupe finir</b> — <i>nous finissons</i><br>· <b>Un verbe en -RE</b> — <i>je réponds</i><br>· <b>Un -ir irrégulier</b> — <i>je pars</i>, <i>je dors</i>, <i>je sors</i><br>· <b>La famille prendre</b> — <i>je prends</i>, <i>il prend</i>, <i>j'apprends</i>, <i>je comprends</i><br>· <b>Les trois modaux</b> — <i>je veux réussir</i>, <i>je dois continuer</i><br>· <b>Deux protections orthographiques</b> — <i>nous commençons</i>, <i>nous mangeons</i><br>· <b>Un changement d'accent</b> — <i>je préfère</i><br>· <b>Quatre verbes essentiels</b> — je vais, je fais, je sais, je dois");
+ex("<b>À vous —</b> write your own week in twelve sentences. Requirements — tick them off:<br>☐ one verb from <b>each</b> of the three regular groups<br>☐ <b>aller</b> and <b>faire</b>, at least once each<br>☐ one of <b>pouvoir / vouloir / devoir</b> + infinitive<br>☐ one verb from the <b>prendre</b> family<br>☐ one from <b>partir / sortir / dormir</b><br>☐ one <b>nous</b> form with a spelling protection (<i>mangeons</i> or <i>commençons</i>)<br>☐ one <b>negative</b><br>☐ three time markers<br><br>Then read it aloud and check: are <i>je / tu / il / ils</i> all pronounced the same for your -ER verbs? They should be.");
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+<script src="french_glossary.js"></script>
+</body>
+</html>

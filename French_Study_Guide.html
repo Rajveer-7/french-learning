@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French — Study Guide: A1 to C1 for Canadian PR</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Study Guide — A1 → C1</h1>
+  <p class="sub">Your roadmap to NCLC 7 and NCLC 9 for Canadian permanent residence — levels, timelines, test format and a weekly routine</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Cours21_Notes.html">Cours 21</a>
+    <a href="French_Cours22_Notes.html">Cours 22</a>
+    <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html" class="active">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
+    <a href="French_Articles.html">Articles</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').textContent=fr; c.querySelector('.ph').textContent=ph;
+    c.onclick=()=>speak(fr); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+h2("1 · Où vous allez — the target, stated plainly");
+ex("<b>You are learning French for Canadian permanent residence.</b> That changes what \"good French\" means: it is not a feeling, it is a <u>number</u> on a test. Everything on this page works backwards from that number.<br><br>The scale Canada uses for French is <b>NCLC</b> (Niveaux de compétence linguistique canadiens) — the French twin of CLB. You are measured in <b>four separate skills</b>: listening, reading, speaking, writing. Your score is your <u>lowest</u> skill, not your average.");
+table(["Niveau visé","CEFR","Ce que ça vous donne"],[
+ ["<b>NCLC/CLB 7</b>","B2 (low)","The <b>entry ticket</b>. Minimum for any French bonus in Express Entry, and the minimum to qualify for French-language category draws."],
+ ["<b>NCLC/CLB 9</b>","C1 (low)","The <b>maximum</b> French bonus. This is the level you said you want."],
+ ["<b>NCLC/CLB 10</b>","C1/C2","Above this the points stop increasing."]
+]);
+warn("<b>Your floor is your score.</b> If you reach CLB 9 in reading, listening and writing but CLB 6 in speaking, you are a <b>CLB 6 candidate</b> and you get nothing. This single fact should shape your whole study plan: <u>spend your time on your weakest skill, not your favourite one</u>.");
+note("<b>Why French is worth so much.</b> Reaching CLB 7+ in French gives a substantial CRS bonus, and reaching CLB 7+ in French together with CLB 5+ in English unlocks the bilingual bonus on top. Separately, IRCC runs <b>category-based draws for French-speaking candidates</b>, which have historically had far lower CRS cut-offs than general draws. That second route is the real reason French is the fastest path for many applicants — you're not just adding points, you're entering a smaller pool.");
+warn("<b>Verify the current numbers yourself before you book.</b> Exact TEF/TCF cut-scores, CRS point values and draw categories change, and published conversion tables disagree with each other. Use the official IRCC language-equivalency page and the official TEF Canada results page as your source of truth — not blog posts, and not this page.");
+
+h2("2 · Les six niveaux — what each one actually means");
+lead("Forget the labels for a moment. Here is what you can <i>do</i> at each level, which is what the examiners actually test.");
+table(["Niveau","NCLC","Vous pouvez…","Temps typique"],[
+ ["<b>A1</b>","1–2","Introduce yourself, say where you live, ask simple questions, understand very slow speech on familiar topics.","80–100 h"],
+ ["<b>A2</b>","3–4","Handle shopping, directions, routines, the past and near future. Short simple texts.","+100–150 h"],
+ ["<b>B1</b>","5–6","Cope with most travel situations, describe experiences, give reasons and opinions, write connected text.","+150–200 h"],
+ ["<b>B2</b>","<b>7–8</b>","Argue a position, follow a normal-speed discussion, write a structured essay or formal letter, understand most TV and radio.","+200–250 h"],
+ ["<b>C1</b>","<b>9–10</b>","Use French flexibly for social, academic and professional purposes. Understand implicit meaning, irony, long complex texts. Write clear well-structured argument.","+250–350 h"],
+ ["<b>C2</b>","11–12","Near-native. Not needed for immigration.","—"]
+]);
+ex("<b>The honest arithmetic.</b> From where you are now (early A1) to <b>CLB 7 / B2</b> is roughly <b>500–600 hours</b> of real study. To <b>CLB 9 / C1</b>, closer to <b>800–1000 hours</b>.<br><br>At <b>1 hour a day, every day</b>, B2 is around 18 months and C1 around 2½ years. At <b>2 hours a day</b>, roughly half that. Those numbers assume <i>active</i> study — producing language, not just reading about it.<br><br>This is not meant to discourage you. It's meant to stop you booking the TEF too early, which is the most common and most expensive mistake.");
+note("<b>A realistic staged plan:</b> aim for <b>CLB 7 first</b> and book the test when you're consistently hitting it in mock exams. That alone unlocks the French draws. Then keep studying toward CLB 9 and <b>retake</b> — TEF results are valid for two years and you can sit it as often as you like. Chasing C1 before your first attempt means years with no points at all.");
+
+h2("3 · La feuille de route — what to learn, in what order");
+h3("A1 — where you are now");
+ex("<b>Grammar:</b> être, avoir, regular -ER verbs · articles (le/la/les, un/une/des) · adjective agreement · ne…pas · questions (3 forms) · possessives · numbers 0–100 · <b>passé composé</b> · <b>futur proche</b> · reflexive verbs · prepositions of place and country<br><br><b>Vocabulary:</b> ~1,000 words — identity, family, home, work, food, weather, time, colours, body<br><br><b>Can do:</b> introduce yourself for a minute, describe your home and routine, order in a café, talk about yesterday and tomorrow<br><br><b>On this site:</b> Cours 1–28, Prof's Notes 1–8, Dialogues, Complete Book Parts 0–1");
+h3("A2 — your next six months");
+ex("<b>Grammar to add:</b> <b>l'imparfait</b> and when to use it vs passé composé · <b>futur simple</b> · direct and indirect object pronouns (le/la/les, lui/leur) · <b>en</b> and <b>y</b> · comparatives and superlatives · the imperative · <b>devoir / pouvoir / vouloir / savoir</b> · relative pronouns qui/que · depuis / il y a / pendant<br><br><b>Vocabulary:</b> to ~2,000 — health, travel, administration, shopping, feelings, studies<br><br><b>Can do:</b> tell a story in the past, make plans, give and justify an opinion, write a short email, handle a doctor's appointment or a rental enquiry");
+h3("B1 — the long middle");
+ex("<b>Grammar to add:</b> <b>le subjonctif présent</b> (after il faut que, je veux que, bien que…) · <b>le conditionnel</b> (present and past) · <b>plus-que-parfait</b> · si-clauses (all three types) · the passive · reported speech · <b>dont</b>, <b>où</b>, <b>ce qui / ce que</b> · double pronouns<br><br><b>Vocabulary:</b> to ~3,500 — work and careers, environment, media, education, society, abstract nouns<br><br><b>Can do:</b> follow a normal conversation between natives, summarise an article, write a structured letter of complaint or application, sustain an argument");
+h3("B2 = CLB 7–8 — your first real target");
+ex("<b>Grammar to add:</b> <b>subjonctif passé</b> · <b>le gérondif</b> (en faisant…) · participe présent · complex connectors (<i>bien que, quoique, afin que, à moins que, de sorte que</i>) · nuanced negation (<i>ne… guère, ne… que</i>) · register control — knowing when <i>on</i> is wrong<br><br><b>Vocabulary:</b> to ~5,000 — argumentative connectors, idioms, formal register, news vocabulary<br><br><b>Can do everything the TEF asks:</b> argue a case with supporting reasons, understand fast radio speech, write a formal argumentative text of 200+ words, respond spontaneously to an unexpected question");
+h3("C1 = CLB 9–10 — the goal you named");
+ex("<b>Grammar to add:</b> full mastery of all tenses including <b>passé simple</b> (reading only) · <b>subjonctif imparfait</b> (recognition) · stylistic inversion · nominalisation (<i>la mise en œuvre de…</i>) · hedging and modality · literary and journalistic register<br><br><b>Vocabulary:</b> 8,000–10,000 — idioms, collocations, abstract and specialised fields, <b>Québécois</b> usage<br><br><b>Can do:</b> follow a heated debate, read <i>Le Devoir</i> or <i>Le Monde</i> without a dictionary, write a nuanced argumentative essay, understand humour and implication<br><br><b>The real difference at C1 is not grammar — it's <u>fluency under pressure</u> and <u>range</u>.</b> You stop translating and start thinking in French.");
+
+h2("4 · Les quatre épreuves du TEF Canada");
+lead("Four tests, four different skills, four different preparation methods. Your weakest one is your score, so know which it is.");
+table(["Épreuve","Format (approx.)","Ce qui est testé"],[
+ ["<b>Compréhension orale</b>","~40 min, MCQ","Understanding announcements, conversations, interviews, radio at natural speed"],
+ ["<b>Compréhension écrite</b>","~60 min, MCQ","Ads, emails, articles, instructions — skimming and detailed reading"],
+ ["<b>Expression écrite</b>","~60 min, 2 tasks","Section A: complete a news item. Section B: argue a position in a letter or article"],
+ ["<b>Expression orale</b>","~15 min, 2 tasks","Section A: get information from the examiner. Section B: convince the examiner of something"]
+]);
+warn("<b>Speaking is where most candidates lose CLB 7</b> — and it carries the highest score threshold of the four. It is also the only section you cannot improve by reading. From today, <u>speak out loud every single day</u>, even alone. Record yourself. Play it back. It will be uncomfortable and it is the single highest-return thing on this page.");
+h3("Comment préparer chaque épreuve");
+table(["Épreuve","Ce qui marche"],[
+ ["<b>Écoute</b>","Daily: RFI <i>Journal en français facile</i> (10 min, transcripts provided), then Radio-Canada for the Québécois accent. <b>Listen twice:</b> once for gist, once with the transcript."],
+ ["<b>Lecture</b>","Read something every day. Start with <i>1jour1actu</i>, move to <i>Le Monde</i> / <i>Le Devoir</i>. <b>Don't look up every word</b> — guess from context first, look up only what blocks comprehension."],
+ ["<b>Écriture</b>","One written text per week, minimum. Always structured: <i>introduction – argument 1 – argument 2 – conclusion</i>. Get it corrected — uncorrected writing cements errors."],
+ ["<b>Parole</b>","Daily monologue (2 min on any topic, recorded). Weekly conversation with a real person — tutor, exchange partner, or your class. There is no substitute for being interrupted."]
+]);
+
+h2("5 · Le plan hebdomadaire — a routine that actually works");
+ex("<b>The principle: little and daily beats a lot and occasional.</b> Six days of 45 minutes beats one Sunday of five hours, because language lives in retrieval and retrieval needs spacing.");
+table(["Jour","45–60 minutes"],[
+ ["<b>Lundi</b>","New grammar point + 15 min vocabulary flashcards"],
+ ["<b>Mardi</b>","Listening: RFI bulletin × 2 (gist, then transcript) + shadow one paragraph aloud"],
+ ["<b>Mercredi</b>","Reading: one article + note 10 new words into your vocabulary list"],
+ ["<b>Jeudi</b>","Writing: one short text applying Monday's grammar"],
+ ["<b>Vendredi</b>","Speaking: 2-minute recorded monologue + listen back + re-record"],
+ ["<b>Samedi</b>","Class / conversation with a real person"],
+ ["<b>Dimanche</b>","Review the week's flashcards. Rest, or watch something in French for pleasure."]
+]);
+note("<b>Three rules that matter more than the schedule:</b><br><b>1. Say everything out loud.</b> Silent study builds a reader, not a speaker, and the exam tests the speaker.<br><b>2. Review beats new.</b> Twenty words reviewed five times beats a hundred words seen once. Use the Flashcards mode on the Vocabulaire page.<br><b>3. Get corrected.</b> Errors you repeat uncorrected become permanent. This is what the live class is <u>for</u> — use it to be wrong in front of someone who can fix you.");
+
+h2("6 · Vos étapes concrètes");
+table(["Phase","Objectif","Comment vous saurez que c'est fait"],[
+ ["<b>Maintenant — 3 mois</b>","Finish A1 solidly","You can speak for 2 minutes about yourself, your day, your home and your work without stopping"],
+ ["<b>3 – 9 mois</b>","A2","You can tell a story in the past tense and write a 100-word email"],
+ ["<b>9 – 18 mois</b>","B1","You can follow a conversation between two French speakers and give a justified opinion"],
+ ["<b>18 – 24 mois</b>","B2 = <b>CLB 7</b> — <u>book the TEF</u>","You score CLB 7+ consistently in mock tests in <b>all four</b> skills"],
+ ["<b>24 – 36 mois</b>","C1 = <b>CLB 9</b> — <u>retake</u>","You read a newspaper without a dictionary and argue a case spontaneously"]
+]);
+warn("<b>Do not book the real TEF until mock tests put you at CLB 7 in all four skills, repeatedly.</b> The test is expensive, and a low result sits in your record. Mock first, book second.");
+
+h2("7 · Ce qui est déjà sur ce site");
+table(["Ressource","Contenu","Niveau"],[
+ ["<b>Cours 1–28</b>","Every live class, worked through with pronunciation and exercises","A1"],
+ ["<b>Prof's Notes</b>","All 8 teacher handouts, expanded into 53 chapters","A1"],
+ ["<b>Complete Book</b>","49 chapters, Parts 0–6","A1 → B1"],
+ ["<b>Dialogues</b>","14 original dialogues with sequential audio playback","A1–A2"],
+ ["<b>Audio Library</b>","All 85 book tracks, 30 documented in full","A1–A2"],
+ ["<b>Vocabulaire</b>","3,200+ words and sentences, searchable, with flashcard mode","All"],
+ ["<b>Articles</b>","Reading practice","A1–A2"]
+]);
+ex("<b>Ce qu'il reste à construire</b> — the gaps between here and C1, in the order they'll be needed:<br><br>· <b>L'imparfait</b> and the imparfait/passé composé decision — the next big grammar wall<br>· <b>Le futur simple</b><br>· <b>Les pronoms COD/COI</b>, then <b>en</b> and <b>y</b><br>· <b>Le subjonctif</b><br>· <b>Le conditionnel</b> and si-clauses<br>· A <b>B1–B2 vocabulary bank</b> by theme (work, environment, media, society)<br>· <b>TEF-format practice</b> — mock sections in the real exam shape<br>· <b>Expression écrite</b> — essay structures and connector banks<br>· <b>Expression orale</b> — Section A and B task banks<br><br>We'll build these as you reach them. Learning the subjunctive now, while the passé composé is still new, would be wasted effort.");
+
+h2("8 · La vérité sur le temps");
+note("<b>What nobody tells you about C1.</b> The jump from A1 to B1 feels fast — every week you can do something new. The jump from B1 to B2 feels slow. The jump from B2 to C1 feels like nothing is happening at all, for months, because the gains are in <u>precision and speed</u> rather than new abilities.<br><br>That plateau is where most learners quit. Knowing it's coming is most of the defence against it.<br><br>The other defence is <b>measuring the right thing</b>. Don't measure \"do I feel fluent?\" — you won't, for a long time. Measure: <i>how many words can I write in 30 minutes? how long can I speak without stopping? can I follow this radio bulletin at full speed?</i> Those move even when the feeling doesn't.");
+ex("<b>Et une bonne nouvelle.</b> You are doing the hardest part right now. A1 is the only level where <u>nothing</u> is familiar and every single sentence has to be assembled from scratch. From B1 onward you're refining a machine that already runs.<br><br>You already have, in a few months: être, avoir, the passé composé, the futur proche, reflexive verbs, three question forms, adjective agreement, and roughly a thousand words. That is not a small foundation. Keep the daily habit and the rest is arithmetic.");
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+<script src="french_glossary.js"></script>
+</body>
+</html>

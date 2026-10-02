@@ -3,317 +3,130 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>French Cours 1 — Audio Notes</title>
+<title>Rajveer — French for Canadian PR</title>
 <style>
   :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
-  * { box-sizing: border-box; }
-  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
-  .wrap { max-width:820px; margin:0 auto; padding:24px 16px 80px; }
-  h1 { font-size:26px; margin:0 0 4px; }
-  .sub { color:var(--muted); margin:0 0 20px; font-size:14px; }
-  .bar { position:sticky; top:0; background:var(--bg); padding:10px 0; border-bottom:1px solid var(--line); display:flex; gap:10px; align-items:center; flex-wrap:wrap; z-index:5; margin-bottom:18px; }
-  .bar span { font-size:13px; color:var(--muted); }
-  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
-  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
-  .toggle button.on { background:var(--accent); color:#fff; }
-  h2 { font-size:18px; margin:26px 0 10px; padding-bottom:6px; border-bottom:2px solid var(--line); }
-  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
-  .row:hover { border-color:#c9c4b8; }
-  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
-  .play:active { transform:scale(.94); }
-  .txt { flex:1 1 auto; min-width:0; }
-  .fr { font-size:17px; font-weight:600; cursor:pointer; }
-  .fr:hover { color:var(--accent); }
-  .ph { font-size:13px; color:var(--green); font-style:italic; }
-  .en { font-size:13px; color:var(--muted); }
-  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:8px; }
-  .cell { display:flex; align-items:center; gap:8px; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; }
-  .cell .play { width:32px; height:32px; font-size:13px; }
-  .cell .fr { font-size:15px; }
-  .cell .ph { font-size:12px; }
-  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:10px 0; }
-  .tip { font-size:13px; color:var(--muted); margin:4px 0 14px; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.55; }
+  .wrap { max-width:960px; margin:0 auto; padding:28px 16px 80px; }
+  header { margin-bottom:22px; }
+  h1 { font-size:30px; margin:0 0 6px; }
+  .sub { color:var(--muted); margin:0; font-size:15px; }
+  .stats { display:flex; gap:10px; flex-wrap:wrap; margin:20px 0 26px; }
+  .stat { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 16px; flex:1 1 130px; }
+  .stat b { display:block; font-size:22px; color:var(--accent); }
+  .stat span { font-size:12.5px; color:var(--muted); }
+  h2 { font-size:19px; margin:30px 0 4px; }
+  .lead { color:var(--muted); font-size:14px; margin:0 0 12px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:10px; }
+  .card { display:block; text-decoration:none; color:var(--ink); background:var(--card); border:1px solid var(--line); border-radius:12px; padding:13px 15px; transition:border-color .12s; }
+  .card:hover { border-color:var(--accent); }
+  .card b { display:block; font-size:14.5px; margin-bottom:3px; }
+  .card span { font-size:12px; color:var(--muted); display:block; }
+  .big { grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); }
+  .big .card { padding:16px 18px; }
+  .big .card b { font-size:16px; color:var(--accent); }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:12px; padding:14px 16px; font-size:13.5px; color:#6b5a1e; margin:22px 0; }
+  footer { margin-top:44px; padding-top:18px; border-top:1px solid var(--line); font-size:12.5px; color:var(--muted); }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>French — Cours 1 Audio Notes</h1>
-  <p class="sub">The Language SKOOL · Français A1 · 29 July 2026 — tap ▶ or the French word to hear it.</p>
+  <header>
+    <h1>Français — Rajveer</h1>
+    <p class="sub">Everything from The Language SKOOL classes, the Saison&nbsp;1 book and the teacher's handouts — worked through, with pronunciation and meaning for every word.</p>
+  </header>
 
-  <nav style="display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap;">
-    <a href="French_Class_Cours1_Audio.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--accent);border-radius:999px;color:#fff;background:var(--accent);">Cours 1</a>
-    <a href="French_Cours1_Intro.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">My introduction</a>
-    <a href="French_Cours2_Notes.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Cours 2</a>
-    <a href="French_Cours3_Notes.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Cours 3</a>
-    <a href="French_Cours4_Notes.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Cours 4</a>
-    <a href="French_Cours5_Notes.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Cours 5</a>
-    <a href="French_Cours6_Notes.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Cours 6</a>
-    <a href="French_Cours7_Notes.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Cours 7</a>
-    <a href="French_Cours8_Notes.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Cours 8</a>
-    <a href="French_Cours9_Notes.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Cours 9</a>
-    <a href="French_Cours10_Notes.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Cours 10</a>
-    <a href="French_Cours11_Notes.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Cours 11</a>
-    <a href="French_Cours12_Notes.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Cours 12</a>
-    <a href="French_Cours13_Notes.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Cours 13</a>
-    <a href="French_Cours14_Notes.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Cours 14</a>
-    <a href="French_Cours15_Notes.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Cours 15</a>
-    <a href="French_Cours16_Notes.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Cours 16</a>
-    <a href="French_Cours17_Notes.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Cours 17</a>
-    <a href="French_Cours18_Notes.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Cours 18</a>
-    <a href="French_Cours19_Notes.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Cours 19</a>
-    <a href="French_Cours20_Notes.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Cours 20</a>
-    <a href="French_Cours21_Notes.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Cours 21</a>
-    <a href="French_Cours22_Notes.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Cours 22</a>
-    <a href="French_Cours23_Notes.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Cours 23</a>
-    <a href="French_Conversations.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Conversations</a>
-    <a href="French_Dialogues.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Dialogues</a>
-    <a href="French_Full_Guide.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Full Guide</a>
-    <a href="French_Complete_Book.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Complete Book</a>
-    <a href="French_Prof_Notes.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Prof's Notes</a>
-    <a href="French_Book_Audio.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Book Audio</a>
-    <a href="French_Audio_Library.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Audio Library</a>
-    <a href="French_Articles.html" style="text-decoration:none;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--card);">Articles</a>
-  </nav>
-
-  <div class="bar">
-    <span>Speed:</span>
-    <div class="toggle" id="speed">
-      <button data-rate="1" class="on">Normal</button>
-      <button data-rate="0.6">Slow</button>
-    </div>
-    <span id="voiceStatus">checking voice…</span>
+  <div class="stats">
+    <div class="stat"><b>27</b><span>class pages</span></div>
+    <div class="stat"><b>3,209</b><span>words &amp; sentences</span></div>
+    <div class="stat"><b>1,416</b><span>glossary entries</span></div>
+    <div class="stat"><b>85</b><span>audio tracks</span></div>
+    <div class="stat"><b>A1</b><span>→ target NCLC 7</span></div>
   </div>
 
-  <div id="content"></div>
-
-  <div class="note" id="fallbackNote" style="display:none;">
-    No French voice was found on this device, so words may read with an English accent. On Windows: Settings → Time &amp; Language → Language → add <b>Français (France)</b> → Speech, then reload. Chrome usually provides a French voice automatically when online.
+  <h2>Commencez ici</h2>
+  <p class="lead">The three pages you'll come back to most.</p>
+  <div class="grid big">
+    <a class="card" href="French_How_It_Works.html"><b>Comment le français fonctionne</b><span>The logic underneath the rules — why the silent letters, the genders, the liaisons. Read this once now and again in six months.</span></a>
+    <a class="card" href="French_Grammar_Map.html"><b>Carte de la grammaire</b><span>Every grammar topic A1→C1 — what's covered, what's next, and the four genuinely hard things.</span></a>
+    <a class="card" href="French_Study_Guide.html"><b>Study Guide</b><span>The roadmap: A1 → C1, what to learn when, the TEF format, and a weekly routine that works.</span></a>
+    <a class="card" href="French_Vocabulaire.html"><b>Vocabulaire complet</b><span>Every word and sentence on the site — searchable, by theme, with flashcard mode. Click anything to hear it.</span></a>
+    <a class="card" href="French_Cours1_Intro.html"><b>Mon introduction</b><span>Your own self-introduction, built block by block. The most reusable minute of French you own.</span></a>
   </div>
+
+  <h2>Référence</h2>
+  <p class="lead">The big reference works — use these to look things up rather than read front to back.</p>
+  <div class="grid">
+    <a class="card" href="French_Grammaire.html"><b>Grammaire complète</b><span>Chapter by chapter, every rule <u>with the reason behind it</u> — tables, examples, exercises</span></a>
+    <a class="card" href="French_Complete_Book.html"><b>Complete Book</b><span>49 chapters, A1 → B1</span></a>
+    <a class="card" href="French_Prof_Notes.html"><b>Prof's Notes</b><span>All 8 handouts, 53 chapters</span></a>
+    <a class="card" href="French_Full_Guide.html"><b>Full Guide</b><span>Grammar reference</span></a>
+    <a class="card" href="French_Articles.html"><b>Articles</b><span>le, la, les, un, une, des</span></a>
+  </div>
+
+  <h2>Référence A1 — la grammaire complète</h2>
+  <p class="lead">The three systems that carry all of A1. Use these to look up and to drill.</p>
+  <div class="grid">
+    <a class="card" href="French_A1_Verbes.html"><b>Les verbes au présent</b><span>All three regular groups, every essential irregular, spelling-change verbs</span></a>
+    <a class="card" href="French_A1_Articles.html"><b>Les articles &amp; quantités</b><span>défini, indéfini, partitif, démonstratif — and the « de » rule</span></a>
+    <a class="card" href="French_A1_Temps.html"><b>L'heure &amp; les dates</b><span>Telling time, days, months, frequency, depuis/pendant/en/dans</span></a>
+    <a class="card" href="French_A2_Imparfait.html"><b>L'imparfait (A2)</b><span>The first wall — formation, the three uses, and the line-and-dot contrast with the passé composé</span></a>
+    <a class="card" href="French_A1_PC_Etre.html"><b>Le passé composé avec être</b><span>The sixteen verbs, the agreement, and why they chose a different auxiliary</span></a>
+    <a class="card" href="French_A1_Imperatif.html"><b>L'impératif</b><span>Orders, advice, recipes, directions — and where the pronouns move</span></a>
+    <a class="card" href="French_A1_Ville.html"><b>La ville &amp; les directions</b><span>Places, asking the way, understanding the answer, transport</span></a>
+    <a class="card" href="French_A1_Sante.html"><b>Le corps &amp; la santé</b><span>Body vocabulary, avoir mal à, the full doctor's visit</span></a>
+    <a class="card" href="French_A1_Nourriture.html"><b>La nourriture &amp; le restaurant</b><span>Food vocabulary, the partitive in action, ordering a meal</span></a>
+  </div>
+
+  <h2>Écouter &amp; parler</h2>
+  <div class="grid">
+    <a class="card" href="French_Dialogues.html"><b>Dialogues</b><span>14 original dialogues with sequential playback</span></a>
+    <a class="card" href="French_Audio_Library.html"><b>Audio Library</b><span>All 85 book tracks, searchable</span></a>
+    <a class="card" href="French_Book_Audio.html"><b>Book Audio</b><span>Tracks matched to book pages</span></a>
+    <a class="card" href="French_Conversations.html"><b>Conversations</b><span>Everyday exchanges</span></a>
+  </div>
+
+  <h2>Les cours</h2>
+  <p class="lead">Every live class, in order. Each page has the vocabulary, the grammar explained, the exercises worked through, and a parallel text.</p>
+  <div class="grid">
+      <a class="card" href="French_Cours2_Notes.html"><b>Audio Notes</b><span>30 July 2026</span></a>
+      <a class="card" href="French_Cours3_Notes.html"><b>Audio Notes</b><span>le verbe être, counting review, self-introductions</span></a>
+      <a class="card" href="French_Cours4_Notes.html"><b>Audio Notes</b><span>numbers 0–69, counting game</span></a>
+      <a class="card" href="French_Cours5_Notes.html"><b>Audio Notes</b><span>les couleurs, numbers review, talking about yourself</span></a>
+      <a class="card" href="French_Cours6_Notes.html"><b>Audio Notes</b><span>countries &amp; flags, buying &amp; prices, calendar &amp; French festivals</span></a>
+      <a class="card" href="French_Cours7_Notes.html"><b>Audio Notes</b><span>emotions, avoir review, "J'ai rendez-vous" dialogue, full self-introduction</span></a>
+      <a class="card" href="French_Cours8_Notes.html"><b>Audio Notes</b><span>francophone personalities, professions, prepositions of place, fiche d'identité</span></a>
+      <a class="card" href="French_Cours9_Notes.html"><b>Audio Notes</b><span>bonus session — countries by gender, le verbe HABITER, prepositions of place, introducing someone else</span></a>
+      <a class="card" href="French_Cours10_Notes.html"><b>Audio Notes</b><span>things in my bag, tonic pronouns, polite requests, numbers 70–1000, phonetics</span></a>
+      <a class="card" href="French_Cours11_Notes.html"><b>Audio Notes</b><span>les pronoms sujets et toniques — subject &amp; tonic pronouns, emphasis, avec/pour/chez, talking about yoursel</span></a>
+      <a class="card" href="French_Cours12_Notes.html"><b>Audio Notes</b><span>Atelier d'écriture — "Se présenter en ligne": filling out an online profile (busuu-style), languages, national</span></a>
+      <a class="card" href="French_Cours13_Notes.html"><b>Audio Notes</b><span>"À quoi rêvent les Français ?" — Unité 2, l'habitat (housing), the real Piste 23 listening activity</span></a>
+      <a class="card" href="French_Cours14_Notes.html"><b>Audio Notes</b><span>"Des habitations insolites" — unusual housing, adjective agreement (masculine → feminine)</span></a>
+      <a class="card" href="French_Cours15_Notes.html"><b>Adjectives Worksheet</b><span>masculine → feminine adjective agreement, transformation rules, pronunciation</span></a>
+      <a class="card" href="French_Cours16_Notes.html"><b>Les adjectifs possessifs</b><span>Possessive adjectives (my/your/his/her/our/their) — builds directly on the qualificative adjectives from Cours</span></a>
+      <a class="card" href="French_Cours17_Notes.html"><b>Jeune femme cherche appartement</b><span>A rental-ad reading exercise — Unité 2, l'habitat (continues from Cours 13/14)</span></a>
+      <a class="card" href="French_Cours18_Notes.html"><b>Maud et ses nouveaux voisins</b><span>Unité 2 "Partager son lieu de vie" — the real Piste 26 listening activity</span></a>
+      <a class="card" href="French_Cours19_Notes.html"><b>Présenter une autre personne</b><span>Describing someone else — physical description vocab, ties into Cours 18</span></a>
+      <a class="card" href="French_Cours20_Notes.html"><b>Classroom Games &amp; Phonétique</b><span>Two speaking/memory games (rooms &amp; equipment, physical description) + phonetics</span></a>
+      <a class="card" href="French_Cours21_Notes.html"><b>Les prépositions de lieu</b><span>Prepositions of place — where things are</span></a>
+      <a class="card" href="French_Cours22_Notes.html"><b>Réagissez !</b><span>Unité 2 — noise, neighbours and apologising</span></a>
+      <a class="card" href="French_Cours23_Notes.html"><b>Écrire un portrait</b><span>Unité 2 — the writing workshop: how to describe a person on the page</span></a>
+      <a class="card" href="French_Cours24_Notes.html"><b>Quel · Quelle · Quels · Quelles &amp; les verbes pronominaux</b><span>Fiche de cours A1 — the interrogative adjective, and the reflexive verbs of daily routine</span></a>
+      <a class="card" href="French_Cours25_Notes.html"><b>Les accents en français</b><span>Fiche de cours A1 — é è ê ë ï ç: what every accent does and why it is never optional</span></a>
+      <a class="card" href="French_Cours26_Notes.html"><b>Le futur proche et « on »</b><span>Fiche de cours A1 — aller + infinitif, and the word French speakers really use for "we"</span></a>
+      <a class="card" href="French_Cours27_Notes.html"><b>Le passé composé</b><span>Fiche de cours A1 — avoir + participe passé: the tense for everything that has already happened</span></a>
+      <a class="card" href="French_Cours28_Notes.html"><b>Les saisons et le temps</b><span>Fiche de cours A1 — the four seasons, and the three structures French uses for weather</span></a>
+  </div>
+
+  <div class="note">
+    <b>How to use this site.</b> Don't read it like a book. Pick the page for whatever your class covered, work the exercises until you get them right without thinking, then say the parallel text out loud. Use <b>Vocabulaire → Flashcards</b> for ten minutes a day on whichever theme is weakest. Everything is clickable — if you can see a French word, you can hear it.
+  </div>
+
+  <footer>
+    Built from The Language SKOOL classes and the Saison&nbsp;1 coursebook. Original texts, exercises and explanations written for this site.<br>
+    Target: NCLC&nbsp;7 for Express Entry, then NCLC&nbsp;9.
+  </footer>
 </div>
-
-<script>
-const DATA = [
-  { h: "1 · Les salutations — Greetings", items: [
-    ["Bonjour !", "bohn-ZHOOR", "Hello / Good day"],
-    ["Bonsoir !", "bohn-SWAHR", "Good evening"],
-    ["Salut !", "sah-LEW", "Hi / Bye (informal)"],
-    ["Au revoir !", "oh ruh-VWAHR", "Goodbye"],
-    ["À bientôt !", "ah byan-TOH", "See you soon"],
-    ["Bonne nuit !", "bun NWEE", "Good night"],
-  ]},
-  { h: "2 · Se présenter — Introducing yourself", items: [
-    ["Bonjour, je m'appelle Rajveer.", "bohn-ZHOOR, zhuh mah-PELL", "Hello, my name is Rajveer"],
-    ["Je m'appelle Rajveer.", "zhuh mah-PELL", "My name is Rajveer"],
-    ["Et toi ?", "ay TWAH", "And you? (informal)"],
-    ["Et vous ?", "ay VOO", "And you? (formal/plural)"],
-    ["Comment tu t'appelles ?", "koh-MAHN tew tah-PELL", "What's your name? (informal)"],
-    ["Comment vous appelez-vous ?", "koh-MAHN voo-zah-play VOO", "What's your name? (formal)"],
-    ["Enchanté !", "ahn-shahn-TAY", "Nice to meet you (man speaking)"],
-    ["Enchantée !", "ahn-shahn-TAY", "Nice to meet you (woman speaking)"],
-    ["le prénom", "luh pray-NOHN", "first name"],
-    ["le nom", "luh nohn", "surname / last name"],
-  ]},
-  { h: "3 · Salut, ça va ? — Polite exchanges", items: [
-    ["monsieur", "muh-SYUH", "Sir / Mr"],
-    ["madame", "mah-DAM", "Madam / Mrs"],
-    ["mademoiselle", "mad-mwah-ZELL", "Miss"],
-    ["Ça va ?", "sah VAH", "How's it going?"],
-    ["Comment ça va ?", "koh-mahn sah VAH", "How are you? (casual)"],
-    ["Comment allez-vous ?", "koh-mahn tah-lay VOO", "How are you? (formal)"],
-    ["Tu vas bien ?", "tew vah BYAN", "Are you well? (informal)"],
-    ["Vous allez bien ?", "voo-zah-lay BYAN", "Are you well? (formal)"],
-    ["Très bien, merci !", "treh byan mehr-SEE", "Very well, thank you!"],
-    ["Oui, ça va, et toi ?", "wee sah VAH, ay TWAH", "Yes, I'm fine, and you?"],
-    ["Bonne journée !", "bun zhoor-NAY", "Have a good day!"],
-    ["Bonne soirée !", "bun swah-RAY", "Have a good evening!"],
-    ["À ce soir !", "ah suh SWAHR", "See you this evening!"],
-    ["À plus ! / Ciao !", "ah PLEWSS / chow", "See you! / Bye! (casual)"],
-    ["maman / papa", "mah-MAHN / pah-PAH", "mum / dad"],
-  ]},
-  { h: "4 · La politesse — Politeness", items: [
-    ["Merci", "mehr-SEE", "Thank you"],
-    ["Merci beaucoup", "mehr-SEE boh-KOO", "Thank you very much"],
-    ["S'il vous plaît", "seel voo PLEH", "Please (formal)"],
-    ["S'il te plaît", "seel tuh PLEH", "Please (informal)"],
-    ["De rien", "duh RYAN", "You're welcome"],
-    ["Oui", "WEE", "Yes"],
-    ["Non", "NOHN", "No"],
-    ["Pardon", "par-DOHN", "Sorry / Excuse me"],
-    ["Excusez-moi", "ex-kew-zay MWAH", "Excuse me (formal)"],
-    ["Je ne sais pas.", "zhuh nuh say PAH", "I don't know"],
-    ["D'accord.", "dah-KOR", "OK / agreed"],
-    ["Bien sûr.", "byan SEWR", "Of course"],
-    ["Peut-être.", "puh-TETR", "Maybe"],
-    ["Je voudrais ___.", "zhuh voo-DREH", "I would like ___"],
-    ["Où est ___ ?", "oo AY", "Where is ___?"],
-    ["Combien ça coûte ?", "kohm-BYAN sah KOOT", "How much is it?"],
-  ]},
-  { h: "5 · En classe — Classroom phrases", items: [
-    ["Je ne comprends pas.", "zhuh nuh kohm-PRAHN pah", "I don't understand"],
-    ["Répétez, s'il vous plaît.", "ray-pay-TAY, seel voo PLEH", "Please repeat"],
-    ["Plus lentement, s'il vous plaît.", "plew lahn-tuh-MAHN, seel voo PLEH", "More slowly, please"],
-    ["Comment dit-on ___ en français ?", "koh-MAHN dee-TOHN ahn frahn-SEH", "How do you say ___ in French?"],
-    ["Qu'est-ce que ça veut dire ?", "kess-kuh sah vuh DEER", "What does that mean?"],
-    ["Comment ça s'écrit ?", "koh-MAHN sah say-KREE", "How is it spelled?"],
-  ]},
-  { h: "6 · Se décrire — Saying who you are", items: [
-    ["Je suis étudiant.", "zhuh sweez ay-tew-dee-AHN", "I am a student (man)"],
-    ["Je suis étudiante.", "zhuh sweez ay-tew-dee-AHNT", "I am a student (woman)"],
-    ["Je suis indien.", "zhuh sweez an-dee-AN", "I am Indian (man)"],
-    ["Je suis indienne.", "zhuh sweez an-dee-ENN", "I am Indian (woman)"],
-    ["J'ai vingt-cinq ans.", "zhay van-sank AHN", "I am 25 years old"],
-    ["Je viens de l'Inde.", "zhuh vyan duh LAND", "I come from India"],
-    ["Je parle un peu français.", "zhuh parl uhn puh frahn-SEH", "I speak a little French"],
-  ]},
-  { h: "7 · Coutumes — Greeting customs", items: [
-    ["serrer la main", "seh-RAY lah MAN", "to shake hands"],
-    ["faire la bise", "fair lah BEEZ", "to greet with cheek kisses"],
-    ["un ami / une amie", "uhn ah-MEE / ewn ah-MEE", "a friend (m./f.)"],
-    ["la famille", "lah fah-MEE", "the family"],
-    ["un inconnu / une inconnue", "uhn an-koh-NEW", "a stranger (m./f.)"],
-  ]},
-  { h: "8 · Le verbe ÊTRE — to be", items: [
-    ["je suis", "zhuh SWEE", "I am"],
-    ["tu es", "tew AY", "you are (informal)"],
-    ["il / elle est", "eel / ell AY", "he / she is"],
-    ["nous sommes", "noo SUM", "we are"],
-    ["vous êtes", "voo ZET", "you are (formal/plural)"],
-    ["ils / elles sont", "eel / ell SOHN", "they are"],
-  ]},
-  { h: "9 · Le verbe AVOIR — to have", items: [
-    ["j'ai", "zhay", "I have"],
-    ["tu as", "tew AH", "you have"],
-    ["il / elle a", "eel / ell AH", "he / she has"],
-    ["nous avons", "noo-zah-VOHN", "we have"],
-    ["vous avez", "voo-zah-VAY", "you have"],
-    ["ils / elles ont", "eel / ell ZOHN", "they have"],
-  ]},
-  { h: "10 · Les jours — Days of the week", items: [
-    ["lundi", "luhn-DEE", "Monday"],
-    ["mardi", "mar-DEE", "Tuesday"],
-    ["mercredi", "mair-kruh-DEE", "Wednesday"],
-    ["jeudi", "zhuh-DEE", "Thursday"],
-    ["vendredi", "vahn-druh-DEE", "Friday"],
-    ["samedi", "sam-DEE", "Saturday"],
-    ["dimanche", "dee-MAHNSH", "Sunday"],
-  ]},
-  { h: "11 · Les mois — Months", items: [
-    ["janvier", "zhahn-vee-AY", "January"],
-    ["février", "fay-vree-AY", "February"],
-    ["mars", "marss", "March"],
-    ["avril", "ah-VREEL", "April"],
-    ["mai", "meh", "May"],
-    ["juin", "zhwan", "June"],
-    ["juillet", "zhwee-YEH", "July"],
-    ["août", "oot", "August"],
-    ["septembre", "sep-TAHMBR", "September"],
-    ["octobre", "ok-TOBR", "October"],
-    ["novembre", "no-VAHMBR", "November"],
-    ["décembre", "day-SAHMBR", "December"],
-  ]},
-  { h: "12 · Les couleurs — Colours", items: [
-    ["rouge", "roozh", "red"],
-    ["bleu", "bluh", "blue"],
-    ["vert", "vair", "green"],
-    ["jaune", "zhohn", "yellow"],
-    ["noir", "nwahr", "black"],
-    ["blanc", "blahn", "white"],
-    ["orange", "oh-RAHNZH", "orange"],
-    ["rose", "rohz", "pink"],
-    ["violet", "vee-oh-LEH", "purple"],
-    ["gris", "gree", "grey"],
-    ["marron", "mah-ROHN", "brown"],
-  ]},
-];
-
-const ALPHABET = [
-  ["A","ah"],["B","bay"],["C","say"],["D","day"],["E","uh"],["F","eff"],["G","zhay"],
-  ["H","ahsh"],["I","ee"],["J","zhee"],["K","kah"],["L","ell"],["M","emm"],["N","enn"],
-  ["O","oh"],["P","pay"],["Q","kew"],["R","air"],["S","ess"],["T","tay"],["U","ew"],
-  ["V","vay"],["W","doo-bluh-vay"],["X","eeks"],["Y","ee-grek"],["Z","zed"],
-];
-
-const NUMBERS = [
-  ["0","zéro","ZAY-ro"],["1","un","uhn"],["2","deux","duh"],["3","trois","twah"],
-  ["4","quatre","KATR"],["5","cinq","sank"],["6","six","sees"],["7","sept","set"],
-  ["8","huit","weet"],["9","neuf","nuhf"],["10","dix","dees"],["11","onze","ohnz"],
-  ["12","douze","dooz"],["13","treize","trez"],["14","quatorze","kah-TORZ"],["15","quinze","kanz"],
-  ["16","seize","sez"],["17","dix-sept","dee-SET"],["18","dix-huit","dee-ZWEET"],
-  ["19","dix-neuf","deez-NUHF"],["20","vingt","van"],
-];
-
-let rate = 1;
-let frVoice = null;
-
-function pickVoice() {
-  const voices = speechSynthesis.getVoices();
-  frVoice = voices.find(v => /fr[-_]FR/i.test(v.lang)) || voices.find(v => /^fr/i.test(v.lang)) || null;
-  const status = document.getElementById('voiceStatus');
-  if (frVoice) { status.textContent = "🔊 " + frVoice.name; }
-  else if (voices.length) { status.textContent = "⚠ no French voice"; document.getElementById('fallbackNote').style.display='block'; }
-}
-speechSynthesis.onvoiceschanged = pickVoice;
-pickVoice();
-
-function speak(text) {
-  speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang = 'fr-FR';
-  if (frVoice) u.voice = frVoice;
-  u.rate = rate;
-  speechSynthesis.speak(u);
-}
-function clean(t){ return t.replace(/\s+([!?])/g,'$1').replace(/___/g,''); }
-
-const content = document.getElementById('content');
-
-DATA.forEach(sec => {
-  const h = document.createElement('h2'); h.textContent = sec.h; content.appendChild(h);
-  sec.items.forEach(([fr, ph, en]) => {
-    const row = document.createElement('div'); row.className='row';
-    const btn = document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play '+fr);
-    const txt = document.createElement('div'); txt.className='txt';
-    txt.innerHTML = `<div class="fr">${fr}</div><div class="ph">${ph}</div><div class="en">${en}</div>`;
-    btn.onclick = () => speak(clean(fr));
-    txt.querySelector('.fr').onclick = () => speak(clean(fr));
-    row.appendChild(btn); row.appendChild(txt); content.appendChild(row);
-  });
-});
-
-const vnote = document.createElement('div'); vnote.className='note';
-vnote.innerHTML = '<b>tu</b> (tew) = informal, one person you know · <b>vous</b> (voo) = formal OR plural. Unsure with a stranger → use <b>vous</b>. Age uses <b>avoir</b>: "I am 25" = J\'ai vingt-cinq ans.';
-content.appendChild(vnote);
-
-const ah = document.createElement('h2'); ah.textContent='13 · L’alphabet — The alphabet'; content.appendChild(ah);
-const atip = document.createElement('p'); atip.className='tip'; atip.textContent='Tap a letter to hear its French name. Vowels: A E I O U Y. Spell your name: Rajveer = air–ah–zhee–vay–uh–uh–air.'; content.appendChild(atip);
-const agrid = document.createElement('div'); agrid.className='grid';
-ALPHABET.forEach(([L,ph])=>{
-  const c=document.createElement('div'); c.className='cell';
-  const b=document.createElement('button'); b.className='play'; b.textContent='▶'; b.setAttribute('aria-label','Play '+L);
-  const t=document.createElement('div'); t.className='txt'; t.innerHTML=`<div class="fr">${L}</div><div class="ph">${ph}</div>`;
-  b.onclick=()=>speak(L); t.querySelector('.fr').onclick=()=>speak(L);
-  c.appendChild(b); c.appendChild(t); agrid.appendChild(c);
-});
-content.appendChild(agrid);
-
-const nh = document.createElement('h2'); nh.textContent='14 · Les nombres 0–20 — Numbers'; content.appendChild(nh);
-const ngrid = document.createElement('div'); ngrid.className='grid';
-NUMBERS.forEach(([n,fr,ph])=>{
-  const c=document.createElement('div'); c.className='cell';
-  const b=document.createElement('button'); b.className='play'; b.textContent='▶'; b.setAttribute('aria-label','Play '+fr);
-  const t=document.createElement('div'); t.className='txt'; t.innerHTML=`<div class="fr">${n} · ${fr}</div><div class="ph">${ph}</div>`;
-  b.onclick=()=>speak(fr); t.querySelector('.fr').onclick=()=>speak(fr);
-  c.appendChild(b); c.appendChild(t); ngrid.appendChild(c);
-});
-content.appendChild(ngrid);
-
-document.getElementById('speed').addEventListener('click', e=>{
-  if(e.target.tagName!=='BUTTON') return;
-  rate = parseFloat(e.target.dataset.rate);
-  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
-  e.target.classList.add('on');
-});
-</script>
-<script src="french_glossary.js"></script>
 </body>
 </html>

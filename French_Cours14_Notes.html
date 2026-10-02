@@ -63,6 +63,40 @@
   .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
   .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
 </style>
+<style id="xp-style">
+  .xp h2 { font-size:18px; margin:26px 0 6px; padding-bottom:6px; border-bottom:2px solid #e6e3dc; color:#23201b; }
+  .xp h3 { font-size:15px; margin:16px 0 6px; color:#4338ca; }
+  .xp p.xp-lead { font-size:14px; color:#6b675f; margin:0 0 10px; }
+  .xp .xp-note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .xp .xp-ex { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .xp .xp-warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .xp .xp-row { display:flex; align-items:center; gap:12px; background:#fff; border:1px solid #e6e3dc; border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .xp .xp-play { flex:0 0 auto; width:38px; height:38px; border-radius:50%; border:1px solid #e6e3dc; background:#eceafe; color:#4338ca; font-size:15px; cursor:pointer; }
+  .xp .xp-txt { flex:1 1 auto; min-width:0; }
+  .xp .xp-fr { font-size:16px; font-weight:600; cursor:pointer; }
+  .xp .xp-fr:hover { color:#4338ca; }
+  .xp .xp-ph { font-size:13px; color:#0f7a54; font-style:italic; }
+  .xp .xp-en { font-size:13px; color:#6b675f; }
+  .xp table.xp-t { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .xp table.xp-t th, .xp table.xp-t td { border:1px solid #e6e3dc; padding:8px 10px; text-align:left; vertical-align:top; }
+  .xp table.xp-t th { background:#eceafe; color:#4338ca; }
+  .xp .xp-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .xp .xp-cell { background:#fff; border:1px solid #e6e3dc; border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .xp .xp-cell:hover { border-color:#4338ca; }
+  .xp .xp-cell b { display:block; font-size:14px; }
+  .xp .xp-cell i { font-size:11px; color:#0f7a54; font-style:italic; }
+  .xp .xp-fill { background:#fff; border:1px solid #e6e3dc; border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .xp .xp-fill .s { font-size:15px; margin-bottom:8px; }
+  .xp .xp-fill input { border:1px solid #e6e3dc; border-radius:8px; padding:6px 10px; font-size:14px; width:230px; }
+  .xp .xp-fill button { border:1px solid #4338ca; background:#4338ca; color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .xp .xp-fb { font-size:13px; margin-top:8px; }
+  .xp .xp-fb.ok { color:#155c37; } .xp .xp-fb.bad { color:#a33; }
+  .xp .xp-q { background:#fff; border:1px solid #e6e3dc; border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .xp .xp-q .prompt { font-size:15px; font-weight:600; margin-bottom:8px; }
+  .xp .xp-q .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .xp .xp-q .btns button { border:1px solid #e6e3dc; background:#fff; color:#23201b; border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .xp .xp-q .btns button:hover { border-color:#4338ca; }
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -94,14 +128,34 @@
     <a href="French_Cours21_Notes.html">Cours 21</a>
     <a href="French_Cours22_Notes.html">Cours 22</a>
     <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
     <a href="French_Conversations.html">Conversations</a>
     <a href="French_Dialogues.html">Dialogues</a>
     <a href="French_Full_Guide.html">Full Guide</a>
     <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
     <a href="French_Prof_Notes.html">Prof's Notes</a>
     <a href="French_Book_Audio.html">Book Audio</a>
     <a href="French_Audio_Library.html">Audio Library</a>
     <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
   </nav>
 
   <div class="bar">
@@ -114,6 +168,7 @@
   </div>
 
   <div id="content"></div>
+  <div class="xp" id="xpand"></div>
 </div>
 
 <script>
@@ -330,6 +385,201 @@ document.getElementById('speed').addEventListener('click',e=>{
   [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
   e.target.classList.add('on');
 });
+</script>
+<script>
+
+(function(){
+  var C = document.getElementById('xpand');
+  function sp(t){ try{ if(typeof speak==='function'){ speak(t); return; } }catch(e){}
+    try{ speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(String(t).replace(/_+/g,'')); u.lang='fr-FR';
+      var v=speechSynthesis.getVoices().find(function(x){return /^fr/i.test(x.lang);}); if(v)u.voice=v;
+      if(typeof rate!=='undefined') u.rate=rate; speechSynthesis.speak(u);}catch(e){} }
+  function el(tag,cls,html){ var e=document.createElement(tag); if(cls)e.className=cls; if(html!=null)e.innerHTML=html; return e; }
+  function h2(t){ C.appendChild(el('h2',null,t)); }
+  function h3(t){ C.appendChild(el('h3',null,t)); }
+  function lead(t){ C.appendChild(el('p','xp-lead',t)); }
+  function note(t){ C.appendChild(el('div','xp-note',t)); }
+  function ex(t){ C.appendChild(el('div','xp-ex',t)); }
+  function warn(t){ C.appendChild(el('div','xp-warn',t)); }
+  function rows(list){ list.forEach(function(r){
+    var fr=r[0], ph=r[1], en=r[2];
+    var row=el('div','xp-row');
+    var b=el('button','xp-play','&#9654;'); b.onclick=function(){sp(fr);};
+    var t=el('div','xp-txt');
+    var f=el('div','xp-fr'); f.textContent=fr; f.onclick=function(){sp(fr);};
+    t.appendChild(f);
+    if(ph){ var p=el('div','xp-ph'); p.textContent=ph; t.appendChild(p); }
+    if(en){ var e2=el('div','xp-en'); e2.textContent=en; t.appendChild(e2); }
+    row.appendChild(b); row.appendChild(t); C.appendChild(row);
+    try{ if(typeof GLOBAL_VOCAB!=='undefined') GLOBAL_VOCAB.push({fr:fr,en:en||''}); }catch(e){}
+  }); }
+  function grid(list){ var g=el('div','xp-grid');
+    list.forEach(function(r){ var c=el('div','xp-cell','<b></b><i></i>');
+      c.querySelector('b').textContent=r[0]; c.querySelector('i').textContent=r[1]||'';
+      c.onclick=function(){sp(r[0]);}; g.appendChild(c); });
+    C.appendChild(g); }
+  function table(head, body){ var t=el('table','xp-t');
+    var html='<tr>'; head.forEach(function(h){ html+='<th>'+h+'</th>'; }); html+='</tr>';
+    body.forEach(function(r){ html+='<tr>'; r.forEach(function(c){ html+='<td>'+c+'</td>'; }); html+='</tr>'; });
+    t.innerHTML=html; C.appendChild(t); }
+  function fill(items){ items.forEach(function(it){
+    var d=el('div','xp-fill'); d.appendChild(el('div','s',it.s));
+    var inp=document.createElement('input'); inp.placeholder='...';
+    var btn=document.createElement('button'); btn.textContent='Check';
+    var fb=el('div','xp-fb');
+    function chk(){ var v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      var ok=it.a.some(function(a){return a.toLowerCase()===v;});
+      if(ok){ fb.className='xp-fb ok'; fb.innerHTML='\u2713 '+it.a[0]+' \u2014 '+it.why; sp(it.a[0]); }
+      else { fb.className='xp-fb bad'; fb.innerHTML='\u2717 Answer: <b>'+it.a[0]+'</b> \u2014 '+it.why; } }
+    btn.onclick=chk; inp.addEventListener('keydown',function(e){ if(e.key==='Enter') chk(); });
+    var line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn); d.appendChild(line);
+    if(it.en){ var t=el('div','xp-en',''); t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb); C.appendChild(d); }); }
+  function mcq(items){ items.forEach(function(it){
+    var d=el('div','xp-q'); d.appendChild(el('div','prompt',it.q));
+    var b=el('div','btns'); var fb=el('div','xp-fb');
+    it.opts.forEach(function(o,i){ var btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=function(){ if(i===it.a){ fb.className='xp-fb ok'; fb.innerHTML='\u2713 '+o+' \u2014 '+it.why; sp(o); }
+        else { fb.className='xp-fb bad'; fb.innerHTML='\u2717 The answer is <b>'+it.opts[it.a]+'</b> \u2014 '+it.why; } };
+      b.appendChild(btn); });
+    d.appendChild(b); d.appendChild(fb); C.appendChild(d); }); }
+  h2("Deep dive — décrire un logement insolite");
+lead("Cours 14 looked at unusual homes. The language it needs — describing, comparing, reacting — is useful far beyond lighthouses, so here it is in full.");
+
+h2("1 · Les logements insolites");
+rows([
+ ["un phare","uhn FAR","a lighthouse"],
+ ["une péniche","ewn pay-NEESH","a houseboat / barge"],
+ ["une cabane dans les arbres","ewn kah-BAN dahn lay ZAR-bruh","a treehouse"],
+ ["un moulin","uhn moo-LAN","a windmill"],
+ ["une grotte","ewn GROT","a cave"],
+ ["un château","uhn shah-TOH","a castle"],
+ ["une yourte","ewn YOORT","a yurt"],
+ ["un conteneur","uhn kohn-tuh-NUR","a shipping container"],
+ ["une église transformée","ewn ay-GLEEZ trahns-for-MAY","a converted church"],
+ ["une tiny house","ewn tee-nee OWSS","a tiny house"],
+ ["un igloo","uhn nee-GLOO","an igloo"],
+ ["une caravane","ewn kah-rah-VAN","a caravan"]
+]);
+warn("<b>une grotte</b>, not <i>une cave</i>. <b>La cave</b> is the <u>cellar</u> under a house — a classic false friend that turns a cave-dweller into someone living in their own basement.");
+
+h2("2 · Décrire — les adjectifs utiles");
+h3("L'aspect");
+grid([["insolite","an-soh-LEET"],["original","oh-ree-zhee-NAL"],["étrange","ay-TRAHNZH"],["unique","ew-NEEK"],["magnifique","mah-nyee-FEEK"],["étonnant","ay-toh-NAHN"],["surprenant","sewr-pruh-NAHN"],["incroyable","an-krwah-YAH-bluh"],["bizarre","bee-ZAR"],["charmant","shar-MAHN"]]);
+h3("Le confort");
+grid([["confortable","kohn-for-TAH-bluh"],["spacieux","spah-SYUH"],["étroit","ay-TRWAH"],["lumineux","lew-mee-NUH"],["sombre","SOHM-bruh"],["isolé","ee-zoh-LAY"],["calme","KALM"],["pratique","prah-TEEK"],["inconfortable","an-kohn-for-TAH-bluh"],["difficile d'accès","dee-fee-SEEL dak-SEH"]]);
+note("<b>insolite</b> is the word the lesson is built around: <i>un logement insolite</i> = an unusual, out-of-the-ordinary home. It's a step stronger than <i>original</i> and gentler than <i>bizarre</i>, which carries a hint of \"weird\".<br><br>All of these already end in <b>-e</b> except <i>original, étonnant, surprenant, charmant, spacieux, lumineux, isolé, étroit</i> — those need the feminine form.");
+
+h2("3 · Les accords — masculin / féminin");
+table(["Modèle","Masculin","Féminin","Le son change ?"],[
+ ["+ e","étroit","étroite","oui — ay-TRWAH → ay-TRWAHT"],
+ ["+ e","charmant","charmante","oui — shar-MAHN → shar-MAHNT"],
+ ["+ e","isolé","isolée","non — identique"],
+ ["-eux → -euse","spacieux","spacieuse","oui — spah-SYUH → spah-SYUHZ"],
+ ["-al → -ale","original","originale","non — identique"],
+ ["déjà -e","insolite","insolite","aucun changement"]
+]);
+ex("<b>The underlying rule, one more time:</b> a final consonant is usually silent, and adding <b>-e</b> wakes it up. That's why <i>étroit</i> → <i>étroite</i> and <i>charmant</i> → <i>charmante</i> change audibly, while <i>isolé</i> → <i>isolée</i> doesn't — there was no silent consonant there to wake.");
+
+h2("4 · Comparer — plus, moins, aussi");
+ex("<b>plus / moins / aussi + adjectif + que</b> — the three-part frame that handles every comparison in French.");
+rows([
+ ["Un phare est plus original qu'un appartement.","uhn far eh plew zoh-ree-zhee-NAL kuhn nah-par-tuh-MAHN","A lighthouse is more original than a flat."],
+ ["Une péniche est moins spacieuse qu'une maison.","ewn pay-NEESH eh mwan spah-SYUHZ kewn may-ZOHN","A houseboat is less spacious than a house."],
+ ["Une cabane est aussi confortable qu'un studio.","ewn kah-BAN eh toh-see kohn-for-TAH-bluh kuhn stew-DYOH","A cabin is as comfortable as a studio."],
+ ["C'est le logement le plus insolite de la région.","seh luh lohzh-MAHN luh plew zan-soh-LEET duh lah ray-ZHYOHN","It's the most unusual home in the region."]
+]);
+warn("<b>que becomes qu' before a vowel</b> — <i>plus original <b>qu'</b>un appartement</i>. And the adjective still agrees with the <u>first</u> thing being compared: <i>une péniche est moins spacieu<b>se</b></i>, feminine, because <i>péniche</i> is.");
+note("<b>Two irregulars to know now:</b><br>\\u00b7 <i>bon</i> → <b>meilleur</b> (better), never <i>plus bon</i><br>\\u00b7 <i>bien</i> → <b>mieux</b> (better, for adverbs), never <i>plus bien</i><br><br>« C'est <b>mieux</b> qu'un appartement » · « C'est une <b>meilleure</b> idée ».");
+
+h2("5 · Réagir — donner son avis");
+rows([
+ ["C'est incroyable !","seh tan-krwah-YAH-bluh","That's incredible!"],
+ ["J'adore !","zhah-DOR","I love it!"],
+ ["Ça me plaît beaucoup.","sah muh pleh boh-KOO","I like it a lot."],
+ ["Je trouve ça original.","zhuh troov sah oh-ree-zhee-NAL","I find it original."],
+ ["Ce n'est pas pour moi.","suh neh pah poor MWAH","It's not for me."],
+ ["Je préfère quelque chose de plus classique.","zhuh pray-FEHR kel-kuh shohz duh plew klah-SEEK","I prefer something more conventional."],
+ ["À mon avis, c'est trop petit.","ah mohn nah-VEE, seh troh puh-TEE","In my opinion, it's too small."],
+ ["Je ne pourrais pas y vivre.","zhuh nuh poo-reh pah zee VEE-vruh","I couldn't live there."]
+]);
+note("<b>À mon avis</b> (ah mohn nah-VEE) is the standard way to open an opinion — literally \"to my opinion\". Note the liaison: <i>mon<b>⁀</b>avis</i>. Alternatives: <i>Je pense que…</i>, <i>Je trouve que…</i>, <i>Pour moi…</i>");
+
+h2("6 · Les avantages et les inconvénients");
+table(["Avantages","Inconvénients"],[
+ ["C'est original.","C'est petit."],
+ ["C'est calme.","C'est isolé."],
+ ["Il y a une belle vue.","C'est difficile d'accès."],
+ ["C'est près de la nature.","Il n'y a pas de voisins."],
+ ["Ce n'est pas cher.","Ce n'est pas pratique."],
+ ["C'est écologique.","Il fait froid en hiver."]
+]);
+rows([
+ ["un avantage","uhn nah-vahn-TAHZH","an advantage"],
+ ["un inconvénient","uhn nan-kohn-vay-NYAHN","a drawback"],
+ ["L'avantage, c'est que c'est calme.","lah-vahn-TAHZH, seh kuh seh KALM","The advantage is that it's quiet."],
+ ["L'inconvénient, c'est que c'est isolé.","lan-kohn-vay-NYAHN, seh kuh seh tee-zoh-LAY","The drawback is that it's isolated."]
+]);
+
+h2("7 · Exercices");
+h3("Exercice 1 — quel logement ?");
+mcq([
+ {q:"C'est sur l'eau, et ça peut bouger.", opts:["une péniche","un phare","une yourte"], a:0, why:"sur l'eau + bouger → une péniche (houseboat)."},
+ {q:"C'est très haut, au bord de la mer, et il y a une lumière en haut.", opts:["un moulin","un phare","un château"], a:1, why:"une lumière au bord de la mer → un phare."},
+ {q:"C'est dans les arbres — il faut une échelle !", opts:["une grotte","une cabane dans les arbres","un conteneur"], a:1, why:"dans les arbres + une échelle (ladder) → une cabane."},
+ {q:"C'est en métal, rectangulaire, et ça vient d'un bateau.", opts:["un conteneur","une caravane","un igloo"], a:0, why:"métal + bateau → un conteneur."}
+]);
+h3("Exercice 2 — accordez l'adjectif");
+fill([
+ {s:"une maison ______ (original)", a:["originale"], en:"an original house", why:"-al → -ale. The sound doesn't change."},
+ {s:"une péniche ______ (étroit)", a:["étroite","etroite"], en:"a narrow barge", why:"+ e, and the t becomes audible: ay-TRWAHT."},
+ {s:"une cabane ______ (charmant)", a:["charmante"], en:"a charming cabin", why:"+ e, and the t sounds: shar-MAHNT."},
+ {s:"une chambre ______ (spacieux)", a:["spacieuse"], en:"a spacious room", why:"-eux → -euse. The x becomes a z sound."},
+ {s:"une maison ______ (insolite)", a:["insolite"], en:"an unusual house", why:"Already ends in -e — no change."}
+]);
+h3("Exercice 3 — comparez");
+fill([
+ {s:"Un phare est ______ original qu'un appartement. (+)", a:["plus"], en:"A lighthouse is more original than a flat.", why:"plus = more."},
+ {s:"Une péniche est ______ spacieuse qu'une maison. (−)", a:["moins"], en:"A houseboat is less spacious than a house.", why:"moins = less."},
+ {s:"Une yourte est ______ confortable qu'une tente. (=)", a:["aussi"], en:"A yurt is as comfortable as a tent.", why:"aussi… que = as… as."},
+ {s:"Cette idée est ______ que l'autre. (bon → +)", a:["meilleure"], en:"This idea is better than the other.", why:"<i>bon</i> becomes <b>meilleur(e)</b>, never <i>plus bon</i>. Feminine here because of <i>idée</i>."}
+]);
+h3("Exercice 4 — avantage ou inconvénient ?");
+mcq([
+ {q:"« C'est très calme, il n'y a personne. »", opts:["Plutôt un avantage","Plutôt un inconvénient","Les deux, selon la personne"], a:2, why:"Both — and that's the point of this topic. <i>Calme</i> is a selling point; <i>il n'y a personne</i> is isolation. The same fact reads either way."},
+ {q:"« C'est difficile d'accès. »", opts:["Un avantage","Un inconvénient","Neutre"], a:1, why:"Hard to get to → a drawback."},
+ {q:"« Il y a une vue magnifique sur la mer. »", opts:["Un avantage","Un inconvénient","Neutre"], a:0, why:"A beautiful sea view → clearly an advantage."}
+]);
+
+h2("8 · Texte parallèle — Vivre dans un phare");
+ex("<b>Une maison pas comme les autres</b><br><br>Marie habite dans un phare, au bord de la mer, en Bretagne. C'est un logement vraiment insolite !<br><br>Le phare est très haut : il y a quatre étages et cent vingt marches. Les pièces sont rondes et assez étroites. En bas, il y a la cuisine ; au premier, le salon ; au deuxième, la chambre. Tout en haut, il y a la lumière — et une vue magnifique sur l'océan.<br><br>L'avantage, c'est que c'est calme et que la vue est incroyable. L'inconvénient, c'est que c'est isolé et difficile d'accès : en hiver, quand il y a du vent, c'est compliqué.<br><br>« Ce n'est pas pour tout le monde », dit Marie. « Mais pour moi, c'est mieux qu'un appartement en ville. Je ne pourrais plus vivre ailleurs. »");
+h3("Glossaire du texte");
+rows([
+ ["au bord de la mer","oh bor duh lah MEHR","by the sea"],
+ ["vraiment insolite","vreh-mahn an-soh-LEET","really unusual"],
+ ["quatre étages","kat ray-TAHZH","four floors"],
+ ["cent vingt marches","sahn van MARSH","a hundred and twenty steps"],
+ ["Les pièces sont rondes.","lay pyess sohn ROHND","The rooms are round."],
+ ["assez étroites","ah-say zay-TRWAHT","quite narrow"],
+ ["En bas … Tout en haut","ahn BAH … too tahn OH","Downstairs … Right at the top"],
+ ["une vue magnifique sur l'océan","ewn vew mah-nyee-FEEK sewr loh-say-AHN","a magnificent view over the ocean"],
+ ["c'est compliqué","seh kohn-plee-KAY","it's complicated"],
+ ["Ce n'est pas pour tout le monde.","suh neh pah poor too luh MOHND","It's not for everyone."],
+ ["c'est mieux qu'un appartement","seh myuh kuhn nah-par-tuh-MAHN","it's better than a flat"],
+ ["Je ne pourrais plus vivre ailleurs.","zhuh nuh poo-reh plew VEE-vruh ah-YUR","I couldn't live anywhere else any more."]
+]);
+h3("Compréhension");
+mcq([
+ {q:"Combien d'étages a le phare ?", opts:["Deux","Quatre","Cent vingt"], a:1, why:"« il y a quatre étages et cent vingt marches » — 120 is the number of steps."},
+ {q:"Où est la cuisine ?", opts:["En bas","Au deuxième","Tout en haut"], a:0, why:"« En bas, il y a la cuisine »."},
+ {q:"Quel est l'inconvénient principal ?", opts:["C'est bruyant","C'est isolé et difficile d'accès","C'est trop cher"], a:1, why:"« c'est isolé et difficile d'accès »."},
+ {q:"Marie regrette-t-elle son choix ?", opts:["Oui","Non","Elle ne sait pas"], a:1, why:"« Je ne pourrais plus vivre ailleurs » — she wouldn't live anywhere else."}
+]);
+note("<b>Repérez la grammaire :</b><br>\\u00b7 <b>Deux accords féminins pluriels</b> — les pièces sont <b>rondes</b> et <b>étroites</b><br>\\u00b7 <b>Une comparaison irrégulière</b> — <i>c'est <b>mieux</b> qu'un appartement</i>, not <i>plus bien</i><br>\\u00b7 <b>Une négation avec « plus »</b> — <i>je ne pourrais <b>plus</b> vivre ailleurs</i> = not any more<br>\\u00b7 <b>La structure avantage / inconvénient</b> — <i>L'avantage, c'est que… L'inconvénient, c'est que…</i><br>\\u00b7 <b>Les prépositions de position verticale</b> — <i>en bas</i>, <i>au premier</i>, <i>au deuxième</i>, <i>tout en haut</i>");
+ex("<b>À vous —</b> choose an unusual home from section 1 and describe it in eight sentences:<br>☐ name the type and where it is<br>☐ two facts about its size or layout, using <b>il y a</b><br>☐ two adjectives, correctly agreed<br>☐ one <b>avantage</b> and one <b>inconvénient</b>, using the <i>c'est que</i> frame<br>☐ one comparison with <b>plus / moins / aussi … que</b><br>☐ your own opinion, opening with <b>À mon avis</b>");
+
+})();
+
 </script>
 <script src="french_glossary.js"></script>
 </body>

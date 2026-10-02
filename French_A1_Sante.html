@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French — Le corps et la santé (A1)</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+</style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Le corps, la santé et chez le médecin</h1>
+  <p class="sub">A1 theme · body vocabulary, how to say where it hurts, and the full doctor's-visit dialogue</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Cours21_Notes.html">Cours 21</a>
+    <a href="French_Cours22_Notes.html">Cours 22</a>
+    <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
+    <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html" class="active">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
+  </nav>
+
+<div class="whybox">
+  <h4><span>Pourquoi ça marche comme ça</span>Pourquoi « il » ne veut rien dire dans « il pleut »</h4>
+  <p>Nobody is raining. The <b>il</b> in <i>il pleut</i> and <i>il fait froid</i> refers to nothing at all — it is an empty placeholder, exactly like the "it" in English "it's raining".<br><br>French requires every sentence to have a subject, so when there is no real one, it supplies a dummy. That is also why the <i>il</i> never becomes <i>elle</i>, and why you never see <i>fait chaud</i> standing alone.<br><br>Same mechanism in <b>il y a</b> and <b>il faut</b> — two more phrases where <i>il</i> is holding a seat for nobody.</p>
+  <a class="more" href="French_Grammaire.html">Aller plus loin →</a>
+</div>
+
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').textContent=fr; c.querySelector('.ph').textContent=ph;
+    c.onclick=()=>speak(fr); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+h2("1 · Le corps humain");
+h3("La tête");
+grid([["la tête","lah TET"],["les cheveux","lay shuh-VUH"],["le visage","luh vee-ZAHZH"],["l'œil / les yeux","LUY / lay ZYUH"],["le nez","luh NAY"],["la bouche","lah BOOSH"],["les dents","lay DAHN"],["l'oreille","loh-RAY"],["le cou","luh KOO"],["la gorge","lah GORZH"]]);
+warn("<b>un œil → des yeux</b> — singular and plural are completely different words, like <i>person/people</i>. Said <b>UY</b> and <b>ZYUH</b>.<br><br>And <b>les cheveux</b> is always <u>plural</u> in French. You cannot have <i>un cheveu</i> unless you mean one single strand.");
+h3("Le corps");
+grid([["le bras","luh BRAH"],["la main","lah MAN"],["le doigt","luh DWAH"],["la jambe","lah ZHAHMB"],["le pied","luh PYAY"],["le dos","luh DOH"],["le ventre","luh VAHN-truh"],["l'estomac","les-toh-MAH"],["le cœur","luh KUR"],["l'épaule","lay-POHL"],["le genou","luh zhuh-NOO"],["la peau","lah POH"]]);
+note("<b>Three silent-letter traps:</b><br>· <b>le doigt</b> — said <b>DWAH</b>. The g and the t are both silent.<br>· <b>l'estomac</b> — said <b>les-toh-MAH</b>. The final c is silent.<br>· <b>le genou</b> → plural <b>les genoux</b>, with an x.");
+
+h2("2 · La grammaire du corps — l'article défini");
+ex("<b>French uses LE / LA / LES with body parts where English uses a possessive.</b><br><br>· <i>Il a <b>les</b> cheveux courts.</i> — He has <u>his</u> hair short.<br>· <i>J'ai mal à <b>la</b> tête.</i> — I have a pain in <u>my</u> head.<br>· <i>Elle se lave <b>les</b> mains.</i> — She washes <u>her</u> hands.<br><br>Why? Because the owner is already obvious from the subject. French does not repeat information it has already given — so <i>je me lave les mains</i> uses <b>me</b> to say whose, and the article is left neutral.");
+warn("<b>So « j'ai mal à ma tête » is wrong.</b> It is <i>j'ai mal <b>à la</b> tête</i>. This is one of the most reliable giveaways of an English speaker writing French.");
+
+h2("3 · Dire qu'on a mal");
+ex("<b>La formule : AVOIR MAL À + le / la / les</b><br><br>And the usual contractions apply: <b>à + le = au</b>, <b>à + les = aux</b>.");
+rows([
+ ["J'ai mal à la tête.","zhay mal ah lah TET","I have a headache."],
+ ["J'ai mal à la gorge.","zhay mal ah lah GORZH","I have a sore throat."],
+ ["J'ai mal au ventre.","zhay mal oh VAHN-truh","I have stomach ache."],
+ ["J'ai mal au dos.","zhay mal oh DOH","My back hurts."],
+ ["J'ai mal aux dents.","zhay mal oh DAHN","I have toothache."],
+ ["J'ai mal aux pieds.","zhay mal oh PYAY","My feet hurt."],
+ ["J'ai mal partout !","zhay mal par-TOO","I ache everywhere!"]
+]);
+h3("D'autres façons de le dire");
+rows([
+ ["Je suis malade.","zhuh swee mah-LAHD","I'm ill."],
+ ["Je ne me sens pas bien.","zhuh nuh muh sahn pah BYAN","I don't feel well."],
+ ["J'ai de la fièvre.","zhay duh lah FYEH-vruh","I have a temperature."],
+ ["J'ai un rhume.","zhay uhn REWM","I have a cold."],
+ ["J'ai la grippe.","zhay lah GREEP","I have the flu."],
+ ["Je tousse.","zhuh TOOSS","I'm coughing."],
+ ["Je suis fatigué.","zhuh swee fah-tee-GAY","I'm tired."],
+ ["Ça ne va pas du tout.","sah nuh vah pah dew TOO","I'm not well at all."]
+]);
+note("<b>avoir mal</b> = to have a pain somewhere. <b>être malade</b> = to be ill in general. <i>J'ai mal à la tête</i> is a headache; <i>je suis malade</i> is being properly unwell.<br><br>And notice the pattern again: pains are something you <b>have</b> (<i>avoir</i>), states are something you <b>are</b> (<i>être</i>) — the same split as <i>j'ai faim</i> vs <i>je suis fatigué</i>.");
+
+h2("4 · Chez le médecin");
+h3("Ce que vous dites");
+rows([
+ ["Je voudrais prendre rendez-vous.","zhuh voo-dreh prahn-druh rahn-day-VOO","I'd like to make an appointment."],
+ ["C'est urgent.","seh tewr-ZHAHN","It's urgent."],
+ ["J'ai mal ici.","zhay mal ee-SEE","It hurts here."],
+ ["Ça fait mal depuis trois jours.","sah feh mal duh-pwee trwah ZHOOR","It's been hurting for three days."],
+ ["Je suis allergique aux antibiotiques.","zhuh swee zah-lair-ZHEEK oh zahn-tee-byoh-TEEK","I'm allergic to antibiotics."],
+ ["Je prends déjà des médicaments.","zhuh prahn day-zhah day may-dee-kah-MAHN","I'm already taking medication."]
+]);
+h3("Ce que le médecin dit");
+rows([
+ ["Qu'est-ce qui ne va pas ?","kess kee nuh vah PAH","What's wrong?"],
+ ["Où avez-vous mal ?","oo ah-vay-voo MAL","Where does it hurt?"],
+ ["Depuis quand ?","duh-pwee KAHN","Since when?"],
+ ["Ouvrez la bouche.","oo-vray lah BOOSH","Open your mouth."],
+ ["Respirez profondément.","res-pee-ray proh-fohn-day-MAHN","Breathe deeply."],
+ ["Ce n'est pas grave.","suh neh pah GRAHV","It's nothing serious."],
+ ["Reposez-vous bien.","ruh-poh-zay-voo BYAN","Get plenty of rest."],
+ ["Voici une ordonnance.","vwah-see ewn or-doh-NAHNSS","Here's a prescription."],
+ ["Revenez dans une semaine.","ruh-vuh-nay dahn zewn suh-MEN","Come back in a week."]
+]);
+note("<b>Notice the imperatives.</b> <i>Ouvrez, respirez, reposez-vous, revenez</i> — a doctor's visit is almost entirely built from the <b>vous</b> imperative. If you worked through the Impératif page, you can already understand everything a French doctor says to you.");
+h3("Le vocabulaire médical de base");
+rows([
+ ["un médecin / un docteur","uhn mayd-SAN / uhn dok-TUR","a doctor"],
+ ["une ordonnance","ewn or-doh-NAHNSS","a prescription"],
+ ["un médicament","uhn may-dee-kah-MAHN","a medicine"],
+ ["une pharmacie","ewn far-mah-SEE","a chemist's"],
+ ["un rendez-vous","uhn rahn-day-VOO","an appointment"],
+ ["l'hôpital","loh-pee-TAL","the hospital"],
+ ["les urgences","lay zewr-ZHAHNSS","A&E / the emergency room"],
+ ["la carte d'assurance maladie","lah kart dah-sew-rahnss mah-lah-DEE","health insurance card"]
+]);
+warn("<b>une ordonnance = a prescription</b>, not an ordinance. And <b>les urgences</b> (always plural) is the emergency department — in Canada you will hear it constantly.");
+
+h2("5 · Rester en bonne santé");
+rows([
+ ["Je vais bien.","zhuh veh BYAN","I'm well."],
+ ["Je suis en bonne santé.","zhuh swee zahn bun sahn-TAY","I'm in good health."],
+ ["Je fais du sport.","zhuh feh dew SPOR","I do sport."],
+ ["Je mange équilibré.","zhuh mahnzh ay-kee-lee-BRAY","I eat a balanced diet."],
+ ["Je dors huit heures par nuit.","zhuh dor wee tur par NWEE","I sleep eight hours a night."],
+ ["Je ne fume pas.","zhuh nuh fewm PAH","I don't smoke."],
+ ["Prends soin de toi.","prahn swan duh TWAH","Take care of yourself."],
+ ["Bon rétablissement !","bohn ray-tah-blees-MAHN","Get well soon!"]
+]);
+
+h2("6 · Exercices");
+h3("A · Complétez : au, à la ou aux ?");
+fill([
+ {s:"J'ai mal ______ tête.", a:["à la","a la","à la"], en:"I have a headache.", why:"<i>tête</i> is feminine → <b>à la</b>."},
+ {s:"J'ai mal ______ ventre.", a:["au"], en:"I have stomach ache.", why:"<i>ventre</i> is masculine → à + le = <b>au</b>."},
+ {s:"J'ai mal ______ dents.", a:["aux"], en:"I have toothache.", why:"Plural → à + les = <b>aux</b>."},
+ {s:"J'ai mal ______ dos.", a:["au"], en:"My back hurts.", why:"<i>dos</i> is masculine → <b>au</b>."},
+ {s:"J'ai mal ______ gorge.", a:["à la","a la","à la"], en:"I have a sore throat.", why:"<i>gorge</i> is feminine → <b>à la</b>."},
+ {s:"J'ai mal ______ pieds.", a:["aux"], en:"My feet hurt.", why:"Plural → <b>aux</b>."}
+]);
+h3("B · Avoir ou être ?");
+mcq([
+ {q:"Je ______ mal à la tête.", opts:["suis","ai"], a:1, why:"A pain is something you <b>have</b> → avoir."},
+ {q:"Je ______ malade.", opts:["suis","ai"], a:0, why:"<i>malade</i> is an adjective → <b>être</b>."},
+ {q:"Je ______ de la fièvre.", opts:["suis","ai"], a:1, why:"<i>fièvre</i> is a noun → <b>avoir</b>."},
+ {q:"Je ______ fatigué.", opts:["suis","ai"], a:0, why:"<i>fatigué</i> is an adjective → <b>être</b>."},
+ {q:"Je ______ un rhume.", opts:["suis","ai"], a:1, why:"<i>un rhume</i> is a noun → <b>avoir</b>."}
+]);
+h3("C · Mon article ou l'article défini ?");
+mcq([
+ {q:"« He has short hair. »", opts:["Il a ses cheveux courts.","Il a les cheveux courts."], a:1, why:"Body parts take the <b>definite</b> article in French."},
+ {q:"« I have a headache. »", opts:["J'ai mal à ma tête.","J'ai mal à la tête."], a:1, why:"<b>à la tête</b> — never <i>à ma tête</i>."},
+ {q:"« She washes her hands. »", opts:["Elle lave ses mains.","Elle se lave les mains."], a:1, why:"The reflexive <b>se</b> says whose, so the article stays neutral."}
+]);
+
+h2("7 · Texte parallèle — Chez le médecin");
+ex("<b>Un lundi matin</b><br><br>Hier soir, je ne me suis pas senti bien. J'avais mal à la gorge et j'avais de la fièvre. Je me suis couché tôt, mais j'ai mal dormi.<br><br>Ce matin, j'ai téléphoné à la clinique.<br><br>— Bonjour, je voudrais prendre rendez-vous. Je suis malade depuis hier.<br>— Vous pouvez venir à onze heures ?<br>— Oui, parfait. Merci.<br><br>Chez le médecin :<br><br>— Bonjour. Qu'est-ce qui ne va pas ?<br>— J'ai mal à la gorge et j'ai de la fièvre. Je tousse aussi.<br>— Depuis quand ?<br>— Depuis hier soir.<br>— Bon. Ouvrez la bouche… Respirez profondément… Très bien. Ce n'est pas grave : c'est une angine. Je vous donne une ordonnance. Prenez ces médicaments pendant six jours, buvez beaucoup d'eau et reposez-vous.<br>— Est-ce que je peux aller au travail ?<br>— Restez à la maison deux jours. Après, ça ira mieux.<br>— D'accord. Merci, docteur.<br>— Je vous en prie. Bon rétablissement !<br><br>Je suis allé à la pharmacie à côté de la clinique. Le pharmacien m'a donné les médicaments. Je suis rentré à la maison, j'ai bu un thé chaud, et je me suis recouché.<br><br>Trois jours plus tard, ça allait beaucoup mieux.");
+h3("Glossaire du texte");
+rows([
+ ["je ne me suis pas senti bien","zhuh nuh muh swee pah sahn-tee BYAN","I didn't feel well"],
+ ["J'avais mal à la gorge.","zhah-veh mal ah lah GORZH","I had a sore throat."],
+ ["j'avais de la fièvre","zhah-veh duh lah FYEH-vruh","I had a temperature"],
+ ["j'ai mal dormi","zhay mal dor-MEE","I slept badly"],
+ ["prendre rendez-vous","prahn-druh rahn-day-VOO","to make an appointment"],
+ ["Qu'est-ce qui ne va pas ?","kess kee nuh vah PAH","What's wrong?"],
+ ["Je tousse aussi.","zhuh tooss oh-SEE","I'm coughing too."],
+ ["Respirez profondément.","res-pee-ray proh-fohn-day-MAHN","Breathe deeply."],
+ ["c'est une angine","seh tewn ahn-ZHEEN","it's a throat infection"],
+ ["Je vous donne une ordonnance.","zhuh voo dun ewn or-doh-NAHNSS","I'll give you a prescription."],
+ ["buvez beaucoup d'eau","bew-vay boh-koo DOH","drink plenty of water"],
+ ["Restez à la maison deux jours.","res-tay ah lah may-ZOHN duh ZHOOR","Stay at home for two days."],
+ ["ça ira mieux","sah ee-rah MYUH","it'll be better"],
+ ["Bon rétablissement !","bohn ray-tah-blees-MAHN","Get well soon!"],
+ ["je me suis recouché","zhuh muh swee ruh-koo-SHAY","I went back to bed"],
+ ["ça allait beaucoup mieux","sah ah-leh boh-koo MYUH","it was much better"]
+]);
+h3("Compréhension");
+mcq([
+ {q:"Quels sont ses symptômes ?", opts:["Mal au ventre et fièvre","Mal à la gorge, fièvre et toux","Mal au dos"], a:1, why:"« J'ai mal à la gorge et j'ai de la fièvre. Je tousse aussi. »"},
+ {q:"Combien de jours doit-il prendre les médicaments ?", opts:["Deux","Trois","Six"], a:2, why:"« Prenez ces médicaments pendant six jours. » Two is how long he stays home."},
+ {q:"Peut-il aller au travail ?", opts:["Oui, tout de suite","Non, il doit rester deux jours à la maison","Non, jamais"], a:1, why:"« Restez à la maison deux jours. »"},
+ {q:"Pourquoi « j'avais mal » est-il à l'imparfait ?", opts:["C'est une habitude","C'est un état, le décor de l'histoire","C'est une erreur"], a:1, why:"A <b>state</b>, not an event → imparfait. The events (<i>je me suis couché</i>, <i>j'ai téléphoné</i>) are passé composé."}
+]);
+h3("Repérez la grammaire");
+note("Find these in the text:<br>· <b>Quatre « avoir mal à »</b> — and check each contraction<br>· <b>L'article défini avec le corps</b> — <i>mal à <b>la</b> gorge</i>, never <i>à ma gorge</i><br>· <b>Six impératifs du médecin</b> — ouvrez, respirez, prenez, buvez, reposez-vous, restez<br>· <b>L'imparfait pour l'état</b> — <i>j'avais mal</i>, <i>j'avais de la fièvre</i>, <i>ça allait mieux</i><br>· <b>Le passé composé pour les événements</b> — <i>je me suis couché</i>, <i>j'ai téléphoné</i>, <i>je suis allé</i>, <i>je suis rentré</i>, <i>j'ai bu</i>, <i>je me suis recouché</i><br>· <b>Trois verbes pronominaux au passé</b> — all with <b>être</b><br>· <b>Un pronom COI</b> — <i>le pharmacien <b>m'</b>a donné les médicaments</i>");
+ex("<b>À vous —</b> write your own doctor's visit as a dialogue, twelve lines. Requirements — tick them off:<br>☐ phone to make the appointment<br>☐ describe <b>two</b> symptoms with <b>avoir mal à</b>, contracting correctly<br>☐ one symptom with <b>avoir</b> + noun (<i>j'ai de la fièvre</i>, <i>j'ai un rhume</i>)<br>☐ one state with <b>être</b> + adjective (<i>je suis fatigué</i>)<br>☐ say <b>depuis quand</b><br>☐ three <b>imperatives</b> from the doctor<br>☐ set the scene in the <b>imparfait</b> and tell the events in the <b>passé composé</b><br>☐ close with <b>Bon rétablissement !</b><br><br>This is one of the most likely real conversations you will have in French in Canada. Practise it until it is automatic.");
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+<script src="french_glossary.js"></script>
+</body>
+</html>

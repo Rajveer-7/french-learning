@@ -35,6 +35,49 @@
   .tpl b { color:var(--accent); }
   .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
 </style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
+<style id="xp-style">
+  .xp h2 { font-size:18px; margin:26px 0 6px; padding-bottom:6px; border-bottom:2px solid #e6e3dc; color:#23201b; }
+  .xp h3 { font-size:15px; margin:16px 0 6px; color:#4338ca; }
+  .xp p.xp-lead { font-size:14px; color:#6b675f; margin:0 0 10px; }
+  .xp .xp-note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .xp .xp-ex { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .xp .xp-warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .xp .xp-row { display:flex; align-items:center; gap:12px; background:#fff; border:1px solid #e6e3dc; border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .xp .xp-play { flex:0 0 auto; width:38px; height:38px; border-radius:50%; border:1px solid #e6e3dc; background:#eceafe; color:#4338ca; font-size:15px; cursor:pointer; }
+  .xp .xp-txt { flex:1 1 auto; min-width:0; }
+  .xp .xp-fr { font-size:16px; font-weight:600; cursor:pointer; }
+  .xp .xp-fr:hover { color:#4338ca; }
+  .xp .xp-ph { font-size:13px; color:#0f7a54; font-style:italic; }
+  .xp .xp-en { font-size:13px; color:#6b675f; }
+  .xp table.xp-t { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .xp table.xp-t th, .xp table.xp-t td { border:1px solid #e6e3dc; padding:8px 10px; text-align:left; vertical-align:top; }
+  .xp table.xp-t th { background:#eceafe; color:#4338ca; }
+  .xp .xp-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .xp .xp-cell { background:#fff; border:1px solid #e6e3dc; border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .xp .xp-cell:hover { border-color:#4338ca; }
+  .xp .xp-cell b { display:block; font-size:14px; }
+  .xp .xp-cell i { font-size:11px; color:#0f7a54; font-style:italic; }
+  .xp .xp-fill { background:#fff; border:1px solid #e6e3dc; border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .xp .xp-fill .s { font-size:15px; margin-bottom:8px; }
+  .xp .xp-fill input { border:1px solid #e6e3dc; border-radius:8px; padding:6px 10px; font-size:14px; width:230px; }
+  .xp .xp-fill button { border:1px solid #4338ca; background:#4338ca; color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .xp .xp-fb { font-size:13px; margin-top:8px; }
+  .xp .xp-fb.ok { color:#155c37; } .xp .xp-fb.bad { color:#a33; }
+  .xp .xp-q { background:#fff; border:1px solid #e6e3dc; border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .xp .xp-q .prompt { font-size:15px; font-weight:600; margin-bottom:8px; }
+  .xp .xp-q .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .xp .xp-q .btns button { border:1px solid #e6e3dc; background:#fff; color:#23201b; border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .xp .xp-q .btns button:hover { border-color:#4338ca; }
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -66,15 +109,42 @@
     <a href="French_Cours21_Notes.html">Cours 21</a>
     <a href="French_Cours22_Notes.html">Cours 22</a>
     <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
     <a href="French_Conversations.html">Conversations</a>
     <a href="French_Dialogues.html">Dialogues</a>
     <a href="French_Full_Guide.html">Full Guide</a>
     <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
     <a href="French_Prof_Notes.html">Prof's Notes</a>
     <a href="French_Book_Audio.html">Book Audio</a>
     <a href="French_Audio_Library.html">Audio Library</a>
     <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
   </nav>
+
+<div class="whybox">
+  <h4><span>Pourquoi ça marche comme ça</span>Pourquoi l'introduction est la chose la plus rentable que vous apprendrez</h4>
+  <p>Every speaking exam, every first meeting and every class opens the same way. Learn one minute properly and you have the opening of <u>every</u> conversation for the rest of your life.<br><br>And notice what it is secretly teaching: <b>être</b> without an article (<i>je suis indien</i>), <b>avoir</b> for age (<i>j'ai vingt-trois ans</i>), and <b>parler</b> without an article (<i>je parle français</i>). Three of the most-tested rules in A1, hidden inside a self-introduction.</p>
+  <a class="more" href="French_Grammaire.html">Aller plus loin →</a>
+</div>
+
 
   <div class="bar">
     <span>Speed:</span>
@@ -104,6 +174,7 @@
     Enchanté(e) !
   </div>
   <div class="note">Women add an extra <b>-e</b>: Enchantée, étudiante, indienne. Men: Enchanté, étudiant, indien.</div>
+  <div class="xp" id="xpand"></div>
 </div>
 
 <script>
@@ -175,6 +246,224 @@ document.getElementById('speed').addEventListener('click',e=>{
   [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
   e.target.classList.add('on');
 });
+</script>
+<script>
+
+(function(){
+  var C = document.getElementById('xpand');
+  function sp(t){ try{ if(typeof speak==='function'){ speak(t); return; } }catch(e){}
+    try{ speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(String(t).replace(/_+/g,'')); u.lang='fr-FR';
+      var v=speechSynthesis.getVoices().find(function(x){return /^fr/i.test(x.lang);}); if(v)u.voice=v;
+      if(typeof rate!=='undefined') u.rate=rate; speechSynthesis.speak(u);}catch(e){} }
+  function el(tag,cls,html){ var e=document.createElement(tag); if(cls)e.className=cls; if(html!=null)e.innerHTML=html; return e; }
+  function h2(t){ C.appendChild(el('h2',null,t)); }
+  function h3(t){ C.appendChild(el('h3',null,t)); }
+  function lead(t){ C.appendChild(el('p','xp-lead',t)); }
+  function note(t){ C.appendChild(el('div','xp-note',t)); }
+  function ex(t){ C.appendChild(el('div','xp-ex',t)); }
+  function warn(t){ C.appendChild(el('div','xp-warn',t)); }
+  function rows(list){ list.forEach(function(r){
+    var fr=r[0], ph=r[1], en=r[2];
+    var row=el('div','xp-row');
+    var b=el('button','xp-play','&#9654;'); b.onclick=function(){sp(fr);};
+    var t=el('div','xp-txt');
+    var f=el('div','xp-fr'); f.textContent=fr; f.onclick=function(){sp(fr);};
+    t.appendChild(f);
+    if(ph){ var p=el('div','xp-ph'); p.textContent=ph; t.appendChild(p); }
+    if(en){ var e2=el('div','xp-en'); e2.textContent=en; t.appendChild(e2); }
+    row.appendChild(b); row.appendChild(t); C.appendChild(row);
+    try{ if(typeof GLOBAL_VOCAB!=='undefined') GLOBAL_VOCAB.push({fr:fr,en:en||''}); }catch(e){}
+  }); }
+  function grid(list){ var g=el('div','xp-grid');
+    list.forEach(function(r){ var c=el('div','xp-cell','<b></b><i></i>');
+      c.querySelector('b').textContent=r[0]; c.querySelector('i').textContent=r[1]||'';
+      c.onclick=function(){sp(r[0]);}; g.appendChild(c); });
+    C.appendChild(g); }
+  function table(head, body){ var t=el('table','xp-t');
+    var html='<tr>'; head.forEach(function(h){ html+='<th>'+h+'</th>'; }); html+='</tr>';
+    body.forEach(function(r){ html+='<tr>'; r.forEach(function(c){ html+='<td>'+c+'</td>'; }); html+='</tr>'; });
+    t.innerHTML=html; C.appendChild(t); }
+  function fill(items){ items.forEach(function(it){
+    var d=el('div','xp-fill'); d.appendChild(el('div','s',it.s));
+    var inp=document.createElement('input'); inp.placeholder='...';
+    var btn=document.createElement('button'); btn.textContent='Check';
+    var fb=el('div','xp-fb');
+    function chk(){ var v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      var ok=it.a.some(function(a){return a.toLowerCase()===v;});
+      if(ok){ fb.className='xp-fb ok'; fb.innerHTML='\u2713 '+it.a[0]+' \u2014 '+it.why; sp(it.a[0]); }
+      else { fb.className='xp-fb bad'; fb.innerHTML='\u2717 Answer: <b>'+it.a[0]+'</b> \u2014 '+it.why; } }
+    btn.onclick=chk; inp.addEventListener('keydown',function(e){ if(e.key==='Enter') chk(); });
+    var line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn); d.appendChild(line);
+    if(it.en){ var t=el('div','xp-en',''); t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb); C.appendChild(d); }); }
+  function mcq(items){ items.forEach(function(it){
+    var d=el('div','xp-q'); d.appendChild(el('div','prompt',it.q));
+    var b=el('div','btns'); var fb=el('div','xp-fb');
+    it.opts.forEach(function(o,i){ var btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=function(){ if(i===it.a){ fb.className='xp-fb ok'; fb.innerHTML='\u2713 '+o+' \u2014 '+it.why; sp(o); }
+        else { fb.className='xp-fb bad'; fb.innerHTML='\u2717 The answer is <b>'+it.opts[it.a]+'</b> \u2014 '+it.why; } };
+      b.appendChild(btn); });
+    d.appendChild(b); d.appendChild(fb); C.appendChild(d); }); }
+  h2("Deep dive — building a full introduction");
+lead("The five lines above are the skeleton. Everything below is how to put flesh on it, piece by piece, so you can introduce yourself to anyone.");
+
+h3("The seven building blocks");
+ex("Every self-introduction in every exam, every class and every first meeting is built from these seven. Learn one sentence for each and you are never stuck.<br><br><b>1. Greeting · 2. Name · 3. Age · 4. Nationality · 5. Where you live · 6. Languages · 7. Job</b><br><br>Add an eighth — something you like — and you have a full minute of speech.");
+table(["#","Bloc","Votre phrase"],[
+ ["1","Saluer","Bonjour ! / Salut !"],
+ ["2","Le nom","Je m'appelle Rajveer."],
+ ["3","L'âge","J'ai vingt-trois ans."],
+ ["4","La nationalité","Je suis indien."],
+ ["5","Le domicile","J'habite à Brampton, au Canada."],
+ ["6","Les langues","Je parle anglais, hindi et un peu français."],
+ ["7","Le métier","Je suis administrateur système."],
+ ["8","Les goûts","J'aime le cricket et la musique."]
+]);
+
+h3("Bloc 1 — saluer");
+rows([
+ ["Bonjour !","bohn-ZHOOR","Hello! (any time of day, polite)"],
+ ["Bonsoir !","bohn-SWAHR","Good evening!"],
+ ["Salut !","sah-LEW","Hi! (informal, friends only)"],
+ ["Enchanté !","ahn-shahn-TAY","Pleased to meet you! (said by a man)"],
+ ["Enchantée !","ahn-shahn-TAY","Pleased to meet you! (said by a woman — same sound)"],
+ ["Ravi de vous rencontrer.","rah-VEE duh voo rahn-kohn-TRAY","Delighted to meet you. (formal)"]
+]);
+note("<b>Bonjour covers the whole day</b> until early evening — there is no separate \"good morning\" and \"good afternoon\". After about 6 p.m. you switch to <b>bonsoir</b>. <i>Bonne nuit</i> is <u>only</u> for going to bed, never for greeting someone.");
+warn("<b>Encha<u>nt</u>é and encha<u>nt</u>ée sound identical</b> — ahn-shahn-TAY. The extra <i>e</i> is written, not spoken. This is a good early example of a rule you'll meet constantly: French marks gender in spelling far more often than in sound.");
+
+h3("Bloc 2 — le nom");
+rows([
+ ["Je m'appelle Rajveer.","zhuh mah-PELL raj-VEER","My name is Rajveer."],
+ ["Moi, c'est Rajveer.","mwah, seh raj-VEER","I'm Rajveer. (relaxed)"],
+ ["Mon nom est Rajveer.","mohn nohn eh raj-VEER","My name is Rajveer. (formal)"],
+ ["Comment vous appelez-vous ?","koh-mahn voo zah-play-VOO","What is your name? (formal)"],
+ ["Comment tu t'appelles ?","koh-MAHN tew tah-PELL","What's your name? (informal)"],
+ ["Vous pouvez épeler, s'il vous plaît ?","voo poo-VAY ay-puh-LAY, seel voo PLEH","Can you spell that, please?"]
+]);
+ex("<b>Je m'appelle</b> is literally \"I call myself\" — your first reflexive verb, long before the class teaches them. The <b>m'</b> is the reflexive pronoun <i>me</i>, shortened because <i>appelle</i> starts with a vowel. You'll meet the whole family later: <i>tu t'appelles</i>, <i>il s'appelle</i>, <i>nous nous appelons</i>.");
+
+h3("L'alphabet français — pour épeler votre nom");
+grid([["A — ah",""],["B — bay",""],["C — say",""],["D — day",""],["E — uh",""],["F — eff",""],["G — zhay",""],["H — ash",""],["I — ee",""],["J — zhee",""],["K — kah",""],["L — ell",""],["M — emm",""],["N — enn",""],["O — oh",""],["P — pay",""],["Q — kew",""],["R — air",""],["S — ess",""],["T — tay",""],["U — ew",""],["V — vay",""],["W — doo-bluh-vay",""],["X — eeks",""],["Y — ee-grek",""],["Z — zed",""]]);
+warn("<b>The four letters that catch everyone:</b><br>· <b>G</b> = zhay and <b>J</b> = zhee — <u>swapped</u> compared with English. Your name starts with one of them.<br>· <b>E</b> = uh (not \"ee\") and <b>I</b> = ee (not \"eye\").<br>· <b>Y</b> = ee-grek, literally \"Greek i\".<br>· <b>W</b> = doo-bluh-vay, \"double v\" — not \"double u\".");
+rows([
+ ["Ça s'écrit R-A-J-V-E-E-R.","sah say-KREE : air-ah-zhee-vay-uh-uh-air","It's spelled R-A-J-V-E-E-R."],
+ ["Comment ça s'écrit ?","koh-mahn sah say-KREE","How is that spelled?"],
+ ["en majuscule","ahn mah-zhew-SKEWL","in capitals"],
+ ["deux R","duh AIR","double R"],
+ ["un tiret","uhn tee-REH","a hyphen"],
+ ["une apostrophe","ewn ah-poh-STROF","an apostrophe"]
+]);
+
+h3("Bloc 3 — l'âge");
+rows([
+ ["J'ai vingt-trois ans.","zhay van-TRWAH ZAHN","I'm twenty-three."],
+ ["Quel âge avez-vous ?","kell ahzh ah-vay-VOO","How old are you? (formal)"],
+ ["Tu as quel âge ?","tew ah kell AHZH","How old are you? (informal)"]
+]);
+warn("<b>Two rules, both compulsory.</b><br>· Age uses <b>avoir</b>, not <i>être</i>. <i>Je suis vingt-trois</i> means \"I am twenty-three <u>things</u>\" — it isn't French.<br>· <b>ans</b> can never be dropped. English allows \"I'm twenty-three\"; French requires <i>j'ai vingt-trois <u>ans</u></i>.<br><br>And listen to the link: <i>trois<b>⁀</b>ans</i> = trwah-<b>Z</b>AHN. The silent s of <i>trois</i> wakes up before the vowel.");
+
+h3("Bloc 4 — la nationalité");
+rows([
+ ["Je suis indien.","zhuh swee zan-DYAN","I am Indian. (man)"],
+ ["Je suis indienne.","zhuh swee zan-DYEN","I am Indian. (woman)"],
+ ["Je viens d'Inde.","zhuh vyan DAND","I come from India."],
+ ["Vous êtes de quelle nationalité ?","voo zet duh kell nah-syoh-nah-lee-TAY","What nationality are you?"]
+]);
+table(["Masculin","Féminin","Prononciation","Pays"],[
+ ["indien","indienne","an-DYAN / an-DYEN","l'Inde"],
+ ["canadien","canadienne","kah-nah-DYAN / -DYEN","le Canada"],
+ ["français","française","frahn-SEH / frahn-SEZ","la France"],
+ ["anglais","anglaise","ahn-GLEH / ahn-GLEZ","l'Angleterre"],
+ ["américain","américaine","ah-may-ree-KAN / -KEN","les États-Unis"],
+ ["chinois","chinoise","shee-NWAH / shee-NWAHZ","la Chine"]
+]);
+warn("<b>Three things at once here.</b><br>· Nationalities are <b>lowercase</b> in French: <i>indien</i>, not <i>Indien</i>. (The country keeps its capital: <i>l'Inde</i>.)<br>· <b>No article</b> after <i>être</i>: <i>je suis indien</i>, never <i>je suis un indien</i>.<br>· The feminine adds <b>-e</b>, and that <b>-e wakes up the final consonant</b>: <i>françai<u>s</u></i> (frahn-SEH, silent s) becomes <i>françai<u>se</u></i> (frahn-SEZ, you hear the z).");
+
+h3("Bloc 5 — où vous habitez");
+rows([
+ ["J'habite à Brampton.","zhah-BEET ah bramp-TOHN","I live in Brampton."],
+ ["J'habite au Canada.","zhah-BEET oh kah-nah-DAH","I live in Canada."],
+ ["J'habite à Brampton, près de Toronto.","… preh duh toh-rohn-TOH","… near Toronto."],
+ ["Où habitez-vous ?","oo ah-bee-tay-VOO","Where do you live?"]
+]);
+table(["Préposition","Quand","Exemple"],[
+ ["<b>à</b>","une ville","à Brampton, à Paris, à Delhi"],
+ ["<b>au</b>","un pays masculin","au Canada, au Japon, au Portugal"],
+ ["<b>en</b>","un pays féminin ou commençant par une voyelle","en France, en Inde, en Italie"],
+ ["<b>aux</b>","un pays pluriel","aux États-Unis, aux Philippines"]
+]);
+note("Most countries ending in <b>-e</b> are feminine (la France, la Chine, l'Inde, l'Italie) and take <b>en</b>. Most others are masculine (le Canada, le Japon, le Portugal) and take <b>au</b>. The famous exception is <b>le Mexique</b> — ends in -e but masculine.");
+warn("<b>J'habite, not je habite.</b> The <i>h</i> of <i>habiter</i> is silent, so <i>je</i> elides to <b>j'</b>. Same with <i>j'ai</i>, <i>j'aime</i>, <i>j'écoute</i>. French hates two vowels colliding and will always do something about it — elision, liaison, or an inserted consonant.");
+
+h3("Bloc 6 — les langues");
+rows([
+ ["Je parle anglais, hindi et un peu français.","zhuh parl ahn-GLEH, een-DEE ay uhn puh frahn-SEH","I speak English, Hindi and a little French."],
+ ["Je parle trois langues.","zhuh parl trwah LAHNG","I speak three languages."],
+ ["J'apprends le français.","zhah-PRAHN luh frahn-SEH","I'm learning French."],
+ ["Je parle couramment anglais.","zhuh parl koo-rah-MAHN ahn-GLEH","I speak English fluently."],
+ ["Quelles langues parlez-vous ?","kell lahng par-lay-VOO","What languages do you speak?"]
+]);
+warn("<b>A rule that trips up everyone:</b> after <b>parler</b> there is <u>no</u> article — <i>je parle français</i>. But after <b>apprendre</b> the article comes back — <i>j'apprends <b>le</b> français</i>. Different verbs, same language, different rules. There's no logic to extract; it just has to be learned as a pair.");
+
+h3("Bloc 7 — le métier");
+rows([
+ ["Je suis administrateur système.","zhuh swee zad-mee-nee-strah-TUR sees-TEM","I'm a systems administrator."],
+ ["Je travaille chez Sobeys.","zhuh trah-VYE shay soh-BEE","I work at Sobeys."],
+ ["Je travaille dans l'informatique.","zhuh trah-VYE dahn lan-for-mah-TEEK","I work in IT."],
+ ["Je répare les ordinateurs.","zhuh ray-PAR lay zor-dee-nah-TUR","I fix computers."],
+ ["Qu'est-ce que vous faites dans la vie ?","kess kuh voo fet dahn lah VEE","What do you do for a living?"]
+]);
+warn("<b>No article with a job after être.</b> English says \"I am <u>a</u> teacher\"; French says <i>Je suis professeur</i> — full stop. <i>Je suis un administrateur</i> is the single most common beginner error with professions.<br><br>The article comes back only when the job is described: <i>Je suis <b>un</b> bon administrateur</i>, or after <b>c'est</b>: <i>C'est <b>un</b> administrateur</i>.");
+
+h3("Bloc 8 — ce que vous aimez");
+rows([
+ ["J'aime le cricket.","zhem luh kree-KET","I like cricket."],
+ ["J'adore la musique indienne.","zhah-DOR lah mew-ZEEK an-DYEN","I love Indian music."],
+ ["Je n'aime pas le froid.","zhuh nem pah luh FRWAH","I don't like the cold."],
+ ["Je déteste l'hiver !","zhuh day-TEST lee-VEHR","I hate winter!"]
+]);
+note("<b>aimer / adorer / détester always need le / la / les</b> — the opposite of <i>parler</i> and <i>être</i>. <i>J'aime <b>la</b> musique</i> = \"I like music\". Dropping the article here is very visible.<br><br>The intensity ladder: <b>j'adore</b> › j'aime beaucoup › j'aime › j'aime bien › je n'aime pas › <b>je déteste</b>. Using two or three different rungs sounds far better than repeating <i>j'aime</i>.");
+
+h2("Les trois versions de votre introduction");
+h3("Version courte — 20 secondes");
+ex("Bonjour. Je m'appelle Rajveer. J'ai vingt-trois ans. Je suis indien. J'habite à Brampton. Je travaille dans l'informatique. Enchanté !");
+h3("Version complète — 45 secondes");
+ex("Bonjour ! Je m'appelle Rajveer. J'ai vingt-trois ans et je suis indien. J'habite à Brampton, au Canada, depuis deux ans. Je parle anglais, hindi et un peu français. Je travaille chez Sobeys : je suis administrateur système. J'aime le cricket et la musique indienne. Je n'aime pas le froid ! Enchanté.");
+h3("Version avec personnalité — 1 minute");
+ex("Bonjour ! Je m'appelle Rajveer. J'ai vingt-trois ans et je suis indien. J'habite à Brampton, au Canada, depuis deux ans. Je parle anglais, hindi et un peu français — trois langues et demie ! Je travaille chez Sobeys : je suis administrateur système. Je répare les ordinateurs quand ils ne marchent pas. J'étudie le français parce que je veux passer le TEF Canada. J'aime le cricket et la musique indienne. Je n'aime pas l'hiver canadien : je suis indien, pas pingouin !");
+note("<b>Why the third version scores higher.</b> It has the same seven blocks — nothing extra is required — but every answer is <b>specific</b>. <i>Je répare les ordinateurs</i> beats a job title. <i>Le cricket</i> beats <i>le sport</i>. <i>Parce que je veux passer le TEF</i> is a sentence nobody else in your class can write. Specificity costs no grammar and makes you memorable.");
+
+h2("Exercices");
+h3("Exercice 1 — article ou pas ?");
+fill([
+ {s:"Je suis ______ indien. (un / rien)", a:["rien","—","-",""], en:"I am Indian.", why:"Nothing. No article with a nationality after être."},
+ {s:"J'aime ______ cricket.", a:["le"], en:"I like cricket.", why:"<i>aimer</i> always needs the article."},
+ {s:"Je parle ______ français. (le / rien)", a:["rien","—","-",""], en:"I speak French.", why:"No article after <i>parler</i>."},
+ {s:"J'apprends ______ français.", a:["le"], en:"I'm learning French.", why:"<i>apprendre</i> does need it — unlike <i>parler</i>."},
+ {s:"Je suis ______ administrateur. (un / rien)", a:["rien","—","-",""], en:"I am an administrator.", why:"No article with a bare job after être."},
+ {s:"C'est ______ bon administrateur.", a:["un"], en:"He's a good administrator.", why:"After <b>c'est</b> the article is obligatory."}
+]);
+h3("Exercice 2 — être ou avoir ?");
+mcq([
+ {q:"Je ______ vingt-trois ans.", opts:["suis","ai","a"], a:1, why:"Age uses <b>avoir</b>: j'ai vingt-trois ans."},
+ {q:"Je ______ indien.", opts:["suis","ai","es"], a:0, why:"Nationality uses <b>être</b>: je suis indien."},
+ {q:"Je ______ administrateur système.", opts:["ai","suis","a"], a:1, why:"Profession uses <b>être</b> — and no article."},
+ {q:"J'______ un frère.", opts:["suis","ai","es"], a:1, why:"Possession uses <b>avoir</b>: j'ai un frère."}
+]);
+h3("Exercice 3 — à, au, en ou aux ?");
+fill([
+ {s:"J'habite ______ Brampton.", a:["à","a"], en:"I live in Brampton.", why:"A city → <b>à</b>."},
+ {s:"J'habite ______ Canada.", a:["au"], en:"I live in Canada.", why:"Masculine country → <b>au</b>."},
+ {s:"Ma famille habite ______ Inde.", a:["en"], en:"My family lives in India.", why:"Feminine country → <b>en</b>."},
+ {s:"Mon cousin habite ______ États-Unis.", a:["aux"], en:"My cousin lives in the USA.", why:"Plural country → <b>aux</b>."}
+]);
+
+h2("À vous");
+ex("Write your own introduction using all eight blocks, then:<br>☐ read it aloud three times<br>☐ record yourself and listen back<br>☐ cover the English and say it from the pronunciation only<br>☐ finally, say it with no notes at all<br><br>When you can do the last one without hesitating, this page is finished with you. It's the single most reusable minute of French you will ever learn — it opens every class, every exam and every conversation with a stranger.");
+
+})();
+
 </script>
 <script src="french_glossary.js"></script>
 </body>

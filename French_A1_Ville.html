@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French — La ville et les directions (A1)</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+</style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>La ville, les directions et les transports</h1>
+  <p class="sub">A1 theme · every place in a town, how to ask the way, how to understand the answer, and the à/en rule for transport</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Cours21_Notes.html">Cours 21</a>
+    <a href="French_Cours22_Notes.html">Cours 22</a>
+    <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
+    <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html" class="active">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
+  </nav>
+
+<div class="whybox">
+  <h4><span>Pourquoi ça marche comme ça</span>Pourquoi « il » ne veut rien dire dans « il pleut »</h4>
+  <p>Nobody is raining. The <b>il</b> in <i>il pleut</i> and <i>il fait froid</i> refers to nothing at all — it is an empty placeholder, exactly like the "it" in English "it's raining".<br><br>French requires every sentence to have a subject, so when there is no real one, it supplies a dummy. That is also why the <i>il</i> never becomes <i>elle</i>, and why you never see <i>fait chaud</i> standing alone.<br><br>Same mechanism in <b>il y a</b> and <b>il faut</b> — two more phrases where <i>il</i> is holding a seat for nobody.</p>
+  <a class="more" href="French_Grammaire.html">Aller plus loin →</a>
+</div>
+
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').textContent=fr; c.querySelector('.ph').textContent=ph;
+    c.onclick=()=>speak(fr); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+h2("1 · Les lieux de la ville");
+h3("Les commerces");
+rows([
+ ["la boulangerie","lah boo-lahn-zhuh-REE","the bakery"],
+ ["la pâtisserie","lah pah-tee-suh-REE","the cake shop"],
+ ["la boucherie","lah boo-shuh-REE","the butcher's"],
+ ["l'épicerie","lay-pee-suh-REE","the grocer's"],
+ ["le supermarché","luh sew-pehr-mar-SHAY","the supermarket"],
+ ["la pharmacie","lah far-mah-SEE","the chemist's"],
+ ["le marché","luh mar-SHAY","the market"],
+ ["la librairie","lah lee-breh-REE","the <b>bookshop</b>"],
+ ["le magasin","luh mah-gah-ZAN","the shop"],
+ ["le centre commercial","luh sahn-truh koh-mair-SYAL","the shopping centre"]
+]);
+warn("<b>la librairie = bookshop, not library.</b> A library is <b>la bibliothèque</b>. This is one of the most common false friends in French, and it comes up constantly.<br><br>The shop names follow a pattern worth noticing: <b>boulanger</b> (baker) → <b>boulangerie</b>, <b>boucher</b> → <b>boucherie</b>, <b>pâtissier</b> → <b>pâtisserie</b>. The suffix <b>-erie</b> turns the person into the place, and every one of them is feminine.");
+h3("Les services et les bâtiments publics");
+rows([
+ ["la banque","lah BAHNK","the bank"],
+ ["la poste","lah POST","the post office"],
+ ["la mairie","lah meh-REE","the town hall"],
+ ["l'hôpital","loh-pee-TAL","the hospital"],
+ ["le commissariat","luh koh-mee-sah-RYAH","the police station"],
+ ["l'école","lay-KOL","the school"],
+ ["la bibliothèque","lah bee-blee-oh-TEK","the library"],
+ ["le musée","luh mew-ZAY","the museum"],
+ ["l'église","lay-GLEEZ","the church"],
+ ["le parc","luh PARK","the park"]
+]);
+h3("Sortir et se déplacer");
+rows([
+ ["le restaurant","luh res-toh-RAHN","the restaurant"],
+ ["le café","luh kah-FAY","the café"],
+ ["le cinéma","luh see-nay-MAH","the cinema"],
+ ["la gare","lah GAR","the train station"],
+ ["la station de métro","lah stah-syohn duh may-TROH","the metro station"],
+ ["l'arrêt de bus","lah-reh duh BEWSS","the bus stop"],
+ ["l'aéroport","lah-ay-roh-POR","the airport"],
+ ["le parking","luh par-KEENG","the car park"],
+ ["la rue","lah REW","the street"],
+ ["la place","lah PLASS","the square"],
+ ["le pont","luh POHN","the bridge"],
+ ["le carrefour","luh kar-FOOR","the crossroads"]
+]);
+
+h2("2 · La grammaire des lieux — à et de");
+ex("<b>Two prepositions do almost all the work</b>, and both contract with <i>le</i> and <i>les</i>.");
+table(["","aller / être → À","venir / sortir → DE"],[
+ ["<b>le</b> parc","<b>au</b> parc","<b>du</b> parc"],
+ ["<b>la</b> gare","<b>à la</b> gare","<b>de la</b> gare"],
+ ["<b>l'</b>hôpital","<b>à l'</b>hôpital","<b>de l'</b>hôpital"],
+ ["<b>les</b> magasins","<b>aux</b> magasins","<b>des</b> magasins"]
+]);
+rows([
+ ["Je vais au supermarché.","zhuh veh oh sew-pehr-mar-SHAY","I'm going to the supermarket."],
+ ["Je viens de la banque.","zhuh vyan duh lah BAHNK","I've come from the bank."],
+ ["Elle est à l'école.","ell eh tah lay-KOL","She's at school."],
+ ["Nous sortons du cinéma.","noo sor-tohn dew see-nay-MAH","We're coming out of the cinema."],
+ ["Ils vont aux magasins.","eel vohn toh mah-gah-ZAN","They're going to the shops."]
+]);
+warn("<b>Remember: « à le » and « de le » do not exist.</b> The contraction to <b>au</b> and <b>du</b> is not optional and not informal — it is the only form. Only the masculine and the plural contract; <i>à la</i> and <i>de la</i> stay as they are.");
+h3("Chez — le cas particulier");
+rows([
+ ["chez le médecin","shay luh mayd-SAN","at / to the doctor's"],
+ ["chez le coiffeur","shay luh kwah-FUR","at the hairdresser's"],
+ ["chez moi","shay MWAH","at my place"],
+ ["chez mes parents","shay may pah-RAHN","at my parents'"],
+ ["chez Sobeys","shay soh-BEE","at Sobeys"]
+]);
+note("<b>chez</b> means \"at the place of\" and is used with <b>people</b> and <b>businesses named after people</b>. It never takes an article before a name: <i>chez Marie</i>, <i>chez Sobeys</i>. With a pronoun it takes the tonic form: <i>chez <b>moi</b></i>, <i>chez <b>eux</b></i>.");
+
+h2("3 · Demander son chemin");
+h3("Poser la question");
+rows([
+ ["Excusez-moi, où est la gare, s'il vous plaît ?","ex-kew-zay-MWAH, oo eh lah GAR","Excuse me, where's the station, please?"],
+ ["Pardon, je cherche la poste.","par-DOHN, zhuh shairsh lah POST","Sorry, I'm looking for the post office."],
+ ["Il y a une pharmacie par ici ?","eel-ee-ah ewn far-mah-SEE par ee-SEE","Is there a chemist's around here?"],
+ ["C'est loin d'ici ?","seh lwan dee-SEE","Is it far from here?"],
+ ["C'est à combien de minutes ?","seh tah kohn-byan duh mee-NEWT","How many minutes is it?"],
+ ["Je suis perdu.","zhuh swee pehr-DEW","I'm lost."],
+ ["Vous pouvez répéter, s'il vous plaît ?","voo poo-vay ray-pay-TAY","Could you repeat that, please?"]
+]);
+h3("Comprendre la réponse");
+rows([
+ ["Allez tout droit.","ah-lay too DRWAH","Go straight ahead."],
+ ["Tournez à gauche.","toor-nay ah GOHSH","Turn left."],
+ ["Tournez à droite.","toor-nay ah DRWAHT","Turn right."],
+ ["Prenez la première rue à droite.","pruh-nay lah pruh-MYEHR rew ah DRWAHT","Take the first street on the right."],
+ ["Continuez jusqu'au feu.","kohn-tee-new-ay zhews-koh FUH","Carry on to the lights."],
+ ["Traversez la place.","trah-vair-say lah PLASS","Cross the square."],
+ ["C'est en face de la banque.","seh tahn fass duh lah BAHNK","It's opposite the bank."],
+ ["C'est à côté du cinéma.","seh tah koh-tay dew see-nay-MAH","It's next to the cinema."],
+ ["C'est au coin de la rue.","seh toh kwan duh lah REW","It's on the corner."],
+ ["C'est à cinq minutes à pied.","seh tah sank mee-newt ah PYAY","It's five minutes on foot."],
+ ["Vous ne pouvez pas le manquer.","voo nuh poo-vay pah luh mahn-KAY","You can't miss it."]
+]);
+warn("<b>tout droit = straight ahead. à droite = to the right.</b> They look almost identical and mean completely different things.<br><br>· <b>tout droit</b> — too DRWAH — straight on<br>· <b>à droite</b> — ah DRWAHT — to the right (you hear the <b>t</b>)<br><br>The audible t at the end of <i>droite</i> is your clue. Listen for it.");
+h3("Les prononciations pièges");
+table(["Mot","Prononciation","Attention"],[
+ ["gauche","GOHSH","the <i>-che</i> is a sh sound"],
+ ["droite","DRWAHT","final t is pronounced"],
+ ["tout droit","too DRWAH","final t is <u>silent</u>"],
+ ["feu","FUH","traffic light — also \"fire\""],
+ ["jusqu'à","zhews-KAH","until / as far as"]
+]);
+
+h2("4 · Les transports");
+rows([
+ ["à pied","ah PYAY","on foot"],
+ ["en voiture","ahn vwah-TEWR","by car"],
+ ["en bus","ahn BEWSS","by bus"],
+ ["en métro","ahn may-TROH","by metro"],
+ ["en train","ahn TRAN","by train"],
+ ["en avion","ahn nah-VYOHN","by plane"],
+ ["à vélo","ah vay-LOH","by bike"],
+ ["en taxi","ahn tak-SEE","by taxi"]
+]);
+ex("<b>The pattern: EN if you get inside it, À if you sit on it or use your body.</b><br><br>· <b>en</b> voiture, <b>en</b> bus, <b>en</b> train, <b>en</b> avion — you are enclosed<br>· <b>à</b> pied, <b>à</b> vélo, <b>à</b> moto, <b>à</b> cheval — you are on top of it or using yourself<br><br>That is the whole rule, and it works almost every time.");
+rows([
+ ["Je vais au travail en voiture.","zhuh veh oh trah-VYE ahn vwah-TEWR","I go to work by car."],
+ ["Il va à l'école à pied.","eel vah ah lay-KOL ah PYAY","He walks to school."],
+ ["Le bus passe toutes les dix minutes.","luh bewss pass toot lay dee mee-NEWT","The bus comes every ten minutes."],
+ ["Un billet aller-retour, s'il vous plaît.","uhn bee-yeh ah-lay-ruh-TOOR","A return ticket, please."]
+]);
+
+h2("5 · Exercices");
+h3("A · À ou de ? Contractez");
+fill([
+ {s:"Je vais ______ supermarché. (à + le)", a:["au"], en:"I'm going to the supermarket.", why:"à + le = <b>au</b>."},
+ {s:"Je viens ______ banque. (de + la)", a:["de la"], en:"I've come from the bank.", why:"<b>de la</b> — the feminine doesn't contract."},
+ {s:"Elle est ______ hôpital. (à + l')", a:["à l'","a l'","à l'"], en:"She's at the hospital.", why:"<b>à l'</b> before a vowel."},
+ {s:"Ils sortent ______ cinéma. (de + le)", a:["du"], en:"They're coming out of the cinema.", why:"de + le = <b>du</b>."},
+ {s:"Je vais ______ magasins. (à + les)", a:["aux"], en:"I'm going to the shops.", why:"à + les = <b>aux</b>."},
+ {s:"Je vais ______ médecin. (chez)", a:["chez le"], en:"I'm going to the doctor's.", why:"A person → <b>chez</b>, and it keeps the article: <i>chez le médecin</i>."}
+]);
+h3("B · Quel lieu ?");
+mcq([
+ {q:"J'achète du pain ici.", opts:["la boulangerie","la librairie","la pharmacie"], a:0, why:"<i>le pain</i> → <b>la boulangerie</b>."},
+ {q:"J'emprunte des livres ici.", opts:["la librairie","la bibliothèque","le musée"], a:1, why:"⚠ <i>Emprunter</i> = to borrow → <b>la bibliothèque</b>. <i>La librairie</i> is where you <u>buy</u> books."},
+ {q:"Je prends le train ici.", opts:["l'arrêt de bus","la gare","le parking"], a:1, why:"<b>la gare</b> — the train station."},
+ {q:"J'achète des médicaments ici.", opts:["l'épicerie","la pharmacie","la boucherie"], a:1, why:"<b>la pharmacie</b>."},
+ {q:"Je vais chercher mon passeport ici.", opts:["la mairie","la poste","le musée"], a:0, why:"<b>la mairie</b> — the town hall handles official documents."}
+]);
+h3("C · En ou à ? (les transports)");
+fill([
+ {s:"Je vais au travail ______ voiture.", a:["en"], en:"by car", why:"You get inside it → <b>en</b>."},
+ {s:"Il va à l'école ______ pied.", a:["à","a","à"], en:"on foot", why:"Using your body → <b>à</b>."},
+ {s:"Nous allons en France ______ avion.", a:["en"], en:"by plane", why:"Enclosed → <b>en</b>."},
+ {s:"Elle va au parc ______ vélo.", a:["à","a","à"], en:"by bike", why:"You sit on it → <b>à</b>."}
+]);
+h3("D · Comprendre les directions");
+mcq([
+ {q:"« Allez tout droit. »", opts:["Turn right","Go straight ahead","Turn left"], a:1, why:"<b>tout droit</b> = straight on. The t is <u>silent</u>: too DRWAH."},
+ {q:"« Tournez à droite. »", opts:["Turn right","Go straight","Turn left"], a:0, why:"<b>à droite</b> = to the right. The t is <u>pronounced</u>: ah DRWAHT."},
+ {q:"« C'est en face de la banque. »", opts:["Next to the bank","Opposite the bank","Behind the bank"], a:1, why:"<b>en face de</b> = opposite."},
+ {q:"« C'est à côté du cinéma. »", opts:["Next to the cinema","Opposite the cinema","Far from the cinema"], a:0, why:"<b>à côté de</b> = next to."}
+]);
+
+h2("6 · Texte parallèle — Perdu à Montréal");
+ex("<b>Dans la rue</b><br><br>— Excusez-moi, madame. Je suis perdu. Je cherche la gare centrale, s'il vous plaît.<br>— Ah, ce n'est pas loin ! Vous êtes à pied ou en voiture ?<br>— À pied.<br>— Bon. Alors, allez tout droit jusqu'au feu. Au feu, tournez à gauche. Continuez deux cents mètres, puis prenez la première rue à droite. La gare est en face d'un grand hôtel — vous ne pouvez pas la manquer.<br>— D'accord. C'est à combien de minutes ?<br>— À peu près dix minutes à pied. Si vous êtes pressé, prenez le métro : la station est juste là, à côté de la pharmacie.<br>— Non, ça va, je marche. Merci beaucoup !<br>— Je vous en prie. Bonne journée !<br><br>Je suis parti vers le feu. J'ai tourné à gauche. J'ai marché deux cents mètres… et je ne suis pas arrivé à la gare. Je suis arrivé à un parc.<br><br>J'ai redemandé à un homme. Il a souri : « Vous avez tourné trop tôt ! Retournez, prenez la rue <u>suivante</u>. »<br><br>Finalement, je suis arrivé à la gare — vingt-cinq minutes plus tard. La prochaine fois, je prendrai le métro.");
+h3("Glossaire du texte");
+rows([
+ ["Je suis perdu.","zhuh swee pehr-DEW","I'm lost."],
+ ["Ce n'est pas loin !","suh neh pah LWAN","It's not far!"],
+ ["jusqu'au feu","zhews-koh FUH","as far as the lights"],
+ ["Continuez deux cents mètres.","kohn-tee-new-ay duh sahn MEH-truh","Carry on two hundred metres."],
+ ["en face d'un grand hôtel","ahn fass duhn grahn toh-TEL","opposite a big hotel"],
+ ["Vous ne pouvez pas la manquer.","voo nuh poo-vay pah lah mahn-KAY","You can't miss it."],
+ ["À peu près dix minutes.","ah puh preh dee mee-NEWT","About ten minutes."],
+ ["Si vous êtes pressé","see voo zet preh-SAY","If you're in a hurry"],
+ ["la station est juste là","lah stah-syohn eh zhewst LAH","the station is right there"],
+ ["Je vous en prie.","zhuh voo zahn PREE","You're welcome."],
+ ["J'ai redemandé à un homme.","zhay ruh-duh-mahn-DAY","I asked a man again."],
+ ["Vous avez tourné trop tôt !","voo zah-vay toor-NAY troh TOH","You turned too early!"],
+ ["la rue suivante","lah rew swee-VAHNT","the next street"],
+ ["vingt-cinq minutes plus tard","van-sank mee-newt plew TAR","twenty-five minutes later"]
+]);
+h3("Compréhension");
+mcq([
+ {q:"Combien de temps la dame a-t-elle annoncé ?", opts:["Dix minutes","Vingt minutes","Vingt-cinq minutes"], a:0, why:"« À peu près dix minutes à pied. »"},
+ {q:"Pourquoi s'est-il perdu ?", opts:["Il a tourné à droite","Il a tourné trop tôt","Il a pris le métro"], a:1, why:"« Vous avez tourné trop tôt ! »"},
+ {q:"Où est la station de métro ?", opts:["En face de l'hôtel","À côté de la pharmacie","Dans le parc"], a:1, why:"« la station est juste là, à côté de la pharmacie »."},
+ {q:"Combien de temps a-t-il mis en réalité ?", opts:["Dix minutes","Vingt minutes","Vingt-cinq minutes"], a:2, why:"« vingt-cinq minutes plus tard »."}
+]);
+h3("Repérez la grammaire");
+note("Find these in the text:<br>· <b>Six impératifs à la forme vous</b> — allez, tournez, continuez, prenez, retournez, excusez-moi<br>· <b>Quatre contractions</b> — jusqu'<b>au</b> feu, <b>à côté de la</b> pharmacie, <b>en face d'</b>un hôtel, <b>à la</b> gare<br>· <b>Deux transports</b> — <i>à pied</i>, <i>en voiture</i>, <i>le métro</i><br>· <b>Cinq verbes au passé composé avec Être</b> — <i>je suis parti</i>, <i>je ne suis pas arrivé</i>, <i>je suis arrivé</i> (×2)<br>· <b>Quatre avec Avoir</b> — <i>j'ai tourné</i>, <i>j'ai marché</i>, <i>j'ai redemandé</i>, <i>il a souri</i>, <i>vous avez tourné</i><br>· <b>Une négation avec pronom</b> — <i>vous ne pouvez pas <b>la</b> manquer</i>");
+ex("<b>À vous —</b> write directions from your home to the nearest supermarket, in ten lines, as a dialogue:<br>☐ open with <b>Excusez-moi</b> and a question<br>☐ use at least <b>five imperatives</b> (allez, tournez, prenez, continuez, traversez)<br>☐ use <b>tout droit</b>, <b>à gauche</b> and <b>à droite</b><br>☐ give a landmark with <b>en face de</b> or <b>à côté de</b> — contracting correctly<br>☐ say how long it takes and by what means (<b>à pied</b> / <b>en bus</b>)<br>☐ close with <b>Merci</b> and <b>Je vous en prie</b><br><br>Then say the whole thing aloud, both parts. Giving directions is one of the most likely things you will actually have to do in French.");
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+<script src="french_glossary.js"></script>
+</body>
+</html>

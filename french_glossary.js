@@ -590,7 +590,82 @@ const WORDS = {
 "grandes":["grahnd","big (f. pl.)"],"fort":["for","strong / loud"],
 "bas":["bah","low (en bas = downstairs)"],"interdit":["an-tair-DEE","forbidden"],
 "née":["nay","born (f.)"],"soi":["swah","oneself"],"tiens":["tyan","here / hold on"],
-"juste":["zhewst","just / fair"],"age":["ahzh","age"],"voyage":["vwah-YAHZH","trip"]
+"juste":["zhewst","just / fair"],"age":["ahzh","age"],"voyage":["vwah-YAHZH","trip"],
+/* ---- logement & pièces (suite) ---- */
+"logement":["lohzh-MAHN","housing / accommodation"],"pièce":["pyess","room"],
+"pièces":["pyess","rooms"],"chambres":["SHAHM-bruh","bedrooms"],
+"grenier":["gruh-NYAY","attic"],"garage":["gah-RAHZH","garage"],
+"couloir":["koo-LWAHR","corridor"],"terrasse":["teh-RASS","terrace"],
+"étage":["ay-TAHZH","floor / storey"],"étages":["ay-TAHZH","floors"],
+"immeuble":["ee-MUH-bluh","block of flats"],"ascenseur":["ah-sahn-SUR","lift"],
+"colocation":["koh-loh-kah-SYOHN","flatshare"],"colocataire":["koh-loh-kah-TEHR","flatmate"],
+"locataire":["loh-kah-TEHR","tenant"],"propriétaire":["proh-pree-ay-TEHR","landlord / owner"],
+"bail":["bye","lease"],"déménager":["day-may-nah-ZHAY","to move house"],
+"emménager":["ahn-may-nah-ZHAY","to move in"],"banlieue":["bahn-LYUH","suburbs"],
+"campagne":["kahm-PAHN-yuh","countryside"],"spacieux":["spah-SYUH","spacious"],
+"spacieuse":["spah-SYUHZ","spacious (f.)"],"lumineux":["lew-mee-NUH","bright"],
+"lumineuse":["lew-mee-NUHZ","bright (f.)"],"sombre":["SOHM-bruh","dark"],
+"bruyant":["brwee-YAHN","noisy"],"étroit":["ay-TRWAH","narrow"],
+"étroite":["ay-TRWAHT","narrow (f.)"],"étroites":["ay-TRWAHT","narrow (f.pl.)"],
+"confortable":["kohn-for-TAH-bluh","comfortable"],"ancien":["ahn-SYAN","old / former"],
+"meublé":["muh-BLAY","furnished"],"principale":["pran-see-PAL","main"],
+"vue":["vew","view"],"marches":["marsh","steps"],"rondes":["rohnd","round (f.pl.)"],
+"haut":["oh","high / top"],"isolé":["ee-zoh-LAY","isolated"],
+
+/* ---- logements insolites ---- */
+"phare":["far","lighthouse"],"péniche":["pay-NEESH","houseboat"],
+"moulin":["moo-LAN","windmill"],"grotte":["grot","cave"],"yourte":["yoort","yurt"],
+"conteneur":["kohn-tuh-NUR","shipping container"],"igloo":["ee-GLOO","igloo"],
+"caravane":["kah-rah-VAN","caravan"],"cabane":["kah-BAN","cabin / hut"],
+"insolite":["an-soh-LEET","unusual"],"original":["oh-ree-zhee-NAL","original"],
+"originale":["oh-ree-zhee-NAL","original (f.)"],"incroyable":["an-krwah-YAH-bluh","incredible"],
+"église":["ay-GLEEZ","church"],"transformée":["trahns-for-MAY","converted"],
+"avantage":["ah-vahn-TAHZH","advantage"],"inconvénient":["an-kohn-vay-NYAHN","drawback"],
+"région":["ray-ZHYOHN","region"],"classique":["klah-SEEK","classic / conventional"],
+"plutôt":["plew-TOH","rather"],"vivre":["VEE-vruh","to live"],
+"pourrais":["poo-REH","could / would be able to"],
+
+/* ---- météo & saisons (suite) ---- */
+"saison":["say-ZOHN","season"],"neige":["nezh","snow / snows"],
+"vent":["vahn","wind"],"soleil":["soh-LAY","sun"],"brouillard":["broo-YAR","fog"],
+"pleut":["pluh","rains / is raining"],"orage":["oh-RAHZH","storm"],
+"glace":["glass","ice / ice cream"],"feuilles":["fuy","leaves"],
+"manteau":["mahn-TOH","coat"],"frais":["freh","cool / fresh"],
+"île":["eel","island"],"côte":["koht","coast"],
+
+/* ---- grammaire & métalangage ---- */
+"préposition":["pray-poh-zee-SYOHN","preposition"],"nationalité":["nah-syoh-nah-lee-TAY","nationality"],
+"profession":["proh-feh-SYOHN","profession"],"registre":["ruh-ZHEE-struh","register"],
+"sujet":["sew-ZHEH","subject"],"verbe":["vairb","verb"],
+"infinitif":["an-fee-nee-TEEF","infinitive"],"intonation":["an-toh-nah-SYOHN","intonation"],
+"inversion":["an-vair-SYOHN","inversion"],"modèle":["moh-DEL","model / pattern"],
+"identité":["ee-dahn-tee-TAY","identity"],"état":["ay-TAH","state"],
+"lieu":["lyuh","place"],"article":["ar-TEE-kluh","article"],
+"quels":["kell","which (m.pl.)"],"sport":["spor","sport"],
+"loisirs":["lwah-ZEER","leisure activities"],"activités":["ak-tee-vee-TAY","activities"],
+
+/* ---- verbes & participes (suite) ---- */
+"travaillé":["trah-vah-YAY","worked"],"regardé":["ruh-gar-DAY","watched"],
+"étudié":["ay-tew-DYAY","studied"],"appelé":["ah-puh-LAY","called"],
+"choisi":["shwah-ZEE","chosen"],"compris":["kohn-PREE","understood"],
+"dormi":["dor-MEE","slept"],"oublié":["oo-blee-AY","forgotten"],
+"laver":["lah-VAY","to wash"],"brosser":["broh-SAY","to brush"],
+"préparer":["pray-pah-RAY","to prepare / get ready"],
+"voyager":["vwah-yah-ZHAY","to travel"],"coûte":["koot","costs"],
+"paie":["pay","pay(s)"],"espèces":["ess-PESS","cash"],
+"commençons":["koh-mahn-SOHN","we start"],"préfères":["pray-FEHR","prefer"],
+"écoutes":["ay-KOOT","listen"],"pratiques":["prah-TEEK","practise / do"],
+"aider":["ay-DAY","to help"],
+
+/* ---- divers ---- */
+"déjeuner":["day-zhuh-NAY","lunch / to have lunch"],"sommeil":["soh-MAY","sleepiness"],
+"tort":["tor","wrong (avoir tort)"],"humeur":["ew-MUR","mood"],
+"malade":["mah-LAHD","ill"],"surprise":["sewr-PREEZ","surprise"],
+"films":["feelm","films"],"plat":["plah","dish"],"suite":["sweet","(tout de suite = right away)"],
+"celui":["suh-LWEE","this one / that one"],"île":["eel","island"],
+"noël":["noh-EL","Christmas"],"ienne":["yen","(-ienne ending)"],
+"quelqu":["kel-kuh","some- (quelqu'un, quelque)"],"ado":["ah-DOH","teenager"],
+"oral":["oh-RAL","oral / spoken"]
 };
 
 /* ---------- helpers ---------- */

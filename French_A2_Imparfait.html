@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French — L'imparfait (A2)</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>L'imparfait — et le choix avec le passé composé</h1>
+  <p class="sub">A2 · the easiest tense to form and the hardest to choose — formation, the three uses, and the line-and-dot contrast with the passé composé</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Cours21_Notes.html">Cours 21</a>
+    <a href="French_Cours22_Notes.html">Cours 22</a>
+    <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
+    <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html" class="active">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').textContent=fr; c.querySelector('.ph').textContent=ph;
+    c.onclick=()=>speak(fr); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+h2("1 · Pourquoi ce chapitre est difficile");
+ex("<b>You already have one past tense.</b> <i>J'ai mangé</i> works, and it covers both \"I ate\" and \"I have eaten\". So why learn another one?<br><br>Because French splits the past in a way English does not. English decides the past tense by <b>grammar</b>; French decides it by <b>how you see the event</b>.<br><br>· Was it a <b>completed event</b>, with a start and an end? → <b>passé composé</b><br>· Was it a <b>situation, a habit, or a description</b>? → <b>imparfait</b><br><br>The same verb, the same day, the same person can take either — and the choice changes the meaning.");
+warn("<b>This is the hardest thing at A2, and nobody gets it quickly.</b> Expect to be wrong for months. That is normal and it is not a sign you're doing badly. What makes it click is not studying the rule — it's reading and listening to a lot of past-tense French until the <i>feel</i> arrives.<br><br>So: learn the formation now (it's easy), learn the rule of thumb now (it's short), and then give it time.");
+
+h2("2 · La formation — la bonne nouvelle");
+lead("The imparfait is the <b>most regular tense in French</b>. One rule, one set of endings, exactly one exception in the entire language.");
+ex("<b>La recette, en trois étapes :</b><br><br><b>1.</b> Take the verb in the <b>nous</b> form of the present — <i>nous <u>parl</u>ons</i><br><b>2.</b> Remove <b>-ons</b> → the stem: <b>parl-</b><br><b>3.</b> Add the imparfait endings");
+table(["Sujet","Terminaison","parler","Prononciation"],[
+ ["je","<b>-ais</b>","parl<b>ais</b>","zhuh par-LEH"],
+ ["tu","<b>-ais</b>","parl<b>ais</b>","tew par-LEH"],
+ ["il / elle / on","<b>-ait</b>","parl<b>ait</b>","eel par-LEH"],
+ ["nous","<b>-ions</b>","parl<b>ions</b>","noo par-LYOHN"],
+ ["vous","<b>-iez</b>","parl<b>iez</b>","voo par-LYAY"],
+ ["ils / elles","<b>-aient</b>","parl<b>aient</b>","eel par-LEH"]
+]);
+warn("<b>Four of the six forms are pronounced identically — all « -EH ».</b><br><i>je parlais · tu parlais · il parlait · ils parlaient</i> — same sound, four spellings.<br><br>Only <b>nous</b> (-ions) and <b>vous</b> (-iez) sound different. Exactly the same situation as the present tense, so you already know how to handle it: the pronoun in front carries the information.");
+h3("La règle marche pour tous les verbes irréguliers");
+table(["Infinitif","Nous (présent)","Radical","Imparfait (je)"],[
+ ["finir","nous <b>finiss</b>ons","finiss-","je finiss<b>ais</b>"],
+ ["prendre","nous <b>pren</b>ons","pren-","je pren<b>ais</b>"],
+ ["faire","nous <b>fais</b>ons","fais-","je fais<b>ais</b>"],
+ ["aller","nous <b>all</b>ons","all-","j'all<b>ais</b>"],
+ ["venir","nous <b>ven</b>ons","ven-","je ven<b>ais</b>"],
+ ["avoir","nous <b>av</b>ons","av-","j'av<b>ais</b>"],
+ ["boire","nous <b>buv</b>ons","buv-","je buv<b>ais</b>"],
+ ["voir","nous <b>voy</b>ons","voy-","je voy<b>ais</b>"],
+ ["pouvoir","nous <b>pouv</b>ons","pouv-","je pouv<b>ais</b>"],
+ ["devoir","nous <b>dev</b>ons","dev-","je dev<b>ais</b>"],
+ ["vouloir","nous <b>voul</b>ons","voul-","je voul<b>ais</b>"],
+ ["savoir","nous <b>sav</b>ons","sav-","je sav<b>ais</b>"]
+]);
+ex("<b>Look at what that means.</b> All the verbs that gave you trouble in the present — <i>prendre, faire, boire, voir, pouvoir</i> — become completely regular in the imparfait, because the <i>nous</i> form already contains the irregularity. You do the hard work once, in the present, and the imparfait is free.");
+h3("La seule exception du français : ÊTRE");
+table(["Sujet","Être à l'imparfait","Prononciation"],[
+ ["je","<b>étais</b>","zhay-TEH"],
+ ["tu","<b>étais</b>","tew ay-TEH"],
+ ["il / elle / on","<b>était</b>","eel ay-TEH"],
+ ["nous","<b>étions</b>","noo zay-TYOHN"],
+ ["vous","<b>étiez</b>","voo zay-TYAY"],
+ ["ils / elles","<b>étaient</b>","eel zay-TEH"]
+]);
+note("<b>Why être is the exception:</b> <i>nous sommes</i> doesn't end in -ons, so there's no stem to take. French supplies <b>ét-</b> instead. That's it — <u>one</u> irregular verb in the whole tense. No other tense in French is this well-behaved.");
+h3("Les petits pièges d'orthographe");
+table(["Verbe","Pourquoi","Formes"],[
+ ["<b>manger</b>","keep the <b>e</b> to protect the soft g","je mang<b>e</b>ais, nous mangions"],
+ ["<b>commencer</b>","keep the <b>ç</b> to protect the soft c","je commen<b>ç</b>ais, nous commencions"],
+ ["<b>étudier</b>","stem ends in i → double i with nous/vous","nous étud<b>ii</b>ons, vous étud<b>ii</b>ez"]
+]);
+warn("The <b>e</b> and the <b>ç</b> disappear in <i>nous</i> and <i>vous</i> — because the endings <b>-ions</b> and <b>-iez</b> start with <b>i</b>, which already keeps g and c soft. Same principle as in the present, applied one tense later.");
+
+h2("3 · Les trois emplois de l'imparfait");
+lead("Learn these three. Everything else is a variation on them.");
+h3("Emploi 1 — L'habitude : « used to »");
+rows([
+ ["Quand j'étais petit, je jouais au cricket.","kahn zhay-teh puh-TEE, zhuh zhoo-EH","When I was little, I used to play cricket."],
+ ["Avant, je me levais à cinq heures.","ah-VAHN, zhuh muh luh-VEH ah sank UR","I used to get up at five."],
+ ["Tous les étés, nous allions en Inde.","too lay zay-TAY, noo zah-LYOHN ahn NAND","Every summer we used to go to India."],
+ ["Il mangeait toujours au restaurant.","eel mahn-ZHEH too-ZHOOR","He always ate at a restaurant."]
+]);
+ex("<b>If you can say \"used to\" or \"would\" in English, it's the imparfait.</b><br>· \"I <u>used to</u> live in Delhi\" → <i>j'habitais à Delhi</i><br>· \"Every summer we <u>would</u> go\" → <i>nous allions</i><br><br>Watch out: \"would\" in English has two jobs. <i>I would go every summer</i> = habit → imparfait. <i>I would go if I had time</i> = hypothesis → conditionnel, a different tense entirely.");
+note("<b>Trigger words for the habit use:</b> <i>souvent, toujours, tous les jours, chaque semaine, d'habitude, le lundi, autrefois, avant, quand j'étais petit</i>. If one of these is in the sentence, you're almost certainly in the imparfait.");
+h3("Emploi 2 — La description : le décor");
+rows([
+ ["Il faisait beau et il y avait du soleil.","eel fuh-ZEH boh ay eel-ee-ah-VEH dew soh-LAY","The weather was nice and it was sunny."],
+ ["La maison était grande et calme.","lah may-ZOHN ay-teh grahnd ay KALM","The house was big and quiet."],
+ ["J'avais vingt ans et j'étais étudiant.","zhah-VEH van TAHN ay zhay-teh zay-tew-DYAHN","I was twenty and I was a student."],
+ ["Elle portait une robe bleue.","ell por-TEH ewn rob BLUH","She was wearing a blue dress."],
+ ["J'étais fatigué et j'avais faim.","zhay-teh fah-tee-GAY ay zhah-veh FAN","I was tired and I was hungry."]
+]);
+ex("<b>Think of it as the stage set.</b> Before anything happens in a story, you describe where we are, what the weather was like, how people felt, how old they were. None of that is an <i>event</i> — it's the background the events happen against. All of it is imparfait.<br><br>This is why <b>weather in the past is almost always imparfait</b>: <i>il faisait froid</i>, not <i>il a fait froid</i>. Weather is scenery.");
+note("<b>Verbs that are almost always imparfait in a story:</b> <i>être, avoir, il y avait, il faisait, savoir, penser, croire, vouloir, pouvoir, aimer</i> — because these describe states, not actions. You don't \"do\" being tired; you simply were.");
+h3("Emploi 3 — L'action en cours : « was …ing »");
+rows([
+ ["Je regardais un film quand il est arrivé.","zhuh ruh-gar-DEH uhn feelm kahn-teel eh tah-ree-VAY","I was watching a film when he arrived."],
+ ["Elle dormait quand le téléphone a sonné.","ell dor-MEH kahn luh tay-lay-fun ah soh-NAY","She was sleeping when the phone rang."],
+ ["Nous mangions quand tu as appelé.","noo mahn-ZHYOHN kahn tew ah zah-puh-LAY","We were eating when you called."]
+]);
+ex("<b>This is the famous pairing</b>, and it's the easiest way into the whole distinction:<br><br><b>IMPARFAIT = the long thing already going on</b><br><b>PASSÉ COMPOSÉ = the short thing that interrupts it</b><br><br><i>Je <b>regardais</b> un film (long, ongoing) quand il <b>est arrivé</b> (short, sudden).</i><br><br>Draw it as a line and a dot. The line is the imparfait; the dot that lands on it is the passé composé.");
+
+h2("4 · Imparfait ou passé composé ? — la décision");
+table(["IMPARFAIT","PASSÉ COMPOSÉ"],[
+ ["une <b>habitude</b> — used to","un <b>événement</b> unique"],
+ ["une <b>description</b>, un état","une <b>action</b> terminée"],
+ ["une action <b>en cours</b> — was …ing","une action <b>soudaine</b>"],
+ ["pas de début ni de fin précis","un début et une fin"],
+ ["le <b>décor</b> de l'histoire","ce qui <b>arrive</b> dans l'histoire"],
+ ["<i>souvent, toujours, tous les jours, avant</i>","<i>hier, soudain, une fois, à trois heures</i>"]
+]);
+h3("La métaphore du film");
+ex("<b>Imagine you're describing a film you watched.</b><br><br>· The <b>setting</b> — it was night, it was raining, the street was empty, the man was tired → <b>imparfait</b><br>· The <b>plot</b> — a car stopped, a woman got out, she shouted, he ran → <b>passé composé</b><br><br>If you removed all the <i>passé composé</i> verbs, nothing would have happened. If you removed all the <i>imparfait</i> verbs, you'd still have the story — just with no atmosphere.");
+h3("Le même verbe, les deux temps");
+table(["Imparfait","Passé composé","La différence"],[
+ ["Je <b>savais</b> la réponse.","J'<b>ai su</b> la réponse.","I knew it / I <u>found out</u>"],
+ ["Il <b>voulait</b> partir.","Il <b>a voulu</b> partir.","He wanted to / he <u>tried</u> to"],
+ ["Je <b>pouvais</b> le faire.","J'<b>ai pu</b> le faire.","I was able to / I <u>managed</u> it"],
+ ["Elle <b>avait</b> peur.","Elle <b>a eu</b> peur.","She was afraid / she <u>got</u> a fright"],
+ ["Je <b>connaissais</b> Marie.","J'<b>ai connu</b> Marie.","I knew her / I <u>met</u> her"]
+]);
+warn("<b>This table is the whole lesson in miniature.</b> With these verbs, the imparfait gives a <u>state</u> and the passé composé gives the <u>moment it started</u>. Nothing about the verb changes — only how you're framing it.<br><br>It's also proof that you cannot translate your way to the right answer. English uses \"knew\" for both; French forces you to decide which you mean.");
+h3("Le test à trois questions");
+ex("When you're stuck, ask these in order:<br><br><b>1. Could I say \"used to\" or \"would\" in English?</b> → imparfait<br><b>2. Am I describing a scene, a feeling, the weather, or someone's age?</b> → imparfait<br><b>3. Did it happen once, at a specific moment, and then finish?</b> → passé composé<br><br>If none of the three fits cleanly, default to <b>passé composé</b> for anything that moves the story forward, and <b>imparfait</b> for anything that just sits there.");
+
+h2("5 · Exercices");
+h3("Exercice 1 — formez l'imparfait");
+fill([
+ {s:"1. parler → je ______", a:["parlais"], en:"I used to speak", why:"nous parl<b>ons</b> → parl- + -ais."},
+ {s:"2. finir → je ______", a:["finissais"], en:"I used to finish", why:"nous fin<b>iss</b>ons → finiss- + -ais. The -iss- carries over."},
+ {s:"3. faire → je ______", a:["faisais"], en:"I used to do", why:"nous fais<b>ons</b> → fais- + -ais. Said fuh-ZEH."},
+ {s:"4. prendre → nous ______", a:["prenions"], en:"we used to take", why:"nous pren<b>ons</b> → pren- + -ions."},
+ {s:"5. boire → ils ______", a:["buvaient"], en:"they used to drink", why:"nous <b>buv</b>ons → buv- + -aient."},
+ {s:"6. être → j'______", a:["étais","etais"], en:"I was", why:"⚠ The one exception — the stem is <b>ét-</b>."},
+ {s:"7. avoir → elle ______", a:["avait"], en:"she had", why:"nous <b>av</b>ons → av- + -ait."},
+ {s:"8. manger → je ______", a:["mangeais"], en:"I used to eat", why:"The <b>e</b> stays to protect the soft g: mang<b>e</b>ais."}
+]);
+h3("Exercice 2 — imparfait ou passé composé ?");
+mcq([
+ {q:"Quand j'étais petit, je ______ au cricket. (jouer)", opts:["jouais","ai joué"], a:0, why:"\"used to play\" + <i>quand j'étais petit</i> → a habit → <b>imparfait</b>."},
+ {q:"Hier, je ______ au cricket pendant deux heures. (jouer)", opts:["jouais","ai joué"], a:1, why:"<i>hier</i> + a defined duration → one completed event → <b>passé composé</b>."},
+ {q:"Il ______ beau ce jour-là. (faire)", opts:["faisait","a fait"], a:0, why:"Weather is scenery → <b>imparfait</b>, almost always."},
+ {q:"Je ______ un film quand le téléphone a sonné. (regarder)", opts:["regardais","ai regardé"], a:0, why:"The long ongoing action that gets interrupted → <b>imparfait</b>. The phone ringing is the passé composé."},
+ {q:"Soudain, elle ______ la porte. (ouvrir)", opts:["ouvrait","a ouvert"], a:1, why:"<i>Soudain</i> → a sudden single event → <b>passé composé</b>."},
+ {q:"Nous ______ toujours en Inde en été. (aller)", opts:["allions","sommes allés"], a:0, why:"<i>toujours</i> + a repeated summer habit → <b>imparfait</b>."},
+ {q:"L'année dernière, nous ______ en Inde. (aller)", opts:["allions","sommes allés"], a:1, why:"One specific trip, completed → <b>passé composé</b>."},
+ {q:"J'______ vingt ans quand j'ai commencé à travailler. (avoir)", opts:["avais","ai eu"], a:0, why:"Your age is a state, part of the background → <b>imparfait</b>."}
+]);
+h3("Exercice 3 — le même verbe, deux sens");
+mcq([
+ {q:"« Je <b>savais</b> la réponse. » signifie…", opts:["I knew it (already)","I found out"], a:0, why:"Imparfait → an ongoing state of knowing."},
+ {q:"« J'<b>ai su</b> la réponse. » signifie…", opts:["I knew it all along","I found out / I learned it"], a:1, why:"Passé composé → the moment the knowing <u>started</u>."},
+ {q:"« Je <b>connaissais</b> Marie. » signifie…", opts:["I knew Marie","I met Marie"], a:0, why:"Imparfait → the ongoing acquaintance."},
+ {q:"« J'<b>ai connu</b> Marie à Paris. » signifie…", opts:["I knew her in Paris","I met her in Paris"], a:1, why:"Passé composé → the moment you first met."},
+ {q:"« Il <b>voulait</b> partir. » signifie…", opts:["He wanted to leave","He tried to leave"], a:0, why:"Imparfait → a state of wanting, with no outcome implied."}
+]);
+h3("Exercice 4 — complétez l'histoire");
+fill([
+ {s:"1. Il ______ (être) huit heures du soir.", a:["était","etait"], en:"It was eight in the evening.", why:"Setting the scene + telling the time → imparfait."},
+ {s:"2. Il ______ (pleuvoir) et il ______ froid.", a:["pleuvait","pleuvait et il faisait"], en:"It was raining and it was cold.", why:"Weather → imparfait. (<i>pleuvoir</i> → nous pleuvons doesn't exist, but the stem is <b>pleuv-</b>.)"},
+ {s:"3. Je ______ (regarder) un film.", a:["regardais"], en:"I was watching a film.", why:"Ongoing background action → imparfait."},
+ {s:"4. Soudain, quelqu'un ______ (sonner) à la porte.", a:["a sonné","a sonne"], en:"Suddenly someone rang the doorbell.", why:"<i>Soudain</i> + a single event → passé composé."},
+ {s:"5. J'______ (ouvrir) et c'______ (être) mon frère.", a:["ai ouvert","ai ouvert et c'était"], en:"I opened it and it was my brother.", why:"<i>J'ai ouvert</i> = event. <i>C'était</i> = description."}
+]);
+
+h2("6 · Texte parallèle — Quand j'étais petit");
+ex("<b>Mon enfance en Inde</b><br><br>Quand j'étais petit, j'habitais en Inde avec ma famille. Nous avions une grande maison et il y avait un jardin derrière.<br><br>Tous les matins, je me levais à six heures. Ma mère préparait le petit-déjeuner et mon père lisait le journal. Je n'aimais pas le lait, mais je buvais toujours un thé.<br><br>L'école commençait à huit heures. Mon professeur de mathématiques était très sévère, mais il était juste. Après les cours, je jouais au cricket avec mes amis. Nous jouions jusqu'à la nuit — c'était toujours trop court !<br><br>Un jour — j'avais douze ans — quelque chose a changé. Mon père est rentré du travail et il nous a annoncé : « Nous allons partir au Canada. »<br><br>Je me souviens de ce moment. Il faisait chaud, ma sœur regardait la télévision, et moi je ne comprenais pas vraiment. J'ai posé une question : « C'est loin, le Canada ? »<br><br>Aujourd'hui, j'habite à Brampton depuis deux ans. Je ne joue plus au cricket tous les jours, et il n'y a pas de jardin derrière mon appartement. Mais quand il fait beau, je pense à cette maison, à ce jardin, et à ces après-midis qui n'en finissaient jamais.");
+h3("Glossaire du texte");
+rows([
+ ["Quand j'étais petit","kahn zhay-teh puh-TEE","When I was little"],
+ ["Nous avions une grande maison.","noo zah-VYOHN ewn grahnd may-ZOHN","We had a big house."],
+ ["il y avait un jardin","eel-ee-ah-VEH uhn zhar-DAN","there was a garden"],
+ ["Ma mère préparait le petit-déjeuner.","mah mehr pray-pah-REH","My mother used to make breakfast."],
+ ["mon père lisait le journal","mohn pehr lee-ZEH luh zhoor-NAL","my father used to read the paper"],
+ ["Je n'aimais pas le lait.","zhuh nay-MEH pah luh LEH","I didn't like milk."],
+ ["L'école commençait à huit heures.","lay-KOL koh-mahn-SEH","School started at eight."],
+ ["il était très sévère, mais juste","eel ay-teh treh say-VEHR, meh ZHEWST","he was very strict, but fair"],
+ ["Nous jouions jusqu'à la nuit.","noo zhoo-YOHN zhews-kah lah NWEE","We played until nightfall."],
+ ["c'était toujours trop court","say-teh too-zhoor troh KOOR","it was always too short"],
+ ["quelque chose a changé","kel-kuh shohz ah shahn-ZHAY","something changed"],
+ ["il nous a annoncé","eel noo zah ah-nohn-SAY","he announced to us"],
+ ["Je me souviens de ce moment.","zhuh muh soo-VYAN duh suh moh-MAHN","I remember that moment."],
+ ["je ne comprenais pas vraiment","zhuh nuh kohn-pruh-NEH pah vreh-MAHN","I didn't really understand"],
+ ["J'ai posé une question.","zhay poh-ZAY ewn kess-TYOHN","I asked a question."],
+ ["Je ne joue plus au cricket.","zhuh nuh zhoo plew oh kree-KET","I don't play cricket any more."],
+ ["ces après-midis qui n'en finissaient jamais","… kee nahn fee-nee-SEH zhah-MEH","those afternoons that never ended"]
+]);
+h3("Compréhension");
+mcq([
+ {q:"À quelle heure se levait-il ?", opts:["À six heures","À huit heures","À midi"], a:0, why:"« je me levais à six heures » — imparfait, because it was every morning."},
+ {q:"Que buvait-il le matin ?", opts:["Du lait","Du thé","Du café"], a:1, why:"« Je n'aimais pas le lait, mais je buvais toujours un thé. »"},
+ {q:"Quel âge avait-il quand son père a annoncé le départ ?", opts:["Dix ans","Douze ans","Vingt ans"], a:1, why:"« j'avais douze ans » — imparfait, because age is a state."},
+ {q:"Pourquoi « il nous a annoncé » est-il au passé composé ?", opts:["C'est une habitude","C'est un événement unique qui change l'histoire","C'est une description"], a:1, why:"It happened once, at a specific moment, and it moves the story forward. That's the definition of the passé composé."}
+]);
+h3("Repérez les deux temps");
+note("<b>Go through the text and sort the verbs into two columns.</b><br><br><b>Imparfait — le décor et les habitudes :</b><br><i>j'étais, j'habitais, nous avions, il y avait, je me levais, préparait, lisait, je n'aimais pas, je buvais, commençait, était (×2), je jouais, nous jouions, c'était, j'avais, il faisait, regardait, je ne comprenais pas, finissaient</i><br><br><b>Passé composé — les événements :</b><br><i>a changé, est rentré, a annoncé, j'ai posé</i><br><br><b>Count them.</b> Twenty imparfaits, four passés composés. That ratio is typical: <u>most</u> of a reminiscence is background, and the few passé composé verbs are the hinge the whole story turns on. Notice they all cluster in one paragraph — the moment the life changed.");
+ex("<b>À vous —</b> write about your own childhood in twelve sentences. Requirements — tick them off:<br>☐ open with <b>Quand j'étais petit(e)…</b><br>☐ three <b>habits</b> (what you used to do every day)<br>☐ three <b>descriptions</b> (the house, a person, the weather)<br>☐ one sentence with <b>être</b> and one with <b>avoir</b> in the imparfait<br>☐ one <b>« il y avait »</b><br>☐ then a paragraph where <b>one thing happened</b> — use two or three <b>passé composé</b> verbs<br>☐ one <b>interruption</b>: <i>je …ais quand quelque chose est arrivé</i><br>☐ finish in the present with <b>maintenant</b> or <b>aujourd'hui</b><br><br>Then count your verbs. If you have more passé composé than imparfait, you've probably written a list of events rather than a memory — go back and add the scenery.");
+
+h2("7 · Ce qu'il faut retenir");
+ex("<b>La formation :</b> nous-form, drop -ons, add -ais/-ais/-ait/-ions/-iez/-aient. <b>Être</b> is the only exception (ét-).<br><br><b>Les trois emplois :</b> habitude · description · action en cours.<br><br><b>Le contraste :</b> imparfait = la ligne. Passé composé = le point sur la ligne.<br><br><b>Le conseil :</b> don't try to master the choice this week. Learn the forms until they're automatic, use the imparfait for <i>être, avoir, il y avait, il faisait</i> without thinking, and let the rest arrive through reading. It will.");
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+<script src="french_glossary.js"></script>
+</body>
+</html>

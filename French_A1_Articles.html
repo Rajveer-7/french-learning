@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French — Les articles et les quantités (A1 complet)</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Les articles et les quantités</h1>
+  <p class="sub">A1 reference · definite, indefinite, partitive and demonstrative — plus every situation where the article collapses to « de »</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Cours21_Notes.html">Cours 21</a>
+    <a href="French_Cours22_Notes.html">Cours 22</a>
+    <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
+    <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html" class="active">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').textContent=fr; c.querySelector('.ph').textContent=ph;
+    c.onclick=()=>speak(fr); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+h2("Pourquoi cette page compte");
+ex("<b>French puts a word in front of almost every noun.</b> English often doesn't — \"I like music\", \"I buy bread\", \"he is a teacher\". French has to choose, every single time, from four families:<br><br>· <b>défini</b> — le, la, l', les<br>· <b>indéfini</b> — un, une, des<br>· <b>partitif</b> — du, de la, de l', des<br>· <b>démonstratif</b> — ce, cet, cette, ces<br><br>Choosing wrongly is the most frequent error in beginner French, and it's visible in every sentence. This page is the whole system in one place.");
+
+h2("1 · L'article défini — le, la, l', les");
+table(["","Singulier","Pluriel","Exemple"],[
+ ["<b>Masculin</b>","<b>le</b> — luh","<b>les</b> — lay","le livre → les livres"],
+ ["<b>Féminin</b>","<b>la</b> — lah","<b>les</b> — lay","la table → les tables"],
+ ["<b>Devant voyelle / h muet</b>","<b>l'</b>","<b>les</b> — lay<b>z</b>","l'ami → les⁀amis"]
+]);
+ex("<b>Three uses:</b><br>· <b>Something specific</b> — <i>Ferme <b>la</b> porte.</i> (that door)<br>· <b>Something general</b> — <i>J'aime <b>la</b> musique.</i> (music as a whole)<br>· <b>Habits with days</b> — <i>Je travaille <b>le</b> lundi.</i> (every Monday)");
+warn("<b>The general-sense use is where English speakers slip.</b> English says \"I like music\" with no article; French <u>must</u> have one:<br>· ✓ J'aime <b>la</b> musique. · ✗ J'aime musique.<br>· ✓ J'adore <b>le</b> cricket. · ✗ J'adore cricket.<br><br>After <b>aimer, adorer, détester, préférer</b> the definite article is compulsory, always.");
+note("<b>le lundi vs lundi.</b> With the article it's a habit — <i>je travaille <b>le</b> lundi</i> = every Monday. Without it, it's one specific day — <i>je travaille lundi</i> = this coming Monday. One small word, two different meanings.");
+h3("Les contractions — à et de");
+table(["","à + article","de + article"],[
+ ["le","<b>au</b> — oh","<b>du</b> — dew"],
+ ["la","<b>à la</b>","<b>de la</b>"],
+ ["l'","<b>à l'</b>","<b>de l'</b>"],
+ ["les","<b>aux</b> — oh","<b>des</b> — day"]
+]);
+rows([
+ ["Je vais au cinéma.","zhuh veh oh see-nay-MAH","I'm going to the cinema."],
+ ["Je vais à la gare.","zhuh veh ah lah GAR","I'm going to the station."],
+ ["Je vais à l'école.","zhuh veh ah lay-KOL","I'm going to school."],
+ ["Je vais aux États-Unis.","zhuh veh oh zay-tah-zew-NEE","I'm going to the United States."],
+ ["Je viens du Canada.","zhuh vyan dew kah-nah-DAH","I come from Canada."],
+ ["à côté de la banque","ah koh-tay duh lah BAHNK","next to the bank"],
+ ["près des magasins","preh day mah-gah-ZAN","near the shops"]
+]);
+warn("<b>« à le » and « de le » do not exist in French.</b> They are always contracted. If you write <i>je vais à le cinéma</i>, that is not a style choice — it's an impossible form. The contraction is automatic and compulsory.<br><br>But <b>à la</b> and <b>de la</b> stay as they are. Only the masculine and plural contract.");
+
+h2("2 · L'article indéfini — un, une, des");
+table(["","Singulier","Pluriel","Exemple"],[
+ ["<b>Masculin</b>","<b>un</b> — uhn","<b>des</b> — day","un livre → des livres"],
+ ["<b>Féminin</b>","<b>une</b> — ewn","<b>des</b> — day","une table → des tables"]
+]);
+ex("Use it for <b>one of many</b>, or something mentioned for the first time: <i>J'ai <b>un</b> frère.</i> · <i>Il y a <b>une</b> boulangerie dans la rue.</i> · <i>J'ai acheté <b>des</b> livres.</i>");
+note("<b>English has no plural for \"a\" — French does.</b> \"I bought books\" has no article at all in English, but French needs <b>des</b>: <i>j'ai acheté <b>des</b> livres</i>. Leaving it out is one of the most audible beginner errors.");
+warn("<b>un / une sound nothing alike, so get them right from the start.</b><br>· <b>un</b> = uhn — a <u>nasal</u> vowel, air through the nose, no n consonant at the end<br>· <b>une</b> = ewn — the [y] vowel (lips rounded, tongue forward) plus a clear n<br><br>And <b>un</b> liaises before a vowel: <i>un<b>⁀</b>ami</i> = uh-<b>N</b>ah-MEE.");
+
+h2("3 · L'article partitif — du, de la, de l', des");
+lead("The one with no English equivalent at all — and the one that governs every sentence about food and drink.");
+table(["","Partitif","Prononciation","Exemple"],[
+ ["<b>Masculin</b>","<b>du</b>","dew","Je mange <b>du</b> pain."],
+ ["<b>Féminin</b>","<b>de la</b>","duh lah","Je bois <b>de la</b> limonade."],
+ ["<b>Devant voyelle</b>","<b>de l'</b>","duh l","Je bois <b>de l'</b>eau."],
+ ["<b>Pluriel</b>","<b>des</b>","day","Je mange <b>des</b> fruits."]
+]);
+ex("<b>What it means:</b> \"some\" — an unspecified amount of something you can't count.<br><br>You can count <i>pommes</i> (one apple, two apples) but you cannot count <i>pain</i>, <i>eau</i>, <i>musique</i>, <i>courage</i>. For those, French uses the partitive.<br><br>· <i>Je mange <b>du</b> pain.</i> — I'm eating (some) bread.<br>· <i>Je bois <b>de l'</b>eau.</i> — I'm drinking (some) water.<br>· <i>Il y a <b>du</b> soleil.</i> — It's sunny. (some sun in the sky)");
+warn("<b>The three-way contrast you must be able to produce.</b> Same noun, three different articles, three different meanings:<br><br>· <i>J'aime <b>le</b> café.</i> — I like coffee. (in general → <b>défini</b>)<br>· <i>Je bois <b>du</b> café.</i> — I'm drinking coffee. (some → <b>partitif</b>)<br>· <i>Je prends <b>un</b> café.</i> — I'll have a coffee. (one cup → <b>indéfini</b>)<br><br>If you learn one thing from this page, learn this trio.");
+rows([
+ ["Je mange du pain.","zhuh mahnzh dew PAN","I'm eating bread."],
+ ["Je bois de l'eau.","zhuh bwah duh LOH","I'm drinking water."],
+ ["Elle mange de la viande.","ell mahnzh duh lah VYAHND","She's eating meat."],
+ ["Nous mangeons des légumes.","noo mahn-zhohn day lay-GEWM","We're eating vegetables."],
+ ["Tu veux du thé ?","tew vuh dew TAY","Do you want tea?"],
+ ["J'écoute de la musique.","zhay-KOOT duh lah mew-ZEEK","I'm listening to music."],
+ ["Il fait du sport.","eel feh dew SPOR","He does sport."],
+ ["Elle a de la chance.","ell ah duh lah SHAHNSS","She's lucky."]
+]);
+note("<b>The partitive goes well beyond food.</b> <i>faire <b>du</b> sport</i>, <i>faire <b>de la</b> natation</i>, <i>écouter <b>de la</b> musique</i>, <i>avoir <b>de la</b> chance</i>, <i>il y a <b>du</b> vent</i>. Any time the quantity is vague and uncountable, it's partitive.");
+
+h2("4 · La règle du « DE » — trois situations");
+lead("Three different rules all collapse the article down to a bare <b>de</b>. They're the biggest single source of article errors.");
+h3("A · Après une négation");
+table(["Affirmatif","Négatif"],[
+ ["J'ai <b>un</b> frère.","Je n'ai pas <b>de</b> frère."],
+ ["J'ai <b>une</b> voiture.","Je n'ai pas <b>de</b> voiture."],
+ ["J'ai <b>des</b> amis ici.","Je n'ai pas <b>d'</b>amis ici."],
+ ["Je mange <b>du</b> pain.","Je ne mange pas <b>de</b> pain."],
+ ["Il y a <b>du</b> vent.","Il n'y a pas <b>de</b> vent."]
+]);
+ex("<b>Why:</b> the quantity is now zero, so the article that expressed quantity collapses. <b>un, une, des, du, de la</b> all become <b>de</b> (or <b>d'</b> before a vowel).");
+warn("<b>Two exceptions.</b><br><b>1. After être, nothing changes</b> — because être expresses no quantity:<br>· <i>C'est <b>un</b> médecin.</i> → <i>Ce n'est pas <b>un</b> médecin.</i><br><br><b>2. The definite article never changes</b> — it isn't about quantity either:<br>· <i>J'aime <b>le</b> café.</i> → <i>Je n'aime pas <b>le</b> café.</i>");
+h3("B · Après une expression de quantité");
+rows([
+ ["beaucoup de pain","boh-koo duh PAN","a lot of bread"],
+ ["un peu de sucre","uhn puh duh SEW-kruh","a little sugar"],
+ ["assez d'argent","ah-say dar-ZHAHN","enough money"],
+ ["trop de travail","troh duh trah-VYE","too much work"],
+ ["un kilo de pommes","uhn kee-loh duh POM","a kilo of apples"],
+ ["une bouteille d'eau","ewn boo-tay DOH","a bottle of water"],
+ ["un verre de vin","uhn vehr duh VAN","a glass of wine"],
+ ["une tasse de café","ewn tass duh kah-FAY","a cup of coffee"],
+ ["un morceau de fromage","uhn mor-soh duh froh-MAHZH","a piece of cheese"],
+ ["une tranche de pain","ewn trahnsh duh PAN","a slice of bread"],
+ ["peu de gens","puh duh ZHAHN","few people"],
+ ["combien de personnes ?","kohn-byan duh pehr-SUN","how many people?"]
+]);
+warn("<b>Never « beaucoup du ».</b> After <u>any</u> quantity word the article disappears entirely and only <b>de</b> survives:<br>· ✓ beaucoup <b>de</b> pain · ✗ beaucoup du pain<br>· ✓ un kilo <b>de</b> pommes · ✗ un kilo des pommes<br><br>The one exception is <b>bien des</b> (= many), which is formal and rare at A1.");
+h3("C · Devant un adjectif pluriel");
+table(["Normal","Avec adjectif devant"],[
+ ["J'ai <b>des</b> amis.","J'ai <b>de</b> bons amis."],
+ ["Il y a <b>des</b> maisons.","Il y a <b>de</b> belles maisons."],
+ ["Ce sont <b>des</b> livres.","Ce sont <b>de</b> petits livres."]
+]);
+note("This one is increasingly ignored in casual speech — you will hear <i>des bons amis</i> — but it is still expected in writing, and the TEF written paper is marked on written norms. Worth knowing even if you don't always produce it.");
+
+h2("5 · Les démonstratifs — ce, cet, cette, ces");
+lead("\"This\" and \"that\" — and French makes no distinction between them unless you force it.");
+table(["","Forme","Prononciation","Exemple"],[
+ ["<b>Masculin</b>","<b>ce</b>","suh","<b>ce</b> livre"],
+ ["<b>Masculin devant voyelle / h muet</b>","<b>cet</b>","set","<b>cet</b> ami, <b>cet</b> hôtel"],
+ ["<b>Féminin</b>","<b>cette</b>","set","<b>cette</b> table"],
+ ["<b>Pluriel (m. et f.)</b>","<b>ces</b>","say","<b>ces</b> livres, <b>ces</b> tables"]
+]);
+warn("<b>cet and cette are pronounced identically — both \"set\".</b> The difference is purely written: <b>cet</b> is masculine before a vowel, <b>cette</b> is feminine. <i>cet homme</i> (m.) and <i>cette femme</i> (f.) sound the same at the start.<br><br>And <b>cet</b> exists for exactly one reason: French refuses to let <i>ce</i> sit next to a vowel. <i>ce ami</i> is unsayable, so the t appears.");
+rows([
+ ["Ce livre est intéressant.","suh LEE-vruh eh tan-tay-reh-SAHN","This book is interesting."],
+ ["Cet homme est mon voisin.","set um eh mohn vwah-ZAN","This man is my neighbour."],
+ ["Cette maison est grande.","set may-ZOHN eh GRAHND","This house is big."],
+ ["Ces enfants sont fatigués.","say zahn-FAHN sohn fah-tee-GAY","These children are tired."],
+ ["Je prends ce manteau.","zhuh prahn suh mahn-TOH","I'll take this coat."]
+]);
+h3("Pour distinguer « this » de « that »");
+ex("If you really need the contrast, French adds <b>-ci</b> (here) or <b>-là</b> (there) to the noun:<br><br>· <i>ce livre-<b>ci</b></i> — <b>this</b> book (here)<br>· <i>ce livre-<b>là</b></i> — <b>that</b> book (there)<br>· <i>celui-<b>ci</b> / celui-<b>là</b></i> — this one / that one<br><br>In a shop this is how you point without pointing: <i>Je prends celui-là, s'il vous plaît.</i>");
+
+h2("6 · Les trois cas où il n'y a PAS d'article");
+lead("French usually demands an article — these are the places it refuses one.");
+table(["Situation","Exemple","Pas :"],[
+ ["<b>Métier après être</b>","Je suis professeur.","<s>Je suis un professeur.</s>"],
+ ["<b>Nationalité après être</b>","Je suis indien.","<s>Je suis un indien.</s>"],
+ ["<b>Langue après parler</b>","Je parle français.","<s>Je parle le français.</s>"]
+]);
+warn("<b>And the moment you add a describing word, the article comes back:</b><br>· <i>Je suis professeur.</i> → <i>Je suis <b>un</b> bon professeur.</i><br>· <i>C'est <b>un</b> professeur.</i> — always, because <b>c'est</b> demands an article.<br><br>So the rule is really: <b>bare noun → no article; modified noun or c'est → article.</b>");
+note("<b>Watch the parler / apprendre pair.</b> <i>Je parle français</i> (no article) but <i>j'apprends <b>le</b> français</i> (article). <i>J'étudie <b>le</b> français</i> too. Same language, different verbs, different rules — there's no logic to extract, so learn them as a pair.");
+
+h2("7 · Le tableau de décision");
+ex("<b>Ask yourself, in this order:</b><br><br><b>1.</b> Is there a negation? → <b>de</b> (unless the verb is <i>être</i>)<br><b>2.</b> Is there a quantity word (beaucoup, un kilo, trop…)? → <b>de</b><br><b>3.</b> Is it a bare job / nationality / language after <i>être</i> or <i>parler</i>? → <b>nothing</b><br><b>4.</b> Do I mean \"this / that\"? → <b>ce / cet / cette / ces</b><br><b>5.</b> Do I mean \"some\" of something uncountable? → <b>du / de la / de l' / des</b><br><b>6.</b> Do I mean \"one of many\" or \"a\"? → <b>un / une / des</b><br><b>7.</b> Otherwise — something specific, or a general liking → <b>le / la / l' / les</b><br><br>Six questions, and the first match wins. Run it slowly in writing until it becomes instant in speech.");
+
+h2("8 · Exercices");
+h3("Exercice 1 — défini, indéfini ou partitif ?");
+fill([
+ {s:"1. J'aime ______ café. (in general)", a:["le"], en:"I like coffee.", why:"A general liking → <b>défini</b>. After <i>aimer</i>, always."},
+ {s:"2. Je bois ______ café. (some)", a:["du"], en:"I'm drinking coffee.", why:"An unspecified amount → <b>partitif</b>."},
+ {s:"3. Je prends ______ café. (one cup)", a:["un"], en:"I'll have a coffee.", why:"One countable cup → <b>indéfini</b>."},
+ {s:"4. Je bois ______ eau.", a:["de l'","de l"], en:"I'm drinking water.", why:"Partitive before a vowel → <b>de l'</b>."},
+ {s:"5. Elle mange ______ viande.", a:["de la"], en:"She's eating meat.", why:"<i>viande</i> is feminine and uncountable → <b>de la</b>."},
+ {s:"6. Il y a ______ vent aujourd'hui.", a:["du"], en:"It's windy today.", why:"<i>vent</i> is masculine and uncountable → <b>du</b>."}
+]);
+h3("Exercice 2 — à et de : contractez");
+fill([
+ {s:"Je vais ______ cinéma. (à + le)", a:["au"], en:"I'm going to the cinema.", why:"à + le = <b>au</b>. <i>à le</i> doesn't exist."},
+ {s:"Je vais ______ gare. (à + la)", a:["à la","a la"], en:"I'm going to the station.", why:"<b>à la</b> — the feminine doesn't contract."},
+ {s:"Je viens ______ Canada. (de + le)", a:["du"], en:"I come from Canada.", why:"de + le = <b>du</b>."},
+ {s:"C'est à côté ______ magasins. (de + les)", a:["des"], en:"It's next to the shops.", why:"de + les = <b>des</b>."},
+ {s:"Il va ______ États-Unis. (à + les)", a:["aux"], en:"He's going to the USA.", why:"à + les = <b>aux</b>."}
+]);
+h3("Exercice 3 — mettez au négatif");
+fill([
+ {s:"J'ai un frère. → Je n'ai pas ______ frère.", a:["de"], en:"I don't have a brother.", why:"<i>un</i> collapses to <b>de</b> after a negation."},
+ {s:"Je mange du pain. → Je ne mange pas ______ pain.", a:["de"], en:"I don't eat bread.", why:"<i>du</i> collapses to <b>de</b>."},
+ {s:"J'ai des amis. → Je n'ai pas ______ amis.", a:["d'","d"], en:"I don't have friends.", why:"<b>d'</b> before a vowel."},
+ {s:"C'est un médecin. → Ce n'est pas ______ médecin.", a:["un"], en:"He's not a doctor.", why:"⚠ After <b>être</b> nothing changes — the article stays <i>un</i>."},
+ {s:"J'aime le café. → Je n'aime pas ______ café.", a:["le"], en:"I don't like coffee.", why:"⚠ The <b>definite</b> article never collapses."}
+]);
+h3("Exercice 4 — les quantités");
+fill([
+ {s:"beaucoup ______ pain", a:["de"], en:"a lot of bread", why:"After a quantity word, only <b>de</b> survives — never <i>du</i>."},
+ {s:"un kilo ______ pommes", a:["de"], en:"a kilo of apples", why:"Same rule."},
+ {s:"une bouteille ______ eau", a:["d'","d"], en:"a bottle of water", why:"<b>d'</b> before a vowel."},
+ {s:"trop ______ travail", a:["de"], en:"too much work", why:"<i>trop</i> is a quantity word."},
+ {s:"combien ______ personnes ?", a:["de"], en:"how many people?", why:"<i>combien</i> is a quantity word too."}
+]);
+h3("Exercice 5 — ce, cet, cette ou ces ?");
+fill([
+ {s:"______ livre est intéressant.", a:["ce"], en:"This book is interesting.", why:"<i>livre</i> is masculine, starts with a consonant → <b>ce</b>."},
+ {s:"______ homme est mon voisin.", a:["cet"], en:"This man is my neighbour.", why:"Masculine <b>before a vowel</b> → <b>cet</b>."},
+ {s:"______ maison est grande.", a:["cette"], en:"This house is big.", why:"<i>maison</i> is feminine → <b>cette</b>."},
+ {s:"______ enfants sont fatigués.", a:["ces"], en:"These children are tired.", why:"Plural → <b>ces</b>, for both genders."},
+ {s:"______ hôtel est cher.", a:["cet"], en:"This hotel is expensive.", why:"Silent h counts as a vowel → <b>cet</b>."}
+]);
+h3("Exercice 6 — article ou rien ?");
+mcq([
+ {q:"Je suis ______ professeur.", opts:["un","rien (nothing)","le"], a:1, why:"A bare job after être takes no article."},
+ {q:"C'est ______ professeur.", opts:["rien","un","de"], a:1, why:"After <b>c'est</b> the article is obligatory."},
+ {q:"Je parle ______ français.", opts:["le","rien","du"], a:1, why:"No article after <i>parler</i> + language."},
+ {q:"J'apprends ______ français.", opts:["rien","le","du"], a:1, why:"⚠ <i>apprendre</i> <b>does</b> take the article — unlike <i>parler</i>."},
+ {q:"Je suis ______ bon professeur.", opts:["rien","un","du"], a:1, why:"The job is now modified by <i>bon</i>, so the article returns."}
+]);
+
+h2("9 · Texte parallèle — Les courses du samedi");
+ex("<b>Au marché</b><br><br>Le samedi matin, je fais les courses. J'aime le marché : il y a des fruits, des légumes et du bon pain.<br><br>D'abord, je vais à la boulangerie. Je prends une baguette et deux croissants. Le boulanger est sympa ; c'est un homme très patient.<br><br>Ensuite, je vais au marché. J'achète un kilo de pommes, une bouteille d'eau et beaucoup de légumes. Je ne prends pas de viande — je n'aime pas la viande rouge.<br><br>« Vous voulez des tomates ? » demande la vendeuse. « Oui, s'il vous plaît. Combien de tomates dans un kilo ? »<br><br>Après, je prends un café au café du coin. Je ne bois pas de thé le matin ; je préfère le café. Cette terrasse est agréable et il y a du soleil.<br><br>Je rentre à la maison avec des sacs lourds. Mais le frigo est plein, et ça, c'est une bonne chose !");
+h3("Glossaire du texte");
+rows([
+ ["je fais les courses","zhuh feh lay KOORSS","I do the shopping"],
+ ["du bon pain","dew bohn PAN","good bread"],
+ ["à la boulangerie","ah lah boo-lahn-zhuh-REE","to the bakery"],
+ ["une baguette","ewn bah-GET","a baguette"],
+ ["c'est un homme très patient","seh tuhn um treh pah-SYAHN","he's a very patient man"],
+ ["un kilo de pommes","uhn kee-loh duh POM","a kilo of apples"],
+ ["une bouteille d'eau","ewn boo-tay DOH","a bottle of water"],
+ ["beaucoup de légumes","boh-koo duh lay-GEWM","a lot of vegetables"],
+ ["Je ne prends pas de viande.","zhuh nuh prahn pah duh VYAHND","I don't take meat."],
+ ["Vous voulez des tomates ?","voo voo-lay day toh-MAHT","Do you want tomatoes?"],
+ ["Combien de tomates ?","kohn-byan duh toh-MAHT","How many tomatoes?"],
+ ["le café du coin","luh kah-fay dew KWAN","the local café"],
+ ["Je ne bois pas de thé.","zhuh nuh bwah pah duh TAY","I don't drink tea."],
+ ["des sacs lourds","day sak LOOR","heavy bags"],
+ ["le frigo est plein","luh free-goh eh PLAN","the fridge is full"]
+]);
+h3("Compréhension");
+mcq([
+ {q:"Que prend-il à la boulangerie ?", opts:["Du pain et des légumes","Une baguette et deux croissants","Un café"], a:1, why:"« Je prends une baguette et deux croissants. »"},
+ {q:"Pourquoi ne prend-il pas de viande ?", opts:["C'est trop cher","Il n'aime pas la viande rouge","Il n'y en a pas"], a:1, why:"« je n'aime pas la viande rouge » — and note the <b>definite</b> article after <i>aimer</i>, even in the negative."},
+ {q:"Que boit-il le matin ?", opts:["Du thé","Du café","De l'eau"], a:1, why:"« Je ne bois pas de thé le matin ; je préfère le café. »"}
+]);
+h3("Repérez les articles");
+note("Go through the text and find one of each:<br>· <b>Défini général</b> — <i>j'aime <b>le</b> marché</i>, <i>je préfère <b>le</b> café</i>, <i>je n'aime pas <b>la</b> viande</i><br>· <b>Défini d'habitude</b> — <i><b>le</b> samedi matin</i> (every Saturday)<br>· <b>Partitif</b> — <i><b>des</b> fruits</i>, <i><b>du</b> bon pain</i>, <i><b>du</b> soleil</i>, <i><b>des</b> tomates</i><br>· <b>Indéfini</b> — <i><b>une</b> baguette</i>, <i><b>un</b> café</i>, <i><b>un</b> homme patient</i><br>· <b>Deux négations avec DE</b> — <i>pas <b>de</b> viande</i>, <i>pas <b>de</b> thé</i><br>· <b>Trois quantités avec DE</b> — <i>un kilo <b>de</b> pommes</i>, <i>une bouteille <b>d'</b>eau</i>, <i>beaucoup <b>de</b> légumes</i>, <i>combien <b>de</b> tomates</i><br>· <b>Deux contractions</b> — <i><b>au</b> marché</i>, <i>le café <b>du</b> coin</i><br>· <b>Un démonstratif</b> — <i><b>Cette</b> terrasse</i><br>· <b>Un « de » devant adjectif pluriel</b> — look at <i>des sacs lourds</i>: the adjective follows, so <i>des</i> is correct here. Where would it have become <i>de</i>?");
+ex("<b>À vous —</b> write your own shopping trip in ten sentences. Requirements — tick them off:<br>☐ two <b>partitifs</b> (du / de la / des)<br>☐ two <b>indéfinis</b> (un / une)<br>☐ one <b>défini général</b> after <i>aimer</i> or <i>préférer</i><br>☐ one <b>négation</b> with <i>pas de</i><br>☐ two <b>quantités</b> (un kilo de, beaucoup de, une bouteille de…)<br>☐ two <b>contractions</b> (au, du, aux, des)<br>☐ one <b>démonstratif</b> (ce / cet / cette / ces)<br><br>Then check every noun in what you wrote: does it have an article? Should it?");
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+<script src="french_glossary.js"></script>
+</body>
+</html>

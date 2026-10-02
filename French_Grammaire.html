@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French — Grammaire complète (A1 → C1)</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.55; }
+  .wrap { max-width:900px; margin:0 auto; padding:20px 16px 100px; }
+  h1 { font-size:28px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav.site { display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap; }
+  nav.site a { text-decoration:none; font-size:13px; padding:7px 12px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav.site a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:14px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  #search { flex:1 1 200px; min-width:160px; border:1px solid var(--line); border-radius:999px; padding:8px 14px; font-size:14px; background:var(--card); color:var(--ink); }
+  .parttabs { display:flex; gap:6px; flex-wrap:wrap; margin:14px 0 18px; position:sticky; top:0; background:var(--bg); padding:10px 0; z-index:9; border-bottom:1px solid var(--line); }
+  .parttabs button { border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:999px; padding:7px 13px; font-size:13px; cursor:pointer; }
+  .parttabs button.on { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .parthead { margin:6px 0 14px; }
+  .parthead h2 { font-size:22px; margin:0 0 4px; border:none; padding:0; }
+  .parthead p { margin:0; font-size:14px; color:var(--muted); }
+  details.chap { background:var(--card); border:1px solid var(--line); border-radius:14px; margin:10px 0; overflow:hidden; }
+  details.chap > summary { cursor:pointer; padding:13px 16px; font-size:16px; font-weight:600; list-style:none; display:flex; align-items:center; gap:10px; }
+  details.chap > summary::-webkit-details-marker { display:none; }
+  details.chap > summary::before { content:"▸"; color:var(--accent); font-size:14px; }
+  details.chap[open] > summary::before { content:"▾"; }
+  details.chap > summary:hover { background:var(--accentbg); }
+  .chapbody { padding:4px 16px 16px; border-top:1px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:18px 0 6px; color:var(--accent); }
+  p.txtp { font-size:14.5px; margin:10px 0; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:9px 12px; margin:7px 0; }
+  .play { flex:0 0 auto; width:38px; height:38px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:15px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:16.5px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(165px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14.5px; }
+  .cell .ph { font-size:11.5px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  table.t { width:100%; border-collapse:collapse; margin:10px 0; font-size:13.5px; }
+  table.t th, table.t td { border:1px solid var(--line); padding:7px 9px; text-align:left; vertical-align:top; }
+  table.t th { background:var(--accentbg); color:var(--accent); }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:11px 13px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:7px; }
+  .fillrow .sent .en { font-size:12.5px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:180px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:7px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .mcq { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:11px 13px; margin:8px 0; }
+  .mcq .q { font-weight:600; font-size:14.5px; margin-bottom:8px; }
+  .mcq button.opt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:9px; padding:8px 11px; margin:5px 0; font-size:14px; cursor:pointer; }
+  .mcq button.opt:hover { border-color:var(--accent); }
+  .mcq button.opt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .mcq button.opt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .mcq .why { font-size:13px; color:var(--muted); margin-top:7px; }
+  .reading { background:var(--card); border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:10px; padding:12px 14px; margin:12px 0; font-size:15px; }
+  .reading p { margin:8px 0; }
+  .hidden { display:none !important; }
+  .tocbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:10px 0 16px; font-size:14px; }
+  .tocbox a { color:var(--accent); text-decoration:none; display:block; padding:3px 0; }
+  .tocbox a:hover { text-decoration:underline; }
+  .pill { display:inline-block; background:var(--accentbg); color:var(--accent); border-radius:999px; padding:2px 9px; font-size:12px; margin-left:8px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Grammaire complète — A1 → C1</h1>
+  <p class="sub">Chapter by chapter, every rule with the reason behind it · tables, examples with pronunciation, and exercises with answers</p>
+
+  <nav class="site">
+    <a href="index.html">Home</a>
+    <a href="French_Full_Guide.html">Full Guide (A1)</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
+    <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <input id="search" placeholder="Search the whole book (French or English)…">
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div class="parttabs" id="parttabs"></div>
+  <div id="book"></div>
+</div>
+
+<script>
+/* ============ speech engine ============ */
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "🔊 " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice installed";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function clean(t){ return String(t).replace(/\s+([!?])/g,'$1').replace(/___/g,'').replace(/→/g,',').replace(/\(.*?\)/g,''); }
+function speak(text){
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(clean(text));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate;
+  speechSynthesis.speak(u);
+}
+
+/* ============ block builders ============ */
+function elRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶'; btn.setAttribute('aria-label','Play '+fr);
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent = fr;
+  if(ph) txt.querySelector('.ph').textContent = ph;
+  if(en) txt.querySelector('.en').textContent = en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+function elGrid(items){
+  const g=document.createElement('div'); g.className='grid';
+  items.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').textContent=fr; c.querySelector('.ph').textContent=ph||'';
+    c.onclick=()=>speak(fr);
+    g.appendChild(c);
+  });
+  return g;
+}
+function elTable(head, rows){
+  const t=document.createElement('table'); t.className='t';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  rows.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html;
+  return t;
+}
+function elFill(items){
+  const box=document.createElement('div');
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent';
+    s.innerHTML='<span></span>'+(it.en?'<div class="en"></div>':'');
+    s.querySelector('span').textContent=it.s;
+    if(it.en) s.querySelector('.en').textContent=it.en;
+    const inp=document.createElement('input'); inp.placeholder='your answer';
+    const b=document.createElement('button'); b.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    const answers=(Array.isArray(it.a)?it.a:[it.a]).map(x=>x.toLowerCase().trim());
+    function check(){
+      const val=inp.value.toLowerCase().trim();
+      if(!val){ fb.textContent='Type something first.'; fb.className='fb'; return; }
+      if(answers.some(a=>a===val)){ fb.textContent='✓ Correct — '+answers[0]+(it.why?' · '+it.why:''); fb.className='fb ok'; speak(it.s.replace('___',answers[0])); }
+      else { fb.textContent='✗ Answer: '+answers[0]+(it.why?' · '+it.why:''); fb.className='fb bad'; }
+    }
+    b.onclick=check; inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s); d.appendChild(inp); d.appendChild(b); d.appendChild(fb);
+    box.appendChild(d);
+  });
+  return box;
+}
+function elMcq(items){
+  const box=document.createElement('div');
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='mcq';
+    const q=document.createElement('div'); q.className='q'; q.textContent=it.q;
+    d.appendChild(q);
+    const why=document.createElement('div'); why.className='why';
+    it.opts.forEach((o,i)=>{
+      const b=document.createElement('button'); b.className='opt'; b.textContent=o;
+      b.onclick=()=>{
+        [...d.querySelectorAll('.opt')].forEach(x=>x.disabled=true);
+        if(i===it.a){ b.classList.add('correct'); }
+        else { b.classList.add('wrong'); d.querySelectorAll('.opt')[it.a].classList.add('correct'); }
+        if(it.why){ why.textContent=it.why; }
+      };
+      d.appendChild(b);
+    });
+    d.appendChild(why);
+    box.appendChild(d);
+  });
+  return box;
+}
+function elReading(paras){
+  const d=document.createElement('div'); d.className='reading';
+  paras.forEach(p=>{
+    const el=document.createElement('p'); el.textContent=p; el.style.cursor='pointer';
+    el.onclick=()=>speak(p);
+    d.appendChild(el);
+  });
+  return d;
+}
+
+function renderBlock(b){
+  if(b.t==='p'){ const p=document.createElement('p'); p.className='txtp'; p.innerHTML=b.x; return p; }
+  if(b.t==='h'){ const h=document.createElement('h3'); h.className='sub2'; h.textContent=b.x; return h; }
+  if(b.t==='note'){ const d=document.createElement('div'); d.className='note'; d.innerHTML=b.x; return d; }
+  if(b.t==='ex'){ const d=document.createElement('div'); d.className='example'; d.innerHTML=b.x; return d; }
+  if(b.t==='warn'){ const d=document.createElement('div'); d.className='warn'; d.innerHTML=b.x; return d; }
+  if(b.t==='rows'){ const f=document.createDocumentFragment(); b.items.forEach(([fr,ph,en])=>f.appendChild(elRow(fr,ph,en))); return f; }
+  if(b.t==='grid'){ return elGrid(b.items); }
+  if(b.t==='table'){ return elTable(b.head,b.rows); }
+  if(b.t==='fill'){ return elFill(b.items); }
+  if(b.t==='mcq'){ return elMcq(b.items); }
+  if(b.t==='read'){ return elReading(b.paras); }
+  return document.createTextNode('');
+}
+
+/* ============ the book ============ */
+const BOOK = [];
+
+BOOK.push({
+  id:'g0', part:'Chapitre 0 — Comment lire cette grammaire',
+  sub:"How this reference is organised, and why every chapter ends with a « pourquoi ».",
+  chapters:[
+  { title:'0.1 · La structure de chaque chapitre', blocks:[
+    {t:'p', x:"Every chapter follows the same five-part shape, so you always know where to look:"},
+    {t:'table', head:['Section','Ce qu\'elle contient'],
+      rows:[
+      ['<b>1. Les formes</b>','The tables. What the thing looks like, in full, with pronunciation.'],
+      ['<b>2. L\'emploi</b>','What it is for, and when to use it.'],
+      ['<b>3. Pourquoi</b>','Where the rule comes from. This is the part most grammars skip.'],
+      ['<b>4. Les pièges</b>','The specific errors English speakers make, and why they make them.'],
+      ['<b>5. Exercices</b>','With answers and reasoning under each one.']
+      ]},
+    {t:'ex', x:"<b>Section 3 is the point of this reference.</b> A rule you've only memorised decays. A rule you understand stays, because you can rebuild it from first principles when you forget the detail.<br><br>Nearly every oddity in French has a reason — usually sound change, usually about a thousand years old. The two genuine exceptions are <b>noun gender</b> and <b>irregular verb forms</b>, which really are arbitrary. Everything else can be explained."},
+    {t:'note', x:"<b>How to use it:</b> don't read front to back. Use the Grammar Map to find your level, work the chapters at that level, and come back here when something confuses you in class."}
+  ]}
+  ]
+});
+
+BOOK.push({
+  id:'g1', part:'Chapitre 1 — L\'article',
+  sub:"The word in front of almost every French noun — four families, and the rule that collapses them all to « de ».",
+  chapters:[
+  { title:'1.1 · Les formes', blocks:[
+    {t:'h', x:'Les quatre familles'},
+    {t:'table', head:['','Masculin','Féminin','Devant voyelle','Pluriel'],
+      rows:[
+      ['<b>Défini</b>','le','la','l\'','les'],
+      ['<b>Indéfini</b>','un','une','—','des'],
+      ['<b>Partitif</b>','du','de la','de l\'','des'],
+      ['<b>Démonstratif</b>','ce','cette','cet (m.)','ces']
+      ]},
+    {t:'rows', items:[
+      ['le livre · la table · l\'ami · les amis','luh LEE-vruh · lah TAH-bluh · lah-MEE · lay zah-MEE','the book / table / friend / friends'],
+      ['un livre · une table · des livres','uhn LEE-vruh · ewn TAH-bluh · day LEE-vruh','a book / a table / books'],
+      ['du pain · de la viande · de l\'eau','dew PAN · duh lah VYAHND · duh LOH','some bread / meat / water'],
+      ['ce livre · cette table · cet ami · ces livres','suh LEE-vruh · set TAH-bluh · set ah-MEE','this book / table / friend / these books']
+      ]},
+    {t:'h', x:'Les contractions obligatoires'},
+    {t:'table', head:['','à +','de +'],
+      rows:[
+      ['le','<b>au</b>','<b>du</b>'],
+      ['la','à la','de la'],
+      ['l\'','à l\'','de l\''],
+      ['les','<b>aux</b>','<b>des</b>']
+      ]},
+    {t:'warn', x:"<b>« à le » and « de le » do not exist.</b> Not as bad style — as impossible forms. The contraction is automatic, like <i>don't</i> in English but compulsory.<br><br>Only the <u>masculine</u> and the <u>plural</u> contract. <i>à la</i> and <i>de la</i> stay as they are, because there is no vowel collision to fix."}
+  ]},
+  { title:'1.2 · L\'emploi — quand utiliser quoi', blocks:[
+    {t:'table', head:['Article','Emploi','Exemple'],
+      rows:[
+      ['<b>défini</b>','something specific','Ferme <b>la</b> porte.'],
+      ['<b>défini</b>','something in general','J\'aime <b>la</b> musique.'],
+      ['<b>défini</b>','a habit with a day','Je travaille <b>le</b> lundi.'],
+      ['<b>indéfini</b>','one of many, first mention','J\'ai <b>un</b> frère.'],
+      ['<b>partitif</b>','some of something uncountable','Je bois <b>du</b> café.'],
+      ['<b>démonstratif</b>','this / that','<b>Ce</b> livre est à moi.']
+      ]},
+    {t:'ex', x:"<b>The trio you must be able to produce.</b> Same noun, three articles, three meanings:<br>· <i>J'aime <b>le</b> café.</i> — I like coffee <i>(in general)</i><br>· <i>Je bois <b>du</b> café.</i> — I'm drinking <i>(some)</i> coffee<br>· <i>Je prends <b>un</b> café.</i> — I'll have <i>(one cup of)</i> coffee"}
+  ]},
+  { title:'1.3 · Pourquoi le français met un article partout', blocks:[
+    {t:'p', x:"English can say \"I like music\" with no article at all. French cannot. Why?"},
+    {t:'ex', x:"<b>Because French lost the ability to mark nouns at the end.</b><br><br>Latin had case endings — <i>mensa, mensam, mensae</i> — that told you a noun's role in the sentence. As French speakers stopped pronouncing final syllables, those endings disappeared. Something had to take over the job of flagging \"a noun starts here, and here is its gender and number.\"<br><br>That something was the <b>article</b>. It moved to the front, where it could not be eroded, and it now carries all the information the endings used to carry."},
+    {t:'table', head:['Ce que l\'article porte','Exemple'],
+      rows:[
+      ['<b>le genre</b>','<b>le</b> livre (m.) vs <b>la</b> table (f.)'],
+      ['<b>le nombre</b>','le livre vs <b>les</b> livres — often the <u>only</u> audible difference'],
+      ['<b>la détermination</b>','<b>le</b> livre (that one) vs <b>un</b> livre (any one)'],
+      ['<b>la quantité</b>','<b>du</b> pain (some) vs <b>le</b> pain (in general)']
+      ]},
+    {t:'note', x:"<b>Listen to the plural.</b> <i>le livre</i> and <i>les livres</i> are <b>luh LEE-vruh</b> and <b>lay LEE-vruh</b>. The noun sounds identical — the <i>-s</i> is silent. Only the article tells you there is more than one.<br><br>That is why dropping an article in French is not a small slip. It deletes information that has nowhere else to live."},
+    {t:'ex', x:"<b>And this explains the partitive.</b> Once the article is carrying quantity, French needs a form for \"an unspecified amount\" — hence <b>du / de la / des</b>. English handles that with no article at all (\"I eat bread\") because English never gave its articles that job."}
+  ]},
+  { title:'1.4 · La règle du « DE » — et pourquoi elle existe', blocks:[
+    {t:'p', x:"Three different situations collapse the article down to a bare <b>de</b>. They look unrelated. They are not."},
+    {t:'h', x:'A · Après une négation'},
+    {t:'table', head:['Affirmatif','Négatif'],
+      rows:[
+      ['J\'ai <b>un</b> frère.','Je n\'ai pas <b>de</b> frère.'],
+      ['Je mange <b>du</b> pain.','Je ne mange pas <b>de</b> pain.'],
+      ['Il y a <b>des</b> amis.','Il n\'y a pas <b>d\'</b>amis.']
+      ]},
+    {t:'h', x:'B · Après une expression de quantité'},
+    {t:'rows', items:[
+      ['beaucoup de pain','boh-koo duh PAN','a lot of bread'],
+      ['un kilo de pommes','uhn kee-loh duh POM','a kilo of apples'],
+      ['trop de travail','troh duh trah-VYE','too much work']
+      ]},
+    {t:'h', x:'C · Devant un adjectif pluriel'},
+    {t:'table', head:['Normal','Avec adjectif devant'],
+      rows:[
+      ['J\'ai <b>des</b> amis.','J\'ai <b>de</b> bons amis.'],
+      ['Il y a <b>des</b> maisons.','Il y a <b>de</b> belles maisons.']
+      ]},
+    {t:'ex', x:"<b>Pourquoi — la même raison dans les trois cas.</b><br><br>The indefinite and partitive articles are <u>quantity words</u>. <i>Un</i> means \"one\", <i>des</i> means \"some\", <i>du</i> means \"an amount of\".<br><br>· After a <b>negation</b>, the quantity is <u>zero</u> — a word meaning \"some\" contradicts the sentence.<br>· After <b>beaucoup / un kilo / trop</b>, the quantity is <u>already stated</u> — saying it twice is redundant.<br>· Before a <b>plural adjective</b>, <i>de</i> is simply the older form; <i>des</i> began as a contraction of <i>de les</i> and had not yet spread to that position when the norm was fixed.<br><br>In the first two cases the article is removed because its <u>job has been taken</u>. What survives is <b>de</b>, which is not an article at all — it is a preposition meaning roughly \"of\"."},
+    {t:'warn', x:"<b>Les deux exceptions, et leur logique.</b><br><br><b>1. Après ÊTRE, rien ne change.</b> <i>C'est <b>un</b> médecin</i> → <i>Ce n'est pas <b>un</b> médecin.</i><br>Because <i>être</i> does not express quantity — it identifies. There is no quantity to reduce to zero.<br><br><b>2. L'article défini ne change jamais.</b> <i>J'aime <b>le</b> café</i> → <i>Je n'aime pas <b>le</b> café.</i><br>Same reason: <i>le</i> is not a quantity word. It points at a category, and the category still exists even if you dislike it."}
+  ]},
+  { title:'1.5 · Les pièges pour un anglophone', blocks:[
+    {t:'table', head:['L\'erreur','Correct','Pourquoi vous la faites'],
+      rows:[
+      ['<s>J\'aime musique.</s>','J\'aime <b>la</b> musique.','English drops the article for general sense; French requires it.'],
+      ['<s>Je suis un professeur.</s>','Je suis professeur.','English needs \"a\"; French forbids it with a bare job.'],
+      ['<s>beaucoup du pain</s>','beaucoup <b>de</b> pain','You translate \"of the\" literally.'],
+      ['<s>J\'ai acheté livres.</s>','J\'ai acheté <b>des</b> livres.','English has no plural \"a\"; French does.'],
+      ['<s>Je vais à le cinéma.</s>','Je vais <b>au</b> cinéma.','The contraction is not optional.'],
+      ['<s>Je parle le français.</s>','Je parle français.','After <i>parler</i>, no article — but after <i>apprendre</i>, yes.']
+      ]},
+    {t:'note', x:"<b>The last pair has no logic to extract.</b> <i>parler français</i> but <i>apprendre <b>le</b> français</i>. Historically <i>parler français</i> behaves like an adverb — \"to speak Frenchly\" — while <i>apprendre</i> takes a normal object. Learn them as a pair."}
+  ]},
+  { title:'1.6 · Exercices', blocks:[
+    {t:'h', x:'A · Défini, indéfini ou partitif ?'},
+    {t:'fill', items:[
+      {s:"1. J'aime ______ chocolat. (in general)", a:["le"], en:"I like chocolate.", why:"General liking → <b>défini</b>."},
+      {s:"2. Je mange ______ chocolat. (some)", a:["du"], en:"I'm eating chocolate.", why:"Unspecified amount → <b>partitif</b>."},
+      {s:"3. Je voudrais ______ chocolat chaud. (one cup)", a:["un"], en:"I'd like a hot chocolate.", why:"One countable item → <b>indéfini</b>."},
+      {s:"4. Il y a ______ eau dans la bouteille.", a:["de l'","de l"], en:"There's water in the bottle.", why:"Partitive before a vowel → <b>de l'</b>."},
+      {s:"5. Je travaille ______ samedi. (every Saturday)", a:["le"], en:"I work on Saturdays.", why:"Habit with a day → <b>défini</b>."}
+    ]},
+    {t:'h', x:'B · La règle du DE'},
+    {t:'fill', items:[
+      {s:"Je mange du pain. → Je ne mange pas ______ pain.", a:["de"], en:"I don't eat bread.", why:"Negation → the quantity is zero → <b>de</b>."},
+      {s:"beaucoup ______ amis", a:["d'","d"], en:"a lot of friends", why:"Quantity word → <b>de</b>, elided before a vowel."},
+      {s:"C'est un médecin. → Ce n'est pas ______ médecin.", a:["un"], en:"He's not a doctor.", why:"⚠ After <b>être</b> nothing changes — no quantity is involved."},
+      {s:"J'aime le thé. → Je n'aime pas ______ thé.", a:["le"], en:"I don't like tea.", why:"⚠ The definite article never collapses."},
+      {s:"J'ai des amis. → J'ai ______ bons amis.", a:["de"], en:"I have good friends.", why:"Plural adjective before the noun → <b>de</b>."}
+    ]},
+    {t:'h', x:'C · Contractions'},
+    {t:'fill', items:[
+      {s:"Je vais ______ cinéma. (à + le)", a:["au"], en:"I'm going to the cinema.", why:"à + le = <b>au</b>."},
+      {s:"Je viens ______ Canada. (de + le)", a:["du"], en:"I come from Canada.", why:"de + le = <b>du</b>."},
+      {s:"à côté ______ magasins. (de + les)", a:["des"], en:"next to the shops", why:"de + les = <b>des</b>."},
+      {s:"Il va ______ toilettes. (à + les)", a:["aux"], en:"He's going to the toilet.", why:"à + les = <b>aux</b>."}
+    ]}
+  ]}
+  ]
+});
+
+BOOK.push({
+  id:'g2', part:'Chapitre 2 — Le nom',
+  sub:"Gender, number, and why a table is feminine.",
+  chapters:[
+  { title:'2.1 · Le genre — les terminaisons fiables', blocks:[
+    {t:'p', x:"Every French noun is masculine or feminine. There is no neuter. Most of the time the gender is unpredictable — but a set of endings is reliable enough to be worth memorising."},
+    {t:'h', x:'Presque toujours féminin'},
+    {t:'table', head:['Terminaison','Exemples','Fiabilité'],
+      rows:[
+      ['<b>-tion, -sion</b>','la nation, la question, la décision','~100 %'],
+      ['<b>-té, -tié</b>','la liberté, la nationalité, l\'amitié','~100 %'],
+      ['<b>-ure</b>','la voiture, la nature, la culture','très haute'],
+      ['<b>-ence, -ance</b>','la différence, la chance','très haute'],
+      ['<b>-ette</b>','une baguette, une assiette','très haute'],
+      ['<b>-ie</b>','la boulangerie, la vie, la philosophie','haute'],
+      ['<b>-eur</b> (abstrait)','la couleur, la peur, la chaleur','haute — mais <i>le bonheur</i>']
+      ]},
+    {t:'h', x:'Presque toujours masculin'},
+    {t:'table', head:['Terminaison','Exemples'],
+      rows:[
+      ['<b>-ment</b>','le gouvernement, le moment, le document'],
+      ['<b>-age</b>','le voyage, le fromage, le garage — <i>mais : la page, la plage, l\'image</i>'],
+      ['<b>-eau</b>','le bureau, le château, le gâteau — <i>mais : l\'eau, la peau</i>'],
+      ['<b>-isme</b>','le tourisme, le réalisme'],
+      ['<b>-oir</b>','le soir, le miroir, le couloir'],
+      ['<b>-ier</b>','le cahier, le quartier'],
+      ['<b>les langues</b>','le français, l\'anglais, le hindi'],
+      ['<b>jours, mois, saisons</b>','le lundi, le printemps, janvier']
+      ]},
+    {t:'ex', x:"<b>Those two tables cover a very large share of abstract and formal vocabulary</b> — which is exactly the vocabulary that arrives at B1 and B2. Learn the endings now and you get thousands of genders free later."}
+  ]},
+  { title:'2.2 · Pourquoi le genre existe — et pourquoi il est arbitraire', blocks:[
+    {t:'p', x:"\"Why is a table feminine?\" is the question every learner asks. It has no satisfying answer — but the question behind it does."},
+    {t:'ex', x:"<b>Gender is not about sex. It is a classification system.</b><br><br>Latin had three genders, inherited from an older ancestor language where the division was originally <u>animate vs inanimate</u> — not male vs female. The \"feminine\" began life partly as a collective and abstract marker, which is why abstract nouns in <i>-tion</i> and <i>-té</i> are feminine to this day.<br><br>When Latin became French, the neuter mostly merged into the masculine, leaving two classes. The gender of any individual noun is the accumulated residue of two thousand years of sound change and analogy. <b>There is no meaning in it to find.</b>"},
+    {t:'h', x:'Mais à quoi ça sert ?'},
+    {t:'ex', x:"<b>Agreement — and agreement is redundancy, which is useful.</b><br><br><i><b>La</b> peti<b>te</b> maison blanch<b>e</b> est joli<b>e</b>.</i><br><br>Five words all carry the feminine mark. If you mishear one in a noisy room, the others still tell you what belongs with what. English achieves the same robustness with rigid word order; French achieves it with agreement — which is partly why French can shuffle word order more freely than English can."},
+    {t:'warn', x:"<b>The practical consequence is the single most important study habit in this whole reference.</b><br><br><b>Never write a noun down alone.</b> Write <i>une</i> table, <i>un</i> livre, <i>la</i> maison, <i>le</i> pain. The article <u>is</u> part of the word.<br><br>Learning <i>maison</i> and then separately learning that it is feminine is doing the work twice, and the second half never quite sticks. Every hour you spend on this habit now saves ten later."}
+  ]},
+  { title:'2.3 · Le pluriel', blocks:[
+    {t:'table', head:['Règle','Singulier → Pluriel','Note'],
+      rows:[
+      ['<b>+ s</b> (normal)','un livre → des livres','silencieux'],
+      ['<b>-s, -x, -z</b>','un fils → des fils','aucun changement'],
+      ['<b>-eau, -eu</b> → + x','un bureau → des bureaux','silencieux'],
+      ['<b>-al</b> → <b>-aux</b>','un journal → des journaux','<u>audible</u> : zhoor-NAL → zhoor-NOH'],
+      ['<b>-ail</b> → <b>-aux</b>','le travail → les travaux','audible'],
+      ['irrégulier','un œil → des yeux','mot complètement différent']
+      ]},
+    {t:'warn', x:"<b>The plural -s is silent.</b> <i>livre</i> and <i>livres</i> sound identical. So in speech the plural is carried by:<br>· the <b>article</b> — le/les, un/des<br>· the <b>liaison</b> — les<b>‿z</b>amis<br>· the <b>verb</b> — <i>il est</i> / <i>ils sont</i><br><br><b>-al → -aux</b> is one of the very few plurals you can actually hear. That is why it feels so irregular — it is the only one doing visible work."},
+    {t:'note', x:"<b>And this is why the article matters so much.</b> In a language where the plural marker is silent, the little word in front is carrying the number for the whole phrase. Drop it and the information is simply gone."}
+  ]},
+  { title:'2.4 · Exercices', blocks:[
+    {t:'h', x:'A · Devinez le genre par la terminaison'},
+    {t:'mcq', items:[
+      {q:"___ situation", opts:["la situation","le situation"], a:0, why:"<b>-tion</b> → féminin, essentially always."},
+      {q:"___ gouvernement", opts:["la gouvernement","le gouvernement"], a:1, why:"<b>-ment</b> → masculin."},
+      {q:"___ université", opts:["l'université (f.)","l'université (m.)"], a:0, why:"<b>-té</b> → féminin. The elision hides it, so you have to know."},
+      {q:"___ fromage", opts:["la fromage","le fromage"], a:1, why:"<b>-age</b> → masculin."},
+      {q:"___ plage", opts:["la plage","le plage"], a:0, why:"⚠ <b>-age</b> is usually masculine, but <i>la plage</i>, <i>la page</i> and <i>l'image</i> are the exceptions."},
+      {q:"___ voiture", opts:["la voiture","le voiture"], a:0, why:"<b>-ure</b> → féminin."}
+    ]},
+    {t:'h', x:'B · Mettez au pluriel'},
+    {t:'fill', items:[
+      {s:"un journal → des ______", a:["journaux"], en:"newspapers", why:"-al → <b>-aux</b>, and you can hear it: zhoor-NOH."},
+      {s:"un bureau → des ______", a:["bureaux"], en:"offices", why:"-eau → <b>-eaux</b>, silent x."},
+      {s:"un fils → des ______", a:["fils"], en:"sons", why:"Already ends in -s → no change."},
+      {s:"un œil → des ______", a:["yeux"], en:"eyes", why:"Completely irregular — a different word."},
+      {s:"le travail → les ______", a:["travaux"], en:"works / roadworks", why:"-ail → <b>-aux</b>, audible."}
+    ]}
+  ]}
+  ]
+});
+
+BOOK.push({
+  id:'g3', part:'Chapitre 3 — L\'adjectif',
+  sub:"Agreement, position, and why French puts the adjective after the noun.",
+  chapters:[
+  { title:'3.1 · L\'accord — les formes', blocks:[
+    {t:'table', head:['Modèle','Masculin','Féminin','M. pluriel','F. pluriel'],
+      rows:[
+      ['<b>régulier (+ e)</b>','petit','petite','petits','petites'],
+      ['<b>déjà en -e</b>','calme','calme','calmes','calmes'],
+      ['<b>-eux → -euse</b>','heureux','heureuse','heureux','heureuses'],
+      ['<b>-er → -ère</b>','cher','chère','chers','chères'],
+      ['<b>-f → -ve</b>','actif','active','actifs','actives'],
+      ['<b>-en → -enne</b>','italien','italienne','italiens','italiennes'],
+      ['<b>-on → -onne</b>','bon','bonne','bons','bonnes'],
+      ['<b>irrégulier</b>','blanc','blanche','blancs','blanches'],
+      ['<b>irrégulier</b>','beau (bel)','belle','beaux','belles'],
+      ['<b>irrégulier</b>','vieux (vieil)','vieille','vieux','vieilles'],
+      ['<b>irrégulier</b>','nouveau (nouvel)','nouvelle','nouveaux','nouvelles']
+      ]},
+    {t:'warn', x:"<b>The -e is not a sound. It is an instruction.</b><br><br>Adding -e tells you to pronounce the consonant before it:<br>· peti<b>t</b> (puh-TEE) → peti<b>te</b> (puh-TEET)<br>· gran<b>d</b> (grahn) → gran<b>de</b> (grahnd)<br>· françai<b>s</b> (frahn-SEH) → françai<b>se</b> (frahn-SEZ)<br>· heureu<b>x</b> (uh-RUH) → heureu<b>se</b> (uh-RUHZ)<br><br>This is why the feminine is so often <u>audible</u> when the masculine is not — and why <i>fatigué</i> → <i>fatiguée</i> sounds identical: there was no silent consonant there to wake up."},
+    {t:'note', x:"<b>beau / bel, vieux / vieil, nouveau / nouvel</b> have a third masculine form used <u>before a vowel</u>: <i>un <b>bel</b> homme</i>, <i>un <b>vieil</b> ami</i>, <i>un <b>nouvel</b> an</i>.<br><br>Same motive as <i>cet</i> instead of <i>ce</i> — French refusing to let two vowels collide. One aversion, many solutions."}
+  ]},
+  { title:'3.2 · La position — et pourquoi', blocks:[
+    {t:'p', x:"Most French adjectives go <b>after</b> the noun. English puts them before. This is the single most noticeable structural difference when you start speaking."},
+    {t:'table', head:['Français','Anglais'],
+      rows:[
+      ['une voiture <b>rouge</b>','a <b>red</b> car'],
+      ['un film <b>intéressant</b>','an <b>interesting</b> film'],
+      ['la cuisine <b>indienne</b>','<b>Indian</b> food'],
+      ['un livre <b>difficile</b>','a <b>difficult</b> book']
+      ]},
+    {t:'ex', x:"<b>Pourquoi ?</b><br><br>French builds a phrase <u>head first</u>: it names the thing, then narrows it down. English builds <u>head last</u>: it stacks the descriptions, then names the thing.<br><br>· French: <i>une voiture</i> — a car — <i>rouge</i> — the red one<br>· English: <i>a red</i> — narrowing — <i>car</i> — the thing<br><br>You can see the same logic elsewhere in French: <i>le livre <b>de Marie</b></i> (the book, of Marie) where English says \"Marie's book\". French consistently names first and modifies after."},
+    {t:'h', x:'Les exceptions — BAGS'},
+    {t:'table', head:['Catégorie','Adjectifs'],
+      rows:[
+      ['<b>B</b>eauty','beau, joli'],
+      ['<b>A</b>ge','jeune, vieux, nouveau'],
+      ['<b>G</b>oodness','bon, mauvais, meilleur'],
+      ['<b>S</b>ize','grand, petit, gros, long']
+      ]},
+    {t:'ex', x:"<b>Why these ones?</b> They are the oldest, shortest and most frequent adjectives in the language — and high-frequency words resist change. They kept the <u>Latin</u> order, which placed adjectives before the noun, while everything else drifted to the new French order.<br><br>Notice they also happen to be the four things humans judge instantly: how pretty, how old, how good, how big. That is not a coincidence — those are the adjectives we say most."},
+    {t:'warn', x:"<b>And for a few adjectives, the position changes the meaning.</b><br><br>· <i>un <b>grand</b> homme</i> = a great man &nbsp;·&nbsp; <i>un homme <b>grand</b></i> = a tall man<br>· <i>mon <b>ancien</b> appartement</i> = my former flat &nbsp;·&nbsp; <i>un appartement <b>ancien</b></i> = an old flat<br>· <i>un <b>pauvre</b> homme</i> = a pitiable man &nbsp;·&nbsp; <i>un homme <b>pauvre</b></i> = a man with no money<br>· <i>la <b>dernière</b> semaine</i> = the final week &nbsp;·&nbsp; <i>la semaine <b>dernière</b></i> = last week<br><br>The pattern: <b>before the noun = figurative</b>, <b>after the noun = literal</b>. The further from the noun, the further from the physical meaning."}
+  ]},
+  { title:'3.3 · Les pièges', blocks:[
+    {t:'table', head:['L\'erreur','Correct','Pourquoi'],
+      rows:[
+      ['<s>une rouge voiture</s>','une voiture <b>rouge</b>','English order imported.'],
+      ['<s>les yeux marrons</s>','les yeux <b>marron</b>','<i>marron</i> is a noun used as a colour — invariable.'],
+      ['<s>une robe bleue claire</s>','une robe <b>bleu clair</b>','Add <i>clair</i> or <i>foncé</i> and the whole phrase freezes.'],
+      ['<s>Je suis fatigué</s> (said by a woman)','Je suis fatigué<b>e</b>','Agreement with the subject — silent, but written.'],
+      ['<s>des beaux livres</s>','<b>de</b> beaux livres','Plural adjective before the noun → <i>des</i> becomes <i>de</i>.']
+      ]},
+    {t:'note', x:"<b>The invariable colours are all nouns in disguise.</b> <i>marron</i> is a chestnut, <i>orange</i> is an orange, <i>noisette</i> is a hazelnut. A noun being borrowed as an adjective doesn't inflect — it is still, grammatically, a noun. That is the whole explanation."}
+  ]},
+  { title:'3.4 · Exercices', blocks:[
+    {t:'h', x:'A · Accordez'},
+    {t:'fill', items:[
+      {s:"une maison ______ (blanc)", a:["blanche"], en:"a white house", why:"Irregular: blanc → <b>blanche</b>, and the sound changes."},
+      {s:"des livres ______ (intéressant)", a:["intéressants","interessants"], en:"interesting books", why:"Masculine plural → + s, silent."},
+      {s:"une femme ______ (heureux)", a:["heureuse"], en:"a happy woman", why:"-eux → <b>-euse</b>: uh-RUHZ."},
+      {s:"des voitures ______ (italien)", a:["italiennes"], en:"Italian cars", why:"-en → <b>-enne</b>, then + s."},
+      {s:"les yeux ______ (marron)", a:["marron"], en:"brown eyes", why:"⚠ Invariable — it is a noun, so it never agrees."},
+      {s:"un ______ homme (beau)", a:["bel"], en:"a handsome man", why:"⚠ Before a vowel the masculine becomes <b>bel</b>."}
+    ]},
+    {t:'h', x:'B · Avant ou après le nom ?'},
+    {t:'mcq', items:[
+      {q:"une voiture / rouge", opts:["une rouge voiture","une voiture rouge"], a:1, why:"Colour → after the noun."},
+      {q:"une maison / grand", opts:["une grande maison","une maison grande"], a:0, why:"<b>Size</b> → one of the BAGS adjectives → before."},
+      {q:"un film / intéressant", opts:["un intéressant film","un film intéressant"], a:1, why:"Long, non-BAGS adjective → after."},
+      {q:"un ami / bon", opts:["un bon ami","un ami bon"], a:0, why:"<b>Goodness</b> → BAGS → before."}
+    ]},
+    {t:'h', x:'C · Le sens change'},
+    {t:'mcq', items:[
+      {q:"« un grand homme » signifie…", opts:["a tall man","a great man"], a:1, why:"Before the noun → figurative."},
+      {q:"« un homme grand » signifie…", opts:["a tall man","a great man"], a:0, why:"After the noun → literal, physical."},
+      {q:"« la semaine dernière » signifie…", opts:["the final week","last week"], a:1, why:"After the noun → literal time reference."},
+      {q:"« mon ancien appartement » signifie…", opts:["my old (aged) flat","my former flat"], a:1, why:"Before the noun → figurative: former."}
+    ]}
+  ]}
+  ]
+});
+
+BOOK.push({
+  id:'g4', part:'Chapitre 4 — Le verbe : le présent',
+  sub:"Three regular groups, the boot pattern, and why four forms sound identical.",
+  chapters:[
+  { title:'4.1 · Qu\'est-ce que conjuguer ?', blocks:[
+    {t:'p', x:"A French verb has a fixed part and a changing part. The fixed part is the <b>radical</b> (stem); the changing part is the <b>terminaison</b> (ending)."},
+    {t:'ex', x:"<b>parler</b> → radical <b>parl-</b> + terminaison<br><br>je parl<b>e</b> · tu parl<b>es</b> · il parl<b>e</b> · nous parl<b>ons</b> · vous parl<b>ez</b> · ils parl<b>ent</b><br><br>Conjugating means choosing the ending that matches the subject. In the present there are six slots, because French has six grammatical persons."},
+    {t:'table', head:['Personne','Pronom','Qui'],
+      rows:[
+      ['1re du singulier','je','moi'],
+      ['2e du singulier','tu','toi (familier)'],
+      ['3e du singulier','il / elle / on','lui, elle — et <i>nous</i> en langage courant'],
+      ['1re du pluriel','nous','nous (formel / écrit)'],
+      ['2e du pluriel','vous','vous (poli ou pluriel)'],
+      ['3e du pluriel','ils / elles','eux']
+      ]},
+    {t:'note', x:"<b>on is grammatically third person singular</b> even though it usually means \"we\". Hence <i>on va</i>, <i>on a</i>, <i>on est</i> — never <i>on allons</i>. It began life as a noun (Latin <i>homo</i> → <i>l'on</i>, \"the man, one\") and kept its singular grammar ever since."}
+  ]},
+  { title:'4.2 · Les trois groupes', blocks:[
+    {t:'h', x:'1er groupe : les verbes en -ER (≈ 90 % des verbes)'},
+    {t:'table', head:['Sujet','Terminaison','parler','Prononciation'],
+      rows:[
+      ['je','<b>-e</b>','parle','zhuh PARL'],
+      ['tu','<b>-es</b>','parles','tew PARL'],
+      ['il / elle / on','<b>-e</b>','parle','eel PARL'],
+      ['nous','<b>-ons</b>','parlons','noo par-LOHN'],
+      ['vous','<b>-ez</b>','parlez','voo par-LAY'],
+      ['ils / elles','<b>-ent</b>','parlent','eel PARL']
+      ]},
+    {t:'h', x:'2e groupe : les verbes en -IR, type finir'},
+    {t:'table', head:['Sujet','Terminaison','finir','Prononciation'],
+      rows:[
+      ['je','<b>-is</b>','finis','zhuh fee-NEE'],
+      ['tu','<b>-is</b>','finis','tew fee-NEE'],
+      ['il / elle','<b>-it</b>','finit','eel fee-NEE'],
+      ['nous','<b>-issons</b>','finissons','noo fee-nee-SOHN'],
+      ['vous','<b>-issez</b>','finissez','voo fee-nee-SAY'],
+      ['ils / elles','<b>-issent</b>','finissent','eel fee-NEESS']
+      ]},
+    {t:'h', x:'3e groupe : les verbes en -RE, type vendre'},
+    {t:'table', head:['Sujet','Terminaison','vendre','Prononciation'],
+      rows:[
+      ['je','<b>-s</b>','vends','zhuh VAHN'],
+      ['tu','<b>-s</b>','vends','tew VAHN'],
+      ['il / elle','<b>—</b>','vend','eel VAHN'],
+      ['nous','<b>-ons</b>','vendons','noo vahn-DOHN'],
+      ['vous','<b>-ez</b>','vendez','voo vahn-DAY'],
+      ['ils / elles','<b>-ent</b>','vendent','eel VAHND']
+      ]},
+    {t:'warn', x:"<b>The -RE verb takes no ending at all in the third person singular.</b> <i>il vend</i>, never <i>il vendt</i>. The stem already ends in a consonant, and French would not pronounce a second one anyway — so none was ever added."}
+  ]},
+  { title:'4.3 · Pourquoi quatre formes sur six sonnent pareil', blocks:[
+    {t:'p', x:"This is the most important fact about the French present, and it explains several other rules at once."},
+    {t:'ex', x:"<b>The endings -e, -es and -ent are completely silent.</b><br><br><i>je parle · tu parles · il parle · ils parlent</i> → all <b>parl</b><br><br>Only <b>nous</b> (-ons) and <b>vous</b> (-ez) sound different.<br><br>This happened because French gradually stopped pronouncing final syllables. Latin <i>parlo / parlas / parlat</i> had three distinct endings; French kept the spellings and lost the sounds."},
+    {t:'table', head:['Conséquence','Pourquoi'],
+      rows:[
+      ['<b>Le pronom sujet est obligatoire</b>','<i>parle</i> on its own identifies nobody. Spanish can say <i>hablo</i> because it kept its endings; French cannot.'],
+      ['<b>La liaison porte le pluriel</b>','<i>il habite</i> vs <i>ils<b>‿z</b>habitent</i> — the [z] is the <u>only</u> audible difference.'],
+      ['<b>L\'orthographe est une compétence séparée</b>','You can speak four forms correctly without knowing how to spell any of them.']
+      ]},
+    {t:'note', x:"<b>Good news and bad news.</b> Speaking is easier than it looks — four of six forms need no thought. Writing is harder than it sounds — you must know the subject to choose the spelling. Treat them as two separate skills and practise both."}
+  ]},
+  { title:'4.4 · Le modèle de la botte', blocks:[
+    {t:'p', x:"Many irregular verbs change their stem in <b>four</b> forms and revert in <b>two</b>. Drawn in a table, the changed forms outline a boot."},
+    {t:'table', head:['','venir','pouvoir','vouloir','prendre'],
+      rows:[
+      ['je','<b>viens</b>','<b>peux</b>','<b>veux</b>','<b>prends</b>'],
+      ['tu','<b>viens</b>','<b>peux</b>','<b>veux</b>','<b>prends</b>'],
+      ['il / elle','<b>vient</b>','<b>peut</b>','<b>veut</b>','<b>prend</b>'],
+      ['nous','venons','pouvons','voulons','prenons'],
+      ['vous','venez','pouvez','voulez','prenez'],
+      ['ils / elles','<b>viennent</b>','<b>peuvent</b>','<b>veulent</b>','<b>prennent</b>']
+      ]},
+    {t:'ex', x:"<b>Pourquoi la botte existe.</b><br><br>In Latin, stress fell on different syllables depending on the ending. With short endings the stress landed on the <u>stem</u>; with the longer <i>nous</i> and <i>vous</i> endings it moved <u>off</u> the stem.<br><br>Stressed and unstressed vowels then evolved differently over centuries. The result is one stem where the stress fell and another where it did not — and the split lands exactly on the boot shape.<br><br>So the boot is not random. It is a <b>fossil of Latin stress</b>, still visible fifteen centuries later."},
+    {t:'note', x:"<b>The same force explains the accent-changing verbs.</b> <i>je l<b>è</b>ve</i> but <i>nous l<b>e</b>vons</i>; <i>je préf<b>è</b>re</i> but <i>nous préf<b>é</b>rons</i>. Same boot, same cause — stress on the stem opens the vowel, stress off the stem reduces it.<br><br>Once you see this, three separate topics — boot verbs, accent verbs, and the <i>-cer/-ger</i> spelling verbs — become one idea with three outcomes."}
+  ]}
+  ]
+});
+
+BOOK.push({
+  id:'g4b', part:'Chapitre 4b — Les familles irrégulières',
+  sub:"Irregular verbs cluster. Learn one stem, get three verbs.",
+  chapters:[
+  { title:'4.5 · Les quatre grandes familles', blocks:[
+    {t:'h', x:'Famille PRENDRE'},
+    {t:'table', head:['','prendre','apprendre','comprendre'],
+      rows:[['je','prends','apprends','comprends'],['nous','prenons','apprenons','comprenons'],['ils','prennent','apprennent','comprennent']]},
+    {t:'h', x:'Famille DORMIR / PARTIR / SORTIR'},
+    {t:'table', head:['','dormir','partir','sortir'],
+      rows:[['je','dors','pars','sors'],['nous','dormons','partons','sortons'],['ils','dorment','partent','sortent']]},
+    {t:'ex', x:"<b>The rule for this family:</b> the singular drops the final consonant of the stem; the plural restores it. <i>dorm-</i> → <i>je dor<b>s</b></i>, but <i>nous dor<b>m</b>ons</i>.<br><br>Why? Because French will not end a word with two consonants when the ending itself is silent. Something had to go, and it was the stem consonant."},
+    {t:'h', x:'Famille DIRE / ÉCRIRE / LIRE'},
+    {t:'table', head:['','dire','écrire','lire'],
+      rows:[['je','dis','écris','lis'],['nous','disons','écrivons','lisons'],['vous','<b>dites</b>','écrivez','lisez'],['ils','disent','écrivent','lisent']]},
+    {t:'warn', x:"<b>vous dites</b>, not <i>disez</i>. Only three verbs in all of French do this: <b>être</b> (vous êtes), <b>faire</b> (vous faites), <b>dire</b> (vous dites).<br><br>They are the three oldest and most-used verbs in the language — and high frequency protects irregularity. A word said a hundred times a day never gets tidied up by analogy; a rare one does."},
+    {t:'h', x:'Famille DEVOIR / POUVOIR / VOULOIR'},
+    {t:'table', head:['','devoir','pouvoir','vouloir'],
+      rows:[['je','dois','peux','veux'],['tu','dois','peux','veux'],['il','doit','peut','veut'],['nous','devons','pouvons','voulons'],['vous','devez','pouvez','voulez'],['ils','doivent','peuvent','veulent']]},
+    {t:'ex', x:"All three are followed <b>directly by an infinitive</b>, with no preposition between:<br>· <i>Je <b>peux</b> venir.</i> — I can come.<br>· <i>Je <b>veux</b> apprendre.</i> — I want to learn.<br>· <i>Je <b>dois</b> partir.</i> — I must leave."},
+    {t:'warn', x:"<b>Je veux vs je voudrais.</b> <i>Je veux</i> is blunt — in a shop or a restaurant it lands as rude. Use <b>je voudrais</b> (zhuh voo-DREH, \"I would like\"). It is the conditional, which you meet properly at B1, but memorise it now as a fixed phrase."}
+  ]},
+  { title:'4.6 · Un présent, trois sens anglais', blocks:[
+    {t:'ex', x:"<b>Je parle français</b> covers all three of:<br>· I speak French<br>· I am speaking French<br>· I do speak French<br><br>French has no continuous form and no emphatic <i>do</i>. This is a genuine simplification — one of the few places French asks <u>less</u> of you than English."},
+    {t:'warn', x:"<b>So never translate \"I am …ing\" word for word.</b> <i>Je suis parlant</i> is not French.<br><br>If you must stress that something is happening right now, use <b>être en train de + infinitif</b>: <i>Je suis en train de manger</i> — I'm in the middle of eating. Most of the time the plain present is enough."}
+  ]},
+  { title:'4.7 · Exercices', blocks:[
+    {t:'h', x:'A · Les trois groupes réguliers'},
+    {t:'fill', items:[
+      {s:"1. Nous ______ (travailler) ensemble.", a:["travaillons"], en:"We work together.", why:"-ER → nous + -ons."},
+      {s:"2. Elle ______ (choisir) un film.", a:["choisit"], en:"She chooses a film.", why:"-IR finir group → elle + -it."},
+      {s:"3. J'______ (attendre) le bus.", a:["attends"], en:"I'm waiting for the bus.", why:"-RE → je + -s. And no preposition: <i>attendre le bus</i>."},
+      {s:"4. Ils ______ (réussir) leur examen.", a:["réussissent","reussissent"], en:"They pass their exam.", why:"-IR → ils + -issent, with the -iss- marker."},
+      {s:"5. Il ______ (répondre) à la question.", a:["répond","repond"], en:"He answers the question.", why:"-RE → <b>no ending at all</b> in the third person singular."}
+    ]},
+    {t:'h', x:'B · Les verbes à botte'},
+    {t:'fill', items:[
+      {s:"Je ______ (venir) de Paris.", a:["viens"], en:"I come from Paris.", why:"Inside the boot → the stem changes."},
+      {s:"Nous ______ (venir) demain.", a:["venons"], en:"We're coming tomorrow.", why:"Outside the boot → the stem reverts."},
+      {s:"Ils ______ (pouvoir) venir.", a:["peuvent"], en:"They can come.", why:"Inside the boot → <b>peuvent</b> (PUHV)."},
+      {s:"Vous ______ (vouloir) un café ?", a:["voulez"], en:"Do you want a coffee?", why:"Outside the boot → <b>voulez</b>."},
+      {s:"Elle ______ (prendre) le bus.", a:["prend"], en:"She takes the bus.", why:"Inside the boot, and -RE verbs take no ending in the third singular."}
+    ]},
+    {t:'h', x:'C · Trouvez l\'erreur'},
+    {t:'mcq', items:[
+      {q:"« Vous disez bonjour. »", opts:["Correct","Vous dites bonjour.","Vous disiez bonjour."], a:1, why:"<b>vous dites</b> — one of only three verbs with this ending."},
+      {q:"« Il répondt à la question. »", opts:["Correct","Il répond à la question.","Il réponds à la question."], a:1, why:"-RE verbs take no ending in the third person singular."},
+      {q:"« Je suis parlant français. »", opts:["Correct","Je parle français.","Je suis parle français."], a:1, why:"French has no continuous form."},
+      {q:"« On allons au cinéma. »", opts:["Correct","On va au cinéma.","On allez au cinéma."], a:1, why:"<b>on</b> is third person singular, whatever it means."},
+      {q:"« Nous mangons à midi. »", opts:["Correct","Nous mangeons à midi.","Nous mangions à midi."], a:1, why:"The <b>e</b> protects the soft g before the <i>o</i> of -ons."},
+      {q:"« J'attends pour le bus. »", opts:["Correct","J'attends le bus.","J'attends à le bus."], a:1, why:"<i>attendre</i> swallows the English \"for\". Same with <i>chercher</i>, <i>écouter</i>, <i>regarder</i>."}
+    ]}
+  ]}
+  ]
+});
+
+BOOK.push({
+  id:'g5', part:'Chapitre 5 — Le passé récent',
+  sub:"venir de + infinitif — the mirror of the futur proche, and the tense most courses skip.",
+  chapters:[
+  { title:'5.1 · La forme', blocks:[
+    {t:'p', x:"French has a dedicated structure for something that happened <b>a moment ago</b>. English handles it with the word \"just\"; French gives it a construction of its own."},
+    {t:'ex', x:"<b>VENIR (conjugué) + DE + INFINITIF</b><br><br><i>Je <b>viens de</b> manger.</i> — I've <b>just</b> eaten.<br><br>The second verb stays in the infinitive, exactly as in the futur proche. Only <i>venir</i> changes."},
+    {t:'table', head:['Sujet','Forme','Exemple','Prononciation'],
+      rows:[
+      ['je','viens de','Je viens de manger.','zhuh vyan duh mahn-ZHAY'],
+      ['tu','viens de','Tu viens d\'arriver ?','tew vyan dah-ree-VAY'],
+      ['il / elle / on','vient de','Il vient de partir.','eel vyan duh par-TEER'],
+      ['nous','venons de','Nous venons de finir.','noo vuh-nohn duh fee-NEER'],
+      ['vous','venez de','Vous venez d\'appeler ?','voo vuh-nay dah-puh-LAY'],
+      ['ils / elles','viennent de','Ils viennent de sortir.','eel vyen duh sor-TEER']
+      ]},
+    {t:'warn', x:"<b>de becomes d' before a vowel</b>: <i>je viens <b>d'</b>arriver</i>, <i>elle vient <b>d'</b>appeler</i>. The usual elision — French avoiding two vowels in contact."}
+  ]},
+  { title:'5.2 · Les quatre constructions parallèles', blocks:[
+    {t:'p', x:"French builds several tenses the same way: a small conjugated verb plus a second verb that never changes. Seeing them together makes all of them easier."},
+    {t:'table', head:['Temps','Structure','Exemple','Sens'],
+      rows:[
+      ['<b>Passé récent</b>','venir de + <u>infinitif</u>','Je <b>viens de</b> manger.','I\'ve just eaten'],
+      ['<b>Présent</b>','—','Je <b>mange</b>.','I\'m eating'],
+      ['<b>Futur proche</b>','aller + <u>infinitif</u>','Je <b>vais</b> manger.','I\'m going to eat'],
+      ['<b>Passé composé</b>','avoir + <u>participe</u>','J\'<b>ai</b> mangé.','I ate / I have eaten']
+      ]},
+    {t:'ex', x:"<b>Three of the four park a second verb and conjugate only the first.</b> That is the single most productive pattern in French — learn it once and you have three tenses.<br><br>And notice the spelling trap it creates: <b>manger</b> after <i>venir de</i> and <i>aller</i>, but <b>mangé</b> after <i>avoir</i>. Identical sound, different spelling, decided entirely by which little verb sits in front."},
+    {t:'note', x:"<b>Pourquoi venir ?</b> The metaphor is physical: the action has <u>just come from</u> where you are standing in time. <i>Je viens de manger</i> is literally \"I come from eating\".<br><br>French uses motion verbs for time in both directions — <b>aller</b> walks you forward into the future, <b>venir de</b> walks you back from the recent past. Time as a road."}
+  ]},
+  { title:'5.3 · Quand l\'utiliser', blocks:[
+    {t:'table', head:['Situation','Phrase'],
+      rows:[
+      ['Quelqu\'un arrive trop tard','Il <b>vient de</b> partir.'],
+      ['On vous propose à manger','Non merci, je <b>viens de</b> déjeuner.'],
+      ['Expliquer une absence','Elle <b>vient de</b> sortir.'],
+      ['Donner une nouvelle fraîche','Je <b>viens d\'</b>apprendre la nouvelle.'],
+      ['Au téléphone','Nous <b>venons de</b> recevoir votre message.']
+      ]},
+    {t:'rows', items:[
+      ['Je viens de finir mon travail.','zhuh vyan duh fee-NEER mohn trah-VYE','I\'ve just finished my work.'],
+      ['Il vient de partir, vous l\'avez manqué.','eel vyan duh par-TEER','He\'s just left, you missed him.'],
+      ['Je viens d\'arriver à Brampton.','zhuh vyan dah-ree-VAY ah bramp-TOHN','I\'ve just arrived in Brampton.'],
+      ['Nous venons de commencer le cours.','noo vuh-nohn duh koh-mahn-SAY','We\'ve just started the class.'],
+      ['Tu viens de dire quoi ?','tew vyan duh deer KWAH','What did you just say?']
+      ]},
+    {t:'warn', x:"<b>Le passé récent ne se met jamais au passé composé.</b> You cannot say <i>j'ai venu de manger</i>. The construction exists in the present, and — at B1 — in the imparfait: <i>je venais de manger</i> = I <u>had</u> just eaten.<br><br>And it is not interchangeable with the passé composé. <i>J'ai mangé</i> could be this morning or last year. <i>Je viens de manger</i> means minutes ago."}
+  ]},
+  { title:'5.4 · Exercices', blocks:[
+    {t:'h', x:'A · Mettez au passé récent'},
+    {t:'fill', items:[
+      {s:"J'ai mangé. → Je ______ manger.", a:["viens de"], en:"I've just eaten.", why:"je → <b>viens de</b> + infinitive."},
+      {s:"Il est parti. → Il ______ partir.", a:["vient de"], en:"He's just left.", why:"il → <b>vient de</b>."},
+      {s:"Nous avons fini. → Nous ______ finir.", a:["venons de"], en:"We've just finished.", why:"nous → <b>venons de</b>."},
+      {s:"Elle a appelé. → Elle ______ appeler.", a:["vient d'","vient d"], en:"She's just called.", why:"<b>d'</b> before the vowel of <i>appeler</i>."},
+      {s:"Ils sont arrivés. → Ils ______ arriver.", a:["viennent d'","viennent d"], en:"They've just arrived.", why:"ils → <b>viennent d'</b>."}
+    ]},
+    {t:'h', x:'B · Quel temps choisir ?'},
+    {t:'mcq', items:[
+      {q:"« I've just eaten. »", opts:["Je viens de manger.","Je vais manger.","J'ai mangé."], a:0, why:"\"just\" → <b>passé récent</b>."},
+      {q:"« I'm going to eat. »", opts:["Je viens de manger.","Je vais manger.","J'ai mangé."], a:1, why:"Intention → <b>futur proche</b>."},
+      {q:"« I ate yesterday. »", opts:["Je viens de manger.","Je vais manger.","J'ai mangé hier."], a:2, why:"A finished event, placed in time → <b>passé composé</b>."},
+      {q:"« He's just left — you missed him. »", opts:["Il va partir.","Il vient de partir.","Il est parti l'année dernière."], a:1, why:"Moments ago → <b>passé récent</b>."}
+    ]},
+    {t:'h', x:'C · -er ou -é ? (le piège central)'},
+    {t:'fill', items:[
+      {s:"Je viens de mang______", a:["er"], en:"I've just eaten.", why:"After <i>venir de</i> → <b>infinitif</b> → -er."},
+      {s:"Je vais mang______", a:["er"], en:"I'm going to eat.", why:"After <i>aller</i> → <b>infinitif</b> → -er."},
+      {s:"J'ai mang______", a:["é","e"], en:"I ate.", why:"After <i>avoir</i> → <b>participe</b> → -é."},
+      {s:"Il vient d'appel______", a:["er"], en:"He's just called.", why:"After <i>venir de</i> → infinitive."},
+      {s:"Il a appel______", a:["é","e"], en:"He called.", why:"After <i>avoir</i> → participle."}
+    ]},
+    {t:'ex', x:"<b>That last exercise is the whole spelling trap in one place.</b> All five sound identical — mahn-ZHAY, ah-puh-LAY. Only the little verb in front tells you which to write.<br><br>Train yourself to look <u>backwards</u> before choosing the ending. After <b>avoir</b> → always <b>-é</b>. After anything else → <b>-er</b>."}
+  ]}
+  ]
+});
+
+BOOK.push({
+  id:'g6', part:'Chapitre 6 — Les pronoms personnels',
+  sub:"The second wall. Five families, one fixed order, and why they sit in front of the verb.",
+  chapters:[
+  { title:'6.1 · Les cinq familles', blocks:[
+    {t:'p', x:"French has five sets of personal pronouns. Most learners meet them one at a time over two years and never see them laid out together. Here they are."},
+    {t:'table', head:['Sujet','Tonique','COD','COI','Réfléchi'],
+      rows:[
+      ['je','moi','me','me','me'],
+      ['tu','toi','te','te','te'],
+      ['il','lui','le','lui','se'],
+      ['elle','elle','la','lui','se'],
+      ['nous','nous','nous','nous','nous'],
+      ['vous','vous','vous','vous','vous'],
+      ['ils','eux','les','leur','se'],
+      ['elles','elles','les','leur','se']
+      ]},
+    {t:'ex', x:"<b>Look at how much is repeated.</b> <i>me, te, nous, vous</i> are identical in three of the five columns. The only columns that really differ are the <b>third person</b> ones — <i>le / la / les</i> vs <i>lui / leur</i>.<br><br>So the whole chapter reduces to one question: <b>in the third person, is the object direct or indirect?</b> Everything else you already know."}
+  ]},
+  { title:'6.2 · COD ou COI ? — la seule vraie question', blocks:[
+    {t:'table', head:['','COD (direct)','COI (indirect)'],
+      rows:[
+      ['Forme','<b>le · la · les</b>','<b>lui · leur</b>'],
+      ['Le verbe','pas de préposition','verbe + <b>à</b>'],
+      ['Question','<i>qui ?</i> / <i>quoi ?</i>','<i>à qui ?</i>'],
+      ['Exemple','Je vois <b>Marie</b> → Je <b>la</b> vois.','Je parle <b>à Marie</b> → Je <b>lui</b> parle.']
+      ]},
+    {t:'ex', x:"<b>The test, in one move:</b> look at the verb and ask whether it needs <b>à</b> before a person.<br><br>· <i>voir quelqu'un</i> — no à → <b>COD</b> → le / la / les<br>· <i>parler <b>à</b> quelqu'un</i> — à → <b>COI</b> → lui / leur<br><br>Notice <b>lui</b> covers both genders in the COI column. <i>Je lui parle</i> is \"I speak to him\" <u>or</u> \"to her\" — French stops marking gender precisely where English starts."},
+    {t:'h', x:'Les verbes qui prennent à (donc COI)'},
+    {t:'grid', items:[['parler à','par-LAY ah'],['téléphoner à','tay-lay-foh-NAY ah'],['écrire à','ay-KREER ah'],['répondre à','ray-POHN-druh ah'],['demander à','duh-mahn-DAY ah'],['dire à','deer ah'],['donner à','doh-NAY ah'],['offrir à','oh-FREER ah'],['montrer à','mohn-TRAY ah'],['envoyer à','ahn-vwah-YAY ah'],['expliquer à','ex-plee-KAY ah'],['souhaiter à','soo-eh-TAY ah']]},
+    {t:'warn', x:"<b>And the trap list — verbs that take à in English but NOT in French:</b><br>· <i>attendre</i> quelqu'un — to wait <u>for</u><br>· <i>chercher</i> quelque chose — to look <u>for</u><br>· <i>écouter</i> quelqu'un — to listen <u>to</u><br>· <i>regarder</i> quelqu'un — to look <u>at</u><br>· <i>payer</i> quelque chose — to pay <u>for</u><br><br>All five are <b>COD</b> in French, so they take <i>le / la / les</i>: <i>Je <b>l'</b>attends</i>, not <i>je lui attends</i>. These are the five that English speakers get wrong most."},
+    {t:'h', x:'Et l\'inverse — français avec à, anglais sans'},
+    {t:'rows', items:[
+      ['téléphoner à quelqu\'un','tay-lay-foh-NAY ah','to phone someone (no \"to\" in English)'],
+      ['répondre à quelqu\'un','ray-POHN-druh ah','to answer someone'],
+      ['obéir à quelqu\'un','oh-bay-EER ah','to obey someone'],
+      ['ressembler à quelqu\'un','ruh-sahm-BLAY ah','to resemble someone']
+    ]},
+    {t:'note', x:"<b>So you cannot translate your way to the right pronoun.</b> You have to know, for each verb, whether French puts <b>à</b> in front of the person. That is why the lists above are worth learning as lists — there is no rule underneath them."}
+  ]},
+  { title:'6.3 · Pourquoi les pronoms passent devant le verbe', blocks:[
+    {t:'p', x:"This is the part that feels backwards, and it has a clean historical explanation."},
+    {t:'ex', x:"<b>In Latin, word order was free</b> — case endings told you who did what, so <i>Marcus Juliam videt</i> and <i>Juliam Marcus videt</i> both meant \"Marcus sees Julia\". Pronouns could sit anywhere, and they often sat early in the sentence.<br><br>When the endings eroded, French had to fix its word order to keep sentences understandable: <b>Sujet – Verbe – Objet</b>. Full nouns moved after the verb.<br><br>But the <u>pronouns</u> were short, unstressed and already attached to the verb in speech — they had effectively become part of the verb. So they stayed where they were: in front.<br><br><b>Je le vois</b> is therefore not strange word order. It is the <u>old</u> word order, preserved because the pronouns are too small to move."},
+    {t:'table', head:['Avec un nom','Avec un pronom'],
+      rows:[
+      ['Je vois <b>Marie</b>.','Je <b>la</b> vois.'],
+      ['Je parle <b>à Marie</b>.','Je <b>lui</b> parle.'],
+      ['J\'ai vu <b>le film</b>.','Je <b>l\'</b>ai vu.'],
+      ['Je vais voir <b>Marie</b>.','Je vais <b>la</b> voir.']
+      ]},
+    {t:'note', x:"<b>Think of the pronoun as glued to the verb, not to the sentence.</b> That single image predicts almost everything: it explains why the pronoun moves with the verb into the negative sandwich, why it attaches to the <u>infinitive</u> in <i>je vais la voir</i>, and why it never strays to the end."}
+  ]},
+  { title:'6.4 · Où se place le pronom — les quatre cas', blocks:[
+    {t:'h', x:'1 · Un seul verbe → devant le verbe'},
+    {t:'rows', items:[
+      ['Je le vois.','zhuh luh VWAH','I see him / it.'],
+      ['Je lui parle.','zhuh lwee PARL','I speak to him / her.'],
+      ['Je les aime.','zhuh lay ZEM','I like them.']
+    ]},
+    {t:'h', x:'2 · Deux verbes → devant l\'INFINITIF'},
+    {t:'rows', items:[
+      ['Je vais le voir.','zhuh veh luh VWAHR','I\'m going to see him.'],
+      ['Je veux lui parler.','zhuh vuh lwee par-LAY','I want to speak to him.'],
+      ['Je dois les appeler.','zhuh dwah lay zah-puh-LAY','I have to call them.']
+    ]},
+    {t:'warn', x:"<b>Not</b> <i>je le vais voir</i>. The pronoun belongs to the verb it is the object of — and that is the <u>infinitive</u>, not <i>aller</i>. The pronoun travels with its own verb."},
+    {t:'h', x:'3 · Au passé composé → devant l\'AUXILIAIRE'},
+    {t:'rows', items:[
+      ['Je l\'ai vu.','zhuh lay VEW','I saw him / it.'],
+      ['Je lui ai parlé.','zhuh lwee ay par-LAY','I spoke to him.'],
+      ['Je les ai appelés.','zhuh lay zay ah-puh-LAY','I called them.']
+    ]},
+    {t:'h', x:'4 · À la négation → à l\'intérieur du sandwich'},
+    {t:'rows', items:[
+      ['Je ne le vois pas.','zhuh nuh luh vwah PAH','I don\'t see him.'],
+      ['Je ne lui parle pas.','zhuh nuh lwee parl PAH','I don\'t speak to him.'],
+      ['Je ne l\'ai pas vu.','zhuh nuh lay pah VEW','I didn\'t see him.']
+    ]},
+    {t:'ex', x:"<b>The order inside a negative sentence is always:</b><br><b>ne + pronom + verbe conjugué + pas</b><br><br>Everything attached to the verb goes inside the sandwich; the participle or infinitive stays outside. One pattern, every sentence."}
+  ]}
+  ]
+});
+
+BOOK.push({
+  id:'g6b', part:'Chapitre 6b — EN, Y, et l\'ordre des pronoms',
+  sub:"The two pronouns English has no word for, and the fixed queue when several appear together.",
+  chapters:[
+  { title:'6.5 · Le pronom EN', blocks:[
+    {t:'p', x:"<b>EN</b> replaces something introduced by <b>de</b> — which includes every partitive, every quantity, and every <i>de</i> phrase."},
+    {t:'table', head:['Remplace','Exemple','Avec EN'],
+      rows:[
+      ['<b>du / de la / des</b> + nom','Je mange <b>du pain</b>.','J\'<b>en</b> mange.'],
+      ['une quantité','J\'ai <b>deux frères</b>.','J\'<b>en</b> ai deux.'],
+      ['<b>de</b> + lieu','Je viens <b>de Paris</b>.','J\'<b>en</b> viens.'],
+      ['<b>de</b> + chose','Je parle <b>de mon travail</b>.','J\'<b>en</b> parle.'],
+      ['après un nombre','Il y a <b>trois livres</b>.','Il y <b>en</b> a trois.']
+      ]},
+    {t:'rows', items:[
+      ['Tu veux du café ? — Oui, j\'en veux.','wee, zhahn VUH','Do you want coffee? — Yes, I do.'],
+      ['Combien de frères as-tu ? — J\'en ai deux.','zhahn ay DUH','How many brothers? — I have two.'],
+      ['Tu as besoin d\'aide ? — Oui, j\'en ai besoin.','zhahn ay buh-ZWAN','Do you need help? — Yes, I do.'],
+      ['Il y a du pain ? — Il n\'y en a plus.','eel nyahn ah PLEW','Is there bread? — There\'s none left.']
+    ]},
+    {t:'warn', x:"<b>The quantity stays behind.</b> <i>J'ai deux frères</i> → <i>J'<b>en</b> ai <u>deux</u></i>, not <i>j'en ai</i>. The number is not part of what <i>en</i> replaces — only the noun is.<br><br>English simply drops the noun (\"I have two\"); French must put <b>en</b> in to hold its place. That is the whole difference, and it is why English speakers forget it."}
+  ]},
+  { title:'6.6 · Le pronom Y', blocks:[
+    {t:'p', x:"<b>Y</b> replaces something introduced by <b>à</b> — or any place at all."},
+    {t:'table', head:['Remplace','Exemple','Avec Y'],
+      rows:[
+      ['un lieu','Je vais <b>à Paris</b>.','J\'<b>y</b> vais.'],
+      ['un lieu','Je suis <b>à la maison</b>.','J\'<b>y</b> suis.'],
+      ['<b>à</b> + chose','Je pense <b>à mon travail</b>.','J\'<b>y</b> pense.'],
+      ['<b>à</b> + chose','Je réponds <b>à la question</b>.','J\'<b>y</b> réponds.']
+      ]},
+    {t:'rows', items:[
+      ['Tu vas au cinéma ? — Oui, j\'y vais.','wee, zhee VEH','Are you going to the cinema? — Yes, I am.'],
+      ['Tu penses à ton examen ? — J\'y pense tout le temps.','zhee pahnss too luh TAHN','Are you thinking about your exam? — I think about it all the time.'],
+      ['On y va !','ohn nee VAH','Let\'s go!'],
+      ['Il y a un problème.','eel-ee-ah uhn proh-BLEM','There\'s a problem.']
+    ]},
+    {t:'warn', x:"<b>Y never replaces a person.</b> <i>à</i> + a <u>thing</u> → <b>y</b>. <i>à</i> + a <u>person</u> → <b>lui / leur</b>.<br><br>· Je pense <b>à mon travail</b> → J'<b>y</b> pense.<br>· Je parle <b>à Marie</b> → Je <b>lui</b> parle.<br><br>Same preposition, two different pronouns, decided entirely by whether it is human."},
+    {t:'note', x:"<b>You already use both without noticing.</b> <i>Il <b>y</b> a</i> and <i>on <b>y</b> va</i> and <i>j'<b>en</b> ai marre</i> are all frozen expressions built on these pronouns. You learned them as phrases; now you can see the machinery."}
+  ]},
+  { title:'6.7 · L\'ordre quand il y en a plusieurs', blocks:[
+    {t:'p', x:"When two pronouns appear together, the order is fixed. It cannot be rearranged for emphasis or any other reason."},
+    {t:'table', head:['1','2','3','4','5'],
+      rows:[
+      ['<b>me</b><br>te<br>se<br>nous<br>vous','<b>le</b><br>la<br>les','<b>lui</b><br>leur','<b>y</b>','<b>en</b>']
+      ]},
+    {t:'rows', items:[
+      ['Je te le donne.','zhuh tuh luh DUN','I give it to you.'],
+      ['Je le lui donne.','zhuh luh lwee DUN','I give it to him.'],
+      ['Il m\'en parle.','eel mahn PARL','He talks to me about it.'],
+      ['Je l\'y vois.','zhuh lee VWAH','I see him there.'],
+      ['Il y en a trois.','eel-ee-ahn ah TRWAH','There are three of them.']
+    ]},
+    {t:'ex', x:"<b>The memory hook:</b> the order runs <b>me–te–se</b>, then <b>le–la–les</b>, then <b>lui–leur</b>, then <b>y</b>, then <b>en</b>. Say it as a rhythm until it is physical.<br><br><b>Y</b> and <b>EN</b> are always last, and always in that order. <i>Il <b>y en</b> a</i> — never <i>il en y a</i>."},
+    {t:'warn', x:"<b>Note the jump between columns 1 and 3.</b> <i>me, te, nous, vous</i> sit in column 1, but <i>lui</i> and <i>leur</i> sit in column 3 — <u>after</u> the direct object.<br><br>· Je <b>te le</b> donne. (indirect first)<br>· Je <b>le lui</b> donne. (direct first)<br><br>The order flips depending on the person, which is why this is the hardest table in French grammar. There is no logic to it — it is the residue of two different Latin orders surviving side by side."}
+  ]},
+  { title:'6.8 · Exercices', blocks:[
+    {t:'h', x:'A · COD ou COI ?'},
+    {t:'mcq', items:[
+      {q:"Je vois Marie. → Je ___ vois.", opts:["la","lui"], a:0, why:"<i>voir</i> takes no preposition → COD → <b>la</b>."},
+      {q:"Je parle à Marie. → Je ___ parle.", opts:["la","lui"], a:1, why:"<i>parler <b>à</b></i> → COI → <b>lui</b> (same for him and her)."},
+      {q:"J'attends le bus. → Je ___ attends.", opts:["l'","lui"], a:0, why:"⚠ <i>attendre</i> takes no à in French → COD → <b>l'</b>."},
+      {q:"Je téléphone à mes parents. → Je ___ téléphone.", opts:["les","leur"], a:1, why:"<i>téléphoner <b>à</b></i> → COI plural → <b>leur</b>."},
+      {q:"J'écoute la radio. → Je ___ écoute.", opts:["l'","lui"], a:0, why:"⚠ <i>écouter</i> takes no à → COD."},
+      {q:"Je réponds à la question. → J'___ réponds.", opts:["y","lui"], a:0, why:"<i>à</i> + a <u>thing</u> → <b>y</b>, not lui."}
+    ]},
+    {t:'h', x:'B · EN ou Y ?'},
+    {t:'fill', items:[
+      {s:"Je mange du pain. → J'___ mange.", a:["en"], en:"I eat some.", why:"<i>du</i> = partitive → <b>en</b>."},
+      {s:"Je vais à Paris. → J'___ vais.", a:["y"], en:"I'm going there.", why:"A place → <b>y</b>."},
+      {s:"J'ai trois frères. → J'___ ai trois.", a:["en"], en:"I have three.", why:"A quantity → <b>en</b>, and the number stays behind."},
+      {s:"Je pense à mon travail. → J'___ pense.", a:["y"], en:"I think about it.", why:"<i>à</i> + a thing → <b>y</b>."},
+      {s:"Je viens de Paris. → J'___ viens.", a:["en"], en:"I come from there.", why:"<i>de</i> + place → <b>en</b>."}
+    ]},
+    {t:'h', x:'C · La place du pronom'},
+    {t:'mcq', items:[
+      {q:"« I'm going to see him. »", opts:["Je le vais voir.","Je vais le voir."], a:1, why:"The pronoun attaches to the <b>infinitive</b>, the verb it is the object of."},
+      {q:"« I saw him. »", opts:["J'ai le vu.","Je l'ai vu."], a:1, why:"In the passé composé the pronoun goes before the <b>auxiliary</b>."},
+      {q:"« I don't see him. »", opts:["Je ne vois pas le.","Je ne le vois pas."], a:1, why:"The pronoun goes inside the <i>ne … pas</i> sandwich, with the verb."},
+      {q:"« I give it to you. »", opts:["Je le te donne.","Je te le donne."], a:1, why:"Column 1 (<i>te</i>) comes before column 2 (<i>le</i>)."},
+      {q:"« I give it to him. »", opts:["Je lui le donne.","Je le lui donne."], a:1, why:"⚠ But <i>lui</i> is column 3, so here the direct object comes <b>first</b>. This is the flip."}
+    ]},
+    {t:'ex', x:"<b>If the last two felt contradictory — they are.</b> <i>Je te le donne</i> but <i>je le lui donne</i>. The order genuinely reverses between the second and third person.<br><br>Do not try to find the logic. Learn the two patterns as two fixed shapes, drill them aloud, and let them become physical. This is the one table in French grammar where understanding does not help and repetition does."}
+  ]}
+  ]
+});
+
+/* ===== RENDER MARKER — new parts get pushed above this line ===== */
+
+/* ============ renderer ============ */
+const tabsEl = document.getElementById('parttabs');
+const bookEl = document.getElementById('book');
+
+function renderBook(){
+  tabsEl.innerHTML=''; bookEl.innerHTML='';
+  BOOK.forEach((part, idx)=>{
+    const btn=document.createElement('button');
+    btn.textContent=part.part.replace(' — ',' · ');
+    btn.dataset.target=part.id;
+    if(idx===0) btn.classList.add('on');
+    btn.onclick=()=>{
+      [...tabsEl.children].forEach(b=>b.classList.remove('on'));
+      btn.classList.add('on');
+      [...bookEl.children].forEach(sec=>sec.classList.toggle('hidden', sec.id!==part.id));
+      window.scrollTo({top:0,behavior:'smooth'});
+    };
+    tabsEl.appendChild(btn);
+
+    const sec=document.createElement('section'); sec.id=part.id;
+    if(idx!==0) sec.classList.add('hidden');
+    const head=document.createElement('div'); head.className='parthead';
+    const h2=document.createElement('h2'); h2.textContent=part.part;
+    const p=document.createElement('p'); p.textContent=part.sub||'';
+    head.appendChild(h2); head.appendChild(p); sec.appendChild(head);
+
+    const toc=document.createElement('div'); toc.className='tocbox';
+    toc.innerHTML='<b>In this part:</b>';
+    part.chapters.forEach((ch,ci)=>{
+      const a=document.createElement('a'); a.href='#'; a.textContent=ch.title;
+      a.onclick=(e)=>{ e.preventDefault();
+        const d=sec.querySelectorAll('details.chap')[ci];
+        d.open=true; d.scrollIntoView({behavior:'smooth',block:'start'});
+      };
+      toc.appendChild(a);
+    });
+    sec.appendChild(toc);
+
+    part.chapters.forEach(ch=>{
+      const d=document.createElement('details'); d.className='chap';
+      const s=document.createElement('summary'); s.textContent=ch.title;
+      const body=document.createElement('div'); body.className='chapbody';
+      ch.blocks.forEach(b=>body.appendChild(renderBlock(b)));
+      d.appendChild(s); d.appendChild(body);
+      sec.appendChild(d);
+    });
+    bookEl.appendChild(sec);
+  });
+}
+renderBook();
+
+/* ============ search ============ */
+document.getElementById('search').addEventListener('input', e=>{
+  const q=e.target.value.toLowerCase().trim();
+  const sections=[...bookEl.children];
+  if(!q){
+    sections.forEach((sec,i)=>{
+      sec.classList.toggle('hidden', !tabsEl.children[i].classList.contains('on'));
+      sec.querySelectorAll('details.chap').forEach(d=>{ d.classList.remove('hidden'); d.open=false; });
+      sec.querySelectorAll('.row,.cell').forEach(r=>r.classList.remove('hidden'));
+      const toc=sec.querySelector('.tocbox'); if(toc) toc.classList.remove('hidden');
+    });
+    return;
+  }
+  sections.forEach(sec=>{
+    sec.classList.remove('hidden');
+    const toc=sec.querySelector('.tocbox'); if(toc) toc.classList.add('hidden');
+    let anyChap=false;
+    sec.querySelectorAll('details.chap').forEach(d=>{
+      let hits=0;
+      d.querySelectorAll('.row,.cell').forEach(r=>{
+        const match=r.textContent.toLowerCase().includes(q);
+        r.classList.toggle('hidden', !match);
+        if(match) hits++;
+      });
+      const titleMatch=d.querySelector('summary').textContent.toLowerCase().includes(q);
+      const show=hits>0||titleMatch;
+      d.classList.toggle('hidden', !show);
+      d.open=show;
+      if(show) anyChap=true;
+    });
+    sec.classList.toggle('hidden', !anyChap);
+  });
+});
+
+/* ============ speed ============ */
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+<script src="french_glossary.js"></script>
+</body>
+</html>

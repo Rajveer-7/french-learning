@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 25 — Les accents en français</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+</style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 25: Les accents en français</h1>
+  <p class="sub">The Language SKOOL · Fiche de cours A1 — é è ê ë ï ç: what every accent does and why it is never optional</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Cours21_Notes.html">Cours 21</a>
+    <a href="French_Cours22_Notes.html">Cours 22</a>
+    <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
+    <a href="French_Cours25_Notes.html" class="active">Cours 25</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
+    <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
+  </nav>
+
+<div class="whybox">
+  <h4><span>Pourquoi ça marche comme ça</span>Pourquoi les accents ne sont pas décoratifs</h4>
+  <p>An accent in French is a <b>letter</b>, not an ornament. It does one of three jobs:<br><br>· <b>change the sound</b> — é, è, ê<br>· <b>separate two words</b> — ou/où, sur/sûr, a/à<br>· <b>mark a letter that died</b> — the circumflex, almost always a lost <b>s</b><br><br>And the accent that moves (<i>je préf<b>è</b>re</i> / <i>nous préf<b>é</b>rons</i>) is a <b>stress mark</b>. French stresses the last pronounced syllable; when the ending goes silent, the stem becomes the stress and the vowel opens. The accent is simply writing down what your mouth was going to do anyway.</p>
+  <a class="more" href="French_How_It_Works.html">Aller plus loin →</a>
+</div>
+
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').textContent=fr; c.querySelector('.ph').textContent=ph;
+    c.onclick=()=>speak(fr); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+/* ===== 1 ===== */
+h2("1 · Why accents are not decoration");
+src("<b>Source :</b> <i>Fiche de cours — Les accents en français (A1)</i>, The Language SKOOL, 9 pages. Worked through in full, with extra explanation, memory techniques and practice added.");
+ex("<b>In French, an accent is a letter.</b> Leaving one off is a spelling mistake exactly like dropping a letter in English — <i>hotel</i> for <i>hôtel</i> is as wrong as writing \"hotl\". On the TEF written paper every missing accent is a marked error.<br><br>Accents do three different jobs, and it helps to know which job you're looking at:<br>· <b>Change the sound</b> — é, è, ê on the letter e<br>· <b>Separate two words that would otherwise look identical</b> — ou/où, a/à, sur/sûr<br>· <b>Mark a letter that disappeared centuries ago</b> — the circumflex");
+
+h3("Les cinq signes");
+table(["Signe","Nom","Prononciation du nom","Exemple"],[
+ ["<b>é</b>","l'accent aigu","lak-sahn ay-GEW","café"],
+ ["<b>è à ù</b>","l'accent grave","lak-sahn GRAHV","père, à, où"],
+ ["<b>ê â î ô û</b>","l'accent circonflexe","lak-sahn seer-kohn-FLEX","fête, hôtel"],
+ ["<b>ë ï</b>","le tréma","luh tray-MAH","Noël, maïs"],
+ ["<b>ç</b>","la cédille","lah say-DEEY","français"]
+]);
+
+/* ===== 2 ===== */
+h2("2 · É — l'accent aigu");
+lead("Only ever on the letter <b>e</b>. Gives a closed, bright <b>\"ay\"</b> sound.");
+rows([
+ ["le café","luh kah-FAY","the coffee / the café"],
+ ["l'été","lay-TAY","the summer"],
+ ["un étudiant","uhn ay-tew-DYAHN","a student"],
+ ["la télévision","lah tay-lay-vee-ZYOHN","the television"],
+ ["décembre","day-SAHM-bruh","December"],
+ ["préféré","pray-fay-RAY","favourite"],
+ ["l'écolé... (non : l'école)","lay-KOL","the school"],
+ ["j'ai mangé","zhay mahn-ZHAY","I ate"]
+]);
+ex("<b>Say it short and tight.</b> French <b>é</b> is not the English \"ay\" of <i>day</i>, which slides into a second sound (ay-ee). French é stops dead. Try: <i>café</i> — kah-FAY, with the mouth frozen at the end, no glide.");
+note("<b>Where é shows up constantly:</b><br>· every regular past participle — <i>mangé, parlé, regardé, travaillé</i><br>· the endings <b>-té</b> and <b>-é</b> on nouns — <i>activité, nationalité, café</i><br>· the prefix <b>é-</b> where English has <b>s-</b> — <i>é</i>tudiant/<i>s</i>tudent, <i>é</i>cole/<i>s</i>chool, <i>é</i>tat/<i>s</i>tate, <i>é</i>pice/<i>s</i>pice. Another lost-s pattern, like the circumflex.");
+
+/* ===== 3 ===== */
+h2("3 · È — l'accent grave sur le e");
+lead("An open <b>\"eh\"</b>, like English <i>bed</i>. Wider mouth than é.");
+rows([
+ ["le père","luh PEHR","the father"],
+ ["la mère","lah MEHR","the mother"],
+ ["le frère","luh FREHR","the brother"],
+ ["très","treh","very"],
+ ["après","ah-PREH","after"],
+ ["la crème","lah KREM","the cream"],
+ ["je me lève","zhuh muh LEV","I get up"],
+ ["je préfère","zhuh pray-FEHR","I prefer"]
+]);
+
+h3("é vs è — the contrast that matters");
+table(["é (fermé — closed)","è (ouvert — open)"],[
+ ["<b>ay</b>, mouth narrow","<b>eh</b>, mouth wide"],
+ ["caf<b>é</b> — kah-FAY","p<b>è</b>re — PEHR"],
+ ["<b>é</b>té — ay-TAY","tr<b>è</b>s — treh"],
+ ["mang<b>é</b> — mahn-ZHAY","apr<b>è</b>s — ah-PREH"]
+]);
+ex("<b>The minimal pair to drill:</b> <i>j'ai</i> (zhay, closed) vs <i>j'étais</i> (zhay-TEH, the second syllable open). Or simply say <b>é — è — é — è</b> ten times, feeling your jaw drop on the è. If your jaw isn't moving, you're saying the same vowel twice.");
+warn("<b>The accent tells you where the stress and the sound go, and it can move.</b> Look at <i>préférer</i>: <i>je pr<b>é</b>f<b>è</b>re</i> has both accents, but <i>nous pr<b>é</b>f<b>é</b>rons</i> flips the second one. Same rule as <i>se lever</i> from last week: <b>è when the ending is silent, é when you hear the ending.</b>");
+table(["Silencieux → è","Sonore → e / é"],[
+ ["je me l<b>è</b>ve","nous l<b>e</b>vons"],
+ ["j'ach<b>è</b>te","nous ach<b>e</b>tons"],
+ ["je préf<b>è</b>re","nous préf<b>é</b>rons"],
+ ["il esp<b>è</b>re","vous esp<b>é</b>rez"]
+]);
+
+/* ===== 4 ===== */
+h2("4 · Ê Â Î Ô Û — l'accent circonflexe");
+lead("The little hat. On <b>e</b> it sounds like è; on the other vowels it changes almost nothing. So why is it there?");
+rows([
+ ["la fête","lah FET","the party"],
+ ["la tête","lah TET","the head"],
+ ["la fenêtre","lah fuh-NEH-truh","the window"],
+ ["l'hôtel","loh-TEL","the hotel"],
+ ["bientôt","byan-TOH","soon"],
+ ["l'île","LEEL","the island"],
+ ["s'il vous plaît","seel voo PLEH","please"],
+ ["sûr","sewr","sure"]
+]);
+
+h3("The trick: a circumflex is a dead « s »");
+ex("Almost every circumflex marks a letter — usually <b>s</b> — that dropped out of the word centuries ago. Put the s back and an English relative usually appears. This turns the circumflex from decoration into a <b>free vocabulary machine</b>.");
+table(["Français","Remettez le s","English"],[
+ ["la f<b>ê</b>te","fe<b>s</b>te","<b>fest</b>ival, feast"],
+ ["la fen<b>ê</b>tre","fene<b>s</b>tre","de<b>fenestr</b>ate"],
+ ["la for<b>ê</b>t","fore<b>s</b>t","<b>forest</b>"],
+ ["l'h<b>ô</b>pital","ho<b>s</b>pital","<b>hospital</b>"],
+ ["l'h<b>ô</b>tel","ho<b>s</b>tel","<b>hostel</b> / hotel"],
+ ["l'<b>î</b>le","i<b>s</b>le","<b>isle</b>, island"],
+ ["le ch<b>â</b>teau","ca<b>s</b>tel","<b>castle</b>"],
+ ["la p<b>â</b>te","pa<b>s</b>te","<b>paste</b>, pasta"],
+ ["la b<b>ê</b>te","be<b>s</b>te","<b>beast</b>"],
+ ["la c<b>ô</b>te","co<b>s</b>te","<b>coast</b>"],
+ ["arr<b>ê</b>ter","arre<b>s</b>ter","<b>arrest</b>"],
+ ["le go<b>û</b>t","gou<b>s</b>t","gu<b>st</b>o, di<b>sgust</b>"],
+ ["ao<b>û</b>t","augu<b>s</b>t","<b>August</b>"],
+ ["l'h<b>ô</b>te","ho<b>s</b>te","<b>host</b>"],
+ ["le d<b>é</b>p<b>ô</b>t","dépo<b>s</b>t","de<b>pos</b>it"],
+ ["conna<b>î</b>tre","conai<b>s</b>tre","(cf. connai<b>ss</b>ance)"]
+]);
+note("It's a strong pattern, not a law. <b>drôle</b> came from Dutch, not Latin, so there's no lost s to find. Use the trick to guess and to remember — not to prove.");
+
+/* ===== 5 ===== */
+h2("5 · Ë Ï — le tréma");
+lead("Two dots. The only accent with a purely mechanical job: <b>split the vowels apart</b>.");
+ex("Normally two vowels side by side blend into one sound: <i>ai</i> = eh, <i>oi</i> = wah, <i>ou</i> = oo. The tréma cancels that — it says <b>pronounce these separately</b>.");
+table(["Sans tréma","Avec tréma","Le contraste"],[
+ ["<b>mais</b> = meh (but)","<b>maïs</b> = mah-EESS (corn)","two completely different words"],
+ ["<i>noel</i> would be \"nwell\"","<b>Noël</b> = noh-EL (Christmas)","o and e said one after the other"],
+ ["<i>naif</i> would be \"nef\"","<b>naïf</b> = nah-EEF (naive)","a then i"],
+ ["<i>egoiste</i> would blend","<b>égoïste</b> = ay-goh-EEST (selfish)","o then i"]
+]);
+rows([
+ ["le maïs","luh mah-EESS","corn / maize"],
+ ["Noël","noh-EL","Christmas"],
+ ["naïf / naïve","nah-EEF / nah-EEV","naive"],
+ ["égoïste","ay-goh-EEST","selfish"],
+ ["Haïti","ah-ee-TEE","Haiti"],
+ ["aïe !","EYE","ouch!"],
+ ["Joyeux Noël !","zhwah-yuh noh-EL","Merry Christmas!"]
+]);
+
+/* ===== 6 ===== */
+h2("6 · Ç — la cédille");
+lead("The little tail under the c. Pure mechanics, and completely predictable once you see the rule.");
+ex("<b>The underlying rule of French c:</b><br>· before <b>a, o, u</b> → hard <b>[k]</b> — <i>café, comme, cuisine</i><br>· before <b>e, i, y</b> → soft <b>[s]</b> — <i>ce, ici, cycle</i><br><br>The cedilla forces the <b>soft [s]</b> in the place where it wouldn't happen naturally — before a, o, u.");
+rows([
+ ["français","frahn-SEH","French"],
+ ["ça va","sah VAH","it's going / how's it going"],
+ ["un garçon","uhn gar-SOHN","a boy / a waiter"],
+ ["une leçon","ewn luh-SOHN","a lesson"],
+ ["j'ai reçu","zhay ruh-SEW","I received"],
+ ["nous commençons","noo koh-mahn-SOHN","we start"],
+ ["la façade","lah fah-SAHD","the front / façade"],
+ ["déçu","day-SEW","disappointed"]
+]);
+warn("<b>A cedilla never appears before e or i.</b> It would be pointless — the c is already soft there. That's why the same verb has it in one form and not the other:<br>· je commen<b>c</b>e (kohn-MAHNSS) — e follows, already soft, no cedilla<br>· nous commen<b>ç</b>ons (koh-mahn-SOHN) — o follows, needs the tail<br><br>Exactly the same logic as <i>nous mange<b>o</b>ns</i>, where a silent <b>e</b> is inserted to protect the soft g.");
+
+/* ===== 7 ===== */
+h2("7 · Accents that change the meaning");
+lead("Here the accent isn't about sound at all — it's the only thing separating two different words.");
+table(["Sans accent","Avec accent"],[
+ ["<b>ou</b> = or","<b>où</b> = where"],
+ ["<b>a</b> = has","<b>à</b> = to / at"],
+ ["<b>la</b> = the","<b>là</b> = there"],
+ ["<b>du</b> = of the / some","<b>dû</b> = owed (past participle of devoir)"],
+ ["<b>sur</b> = on","<b>sûr</b> = sure"],
+ ["<b>mur</b> = wall","<b>mûr</b> = ripe"],
+ ["<b>jeune</b> = young","<b>jeûne</b> = a fast (not eating)"],
+ ["<b>cote</b> = rating","<b>côte</b> = coast / rib"],
+ ["<b>tache</b> = stain","<b>tâche</b> = task"],
+ ["<b>pecheur</b> = fisherman (pêcheur)","<b>pécheur</b> = sinner"]
+]);
+rows([
+ ["Où tu habites ?","oo tew ah-BEET","Where do you live?"],
+ ["Tu préfères le thé ou le café ?","tew pray-FEHR luh TAY oo luh kah-FAY","Do you prefer tea or coffee?"],
+ ["Il a un frère.","eel ah uhn FREHR","He has a brother."],
+ ["Il va à Paris.","eel vah ah pah-REE","He's going to Paris."],
+ ["Le livre est là.","luh LEE-vruh eh LAH","The book is there."],
+ ["Je suis sûr.","zhuh swee SEWR","I'm sure."]
+]);
+ex("<b>« Où tu habites ? »</b> and <b>« Ou tu habites ? »</b> are not a spelling variation — the first asks a question, the second is nonsense. This is the strongest argument for taking accents seriously: without them you can write sentences that simply don't mean anything.");
+
+/* ===== 8 ===== */
+h2("8 · Comment taper les accents");
+lead("You'll need these constantly for homework and for the exam's written section.");
+h3("Méthode 1 — les codes Alt (numeric keypad)");
+table(["Caractère","Code","Caractère","Code"],[
+ ["é","Alt + 0233","ô","Alt + 0244"],
+ ["è","Alt + 0232","à","Alt + 0224"],
+ ["ê","Alt + 0234","ù","Alt + 0249"],
+ ["ë","Alt + 0235","û","Alt + 0251"],
+ ["î","Alt + 0238","â","Alt + 0226"],
+ ["ï","Alt + 0239","ç","Alt + 0231"]
+]);
+h3("Méthode 2 — le clavier International (recommandé)");
+ex("Windows Settings → Time &amp; Language → Language → add <b>English (United States) International</b>. Then:<br>· <b>'</b> then <b>e</b> → é<br>· <b>`</b> then <b>e</b> → è<br>· <b>^</b> then <b>e</b> → ê<br>· <b>\"</b> then <b>e</b> → ë<br>· <b>'</b> then <b>c</b> → ç<br><br>One keyboard, every accent, nothing to memorise. To type a plain apostrophe, hit the key then space.");
+
+/* ===== 9 ===== */
+h2("9 · Exercices");
+
+h3("Exercice 1 — quel accent manque ?");
+fill([
+ {s:"1. Je bois un caf___ le matin.", a:["é","e"], en:"I drink a coffee in the morning.", why:"<b>café</b> — accent aigu. The final sound is a closed \"ay\"."},
+ {s:"2. Mon p___re s'appelle Paul.", a:["è","e"], en:"My father is called Paul.", why:"<b>père</b> — accent grave, open \"eh\"."},
+ {s:"3. Nous allons à une f___te.", a:["ê","e"], en:"We're going to a party.", why:"<b>fête</b> — circonflexe, from <i>feste</i>."},
+ {s:"4. Je descends à l'h___tel.", a:["ô","o"], en:"I'm staying at the hotel.", why:"<b>hôtel</b> — circonflexe, from <i>hostel</i>."},
+ {s:"5. Je parle fran___ais.", a:["ç","c"], en:"I speak French.", why:"<b>français</b> — cédille, because <b>a</b> follows and we need the [s] sound."},
+ {s:"6. Joyeux No___l !", a:["ë","e"], en:"Merry Christmas!", why:"<b>Noël</b> — tréma, so the o and e are said separately: noh-EL."}
+]);
+
+h3("Exercice 2 — ou ou où ?");
+fill([
+ {s:"1. ___ est ma clé ?", a:["où","ou"], en:"Where is my key?", why:"A question about place → <b>où</b>, with the accent."},
+ {s:"2. Tu veux du thé ___ du café ?", a:["ou"], en:"Do you want tea or coffee?", why:"A choice between two things → <b>ou</b>, no accent."},
+ {s:"3. ___ tu travailles ?", a:["où","ou"], en:"Where do you work?", why:"Place again → <b>où</b>."},
+ {s:"4. Le matin ___ le soir ?", a:["ou"], en:"Morning or evening?", why:"A choice → <b>ou</b>."}
+]);
+
+h3("Exercice 3 — é ou è ?");
+mcq([
+ {q:"Je pr___f___re le thé.", opts:["préfère","prefère","préfére"], a:0, why:"<b>préfère</b> — é in the prefix, è before the silent ending."},
+ {q:"Nous pr___f___rons le thé.", opts:["préfèrons","préférons","prefèrons"], a:1, why:"<b>préférons</b> — both é, because you hear the <i>-ons</i> ending."},
+ {q:"Je me l___ve à sept heures.", opts:["lève","lève".replace('è','é'),"leve"], a:0, why:"<b>lève</b> — è, because the ending -e is silent."},
+ {q:"Nous nous l___vons à sept heures.", opts:["lèvons","levons","lévons"], a:1, why:"<b>levons</b> — no accent at all, because you hear the -ons."},
+ {q:"J'ai mang___ une pizza.", opts:["mangé","mangè","manger"], a:0, why:"<b>mangé</b> — the past participle always ends in é."}
+]);
+
+h3("Exercice 4 — le circonflexe et le « s » perdu");
+mcq([
+ {q:"« la forêt » — quel mot anglais ?", opts:["forecast","forest","fortress"], a:1, why:"forêt → fore<b>s</b>t."},
+ {q:"« l'île » — quel mot anglais ?", opts:["aisle","isle / island","ill"], a:1, why:"île → i<b>s</b>le."},
+ {q:"« la pâte » — quel mot anglais ?", opts:["path","paste / pasta","patio"], a:1, why:"pâte → pa<b>s</b>te."},
+ {q:"« le château » — quel mot anglais ?", opts:["chateau only","castle","chalet"], a:1, why:"château → ca<b>s</b>tel → castle."},
+ {q:"« arrêter » — quel mot anglais ?", opts:["arrange","arrest","arrive"], a:1, why:"arrêter → arre<b>s</b>ter → arrest."}
+]);
+
+/* ===== 10 ===== */
+h2("10 · Texte parallèle — Une journée à Québec");
+lead("An original text written for this page. Every accented letter in it is doing one of the jobs above — see if you can name which.");
+ex("<b>Une journée à Québec</b><br><br>Cet été, je suis allé à Québec avec mon frère. Nous avons réservé une chambre dans un petit hôtel près du château Frontenac.<br><br>Le matin, on se lève tôt. Mon frère préfère le café ; moi, je préfère le thé. Après le petit-déjeuner, nous allons nous promener sur la côte. Il fait très beau, mais la fenêtre de la chambre est cassée — ce n'est pas grave.<br><br>Où est-ce qu'on va manger ce soir ? Dans un restaurant français, bien sûr ! Le garçon est très sympa. Il nous donne la carte et nous commençons par une soupe.<br><br>C'est une belle île, cette ville. Je suis sûr que je vais revenir bientôt.");
+
+h3("Glossaire du texte");
+rows([
+ ["Cet été, je suis allé à Québec.","set ay-TAY, zhuh swee zah-LAY ah kay-BEK","This summer I went to Quebec."],
+ ["Nous avons réservé une chambre.","noo zah-vohn ray-zair-VAY ewn SHAHM-bruh","We booked a room."],
+ ["un petit hôtel","uhn puh-tee toh-TEL","a small hotel"],
+ ["près du château","preh dew shah-TOH","near the castle"],
+ ["on se lève tôt","ohn suh lev TOH","we get up early"],
+ ["Mon frère préfère le café.","mohn FREHR pray-FEHR luh kah-FAY","My brother prefers coffee."],
+ ["nous allons nous promener","noo zah-lohn noo prom-NAY","we're going to go for a walk"],
+ ["sur la côte","sewr lah KOHT","on the coast"],
+ ["la fenêtre est cassée","lah fuh-NEH-truh eh kah-SAY","the window is broken"],
+ ["ce n'est pas grave","suh neh pah GRAHV","it doesn't matter"],
+ ["Où est-ce qu'on va manger ?","oo ess kohn vah mahn-ZHAY","Where are we going to eat?"],
+ ["bien sûr","byan SEWR","of course"],
+ ["Le garçon est très sympa.","luh gar-SOHN eh treh san-PAH","The waiter is very nice."],
+ ["nous commençons par une soupe","noo koh-mahn-SOHN par ewn SOOP","we start with a soup"],
+ ["une belle île","ewn bell EEL","a beautiful island"],
+ ["je vais revenir bientôt","zhuh veh ruh-vuh-NEER byan-TOH","I'm going to come back soon"]
+]);
+
+h3("Repérez les accents");
+note("Go back through the text and find one of each:<br>· <b>é qui change le son</b> — <i>été, réservé, préfère, cassée</i><br>· <b>è ouvert</b> — <i>frère, préfère, fenêtre</i><br>· <b>circonflexe = s perdu</b> — <i>hôtel</i> (hostel), <i>château</i> (castel), <i>côte</i> (coste), <i>fenêtre</i> (fenestre), <i>île</i> (isle), <i>bientôt</i> (tost)<br>· <b>accent qui distingue deux mots</b> — <i>Où est-ce qu'on va manger ?</i> (not <i>ou</i>) and <i>bien sûr</i> (not <i>sur</i>)<br>· <b>cédille</b> — <i>français, garçon, commençons</i><br>· <b>è qui se déplace</b> — <i>préf<u>è</u>re</i> (silent ending) — find where it would become <i>préf<u>é</u>rons</i>");
+
+h3("Compréhension");
+mcq([
+ {q:"Avec qui est-il allé à Québec ?", opts:["Avec son père","Avec son frère","Seul"], a:1, why:"« je suis allé à Québec avec mon frère »."},
+ {q:"Que préfère son frère ?", opts:["Le thé","Le café","La soupe"], a:1, why:"« Mon frère préfère le café ; moi, je préfère le thé. »"},
+ {q:"Qu'est-ce qui est cassé ?", opts:["La porte","La fenêtre","La carte"], a:1, why:"« la fenêtre de la chambre est cassée »."},
+ {q:"Par quoi commencent-ils au restaurant ?", opts:["Par un café","Par une soupe","Par un dessert"], a:1, why:"« nous commençons par une soupe » — note the cédille."}
+]);
+ex("<b>À vous —</b> write six sentences about a trip, real or invented. Requirements: use at least <b>four é</b>, <b>two è</b>, <b>two circonflexes</b>, <b>one ç</b> and <b>one « où »</b>. Then check every accent one by one — that checking pass is the actual exercise.");
+/* ===== 7. Quiz ===== */
+const h7 = document.createElement('h2'); h7.textContent = "11 · Quick quiz"; content.appendChild(h7);
+const quizBox = document.createElement('div'); quizBox.className='quizbox';
+quizBox.innerHTML = '<p class="lead" style="margin:0 0 8px;">Multiple-choice, mixing today\'s vocab.</p>';
+const quizBtn = document.createElement('button'); quizBtn.className='quizbtn'; quizBtn.textContent='▶ Start quiz';
+const quizArea = document.createElement('div'); quizArea.className='quizarea';
+quizBox.appendChild(quizBtn); quizBox.appendChild(quizArea);
+content.appendChild(quizBox);
+
+function shuffleArr(a){ const b=[...a]; for(let i=b.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [b[i],b[j]]=[b[j],b[i]]; } return b; }
+function runQuiz(pool, area, btn){
+  btn.style.display='none';
+  const qs = shuffleArr(pool).slice(0, Math.min(8, pool.length));
+  let i = 0, score = 0;
+  function showQ(){
+    area.innerHTML = '';
+    if (i >= qs.length) {
+      const res = document.createElement('div'); res.className='quizresult';
+      res.textContent = 'Score: '+score+' / '+qs.length;
+      const retry = document.createElement('button'); retry.className='quizretry'; retry.textContent='↻ Retry';
+      retry.onclick = ()=>{ btn.style.display='inline-block'; area.innerHTML=''; };
+      area.appendChild(res); area.appendChild(retry);
+      return;
+    }
+    const item = qs[i];
+    const wrongPool = pool.filter(p=>p.en!==item.en);
+    const opts = shuffleArr([item, ...shuffleArr(wrongPool).slice(0,3)]);
+    const prog = document.createElement('div'); prog.className='quizprog'; prog.textContent = 'Question '+(i+1)+' / '+qs.length;
+    const fr = document.createElement('div'); fr.className='quizfr'; fr.textContent = item.fr;
+    area.appendChild(prog); area.appendChild(fr);
+    opts.forEach(o=>{
+      const b = document.createElement('button'); b.className='quizopt'; b.textContent = o.en;
+      b.onclick = ()=>{
+        [...area.querySelectorAll('.quizopt')].forEach(x=>x.disabled=true);
+        if (o.en===item.en){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); [...area.querySelectorAll('.quizopt')].find(x=>x.textContent===item.en).classList.add('correct'); }
+        setTimeout(()=>{ i++; showQ(); }, 900);
+      };
+      area.appendChild(b);
+    });
+  }
+  showQ();
+}
+quizBtn.onclick = ()=> runQuiz(GLOBAL_VOCAB, quizArea, quizBtn);
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+<script src="french_glossary.js"></script>
+</body>
+</html>

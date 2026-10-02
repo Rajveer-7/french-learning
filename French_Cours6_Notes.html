@@ -41,6 +41,49 @@
   .flagcard .swatch { height:38px; border-radius:6px; margin-bottom:8px; }
   .flagcard .fr { font-size:14px; }
 </style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
+<style id="xp-style">
+  .xp h2 { font-size:18px; margin:26px 0 6px; padding-bottom:6px; border-bottom:2px solid #e6e3dc; color:#23201b; }
+  .xp h3 { font-size:15px; margin:16px 0 6px; color:#4338ca; }
+  .xp p.xp-lead { font-size:14px; color:#6b675f; margin:0 0 10px; }
+  .xp .xp-note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .xp .xp-ex { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .xp .xp-warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .xp .xp-row { display:flex; align-items:center; gap:12px; background:#fff; border:1px solid #e6e3dc; border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .xp .xp-play { flex:0 0 auto; width:38px; height:38px; border-radius:50%; border:1px solid #e6e3dc; background:#eceafe; color:#4338ca; font-size:15px; cursor:pointer; }
+  .xp .xp-txt { flex:1 1 auto; min-width:0; }
+  .xp .xp-fr { font-size:16px; font-weight:600; cursor:pointer; }
+  .xp .xp-fr:hover { color:#4338ca; }
+  .xp .xp-ph { font-size:13px; color:#0f7a54; font-style:italic; }
+  .xp .xp-en { font-size:13px; color:#6b675f; }
+  .xp table.xp-t { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .xp table.xp-t th, .xp table.xp-t td { border:1px solid #e6e3dc; padding:8px 10px; text-align:left; vertical-align:top; }
+  .xp table.xp-t th { background:#eceafe; color:#4338ca; }
+  .xp .xp-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .xp .xp-cell { background:#fff; border:1px solid #e6e3dc; border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .xp .xp-cell:hover { border-color:#4338ca; }
+  .xp .xp-cell b { display:block; font-size:14px; }
+  .xp .xp-cell i { font-size:11px; color:#0f7a54; font-style:italic; }
+  .xp .xp-fill { background:#fff; border:1px solid #e6e3dc; border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .xp .xp-fill .s { font-size:15px; margin-bottom:8px; }
+  .xp .xp-fill input { border:1px solid #e6e3dc; border-radius:8px; padding:6px 10px; font-size:14px; width:230px; }
+  .xp .xp-fill button { border:1px solid #4338ca; background:#4338ca; color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .xp .xp-fb { font-size:13px; margin-top:8px; }
+  .xp .xp-fb.ok { color:#155c37; } .xp .xp-fb.bad { color:#a33; }
+  .xp .xp-q { background:#fff; border:1px solid #e6e3dc; border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .xp .xp-q .prompt { font-size:15px; font-weight:600; margin-bottom:8px; }
+  .xp .xp-q .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .xp .xp-q .btns button { border:1px solid #e6e3dc; background:#fff; color:#23201b; border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .xp .xp-q .btns button:hover { border-color:#4338ca; }
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -72,15 +115,42 @@
     <a href="French_Cours21_Notes.html">Cours 21</a>
     <a href="French_Cours22_Notes.html">Cours 22</a>
     <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
     <a href="French_Conversations.html">Conversations</a>
     <a href="French_Dialogues.html">Dialogues</a>
     <a href="French_Full_Guide.html">Full Guide</a>
     <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
     <a href="French_Prof_Notes.html">Prof's Notes</a>
     <a href="French_Book_Audio.html">Book Audio</a>
     <a href="French_Audio_Library.html">Audio Library</a>
     <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
   </nav>
+
+<div class="whybox">
+  <h4><span>Pourquoi ça marche comme ça</span>Pourquoi « en France » mais « au Canada »</h4>
+  <p>The choice is not about the country — it is about <b>gender and sound</b>.<br><br>· feminine country → <b>en</b> (en France, en Inde)<br>· masculine country → <b>au</b> (au Canada, au Japon)<br>· plural → <b>aux</b> (aux États-Unis)<br><br>And why do feminine countries take <i>en</i> with no article? Because <i>en</i> historically absorbed it. The same thing happened with <b>au printemps / en été</b> — <i>printemps</i> starts with a consonant, so <i>en</i> could not glide onto it and French reached for <i>au</i> instead.<br><br>One aversion to vowel collisions, two separate "rules" explained.</p>
+  <a class="more" href="French_Grammaire.html">Aller plus loin →</a>
+</div>
+
 
   <div class="bar">
     <span>Speed:</span>
@@ -92,6 +162,7 @@
   </div>
 
   <div id="content"></div>
+  <div class="xp" id="xpand"></div>
 </div>
 
 <script>
@@ -280,6 +351,214 @@ document.getElementById('speed').addEventListener('click',e=>{
   [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
   e.target.classList.add('on');
 });
+</script>
+<script>
+
+(function(){
+  var C = document.getElementById('xpand');
+  function sp(t){ try{ if(typeof speak==='function'){ speak(t); return; } }catch(e){}
+    try{ speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(String(t).replace(/_+/g,'')); u.lang='fr-FR';
+      var v=speechSynthesis.getVoices().find(function(x){return /^fr/i.test(x.lang);}); if(v)u.voice=v;
+      if(typeof rate!=='undefined') u.rate=rate; speechSynthesis.speak(u);}catch(e){} }
+  function el(tag,cls,html){ var e=document.createElement(tag); if(cls)e.className=cls; if(html!=null)e.innerHTML=html; return e; }
+  function h2(t){ C.appendChild(el('h2',null,t)); }
+  function h3(t){ C.appendChild(el('h3',null,t)); }
+  function lead(t){ C.appendChild(el('p','xp-lead',t)); }
+  function note(t){ C.appendChild(el('div','xp-note',t)); }
+  function ex(t){ C.appendChild(el('div','xp-ex',t)); }
+  function warn(t){ C.appendChild(el('div','xp-warn',t)); }
+  function rows(list){ list.forEach(function(r){
+    var fr=r[0], ph=r[1], en=r[2];
+    var row=el('div','xp-row');
+    var b=el('button','xp-play','&#9654;'); b.onclick=function(){sp(fr);};
+    var t=el('div','xp-txt');
+    var f=el('div','xp-fr'); f.textContent=fr; f.onclick=function(){sp(fr);};
+    t.appendChild(f);
+    if(ph){ var p=el('div','xp-ph'); p.textContent=ph; t.appendChild(p); }
+    if(en){ var e2=el('div','xp-en'); e2.textContent=en; t.appendChild(e2); }
+    row.appendChild(b); row.appendChild(t); C.appendChild(row);
+    try{ if(typeof GLOBAL_VOCAB!=='undefined') GLOBAL_VOCAB.push({fr:fr,en:en||''}); }catch(e){}
+  }); }
+  function grid(list){ var g=el('div','xp-grid');
+    list.forEach(function(r){ var c=el('div','xp-cell','<b></b><i></i>');
+      c.querySelector('b').textContent=r[0]; c.querySelector('i').textContent=r[1]||'';
+      c.onclick=function(){sp(r[0]);}; g.appendChild(c); });
+    C.appendChild(g); }
+  function table(head, body){ var t=el('table','xp-t');
+    var html='<tr>'; head.forEach(function(h){ html+='<th>'+h+'</th>'; }); html+='</tr>';
+    body.forEach(function(r){ html+='<tr>'; r.forEach(function(c){ html+='<td>'+c+'</td>'; }); html+='</tr>'; });
+    t.innerHTML=html; C.appendChild(t); }
+  function fill(items){ items.forEach(function(it){
+    var d=el('div','xp-fill'); d.appendChild(el('div','s',it.s));
+    var inp=document.createElement('input'); inp.placeholder='...';
+    var btn=document.createElement('button'); btn.textContent='Check';
+    var fb=el('div','xp-fb');
+    function chk(){ var v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      var ok=it.a.some(function(a){return a.toLowerCase()===v;});
+      if(ok){ fb.className='xp-fb ok'; fb.innerHTML='\u2713 '+it.a[0]+' \u2014 '+it.why; sp(it.a[0]); }
+      else { fb.className='xp-fb bad'; fb.innerHTML='\u2717 Answer: <b>'+it.a[0]+'</b> \u2014 '+it.why; } }
+    btn.onclick=chk; inp.addEventListener('keydown',function(e){ if(e.key==='Enter') chk(); });
+    var line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn); d.appendChild(line);
+    if(it.en){ var t=el('div','xp-en',''); t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb); C.appendChild(d); }); }
+  function mcq(items){ items.forEach(function(it){
+    var d=el('div','xp-q'); d.appendChild(el('div','prompt',it.q));
+    var b=el('div','btns'); var fb=el('div','xp-fb');
+    it.opts.forEach(function(o,i){ var btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=function(){ if(i===it.a){ fb.className='xp-fb ok'; fb.innerHTML='\u2713 '+o+' \u2014 '+it.why; sp(o); }
+        else { fb.className='xp-fb bad'; fb.innerHTML='\u2717 The answer is <b>'+it.opts[it.a]+'</b> \u2014 '+it.why; } };
+      b.appendChild(btn); });
+    d.appendChild(b); d.appendChild(fb); C.appendChild(d); }); }
+  h2("Deep dive — les pays, l'argent et acheter");
+lead("Cours 6 covered countries, currency and buying things. Here is each one built out: the full preposition system, prices, and everything you need to get through a shop.");
+
+h2("1 · Les pays et leurs prépositions");
+ex("Four little words do all the work, and the choice depends on the country's <b>gender and number</b> — not on meaning.");
+table(["Préposition","Quand","Exemples"],[
+ ["<b>en</b>","pays <u>féminin</u>, ou commençant par une voyelle","en France, en Inde, en Italie, en Iran"],
+ ["<b>au</b>","pays <u>masculin</u>","au Canada, au Japon, au Portugal, au Maroc"],
+ ["<b>aux</b>","pays <u>pluriel</u>","aux États-Unis, aux Philippines, aux Pays-Bas"],
+ ["<b>à</b>","une <u>ville</u>","à Paris, à Brampton, à Delhi, à Tokyo"]
+]);
+note("<b>The gender shortcut:</b> countries ending in <b>-e</b> are almost always feminine — la France, la Chine, l'Inde, l'Italie, la Belgique, la Suisse. Everything else is usually masculine — le Canada, le Japon, le Portugal, le Maroc, le Brésil.<br><br>The famous exception: <b>le Mexique</b> — ends in -e but masculine. So <i>au Mexique</i>.");
+h3("Pays féminins → EN");
+grid([["la France → en France","ahn FRAHNSS"],["l'Inde → en Inde","ahn NAND"],["l'Italie → en Italie","ahn nee-tah-LEE"],["la Chine → en Chine","ahn SHEEN"],["l'Espagne → en Espagne","ahn nes-PAHN-yuh"],["la Belgique → en Belgique","ahn bel-ZHEEK"],["la Suisse → en Suisse","ahn SWEESS"],["l'Allemagne → en Allemagne","ahn nal-MAHN-yuh"]]);
+h3("Pays masculins → AU");
+grid([["le Canada → au Canada","oh kah-nah-DAH"],["le Japon → au Japon","oh zhah-POHN"],["le Portugal → au Portugal","oh por-tew-GAL"],["le Maroc → au Maroc","oh mah-ROK"],["le Brésil → au Brésil","oh bray-ZEEL"],["le Mexique → au Mexique","oh mex-EEK"],["le Sénégal → au Sénégal","oh say-nay-GAL"],["le Vietnam → au Vietnam","oh vyet-NAM"]]);
+h3("Pays pluriels → AUX");
+grid([["les États-Unis → aux États-Unis","oh zay-tah-zew-NEE"],["les Philippines → aux Philippines","oh fee-lee-PEEN"],["les Pays-Bas → aux Pays-Bas","oh pay-BAH"]]);
+rows([
+ ["J'habite au Canada.","zhah-BEET oh kah-nah-DAH","I live in Canada."],
+ ["Ma famille habite en Inde.","mah fah-MEEY ah-beet ahn NAND","My family lives in India."],
+ ["Je vais aux États-Unis.","zhuh veh oh zay-tah-zew-NEE","I'm going to the United States."],
+ ["Je travaille à Brampton.","zhuh trah-VYE ah bramp-TOHN","I work in Brampton."]
+]);
+warn("<b>The same word covers \"in\" and \"to\".</b> <i>Je vais <b>en</b> France</i> = I'm going <u>to</u> France. <i>J'habite <b>en</b> France</i> = I live <u>in</u> France. French doesn't distinguish — one less choice to make.<br><br>For <b>coming from</b>, it changes: <i>je viens <b>de</b> France</i>, <i>je viens <b>du</b> Canada</i>, <i>je viens <b>des</b> États-Unis</i>, <i>je viens <b>d'</b>Inde</i>.");
+
+h2("2 · Les nationalités — les quatre modèles");
+table(["Modèle","Masculin → Féminin","Autres exemples"],[
+ ["<b>-ais / -ois</b> + e","français → française","anglais, japonais, chinois, suédois, portugais"],
+ ["<b>-ain</b> + e","américain → américaine","mexicain, marocain"],
+ ["<b>-ien</b> → -ienne","indien → indienne","canadien, italien, brésilien, égyptien"],
+ ["<b>déjà -e</b>","belge → belge","russe, suisse"]
+]);
+warn("<b>Trois règles :</b> lowercase (<i>indien</i>, not <i>Indien</i>) · no article after être (<i>je suis indien</i>) · the feminine -e <b>wakes the final consonant</b>: françai<u>s</u> (frahn-SEH) → françai<u>se</u> (frahn-SEZ).");
+
+h2("3 · L'argent et les prix");
+rows([
+ ["l'argent","lar-ZHAHN","money"],
+ ["un euro / des euros","uhn nuh-ROH / day zuh-ROH","a euro / euros"],
+ ["un dollar","uhn doh-LAR","a dollar"],
+ ["une pièce","ewn PYESS","a coin"],
+ ["un billet","uhn bee-YEH","a banknote"],
+ ["la monnaie","lah moh-NEH","change (coins)"],
+ ["une carte bancaire","ewn kart bahn-KEHR","a bank card"],
+ ["en espèces","ahn ness-PESS","in cash"],
+ ["cher / chère","shehr","expensive"],
+ ["bon marché","bohn mar-SHAY","cheap"],
+ ["gratuit","grah-TWEE","free"],
+ ["les soldes","lay SOLD","the sales"]
+]);
+warn("<b>la monnaie ≠ money.</b> <i>La monnaie</i> is the <u>loose change</u> you get back. Money in general is <b>l'argent</b>. Asking for \"ma monnaie\" when you mean your money will get you a handful of coins.<br><br>And <b>bon marché</b> is invariable — it never agrees: <i>une robe bon marché</i>.");
+h3("Demander et dire le prix");
+rows([
+ ["C'est combien ?","seh kohn-BYAN","How much is it?"],
+ ["Ça coûte combien ?","sah koot kohn-BYAN","How much does it cost?"],
+ ["Combien ça coûte ?","kohn-byan sah KOOT","How much does that cost?"],
+ ["Quel est le prix ?","kell eh luh PREE","What's the price?"],
+ ["Ça coûte vingt euros.","sah koot van tuh-ROH","It costs twenty euros."],
+ ["C'est quinze euros cinquante.","seh kanz uh-roh san-KAHNT","It's fifteen euros fifty."],
+ ["C'est trop cher !","seh troh SHEHR","That's too expensive!"],
+ ["C'est une bonne affaire.","seh tewn bun ah-FEHR","That's a good deal."]
+]);
+note("<b>Reading prices:</b> the number splits around the currency. <b>15,50 €</b> is said <i>quinze euros cinquante</i> — euros goes in the <u>middle</u>, and the cents follow with no word for \"cents\". Also note French uses a <b>comma</b> as the decimal point: 15,50 not 15.50.");
+h3("Les nombres pour les prix");
+grid([["20 vingt","van"],["30 trente","trahnt"],["40 quarante","kah-RAHNT"],["50 cinquante","san-KAHNT"],["60 soixante","swah-SAHNT"],["70 soixante-dix","swah-sahnt-DEESS"],["80 quatre-vingts","kat-ruh-VAN"],["90 quatre-vingt-dix","kat-ruh-van-DEESS"],["100 cent","sahn"],["200 deux cents","duh SAHN"],["1000 mille","meel"],["un million","uhn meel-YOHN"]]);
+warn("<b>cent</b> takes an -s when multiplied and nothing follows: <i>deux cent<b>s</b></i> (200) but <i>deux cent cinquante</i> (250). <b>mille</b> never takes an -s: <i>deux mille</i>, always.");
+
+h2("4 · Acheter — survivre dans un magasin");
+h3("Entrer et demander");
+rows([
+ ["Bonjour, je voudrais…","bohn-ZHOOR, zhuh voo-DREH","Hello, I'd like…"],
+ ["Je cherche…","zhuh SHAIRSH","I'm looking for…"],
+ ["Est-ce que vous avez… ?","ess kuh voo zah-VAY","Do you have…?"],
+ ["Je regarde, merci.","zhuh ruh-GARD, mair-SEE","I'm just looking, thanks."],
+ ["Vous avez ça en bleu ?","voo zah-vay sah ahn BLUH","Do you have this in blue?"],
+ ["Vous avez ma taille ?","voo zah-vay mah TYE","Do you have my size?"]
+]);
+h3("Payer");
+rows([
+ ["Je prends ça.","zhuh prahn SAH","I'll take this."],
+ ["Je paie par carte.","zhuh pay par KART","I'll pay by card."],
+ ["Je paie en espèces.","zhuh pay ahn ness-PESS","I'll pay in cash."],
+ ["Vous acceptez la carte ?","voo zak-sep-tay lah KART","Do you take cards?"],
+ ["Voilà, merci.","vwah-LAH, mair-SEE","There you go, thanks."],
+ ["Gardez la monnaie.","gar-day lah moh-NEH","Keep the change."]
+]);
+h3("Ce que le vendeur dit");
+rows([
+ ["Je peux vous aider ?","zhuh puh voo zay-DAY","Can I help you?"],
+ ["Vous désirez ?","voo day-zee-RAY","What would you like?"],
+ ["C'est tout ?","seh TOO","Is that all?"],
+ ["Ça fait vingt euros.","sah feh van tuh-ROH","That comes to twenty euros."],
+ ["Vous payez comment ?","voo pay-yay koh-MAHN","How are you paying?"],
+ ["Bonne journée !","bun zhoor-NAY","Have a good day!"]
+]);
+note("<b>Je voudrais</b> (zhuh voo-DREH) is the politeness workhorse of French. <i>Je veux</i> (\"I want\") sounds blunt, almost rude, in a shop. <i>Je voudrais</i> is the conditional — \"I would like\" — and it is what every French person actually says. Learn it as a fixed phrase now; the grammar behind it comes much later.");
+
+h2("5 · Exercices");
+h3("Exercice 1 — en, au, aux ou à ?");
+fill([
+ {s:"J'habite ______ Canada.", a:["au"], en:"I live in Canada.", why:"Masculine country → au."},
+ {s:"Ma famille habite ______ Inde.", a:["en"], en:"My family lives in India.", why:"Feminine country (and starts with a vowel) → en."},
+ {s:"Je travaille ______ Brampton.", a:["à","a"], en:"I work in Brampton.", why:"A city → à."},
+ {s:"Mon cousin habite ______ États-Unis.", a:["aux"], en:"My cousin lives in the USA.", why:"Plural country → aux."},
+ {s:"Elle va ______ Japon.", a:["au"], en:"She's going to Japan.", why:"Masculine → au. Same word for \"to\" and \"in\"."},
+ {s:"Il est ______ Suisse.", a:["en"], en:"He's in Switzerland.", why:"Feminine (ends in -e) → en."}
+]);
+h3("Exercice 2 — dites le prix");
+fill([
+ {s:"20 € = ______ euros", a:["vingt"], en:"twenty euros", why:"vingt = van."},
+ {s:"75 € = ______ euros", a:["soixante-quinze","soixante quinze"], en:"seventy-five euros", why:"60 + 15."},
+ {s:"12,50 € = douze euros ______", a:["cinquante"], en:"twelve euros fifty", why:"The cents follow the currency, with no word for \"cents\"."},
+ {s:"200 € = ______ euros", a:["deux cents","deux cent"], en:"two hundred euros", why:"<b>deux cents</b> with the -s, because nothing follows it."}
+]);
+h3("Exercice 3 — que dites-vous ?");
+mcq([
+ {q:"You want to ask the price politely.", opts:["Combien ?","C'est combien, s'il vous plaît ?","Donnez-moi le prix."], a:1, why:"Always add <i>s'il vous plaît</i> — bare <i>Combien ?</i> is abrupt."},
+ {q:"You want a jumper but you're only browsing.", opts:["Je regarde, merci.","Je prends ça.","C'est trop cher !"], a:0, why:"<i>Je regarde, merci</i> = I'm just looking."},
+ {q:"You want to say \"I'd like a coffee\".", opts:["Je veux un café.","Je voudrais un café.","Donne un café."], a:1, why:"<b>Je voudrais</b> is the polite form. <i>Je veux</i> sounds blunt."},
+ {q:"The shopkeeper asks « Vous payez comment ? »", opts:["Je paie par carte.","C'est combien ?","Je regarde."], a:0, why:"They're asking your payment method."}
+]);
+
+h2("6 · Texte parallèle — Au magasin");
+ex("<b>Dans une boutique à Montréal</b><br><br>— Bonjour ! Je peux vous aider ?<br>— Bonjour. Oui, je cherche un manteau pour l'hiver.<br>— Très bien. Vous faites quelle taille ?<br>— Du quarante, je pense.<br>— Nous avons celui-ci en noir et en bleu foncé. Il est très chaud.<br>— Il est joli. C'est combien ?<br>— Cent quatre-vingts dollars.<br>— Ah… c'est un peu cher pour moi. Vous avez quelque chose de moins cher ?<br>— Oui, celui-là est à quatre-vingt-quinze dollars. Il est en solde.<br>— Parfait ! Je le prends. Je paie par carte, c'est possible ?<br>— Bien sûr. Ça fait quatre-vingt-quinze dollars… Voilà. Bonne journée !<br>— Merci, vous aussi. Au revoir !");
+h3("Glossaire du texte");
+rows([
+ ["Je peux vous aider ?","zhuh puh voo zay-DAY","Can I help you?"],
+ ["je cherche un manteau","zhuh shairsh uhn mahn-TOH","I'm looking for a coat"],
+ ["Vous faites quelle taille ?","voo fet kell TYE","What size are you?"],
+ ["Du quarante, je pense.","dew kah-RAHNT, zhuh PAHNSS","A forty, I think."],
+ ["celui-ci","suh-lwee-SEE","this one"],
+ ["celui-là","suh-lwee-LAH","that one"],
+ ["C'est un peu cher.","seh tuhn puh SHEHR","It's a bit expensive."],
+ ["quelque chose de moins cher","kel-kuh shohz duh mwan SHEHR","something cheaper"],
+ ["Il est en solde.","eel eh tahn SOLD","It's on sale."],
+ ["Je le prends.","zhuh luh PRAHN","I'll take it."],
+ ["Ça fait quatre-vingt-quinze dollars.","sah feh kat-ruh-van-kanz doh-LAR","That comes to ninety-five dollars."]
+]);
+h3("Compréhension");
+mcq([
+ {q:"Que cherche le client ?", opts:["Une chemise","Un manteau","Des chaussures"], a:1, why:"« je cherche un manteau pour l'hiver »."},
+ {q:"Combien coûte le premier manteau ?", opts:["95 $","180 $","140 $"], a:1, why:"« Cent quatre-vingts dollars » = 100 + (4×20) = 180."},
+ {q:"Pourquoi le deuxième est-il moins cher ?", opts:["Il est plus petit","Il est en solde","Il est d'occasion"], a:1, why:"« celui-là est à quatre-vingt-quinze dollars. Il est en solde. »"},
+ {q:"Comment paie-t-il ?", opts:["En espèces","Par carte","Il ne achète pas"], a:1, why:"« Je paie par carte, c'est possible ? »"}
+]);
+note("<b>Repérez la grammaire :</b><br>· <b>Deux nombres au-dessus de 80</b> — <i>cent quatre-vingts</i> (180) et <i>quatre-vingt-quinze</i> (95). Note the -s on <i>vingts</i> in the first (nothing follows) and no -s in the second.<br>· <b>Celui-ci / celui-là</b> — this one / that one, the polite way to point without pointing<br>· <b>Une comparaison</b> — <i>quelque chose de <b>moins cher</b></i><br>· <b>Les formules de politesse</b> — <i>Bien sûr</i>, <i>Voilà</i>, <i>Bonne journée</i>, <i>vous aussi</i>");
+ex("<b>À vous —</b> write a twelve-line shop dialogue of your own. Requirements:<br>☐ open with <i>Je peux vous aider ?</i><br>☐ use <b>je voudrais</b> or <b>je cherche</b><br>☐ ask the price with <b>C'est combien ?</b><br>☐ give a price above <b>80</b><br>☐ say it's too expensive and ask for something cheaper<br>☐ choose, pay, and close with <i>Bonne journée !</i>");
+
+})();
+
 </script>
 <script src="french_glossary.js"></script>
 </body>

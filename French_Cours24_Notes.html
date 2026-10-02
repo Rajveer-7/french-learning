@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 24 — Quel/Quelle/Quels/Quelles &amp; les verbes pronominaux</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+</style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 24: Quel · Quelle · Quels · Quelles &amp; les verbes pronominaux</h1>
+  <p class="sub">The Language SKOOL · Fiche de cours A1 — the interrogative adjective, and the reflexive verbs of daily routine</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Cours21_Notes.html">Cours 21</a>
+    <a href="French_Cours22_Notes.html">Cours 22</a>
+    <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html" class="active">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
+    <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
+  </nav>
+
+<div class="whybox">
+  <h4><span>Pourquoi ça marche comme ça</span>Pourquoi QUEL a quatre formes mais un seul son</h4>
+  <p><i>Quel, quelle, quels, quelles</i> are all pronounced <b>kell</b>. The four spellings exist because <i>quel</i> is an <b>adjective</b>, and French adjectives agree — even when the agreement is silent.<br><br>So this is a purely written distinction, and that is exactly why every exercise on it is written.<br><br>The one moment you <u>can</u> hear it: before a vowel, the plural liaises. <i>Quels‿amis</i> = kell-<b>Z</b>ah-MEE. That [z] is the only audible trace of the plural in the whole phrase.</p>
+  <a class="more" href="French_Grammaire.html">Aller plus loin →</a>
+</div>
+
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').textContent=fr; c.querySelector('.ph').textContent=ph;
+    c.onclick=()=>speak(fr); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+/* ===== 1 · Today's handout ===== */
+h2("1 · What today's class covered");
+src("<b>Source :</b> <i>Fiche de cours A1 — Quel · Quelle · Quels · Quelles &amp; Les verbes pronominaux</i>, The Language SKOOL, 12 pages. Everything below is the teacher's material worked through in full, plus the extra explanation, examples and practice I've added around it.");
+ex("<b>Two topics, both about small words that change shape.</b><br><br><b>Partie 1 — quel</b> is the word for \"which / what\" when a noun follows. It is an <i>adjective</i>, so it agrees with that noun. Four spellings, one sound.<br><br><b>Partie 2 — les verbes pronominaux</b> are verbs that carry a little pronoun (<i>me, te, se, nous, vous, se</i>) because the action comes back on the subject. They are how you talk about your daily routine.");
+
+/* ===== 2 · QUEL — the system ===== */
+h2("2 · Quel · Quelle · Quels · Quelles");
+lead("The interrogative adjective. You never choose it by meaning — only by the noun that follows.");
+
+h3("The four forms");
+table(["","Singulier","Pluriel"],[
+ ["<b>Masculin</b>","quel","quels"],
+ ["<b>Féminin</b>","quelle","quelles"]
+]);
+rows([
+ ["Quel sport tu aimes ?","kell spor tew EM","Which sport do you like?"],
+ ["Quelle musique tu écoutes ?","kell mew-ZEEK tew ay-KOOT","What music do you listen to?"],
+ ["Quels loisirs tu aimes ?","kell lwah-ZEER tew EM","Which hobbies do you like?"],
+ ["Quelles langues tu parles ?","kell lahng tew PARL","Which languages do you speak?"]
+]);
+
+warn("<b>All four are pronounced exactly the same: \"kell\".</b> There is no audible difference between <i>quel</i>, <i>quelle</i>, <i>quels</i> and <i>quelles</i>. Choosing between them is a spelling decision, never a listening one — which is why every exercise on this topic is written.");
+
+note("<b>The one time you can hear the plural.</b> Before a vowel, the silent -s of <i>quels / quelles</i> links as a [z]:<br>· <i>Quels‿amis ?</i> = kell-<b>Z</b>ah-MEE<br>· <i>Quelles‿activités ?</i> = kell-<b>Z</b>ak-tee-vee-TAY<br>· <i>Quel âge ?</i> = kell-AHZH — no [z], because <i>quel</i> is singular and has no -s to link.");
+
+h3("Why it agrees — it's an adjective, not a question word");
+ex("<i>Quel</i> behaves exactly like <b>petit / petite / petits / petites</b>. It just happens to ask a question. That's the whole explanation for why it has four forms, and it's why you look at the <u>noun</u> and nothing else.<br><br>un <b>petit</b> sport → <b>quel</b> sport<br>une <b>petite</b> ville → <b>quelle</b> ville<br>de <b>petits</b> loisirs → <b>quels</b> loisirs<br>de <b>petites</b> langues → <b>quelles</b> langues");
+
+h3("Position 1 — directly before the noun");
+rows([
+ ["Quel film tu regardes ?","kell feelm tew ruh-GARD","Which film are you watching?"],
+ ["Quelle ville tu habites ?","kell veel tew ah-BEET","Which city do you live in?"],
+ ["Quels sports tu pratiques ?","kell spor tew prah-TEEK","Which sports do you play?"],
+ ["Quelles activités tu fais ?","kell zak-tee-vee-TAY tew FEH","Which activities do you do?"]
+]);
+
+h3("Position 2 — split by « être »");
+lead("Even with a verb in between, it still agrees with the noun further along.");
+table(["Devant le nom","Séparé par être"],[
+ ["<b>Quel</b> sport tu aimes ?","<b>Quel</b> est ton sport préféré ?"],
+ ["<b>Quelle</b> ville tu habites ?","<b>Quelle</b> est ta ville ?"],
+ ["<b>Quels</b> loisirs tu aimes ?","<b>Quels</b> sont tes loisirs ?"],
+ ["<b>Quelles</b> langues tu parles ?","<b>Quelles</b> sont tes langues ?"]
+]);
+rows([
+ ["Quel est ton sport préféré ?","kell eh tohn spor pray-fay-RAY","What's your favourite sport?"],
+ ["Quelle est ta ville ?","kell eh tah VEEL","What's your town?"],
+ ["Quels sont tes loisirs ?","kell sohn tay lwah-ZEER","What are your hobbies?"],
+ ["Quelles sont tes langues ?","kell sohn tay LAHNG","What languages do you have?"]
+]);
+note("<b>Quel est</b> is singular, <b>Quels sont</b> is plural — the verb has to match too. Getting <i>Quelles sont tes langues ?</i> right means agreeing twice in four words.");
+
+h3("Position 3 — after a preposition");
+lead("Very common, and the place beginners most often drop the agreement.");
+rows([
+ ["À quelle heure tu te lèves ?","ah kell UR tew tuh LEV","At what time do you get up?"],
+ ["Dans quelle ville tu habites ?","dahn kell VEEL tew ah-BEET","In which city do you live?"],
+ ["De quelle nationalité es-tu ?","duh kell nah-syoh-nah-lee-TAY eh TEW","What nationality are you?"],
+ ["Avec quels amis tu sors ?","ah-vek kell zah-MEE tew SOR","Which friends do you go out with?"],
+ ["Pour quelle entreprise tu travailles ?","poor kell ahn-truh-PREEZ tew trah-VYE","Which company do you work for?"]
+]);
+
+h3("Quel vs Qu'est-ce que — the real confusion");
+warn("<b>Quel</b> must touch a <u>noun</u>. <b>Qu'est-ce que</b> must touch a <u>verb</u>. Both translate as \"what\", so the meaning won't help you — only the word that follows will.");
+table(["✓ Correct","✗ Incorrect"],[
+ ["<b>Quel</b> film tu regardes ?","<s>Qu'est-ce que film tu regardes ?</s>"],
+ ["<b>Qu'est-ce que</b> tu regardes ?","<s>Quel tu regardes ?</s>"],
+ ["<b>Quelle</b> musique tu écoutes ?","<s>Qu'est-ce que musique tu écoutes ?</s>"],
+ ["<b>Qu'est-ce que</b> tu écoutes ?","<s>Quelle tu écoutes ?</s>"]
+]);
+ex("<b>The test:</b> is there a noun immediately after? Noun → <b>quel</b> (and agree it). Verb → <b>qu'est-ce que</b> (and never change it).");
+
+h3("Three registers of the same question");
+table(["Registre","Exemple","Quand"],[
+ ["Familier / oral","Quel sport <b>tu aimes</b> ?","everyday speech — what this handout uses"],
+ ["Neutre","Quel sport <b>est-ce que tu aimes</b> ?","always safe"],
+ ["Soutenu / écrit","Quel sport <b>aimes-tu</b> ?","formal writing, the TEF paper"]
+]);
+rows([
+ ["Quel sport tu aimes ?","kell spor tew EM","Which sport do you like? (casual)"],
+ ["Quel sport est-ce que tu aimes ?","kell spor ess-kuh tew EM","Which sport do you like? (neutral)"],
+ ["Quel sport aimes-tu ?","kell spor em TEW","Which sport do you like? (formal)"]
+]);
+
+h3("Quel in exclamations — same word, no question");
+rows([
+ ["Quel beau jour !","kell boh ZHOOR","What a beautiful day!"],
+ ["Quelle bonne idée !","kell bun ee-DAY","What a good idea!"],
+ ["Quel dommage !","kell doh-MAHZH","What a shame!"],
+ ["Quelle surprise !","kell sewr-PREEZ","What a surprise!"]
+]);
+note("No article here. French says <i>quel beau jour</i> — \"what beautiful day\" — where English needs \"what <b>a</b> beautiful day\". Adding <i>un</i> is an anglicism.");
+
+h3("The set phrases worth learning whole");
+rows([
+ ["Quel âge as-tu ?","kell ahzh ah TEW","How old are you?"],
+ ["Quelle heure est-il ?","kell ur eh TEEL","What time is it?"],
+ ["Quel jour sommes-nous ?","kell zhoor sum NOO","What day is it?"],
+ ["Quel temps fait-il ?","kell tahn feh TEEL","What's the weather like?"],
+ ["Quelle est votre profession ?","kell eh votr proh-feh-SYOHN","What's your job?"],
+ ["Quel est votre numéro de téléphone ?","kell eh votr new-may-ROH duh tay-lay-FUN","What's your phone number?"]
+]);
+
+/* ===== 3 · Gender ===== */
+h2("3 · The part you actually have to memorise — the noun's gender");
+lead("Once you know whether the noun is masculine or feminine, <i>quel</i> is automatic. So the real work is the noun.");
+
+h3("From today's exercises");
+table(["Masculin","Féminin"],[
+ ["le sport","la musique"],
+ ["le film","la ville"],
+ ["le jour","la langue"],
+ ["le loisir","l'activité"],
+ ["le cours","l'heure"],
+ ["le week-end","la nationalité"]
+]);
+
+h3("Two endings that give the gender away");
+ex("<b>-té → féminin</b> : l'activité, la nationalité, la université… (also la liberté, la qualité, la société)<br><b>-ion → féminin</b> : la profession, la question, la nation, la situation<br><br>Between them these two endings cover a large slice of abstract nouns, and they're almost always right.");
+note("<b>-eau, -ment, -age → masculin</b> as a rough counter-rule: le bureau, le gouvernement, le voyage. Useful, but with more exceptions than the two above (<i>la page</i>, <i>la plage</i>, <i>l'eau</i>).");
+warn("<b>le loisir</b> is masculine and usually plural — <i>les loisirs</i> = leisure activities, hobbies. You'll almost always meet it as <b>quels loisirs</b>.");
+
+/* ===== 4 · Exercises on quel ===== */
+h2("4 · Exercices — quel");
+
+h3("Exercice 1 — Complétez avec la bonne forme");
+fill([
+ {s:"1. ______ sport tu aimes ?", a:["quel"], en:"Which sport do you like?", why:"<i>sport</i> is masculine singular (le sport)."},
+ {s:"2. ______ activité tu fais le week-end ?", a:["quelle"], en:"Which activity do you do at the weekend?", why:"<i>activité</i> is feminine singular — and -té is always feminine."},
+ {s:"3. ______ loisirs tu aimes ?", a:["quels"], en:"Which hobbies do you like?", why:"<i>loisirs</i> is masculine plural (les loisirs)."},
+ {s:"4. ______ langues tu parles ?", a:["quelles"], en:"Which languages do you speak?", why:"<i>langues</i> is feminine plural (une langue)."},
+ {s:"5. ______ film tu regardes ?", a:["quel"], en:"Which film are you watching?", why:"<i>film</i> is masculine singular."},
+ {s:"6. ______ musique tu écoutes ?", a:["quelle"], en:"What music do you listen to?", why:"<i>musique</i> is feminine singular."},
+ {s:"7. ______ sports tu pratiques ?", a:["quels"], en:"Which sports do you play?", why:"<i>sports</i> is masculine plural."},
+ {s:"8. ______ activités tu fais après les cours ?", a:["quelles"], en:"What activities do you do after class?", why:"<i>activités</i> is feminine plural — and note the liaison: quelles‿activités = kell-Zak-tee-vee-TAY."},
+ {s:"9. ______ jour tu travailles ?", a:["quel"], en:"Which day do you work?", why:"<i>jour</i> is masculine singular."},
+ {s:"10. ______ ville tu habites ?", a:["quelle"], en:"Which city do you live in?", why:"<i>ville</i> is feminine singular."}
+]);
+
+h3("Exercice 2 — la bonne forme devant le nom");
+fill([
+ {s:"5. ______ loisir", a:["quel"], en:"which hobby", why:"masculin singulier."},
+ {s:"6. ______ langues", a:["quelles"], en:"which languages", why:"féminin pluriel."},
+ {s:"7. ______ film", a:["quel"], en:"which film", why:"masculin singulier."},
+ {s:"8. ______ villes", a:["quelles"], en:"which cities", why:"féminin pluriel."}
+]);
+
+h3("Exercice 3 — Questions à un camarade");
+lead("The handout asks you to answer each question. Here are answers built from your own life — say them aloud, then swap in your own details.");
+rows([
+ ["Quel sport tu aimes ? — J'aime le cricket.","kell spor tew EM — zhem luh kree-KET","Which sport do you like? — I like cricket."],
+ ["Quelle musique tu écoutes ? — J'écoute de la musique indienne.","kell mew-ZEEK tew ay-KOOT — zhay-KOOT duh lah mew-ZEEK an-DYEN","What music do you listen to? — I listen to Indian music."],
+ ["Quel film tu aimes ? — J'aime les films d'action.","kell feelm tew EM — zhem lay feelm dak-SYOHN","Which film do you like? — I like action films."],
+ ["Quels loisirs tu pratiques ? — Je joue au cricket et je regarde des films.","zhuh zhoo oh kree-KET ay zhuh ruh-GARD day FEELM","Which hobbies do you do? — I play cricket and I watch films."],
+ ["Quelles activités tu fais le week-end ? — Je sors avec mes amis.","zhuh sor ah-vek may zah-MEE","What do you do at the weekend? — I go out with my friends."]
+]);
+note("<b>Three things to get right in these answers.</b><br>· <b>jouer à</b> for sports, <b>jouer de</b> for instruments: <i>je joue <u>au</u> cricket</i> but <i>je joue <u>du</u> piano</i>.<br>· <b>écouter de la musique</b>, not <i>écouter la musique</i> — the partitive <i>du / de la / des</i> means \"some\".<br>· If the question is plural (<i>quel<u>s</u> loisir<u>s</u></i>), give more than one thing. The question's number should be echoed in your answer.");
+
+h3("Exercice 4 — quel ou qu'est-ce que ?");
+mcq([
+ {q:"______ tu fais le week-end ?", opts:["Quel","Qu'est-ce que","Quelle"], a:1, why:"A verb (<i>tu fais</i>) follows, not a noun → qu'est-ce que."},
+ {q:"______ activité tu fais le week-end ?", opts:["Quel","Quelle","Qu'est-ce que"], a:1, why:"A noun follows, and <i>activité</i> is feminine singular → quelle."},
+ {q:"______ tu écoutes ?", opts:["Quelle","Qu'est-ce que","Quels"], a:1, why:"<i>tu écoutes</i> is a verb → qu'est-ce que."},
+ {q:"______ musique tu écoutes ?", opts:["Qu'est-ce que","Quelle","Quel"], a:1, why:"<i>musique</i> is a feminine singular noun → quelle."},
+ {q:"______ sont tes loisirs ?", opts:["Quel","Quels","Quelles"], a:1, why:"<i>loisirs</i> is masculine plural — and the verb is <i>sont</i>, so the plural is doubly confirmed."},
+ {q:"______ est ton film préféré ?", opts:["Quel","Quelle","Quels"], a:0, why:"<i>film</i> is masculine singular, and <i>est</i> is singular → quel."}
+]);
+
+h3("Exercice 5 — trouvez l'erreur");
+mcq([
+ {q:"« Quelle sport tu aimes ? »", opts:["Correct","Should be: Quel sport","Should be: Quels sport"], a:1, why:"<i>sport</i> is masculine — quel, with no -le."},
+ {q:"« Quel langues tu parles ? »", opts:["Correct","Should be: Quelles langues","Should be: Quelle langues"], a:1, why:"<i>langues</i> is feminine <b>and</b> plural → quelles. Both marks are needed."},
+ {q:"« Quel est tes loisirs ? »", opts:["Correct","Should be: Quels sont tes loisirs","Should be: Quelle est tes loisirs"], a:1, why:"<i>loisirs</i> is plural, so both the adjective and the verb change: quels sont."},
+ {q:"« Qu'est-ce que ville tu habites ? »", opts:["Correct","Should be: Quelle ville tu habites","Should be: Quel ville tu habites"], a:1, why:"A noun follows, so qu'est-ce que is impossible. <i>ville</i> is feminine → quelle."}
+]);
+
+/* ===== 5 · Pronominal verbs ===== */
+h2("5 · Partie 2 — Les verbes pronominaux");
+lead("Verbs where the action comes back on the subject. You wash <i>yourself</i>, you get <i>yourself</i> up.");
+
+h3("The pronouns");
+table(["Personne","Pronom","Exemple","Prononciation"],[
+ ["je","<b>me / m'</b>","je <b>me</b> lève","zhuh muh LEV"],
+ ["tu","<b>te / t'</b>","tu <b>te</b> lèves","tew tuh LEV"],
+ ["il / elle / on","<b>se / s'</b>","il <b>se</b> lève","eel suh LEV"],
+ ["nous","<b>nous</b>","nous <b>nous</b> levons","noo noo luh-VOHN"],
+ ["vous","<b>vous</b>","vous <b>vous</b> levez","voo voo luh-VAY"],
+ ["ils / elles","<b>se / s'</b>","ils <b>se</b> lèvent","eel suh LEV"]
+]);
+note("<i>nous nous</i> and <i>vous vous</i> look like a typing mistake. They aren't — the first word is the subject, the second is the reflexive pronoun. Both are said.");
+
+warn("<b>Before a vowel or silent h, the pronoun elides:</b> me → <b>m'</b>, te → <b>t'</b>, se → <b>s'</b>.<br>· je <b>m'</b>habille · tu <b>t'</b>habilles · il <b>s'</b>habille · ils <b>s'</b>habillent<br>Never <i>je me habille</i>. <b>nous</b> and <b>vous</b> never elide — they just liaise: <i>nous nous‿habillons</i> = noo noo zah-bee-YOHN.");
+
+h3("The four verbs from the board");
+rows([
+ ["Je me lève à sept heures.","zhuh muh LEV ah set UR","I get up at seven."],
+ ["Je me lave le matin.","zhuh muh LAHV luh mah-TAN","I wash in the morning."],
+ ["Je m'habille après.","zhuh mah-BEEY ah-PREH","I get dressed afterwards."],
+ ["Je me couche à vingt-trois heures.","zhuh muh KOOSH ah van-trwah-ZUR","I go to bed at 11 p.m."]
+]);
+
+h3("SE LEVER — full conjugation");
+table(["Sujet","Forme","Prononciation"],[
+ ["je","je me l<b>è</b>ve","zhuh muh LEV"],
+ ["tu","tu te l<b>è</b>ves","tew tuh LEV"],
+ ["il / elle","il se l<b>è</b>ve","eel suh LEV"],
+ ["nous","nous nous l<b>e</b>vons","noo noo luh-VOHN"],
+ ["vous","vous vous l<b>e</b>vez","voo voo luh-VAY"],
+ ["ils / elles","ils se l<b>è</b>vent","eel suh LEV"]
+]);
+ex("<b>The accent rule.</b> <i>Se lever</i> takes <b>è</b> when the ending is silent, and plain <b>e</b> when you can hear the ending. So four forms have the accent and only <i>nous levons</i> / <i>vous levez</i> don't. Same pattern in <i>acheter</i> (j'ach<b>è</b>te) and <i>préférer</i> (je préf<b>è</b>re).");
+note("<i>Se laver</i>, <i>s'habiller</i> and <i>se coucher</i> are completely regular — no accent changes. <i>Se lever</i> is the only awkward one in today's set.");
+
+h3("SE LAVER · S'HABILLER · SE COUCHER");
+table(["Sujet","se laver","s'habiller","se coucher"],[
+ ["je","me lave","m'habille","me couche"],
+ ["tu","te laves","t'habilles","te couches"],
+ ["il / elle","se lave","s'habille","se couche"],
+ ["nous","nous lavons","nous habillons","nous couchons"],
+ ["vous","vous lavez","vous habillez","vous couchez"],
+ ["ils / elles","se lavent","s'habillent","se couchent"]
+]);
+warn("Four of the six forms sound identical in each column, because <b>-e, -es, -ent are all silent</b>: <i>lave / laves / lave / lavent</i> are all \"LAHV\". Only <b>nous</b> and <b>vous</b> sound different. The pronoun in front is what tells a listener who you mean — which is exactly why it can never be dropped.");
+
+/* ===== 6 · lever vs se lever ===== */
+h2("6 · The trap — with or without the pronoun");
+lead("Remove the little pronoun and the verb means something else entirely: you're doing it to <i>something</i>, not to yourself.");
+table(["Sans pronom","Avec pronom"],[
+ ["Je <b>lève</b> la main. — I raise my hand.","Je <b>me lève</b>. — I get up."],
+ ["Je <b>lave</b> la voiture. — I wash the car.","Je <b>me lave</b>. — I wash (myself)."],
+ ["J'<b>habille</b> le bébé. — I dress the baby.","Je <b>m'habille</b>. — I get dressed."],
+ ["Je <b>couche</b> le bébé. — I put the baby to bed.","Je <b>me couche</b>. — I go to bed."],
+ ["Je <b>promène</b> le chien. — I walk the dog.","Je <b>me promène</b>. — I go for a walk."],
+ ["Je <b>réveille</b> mon frère. — I wake my brother.","Je <b>me réveille</b>. — I wake up."]
+]);
+ex("<b>The test:</b> ask \"who receives the action?\" If the answer is <i>me, myself</i> → use the pronoun. If it's someone or something else → drop it and name the object.");
+rows([
+ ["Je me réveille, puis je réveille mon frère.","zhuh muh ray-VAY, pwee zhuh ray-VAY mohn FREHR","I wake up, then I wake my brother."],
+ ["Elle se lave, puis elle lave la voiture.","ell suh LAHV, pwee zell lahv lah vwah-TEWR","She washes, then she washes the car."]
+]);
+
+h3("Négation — where do the two little words go?");
+ex("<b>ne + pronom + verbe + pas.</b> The <i>ne</i> goes in front of the <u>pronoun</u>, not the verb.");
+rows([
+ ["Je ne me lève pas tôt.","zhuh nuh muh lev pah TOH","I don't get up early."],
+ ["Il ne se couche pas tard.","eel nuh suh koosh pah TAR","He doesn't go to bed late."],
+ ["Nous ne nous levons pas à six heures.","noo nuh noo luh-vohn pah zah see ZUR","We don't get up at six."],
+ ["Je ne m'habille pas avant le petit-déjeuner.","zhuh nuh mah-beey pah zah-vahn luh puh-tee-day-zhuh-NAY","I don't get dressed before breakfast."]
+]);
+warn("Common error: <s>Je me ne lève pas.</s> The <b>ne</b> always comes first. Think of it as wrapping the whole block <i>me lève</i>, not just the verb.");
+
+h3("Poser une question");
+table(["Registre","Exemple","Prononciation"],[
+ ["Intonation","Tu te lèves à quelle heure ?","tew tuh lev ah kell UR"],
+ ["Est-ce que","Est-ce que tu te lèves tôt ?","ess-kuh tew tuh lev TOH"],
+ ["Inversion","À quelle heure te lèves-tu ?","ah kell ur tuh lev TEW"]
+]);
+note("In the inverted form the reflexive pronoun stays glued in front of the verb and only the <i>subject</i> jumps behind: <i>te lèves-tu</i>, never <i>lèves-tu te</i>.");
+
+/* ===== 7 · Routine vocabulary ===== */
+h2("7 · Toute la journée — the full routine");
+lead("Beyond the four verbs on the handout. These are the ones you need to describe a whole day.");
+
+h3("Le matin");
+rows([
+ ["se réveiller","suh ray-vay-YAY","to wake up"],
+ ["se lever","suh luh-VAY","to get up"],
+ ["se laver","suh lah-VAY","to wash"],
+ ["se doucher / prendre une douche","suh doo-SHAY / prahn-druh ewn DOOSH","to shower / take a shower"],
+ ["se brosser les dents","suh broh-SAY lay DAHN","to brush one's teeth"],
+ ["se raser","suh rah-ZAY","to shave"],
+ ["se coiffer","suh kwah-FAY","to do one's hair"],
+ ["s'habiller","sah-bee-YAY","to get dressed"],
+ ["prendre le petit-déjeuner","prahn-druh luh puh-tee-day-zhuh-NAY","to have breakfast"]
+]);
+
+h3("La journée");
+rows([
+ ["aller au travail","ah-lay oh trah-VYE","to go to work"],
+ ["se dépêcher","suh day-peh-SHAY","to hurry"],
+ ["déjeuner","day-zhuh-NAY","to have lunch"],
+ ["se reposer","suh ruh-poh-ZAY","to rest"],
+ ["se promener","suh prom-NAY","to go for a walk"],
+ ["rentrer à la maison","rahn-tray ah lah may-ZOHN","to go home"]
+]);
+
+h3("Le soir");
+rows([
+ ["dîner","dee-NAY","to have dinner"],
+ ["se détendre","suh day-TAHN-druh","to relax"],
+ ["se déshabiller","suh day-zah-bee-YAY","to get undressed"],
+ ["se coucher","suh koo-SHAY","to go to bed"],
+ ["s'endormir","sahn-dor-MEER","to fall asleep"]
+]);
+
+h3("Les mots du temps");
+grid([["d'abord","dah-BOR"],["puis","pwee"],["ensuite","ahn-SWEET"],["après","ah-PREH"],["enfin","ahn-FAN"],["tôt","toh"],["tard","tar"],["toujours","too-ZHOOR"],["souvent","soo-VAHN"],["parfois","par-FWAH"],["jamais","zhah-MEH"],["tous les jours","too lay ZHOOR"]]);
+note("<b>Sequencing words are free marks.</b> Stringing five sentences together with <i>d'abord… puis… ensuite… après… enfin</i> turns a list into a paragraph, and examiners notice the difference immediately.");
+
+h3("Dire l'heure");
+rows([
+ ["à sept heures","ah set UR","at seven o'clock"],
+ ["à huit heures et quart","ah wee-TUR ay KAR","at quarter past eight"],
+ ["à midi et demi","ah mee-DEE ay duh-MEE","at half past twelve"],
+ ["à six heures moins le quart","ah see-zur mwan luh KAR","at quarter to six"],
+ ["à vingt-trois heures","ah van-trwah-ZUR","at 11 p.m. (23:00)"]
+]);
+warn("<b>heures</b> is never optional. <i>Je me lève à sept</i> is not French — it must be <i>à sept <u>heures</u></i>. And listen to the liaisons: <i>huit‿heures</i> = wee-TUR, <i>six‿heures</i> = see-ZUR, <i>neuf‿heures</i> = nuh-VUR (the f becomes a v — only before <i>heures</i> and <i>ans</i>).");
+
+/* ===== 8 · Parallel text + practice ===== */
+h2("8 · Texte parallèle — Ma journée");
+lead("An original text written for this page, using only today's grammar. Read it aloud, then answer from memory.");
+ex("<b>Une journée ordinaire</b><br><br>D'abord, je me réveille à six heures et demie, mais je ne me lève pas tout de suite. Je reste dix minutes au lit.<br><br>Puis je me lève, je me douche et je me brosse les dents. Ensuite je m'habille et je prends mon petit-déjeuner avec ma famille.<br><br>À huit heures, je vais au travail. Je travaille dans l'informatique : je répare les ordinateurs quand ils ne marchent pas. Mes collègues se lèvent tôt aussi — nous nous retrouvons au bureau à neuf heures.<br><br>Le soir, je rentre à la maison, je dîne et je me détends. Je regarde un film ou j'écoute de la musique indienne.<br><br>Enfin, je me couche à vingt-trois heures. Le week-end, je ne me lève pas tôt — je me lève à dix heures !");
+
+h3("Glossaire du texte");
+rows([
+ ["D'abord, je me réveille à six heures et demie.","dah-BOR, zhuh muh ray-VAY ah see-zur ay duh-MEE","First, I wake up at half past six."],
+ ["mais je ne me lève pas tout de suite","meh zhuh nuh muh lev pah too duh SWEET","but I don't get up right away"],
+ ["Je reste dix minutes au lit.","zhuh rest dee mee-NEWT oh LEE","I stay in bed ten minutes."],
+ ["je me douche et je me brosse les dents","zhuh muh DOOSH ay zhuh muh bross lay DAHN","I shower and brush my teeth"],
+ ["Ensuite je m'habille.","ahn-SWEET zhuh mah-BEEY","Then I get dressed."],
+ ["je prends mon petit-déjeuner","zhuh prahn mohn puh-tee-day-zhuh-NAY","I have my breakfast"],
+ ["Mes collègues se lèvent tôt aussi.","may koh-LEG suh lev toh oh-SEE","My colleagues get up early too."],
+ ["nous nous retrouvons au bureau","noo noo ruh-troo-VOHN oh bew-ROH","we meet up at the office"],
+ ["je rentre à la maison","zhuh RAHN-truh ah lah may-ZOHN","I go home"],
+ ["je dîne et je me détends","zhuh deen ay zhuh muh day-TAHN","I have dinner and relax"],
+ ["Enfin, je me couche à vingt-trois heures.","ahn-FAN, zhuh muh koosh ah van-trwah-ZUR","Finally, I go to bed at 11 p.m."]
+]);
+
+h3("Compréhension");
+mcq([
+ {q:"À quelle heure se réveille-t-il ?", opts:["À six heures","À six heures et demie","À sept heures"], a:1, why:"« je me réveille à six heures et demie » = 6:30."},
+ {q:"Se lève-t-il tout de suite ?", opts:["Oui","Non, il reste dix minutes au lit","Non, il se rendort"], a:1, why:"« je ne me lève pas tout de suite. Je reste dix minutes au lit. »"},
+ {q:"Que fait-il après la douche ?", opts:["Il s'habille","Il se brosse les dents puis il s'habille","Il va au travail"], a:1, why:"The order is: se doucher → se brosser les dents → s'habiller → petit-déjeuner."},
+ {q:"À quelle heure se couche-t-il ?", opts:["À 21 h","À 22 h","À 23 h"], a:2, why:"« je me couche à vingt-trois heures » = 23:00 = 11 p.m."},
+ {q:"Et le week-end ?", opts:["Il se lève à six heures","Il se lève à dix heures","Il ne se couche pas"], a:1, why:"« Le week-end, je ne me lève pas tôt — je me lève à dix heures ! »"}
+]);
+
+h3("Repérez la grammaire");
+note("Find these in the text:<br>· <b>Nine pronominal verbs</b> — se réveiller, se lever, se doucher, se brosser, s'habiller, se lever (again), se retrouver, se détendre, se coucher.<br>· <b>Two elisions</b> — <i>je m'habille</i> and <i>ils ne marchent pas</i>… (the second isn't one — check: only <i>m'habille</i> elides).<br>· <b>Two negations wrapping a pronoun</b> — <i>je <u>ne</u> me lève <u>pas</u></i>, twice.<br>· <b>A « nous nous »</b> — <i>nous nous retrouvons</i>.<br>· <b>Five sequencing words</b> — d'abord, puis, ensuite, le soir, enfin.<br>· <b>Three liaisons with heures</b> — six‿heures, huit‿heures, neuf‿heures.");
+
+h3("Exercice 4 — Complétez avec le bon pronom");
+lead("The handout's own exercise. Word bank: <b>me — te — se — nous — vous</b>. Two of these need an apostrophe.");
+fill([
+ {s:"1. Je ______ lève à 7 heures.", a:["me"], en:"I get up at 7.", why:"je → me."},
+ {s:"2. Tu ______ laves le matin.", a:["te"], en:"You wash in the morning.", why:"tu → te."},
+ {s:"3. Elle ______ habille rapidement.", a:["s'","s"], en:"She gets dressed quickly.", why:"⚠ elle → se, but <i>habille</i> begins with a silent h, so it elides to <b>s'</b>."},
+ {s:"4. Nous ______ couchons à 22h30.", a:["nous"], en:"We go to bed at 10:30 p.m.", why:"nous → nous. Never elides."},
+ {s:"5. Vous ______ levez tôt.", a:["vous"], en:"You get up early.", why:"vous → vous. Never elides."},
+ {s:"6. Ils ______ lavent après le sport.", a:["se"], en:"They wash after sport.", why:"ils → se, and <i>lavent</i> starts with a consonant, so no elision."},
+ {s:"7. Je ______ couche tard.", a:["me"], en:"I go to bed late.", why:"je → me."},
+ {s:"8. Tu ______ habilles après la douche.", a:["t'","t"], en:"You get dressed after your shower.", why:"⚠ tu → te, but <i>habilles</i> begins with a silent h, so it elides to <b>t'</b>."}
+]);
+warn("<b>Items 3 and 8 are the trap.</b> Both use <i>s'habiller</i>, and both need the apostrophe. <i>se habille</i> and <i>te habilles</i> are the errors this exercise exists to catch. <b>me / te / se</b> elide before a vowel or silent h; <b>nous / vous</b> never do.");
+
+h3("Exercice 5 — le vocabulaire de la fiche");
+lead("The teacher's own word list, with pronunciation added.");
+rows([
+ ["se laver","suh lah-VAY","to wash"],
+ ["se doucher","suh doo-SHAY","to shower"],
+ ["s'habiller","sah-bee-YAY","to get dressed"],
+ ["se brosser les dents","suh broh-SAY lay DAHN","to brush one's teeth"],
+ ["se préparer","suh pray-pah-RAY","to get ready"],
+ ["se coucher","suh koo-SHAY","to go to bed"],
+ ["le matin","luh mah-TAN","in the morning"],
+ ["l'après-midi","lah-preh-mee-DEE","in the afternoon"],
+ ["le soir","luh SWAHR","in the evening"],
+ ["tôt","toh","early"],
+ ["tard","tar","late"]
+]);
+note("<b>le matin / le soir with « le » means \"every morning / every evening\"</b> — a habit, not one particular day. <i>Je me lave <u>le</u> matin</i> = I wash in the mornings, as a rule. Drop the article (<i>ce matin</i>) and you mean this morning specifically.");
+
+h3("Exercice 6 — conjuguez");
+fill([
+ {s:"1. Je ______ (se lever) à sept heures.", a:["me lève","me leve"], en:"I get up at seven.", why:"je + me + lève, with the accent because the ending is silent."},
+ {s:"2. Tu ______ (s'habiller) vite.", a:["t'habilles","t habilles"], en:"You get dressed quickly.", why:"te → t' before the vowel of habilles."},
+ {s:"3. Elle ______ (se coucher) tard.", a:["se couche"], en:"She goes to bed late.", why:"elle + se + couche."},
+ {s:"4. Nous ______ (se lever) à six heures.", a:["nous levons"], en:"We get up at six.", why:"nous nous levons — no accent, because you hear the -ons."},
+ {s:"5. Vous ______ (se reposer) le dimanche ?", a:["vous reposez"], en:"Do you rest on Sundays?", why:"vous vous reposez."},
+ {s:"6. Ils ______ (se réveiller) tôt.", a:["se réveillent","se reveillent"], en:"They wake up early.", why:"ils se réveillent — the -ent is silent."}
+]);
+
+h3("Exercice 7 — avec ou sans pronom ?");
+mcq([
+ {q:"Le matin, je ______ à sept heures.", opts:["lève","me lève","me lève la main"], a:1, why:"You're getting yourself up → the pronoun is needed."},
+ {q:"En classe, je ______ la main pour répondre.", opts:["me lève","lève","me lève la"], a:1, why:"You're raising your hand — an object — so no reflexive pronoun."},
+ {q:"Le samedi, je ______ la voiture.", opts:["me lave","lave","me lave la"], a:1, why:"The car receives the action, not you."},
+ {q:"Avant de sortir, je ______.", opts:["habille","m'habille","habille moi"], a:1, why:"You dress yourself → je m'habille."},
+ {q:"Ma mère ______ le bébé à vingt heures.", opts:["se couche","couche","couche se"], a:1, why:"She puts the baby to bed — the baby is the object."}
+]);
+
+h3("Exercice 8 — mettez à la forme négative");
+fill([
+ {s:"Je me lève tôt. → ______", a:["je ne me lève pas tôt","je ne me leve pas tot","je ne me lève pas tôt."], en:"I don't get up early.", why:"ne goes in front of the pronoun: ne + me + lève + pas."},
+ {s:"Il se couche tard. → ______", a:["il ne se couche pas tard","il ne se couche pas tard."], en:"He doesn't go to bed late.", why:"ne + se + couche + pas."},
+ {s:"Nous nous levons à cinq heures. → ______", a:["nous ne nous levons pas à cinq heures","nous ne nous levons pas a cinq heures"], en:"We don't get up at five.", why:"ne + nous + levons + pas — the ne slips in between the two « nous »."}
+]);
+
+h3("Exercice 7 — quel + routine (les deux parties ensemble)");
+lead("The handout's own combining exercise: <b>quel, quelle, quels ou quelles</b> in front of a routine question.");
+fill([
+ {s:"1. ______ heure tu te lèves ?", a:["quelle"], en:"What time do you get up?", why:"<i>heure</i> is feminine singular."},
+ {s:"2. ______ activité tu fais le matin ?", a:["quelle"], en:"What do you do in the morning?", why:"<i>activité</i> is feminine singular (-té)."},
+ {s:"3. ______ jours tu te lèves tôt ?", a:["quels"], en:"Which days do you get up early?", why:"<i>jours</i> is masculine plural — the only plural in this exercise."},
+ {s:"4. ______ heure tu te couches ?", a:["quelle"], en:"What time do you go to bed?", why:"<i>heure</i> is feminine singular."},
+ {s:"5. ______ activités tu fais après les cours ?", a:["quelles"], en:"What do you do after class?", why:"<i>activités</i> is feminine plural."},
+ {s:"6. ______ loisir tu fais le week-end ?", a:["quel"], en:"What hobby do you do at the weekend?", why:"<i>loisir</i> is masculine singular."}
+]);
+note("In natural French, 1 and 4 take a preposition: <b>À quelle heure tu te lèves ?</b> (ah kell UR tew tuh LEV). The worksheet drops the <i>à</i> to keep the focus on the agreement, but put it back when you speak — and note that the agreement doesn't change a thing after a preposition.");
+
+h3("Exercice 8 — Interview : vos réponses");
+lead("Answers built from your own routine. Say them aloud before you read the English.");
+rows([
+ ["À quelle heure tu te lèves ? — Je me lève à six heures et demie.","ah kell UR tew tuh LEV — zhuh muh LEV ah see-zur ay duh-MEE","What time do you get up? — I get up at half past six."],
+ ["Quelle activité tu fais le matin ? — Je me douche et je prends mon petit-déjeuner.","zhuh muh DOOSH ay zhuh prahn mohn puh-tee-day-zhuh-NAY","What do you do in the morning? — I shower and have breakfast."],
+ ["Quels jours tu te lèves tôt ? — Du lundi au vendredi.","dew luhn-DEE oh vahn-druh-DEE","Which days do you get up early? — Monday to Friday."],
+ ["À quelle heure tu te couches ? — Je me couche à vingt-trois heures.","zhuh muh KOOSH ah van-trwah-ZUR","What time do you go to bed? — I go to bed at 11 p.m."],
+ ["Quelles activités tu fais après les cours ? — Je regarde un film ou j'écoute de la musique.","zhuh ruh-GARD uhn FEELM oo zhay-KOOT duh lah mew-ZEEK","What do you do after class? — I watch a film or listen to music."],
+ ["Quel loisir tu fais le week-end ? — Je joue au cricket avec mes amis.","zhuh zhoo oh kree-KET ah-vek may zah-MEE","What hobby do you do at the weekend? — I play cricket with my friends."]
+]);
+ex("<b>Why this exercise is the point of the whole lesson.</b> Every question here needs <u>both</u> of today's topics at once: <i>quel</i> agreeing with its noun, and a pronominal verb with the right pronoun. <i>Quelle heure tu <b>te</b> lèves ?</i> — get either half wrong and the sentence breaks. Practise these six until they come out whole.");
+
+h3("À vous — écrivez votre journée");
+ex("Write eight sentences about your own day. Requirements — tick them off:<br>☐ start with <b>D'abord</b> and finish with <b>Enfin</b><br>☐ use at least <b>five</b> different pronominal verbs<br>☐ give <b>three</b> times with <i>à … heures</i><br>☐ include one <b>negative</b> (<i>je ne me lève pas…</i>)<br>☐ include one non-reflexive contrast (<i>je lave la voiture</i>, <i>je réveille mon frère</i>)<br>☐ end with what's different <b>le week-end</b><br><br>Then read it aloud. If you can say it as fluently as you can read it, today's lesson is done.");
+/* ===== 7. Quiz ===== */
+const h7 = document.createElement('h2'); h7.textContent = "9 · Quick quiz"; content.appendChild(h7);
+const quizBox = document.createElement('div'); quizBox.className='quizbox';
+quizBox.innerHTML = '<p class="lead" style="margin:0 0 8px;">Multiple-choice, mixing today\'s vocab.</p>';
+const quizBtn = document.createElement('button'); quizBtn.className='quizbtn'; quizBtn.textContent='▶ Start quiz';
+const quizArea = document.createElement('div'); quizArea.className='quizarea';
+quizBox.appendChild(quizBtn); quizBox.appendChild(quizArea);
+content.appendChild(quizBox);
+
+function shuffleArr(a){ const b=[...a]; for(let i=b.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [b[i],b[j]]=[b[j],b[i]]; } return b; }
+function runQuiz(pool, area, btn){
+  btn.style.display='none';
+  const qs = shuffleArr(pool).slice(0, Math.min(8, pool.length));
+  let i = 0, score = 0;
+  function showQ(){
+    area.innerHTML = '';
+    if (i >= qs.length) {
+      const res = document.createElement('div'); res.className='quizresult';
+      res.textContent = 'Score: '+score+' / '+qs.length;
+      const retry = document.createElement('button'); retry.className='quizretry'; retry.textContent='↻ Retry';
+      retry.onclick = ()=>{ btn.style.display='inline-block'; area.innerHTML=''; };
+      area.appendChild(res); area.appendChild(retry);
+      return;
+    }
+    const item = qs[i];
+    const wrongPool = pool.filter(p=>p.en!==item.en);
+    const opts = shuffleArr([item, ...shuffleArr(wrongPool).slice(0,3)]);
+    const prog = document.createElement('div'); prog.className='quizprog'; prog.textContent = 'Question '+(i+1)+' / '+qs.length;
+    const fr = document.createElement('div'); fr.className='quizfr'; fr.textContent = item.fr;
+    area.appendChild(prog); area.appendChild(fr);
+    opts.forEach(o=>{
+      const b = document.createElement('button'); b.className='quizopt'; b.textContent = o.en;
+      b.onclick = ()=>{
+        [...area.querySelectorAll('.quizopt')].forEach(x=>x.disabled=true);
+        if (o.en===item.en){ b.classList.add('correct'); score++; }
+        else { b.classList.add('wrong'); [...area.querySelectorAll('.quizopt')].find(x=>x.textContent===item.en).classList.add('correct'); }
+        setTimeout(()=>{ i++; showQ(); }, 900);
+      };
+      area.appendChild(b);
+    });
+  }
+  showQ();
+}
+quizBtn.onclick = ()=> runQuiz(GLOBAL_VOCAB, quizArea, quizBtn);
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+<script src="french_glossary.js"></script>
+</body>
+</html>

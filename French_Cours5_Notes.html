@@ -36,6 +36,49 @@
   .bigplay:active { transform:scale(.97); }
   .row.active { border-color:var(--accent); background:var(--accentbg); }
 </style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
+<style id="xp-style">
+  .xp h2 { font-size:18px; margin:26px 0 6px; padding-bottom:6px; border-bottom:2px solid #e6e3dc; color:#23201b; }
+  .xp h3 { font-size:15px; margin:16px 0 6px; color:#4338ca; }
+  .xp p.xp-lead { font-size:14px; color:#6b675f; margin:0 0 10px; }
+  .xp .xp-note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .xp .xp-ex { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .xp .xp-warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .xp .xp-row { display:flex; align-items:center; gap:12px; background:#fff; border:1px solid #e6e3dc; border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .xp .xp-play { flex:0 0 auto; width:38px; height:38px; border-radius:50%; border:1px solid #e6e3dc; background:#eceafe; color:#4338ca; font-size:15px; cursor:pointer; }
+  .xp .xp-txt { flex:1 1 auto; min-width:0; }
+  .xp .xp-fr { font-size:16px; font-weight:600; cursor:pointer; }
+  .xp .xp-fr:hover { color:#4338ca; }
+  .xp .xp-ph { font-size:13px; color:#0f7a54; font-style:italic; }
+  .xp .xp-en { font-size:13px; color:#6b675f; }
+  .xp table.xp-t { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .xp table.xp-t th, .xp table.xp-t td { border:1px solid #e6e3dc; padding:8px 10px; text-align:left; vertical-align:top; }
+  .xp table.xp-t th { background:#eceafe; color:#4338ca; }
+  .xp .xp-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .xp .xp-cell { background:#fff; border:1px solid #e6e3dc; border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .xp .xp-cell:hover { border-color:#4338ca; }
+  .xp .xp-cell b { display:block; font-size:14px; }
+  .xp .xp-cell i { font-size:11px; color:#0f7a54; font-style:italic; }
+  .xp .xp-fill { background:#fff; border:1px solid #e6e3dc; border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .xp .xp-fill .s { font-size:15px; margin-bottom:8px; }
+  .xp .xp-fill input { border:1px solid #e6e3dc; border-radius:8px; padding:6px 10px; font-size:14px; width:230px; }
+  .xp .xp-fill button { border:1px solid #4338ca; background:#4338ca; color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .xp .xp-fb { font-size:13px; margin-top:8px; }
+  .xp .xp-fb.ok { color:#155c37; } .xp .xp-fb.bad { color:#a33; }
+  .xp .xp-q { background:#fff; border:1px solid #e6e3dc; border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .xp .xp-q .prompt { font-size:15px; font-weight:600; margin-bottom:8px; }
+  .xp .xp-q .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .xp .xp-q .btns button { border:1px solid #e6e3dc; background:#fff; color:#23201b; border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .xp .xp-q .btns button:hover { border-color:#4338ca; }
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -67,15 +110,42 @@
     <a href="French_Cours21_Notes.html">Cours 21</a>
     <a href="French_Cours22_Notes.html">Cours 22</a>
     <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
     <a href="French_Conversations.html">Conversations</a>
     <a href="French_Dialogues.html">Dialogues</a>
     <a href="French_Full_Guide.html">Full Guide</a>
     <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
     <a href="French_Prof_Notes.html">Prof's Notes</a>
     <a href="French_Book_Audio.html">Book Audio</a>
     <a href="French_Audio_Library.html">Audio Library</a>
     <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
   </nav>
+
+<div class="whybox">
+  <h4><span>Pourquoi ça marche comme ça</span>Pourquoi le français compte par vingtaines</h4>
+  <p><i>Quatre-vingt-dix-sept</i> looks absurd until you see it as arithmetic: <b>(4×20) + 17</b>.<br><br>French inherited a <b>base-20</b> counting system — probably from Celtic, which counted in twenties — layered on top of the Latin base-10. Standard French kept the twenties only from 70 upwards; Belgian and Swiss French kept the tidier <i>septante</i>, <i>huitante</i>, <i>nonante</i>.<br><br>So there is no word for seventy, eighty or ninety at all. Know <i>soixante</i>, <i>quatre-vingt</i> and 0–19, and you already know every number to 99.</p>
+  <a class="more" href="French_Grammaire.html">Aller plus loin →</a>
+</div>
+
 
   <div class="bar">
     <span>Speed:</span>
@@ -108,6 +178,7 @@
   <button class="bigplay" id="playAll">▶ Play whole introduction template</button>
   <div id="tpllines"></div>
   <div class="note">Remember: age uses <b>avoir</b> (to have), not être — "I am 23" = <b>j'ai 23 ans</b> (literally "I have 23 years").</div>
+  <div class="xp" id="xpand"></div>
 </div>
 
 <script>
@@ -217,6 +288,209 @@ document.getElementById('speed').addEventListener('click',e=>{
   [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
   e.target.classList.add('on');
 });
+</script>
+<script>
+
+(function(){
+  var C = document.getElementById('xpand');
+  function sp(t){ try{ if(typeof speak==='function'){ speak(t); return; } }catch(e){}
+    try{ speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(String(t).replace(/_+/g,'')); u.lang='fr-FR';
+      var v=speechSynthesis.getVoices().find(function(x){return /^fr/i.test(x.lang);}); if(v)u.voice=v;
+      if(typeof rate!=='undefined') u.rate=rate; speechSynthesis.speak(u);}catch(e){} }
+  function el(tag,cls,html){ var e=document.createElement(tag); if(cls)e.className=cls; if(html!=null)e.innerHTML=html; return e; }
+  function h2(t){ C.appendChild(el('h2',null,t)); }
+  function h3(t){ C.appendChild(el('h3',null,t)); }
+  function lead(t){ C.appendChild(el('p','xp-lead',t)); }
+  function note(t){ C.appendChild(el('div','xp-note',t)); }
+  function ex(t){ C.appendChild(el('div','xp-ex',t)); }
+  function warn(t){ C.appendChild(el('div','xp-warn',t)); }
+  function rows(list){ list.forEach(function(r){
+    var fr=r[0], ph=r[1], en=r[2];
+    var row=el('div','xp-row');
+    var b=el('button','xp-play','&#9654;'); b.onclick=function(){sp(fr);};
+    var t=el('div','xp-txt');
+    var f=el('div','xp-fr'); f.textContent=fr; f.onclick=function(){sp(fr);};
+    t.appendChild(f);
+    if(ph){ var p=el('div','xp-ph'); p.textContent=ph; t.appendChild(p); }
+    if(en){ var e2=el('div','xp-en'); e2.textContent=en; t.appendChild(e2); }
+    row.appendChild(b); row.appendChild(t); C.appendChild(row);
+    try{ if(typeof GLOBAL_VOCAB!=='undefined') GLOBAL_VOCAB.push({fr:fr,en:en||''}); }catch(e){}
+  }); }
+  function grid(list){ var g=el('div','xp-grid');
+    list.forEach(function(r){ var c=el('div','xp-cell','<b></b><i></i>');
+      c.querySelector('b').textContent=r[0]; c.querySelector('i').textContent=r[1]||'';
+      c.onclick=function(){sp(r[0]);}; g.appendChild(c); });
+    C.appendChild(g); }
+  function table(head, body){ var t=el('table','xp-t');
+    var html='<tr>'; head.forEach(function(h){ html+='<th>'+h+'</th>'; }); html+='</tr>';
+    body.forEach(function(r){ html+='<tr>'; r.forEach(function(c){ html+='<td>'+c+'</td>'; }); html+='</tr>'; });
+    t.innerHTML=html; C.appendChild(t); }
+  function fill(items){ items.forEach(function(it){
+    var d=el('div','xp-fill'); d.appendChild(el('div','s',it.s));
+    var inp=document.createElement('input'); inp.placeholder='...';
+    var btn=document.createElement('button'); btn.textContent='Check';
+    var fb=el('div','xp-fb');
+    function chk(){ var v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      var ok=it.a.some(function(a){return a.toLowerCase()===v;});
+      if(ok){ fb.className='xp-fb ok'; fb.innerHTML='\u2713 '+it.a[0]+' \u2014 '+it.why; sp(it.a[0]); }
+      else { fb.className='xp-fb bad'; fb.innerHTML='\u2717 Answer: <b>'+it.a[0]+'</b> \u2014 '+it.why; } }
+    btn.onclick=chk; inp.addEventListener('keydown',function(e){ if(e.key==='Enter') chk(); });
+    var line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn); d.appendChild(line);
+    if(it.en){ var t=el('div','xp-en',''); t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb); C.appendChild(d); }); }
+  function mcq(items){ items.forEach(function(it){
+    var d=el('div','xp-q'); d.appendChild(el('div','prompt',it.q));
+    var b=el('div','btns'); var fb=el('div','xp-fb');
+    it.opts.forEach(function(o,i){ var btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=function(){ if(i===it.a){ fb.className='xp-fb ok'; fb.innerHTML='\u2713 '+o+' \u2014 '+it.why; sp(o); }
+        else { fb.className='xp-fb bad'; fb.innerHTML='\u2717 The answer is <b>'+it.opts[it.a]+'</b> \u2014 '+it.why; } };
+      b.appendChild(btn); });
+    d.appendChild(b); d.appendChild(fb); C.appendChild(d); }); }
+  h2("Deep dive — les nombres, les couleurs et Être");
+lead("Everything Cours 5 touched, taken apart properly: how French counts above 69, how colours agree, and the seven jobs the verb être does.");
+
+h2("1 · Les nombres 70–100 — pourquoi c'est étrange");
+ex("French counts in <b>twenties</b> above sixty — a leftover from an older counting system that survived in French but not in Spanish or Italian. Once you see the arithmetic, the words stop feeling random.");
+table(["Tranche","Le calcul","Modèle","Exemple"],[
+ ["70–79","60 + 10…19","soixante + <b>un nombre adolescent</b>","77 = soixante-dix-sept (60+17)"],
+ ["80–89","4 × 20 + 0…9","quatre-vingt + <b>unité</b>","85 = quatre-vingt-cinq"],
+ ["90–99","4 × 20 + 10…19","quatre-vingt + <b>un nombre adolescent</b>","96 = quatre-vingt-seize (80+16)"]
+]);
+ex("<b>So there is no separate word for seventy, eighty or ninety at all.</b> If you know <i>soixante</i>, <i>quatre-vingt</i> and your numbers 0–19, you already know every number up to 99. Nothing new to memorise — just recombining.");
+h3("70 → 79");
+grid([["70 soixante-dix","swah-sahnt-DEESS"],["71 soixante et onze","swah-sahnt ay OHNZ"],["72 soixante-douze","swah-sahnt-DOOZ"],["73 soixante-treize","swah-sahnt-TREZ"],["74 soixante-quatorze","swah-sahnt-kah-TORZ"],["75 soixante-quinze","swah-sahnt-KANZ"],["76 soixante-seize","swah-sahnt-SEZ"],["77 soixante-dix-sept","swah-sahnt-dee-SET"],["78 soixante-dix-huit","swah-sahnt-dee-ZWEET"],["79 soixante-dix-neuf","swah-sahnt-deez-NUF"]]);
+h3("80 → 100");
+grid([["80 quatre-vingts","kat-ruh-VAN"],["81 quatre-vingt-un","kat-ruh-van-UHN"],["82 quatre-vingt-deux","kat-ruh-van-DUH"],["85 quatre-vingt-cinq","kat-ruh-van-SANK"],["90 quatre-vingt-dix","kat-ruh-van-DEESS"],["91 quatre-vingt-onze","kat-ruh-van-OHNZ"],["95 quatre-vingt-quinze","kat-ruh-van-KANZ"],["96 quatre-vingt-seize","kat-ruh-van-SEZ"],["99 quatre-vingt-dix-neuf","kat-ruh-van-deez-NUF"],["100 cent","sahn"]]);
+warn("<b>Les deux règles d'orthographe</b><br><br><b>1. Le « et » n'apparaît qu'à 71.</b> Like 21, 31, 41, 51, 61 — <i>soixante <u>et</u> onze</i>. From 81 on it disappears: <i>quatre-vingt-un</i>, never \"quatre-vingt et un\".<br><br><b>2. Quatre-vingt<u>s</u> perd son -s.</b> Alone it's <i>quatre-vingt<b>s</b></i> (80). The moment another number follows, the -s goes: <i>quatre-vingt-deux</i>, <i>quatre-vingt-dix</i>.");
+h3("Les pièges à l'oreille");
+table(["","","Pourquoi ça trompe"],[
+ ["<b>62</b> soixante-deux","<b>72</b> soixante-douze","One syllable apart: DUH vs DOOZ."],
+ ["<b>82</b> quatre-vingt-deux","<b>92</b> quatre-vingt-douze","The same trap, higher up."],
+ ["<b>2</b> deux","<b>12</b> douze","The root of both confusions above."],
+ ["<b>3</b> trois","<b>13</b> treize","TRWAH vs TREZ."],
+ ["<b>6</b> six","<b>16</b> seize","SEESS vs SEZ."]
+]);
+note("These pairs are exactly where <b>money and times</b> go wrong. Mishearing <i>soixante-douze euros</i> as <i>soixante-deux</i> is a ten-euro mistake. Say each pair aloud back to back until the difference is automatic.");
+h3("Six, huit, dix — trois prononciations chacun");
+table(["Position","six","huit","dix"],[
+ ["Seul (counting)","<b>seess</b>","<b>weet</b>","<b>deess</b>"],
+ ["Devant une consonne","<b>see</b> livres","<b>wee</b> livres","<b>dee</b> livres"],
+ ["Devant une voyelle","<b>seez</b>⁀ans","<b>weet</b>⁀ans","<b>deez</b>⁀ans"]
+]);
+warn("This is why <i>huit heures</i> is <b>wee-TUR</b> and not \"weet-UHR\" — the final t links straight onto <i>heures</i>. Same with <i>dix<b>⁀</b>heures</i> = dee-ZUR and <i>six<b>⁀</b>heures</i> = see-ZUR.");
+
+h2("2 · Les couleurs — l'accord complet");
+lead("Colours are adjectives, so they agree. Three groups, and the third is the one that catches people.");
+h3("Groupe 1 — régulier : + e au féminin");
+table(["Masculin","Féminin","Masc. pluriel","Fém. pluriel"],[
+ ["vert","verte","verts","vertes"],
+ ["bleu","bleue","bleus","bleues"],
+ ["noir","noire","noirs","noires"],
+ ["gris","grise","gris","grises"],
+ ["violet","violette","violets","violettes"]
+]);
+note("<b>gris</b> already ends in -s, so the masculine plural doesn't change: <i>un pantalon gris</i>, <i>des pantalons gris</i>. And <b>violet</b> doubles the t: violet → violett<b>e</b>.");
+h3("Groupe 2 — déjà en -e : aucun changement au féminin");
+grid([["rouge","roozh"],["jaune","zhohn"],["rose","rohz"],["beige","bezh"],["orange*","oh-RAHNZH"]]);
+h3("Groupe 3 — invariables : ne changent jamais");
+warn("<b>marron</b> and <b>orange</b> come from nouns (a chestnut, an orange), so they <u>never</u> take -e or -s:<br>· les yeux <b>marron</b> — never <i>marrons</i><br>· des chaussures <b>marron</b><br>· des murs <b>orange</b><br><br>Writing <i>les yeux marrons</i> is a classic error, and a very visible one.");
+h3("Et l'irrégulier");
+rows([
+ ["blanc / blanche","blahn / BLAHNSH","white (m. / f.)"],
+ ["une chemise blanche","ewn shuh-MEEZ BLAHNSH","a white shirt"],
+ ["un mur blanc","uhn mewr BLAHN","a white wall"]
+]);
+h3("La position — après le nom");
+ex("Unlike English, the colour goes <b>after</b> the noun: <i>une voiture <b>rouge</b></i> = \"a car red\". Never <i>une rouge voiture</i>. This holds for nearly all colours, nearly all the time.");
+h3("Les nuances — et la règle qui surprend");
+rows([
+ ["bleu clair","bluh KLEHR","light blue"],
+ ["bleu foncé","bluh fohn-SAY","dark blue"],
+ ["vert clair / vert foncé","vehr KLEHR / vehr fohn-SAY","light green / dark green"]
+]);
+warn("When you add <b>clair</b> or <b>foncé</b>, the whole expression <u>freezes</u> — nothing agrees any more:<br>· une robe <b>bleu clair</b> (not <i>bleue claire</i>)<br>· des yeux <b>vert foncé</b> (not <i>verts foncés</i>)<br><br>Two words, zero agreement.");
+h3("Les couleurs en expression");
+rows([
+ ["Je vois la vie en rose.","zhuh vwah lah vee ahn ROHZ","I see life through rose-tinted glasses."],
+ ["Il a une peur bleue.","eel ah ewn pur BLUH","He's terrified. (lit. a blue fear)"],
+ ["donner le feu vert","doh-nay luh fuh VEHR","to give the green light"],
+ ["être rouge de honte","eh-truh roozh duh OHNT","to blush with shame"]
+]);
+
+h2("3 · Être — ses sept métiers");
+table(["Emploi","Exemple","Traduction"],[
+ ["Identité","Je <b>suis</b> Rajveer.","I am Rajveer."],
+ ["Nationalité","Je <b>suis</b> indien.","I am Indian."],
+ ["Profession","Je <b>suis</b> administrateur.","I am an administrator."],
+ ["Description","La maison <b>est</b> grande.","The house is big."],
+ ["État","Je <b>suis</b> fatigué.","I am tired."],
+ ["Lieu","Je <b>suis</b> à la maison.","I am at home."],
+ ["L'heure","Il <b>est</b> huit heures.","It is eight o'clock."]
+]);
+rows([
+ ["Je suis fatigué.","zhuh swee fah-tee-GAY","I'm tired. (m.)"],
+ ["Je suis fatiguée.","zhuh swee fah-tee-GAY","I'm tired. (f. — same sound)"],
+ ["Nous sommes contents.","noo sum kohn-TAHN","We're happy."],
+ ["Il est huit heures et demie.","eel eh wee-TUR ay duh-MEE","It's half past eight."]
+]);
+warn("<b>Adjectives after être agree with the subject.</b> <i>Je suis fatigué</i> if you're male, <i>fatiguée</i> if female — identical in sound, different on the page. <i>Nous sommes content<b>s</b></i> adds the plural -s. This is the first place agreement really bites, and it's silent almost every time, which is exactly what makes it easy to forget in writing.");
+
+h2("Exercices");
+h3("Exercice 1 — écrivez le nombre");
+fill([
+ {s:"soixante-quinze = ______", a:["75"], en:"Write the figure.", why:"60 + 15 = 75."},
+ {s:"quatre-vingt-dix-huit = ______", a:["98"], en:"Write the figure.", why:"(4×20) + 18 = 98."},
+ {s:"soixante et onze = ______", a:["71"], en:"Write the figure.", why:"60 + 11 = 71 — the only 70s number with « et »."},
+ {s:"quatre-vingt-treize = ______", a:["93"], en:"Write the figure.", why:"(4×20) + 13 = 93."},
+ {s:"quatre-vingts = ______", a:["80"], en:"Write the figure.", why:"4 × 20 = 80, with the -s because nothing follows."}
+]);
+h3("Exercice 2 — écrivez en lettres");
+fill([
+ {s:"88 = ______", a:["quatre-vingt-huit","quatre vingt huit"], en:"Write it in words.", why:"(4×20) + 8, and no -s on vingt because a number follows."},
+ {s:"79 = ______", a:["soixante-dix-neuf","soixante dix neuf"], en:"Write it in words.", why:"60 + 19."},
+ {s:"100 = ______", a:["cent"], en:"Write it in words.", why:"cent — said \"sahn\", and with no article: cent euros."}
+]);
+h3("Exercice 3 — accordez la couleur");
+fill([
+ {s:"une voiture ______ (vert)", a:["verte"], en:"a green car", why:"<i>voiture</i> is feminine → verte."},
+ {s:"des chaussettes ______ (blanc)", a:["blanches"], en:"white socks", why:"Feminine plural of the irregular blanc → blanches."},
+ {s:"les yeux ______ (marron)", a:["marron"], en:"brown eyes", why:"<b>marron is invariable</b> — no -s even though <i>yeux</i> is plural."},
+ {s:"une chemise ______ ______ (bleu clair)", a:["bleu clair"], en:"a light blue shirt", why:"With <i>clair</i> added, nothing agrees: bleu clair, not bleue claire."},
+ {s:"des murs ______ (gris)", a:["gris"], en:"grey walls", why:"<i>gris</i> already ends in -s: no change in the masculine plural."}
+]);
+h3("Exercice 4 — Être : quel emploi ?");
+mcq([
+ {q:"« Il est midi. » — quel emploi d'être ?", opts:["L'heure","Le lieu","La profession"], a:0, why:"Telling the time — and note the dummy <i>il</i>, which refers to nothing."},
+ {q:"« Je suis à la maison. »", opts:["L'état","Le lieu","L'identité"], a:1, why:"Être + a place = location."},
+ {q:"« Elle est infirmière. »", opts:["La description","La profession","La nationalité"], a:1, why:"A job — and no article, which is the giveaway."},
+ {q:"« Nous sommes fatigués. »", opts:["L'état","Le lieu","L'heure"], a:0, why:"A temporary state — and the adjective agrees: fatigué<b>s</b>."}
+]);
+
+h2("Texte parallèle — Mon appartement en couleurs");
+ex("<b>Chez moi</b><br><br>Mon appartement est petit mais il est très joli. Il fait soixante-quinze mètres carrés. Dans le salon, les murs sont blancs et le canapé est bleu foncé. Il y a aussi deux fauteuils verts et un tapis orange.<br><br>Ma chambre est jaune clair — c'est ma couleur préférée. La cuisine est grise et rouge. Les rideaux sont marron.<br><br>Le loyer est de quatre-vingt-quinze euros par semaine, charges comprises. C'est un bon prix ! Je suis vraiment content ici.");
+h3("Glossaire du texte");
+rows([
+ ["Il fait soixante-quinze mètres carrés.","eel feh swah-sahnt-kanz meh-truh kah-RAY","It's seventy-five square metres."],
+ ["les murs sont blancs","lay mewr sohn BLAHN","the walls are white"],
+ ["le canapé est bleu foncé","luh kah-nah-PAY eh bluh fohn-SAY","the sofa is dark blue"],
+ ["deux fauteuils verts","duh foh-TUY VEHR","two green armchairs"],
+ ["un tapis orange","uhn tah-PEE oh-RAHNZH","an orange rug"],
+ ["Les rideaux sont marron.","lay ree-DOH sohn mah-ROHN","The curtains are brown."],
+ ["quatre-vingt-quinze euros par semaine","kat-ruh-van-kanz uh-roh par suh-MEN","ninety-five euros a week"],
+ ["charges comprises","sharzh kohm-PREEZ","bills included"]
+]);
+h3("Compréhension");
+mcq([
+ {q:"Combien de mètres carrés fait l'appartement ?", opts:["65","75","95"], a:1, why:"« soixante-quinze » = 60 + 15 = 75. (95 is the rent.)"},
+ {q:"De quelle couleur est le canapé ?", opts:["Bleu clair","Bleu foncé","Vert"], a:1, why:"« le canapé est bleu foncé »."},
+ {q:"Quel est le loyer ?", opts:["85 € par semaine","95 € par semaine","75 € par semaine"], a:1, why:"« quatre-vingt-quinze » = (4×20) + 15 = 95."},
+ {q:"Quelle est sa couleur préférée ?", opts:["Le bleu","Le jaune","L'orange"], a:1, why:"« Ma chambre est jaune clair — c'est ma couleur préférée. »"}
+]);
+note("<b>Repérez la grammaire :</b><br>· <b>Un accord irrégulier</b> — <i>les murs sont <b>blancs</b></i><br>· <b>Un pluriel régulier</b> — <i>deux fauteuils <b>verts</b></i><br>· <b>Deux couleurs invariables</b> — <i>un tapis <b>orange</b></i>, <i>les rideaux sont <b>marron</b></i> (no -s!)<br>· <b>Deux nuances figées</b> — <i>bleu foncé</i>, <i>jaune clair</i>: neither agrees<br>· <b>Deux nombres à calculer</b> — soixante-quinze (75) et quatre-vingt-quinze (95)<br>· <b>Être six fois</b> — count them and name the job each one is doing");
+ex("<b>À vous —</b> describe your own place in six sentences. Give the size in m², name three colours (include one <u>invariable</u> and one <u>shade</u> with clair or foncé), give a price, and finish with how you feel about it using <i>je suis</i>.");
+
+})();
+
 </script>
 <script src="french_glossary.js"></script>
 </body>
