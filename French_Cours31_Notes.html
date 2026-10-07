@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 31 — En ville : décrire, comparer, demander son chemin</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+</style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1><h1>French — Cours 31: En ville — décrire, comparer et demander son chemin</h1></h1>
+  <p class="sub">The Language SKOOL · Fiche de cours A1 — la place des adjectifs, le verbe prendre, la comparaison, le vocabulaire de la ville et les directions</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Cours21_Notes.html">Cours 21</a>
+    <a href="French_Cours22_Notes.html">Cours 22</a>
+    <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
+    <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_Cours30_Notes.html">Cours 30</a><a href="French_Cours31_Notes.html" class="active">Cours 31</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
+  </nav>
+
+<div class="whybox">
+  <h4><span>Pourquoi ça marche comme ça</span>Pourquoi « il » ne veut rien dire dans « il pleut »</h4>
+  <p>Nobody is raining. The <b>il</b> in <i>il pleut</i> and <i>il fait froid</i> refers to nothing at all — it is an empty placeholder, exactly like the "it" in English "it's raining".<br><br>French requires every sentence to have a subject, so when there is no real one, it supplies a dummy. That is also why the <i>il</i> never becomes <i>elle</i>, and why you never see <i>fait chaud</i> standing alone.<br><br>Same mechanism in <b>il y a</b> and <b>il faut</b> — two more phrases where <i>il</i> is holding a seat for nobody.</p>
+  <a class="more" href="French_Grammaire.html">Aller plus loin →</a>
+</div>
+
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').textContent=fr; c.querySelector('.ph').textContent=ph;
+    c.onclick=()=>speak(fr); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+function fillx(list){ fill(list.map(x=>({s:x[0], a:[x[1]], en:x[2]||'', why:x[3]||('Réponse : <b>'+x[1]+'</b>')}))); }
+function mcqx(list){ mcq(list.map(x=>({q:x[0], opts:x[1], a:x[2], why:x[3]||''}))); }
+src("<b>Source :</b> <i>CHAPITRE — En ville : Décrire, comparer et demander son chemin</i>, The Language SKOOL (cours en direct du 5 octobre 2026). Toutes les sections du document suivies en classe, avec les explications, les exemples supplémentaires et les exercices ajoutés.");
+/* ===== 1 ===== */
+h2('1 · Objectifs du cours');
+ex("<b>À la fin de ce chapitre, je peux :</b><br>· placer correctement les <b>adjectifs</b><br>· utiliser le verbe <b>prendre</b> au présent<br>· comparer deux personnes ou deux choses avec <b>plus de / moins de</b> et <b>plus … que / moins … que</b><br>· parler de <b>la ville</b><br>· demander et donner des <b>directions</b>");
+lead("Ce cours réunit quatre choses qui vont ensemble dès qu'on décrit un endroit : les adjectifs pour dire comment il est, <b>prendre</b> pour dire comment on s'y rend, la comparaison pour le situer par rapport à autre chose, et les directions pour y arriver.");
+
+h2('2 · La place des adjectifs');
+lead("En français, l'adjectif se place <b>généralement après le nom</b>. C'est l'inverse de l'anglais, et c'est la première chose à reprogrammer.");
+note("<b>NOM + ADJECTIF</b> — c'est l'ordre par défaut. <i>une voiture rouge</i>, pas <i>une rouge voiture</i>.");
+rows([
+ ["une voiture rouge","ewn vwah-tewr ROOZH","a red car"],
+ ["une maison grande","ewn may-zohn GRAHND","a big house"],
+ ["un restaurant italien","uhn res-toh-rahn ee-tah-LYAN","an Italian restaurant"],
+ ["une rue calme","ewn rew KALM","a quiet street"],
+ ["un quartier moderne","uhn kar-tyay moh-DEHRN","a modern neighbourhood"]
+]);
+h3('Exemples en phrase');
+rows([
+ ["J'habite dans une maison grande.","zhah-beet dahn zewn may-zohn GRAHND","I live in a big house."],
+ ["C'est un restaurant italien.","say tuhn res-toh-rahn ee-tah-LYAN","It's an Italian restaurant."],
+ ["Il y a une rue calme près de chez moi.","eel yah ewn rew kalm pray duh shay MWAH","There's a quiet street near my place."]
+]);
+warn("<b>Note du prof — et une précision.</b> Le professeur a écrit <i>une maison <b>grande</b></i> pour illustrer la règle générale. C'est grammaticalement possible et ça insiste sur la taille, mais <b>grand</b> fait partie des quelques adjectifs qui se placent <u>normalement avant</u> le nom : en français courant on dit <b>une grande maison</b>. La section suivante donne la liste.");
+
+h2('3 · Les adjectifs qui passent AVANT le nom');
+lead("Certains adjectifs très fréquents se placent souvent <b>avant le nom</b>. Ce sont toujours les mêmes, et ils sont courts.");
+grid([
+ ["petit / grand","un <b>petit</b> appartement · une <b>grande</b> maison"],
+ ["jeune / vieux","un <b>jeune</b> homme · une <b>vieille</b> ville"],
+ ["beau / joli","une <b>belle</b> ville · un <b>joli</b> parc"],
+ ["nouveau","un <b>nouvel</b> appartement · une <b>nouvelle</b> maison"],
+ ["bon / mauvais","un <b>bon</b> restaurant · un <b>mauvais</b> quartier"]
+]);
+ex("<b>Le moyen mnémotechnique anglophone : BAGS.</b><br>· <b>B</b>eauty — <i>beau, joli</i><br>· <b>A</b>ge — <i>jeune, vieux, nouveau</i><br>· <b>G</b>oodness — <i>bon, mauvais</i><br>· <b>S</b>ize — <i>petit, grand, gros, long</i><br><br>Tout ce qui est <b>BAGS</b> passe devant. Tout le reste — couleur, nationalité, forme, matière, caractère — reste derrière.");
+note("<b>Pourquoi ces adjectifs-là ?</b> Ce sont les plus anciens, les plus courts et les plus utilisés de la langue. Une langue protège toujours ses mots les plus fréquents du changement — c'est pour ça que l'anglais garde <i>feet</i> et <i>mice</i> au lieu de <i>foots</i> et <i>mouses</i>. Mêmes causes, mêmes effets.");
+h3('Le cas BEAU / NOUVEAU / VIEUX — trois formes au masculin');
+table(['Masculin + consonne','Masculin + voyelle','Féminin'],[
+ ['un <b>beau</b> parc','un <b>bel</b> appartement','une <b>belle</b> ville'],
+ ['un <b>nouveau</b> quartier','un <b>nouvel</b> appartement','une <b>nouvelle</b> maison'],
+ ['un <b>vieux</b> bâtiment','un <b>vieil</b> immeuble','une <b>vieille</b> ville']
+]);
+warn("<b>Pourquoi cette troisième forme existe.</b> <i>Beau appartement</i> met deux voyelles côte à côte et le français refuse. Il emprunte donc la consonne du féminin : <b>bel</b>, <b>nouvel</b>, <b>vieil</b>.<br><br>C'est <u>exactement</u> le même réflexe que <i>mon amie</i> (au lieu de <i>ma amie</i>), <i>cet homme</i> (au lieu de <i>ce homme</i>), <i>l'école</i> (au lieu de <i>la école</i>) et <i>a-t-il</i> (au lieu de <i>a-il</i>). Un seul problème, cinq solutions apprises séparément.");
+
+h2('4 · Le verbe PRENDRE');
+lead("<b>Prendre</b> veut dire <i>to take</i>. C'est le verbe des transports, mais aussi de la nourriture, du temps et des décisions.");
+table(['Personne','Prendre','Prononciation'],[
+ ['je','<b>prends</b>','prahn'],
+ ['tu','<b>prends</b>','prahn'],
+ ['il / elle / on','<b>prend</b>','prahn'],
+ ['nous','<b>prenons</b>','pruh-NOHN'],
+ ['vous','<b>prenez</b>','pruh-NAY'],
+ ['ils / elles','<b>prennent</b>','PREN']
+]);
+warn("<b>⚠ Attention — c'est le point que le prof a encadré.</b><br><br><i>Je prend<b>s</b></i> · <i>Tu prend<b>s</b></i> · <i>Il <b>prend</b></i> → le <b>-d</b> et le <b>-s</b> ne se prononcent <u>pas</u>. Les trois formes sonnent pareil : <b>prahn</b>.<br><br><b>MAIS :</b> <i>Nous pre<b>n</b>ons</i> · <i>Vous pre<b>n</b>ez</i> → ici le <b>n</b> se prononce et la voyelle nasale disparaît. On entend <b>pruh-NOHN</b>, pas <i>prahn-ohn</i>.<br><br>Et <i>ils pre<b>nn</b>ent</i> → deux n, voyelle ouverte : <b>PREN</b>, qui rime avec l'anglais <i>pen</i>.");
+ex("<b>Pourquoi ce verbe change de radical.</b> Regardez où la différence tombe : <b>nous</b> et <b>vous</b> d'un côté, les quatre autres de l'autre. C'est la <b>botte</b> (voir Chapitre 4 de la Grammaire) : en latin, l'accent tonique tombait sur le radical pour <i>je, tu, il, ils</i> et sur la terminaison pour <i>nous, vous</i>. Mille cinq cents ans plus tard, la trace est toujours là.<br><br><b>Prendre</b> et toute sa famille font pareil : <b>apprendre</b> (to learn), <b>comprendre</b> (to understand), <b>surprendre</b> (to surprise), <b>reprendre</b> (to take back / resume). Apprenez-en un, vous les avez tous.");
+h3('Prendre + transport');
+rows([
+ ["Je prends le métro.","zhuh prahn luh may-TROH","I take the metro."],
+ ["Tu prends le bus.","tew prahn luh BEWS","You take the bus."],
+ ["Elle prend le train.","el prahn luh TRAN","She takes the train."],
+ ["Nous prenons le tram.","noo pruh-nohn luh TRAHM","We take the tram."],
+ ["Vous prenez un taxi.","voo pruh-nay uhn tak-SEE","You take a taxi."],
+ ["Ils prennent le bus.","eel pren luh BEWS","They take the bus."],
+ ["On prend le métro.","ohn prahn luh may-TROH","We take the metro."]
+]);
+note("<b>Avec un transport, on dit toujours PRENDRE + article.</b> <i>prendre <b>le</b> métro</i>, <i>prendre <b>un</b> taxi</i>. Jamais <i>aller par métro</i> ni <i>prendre métro</i>.<br><br>L'alternative sans article existe mais change de préposition : <i>aller <b>en</b> métro, <b>en</b> bus, <b>en</b> voiture, <b>en</b> train</i> — et <i><b>à</b> pied</i>, <i><b>à</b> vélo</i> (parce qu'on est dessus, pas dedans).");
+h3('Questions et réponses');
+rows([
+ ["Tu prends le bus ?","tew prahn luh BEWS","Do you take the bus?"],
+ ["Oui, je prends le bus.","wee, zhuh prahn luh BEWS","Yes, I take the bus."],
+ ["Comment vas-tu au travail ?","koh-mahn vah-tew oh trah-VYE","How do you get to work?"],
+ ["Je prends le métro.","zhuh prahn luh may-TROH","I take the metro."]
+]);
+h3('Les autres emplois de PRENDRE');
+rows([
+ ["Je prends un café.","zhuh prahn zuhn kah-FAY","I'll have a coffee."],
+ ["Ça prend vingt minutes.","sah prahn van mee-NEWT","It takes twenty minutes."],
+ ["Je prends une décision.","zhuh prahn zewn day-see-ZYOHN","I'm making a decision."],
+ ["Prenez votre temps.","pruh-nay votr TAHN","Take your time."]
+]);
+warn("<b>Au restaurant, PRENDRE remplace « vouloir ».</b> <i>Je veux un café</i> est brutal. <i>Je <b>prends</b> un café</i> ou <i>Je <b>voudrais</b> un café</i> sont les deux formes normales. Ça vaut aussi pour le TEF : <i>je veux</i> sonne presque toujours trop direct.");
+h3('Exercice — complétez avec PRENDRE');
+fillx([
+ ["Je ______ le bus.","prends","I take the bus."],
+ ["Tu ______ le métro.","prends","You take the metro."],
+ ["Elle ______ le train.","prend","She takes the train."],
+ ["Nous ______ un taxi.","prenons","We take a taxi."],
+ ["Vous ______ le tram.","prenez","You take the tram."],
+ ["Ils ______ le bus.","prennent","They take the bus."],
+ ["On ______ le métro.","prend","We take the metro."]
+]);
+
+h2('5 · La comparaison — comparer des QUANTITÉS');
+lead("On peut comparer deux personnes, deux villes, deux restaurants, deux objets. Il y a <b>deux structures</b>, et le choix dépend d'une seule question : <u>est-ce que je compare une quantité ou une qualité ?</u>");
+note("<b>Structure 1 — la quantité (un NOM) :</b><br><br><b>Sujet + verbe + plus de / moins de + NOM + que + comparaison</b>");
+h3('➕ PLUS DE (plus, more)');
+rows([
+ ["Paris a plus de touristes que Lyon.","pah-ree ah plew duh too-reest kuh lee-OHN","Paris has more tourists than Lyon."],
+ ["Cette ville a plus de restaurants que mon village.","set veel ah plew duh res-toh-rahn kuh mohn vee-LAHZH","This city has more restaurants than my village."],
+ ["Paris a plus de musées que Dijon.","pah-ree ah plew duh mew-zay kuh dee-ZHOHN","Paris has more museums than Dijon."],
+ ["Cette ville a plus de parcs que mon village.","set veel ah plew duh park kuh mohn vee-LAHZH","This city has more parks than my village."]
+]);
+h3('➖ MOINS DE (minus, less / fewer)');
+rows([
+ ["Mon quartier a moins de voitures que le centre-ville.","mohn kar-tyay ah mwan duh vwah-tewr kuh luh sahntr-VEEL","My area has fewer cars than the city centre."],
+ ["Lyon a moins de touristes que Paris.","lee-ohn ah mwan duh too-reest kuh pah-REE","Lyon has fewer tourists than Paris."],
+ ["Mon quartier a moins de magasins que le centre-ville.","mohn kar-tyay ah mwan duh mah-gah-zan kuh luh sahntr-VEEL","My area has fewer shops than the city centre."],
+ ["Mon village a moins de restaurants que Paris.","mohn vee-lahzh ah mwan duh res-toh-rahn kuh pah-REE","My village has fewer restaurants than Paris."]
+]);
+ex("<b>Pourquoi ce « de » est obligatoire.</b> <i>Plus</i> et <i>moins</i> ne sont pas des adjectifs ici — ce sont des mots de quantité, exactement comme <i>beaucoup</i>, <i>peu</i>, <i>assez</i>. Et <u>tout mot de quantité est suivi de « de »</u> en français :<br><br>· beaucoup <b>de</b> touristes · peu <b>de</b> voitures · assez <b>de</b> place · trop <b>de</b> bruit · plus <b>de</b> musées · moins <b>de</b> magasins<br><br>C'est une seule règle qui couvre six expressions, pas six règles séparées.");
+note("<b>Et l'égalité ?</b> Pour les quantités, l'égalité ne se dit pas <i>aussi</i> mais <b>autant de</b> :<br>· <i>Lyon a <b>autant de</b> parcs <b>que</b> Dijon.</i> — Lyon has as many parks as Dijon.");
+
+h2('6 · La comparaison — comparer des QUALITÉS');
+lead("Quand on compare une <b>qualité</b> (un adjectif), on n'utilise <u>pas</u> de <i>de</i>.");
+note("<b>Structure 2 — la qualité (un ADJECTIF) :</b><br><br><b>Sujet + être + plus / moins / aussi + ADJECTIF + que + comparaison</b>");
+h3('➕ PLUS … QUE');
+rows([
+ ["Paris est plus grande que Lyon.","pah-ree ay plew grahnd kuh lee-OHN","Paris is bigger than Lyon."],
+ ["Ce restaurant est plus cher que celui-là.","suh res-toh-rahn ay plew shehr kuh suh-lwee-LAH","This restaurant is more expensive than that one."],
+ ["Le métro est plus rapide que le bus.","luh may-troh ay plew rah-peed kuh luh BEWS","The metro is faster than the bus."]
+]);
+h3('➖ MOINS … QUE');
+rows([
+ ["Lyon est moins grande que Paris.","lee-ohn ay mwan grahnd kuh pah-REE","Lyon is smaller than Paris."],
+ ["Le bus est moins rapide que le métro.","luh bews ay mwan rah-peed kuh luh may-TROH","The bus is slower than the metro."],
+ ["Ce quartier est moins calme que mon quartier.","suh kar-tyay ay mwan kalm kuh mohn kar-TYAY","This area is less quiet than my area."]
+]);
+h3('🟰 AUSSI … QUE (l\'égalité)');
+rows([
+ ["Cette rue est aussi calme que l'autre.","set rew ay toh-see kalm kuh LOH-truh","This street is as quiet as the other one."],
+ ["Mon quartier est aussi moderne que le centre.","mohn kar-tyay ay toh-see moh-dehrn kuh luh SAHNTR","My area is as modern as the centre."]
+]);
+warn("<b>Le tableau à retenir — c'est le « Remember » du prof :</b><br><br>· <b>NOM</b> → plus <u>de</u> / moins <u>de</u> &nbsp;→&nbsp; <i>Paris a plus <b>de</b> musées que Lyon.</i><br>· <b>ADJECTIF</b> → plus / moins <u>(sans de)</u> &nbsp;→&nbsp; <i>Paris est plus grande que Lyon.</i><br><br>Un seul mot de différence, et c'est l'erreur la plus fréquente de toute la leçon.");
+note("<b>Deux détails que le prof n'a pas eu le temps de dire.</b><br><br><b>1. La prononciation de « plus » bouge.</b><br>· comparatif + adjectif : <b>plew</b> — <i>plus grand</i> (plew GRAHN)<br>· devant une voyelle : <b>plew-z</b> — <i>plus intéressant</i> (plew-zan-tay-ray-SAHN)<br>· tout seul, ou en maths : <b>plewss</b> — <i>deux plus deux</i><br>· dans la négation <i>ne … plus</i> : <b>plew</b> — <i>je n'habite plus ici</i><br><br><b>2. Après QUE, on utilise le pronom tonique.</b><br><i>plus grand que <b>moi</b></i> ✓ — jamais <i>que je</i>. Les formes : moi, toi, lui, elle, nous, vous, eux, elles.");
+ex("<b>Une note sur « Paris est plus grand<u>e</u> ».</b> Le prof a accordé au féminin. C'est effectivement l'usage le plus courant aujourd'hui — les noms de villes sont largement traités comme féminins à l'oral. L'usage traditionnel et littéraire garde le masculin (<i>Paris est grand</i>), et les deux se rencontrent. Pour le TEF, les deux passent ; le féminin est plus naturel.");
+h3('Exercice — avec ou sans DE ?');
+mcqx([
+ ["Paris a plus ______ musées que Dijon.",["de","(rien)"],0,"<i>musées</i> est un NOM → <b>plus de</b>."],
+ ["Paris est plus ______ grande que Lyon.",["de","(rien)"],1,"<i>grande</i> est un ADJECTIF → <b>plus grande</b>, sans de."],
+ ["Mon quartier a moins ______ magasins.",["de","(rien)"],0,"<i>magasins</i> est un NOM → <b>moins de</b>."],
+ ["Le bus est moins ______ rapide que le métro.",["de","(rien)"],1,"<i>rapide</i> est un ADJECTIF → pas de <i>de</i>."],
+ ["Il y a trop ______ bruit ici.",["de","(rien)"],0,"<i>trop</i> est un mot de quantité → <b>trop de</b>."]
+]);
+h3('Exercice — complétez la comparaison');
+fillx([
+ ["Paris a ______ touristes que Lyon. (+)","plus de","more tourists"],
+ ["Mon village a ______ restaurants que Paris. (−)","moins de","fewer restaurants"],
+ ["Le métro est ______ rapide ______ le bus. (+)","plus que","faster than"],
+ ["Ce quartier est ______ calme ______ le mien. (−)","moins que","less quiet than"],
+ ["Cette rue est ______ calme ______ l'autre. (=)","aussi que","as quiet as"]
+]);
+
+h2('7 · Le vocabulaire de la ville');
+lead("Pour décrire un endroit, il faut les noms des lieux. Voici ce qu'il faut savoir nommer — avec le genre, parce qu'il décide de tout le reste de la phrase.");
+h3('Les lieux');
+rows([
+ ["le centre-ville","luh sahntr-VEEL","the city centre"],
+ ["le quartier","luh kar-TYAY","the neighbourhood / district"],
+ ["la rue","lah REW","the street"],
+ ["l'avenue (f.)","lah-vuh-NEW","the avenue"],
+ ["le boulevard","luh bool-VAHR","the boulevard"],
+ ["la place","lah PLAHSS","the square"],
+ ["le parc","luh PARK","the park"],
+ ["le pont","luh POHN","the bridge"],
+ ["le carrefour","luh kar-FOOR","the crossroads"],
+ ["le coin","luh KWAN","the corner"]
+]);
+h3('Les bâtiments et les services');
+rows([
+ ["la gare","lah GAHR","the train station"],
+ ["la station de métro","lah stah-syohn duh may-TROH","the metro station"],
+ ["l'arrêt de bus (m.)","lah-ray duh BEWS","the bus stop"],
+ ["la mairie","lah may-REE","the town hall"],
+ ["la poste","lah POHST","the post office"],
+ ["la banque","lah BAHNK","the bank"],
+ ["l'hôpital (m.)","loh-pee-TAHL","the hospital"],
+ ["la pharmacie","lah far-mah-SEE","the pharmacy"],
+ ["l'école (f.)","lay-KOHL","the school"],
+ ["la bibliothèque","lah bee-blee-oh-TEK","the library"],
+ ["le musée","luh mew-ZAY","the museum"],
+ ["l'église (f.)","lay-GLEEZ","the church"],
+ ["le marché","luh mar-SHAY","the market"],
+ ["le supermarché","luh sew-pehr-mar-SHAY","the supermarket"],
+ ["le magasin","luh mah-gah-ZAN","the shop"],
+ ["la boulangerie","lah boo-lahn-zhuh-REE","the bakery"],
+ ["le restaurant","luh res-toh-RAHN","the restaurant"],
+ ["le café","luh kah-FAY","the café"],
+ ["le cinéma","luh see-nay-MAH","the cinema"],
+ ["l'hôtel (m.)","loh-TEL","the hotel"]
+]);
+note("<b>Deux pièges de genre à noter tout de suite :</b><br>· <b>le</b> musée, <b>le</b> café, <b>le</b> cinéma — masculins malgré le -é / -a final<br>· <b>la</b> poste (le bureau) mais <b>le</b> poste (un emploi, un poste de télé) — le genre change le sens<br>· <b>l'</b>école et <b>l'</b>église sont <u>féminins</u> : <i>une <b>belle</b> église</i>, <i>une <b>grande</b> école</i>");
+h3('Décrire un quartier');
+rows([
+ ["C'est un quartier calme.","say tuhn kar-tyay KALM","It's a quiet neighbourhood."],
+ ["C'est un quartier animé.","say tuhn kar-tyay ah-nee-MAY","It's a lively neighbourhood."],
+ ["Il y a beaucoup de commerces.","eel yah boh-koo duh koh-MEHRSS","There are lots of shops."],
+ ["Il n'y a pas beaucoup de bruit.","eel nyah pah boh-koo duh BRWEE","There isn't much noise."],
+ ["C'est bien desservi par les transports.","say byan day-sehr-vee par lay trahns-POHR","It's well served by public transport."],
+ ["C'est à dix minutes du centre.","say tah dee mee-newt dew SAHNTR","It's ten minutes from the centre."]
+]);
+
+h2('8 · Demander et donner son chemin');
+lead("La dernière brique du cours : savoir demander où est quelque chose, et comprendre la réponse.");
+h3('Demander');
+rows([
+ ["Pardon, où est la gare, s'il vous plaît ?","par-DOHN, oo ay lah GAHR, seel voo PLAY","Excuse me, where is the station, please?"],
+ ["Excusez-moi, je cherche la poste.","ex-kew-zay-MWAH, zhuh shehrsh lah POHST","Excuse me, I'm looking for the post office."],
+ ["Il y a une pharmacie près d'ici ?","eel yah ewn far-mah-see pray dee-SEE","Is there a pharmacy near here?"],
+ ["C'est loin ?","say LWAN","Is it far?"],
+ ["C'est à combien de minutes ?","say tah kohn-byan duh mee-NEWT","How many minutes is it?"],
+ ["Comment je fais pour aller au centre-ville ?","koh-mahn zhuh fay poor ah-lay oh sahntr-VEEL","How do I get to the city centre?"]
+]);
+warn("<b>Commencez TOUJOURS par « Pardon » ou « Excusez-moi ».</b> Aborder un inconnu sans formule d'ouverture est perçu comme impoli en France, bien plus qu'en anglais. Et terminez par <b>s'il vous plaît</b> — toujours <i>vous</i>, jamais <i>s'il te plaît</i>, avec un inconnu.");
+h3('Comprendre la réponse');
+rows([
+ ["Allez tout droit.","ah-lay too DRWAH","Go straight ahead."],
+ ["Tournez à droite.","toor-nay ah DRWAHT","Turn right."],
+ ["Tournez à gauche.","toor-nay ah GOHSH","Turn left."],
+ ["Continuez jusqu'au carrefour.","kohn-tee-new-ay zhews-koh kar-FOOR","Carry on to the crossroads."],
+ ["Prenez la première rue à droite.","pruh-nay lah pruh-myehr rew ah DRWAHT","Take the first street on the right."],
+ ["Prenez la deuxième à gauche.","pruh-nay lah duh-zyem ah GOHSH","Take the second on the left."],
+ ["Traversez la place.","trah-vehr-say lah PLAHSS","Cross the square."],
+ ["C'est en face de la banque.","say tahn fahss duh lah BAHNK","It's opposite the bank."],
+ ["C'est à côté de la poste.","say tah koh-tay duh lah POHST","It's next to the post office."],
+ ["C'est au coin de la rue.","say toh kwan duh lah REW","It's on the corner."],
+ ["C'est juste là, à cinq minutes.","say zhewst lah, ah sank mee-NEWT","It's right there, five minutes away."]
+]);
+note("<b>Remarquez : les directions sont à l'IMPÉRATIF, et presque toujours en « vous ».</b> <i>Allez, tournez, prenez, continuez, traversez</i> — c'est la forme <i>vous</i> sans le pronom. Vous entendrez exactement ces six verbes dans toutes les réponses.<br><br>Et <b>prenez</b> revient ici : c'est le même verbe que la section 4. <i>Prenez la première rue</i> = \"take the first street\".");
+h3('Les prépositions de lieu — le rappel');
+grid([
+ ["à droite de","to the right of"],
+ ["à gauche de","to the left of"],
+ ["en face de","opposite"],
+ ["à côté de","next to"],
+ ["près de","near"],
+ ["loin de","far from"],
+ ["devant","in front of"],
+ ["derrière","behind"],
+ ["entre … et …","between … and …"],
+ ["au bout de","at the end of"],
+ ["au coin de","at the corner of"],
+ ["jusqu'à","as far as / until"]
+]);
+warn("<b>Attention à la contraction.</b> Toutes ces expressions finissent par <b>de</b>, donc elles fusionnent avec l'article :<br>· à côté <b>du</b> parc (de + le)<br>· en face <b>des</b> magasins (de + les)<br>· près <b>de la</b> gare (pas de fusion au féminin)<br>· à droite <b>de l'</b>église (pas de fusion devant une voyelle)");
+
+h2('9 · Mettre tout ensemble');
+lead("Voici le genre de paragraphe que ce cours vous permet maintenant de produire — c'est exactement ce qu'on vous demandera au TEF pour décrire votre lieu de vie.");
+ex("<b>J'habite à Brampton, dans une <u>grande</u> maison, dans un quartier <u>calme</u>. Mon quartier a <u>moins de</u> magasins <u>que</u> le centre-ville, mais il est <u>plus calme que</u> Toronto. Pour aller au travail, je <u>prends</u> le bus — ça <u>prend</u> vingt minutes. La gare est <u>en face de</u> la bibliothèque, et il y a une pharmacie <u>à côté de</u> chez moi. Toronto est <u>plus grande que</u> Brampton et il y a <u>plus de</u> restaurants, mais je préfère mon quartier.</b>");
+note("<b>Comptez ce qu'il y a dedans :</b> un adjectif avant le nom (<i>grande maison</i>), un adjectif après (<i>quartier calme</i>), <i>prendre</i> deux fois avec deux sens, une comparaison de quantité (<i>moins de magasins</i>), deux comparaisons de qualité (<i>plus calme</i>, <i>plus grande</i>), deux prépositions de lieu. <b>Cinq sections du cours dans un seul paragraphe.</b> C'est ça, l'objectif.");
+h3('À vous — remplissez votre version');
+fillx([
+ ["J'habite à ______ , dans un quartier ______ .","Brampton calme","your town + adjective"],
+ ["Pour aller au travail, je ______ le bus.","prends","prendre, 1re personne"],
+ ["Mon quartier est ______ calme ______ le centre-ville.","plus que","comparison of quality"],
+ ["Le centre-ville a ______ magasins ______ mon quartier.","plus de que","comparison of quantity"],
+ ["La pharmacie est ______ de chez moi.","à côté","next to"]
+]);
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+<script src="french_glossary.js">
+h2('10 · Le document du prof — sections 5 à 9');
+src("<b>Source :</b> <i>French_A1_En_ville — adjectifs, prendre, comparaison, directions</i>, The Language SKOOL (PDF partagé en cours, 6 octobre 2026). Sections 5 à 10 travaillées en direct.");
+h3('5 · Demander son chemin — les questions utiles du prof');
+rows([
+ ["Excusez-moi, où est la gare ?","ex-kew-zay-mwah, oo ay lah GAHR","Excuse me, where is the station?"],
+ ["Où est la pharmacie, s'il vous plaît ?","oo ay lah far-mah-see, seel voo PLAY","Where is the pharmacy, please?"],
+ ["Comment aller à la gare ?","koh-mahn tah-lay ah lah GAHR","How do I get to the station?"],
+ ["Pour aller au centre-ville, s'il vous plaît ?","poor ah-lay oh sahntr-veel, seel voo PLAY","How do I get to the city centre, please?"]
+]);
+ex("<b>⭐ La formule A1 à mémoriser telle quelle :</b><br><br><b>« Excusez-moi, pour aller à / au … , s'il vous plaît ? »</b><br><br>· <i>pour aller <b>à la</b> gare ?</i><br>· <i>pour aller <b>au</b> musée ?</i><br>· <i>pour aller <b>à l'</b>hôpital ?</i><br>· <i>pour aller <b>aux</b> toilettes ?</i><br><br>C'est la phrase la plus rentable du chapitre : elle marche pour <u>n'importe quel</u> lieu, il suffit de changer le dernier mot.");
+note("<b>Pourquoi « pour aller » est meilleur que « où est ».</b> <i>Où est la gare ?</i> demande un <u>emplacement</u> — la réponse peut être « là-bas, à l'est », ce qui ne vous aide pas. <i>Pour aller à la gare ?</i> demande un <u>itinéraire</u>, donc la réponse sera une suite d'instructions que vous pouvez suivre. C'est aussi plus poli : vous demandez de l'aide, pas une information.<br><br>Et grammaticalement, <i>pour aller à…</i> est un infinitif de but : <b>pour + infinitif</b> = « in order to ». Vous le réutiliserez partout : <i>pour apprendre le français</i>, <i>pour réussir le TEF</i>.");
+h3('6 · Donner une direction — le tableau du prof');
+grid([
+ ["à gauche","left"],["à droite","right"],["tout droit","straight ahead"],
+ ["en face de","opposite"],["à côté de","next to"],["près de","near"],
+ ["loin de","far from"],["devant","in front of"],["derrière","behind"],["entre","between"]
+]);
+warn("<b>À DROITE vs TOUT DROIT — le piège le plus coûteux du chapitre.</b><br><br>· <b>à droite</b> (ah DRWAHT) = <u>à votre droite</u>, on tourne<br>· <b>tout droit</b> (too DRWAH) = <u>droit devant</u>, on ne tourne pas<br><br>Les deux contiennent le mot <i>droit</i> et ne diffèrent que par un <b>t</b> final prononcé. Si vous confondez, vous partez dans la mauvaise direction. Le truc : <b>tout</b> droit → <b>tout</b> le temps devant.");
+h3('Les expressions complètes du document');
+rows([
+ ["Allez tout droit.","ah-lay too DRWAH","Go straight ahead."],
+ ["Tournez à gauche.","toor-nay ah GOHSH","Turn left."],
+ ["Tournez à droite.","toor-nay ah DRWAHT","Turn right."],
+ ["C'est à gauche.","say tah GOHSH","It's on the left."],
+ ["C'est à droite.","say tah DRWAHT","It's on the right."],
+ ["C'est en face de la banque.","say tahn fahss duh lah BAHNK","It's opposite the bank."],
+ ["C'est à côté du restaurant.","say tah koh-tay dew res-toh-RAHN","It's next to the restaurant."],
+ ["C'est près de la gare.","say pray duh lah GAHR","It's near the station."]
+]);
+note("<b>Remarquez les trois dernières lignes.</b> <i>en face <b>de la</b> banque</i> · <i>à côté <b>du</b> restaurant</i> · <i>près <b>de la</b> gare</i>.<br><br>C'est <b>du</b> avec <i>restaurant</i> (masculin) et <b>de la</b> avec <i>banque</i> et <i>gare</i> (féminins). Le prof vient de vous donner trois exemples de la contraction avant même de l'expliquer — c'est la section 7 qui arrive.");
+
+h2('11 · Les prépositions avec les lieux — les contractions');
+lead("C'est la section 7 du document. Quatre lignes, et elles règlent une des mécaniques les plus fréquentes du français.");
+table(['Combinaison','Devient','Exemple du prof'],[
+ ['à + <b>le</b>','<b>au</b>','Je vais <b>au</b> restaurant / <b>au</b> cinéma.'],
+ ['à + <b>les</b>','<b>aux</b>','Je vais <b>aux</b> toilettes.'],
+ ['à + <b>la</b>','<b>à la</b> <i>(rien ne change)</i>','Je vais <b>à la</b> pharmacie / <b>à la</b> gare.'],
+ ['à + <b>l\'</b>','<b>à l\'</b> <i>(rien ne change)</i>','Je vais <b>à l\'</b>hôpital / <b>à l\'</b>école.']
+]);
+ex("<b>Pourquoi seulement deux lignes sur quatre fusionnent.</b><br><br>Regardez ce qui suit le <i>à</i> :<br>· <b>le</b> et <b>les</b> commencent par une <u>consonne</u> → <i>à le</i> et <i>à les</i> créent un heurt, donc ça fusionne<br>· <b>la</b> commence aussi par une consonne… mais <i>à la</i> se prononce sans effort, deux syllabes nettes, donc rien ne bouge<br>· <b>l'</b> est déjà le résultat d'une élision → <i>à l'hôpital</i> coule tout seul<br><br>La vraie raison est historique : <i>au</i> vient de <i>a lo</i> → <i>al</i> → <i>au</i>, et <i>aux</i> de <i>a los</i>. Le <b>l</b> s'est vocalisé en <b>u</b> au 11<sup>e</sup> siècle — le même phénomène qui a donné <i>chevaux</i> à partir de <i>chevals</i>, et <i>beau</i> à partir de <i>bel</i>.<br><br><b>C'est pour ça que « cheval → chevaux » et « à le → au » sont la même règle.</b> Un <b>l</b> devant une consonne devient <b>u</b>. Une seule loi phonétique, trois endroits où vous la rencontrez.");
+warn("<b>Et exactement la même chose avec DE :</b><br>· de + le → <b>du</b> &nbsp;·&nbsp; de + les → <b>des</b> &nbsp;·&nbsp; de + la → <b>de la</b> &nbsp;·&nbsp; de + l' → <b>de l'</b><br><br>C'est pour ça qu'on dit <i>à côté <b>du</b> restaurant</i> mais <i>près <b>de la</b> gare</i>. Même mécanique, même deux exceptions.");
+h3('Exercice — contractez');
+fillx([
+ ["Je vais à + le restaurant → Je vais ______ restaurant.","au","to the restaurant"],
+ ["Je vais à + les toilettes → Je vais ______ toilettes.","aux","to the toilets"],
+ ["Je vais à + la pharmacie → Je vais ______ pharmacie.","à la","to the pharmacy"],
+ ["Je vais à + l'hôpital → Je vais ______ hôpital.","à l'","to the hospital"],
+ ["C'est à côté de + le restaurant → C'est à côté ______ restaurant.","du","next to the restaurant"],
+ ["C'est en face de + la banque → C'est en face ______ banque.","de la","opposite the bank"]
+]);
+
+h2('12 · Le mini-dialogue du prof');
+lead("Section 8 du document. Six répliques, et tout le chapitre est dedans.");
+rows([
+ ["A : Excusez-moi, pour aller à la pharmacie, s'il vous plaît ?","ex-kew-zay-mwah, poor ah-lay ah lah far-mah-see, seel voo PLAY","Excuse me, how do I get to the pharmacy, please?"],
+ ["B : Oui. Allez tout droit et tournez à droite.","wee. ah-lay too drwah ay toor-nay ah DRWAHT","Yes. Go straight on and turn right."],
+ ["A : C'est loin ?","say LWAN","Is it far?"],
+ ["B : Non, c'est à côté de la boulangerie.","nohn, say tah koh-tay duh lah boo-lahn-zhuh-REE","No, it's next to the bakery."],
+ ["A : Merci beaucoup !","mehr-see boh-KOO","Thank you very much!"],
+ ["B : De rien !","duh RYAN","You're welcome!"]
+]);
+ex("<b>Analysez la structure — c'est un modèle réutilisable :</b><br>1. <b>ouverture polie</b> + la formule <i>pour aller à…</i><br>2. <b>instructions</b> à l'impératif <i>vous</i> (<i>allez, tournez</i>)<br>3. <b>question de suivi</b> — <i>C'est loin ?</i><br>4. <b>repère visuel</b> avec une préposition de lieu<br>5. <b>remerciement</b><br>6. <b>réponse au remerciement</b><br><br>Les six étapes sont toujours les mêmes. Changez le lieu et les directions, la coquille reste.");
+note("<b>Les trois réponses à « merci » :</b><br>· <b>De rien.</b> — neutre, le plus courant, partout<br>· <b>Je vous en prie.</b> — plus formel, poli<br>· <b>Pas de quoi.</b> — familier, entre amis<br><br>Au TEF, utilisez <b>je vous en prie</b> avec l'examinateur.");
+
+h2('13 · Les activités de communication');
+lead("Section 9 du document — cinq activités orales. Voici chacune avec un modèle de réponse construit à partir de vos vraies données.");
+h3('Activité 1 — Ma ville');
+note("<b>Les questions du prof :</b> Où habitez-vous ? Est-ce une grande ou une petite ville ? Votre quartier est-il calme ? Il y a combien de restaurants près de chez vous ? Il y a un parc ? Vous prenez quel transport ? Quel est votre endroit préféré ?");
+ex("<b>Un modèle complet :</b><br><br><i>J'habite à Brampton, au Canada. C'est une grande ville, mais mon quartier est assez calme. Il y a beaucoup de restaurants près de chez moi — des restaurants indiens, surtout. Il y a aussi un parc à cinq minutes à pied. Pour aller au travail, je prends le bus ; ça prend vingt minutes. Mon endroit préféré, c'est le parc, parce que c'est calme le matin.</i>");
+h3('Activité 2 — Comparez');
+note("<b>La consigne :</b> comparez votre ville avec une autre ville, puis votre quartier avec le centre-ville, le bus avec le métro, ou deux restaurants. Utilisez <b>plus de / moins de</b> et <b>plus … que / moins … que</b>.");
+ex("<b>Un modèle :</b><br><br><i>Toronto est <b>plus grande que</b> Brampton. Il y a <b>plus de</b> restaurants et <b>plus de</b> musées à Toronto. Mais Brampton est <b>plus calme</b> et <b>moins cher</b>. Mon quartier a <b>moins de</b> magasins <b>que</b> le centre-ville, mais il y a <b>autant de</b> parcs. Le métro est <b>plus rapide que</b> le bus, mais le bus est <b>moins cher</b>.</i>");
+warn("<b>Comptez vos structures avant de parler.</b> Cette activité est notée sur la variété. Si vous utilisez six fois <i>plus … que</i>, c'est plat. Visez : deux <b>plus de</b>, deux <b>plus … que</b>, un <b>moins … que</b>, un <b>autant de</b>. Six structures différentes dans un seul paragraphe.");
+h3('Activité 3 — « Où est… ? »');
+note("<b>La consigne :</b> un étudiant pense à un lieu. Les autres devinent en posant des questions : <i>Est-ce près de la gare ? Est-ce à côté du restaurant ? Est-ce dans le centre-ville ? Est-ce en face de la banque ?</i>");
+rows([
+ ["Est-ce près de la gare ?","es-suh pray duh lah GAHR","Is it near the station?"],
+ ["Est-ce à côté du restaurant ?","es-suh ah koh-tay dew res-toh-RAHN","Is it next to the restaurant?"],
+ ["Est-ce dans le centre-ville ?","es-suh dahn luh sahntr-VEEL","Is it in the city centre?"],
+ ["Est-ce en face de la banque ?","es-suh ahn fahss duh lah BAHNK","Is it opposite the bank?"]
+]);
+note("<b>« Est-ce que… » réduit à « Est-ce… ».</b> Devant un verbe comme <i>être</i>, le <i>que</i> tombe : <i>Est-ce près ?</i> au lieu de <i>Est-ce que c'est près ?</i>. Les deux sont corrects ; la forme courte est plus naturelle ici.");
+h3('Activité 4 — Donnez le chemin');
+note("<b>La consigne :</b> le partenaire demande « Excusez-moi, pour aller à la gare ? » — donnez au moins <b>3 instructions</b>. Destinations : l'hôpital, la gare, la pharmacie, le supermarché, la banque, le cinéma, le parc, l'école.");
+ex("<b>Un modèle à trois instructions :</b><br><br><i>— Excusez-moi, pour aller à la gare, s'il vous plaît ?<br>— Oui. <b>Allez tout droit</b> jusqu'au carrefour, <b>tournez à gauche</b>, et <b>continuez</b> cent mètres. C'est en face de la poste.</i><br><br>Les trois verbes à l'impératif : <b>allez · tournez · continuez</b>. Ajoutez un quatrième si vous voulez : <b>prenez</b> la deuxième rue, <b>traversez</b> la place.");
+h3('Activité 5 — « Je suis un touriste ! »');
+note("<b>La consigne :</b> demandez un lieu, demandez si c'est loin, demandez un autre lieu, demandez quel transport prendre, et remerciez la personne.");
+ex("<b>Un modèle complet :</b><br><br><i>— Excusez-moi, pour aller au musée, s'il vous plaît ?<br>— Allez tout droit et tournez à droite.<br>— <b>C'est loin ?</b><br>— Non, c'est à dix minutes.<br>— Et <b>la pharmacie</b>, s'il vous plaît ?<br>— C'est à côté de la boulangerie.<br>— <b>Je prends quel transport</b> pour aller à la gare ?<br>— Prenez le bus numéro 12.<br>— <b>Merci beaucoup !</b><br>— Je vous en prie.</i>");
+warn("<b>C'est exactement le format de l'épreuve orale du TEF, section B.</b> On vous donne une situation, vous devez poser des questions pour obtenir des informations. Les examinateurs comptent le <u>nombre de questions pertinentes</u> que vous posez. Cinq questions = cinq occasions de montrer une structure différente.");
+
+
+h2('14 · Trois versions de chaque réponse');
+lead("En classe, chacun donne sa version. Voici <b>trois niveaux</b> pour chaque activité : une réponse <b>courte</b> (sûre, A1), une réponse <b>moyenne</b> (A2, ce que vous devriez viser maintenant) et une réponse <b>longue</b> (B1, pour quand vous serez à l'aise). Prenez celle qui correspond à votre journée.");
+warn("<b>Comment utiliser cette section.</b> Ne mémorisez pas les trois. Choisissez-en <u>une</u> par activité, apprenez-la jusqu'à pouvoir la dire sans réfléchir, puis revenez chercher la suivante. Une réponse fluide vaut mieux que trois réponses hésitantes.<br><br>Et changez les détails : les lieux, les chiffres, les goûts sont les vôtres. La <b>structure</b> est ce qu'il faut garder.");
+
+h3('Activité 1 — Ma ville · Version A (courte, A1)');
+ex("<i>J'habite à Brampton. C'est une grande ville. Mon quartier est calme. Il y a trois restaurants près de chez moi. Oui, il y a un parc. Je prends le bus. Mon endroit préféré, c'est le parc.</i>");
+rows([
+ ["J'habite à Brampton.","zhah-beet ah bramp-TOHN","I live in Brampton."],
+ ["C'est une grande ville.","say tewn grahnd VEEL","It's a big city."],
+ ["Mon quartier est calme.","mohn kar-tyay ay KALM","My neighbourhood is quiet."],
+ ["Je prends le bus.","zhuh prahn luh BEWS","I take the bus."],
+ ["Mon endroit préféré, c'est le parc.","mohn nahn-drwah pray-fay-ray, say luh PARK","My favourite place is the park."]
+]);
+note("<b>Sept phrases, sept questions répondues.</b> C'est suffisant pour A1. Rien n'est faux, rien n'est risqué. Si vous êtes stressé, dites celle-ci.");
+
+h3('Activité 1 · Version B (moyenne, A2) — la version à viser');
+ex("<i>J'habite à Brampton, au Canada. C'est une <b>assez grande</b> ville, <b>mais</b> mon quartier est <b>plutôt</b> calme. Il y a <b>beaucoup de</b> restaurants près de chez moi, <b>surtout</b> des restaurants indiens. Il y a <b>aussi</b> un parc à cinq minutes à pied. Pour aller au travail, je prends le bus ; ça prend vingt minutes. Mon endroit préféré, c'est le parc, <b>parce que</b> c'est calme le matin.</i>");
+rows([
+ ["C'est une assez grande ville, mais mon quartier est plutôt calme.","say tewn ah-say grahnd veel, may mohn kar-tyay ay plew-toh KALM","It's a fairly big city, but my area is rather quiet."],
+ ["Il y a beaucoup de restaurants, surtout des restaurants indiens.","eel yah boh-koo duh res-toh-rahn, sewr-too day res-toh-rahn zan-DYAN","There are lots of restaurants, especially Indian ones."],
+ ["Il y a aussi un parc à cinq minutes à pied.","eel yah oh-see uhn park ah sank mee-newt ah PYAY","There's also a park five minutes' walk away."],
+ ["Ça prend vingt minutes.","sah prahn van mee-NEWT","It takes twenty minutes."],
+ ["...parce que c'est calme le matin.","pars-kuh say kalm luh mah-TAN","...because it's quiet in the morning."]
+]);
+note("<b>Ce qui fait passer de A1 à A2 ici :</b> quatre petits mots. <b>assez</b> et <b>plutôt</b> (nuance), <b>mais</b> (opposition), <b>surtout</b> (précision), <b>aussi</b> (addition), et surtout <b>parce que</b> — justifier une opinion est le critère explicite qui sépare A1 de A2.");
+
+h3('Activité 1 · Version C (longue, B1)');
+ex("<i>J'habite à Brampton, dans la banlieue de Toronto. C'est une ville <b>qui</b> a beaucoup changé <b>ces dernières années</b> : il y a de plus en plus de monde. Mon quartier, <b>lui</b>, est resté assez calme — il y a surtout des maisons et peu de circulation. <b>Ce que j'aime</b>, c'est qu'on trouve tout à côté : un supermarché, une pharmacie, et au moins dix restaurants indiens dans un rayon de dix minutes. <b>Par contre</b>, le centre-ville est loin, <b>donc</b> je prends le bus tous les jours ; ça prend une vingtaine de minutes <b>s'il n'y a pas trop de circulation</b>. Mon endroit préféré reste le parc près de chez moi, <b>parce que</b> j'y vais courir le matin quand il n'y a personne.</i>");
+note("<b>Ce qui fait B1 :</b> une relative (<i>qui</i>), une mise en relief (<i>Ce que j'aime, c'est…</i>), un contraste articulé (<i>Par contre</i>), une conséquence (<i>donc</i>), une condition (<i>s'il n'y a pas…</i>), une approximation (<i>une vingtaine</i>), et le pronom <b>y</b> (<i>j'<b>y</b> vais courir</i>).<br><br>Chacun de ces outils a son chapitre dans la Grammaire. Vous n'avez pas besoin de les avoir tous aujourd'hui.");
+
+h3('Activité 2 — Comparez · Version A (courte)');
+ex("<i>Toronto est plus grande que Brampton. Il y a plus de restaurants à Toronto. Mais Brampton est plus calme. Le métro est plus rapide que le bus.</i>");
+h3('Activité 2 · Version B (moyenne) — six structures différentes');
+ex("<i>Toronto est <b>plus grande que</b> Brampton. Il y a <b>plus de</b> musées et <b>plus de</b> restaurants à Toronto. <b>Mais</b> Brampton est <b>moins cher</b> et <b>plus calme</b>. Mon quartier a <b>moins de</b> magasins <b>que</b> le centre-ville, mais il y a <b>autant de</b> parcs. Le métro est <b>plus rapide que</b> le bus, <b>par contre</b> le bus est <b>moins cher</b>.</i>");
+rows([
+ ["Toronto est plus grande que Brampton.","toh-rohn-toh ay plew grahnd kuh bramp-TOHN","Toronto is bigger than Brampton."],
+ ["Il y a plus de musées à Toronto.","eel yah plew duh mew-zay ah toh-rohn-TOH","There are more museums in Toronto."],
+ ["Brampton est moins cher et plus calme.","bramp-tohn ay mwan shehr ay plew KALM","Brampton is cheaper and quieter."],
+ ["Mon quartier a autant de parcs que le centre.","mohn kar-tyay ah oh-tahn duh park kuh luh SAHNTR","My area has as many parks as the centre."],
+ ["Le bus est moins cher que le métro.","luh bews ay mwan shehr kuh luh may-TROH","The bus is cheaper than the metro."]
+]);
+warn("<b>Comptez avant de parler.</b> Dans la version B il y a : deux <b>plus de</b>, un <b>moins de</b>, un <b>autant de</b>, deux <b>plus … que</b>, deux <b>moins …</b>. Sept comparaisons, quatre structures différentes. C'est exactement ce que la consigne demande.<br><br>Si vous ne dites que <i>plus … que</i> cinq fois, le contenu est juste mais la note de <u>variété</u> tombe.");
+h3('Activité 2 · Version C (longue)');
+ex("<i>Si je compare Toronto et Brampton : Toronto est <b>beaucoup plus grande</b>, il y a <b>bien plus de</b> musées, de théâtres et de restaurants, et c'est <b>nettement mieux</b> desservi par les transports. <b>En revanche</b>, c'est aussi <b>bien plus cher</b> et <b>moins calme</b>. Brampton a <b>moins de</b> choses à faire, <b>mais</b> on y vit <b>plus facilement</b>. Entre le bus et le métro, le métro est <b>plus rapide</b> et <b>plus fréquent</b>, <b>alors que</b> le bus est <b>moins cher</b> et s'arrête <b>plus près de</b> chez moi. <b>Finalement</b>, je préfère Brampton <b>parce que</b> c'est <b>plus pratique</b> pour le travail.</i>");
+note("<b>Les intensificateurs sont ce qui fait la différence au niveau B1 :</b> <b>beaucoup plus</b>, <b>bien plus</b>, <b>nettement</b>. Ils se placent avant <i>plus</i> ou <i>moins</i> :<br>· <i>beaucoup plus grand</i> — much bigger<br>· <i>bien moins cher</i> — far cheaper<br>· <i>un peu plus loin</i> — a bit further<br><br>⚠ Mais <u>jamais</u> <i>très plus</i>. <b>Très</b> ne peut pas modifier un comparatif.");
+
+h3('Activité 3 — « Où est… ? » · Trois façons de poser la question');
+ex("<b>Version A — intonation (la plus simple, orale) :</b><br><i>C'est près de la gare ? C'est à côté du restaurant ? C'est dans le centre-ville ?</i><br><br><b>Version B — est-ce que (neutre, sûre) :</b><br><i>Est-ce que c'est près de la gare ? Est-ce que c'est en face de la banque ?</i><br><br><b>Version C — inversion (formelle, écrite) :</b><br><i>Est-ce près de la gare ? Est-ce en face de la banque ?</i>");
+note("<b>Les trois sont correctes.</b> Elles diffèrent par le <u>registre</u>, pas par le sens — c'est le Chapitre 8 de la Grammaire. En classe, la version A suffit ; à l'oral du TEF, alternez A et B pour montrer que vous maîtrisez les deux.");
+h3('Et pour deviner — dix questions utiles');
+rows([
+ ["C'est un bâtiment public ?","say tuhn bah-tee-mahn pew-BLEEK","Is it a public building?"],
+ ["C'est près du centre-ville ?","say pray dew sahntr-VEEL","Is it near the city centre?"],
+ ["On peut y manger ?","ohn puh ee mahn-ZHAY","Can you eat there?"],
+ ["C'est ouvert le dimanche ?","say too-vehr luh dee-MAHNSH","Is it open on Sunday?"],
+ ["Il y a beaucoup de monde ?","eel yah boh-koo duh MOHND","Are there lots of people?"],
+ ["C'est grand ou petit ?","say grahn oo puh-TEE","Is it big or small?"],
+ ["On y va pour travailler ?","ohn nee vah poor trah-vye-YAY","Do you go there to work?"],
+ ["C'est à côté de la gare ?","say tah koh-tay duh lah GAHR","Is it next to the station?"],
+ ["Est-ce que c'est cher ?","es-kuh say SHEHR","Is it expensive?"],
+ ["C'est la pharmacie !","say lah far-mah-SEE","It's the pharmacy!"]
+]);
+
+h3('Activité 4 — Donnez le chemin · Trois itinéraires différents');
+ex("<b>Version A — trois instructions, minimum :</b><br><i>Allez tout droit, tournez à gauche, et c'est en face de la poste.</i><br><br><b>Version B — avec des repères :</b><br><i>Alors, allez tout droit jusqu'au carrefour, puis tournez à droite. Continuez cent mètres. La gare est à côté du supermarché, sur votre gauche.</i><br><br><b>Version C — avec une alternative :</b><br><i>Ce n'est pas très loin. Vous prenez la première rue à gauche, vous traversez la place, et vous continuez tout droit pendant cinq minutes. Si vous préférez, vous pouvez aussi prendre le bus numéro 12 — il s'arrête juste devant.</i>");
+grid([
+ ["Allez tout droit","Go straight ahead"],
+ ["Tournez à droite / à gauche","Turn right / left"],
+ ["Prenez la première rue à droite","Take the first street on the right"],
+ ["Prenez la deuxième à gauche","Take the second on the left"],
+ ["Continuez jusqu'au carrefour","Carry on to the crossroads"],
+ ["Traversez la place / le pont","Cross the square / the bridge"],
+ ["C'est sur votre gauche","It's on your left"],
+ ["C'est au bout de la rue","It's at the end of the street"],
+ ["Ce n'est pas très loin","It's not very far"],
+ ["Vous ne pouvez pas le manquer","You can't miss it"]
+]);
+warn("<b>Les trois connecteurs qui structurent un itinéraire :</b> <b>d'abord</b> … <b>puis</b> … <b>ensuite</b> … <b>et enfin</b>.<br><br><i><b>D'abord</b>, allez tout droit. <b>Puis</b> tournez à gauche. <b>Ensuite</b>, continuez cent mètres. <b>Et enfin</b>, c'est sur votre droite.</i><br><br>Quatre instructions reliées valent bien plus que quatre instructions juxtaposées. C'est le même mot qui vous servira à raconter votre journée au passé composé.");
+
+h3('Activité 5 — « Je suis un touriste ! » · Version complète');
+ex("<i>— Excusez-moi, <b>pour aller au musée</b>, s'il vous plaît ?<br>— Allez tout droit et tournez à droite.<br>— <b>C'est loin ?</b><br>— Non, c'est à dix minutes à pied.<br>— Et <b>la pharmacie</b>, s'il vous plaît ?<br>— C'est à côté de la boulangerie, juste là.<br>— <b>Je prends quel transport</b> pour aller à la gare ?<br>— Prenez le bus numéro 12, il s'arrête devant le musée.<br>— <b>Merci beaucoup !</b><br>— Je vous en prie.</i>");
+h3('Les variantes à avoir en réserve');
+rows([
+ ["C'est loin d'ici ?","say lwan dee-SEE","Is it far from here?"],
+ ["C'est à combien de minutes ?","say tah kohn-byan duh mee-NEWT","How many minutes is it?"],
+ ["Je peux y aller à pied ?","zhuh puh ee ah-lay ah PYAY","Can I walk there?"],
+ ["Quel bus je dois prendre ?","kel bews zhuh dwah PRAHNDR","Which bus should I take?"],
+ ["Il y a un métro près d'ici ?","eel yah uhn may-troh pray dee-SEE","Is there a metro near here?"],
+ ["Vous pouvez répéter, s'il vous plaît ?","voo poo-vay ray-pay-tay, seel voo PLAY","Could you repeat that, please?"],
+ ["Vous pouvez parler plus lentement ?","voo poo-vay par-lay plew lahnt-MAHN","Could you speak more slowly?"],
+ ["Je n'ai pas compris.","zhuh nay pah kohn-PREE","I didn't understand."],
+ ["Merci, c'est très gentil.","mehr-see, say tray zhahn-TEE","Thank you, that's very kind."],
+ ["Je vous en prie.","zhuh voo zahn PREE","You're welcome."]
+]);
+warn("<b>Les trois phrases les plus utiles de toute cette liste ne sont pas des questions de direction.</b><br><br>· <i>Vous pouvez <b>répéter</b>, s'il vous plaît ?</i><br>· <i>Vous pouvez parler <b>plus lentement</b> ?</i><br>· <i>Je <b>n'ai pas compris</b>.</i><br><br>À l'oral du TEF, demander une répétition ne vous pénalise <u>pas</u> — c'est une stratégie de communication, et c'est explicitement valorisé. Rester bloqué en silence, si.");
+
+h2('15 · Vos phrases à vous — la fiche à remplir');
+lead("Voici la même chose, mais vide. Remplissez-la une fois avec vos vraies informations, apprenez-la, et vous aurez une réponse prête pour n'importe quelle question sur votre lieu de vie.");
+fillx([
+ ["J'habite à ______ .","Brampton","your town"],
+ ["C'est une ______ ville.","grande","big / small — adjective before the noun"],
+ ["Mon quartier est ______ .","calme","quiet / lively / modern"],
+ ["Il y a ______ restaurants près de chez moi.","beaucoup de","quantity word + de"],
+ ["Pour aller au travail, je ______ le bus.","prends","prendre, je"],
+ ["Ça ______ vingt minutes.","prend","prendre, il/ça"],
+ ["Toronto est ______ grande ______ Brampton.","plus que","comparison of quality"],
+ ["Il y a ______ musées à Toronto ______ ici.","plus de que","comparison of quantity"],
+ ["Mon endroit préféré, c'est ______ .","le parc","your favourite place"],
+ ["...______ c'est calme.","parce que","because — the A2 marker"]
+]);
+note("<b>Dix blancs, et vous avez un paragraphe complet.</b> Imprimez-le, remplissez-le une fois à la main, et relisez-le à voix haute trois fois avant le prochain cours. C'est plus efficace que de relire la page entière.");
+
+</script>
+</body>
+</html>

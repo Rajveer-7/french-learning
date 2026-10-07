@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 30 — Les pronoms EN et Y</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+</style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 30: Les pronoms « EN » et « Y »</h1>
+  <p class="sub">The Language SKOOL · Chapitre A1 — the two pronouns English has no word for, and the one rule that decides between them</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Cours21_Notes.html">Cours 21</a>
+    <a href="French_Cours22_Notes.html">Cours 22</a>
+    <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
+    <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_Cours30_Notes.html" class="active">Cours 30</a><a href="French_Cours31_Notes.html">Cours 31</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
+  </nav>
+
+<div class="whybox">
+  <h4><span>Pourquoi ça marche comme ça</span>Pourquoi le français a deux mots que l'anglais n'a pas</h4>
+  <p>English can answer <i>“Do you want coffee?”</i> with just <b>“Yes, I do.”</b> — the noun simply vanishes and nothing marks the hole it left.<br><br>French will not allow that. Every grammatical slot must keep a trace, so when the noun goes, a pronoun takes its place. <b>EN</b> and <b>Y</b> are the two pronouns that cover the slots after <b>de</b> and <b>à</b> — the two slots English leaves empty.<br><br>That is also why they feel so foreign and why they are so frequent: they are filling gaps your native language taught you to ignore.</p>
+  <a class="more" href="French_Grammaire.html">Aller plus loin →</a>
+</div>
+
+
+<div class="whybox">
+  <h4><span>Pourquoi ça marche comme ça</span>Pourquoi « il » ne veut rien dire dans « il pleut »</h4>
+  <p>Nobody is raining. The <b>il</b> in <i>il pleut</i> and <i>il fait froid</i> refers to nothing at all — it is an empty placeholder, exactly like the "it" in English "it's raining".<br><br>French requires every sentence to have a subject, so when there is no real one, it supplies a dummy. That is also why the <i>il</i> never becomes <i>elle</i>, and why you never see <i>fait chaud</i> standing alone.<br><br>Same mechanism in <b>il y a</b> and <b>il faut</b> — two more phrases where <i>il</i> is holding a seat for nobody.</p>
+  <a class="more" href="French_Grammaire.html">Aller plus loin →</a>
+</div>
+
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').textContent=fr; c.querySelector('.ph').textContent=ph;
+    c.onclick=()=>speak(fr); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+h2("1 · Objectifs du chapitre");
+src("<b>Source :</b> <i>Chapitre A1 — Les pronoms « EN » et « Y »</i>, The Language SKOOL. Every section and every exercise worked through, with the deeper logic, extra examples and practice added.");
+ex("<b>À la fin de ce chapitre, je peux :</b><br>· comprendre EN et Y<br>· utiliser <b>Y</b> pour parler d'un lieu<br>· utiliser <b>EN</b> pour parler d'une quantité ou de « de + chose »<br>· répondre à des questions avec EN et Y<br>· les utiliser dans des situations de la vie quotidienne");
+warn("<b>This is one of the four walls of French.</b> It is not hard to understand — the rule fits in one line — but it takes months to become automatic, because English simply does not have these words. Expect to understand it today and still be hesitating in six weeks. That is normal.");
+
+h2("2 · Pourquoi EN et Y existent");
+lead("The handout says: <i>« EN et Y permettent d'éviter de répéter les mêmes mots. »</i> True — but there is a sharper way to see it.");
+ex("<b>French has a pronoun for every grammatical slot, and refuses to leave one empty.</b>");
+table(["Ce qu'on remplace","Pronom","Exemple"],[
+ ["un nom <b>direct</b>","le · la · les","Je vois Marie → Je <b>la</b> vois."],
+ ["une <b>personne</b> après à","lui · leur","Je parle à Marie → Je <b>lui</b> parle."],
+ ["une <b>chose</b> ou un <b>lieu</b> après à","<b>Y</b>","Je vais à Paris → J'<b>y</b> vais."],
+ ["quoi que ce soit après <b>de</b>","<b>EN</b>","Je veux du café → J'<b>en</b> veux."]
+]);
+ex("<b>Seen that way, EN and Y are not strange extras.</b> They are the two missing squares in a grid you have already half-filled.<br><br>And that is exactly why they feel foreign: <b>English leaves those slots empty all the time.</b><br><br>· <i>Do you want coffee?</i> — <b>Yes, I do.</b> ← English drops the noun entirely<br>· <i>Tu veux du café ?</i> — <b>Oui, j'en veux.</b> ← French must keep a trace<br><br>That little <i>en</i> is standing in the hole the noun left. French does not tolerate the hole.");
+
+h2("3 · Le pronom Y");
+lead("The handout: <i>« Y remplace un lieu introduit par à, au, à la, à l', aux. »</i> — <b>À retenir : Y = là / à cet endroit.</b>");
+table(["Phrase","Avec Y"],[
+ ["Je vais à Paris.","J'<b>y</b> vais."],
+ ["Je vais au cinéma.","J'<b>y</b> vais."],
+ ["Je suis à la maison.","J'<b>y</b> suis."],
+ ["Nous allons aux toilettes.","Nous <b>y</b> allons."]
+]);
+rows([
+ ["J'y vais.","zhee VEH","I'm going (there)."],
+ ["J'y suis.","zhee SWEE","I'm there."],
+ ["Nous y allons.","noo zee ah-LOHN","We're going there."],
+ ["On y va !","ohn nee VAH","Let's go!"],
+ ["Vas-y !","vah-ZEE","Go on! / Go ahead!"]
+]);
+ex("<b>Look at the first two lines of the table.</b> <i>À Paris</i> and <i>au cinéma</i> are different phrases — one has <i>à</i>, the other <i>au</i> — and both collapse to the same three words: <b>j'y vais</b>.<br><br>That is the point of Y. It swallows <b>à, au, à la, à l', aux</b> indifferently — and it throws away the noun's gender and number too. <i>Au cinéma</i> (m.) and <i>à la maison</i> (f.) both become <i>y</i>. A rare moment of French asking <u>less</u> of you.");
+h3("Toutes les prépositions que Y avale");
+table(["Préposition","Exemple","Avec Y"],[
+ ["<b>à</b>","Je vais <b>à</b> Paris.","J'y vais."],
+ ["<b>au / à la / aux</b>","Je vais <b>au</b> cinéma.","J'y vais."],
+ ["<b>dans</b>","Le livre est <b>dans</b> le sac.","Il y est."],
+ ["<b>sur</b>","La clé est <b>sur</b> la table.","Elle y est."],
+ ["<b>sous</b>","Le chat est <b>sous</b> le lit.","Il y est."],
+ ["<b>chez</b>","Je vais <b>chez</b> le médecin.","J'y vais."],
+ ["<b>en</b>","Il habite <b>en</b> France.","Il y habite."]
+]);
+note("Seven prepositions, one pronoun. <b>Y swallows them all</b> — which is why it feels like it means \"there\": in practice it usually does, because most of those are locations.");
+h3("Les liaisons à entendre");
+table(["Écrit","Prononcé","Pourquoi"],[
+ ["J'<b>y</b> vais","zhee VEH","<i>je</i> s'élide devant la voyelle de <i>y</i>"],
+ ["Nous <b>y</b> allons","noo-<b>Z</b>ee-ah-LOHN","deux liaisons d'affilée"],
+ ["Vous <b>y</b> êtes","voo-<b>Z</b>ee-ET","liaison [z]"],
+ ["Ils <b>y</b> vont","eel-<b>Z</b>ee-VOHN","liaison [z]"],
+ ["On <b>y</b> va","ohn-<b>N</b>ee-VAH","liaison [n]"]
+]);
+warn("<b>« On y va » est la phrase à maîtriser</b> — <i>ohn-nee-VAH</i>, \"let's go\", said a hundred times a day in France. Three tiny words glued into one, and almost unrecognisable in writing until someone shows you.");
+
+h2("4 · Les verbes fréquents avec Y");
+table(["Verbe","Exemple","Avec Y","Prononciation"],[
+ ["<b>aller</b>","Je vais au cinéma.","J'y vais.","zhee VEH"],
+ ["<b>être</b>","Je suis à la maison.","J'y suis.","zhee SWEE"],
+ ["<b>habiter</b>","J'habite à Paris.","J'y habite.","zhee ah-BEET"],
+ ["<b>travailler</b>","Je travaille à Bangalore.","J'y travaille.","zhee trah-VYE"],
+ ["<b>étudier</b>","J'étudie à l'université.","J'y étudie.","zhee ay-tew-DEE"],
+ ["<b>retourner</b>","Je retourne au bureau.","J'y retourne.","zhee ruh-TOORN"]
+]);
+ex("<b>Pourquoi ces verbes-là ?</b><br><br>All six are verbs that <u>need</u> a place to make sense. You cannot just <i>go</i> — you go <b>somewhere</b>. You cannot just <i>live</i> — you live <b>somewhere</b>. The place is not optional extra information; it is part of the verb's meaning.<br><br>That is why <i>y</i> is <b>compulsory</b> rather than stylistic:<br>· ✗ <i>Oui, je vais.</i> — incomplete, not a sentence<br>· ✓ <i>Oui, j'<b>y</b> vais.</i><br><br>Compare a verb that needs nothing: <i>Tu manges ?</i> — <i>Oui, je mange.</i> ✓ complete on its own.<br><br><b>The test:</b> does the verb feel unfinished without the place? Then <i>y</i> is required.");
+note("<b>Most of these are also the <i>être</i> verbs</b> of the passé composé — aller, arriver, entrer, monter, rester, retourner, passer. Not a coincidence: they are verbs of <b>movement and position</b>, which is precisely why they both need a place <u>and</u> take <i>être</i>. Two chapters, one underlying category.");
+h3("Et les verbes « à + chose » qui ne sont pas des lieux");
+table(["Verbe","Exemple","Avec Y"],[
+ ["<b>penser à</b>","Je pense à mon examen.","J'<b>y</b> pense."],
+ ["<b>répondre à</b>","Je réponds à la question.","J'<b>y</b> réponds."],
+ ["<b>réfléchir à</b>","Je réfléchis à ton idée.","J'<b>y</b> réfléchis."],
+ ["<b>jouer à</b>","Je joue au cricket.","J'<b>y</b> joue."],
+ ["<b>croire à</b>","Je crois à cette histoire.","J'<b>y</b> crois."],
+ ["<b>s'intéresser à</b>","Je m'intéresse à la politique.","Je m'<b>y</b> intéresse."]
+]);
+warn("<b>This is where the handout's « principalement un lieu » stops being enough.</b> <i>J'y pense</i> has nothing to do with location — it is <i>penser <b>à</b></i>, and the <b>à</b> is what triggers <i>y</i>.<br><br>So the complete rule is: <b>à + chose → y</b>, whether or not it is a place. The place is the symptom; <b>à</b> is the cause.");
+
+h2("5 · Y ne remplace jamais une personne");
+ex("The handout is explicit: <i>« Y est utilisé principalement pour les <b>lieux</b>, pas pour les personnes. »</i><br><br>· Je téléphone à Marie. → ❌ <s>Je y téléphone.</s><br>· → ✅ <b>Je lui téléphone.</b><br><br><b>Pour A1 : PERSONNE → lui / elle ; LIEU → y.</b>");
+rows([
+ ["Je téléphone à Marie.","zhuh tay-lay-FUN ah mah-REE","I'm phoning Marie."],
+ ["Je lui téléphone.","zhuh lwee tay-lay-FUN","I'm phoning her."]
+]);
+note("<b>The ❌ form is impossible for a second reason too.</b> <i>Je y</i> cannot exist — <i>je</i> would elide to <i>j'</i> before the vowel. French will not even let you build the wrong sentence; the sound system blocks it first.");
+table(["Structure","Pronom","Exemple"],[
+ ["verbe + <b>à</b> + personne (la plupart)","<b>lui · leur</b>","Je <b>lui</b> téléphone."],
+ ["verbe + <b>à</b> + personne (penser, rêver, tenir…)","<b>à lui · à elle</b>","Je pense <b>à elle</b>."],
+ ["verbe + <b>à</b> + chose ou lieu","<b>y</b>","J'<b>y</b> pense."]
+]);
+warn("<b>Le piège permanent :</b> same verb, same preposition, different pronoun — decided only by whether it is human.<br>· Je pense <b>à mon travail</b> → J'<b>y</b> pense. <i>(chose)</i><br>· Je pense <b>à Marie</b> → Je pense <b>à elle</b>. <i>(personne)</i><br><br>At A1 you only need <b>lui / leur</b>. File the second row away for B1.");
+
+h2("6 · Y avec la négation");
+table(["Affirmatif","Négatif","Prononciation"],[
+ ["J'y vais.","Je <b>n'y</b> vais <b>pas</b>.","zhuh nee veh PAH"],
+ ["Elle y habite.","Elle <b>n'y</b> habite <b>pas</b>.","ell nee ah-beet PAH"],
+ ["Nous y allons.","Nous <b>n'y</b> allons <b>pas</b>.","noo nee ah-lohn PAH"],
+ ["Il y travaille.","Il <b>n'y</b> travaille <b>pas</b>.","eel nee trah-vye PAH"]
+]);
+ex("<b>L'ordre est celui que vous connaissez déjà :</b><br><br><b>ne + pronom + verbe + pas</b><br><br><i>Je <b>ne</b> y</i> → <b>n'y</b> — the <i>ne</i> elides before the vowel of <i>y</i>, which is why it comes out as <b>nee</b> in a single syllable.");
+table(["","Exemple"],[
+ ["réfléchi","Je <b>ne me</b> lève <b>pas</b>."],
+ ["COD","Je <b>ne le</b> vois <b>pas</b>."],
+ ["COI","Je <b>ne lui</b> parle <b>pas</b>."],
+ ["Y","Je <b>n'y</b> vais <b>pas</b>."],
+ ["EN","Je <b>n'en</b> veux <b>pas</b>."]
+]);
+note("One pattern, five pronouns. <b>Everything glued to the verb goes inside the sandwich.</b> Learn the shape once and it covers every pronoun you will ever meet.");
+
+h2("7 · Le pronom EN");
+lead("The handout: <i>« EN peut remplacer quelque chose introduit par de, du, de la, de l', des. À A1, le cas le plus utile est EN avec une quantité. »</i>");
+table(["Question","Réponse","Prononciation"],[
+ ["Tu veux du café ?","Oui, j'<b>en</b> veux.","wee, zhahn VUH"],
+ ["Tu manges des pommes ?","Oui, j'<b>en</b> mange.","wee, zhahn MAHNZH"],
+ ["Tu bois du café ?","Oui, j'<b>en</b> bois.","wee, zhahn BWAH"],
+ ["Tu veux de la pizza ?","Oui, j'<b>en</b> veux.","wee, zhahn VUH"]
+]);
+ex("<b>Regardez ce que les quatre exemples ont en commun.</b><br><br><i>du café · des pommes · du café · de la pizza</i> — four different articles, four different genders and numbers, and all four collapse to the same two letters: <b>en</b>.<br><br>That is the same behaviour as <i>y</i> swallowing <i>à / au / à la / aux</i>. Each pronoun absorbs an entire family of forms and discards the gender and number.");
+table(["Ce qui disparaît","Ce qui reste"],[
+ ["du, de la, de l', des","<b>EN</b>"],
+ ["à, au, à la, à l', aux","<b>Y</b>"]
+]);
+note("<b>So the two pronouns are mirror images.</b> One for everything with <b>de</b>, one for everything with <b>à</b>. Learn them as a pair and each reinforces the other.<br><br>A silly but durable hook: <b>Y</b> and <b>à</b> are both one letter. <b>EN</b> and <b>DE</b> are both two.");
+h3("La prononciation de EN");
+table(["Écrit","Prononcé","Note"],[
+ ["j'<b>en</b> veux","zhahn VUH","<i>je</i> s'élide, comme avec <i>y</i>"],
+ ["tu <b>en</b> veux","tew <b>ahn</b> VUH","pas d'élision — <i>tu</i> ne s'élide jamais"],
+ ["il <b>en</b> veut","eel <b>ahn</b> VUH","—"],
+ ["nous <b>en</b> voulons","noo <b>z</b>ahn voo-LOHN","liaison [z]"],
+ ["vous <b>en</b> voulez","voo <b>z</b>ahn voo-LAY","liaison [z]"],
+ ["ils <b>en</b> veulent","eel <b>z</b>ahn VUHL","liaison [z]"],
+ ["on <b>en</b> veut","ohn <b>n</b>ahn VUH","liaison [n]"]
+]);
+warn("<b>EN est une voyelle nasale</b> — <i>ahn</i>, air through the nose, and <u>no n consonant at the end</u>. Same sound as in <i>dans</i>, <i>vent</i>, <i>temps</i>. If you hear yourself saying \"enn\", you are saying an English word.");
+
+h2("8 · EN + quantité précise — la règle que les anglophones oublient");
+ex("The handout states it plainly: <b>« La quantité reste dans la phrase. »</b><br><br>Tu veux <b>deux</b> cafés ? → Oui, j'<b>en</b> veux <b>deux</b>.");
+table(["Question","Réponse","Prononciation"],[
+ ["Tu as trois pommes ?","Oui, j'<b>en</b> ai <b>trois</b>.","wee, zhahn ay TRWAH"],
+ ["Tu achètes deux croissants ?","Oui, j'<b>en</b> achète <b>deux</b>.","wee, zhahn ah-shet DUH"],
+ ["Tu veux beaucoup de chocolat ?","Oui, j'<b>en</b> veux <b>beaucoup</b>.","wee, zhahn vuh boh-KOO"]
+]);
+ex("<b>Pourquoi la quantité reste.</b><br><br>Because <i>en</i> and the number are replacing <u>two different things</u>:<br><br>Oui, je veux <b>deux</b> <u>cafés</u><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↑ <b>deux</b> = how many &nbsp;·&nbsp; <u>cafés</u> = what<br><br><i>En</i> only replaces the <b>noun</b>. The number was never part of its job, so it survives.");
+table(["","Ce qui reste","Ce qui part"],[
+ ["<b>Anglais</b>","\"I want <b>two</b>.\"","le nom, sans trace"],
+ ["<b>Français</b>","\"J'<b>en</b> veux <b>deux</b>.\"","le nom, mais <i>en</i> marque le trou"]
+]);
+warn("So French ends up with <b>two</b> words where English has one. That extra word is <b>en</b>, and forgetting it is the single most common error with this pronoun.<br><br>✓ J'en ai deux. &nbsp;·&nbsp; ✗ <s>J'ai deux.</s> &nbsp;·&nbsp; ✗ <s>J'en ai.</s>");
+h3("Toutes les quantités restent");
+table(["Question","Réponse"],[
+ ["Tu as des frères ?","J'<b>en</b> ai <b>deux</b>."],
+ ["Tu veux du pain ?","J'<b>en</b> veux <b>un peu</b>."],
+ ["Il y a des chaises ?","Il y <b>en</b> a <b>cinq</b>."],
+ ["Tu bois du café ?","J'<b>en</b> bois <b>beaucoup</b>."],
+ ["Tu as de l'argent ?","J'<b>en</b> ai <b>assez</b>."],
+ ["Combien de livres as-tu ?","J'<b>en</b> ai <b>trois</b>."]
+]);
+h3("Le cas de « un » et « une »");
+rows([
+ ["Tu as une voiture ? — Oui, j'en ai une.","wee, zhahn ay EWN","Do you have a car? — Yes, I have one."],
+ ["Tu as un frère ? — Oui, j'en ai un.","wee, zhahn ay UHN","— Yes, I have one."],
+ ["Tu as une voiture ? — Non, je n'en ai pas.","nohn, zhuh nahn ay PAH","— No, I don't."]
+]);
+note("Even <b>un / une</b> survives — because here it is not an article, it is <b>the number one</b>. English does the same: \"Do you have a car?\" — \"Yes, I have <b>one</b>.\"<br><br><b>But at the negative it disappears:</b> <i>je n'en ai <b>pas</b></i>, not <i>pas une</i>. Zero needs no number.");
+
+h2("9 · EN avec « de + chose »");
+lead("The half of <i>en</i> that has nothing to do with quantity — and where the mirror with <i>y</i> becomes exact.");
+table(["Question","Réponse","Prononciation"],[
+ ["Tu as besoin <b>de sucre</b> ?","Oui, j'<b>en</b> ai besoin.","wee, zhahn ay buh-ZWAN"],
+ ["Tu parles <b>de ton travail</b> ?","Oui, j'<b>en</b> parle.","wee, zhahn PARL"],
+ ["Tu rêves <b>de vacances</b> ?","Oui, j'<b>en</b> rêve.","wee, zhahn REV"]
+]);
+table(["Verbe + DE → EN","Verbe + À → Y"],[
+ ["avoir besoin <b>de</b> → j'<b>en</b> ai besoin","penser <b>à</b> → j'<b>y</b> pense"],
+ ["parler <b>de</b> → j'<b>en</b> parle","répondre <b>à</b> → j'<b>y</b> réponds"],
+ ["rêver <b>de</b> → j'<b>en</b> rêve","réfléchir <b>à</b> → j'<b>y</b> réfléchis"]
+]);
+ex("<b>So the real rule was never \"quantity vs place\".</b> It is <b>de vs à</b>. Quantity and place are simply where you meet each one most often.");
+h3("Les verbes « de » à connaître");
+table(["Verbe","Sens","Avec EN"],[
+ ["<b>avoir besoin de</b>","to need","j'en ai besoin"],
+ ["<b>parler de</b>","to talk about","j'en parle"],
+ ["<b>rêver de</b>","to dream of","j'en rêve"],
+ ["<b>avoir envie de</b>","to feel like","j'en ai envie"],
+ ["<b>avoir peur de</b>","to be afraid of","j'en ai peur"],
+ ["<b>s'occuper de</b>","to take care of","je m'en occupe"],
+ ["<b>se souvenir de</b>","to remember","je m'en souviens"],
+ ["<b>être content de</b>","to be happy about","j'en suis content"]
+]);
+warn("<b>Et le même partage personne / chose qu'avec Y :</b><br>· J'ai besoin <b>de ce livre</b> → J'<b>en</b> ai besoin. <i>(chose)</i><br>· J'ai besoin <b>de toi</b> → J'ai besoin <b>de toi</b>. <i>(personne — inchangé)</i><br><br>Things get a pronoun; people keep <b>de + moi / toi / lui / elle</b>.");
+
+h2("10 · EN avec la négation");
+table(["Affirmatif","Négatif","Prononciation"],[
+ ["J'en veux.","Je <b>n'en</b> veux <b>pas</b>.","zhuh nahn vuh PAH"],
+ ["J'en ai.","Je <b>n'en</b> ai <b>pas</b>.","zhuh nahn nay PAH"],
+ ["J'en mange.","Je <b>n'en</b> mange <b>pas</b>.","zhuh nahn mahnzh PAH"]
+]);
+note("<b>Écoutez « je n'en ai pas ».</b> Written as five words, said as <b>zhuh-nahn-nay-PAH</b> — four syllables with a linking [n] between <i>n'en</i> and <i>ai</i>. If you have ever heard that phrase and not recognised it, that is why.");
+warn("<b>Et au négatif, la quantité disparaît.</b><br>· J'en ai <b>deux</b> → Je n'en ai <b>pas</b>. — not <i>pas deux</i><br><br>Because zero has no number.");
+
+h2("11 · EN ou Y ? — le tableau de décision");
+table(["Situation","Pronom","Exemple"],[
+ ["<b>Lieu</b>","Y","Je vais à Paris. → J'y vais."],
+ ["<b>Lieu</b>","Y","Je suis au cinéma. → J'y suis."],
+ ["<b>Quantité</b>","EN","Je veux du café. → J'en veux."],
+ ["<b>Quantité</b>","EN","J'ai trois pommes. → J'en ai trois."],
+ ["<b>de + chose</b>","EN","Je parle de ce film. → J'en parle."]
+]);
+h3("L'arbre de décision complet");
+ex("<b>Regardez le nom que vous voulez remplacer. Qu'est-ce qu'il y a devant ?</b>");
+table(["Devant le nom","Pronom","Exemple"],[
+ ["<b>rien</b> (objet direct)","le · la · les","Je vois Marie → Je <b>la</b> vois."],
+ ["<b>à</b> + personne","lui · leur","Je parle à Marie → Je <b>lui</b> parle."],
+ ["<b>à</b> + chose ou lieu","<b>Y</b>","Je vais à Paris → J'<b>y</b> vais."],
+ ["<b>de</b> + quoi que ce soit","<b>EN</b>","Je veux du café → J'<b>en</b> veux."],
+ ["<b>de</b> + personne","de lui · d'elle","J'ai besoin de toi → inchangé"]
+]);
+ex("<b>Quatre questions, dans cet ordre :</b><br><b>1.</b> Y a-t-il une préposition ? Non → <i>le / la / les</i><br><b>2.</b> Est-ce <b>à</b> ou <b>de</b> ?<br><b>3.</b> Si <b>à</b> — personne ou chose ? Personne → <i>lui / leur</i> · Chose → <b>Y</b><br><b>4.</b> Si <b>de</b> → <b>EN</b> (sauf si c'est une personne)<br><br>That is the whole system. Everything else on this page is examples of it.");
+h3("Le test rapide — pour parler, pas pour écrire");
+ex("When you are speaking you have about one second. Don't run a tree — run this:<br><br>· Can I say <b>\"there\"</b> in English? → <b>Y</b><br>· Can I say <b>\"some\" / \"of it\" / \"about it\"</b>? → <b>EN</b><br><br>· <i>Tu vas au cinéma ?</i> — Yes I'm going <b>there</b> → <i>j'y vais</i><br>· <i>Tu veux du café ?</i> — Yes I want <b>some</b> → <i>j'en veux</i><br>· <i>Tu parles de ton travail ?</i> — Yes I talk <b>about it</b> → <i>j'en parle</i><br><br>Rough, but right about 90 % of the time at A1. <b>Use the tree when you write, the test when you speak.</b>");
+h3("Et les deux ensemble");
+rows([
+ ["Il y en a trois.","eel-ee-ahn ah TRWAH","There are three (of them)."],
+ ["Il y en a beaucoup.","eel-ee-ahn ah boh-KOO","There are a lot."],
+ ["Il n'y en a plus.","eel nyahn ah PLEW","There's none left."],
+ ["Il n'y en a pas.","eel nyahn ah PAH","There isn't any."]
+]);
+note("<b>Y always comes before EN.</b> Never <i>il en y a</i>.<br><br>« <b>Il n'y en a plus</b> » is worth owning as a single unit — five words, three syllables, and you will hear it in every shop and kitchen in France.");
+
+h2("12 · Exercices du cours");
+h3("Exercice 1 — EN ou Y ?");
+fill([
+ {s:"1. Tu vas au cinéma ? Oui, j'______ vais.", a:["y"], en:"Yes, I'm going there.", why:"<i>au cinéma</i> = <b>à</b> + lieu → <b>Y</b>."},
+ {s:"2. Tu veux du café ? Oui, j'______ veux.", a:["en"], en:"Yes, I want some.", why:"<i>du café</i> = partitif, donc <b>de</b> → <b>EN</b>."},
+ {s:"3. Tu habites à Paris ? Oui, j'______ habite.", a:["y"], en:"Yes, I live there.", why:"<i>à Paris</i> → <b>Y</b>."},
+ {s:"4. Tu as des frères ? Oui, j'______ ai deux.", a:["en"], en:"Yes, I have two.", why:"<i>des frères</i> = quantité → <b>EN</b>, et <b>deux</b> reste."},
+ {s:"5. Tu vas au restaurant ? Oui, j'______ vais.", a:["y"], en:"Yes, I'm going.", why:"<b>à</b> + lieu → <b>Y</b>."},
+ {s:"6. Tu manges des pommes ? Oui, j'______ mange.", a:["en"], en:"Yes, I eat some.", why:"<i>des pommes</i> → <b>EN</b>."},
+ {s:"7. Tu travailles à Bangalore ? Oui, j'______ travaille.", a:["y"], en:"Yes, I work there.", why:"<b>à</b> + lieu → <b>Y</b>."},
+ {s:"8. Tu veux de la pizza ? Oui, j'______ veux.", a:["en"], en:"Yes, I'd like some.", why:"<i>de la pizza</i> → <b>EN</b>."}
+]);
+ex("<b>Four Y, four EN — and look at how cleanly they sort.</b> Every <b>Y</b> item has <i>à</i> or <i>au</i> in the question; every <b>EN</b> item has <i>du</i>, <i>de la</i> or <i>des</i>.<br><br>You never have to think about \"place vs quantity\". <b>Read the preposition in the question and copy the decision.</b>");
+warn("<b>Item 4 carries extra baggage:</b> the question says <i>des frères</i>, and the answer must keep <b>deux</b>. Writing <i>j'en ai</i> with nothing after it loses the information the sentence was carrying.");
+
+h3("Exercice 2 — Transformez");
+fill([
+ {s:"1. Je vais à Paris. → ______", a:["j'y vais","jy vais","j'y vais."], en:"I'm going there.", why:"<b>à</b> + lieu → <i>y</i>, placed immediately before the verb, and <i>je</i> elides to <b>j'</b>."},
+ {s:"2. Je veux du café. → ______", a:["j'en veux","jen veux","j'en veux."], en:"I want some.", why:"<i>du</i> → <b>en</b>."},
+ {s:"3. J'ai trois frères. → ______", a:["j'en ai trois","jen ai trois","j'en ai trois."], en:"I have three.", why:"⚠ <b>trois</b> stays. The number is not part of what <i>en</i> replaces."},
+ {s:"4. Je travaille à Lyon. → ______", a:["j'y travaille","jy travaille","j'y travaille."], en:"I work there.", why:"<b>à</b> + lieu → <i>y</i>."},
+ {s:"5. Je mange des pommes. → ______", a:["j'en mange","jen mange","j'en mange."], en:"I eat some.", why:"<i>des</i> → <b>en</b>."},
+ {s:"6. Je suis à la maison. → ______", a:["j'y suis","jy suis","j'y suis."], en:"I'm there.", why:"<b>à la</b> + lieu → <i>y</i>."}
+]);
+ex("<b>La méthode en trois étapes, pour chaque item :</b><br><b>1.</b> Trouvez la préposition → <i>à</i> ou <i>de</i><br><b>2.</b> Choisissez le pronom → <b>y</b> ou <b>en</b><br><b>3.</b> Placez-le <u>juste devant le verbe</u>, et élidez <i>je</i> → <b>j'</b><br><br>Step 3 is the one people drop. The pronoun does not go at the end, and it does not go after the verb. It slots in front, glued to it.");
+
+h3("Exercice 3 — Au supermarché");
+fill([
+ {s:"1. Tu achètes du lait ? → Oui, ______", a:["j'en achète","j'en achete","jen achète"], en:"Yes, I'm buying some.", why:"<i>du lait</i> → <b>en</b>. Note the verb keeps its accent: j'en ach<b>è</b>te."},
+ {s:"2. Tu achètes deux bananes ? → Oui, ______", a:["j'en achète deux","j'en achete deux","jen achète deux"], en:"Yes, I'm buying two.", why:"<b>EN</b> + the quantity stays."},
+ {s:"3. Tu vas au supermarché samedi ? → Oui, ______", a:["j'y vais samedi","jy vais samedi","j'y vais"], en:"Yes, I'm going on Saturday.", why:"<b>Y</b> replaced only <i>au supermarché</i> — <b>samedi</b> stays, like a quantity would."},
+ {s:"4. Tu veux du chocolat ? → Non, ______", a:["je n'en veux pas","je nen veux pas"], en:"No, I don't want any.", why:"Négation : <b>ne + en + verbe + pas</b>, with <i>ne</i> → <b>n'</b>."}
+]);
+ex("<b>Regardez comment cet exercice est construit</b> — il teste les quatre cas dans l'ordre :");
+table(["#","Ce qui est testé"],[
+ ["1","<b>EN</b> simple, sans quantité"],
+ ["2","<b>EN</b> + la quantité qui reste"],
+ ["3","<b>Y</b> pour le lieu — et le reste de la phrase qui survit"],
+ ["4","<b>EN</b> au négatif — et la quantité qui disparaît"]
+]);
+note("Items 2 and 4 are the pair that matters. In the affirmative the number stays (<i>j'en achète <b>deux</b></i>); in the negative it goes (<i>je n'en veux <b>pas</b></i>, not <i>pas de chocolat</i>, not <i>pas un</i>).");
+
+h3("Exercice 4 — Parlez avec votre partenaire");
+lead("Étudiant A pose les questions. Étudiant B répond avec EN ou Y. Here is a bank for both roles.");
+h3("Si vous êtes Étudiant A — les questions");
+rows([
+ ["Tu vas souvent au cinéma ?","tew vah soo-vahn oh see-nay-MAH","Do you often go to the cinema?"],
+ ["Tu habites à Brampton ?","tew ah-beet ah bramp-TOHN","Do you live in Brampton?"],
+ ["Tu travailles à Toronto ?","tew trah-vye ah toh-rohn-TOH","Do you work in Toronto?"],
+ ["Tu veux du café ?","tew vuh dew kah-FAY","Do you want coffee?"],
+ ["Tu as des frères et sœurs ?","tew ah day frehr ay SUR","Do you have brothers and sisters?"],
+ ["Tu manges de la viande ?","tew mahnzh duh lah VYAHND","Do you eat meat?"],
+ ["Tu bois beaucoup d'eau ?","tew bwah boh-koo DOH","Do you drink a lot of water?"],
+ ["Tu as besoin d'aide ?","tew ah buh-zwan DED","Do you need help?"],
+ ["Tu penses à ton examen ?","tew pahnss ah tohn neg-zah-MAN","Are you thinking about your exam?"]
+]);
+h3("Si vous êtes Étudiant B — les réponses");
+rows([
+ ["Oui, j'y vais souvent.","wee, zhee veh soo-VAHN","Yes, I go there often."],
+ ["Oui, j'y habite depuis deux ans.","wee, zhee ah-beet duh-pwee duh ZAHN","Yes, I've lived there two years."],
+ ["Non, je n'y travaille pas.","nohn, zhuh nee trah-vye PAH","No, I don't work there."],
+ ["Oui, j'en veux, merci.","wee, zhahn vuh mair-SEE","Yes please, I'd like some."],
+ ["Oui, j'en ai un.","wee, zhahn ay UHN","Yes, I have one."],
+ ["Non, je n'en mange pas.","nohn, zhuh nahn mahnzh PAH","No, I don't eat any."],
+ ["Oui, j'en bois beaucoup.","wee, zhahn bwah boh-KOO","Yes, I drink a lot."],
+ ["Oui, j'en ai besoin.","wee, zhahn ay buh-ZWAN","Yes, I need it."],
+ ["Oui, j'y pense tout le temps.","wee, zhee pahnss too luh TAHN","Yes, all the time."]
+]);
+ex("<b>La technique pour cet exercice : ne traduisez pas — copiez la préposition.</b><br><br>When the question comes at you, you have about a second. Don't ask \"is this a place or a quantity?\" — just hear <b>which little word</b> is in the question and mirror it:<br><br>· la question contient <b>au / à la / à</b> → répondez avec <b>y</b><br>· la question contient <b>du / de la / des / d'</b> → répondez avec <b>en</b><br><br>One reflex instead of a three-step analysis. That is what lets you answer at conversation speed.");
+note("<b>Et une chose qui fait gagner des points :</b> add something after the pronoun. <i>Oui, j'y vais</i> is correct but bare. <i>Oui, j'y vais <b>souvent</b></i> or <i>Oui, j'en ai <b>deux</b></i> shows you can extend rather than just slot in the right form. Examiners notice.");
+
+h2("13 · Les vingt phrases à savoir par cœur");
+lead("These are the ones you will actually say. Learn them whole, not as grammar.");
+h3("Avec Y");
+rows([
+ ["On y va !","ohn-nee-VAH","Let's go!"],
+ ["Vas-y !","vah-ZEE","Go on! / Go ahead!"],
+ ["J'y vais.","zhee VEH","I'm off."],
+ ["J'y suis !","zhee SWEE","I've got it! / I'm there!"],
+ ["Je n'y vais pas.","zhuh nee veh PAH","I'm not going."],
+ ["J'y pense.","zhee PAHNSS","I'm thinking about it."],
+ ["Je n'y crois pas !","zhuh nee krwah PAH","I don't believe it!"],
+ ["Tu y vas ?","tew ee VAH","Are you going?"],
+ ["Je n'y comprends rien.","zhuh nee kohn-prahn RYAN","I don't understand any of it."]
+]);
+h3("Avec EN");
+rows([
+ ["J'en veux.","zhahn VUH","I want some."],
+ ["Je n'en veux pas.","zhuh nahn vuh PAH","I don't want any."],
+ ["J'en ai assez.","zhahn ay ah-SAY","I've had enough."],
+ ["J'en ai marre !","zhahn ay MAR","I'm fed up!"],
+ ["J'en ai besoin.","zhahn ay buh-ZWAN","I need it."],
+ ["Il n'y en a plus.","eel nyahn ah PLEW","There's none left."],
+ ["Il y en a beaucoup.","eel-ee-ahn ah boh-KOO","There's a lot."],
+ ["Je m'en souviens.","zhuh mahn soo-VYAN","I remember it."],
+ ["Je m'en occupe.","zhuh mahn noh-KEWP","I'll take care of it."],
+ ["Ne t'en fais pas.","nuh tahn feh PAH","Don't worry about it."],
+ ["J'en profite.","zhahn proh-FEET","I'm making the most of it."]
+]);
+warn("<b>Deux à regarder de près.</b><br><br>· <b>« J'en ai marre »</b> — the standard way to say you're fed up. You will hear it daily. <i>Marre</i> exists <u>only</u> in this expression.<br><br>· <b>« Je m'en occupe »</b> — \"I'll handle it\". It combines a reflexive pronoun <u>and</u> <b>en</b>, in that order: <i>me</i> then <i>en</i>. Exactly the queue from the pronoun-order table.");
+
+h2("14 · Exercices supplémentaires");
+h3("A · Quel pronom ? (les cinq possibilités)");
+mcq([
+ {q:"Je vois Marie. → Je ___ vois.", opts:["la","lui","y","en"], a:0, why:"Aucune préposition → objet direct → <b>la</b>."},
+ {q:"Je parle à Marie. → Je ___ parle.", opts:["la","lui","y","en"], a:1, why:"<b>à</b> + <u>personne</u> → <b>lui</b>."},
+ {q:"Je vais à Paris. → J'___ vais.", opts:["la","lui","y","en"], a:2, why:"<b>à</b> + <u>lieu</u> → <b>y</b>."},
+ {q:"Je veux du café. → J'___ veux.", opts:["le","lui","y","en"], a:3, why:"<b>de</b> (partitif) → <b>en</b>."},
+ {q:"Je pense à mon travail. → J'___ pense.", opts:["le","lui","y","en"], a:2, why:"<b>à</b> + <u>chose</u> → <b>y</b>, même si ce n'est pas un lieu."},
+ {q:"J'ai besoin de sucre. → J'___ ai besoin.", opts:["le","lui","y","en"], a:3, why:"<b>de</b> + chose → <b>en</b>."},
+ {q:"J'écoute la radio. → Je l'___ … non : je ___ écoute.", opts:["l'","lui","y","en"], a:0, why:"⚠ <i>écouter</i> ne prend pas de préposition en français → objet direct → <b>l'</b>."},
+ {q:"Je téléphone à mes parents. → Je ___ téléphone.", opts:["les","leur","y","en"], a:1, why:"<b>à</b> + personnes au pluriel → <b>leur</b>."}
+]);
+h3("B · La quantité reste-t-elle ?");
+mcq([
+ {q:"J'ai deux frères. →", opts:["J'en ai.","J'en ai deux.","J'ai deux."], a:1, why:"La quantité reste toujours à l'affirmatif."},
+ {q:"Je veux beaucoup de chocolat. →", opts:["J'en veux.","J'en veux beaucoup.","Je veux beaucoup."], a:1, why:"<i>beaucoup</i> n'est pas remplacé par <i>en</i> — il était devant le <i>de</i>."},
+ {q:"Je n'ai pas de voiture. →", opts:["Je n'en ai pas.","Je n'en ai pas une.","Je n'ai pas."], a:0, why:"Au négatif la quantité disparaît : zéro n'a pas de nombre."},
+ {q:"J'ai une sœur. →", opts:["J'en ai.","J'en ai une.","J'ai une."], a:1, why:"⚠ Ici <i>une</i> n'est pas un article mais <b>le nombre un</b> — donc il reste."}
+]);
+h3("C · Mettez au négatif");
+fill([
+ {s:"J'y vais. → ______", a:["je n'y vais pas","je ny vais pas"], en:"I'm not going.", why:"<b>ne + y + verbe + pas</b>, avec <i>ne</i> → <b>n'</b>."},
+ {s:"J'en veux. → ______", a:["je n'en veux pas","je nen veux pas"], en:"I don't want any.", why:"Même structure avec <b>en</b>."},
+ {s:"Il y travaille. → ______", a:["il n'y travaille pas","il ny travaille pas"], en:"He doesn't work there.", why:"<b>n'y</b>, une seule syllabe : <i>nee</i>."},
+ {s:"Nous en avons. → ______", a:["nous n'en avons pas","nous nen avons pas"], en:"We don't have any.", why:"<b>n'en</b> + liaison : noo-nahn-nah-vohn PAH."},
+ {s:"J'en ai trois. → ______", a:["je n'en ai pas","je nen ai pas"], en:"I don't have any.", why:"⚠ <b>trois</b> disparaît — au négatif la quantité est zéro."}
+]);
+h3("D · Trouvez l'erreur");
+mcq([
+ {q:"« Je y vais. »", opts:["Correct","J'y vais.","Je vais y."], a:1, why:"<i>je</i> doit s'élider devant la voyelle de <i>y</i> → <b>j'y</b>."},
+ {q:"« Je téléphone à Marie → J'y téléphone. »", opts:["Correct","Je lui téléphone.","Je la téléphone."], a:1, why:"<b>Y ne remplace jamais une personne</b> → <i>lui</i>."},
+ {q:"« J'ai deux frères → J'en ai. »", opts:["Correct","J'en ai deux.","J'ai en deux."], a:1, why:"La quantité doit rester."},
+ {q:"« Je veux en. »", opts:["Correct","J'en veux.","Je veux de ça."], a:1, why:"Le pronom se place <b>devant</b> le verbe, jamais après."},
+ {q:"« Il en y a trois. »", opts:["Correct","Il y en a trois.","Il a y en trois."], a:1, why:"<b>Y vient toujours avant EN.</b>"}
+]);
+
+h2("15 · Texte parallèle — Une journée avec EN et Y");
+ex("<b>Samedi matin</b><br><br>— Allô Anirudh ? Tu es à la maison ?<br>— Oui, j'y suis. Pourquoi ?<br>— Tu veux aller au marché ? J'y vais dans une heure.<br>— Bonne idée. J'ai besoin de légumes — j'en ai besoin pour ce soir.<br><br>Au marché :<br><br>— Tu achètes des tomates ?<br>— Oui, j'en achète un kilo. Et toi, tu veux du pain ?<br>— Non merci, je n'en veux pas. J'en ai encore à la maison.<br>— Et du fromage ?<br>— Ah oui, j'en veux ! J'en prends toujours le samedi.<br><br>— On va au café après ?<br>— D'accord, mais je n'y reste pas longtemps. Je dois rentrer : mes parents téléphonent à midi et je dois leur parler.<br><br>Au café :<br><br>— Vous désirez ?<br>— Deux cafés, s'il vous plaît.<br>— Vous voulez du sucre ?<br>— Moi oui, j'en veux. Lui, il n'en prend jamais.<br><br>Il est midi moins le quart. Nous partons. Anirudh retourne chez lui ; moi, j'y retourne aussi — mes parents vont appeler, et j'y pense depuis ce matin.");
+h3("Glossaire du texte");
+rows([
+ ["Tu es à la maison ? — Oui, j'y suis.","wee, zhee SWEE","Are you home? — Yes, I am."],
+ ["J'y vais dans une heure.","zhee veh dahn zewn UR","I'm going in an hour."],
+ ["j'en ai besoin pour ce soir","zhahn ay buh-zwan poor suh SWAHR","I need some for tonight"],
+ ["j'en achète un kilo","zhahn ah-shet uhn kee-LOH","I'm buying a kilo"],
+ ["je n'en veux pas","zhuh nahn vuh PAH","I don't want any"],
+ ["J'en ai encore à la maison.","zhahn ay ahn-KOR","I still have some at home."],
+ ["J'en prends toujours le samedi.","zhahn prahn too-ZHOOR","I always get some on Saturdays."],
+ ["je n'y reste pas longtemps","zhuh nee rest pah lohn-TAHN","I'm not staying long"],
+ ["je dois leur parler","zhuh dwah lur par-LAY","I have to talk to them"],
+ ["Vous voulez du sucre ?","voo voo-lay dew SEW-kruh","Would you like sugar?"],
+ ["il n'en prend jamais","eel nahn prahn zhah-MEH","he never takes any"],
+ ["Anirudh retourne chez lui.","ah-nee-rood ruh-TOORN shay LWEE","Anirudh is going back to his place."],
+ ["j'y pense depuis ce matin","zhee pahnss duh-pwee suh mah-TAN","I've been thinking about it since this morning"]
+]);
+h3("Compréhension");
+mcq([
+ {q:"Pourquoi a-t-il besoin de légumes ?", opts:["Pour ce soir","Pour demain","Pour ses parents"], a:0, why:"« j'en ai besoin pour ce soir »."},
+ {q:"Pourquoi ne veut-il pas de pain ?", opts:["Il n'aime pas ça","Il en a encore à la maison","C'est trop cher"], a:1, why:"« J'en ai encore à la maison. »"},
+ {q:"Pourquoi ne reste-t-il pas longtemps au café ?", opts:["Il est fatigué","Ses parents téléphonent à midi","Il n'aime pas le café"], a:1, why:"« mes parents téléphonent à midi et je dois leur parler »."},
+ {q:"« je dois leur parler » — pourquoi LEUR et pas Y ?", opts:["Erreur du texte","Parce que ce sont des personnes","Parce que c'est au pluriel"], a:1, why:"<b>parler à</b> + <u>personnes</u> → <b>leur</b>. Y ne remplace jamais une personne."}
+]);
+h3("Repérez les pronoms");
+note("<b>Comptez-les.</b> Le texte contient <b>cinq Y</b> et <b>huit EN</b>, plus un <b>leur</b> — et chacun obéit à la même règle.<br><br><b>Y — toujours un lieu ou à + chose :</b><br><i>j'y suis</i> (à la maison) · <i>j'y vais</i> (au marché) · <i>je n'y reste pas</i> (au café) · <i>j'y retourne</i> (chez moi) · <i>j'y pense</i> (à l'appel — pas un lieu !)<br><br><b>EN — toujours de + quelque chose :</b><br><i>j'en ai besoin</i> (de légumes) · <i>j'en achète un kilo</i> · <i>je n'en veux pas</i> (de pain) · <i>j'en ai encore</i> · <i>j'en veux</i> (du fromage) · <i>j'en prends toujours</i> · <i>j'en veux</i> (du sucre) · <i>il n'en prend jamais</i><br><br><b>Et un LEUR :</b> <i>je dois leur parler</i> — des personnes, donc ni <i>y</i> ni <i>en</i>.<br><br><b>Repérez aussi :</b> une quantité qui reste (<i>un kilo</i>), trois négations (<i>n'en veux pas</i>, <i>n'y reste pas</i>, <i>n'en prend jamais</i>), et un <i>y</i> qui n'est pas un lieu du tout (<i>j'y pense</i>).");
+ex("<b>À vous —</b> write a twelve-line dialogue of your own, at a shop or with a friend. Requirements — tick them off:<br>☐ trois <b>Y</b>, dont <u>un</u> qui n'est pas un lieu (<i>j'y pense</i>, <i>j'y réfléchis</i>)<br>☐ quatre <b>EN</b>, dont <u>un</u> avec une quantité qui reste<br>☐ une <b>négation</b> avec chacun des deux<br>☐ un <b>lui</b> ou <b>leur</b> — pour montrer que vous savez quand ce n'est <u>pas</u> y<br>☐ si possible, un <b>« il y en a »</b><br><br>Puis relisez à voix haute et vérifiez une seule chose : <b>chaque pronom est-il juste devant son verbe ?</b> C'est là que tout se joue.");
+
+h2("16 · Ce qu'il faut retenir");
+ex("<b>La règle, en une ligne :</b><br><br><b>À + chose ou lieu → Y. &nbsp;&nbsp; DE + quoi que ce soit → EN. &nbsp;&nbsp; À + personne → lui / leur.</b><br><br><b>Les trois choses qu'on oublie :</b><br>1. La <b>quantité reste</b> — <i>j'en ai deux</i>, pas <i>j'en ai</i><br>2. Le pronom va <b>devant le verbe</b> — toujours<br>3. <b>Y ne remplace jamais une personne</b><br><br><b>Et le conseil :</b> don't wait until you can do this perfectly before using it. Use it wrongly, out loud, every day. These two words are so frequent that you will get hundreds of corrections a week from simply listening — far more than any exercise can give you.");
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+<script src="french_glossary.js"></script>
+</body>
+</html>
