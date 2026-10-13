@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French — Crash Course : l'examen oral</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+</style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Crash Course — L'examen oral</h1>
+  <p class="sub">Tout ce qu'il faut pour une évaluation orale A1–A2 : la présentation, les 20 questions, les phrases de survie, les connecteurs et les pièges</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Cours21_Notes.html">Cours 21</a>
+    <a href="French_Cours22_Notes.html">Cours 22</a>
+    <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
+    <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a><a href="French_Oral_Crash_Course.html" class="active">Crash Course</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_Cours30_Notes.html">Cours 30</a><a href="French_Cours31_Notes.html">Cours 31</a><a href="French_Cours32_Notes.html">Cours 32</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
+  </nav>
+
+<div class="whybox">
+  <h4><span>Pourquoi ça marche comme ça</span>Pourquoi « il » ne veut rien dire dans « il pleut »</h4>
+  <p>Nobody is raining. The <b>il</b> in <i>il pleut</i> and <i>il fait froid</i> refers to nothing at all — it is an empty placeholder, exactly like the "it" in English "it's raining".<br><br>French requires every sentence to have a subject, so when there is no real one, it supplies a dummy. That is also why the <i>il</i> never becomes <i>elle</i>, and why you never see <i>fait chaud</i> standing alone.<br><br>Same mechanism in <b>il y a</b> and <b>il faut</b> — two more phrases where <i>il</i> is holding a seat for nobody.</p>
+  <a class="more" href="French_Grammaire.html">Aller plus loin →</a>
+</div>
+
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').textContent=fr; c.querySelector('.ph').textContent=ph;
+    c.onclick=()=>speak(fr); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+/* ===== 1 ===== */
+function fillx(list){ fill(list.map(x=>({s:x[0], a:[x[1]], en:x[2]||'', why:x[3]||('Réponse : <b>'+x[1]+'</b>')}))); }
+function mcqx(list){ mcq(list.map(x=>({q:x[0], opts:x[1], a:x[2], why:x[3]||''}))); }
+
+h2('0 · Comment utiliser cette page — How to use this page today');
+warn("<b>Vous avez une demi-journée. Ne lisez pas cette page du début à la fin.</b><br><i>You have half a day. Don't read this page start to finish.</i><br><br><b>Heure 1 / Hour 1 —</b> Section 1 (stratégie / strategy), then Section 2 (your presentation). Learn the presentation <u>by heart</u>, out loud, until you can say it without thinking. It's the only part to memorise word for word.<br><br><b>Heure 2 / Hour 2 —</b> Section 3: the 20 questions. Read the question, answer <u>out loud</u> before looking at the model. Then compare.<br><br><b>Heure 3 / Hour 3 —</b> Sections 5 and 6: survival phrases and connectors. These two give the biggest gain for the least effort.<br><br><b>Les 20 dernières minutes / Last 20 minutes —</b> Section 9 only. Nothing else.<br><br>Sections 4, 7 and 8 are reference — look things up in them, don't study them.");
+
+h2('1 · Ce qui est noté — What gets marked, and what doesn\'t');
+lead("An A1–A2 oral examiner isn't looking for perfection. They're ticking boxes. Knowing <i>which</i> boxes changes how you prepare.<br><br><i>Un examinateur d'oral A1–A2 ne cherche pas la perfection. Il coche des cases.</i>");
+ex("<b>CE QUI EST NOTÉ — WHAT IS MARKED</b><br><br>· <b>Est-ce que vous communiquez ?</b> — <i>Do you get your meaning across?</i> Does the examiner understand you?<br>· <b>La variété des structures</b> — <i>Variety of structures.</i> Do you use more than one tense, more than one way of joining ideas?<br>· <b>La prise de parole</b> — <i>Taking the floor.</i> Do you answer with a sentence, or with one word?<br>· <b>La capacité à vous débrouiller</b> — <i>Coping skills.</i> When you get stuck, can you ask for help <u>in French</u>?<br>· <b>La politesse et le registre</b> — <i>Politeness and register.</i> Using <i>vous</i>, opening and closing properly.");
+warn("<b>CE QUI N'EST PAS SI GRAVE — WHAT MATTERS LESS THAN YOU THINK</b><br><br>· <b>une faute de genre</b> — <i>a gender mistake</i> (<i>le</i> instead of <i>la</i>)<br>· <b>un accent</b> — <i>an accent</i>, Indian, Canadian or British<br>· <b>une hésitation</b> — <i>hesitating</i><br>· <b>oublier un mot et le dire autrement</b> — <i>forgetting a word and saying it another way</i><br>· <b>demander une répétition</b> — <i>asking for something to be repeated</i><br><br><br><b>CE QUI COÛTE CHER — WHAT ACTUALLY COSTS YOU</b><br><br>· <b>le silence</b> — <i>silence.</i> It's the one thing that cannot be marked at all.<br>· <b>passer à l'anglais</b> — <i>switching to English</i><br>· <b>répondre par un seul mot</b> — <i>answering with a single word</i> (<i>Oui.</i> / <i>Brampton.</i>)<br>· <b>tutoyer l'examinateur</b> — <i>using</i> tu <i>with the examiner</i><br>· <b>dire « je veux »</b> — <i>saying</i> je veux <i>instead of</i> je voudrais");
+note("<b>LA RÈGLE D'OR — THE GOLDEN RULE</b><br><br><b>Répondez toujours en au moins deux phrases.</b><br><i>Always answer in at least two sentences.</i><br><br>· Question : <i>Vous habitez où ?</i> — <i>Where do you live?</i><br>· ✗ <i>Brampton.</i> — one word, nothing to mark<br>· ✓ <i>J'habite à Brampton, au Canada. C'est une ville près de Toronto.</i> — <i>I live in Brampton, in Canada. It's a town near Toronto.</i><br><br>The second sentence is <b>free</b>: it needs no new grammar, and it doubles what the examiner can tick. Build the habit now — <b>answer + one more sentence</b>.");
+ex("<b>SI VOUS NE COMPRENEZ PAS — IF YOU DON'T UNDERSTAND</b><br><br>The worst thing you can do is guess. Say, in French:<br><br>· <i>Pardon, vous pouvez répéter, s'il vous plaît ?</i><br>&nbsp;&nbsp;— <i>Sorry, could you repeat that, please?</i><br>· <i>Vous pouvez parler plus lentement, s'il vous plaît ?</i><br>&nbsp;&nbsp;— <i>Could you speak more slowly, please?</i><br>· <i>Je n'ai pas compris. Qu'est-ce que ça veut dire, « … » ?</i><br>&nbsp;&nbsp;— <i>I didn't understand. What does « … » mean?</i><br><br><b>These phrases GAIN you marks, they don't lose you any.</b> They're communication strategies and they appear explicitly on the marking grids. A candidate who asks for a repetition in French shows they're in control of the situation; a silent candidate shows nothing.");
+
+h2('2 · Votre présentation — Your introduction, to learn by heart');
+lead("This is the first thing you'll be asked, and the only passage to memorise word for word. Learn it to the point of automatic — that frees your attention for everything else.");
+h3('Version courte (safe) — 30 seconds');
+ex("<i>Bonjour, je m'appelle Rajveer. J'ai vingt-trois ans. Je suis indien, et j'habite à Brampton, au Canada. Je suis administrateur système — je travaille dans l'informatique. J'apprends le français depuis six mois. Enchanté !</i><br><br><i>Hello, my name is Rajveer. I'm twenty-three. I'm Indian, and I live in Brampton, Canada. I'm a systems administrator — I work in IT. I've been learning French for six months. Pleased to meet you!</i>");
+rows([
+ ["Bonjour, je m'appelle Rajveer.","bohn-zhoor, zhuh mah-pel raj-VEER","Hello, my name is Rajveer."],
+ ["J'ai vingt-trois ans.","zhay van-trwah ZAHN","I'm twenty-three."],
+ ["Je suis indien.","zhuh swee zan-DYAN","I'm Indian."],
+ ["J'habite à Brampton, au Canada.","zhah-beet ah bramp-tohn, oh kah-nah-DAH","I live in Brampton, Canada."],
+ ["Je suis administrateur système.","zhuh swee zad-mee-nee-strah-tur sees-TEM","I'm a systems administrator."],
+ ["Je travaille dans l'informatique.","zhuh trah-vye dahn lan-for-mah-TEEK","I work in IT."],
+ ["J'apprends le français depuis six mois.","zhah-prahn luh frahn-say duh-pwee see MWAH","I've been learning French for six months."],
+ ["Enchanté !","ahn-shahn-TAY","Pleased to meet you!"]
+]);
+h3('Version développée (aim for this) — 1 minute');
+ex("<i>Bonjour, je m'appelle Rajveer. J'ai vingt-trois ans et je suis indien. J'habite à Brampton, <b>au</b> Canada, <b>depuis</b> deux ans. Avant, j'<b>habitais</b> en Inde.<br><br>Je suis administrateur système : je travaille dans l'informatique, pour une grande entreprise. J'aime beaucoup mon travail <b>parce que</b> c'est technique et il y a toujours quelque chose de nouveau.<br><br>J'apprends le français depuis six mois, <b>parce que</b> je <b>voudrais</b> passer le TEF. <b>C'est</b> difficile, <b>mais c'est</b> intéressant. <b>Ce que j'aime</b>, c'est la grammaire — elle est logique.<br><br>Enchanté !</i>");
+ex("<b>ENGLISH</b><br><i>Hello, my name is Rajveer. I'm twenty-three and I'm Indian. I've lived in Brampton, in Canada, for two years. Before that, I lived in India.<br><br>I'm a systems administrator: I work in IT, for a large company. I like my job a lot because it's technical and there's always something new.<br><br>I've been learning French for six months, because I'd like to take the TEF. It's difficult, but it's interesting. What I like is the grammar — it's logical.<br><br>Pleased to meet you!</i>");
+note("<b>WHAT YOU'RE USING / WHY — count the structures</b><br><br>· <b>présent</b> — <i>je suis, j'habite, je travaille</i><br>· <b>imparfait</b> — <i>j'habitais</i>, for a past habit. One imparfait in your opening is a strong signal.<br>· <b>depuis + présent</b> — still ongoing<br>· <b>parce que</b> ×2 — justifying, the A1→A2 line<br>· <b>mais</b> — contrast<br>· <b>c'est</b> + adjective — general judgement, always masculine singular<br>· <b>elle est</b> + adjective — about one specific thing (la grammaire), so it agrees<br>· <b>ce que j'aime, c'est…</b> — a cleft sentence. B1 territory.<br>· <b>je voudrais</b> — conditional, polite<br>· <b>au</b> Canada / <b>en</b> Inde — masculine vs feminine country<br><br><b>Ten structures in four sentences — and you only memorised one paragraph.</b> That's the whole trick.");
+warn("<b>LES CINQ PIÈGES — THE FIVE TRAPS</b><br><br><b>1.</b> <b>J'<u>ai</u> vingt-trois ans</b> — <i>avoir</i>, never <i>être</i>. And <b>ans</b> is compulsory.<br>&nbsp;&nbsp;<i>French</i> has <i>an age; English</i> is <i>an age.</i><br><b>2.</b> <b>Je suis administrateur</b> — <u>no article</u>. Not <i>un administrateur</i>.<br>&nbsp;&nbsp;<i>After</i> être, <i>a job is a category, not a countable object.</i><br><b>3.</b> <b>au</b> Canada (masculine) but <b>en</b> Inde (feminine), and <b>d'</b>Inde for « from ».<br><b>4.</b> <b>depuis + présent</b>: <i>j'apprends depuis six mois</i>, never <i>j'ai appris depuis</i>.<br><b>5.</b> <b>indien</b> lowercase as an adjective (<i>je suis indien</i>); capital only as a noun (<i>un Indien</i>).");
+h3('Exercice — rebuild your introduction');
+fillx([
+ ["Je ______ Rajveer.","m'appelle","my name is — reflexive verb"],
+ ["J'______ vingt-trois ______ .","ai ans","avoir + number + ans, both compulsory"],
+ ["Je suis ______ . (nationality)","indien","no article, lowercase"],
+ ["J'habite ______ Canada.","au","masculine country → au"],
+ ["Je viens ______ Inde.","d'","feminine + vowel → d'"],
+ ["Je suis ______ système. (job)","administrateur","no article after être"],
+ ["J'apprends le français ______ six mois.","depuis","+ présent, because it's still going"],
+ ["Je voudrais passer le TEF ______ je veux travailler en français.","parce que","the A2 marker — justify everything"]
+]);
+
+h2('3 · Les 20 questions — The 20 questions you will be asked');
+lead("Read the question. <b>Answer out loud BEFORE</b> looking at the model. Then compare. Under each model there's a <b>what you're using</b> box — the structures in that answer and why they're there.<br><br>This is the highest-value section on the page.");
+
+h3('① Vous vous appelez comment ? — What\'s your name?');
+ex("<i>Je m'appelle Rajveer. R-A-J-V-E-E-R. <b>Et vous ?</b></i><br><br><i>My name is Rajveer. R-A-J-V-E-E-R. And you?</i>");
+note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>je m'appelle</b> — a <u>reflexive verb</u>, literally « I call myself ». French has no other way to say this.<br>· <b>Et vous ?</b> — throwing the question back. Shows you're holding a <u>conversation</u>, not being interrogated. Free marks.<br><br><b>TIP:</b> know how to spell your name aloud. You'll almost certainly be asked.");
+
+h3('② Quel âge avez-vous ? — How old are you?');
+ex("<i>J'ai vingt-trois ans.</i> — <i>I'm twenty-three.</i><br>Longer: <i>J'ai vingt-trois ans. Je suis né en deux mille trois.</i> — <i>I'm 23. I was born in 2003.</i>");
+note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>avoir</b>, not <i>être</i> — French <u>has</u> an age, English <u>is</u> an age. <i>Je suis 23</i> is meaningless in French.<br>· <b>ans</b> is compulsory — English can drop « years old », French cannot.<br>· <b>je suis né</b> — passé composé with <u>être</u> (<i>naître</i> is one of the 14).");
+
+h3('③ D\'où venez-vous ? — Where are you from?');
+ex("<i>Je viens <b>d'</b>Inde, du Punjab. Mais j'habite au Canada <b>depuis</b> deux ans.</i><br><br><i>I'm from India, from Punjab. But I've lived in Canada for two years.</i>");
+note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>d'Inde</b> — <i>Inde</i> is feminine and starts with a vowel, so <i>de</i> elides to <b>d'</b>.<br>· <b>au Canada</b> — <i>Canada</i> is masculine → <b>au</b>. (Feminine countries take <i>en</i>: <i>en France</i>.)<br>· <b>depuis + présent</b> — the action is still going, so French uses the <u>present</u>. English says « I have lived »; French says « j'habite ».<br>· <b>mais</b> — a connector. Contrast earns marks.");
+
+h3('④ Où habitez-vous ? — Where do you live?');
+ex("<i>J'habite à Brampton, près de Toronto. C'est une grande ville, mais mon quartier est assez calme. Il y a un parc et beaucoup de restaurants indiens.</i><br><br><i>I live in Brampton, near Toronto. It's a big city, but my neighbourhood is fairly quiet. There's a park and lots of Indian restaurants.</i>");
+note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>à</b> + city (<i>à Brampton</i>) — cities always take <b>à</b>.<br>· <b>c'est</b> + article + noun (<i>c'est une ville</i>) vs <b>il est / mon quartier est</b> + adjective. Two different structures, correctly chosen.<br>· <b>grande ville</b> — <i>grand</i> is a BAGS adjective, so it goes <u>before</u> the noun. <i>indiens</i> goes after. Both placements in one answer.<br>· <b>il y a</b> — « there is / there are ». Never changes, even with plurals.<br>· <b>beaucoup de</b> — quantity words always take <b>de</b>.");
+
+h3('⑤ Qu\'est-ce que vous faites dans la vie ? — What do you do for a living?');
+ex("<i>Je suis administrateur système. Je travaille dans l'informatique, pour une entreprise qui s'appelle Sobeys. Je m'occupe des serveurs.</i><br><br><i>I'm a systems administrator. I work in IT, for a company called Sobeys. I look after the servers.</i>");
+note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>Je suis administrateur</b> — <u>no article</u>. After <i>être</i>, a job is a category, not a countable thing. <i>Je suis UN administrateur</i> is the classic English-speaker error.<br>· <b>qui s'appelle</b> — a <u>relative pronoun</u>. <i>qui</i> because a verb follows directly. This is a B1 marker in an A2 exam — worth having.<br>· <b>des serveurs</b> — <i>s'occuper <u>de</u></i> + <i>les</i> → <b>des</b>.");
+warn("<b>If the vocabulary runs out, SIMPLIFY — don't go silent.</b><br><i>Je travaille avec les ordinateurs. Quand il y a un problème technique, je le répare.</i><br>— <i>I work with computers. When there's a technical problem, I fix it.</i><br><br>A simple correct sentence beats a complicated abandoned one every time.");
+
+h3('⑥ Vous avez des frères et sœurs ? — Do you have brothers and sisters?');
+ex("<i>Non, je ne suis pas marié, je suis célibataire. J'ai un frère. Il habite en Inde avec mes parents.</i><br><br><i>No, I'm not married, I'm single. I have one brother. He lives in India with my parents.</i>");
+note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>ne … pas</b> around the verb — the negation. Examiners look for one.<br>· <b>célibataire</b> — no article, same rule as a job.<br>· <b>en Inde</b> — feminine country → <b>en</b>. Compare <i>au Canada</i> in Q3. Using both correctly in one exam is noticed.<br>· <b>mes parents</b> — possessive, plural.");
+
+h3('⑦ Pourquoi apprenez-vous le français ? — Why are you learning French?');
+ex("<i>J'apprends le français <b>parce que</b> je voudrais passer le TEF. C'est important <b>pour</b> travailler au Canada. Et <b>aussi parce que</b> j'aime les langues.</i><br><br><i>I'm learning French because I'd like to take the TEF. It's important in order to work in Canada. And also because I like languages.</i>");
+note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>parce que</b> twice — justifying an opinion is the explicit A1→A2 criterion. This question is your best chance to use it.<br>· <b>je voudrais</b> — <u>conditional</u>, polite. Never <i>je veux</i>.<br>· <b>pour + infinitif</b> — « in order to ». Reusable everywhere: <i>pour apprendre</i>, <i>pour réussir</i>.<br>· <b>le français</b>, <b>les langues</b> — French puts an article on general nouns where English uses none. <i>J'aime <u>les</u> langues</i>, not <i>j'aime langues</i>.<br><br><b>This question comes up almost every time. Prepare it.</b>");
+
+h3('⑧ Depuis combien de temps étudiez-vous le français ? — How long have you been studying French?');
+ex("<i>J'étudie le français <b>depuis</b> six mois. Je prends des cours en ligne deux fois par semaine.</i><br><br><i>I've been studying French for six months. I take online classes twice a week.</i>");
+warn("<b>DEPUIS takes the PRESENT.</b><br>· ✗ <i>J'ai étudié depuis six mois.</i><br>· ✓ <i>J'étudie depuis six mois.</i><br><br><b>Why:</b> the studying is still happening. English marks « still happening » with <i>have been</i>; French just uses the plain present. This is one of the most reliable giveaways of an English speaker.<br><br>· <b>deux fois par semaine</b> — frequency. <i>par</i> = « per ».");
+
+h3('⑨ Qu\'est-ce que vous aimez faire ? — What do you like doing?');
+ex("<i>J'aime beaucoup regarder des films et faire du sport. J'aime <b>aussi</b> cuisiner. <b>Par contre</b>, je n'aime pas le froid — l'hiver est long au Canada !</i><br><br><i>I really like watching films and doing sport. I also like cooking. On the other hand, I don't like the cold — winter is long in Canada!</i>");
+note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>aimer + infinitif</b> — « like doing » = <i>aimer faire</i>, with no preposition. Not <i>aimer de faire</i>.<br>· <b>beaucoup</b> after the verb — never between subject and verb.<br>· <b>faire du sport</b> — <i>faire</i> + partitive for activities: <i>faire <b>du</b> sport</i>, <i>faire <b>de la</b> musique</i>.<br>· <b>par contre</b> — a contrast connector. Lifts the answer above a flat list.<br>· <b>je n'aime pas</b> — a negation, and it doubles your answer for free.<br><br><b>Saying what you DON'T like is the cheapest way to lengthen any answer</b> and it slips in a negation. Examiners look for negations.");
+
+h3('⑩ Décrivez votre journée type. — Describe a typical day.');
+ex("<i>Je <b>me lève</b> à six heures et demie. Je <b>me douche</b>, je prends mon petit-déjeuner, et je pars à sept heures et quart. Je <b>prends</b> le bus — ça <b>prend</b> vingt minutes. Je travaille de huit heures à seize heures. Le soir, je rentre, je dîne vers dix-neuf heures, et je <b>me couche</b> vers vingt-trois heures.</i><br><br><i>I get up at half six. I shower, have breakfast, and leave at quarter past seven. I take the bus — it takes twenty minutes. I work from eight to four. In the evening I come home, have dinner around seven, and go to bed around eleven.</i>");
+note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>three reflexive verbs</b> — <i>se lever, se doucher, se coucher</i>. The <b>me</b> is compulsory: without it, <i>lever</i> means lifting something else.<br>· <b>prendre twice, two meanings</b> — <i>je prends le bus</i> (I take) and <i>ça prend vingt minutes</i> (it takes/lasts). Same verb, and showing both is impressive.<br>· <b>telling the time</b> — <i>et demie</i> (with -e, <i>heure</i> is feminine), <i>et quart</i>, and the 24-hour <i>dix-neuf heures</i>.<br>· <b>de … à …</b> — a time range.<br>· <b>vers</b> — « around », approximate. Useful hedge when you're unsure.<br><br><b>One of the most profitable questions. Prepare it in detail.</b>");
+
+h3('⑪ Qu\'est-ce que vous avez fait le week-end dernier ? — What did you do last weekend?');
+ex("<i>Samedi, je <b>suis allé</b> au centre-ville avec un ami. Nous <b>avons mangé</b> au restaurant et après, nous <b>avons vu</b> un film. Dimanche, je <b>suis resté</b> à la maison. J'<b>ai fait</b> le ménage et j'<b>ai étudié</b> le français. Il <b>faisait</b> froid, alors je <b>ne suis pas sorti</b>.</i><br><br><i>On Saturday I went into town with a friend. We ate at a restaurant and afterwards we saw a film. On Sunday I stayed home. I did the housework and studied French. It was cold, so I didn't go out.</i>");
+warn("<b>WHAT YOU'RE USING / WHY — this is the richest answer on the page</b><br><br>· <b>être verbs:</b> <i>suis allé</i>, <i>suis resté</i>, <i>suis sorti</i> — all three are on the DR & MRS VANDERTRAMP list (movement / change of state).<br>· <b>avoir verbs:</b> <i>avons mangé</i>, <i>avons vu</i>, <i>ai fait</i>, <i>ai étudié</i> — everything else.<br>· <b>irregular participles:</b> <i>vu</i> (voir), <i>fait</i> (faire).<br>· <b>imparfait for the backdrop:</b> <i>il faisait froid</i> — weather and description are <u>always</u> imparfait. This is the single clearest A2→B1 signal you can give.<br>· <b>negation in the past:</b> <i>je <u>ne</u> suis <u>pas</u> sorti</i> — <i>ne … pas</i> wraps the <u>auxiliary</u>, not the participle.<br>· <b>alors</b> — consequence connector.<br><br><b>If you prepare only one long answer, prepare this one.</b> It demonstrates both past tenses, both auxiliaries, a negation and a connector in six sentences.");
+
+h3('⑫ Qu\'est-ce que vous allez faire ce week-end ? — What are you going to do this weekend?');
+ex("<i>Ce week-end, je <b>vais</b> étudier pour l'examen. Samedi, je <b>vais</b> voir des amis. Et dimanche, je <b>vais</b> me reposer. Peut-être que j'<b>irai</b> au parc s'il fait beau.</i><br><br><i>This weekend I'm going to study for the exam. On Saturday I'm going to see friends. And on Sunday I'm going to rest. Maybe I'll go to the park if the weather's nice.</i>");
+note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>futur proche</b> = <i>aller</i> + infinitive. Exactly English « going to ». Covers 80% of spoken future.<br>· <b>j'irai</b> — one <b>futur simple</b>, irregular stem <i>ir-</i>. Slipping in a single one proves you have the tense. Don't overdo it.<br>· <b>je vais me reposer</b> — reflexive in the infinitive: the <b>me</b> sits before <i>reposer</i>, not before <i>vais</i>.<br>· <b>s'il fait beau</b> — <i>si</i> + <u>present</u>. Never a future after <i>si</i>.");
+
+h3('⑬ Parlez-moi de votre ville. — Tell me about your town.');
+ex("<i>J'habite à Brampton. C'est une grande ville, mais mon quartier est calme. Il y a un parc, des magasins et beaucoup de restaurants. Toronto est <b>plus grande que</b> Brampton et il y a <b>plus de</b> musées, <b>mais</b> Brampton est <b>moins cher</b> et <b>plus tranquille</b>. Pour aller au centre, je prends le bus.</i><br><br><i>I live in Brampton. It's a big city, but my area is quiet. There's a park, shops and lots of restaurants. Toronto is bigger than Brampton and there are more museums, but Brampton is cheaper and quieter. To get into town, I take the bus.</i>");
+note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>plus … que</b> + adjective — <u>no</u> <i>de</i>. (<i>plus grande que</i>)<br>· <b>plus de</b> + noun — <u>with</u> <i>de</i>. (<i>plus de musées</i>)<br>&nbsp;&nbsp;That one-word difference is the commonest comparison error. Adjective = quality, no <i>de</i>. Noun = quantity, <i>de</i>.<br>· <b>four comparisons in one answer</b> — variety is what's being marked.<br>· <b>pour aller au centre</b> — <i>pour</i> + infinitive again, and <i>à + le</i> → <b>au</b>.");
+
+h3('⑭ Décrivez votre logement. — Describe where you live.');
+ex("<i>J'habite dans une maison. Il y a trois chambres, un salon, une cuisine et deux salles de bains. Ma chambre est au premier étage. J'aime bien <b>parce qu'</b>il y a un jardin.</i><br><br><i>I live in a house. There are three bedrooms, a living room, a kitchen and two bathrooms. My bedroom is on the first floor. I like it because there's a garden.</i>");
+note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>il y a</b> for listing what exists.<br>· <b>au premier étage</b> — ordinal number + <i>à + le</i> → <b>au</b>.<br>· <b>parce qu'</b> — elided before a vowel. <i>Parce que il</i> is never written.<br>· <b>j'aime bien</b> — softer than <i>j'aime</i>, very natural.");
+
+h3('⑮ Qu\'est-ce que vous mangez ? — What do you eat?');
+ex("<i>Le matin, je prends un café et des toasts. À midi, je mange un sandwich ou une salade. Le soir, je cuisine — souvent <b>de la</b> cuisine indienne, avec <b>du</b> riz et <b>des</b> légumes. J'aime beaucoup la nourriture épicée.</i><br><br><i>In the morning I have a coffee and toast. At midday I eat a sandwich or a salad. In the evening I cook — often Indian food, with rice and vegetables. I really like spicy food.</i>");
+warn("<b>WHAT YOU'RE USING / WHY — the partitive</b><br><br>French cannot name an uncounted quantity bare. You must say <b>du / de la / des</b>:<br>· <b>du</b> riz (masculine) · <b>de la</b> cuisine (feminine) · <b>des</b> légumes (plural)<br><br>· ✗ <i>je mange riz</i> &nbsp;·&nbsp; ✓ <i>je mange <b>du</b> riz</i><br><br><b>And after a negative they all collapse to <i>de</i>:</b><br>· <i>je mange <b>de la</b> viande</i> → <i>je ne mange <b>pas de</b> viande</i><br><br>· <b>le matin / le soir</b> — with the article = <u>every</u> morning, a habit. Without it (<i>ce matin</i>) = this one.");
+
+h3('⑯ Quel temps fait-il ? — What\'s the weather like?');
+ex("<i><b>Il fait</b> froid aujourd'hui, et <b>il pleut</b>. Hier, <b>il faisait</b> beau. En hiver, <b>il neige</b> beaucoup au Canada.</i><br><br><i>It's cold today, and it's raining. Yesterday it was nice. In winter it snows a lot in Canada.</i>");
+note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>il fait</b> + adjective — the standard weather frame. This <i>il</i> refers to nobody; it's an empty grammatical subject, like English « it » in « it's raining ».<br>· <b>il pleut / il neige</b> — single verbs, no <i>faire</i>.<br>· <b>il faisait</b> — imparfait, because weather is description. Weather in the past is <u>almost always</u> imparfait.<br>· <b>en hiver</b> — <i>en</i> for three seasons, but <b>au printemps</b> for spring.<br><br>Compare the three empty-subject structures: <b>il fait</b> (weather) · <b>il est</b> (time) · <b>il y a</b> (existence). Same trick, three jobs.");
+
+h3('⑰ Quelle heure est-il ? — What time is it?');
+ex("<i>Il est trois heures et quart.</i> — <i>It's quarter past three.</i>");
+note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>il est</b>, never <i>c'est</i>. Time always takes <i>il est</i>.<br>· <b>une heure</b> at 1:00 (singular), <b>deux heures</b> from 2:00 (plural).<br>· <b>et quart / et demie / moins le quart</b> — up to 30 min you add, after 30 you subtract from the <u>next</u> hour.<br>· <b>est-il</b> — inversion, with the <i>t</i> of <i>est</i> waking up: <b>ay-TEEL</b>.");
+
+h3('⑱ Comment allez-vous au travail ? — How do you get to work?');
+ex("<i>Je <b>prends</b> le bus. Ça <b>prend</b> environ vingt minutes. Quelquefois, quand il fait beau, j'y vais <b>à pied</b>.</i><br><br><i>I take the bus. It takes about twenty minutes. Sometimes, when the weather's nice, I walk.</i>");
+note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>prendre + le/un</b> for transport — always with an article. Never <i>je prends bus</i>.<br>· <b>à pied</b> — « on foot », because you're on it, not in it. Same for <i>à vélo</i>. But <b>en</b> voiture, <b>en</b> bus — you're inside.<br>· <b>j'y vais</b> — the pronoun <b>y</b> replacing « there ». A small word that sounds advanced.<br>· <b>quand</b> + present for a habit.");
+
+h3('⑲ Quels sont vos projets ? — What are your plans?');
+ex("<i>Je <b>voudrais</b> passer le TEF cette année. Après, j'<b>espère</b> trouver un travail où je peux utiliser le français. <b>Un jour</b>, je voudrais visiter la France.</i><br><br><i>I'd like to take the TEF this year. Afterwards, I hope to find a job where I can use French. One day I'd like to visit France.</i>");
+note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>je voudrais / j'espère / je compte</b> + infinitive — three ways to state a plan, from softest to most committed. Use two.<br>· <b>où</b> as a relative pronoun — « a job <u>where</u> ». Covers place <u>and</u> time in French.<br>· <b>un jour</b> — vague future, pairs naturally with the conditional.");
+
+h3('⑳ Avez-vous des questions ? — Do you have any questions?');
+ex("<i>Oui — <b>est-ce que</b> vous pouvez me dire quand j'aurai les résultats, s'il vous plaît ?</i><br><br><i>Yes — could you tell me when I'll get the results, please?</i>");
+warn("<b>NEVER answer « non » to this.</b><br><br>It's a free opportunity to produce a question in French, and therefore to show an interrogative structure. Prepare one.<br><br>· <b>est-ce que</b> — the safe question register.<br>· <b>quand j'aurai</b> — after <i>quand</i>, French uses the <u>future</u> where English uses the present. <i>When I get</i> → <i>quand j'<b>aurai</b></i>. Getting this right is noticed.");
+
+h2('4 · Poser des questions — Asking questions (you will have to)');
+lead("In almost every oral there's a moment where <b>you</b> have to ask the examiner something, or act out a scene where you request something. There are three registers; you only need two.");
+table(['Registre','How it works','Exemple','When to use it'],[
+ ['<b>Intonation</b>','normal sentence, voice rises','<i>Vous habitez ici ?</i>','everyday speech — safe and natural'],
+ ['<b>Est-ce que</b>','add « est-ce que » at the front','<i>Est-ce que vous habitez ici ?</i>','neutral — safest in an exam'],
+ ['<b>Inversion</b>','verb + hyphen + subject','<i>Habitez-vous ici ?</i>','formal — writing, and to impress']
+]);
+note("<b>EXAM STRATEGY: alternate EST-CE QUE and INTONATION.</b><br><br>If you land <u>one</u> correct inversion in the whole oral (<i>Quelle heure est-il ?</i> or <i>Pouvez-vous répéter ?</i>), that's enough to show you know it. Don't overdo it — a botched inversion does more damage than a clean intonation question.<br><br><b>Why there are three:</b> they're three historical layers. Inversion is the oldest (Latin word order), <i>est-ce que</i> arrived as a crutch meaning literally « is it that…? », and intonation is newest. French sorted them by formality instead of discarding any.");
+h3('Les mots interrogatifs — question words');
+grid([
+ ["qui","kee — who"],["que / qu'est-ce que","kuh / kes-kuh — what"],
+ ["où","oo — where"],["quand","kahn — when"],
+ ["comment","koh-mahn — how"],["pourquoi","poor-kwah — why"],
+ ["combien","kohn-byan — how much / how many"],["quel / quelle","kel — which / what"],
+ ["avec qui","ah-vek kee — with whom"],["à quelle heure","ah kel ur — at what time"]
+]);
+warn("<b>QUEL agrees; the others never change.</b><br>· <b>quel</b> sport · <b>quelle</b> heure · <b>quels</b> livres · <b>quelles</b> questions<br><br><i>quel</i> and <i>quelle</i> are pronounced identically — <b>KEL</b>. The difference is written only. But you still need to know which one you're saying, because you may be asked to write it.<br><br><b>The test:</b> what's the gender of the noun after it? <i>sport</i> is masculine → <b>quel</b>. <i>heure</i> is feminine → <b>quelle</b>.");
+h3('Dix questions à savoir poser — ten to be able to ask');
+rows([
+ ["Comment vous appelez-vous ?","koh-mahn voo zah-play-VOO","What's your name?"],
+ ["Est-ce que vous habitez ici ?","es-kuh voo zah-bee-tay ee-SEE","Do you live here?"],
+ ["Qu'est-ce que vous faites dans la vie ?","kes-kuh voo fet dahn lah VEE","What do you do for a living?"],
+ ["Vous parlez anglais ?","voo par-lay zahn-GLAY","Do you speak English?"],
+ ["Pouvez-vous répéter, s'il vous plaît ?","poo-vay-voo ray-pay-tay, seel voo PLAY","Could you repeat that, please?"],
+ ["Qu'est-ce que ça veut dire ?","kes-kuh sah vuh DEER","What does that mean?"],
+ ["Comment ça s'écrit ?","koh-mahn sah say-KREE","How do you spell that?"],
+ ["Où est-ce que je peux trouver… ?","oo es-kuh zhuh puh troo-VAY","Where can I find…?"],
+ ["Ça coûte combien ?","sah koot kohn-BYAN","How much is it?"],
+ ["À quelle heure ça commence ?","ah kel ur sah koh-MAHNS","What time does it start?"]
+]);
+
+h2('5 · Les phrases de survie — Survival phrases');
+warn("<b>These are the most important phrases on the page.</b><br><br>They don't show off your level — they stop you going silent. And silence is the one thing an examiner cannot mark at all.<br><br><i>Ce sont les phrases qui vous empêchent de vous taire.</i>");
+h3('Quand vous ne comprenez pas — when you don\'t understand');
+rows([
+ ["Pardon ?","par-DOHN","Sorry?"],
+ ["Vous pouvez répéter, s'il vous plaît ?","voo poo-vay ray-pay-tay, seel voo PLAY","Could you repeat that, please?"],
+ ["Vous pouvez parler plus lentement ?","voo poo-vay par-lay plew lahnt-MAHN","Could you speak more slowly?"],
+ ["Je n'ai pas compris.","zhuh nay pah kohn-PREE","I didn't understand."],
+ ["Qu'est-ce que ça veut dire ?","kes-kuh sah vuh DEER","What does that mean?"],
+ ["Comment on dit « … » en français ?","koh-mahn ohn dee … ahn frahn-SAY","How do you say … in French?"]
+]);
+h3('Quand vous cherchez vos mots — buying time, in French');
+rows([
+ ["Alors…","ah-LOR","So…"],
+ ["Eh bien…","ay BYAN","Well…"],
+ ["Attendez, je réfléchis.","ah-tahn-day, zhuh ray-flay-SHEE","Wait, I'm thinking."],
+ ["Comment dire…","koh-mahn DEER","How shall I put it…"],
+ ["C'est-à-dire…","say-tah-DEER","That is to say…"],
+ ["En fait…","ahn FET","Actually…"],
+ ["Je ne sais pas comment expliquer.","zhuh nuh say pah koh-mahn tex-plee-KAY","I don't know how to explain it."]
+]);
+note("<b>These little words are gold.</b><br><br>A French speaker who hesitates doesn't pause in silence — they say <i>alors…</i>, <i>eh bien…</i>, <i>en fait…</i>. Using them makes you sound more fluent, and crucially it <u>fills the time in French</u> instead of leaving a gap.<br><br>Think of them as the French equivalent of « um » — except they're actual words, so they count.");
+h3('Quand le mot ne vient pas — talking around a word');
+ex("<b>Never hunt for the exact word. Describe it instead.</b><br><br>· You can't say <i>un tournevis</i> (screwdriver) → <i>C'est un outil pour les vis.</i> — <i>It's a tool for screws.</i><br>· You can't say <i>un serveur</i> (server) → <i>C'est un grand ordinateur pour une entreprise.</i><br>· You can't say <i>épicé</i> (spicy) → <i>C'est fort, ça pique un peu.</i> — <i>It's strong, it stings a bit.</i><br><br><b>THE THREE ESCAPE FORMULAS</b><br>· <i><b>C'est une chose pour</b> + infinitive</i> — <i>It's a thing for doing X</i><br>· <i><b>C'est comme</b> + noun</i> — <i>It's like a…</i><br>· <i><b>C'est le contraire de</b> + noun</i> — <i>It's the opposite of…</i><br><br>An examiner who sees you work around a word ticks <b>communication strategy</b> — that's a box in your favour, not against you.");
+h3('La politesse — the frame around the exam');
+rows([
+ ["Bonjour, monsieur. / Bonjour, madame.","bohn-zhoor muh-syuh / mah-DAHM","Hello sir / madam."],
+ ["Enchanté.","ahn-shahn-TAY","Pleased to meet you."],
+ ["Merci beaucoup.","mehr-see boh-KOO","Thank you very much."],
+ ["Je vous en prie.","zhuh voo zahn PREE","You're welcome."],
+ ["Excusez-moi.","ex-kew-zay-MWAH","Excuse me."],
+ ["Au revoir, bonne journée !","oh ruh-vwahr, bun zhoor-NAY","Goodbye, have a good day!"]
+]);
+warn("<b>Use VOUS from start to finish.</b><br><br>A single <i>tu</i> slipping out is heard instantly.<br><br>Forms to watch: <b>vous êtes</b>, <b>vous avez</b>, <b>vous habitez</b>, <b>votre</b>, <b>s'il <u>vous</u> plaît</b>.<br><br>And <b>never « je veux »</b> → always <b>je voudrais</b>. <i>Je veux</i> sounds like a demand in French, much stronger than English « I want ».");
+
+h2('6 · Les connecteurs — Linking words: biggest gain, least effort');
+lead("This is the most efficient lever in the whole preparation. Two candidates can say the same thing; the one who <b>links</b> their sentences scores higher. It's about ten words.");
+ex("<b>COMPARE THE TWO</b><br><br><i>J'habite à Brampton. C'est calme. J'aime ça. Toronto est grande. Il y a des musées. C'est cher.</i><br>→ six sentences, zero connectors. <b>A1.</b><br><i>(I live in Brampton. It's quiet. I like that. Toronto is big. There are museums. It's expensive.)</i><br><br><i>J'habite à Brampton <b>parce que</b> c'est calme, <b>et</b> j'aime ça. Toronto est <b>plus</b> grande <b>et</b> il y a <b>plus de</b> musées, <b>mais</b> c'est <b>aussi plus</b> cher. <b>Donc</b> je préfère Brampton.</i><br>→ same content, seven connectors. <b>A2–B1.</b><br><i>(I live in Brampton because it's quiet, and I like that. Toronto is bigger and there are more museums, but it's also more expensive. So I prefer Brampton.)</i><br><br><b>You learned no new words. You only glued the sentences together.</b>");
+h3('Les dix connecteurs indispensables — the ten you need');
+table(['Connecteur','English','Exemple'],[
+ ['<b>et</b>','and','J\'habite ici <b>et</b> je travaille là-bas.'],
+ ['<b>mais</b>','but','C\'est petit <b>mais</b> c\'est joli.'],
+ ['<b>parce que</b>','because','J\'aime ça <b>parce que</b> c\'est calme.'],
+ ['<b>donc</b> / <b>alors</b>','so, therefore','Il pleut, <b>donc</b> je reste.'],
+ ['<b>aussi</b>','also','J\'aime le sport, et <b>aussi</b> la musique.'],
+ ['<b>par contre</b>','on the other hand','C\'est cher. <b>Par contre</b>, c\'est bon.'],
+ ['<b>d\'abord… puis… ensuite… enfin</b>','first… then… next… finally','<b>D\'abord</b> je me lève, <b>puis</b> je déjeune.'],
+ ['<b>quand</b>','when','<b>Quand</b> j\'étais petit, j\'habitais en Inde.'],
+ ['<b>si</b>','if','<b>Si</b> j\'ai le temps, je viendrai.'],
+ ['<b>comme</b>','as, since','<b>Comme</b> il pleut, je reste à la maison.']
+]);
+warn("<b>PARCE QUE is the single most important word on this page.</b><br><br>Justifying an opinion is the explicit criterion separating A1 from A2 on every marking grid. A candidate who says <i>j'aime Brampton</i> is A1. A candidate who says <i>j'aime Brampton <b>parce que</b> c'est calme</i> is A2.<br><br><b>Rule for today: every time you give an opinion, add « parce que » and a reason.</b> Even a boring reason. <u>Especially</u> a boring reason — it'll be correct.");
+note("<b>And QUE is compulsory in French.</b><br>English can drop « that »; French cannot.<br>· ✓ <i>Je pense <b>que</b> c'est vrai.</i> — <i>I think (that) it's true.</i><br>· ✗ <i>Je pense c'est vrai.</i><br><br>Same with <i>parce que</i>, <i>j'espère que</i>, <i>je crois que</i>, <i>je trouve que</i>. Dropping it is one of the most visible English-speaker errors.");
+h3('Donner son opinion — six openers');
+rows([
+ ["Je pense que…","zhuh pahns kuh","I think that…"],
+ ["Je trouve que…","zhuh troov kuh","I find / reckon that…"],
+ ["À mon avis…","ah moh nah-VEE","In my opinion…"],
+ ["Pour moi…","poor MWAH","For me…"],
+ ["Je suis d'accord.","zhuh swee dah-KOR","I agree."],
+ ["Je ne suis pas d'accord.","zhuh nuh swee pah dah-KOR","I disagree."]
+]);
+
+h2('7 · La grammaire en service — Every structure, and what it\'s FOR');
+lead("Quick reference. Don't learn this today — look things up in it. The point is the right-hand column: <b>when</b> you reach for each structure in a conversation.");
+table(['Structure','What it\'s for in the oral','Exemple'],[
+ ['<b>présent</b>','anything habitual or true now','<i>Je travaille dans l\'informatique.</i><br><i>I work in IT.</i>'],
+ ['<b>passé composé</b>','a finished event — « last weekend »','<i>Je suis allé au cinéma.</i><br><i>I went to the cinema.</i>'],
+ ['<b>imparfait</b>','the backdrop, past habit, description','<i>Quand j\'étais petit, j\'habitais en Inde.</i><br><i>When I was little, I lived in India.</i>'],
+ ['<b>futur proche</b>','near, concrete plans','<i>Je vais étudier ce soir.</i><br><i>I\'m going to study tonight.</i>'],
+ ['<b>futur simple</b>','distant plans, promises','<i>Un jour, j\'irai en France.</i><br><i>One day I\'ll go to France.</i>'],
+ ['<b>conditionnel</b>','politeness and wishes — <u>essential</u>','<i>Je voudrais… / Pourriez-vous…</i><br><i>I\'d like… / Could you…</i>'],
+ ['<b>négation</b>','saying what you don\'t do or don\'t like','<i>Je n\'aime pas le froid.</i><br><i>I don\'t like the cold.</i>'],
+ ['<b>comparatif</b>','comparing two towns, two things','<i>Toronto est plus grande que Brampton.</i><br><i>Toronto is bigger than Brampton.</i>'],
+ ['<b>depuis + présent</b>','a duration still running','<i>J\'habite ici depuis deux ans.</i><br><i>I\'ve lived here for two years.</i>'],
+ ['<b>verbes pronominaux</b>','your daily routine','<i>Je me lève à six heures.</i><br><i>I get up at six.</i>'],
+ ['<b>il y a</b>','describing a place','<i>Il y a un parc près de chez moi.</i><br><i>There\'s a park near me.</i>'],
+ ['<b>c\'est / il est</b>','identifying vs describing','<i>C\'est un bon restaurant. Il est calme.</i><br><i>It\'s a good restaurant. It\'s quiet.</i>']
+]);
+note("<b>THE SHORT VERSION OF THE WHOLE TABLE</b><br><br>· Talking about <b>now or usually</b> → présent<br>· Telling <b>what happened</b> → passé composé<br>· Setting the <b>scene</b> in the past (weather, mood, how things were) → imparfait<br>· Talking about <b>plans</b> → <i>je vais</i> + infinitive<br>· <b>Asking for anything</b> → <i>je voudrais</i> / <i>pourriez-vous</i><br><br>Five decisions. That's the entire tense system for an A1–A2 oral.");
+h3('Les six verbes qui portent tout l\'oral — the six verbs that carry everything');
+table(['Verbe','je','vous','What it does'],[
+ ['<b>être</b> (to be)','je suis','vous êtes','identity, state, profession'],
+ ['<b>avoir</b> (to have)','j\'ai','vous avez','age, possession, passé composé'],
+ ['<b>aller</b> (to go)','je vais','vous allez','movement, near future'],
+ ['<b>faire</b> (to do/make)','je fais','vous faites','activity, job, weather'],
+ ['<b>prendre</b> (to take)','je prends','vous prenez','transport, meals, decisions'],
+ ['<b>vouloir</b> (to want)','je voudrais','vous voudriez','polite requests']
+]);
+warn("<b>If you revise only six conjugations, revise these.</b> They cover nearly everything you'll say.<br><br>And note <b>vous faites</b> — not <i>vous faisez</i>. It's one of only three French verbs whose <i>vous</i> form doesn't end in <b>-ez</b>: <b>vous êtes</b>, <b>vous faites</b>, <b>vous dites</b>.<br><br><i>Why those three?</i> They're the most-used verbs in the language, and high-frequency words resist regularisation — the same reason English kept <i>feet</i> and <i>mice</i>.");
+
+h2('8 · Les dix erreurs qui s\'entendent — Ten errors that get noticed');
+lead("Click an answer. Each explanation says <b>why</b>, not just what.");
+mcqx([
+ ["« Je suis vingt-trois ans. » — I am 23",["Correct","J'ai vingt-trois ans."],1,"Age uses <b>avoir</b>, not <i>être</i>. French <u>has</u> an age. And <b>ans</b> can't be dropped — English can say « I'm 23 », French can't."],
+ ["« Je suis un administrateur. » — I'm an administrator",["Correct","Je suis administrateur."],1,"After <i>être</i>, a profession takes <b>no article</b>. It names a category, not a countable thing. Same for nationality and marital status."],
+ ["« Je veux un café. » — I want a coffee",["Correct","Je voudrais un café."],1,"<i>Je veux</i> is far blunter in French than « I want » in English — it sounds like a demand. Use the conditional <b>je voudrais</b>."],
+ ["« J'ai étudié le français depuis six mois. »",["Correct","J'étudie le français depuis six mois."],1,"<b>Depuis</b> takes the <u>present</u> when the action continues. English marks it with « have been »; French doesn't mark it at all."],
+ ["« Je souvent mange au restaurant. » — I often eat out",["Correct","Je mange souvent au restaurant."],1,"<b>Nothing goes between subject and verb in French.</b> English puts the adverb before the verb; French puts it after. Absolute rule."],
+ ["« Elle a mangée une pomme. »",["Correct","Elle a mangé une pomme."],1,"With <b>avoir</b>, the participle does <u>not</u> agree with the subject. Only <i>être</i> verbs agree. Writing <i>mangée</i> here is the commonest written error in French, natives included."],
+ ["« C'est huit heures. » — It's eight o'clock",["Correct","Il est huit heures."],1,"Time always takes <b>il est</b>. That <i>il</i> refers to nobody — it's an empty subject, like « it » in « it's raining »."],
+ ["« Je vais à le cinéma. »",["Correct","Je vais au cinéma."],1,"<i>à + le</i> <b>must</b> contract to <b>au</b>. Not optional, like English « I amn't » being impossible. Also <i>de + le</i> → <b>du</b>."],
+ ["« Je pense c'est vrai. » — I think it's true",["Correct","Je pense que c'est vrai."],1,"English can drop « that »; French <b>never</b> drops <b>que</b>. One of the most visible English-speaker tells."],
+ ["« Ma amie est française. » — My friend is French",["Correct","Mon amie est française."],1,"Two vowels colliding — French borrows the masculine <b>mon</b> for its consonant. The noun is still feminine, which is why it's <i>française</i>. Same reflex as <i>cet homme</i>, <i>l'ami</i>, <i>bel appartement</i>."]
+]);
+
+h2('9 · Les vingt dernières minutes — The last twenty minutes');
+warn("<b>Stop revising grammar now.</b> It's either in or it isn't, and panicking over it 20 minutes before will only make you hesitant. This section is all you need.<br><br><i>Arrêtez de réviser la grammaire maintenant.</i>");
+h3('① Say your presentation three times, out loud');
+ex("<i>Bonjour, je m'appelle Rajveer. J'ai vingt-trois ans et je suis indien. J'habite à Brampton, au Canada, depuis deux ans. Je suis administrateur système — je travaille dans l'informatique. J'apprends le français depuis six mois parce que je voudrais passer le TEF. Enchanté !</i><br><br><i>Hello, my name is Rajveer. I'm 23 and I'm Indian. I've lived in Brampton, Canada, for two years. I'm a systems administrator — I work in IT. I've been learning French for six months because I'd like to take the TEF. Pleased to meet you!</i>");
+note("<b>Out loud, not in your head.</b> Your mouth needs to have made the movements before the exam. That's muscle memory, not knowledge.<br><br><i>À voix haute, pas dans votre tête.</i>");
+h3('② The six emergency phrases');
+rows([
+ ["Pardon, vous pouvez répéter, s'il vous plaît ?","par-dohn, voo poo-vay ray-pay-tay, seel voo PLAY","Sorry, could you repeat that?"],
+ ["Vous pouvez parler plus lentement ?","voo poo-vay par-lay plew lahnt-MAHN","Could you speak more slowly?"],
+ ["Je n'ai pas compris.","zhuh nay pah kohn-PREE","I didn't understand."],
+ ["Comment on dit « … » en français ?","koh-mahn ohn dee … ahn frahn-SAY","How do you say … in French?"],
+ ["Alors… attendez, je réfléchis.","ah-lor… ah-tahn-day, zhuh ray-flay-SHEE","So… wait, I'm thinking."],
+ ["Je voudrais…","zhuh voo-DRAY","I would like…"]
+]);
+h3('③ The five reflexes to hold on to');
+ex("<b>1.</b> Answer in <b>at least two sentences</b>. Never a single word.<br><b>2.</b> After every opinion, add <b>parce que</b> + a reason. <i>(because…)</i><br><b>3.</b> Use <b>vous</b>, never <i>tu</i>. And <b>je voudrais</b>, never <i>je veux</i>.<br><b>4.</b> If the word won't come, <b>describe it</b> — don't go silent, don't switch to English.<br><b>5.</b> Throw the question back: <b>Et vous ?</b> <i>(And you?)</i>");
+h3('④ The three sentences that show your level');
+ex("Slip at least one of each into the exam. These are your three best cards.<br><br>· <b>a passé composé:</b> <i>Le week-end dernier, je <u>suis allé</u> au cinéma.</i><br>&nbsp;&nbsp;— <i>Last weekend I went to the cinema.</i><br>· <b>a comparison:</b> <i>Toronto est <u>plus grande que</u> Brampton.</i><br>&nbsp;&nbsp;— <i>Toronto is bigger than Brampton.</i><br>· <b>a cleft sentence:</b> <i><u>Ce que j'aime</u>, c'est le calme.</i><br>&nbsp;&nbsp;— <i>What I like is the quiet.</i>");
+h3('⑤ Before you walk in');
+note("<b>Breathe. Speak slowly.</b><br><br>Speaking slowly is not penalised — the opposite. A slow, clear delivery is easier to understand, gives you time to choose your words, and makes you produce fewer errors. Candidates who rush get tangled.<br><br>And remember: the examiner <b>wants</b> you to pass. They aren't there to trap you; they're there to find reasons to tick boxes. Give them some.<br><br><i>Respirez. Parlez lentement. Bonne chance !</i>");
+
+h2('10 · Simulation — Mock oral, answer out loud');
+lead("Do this under real conditions: read the question, answer <b>out loud and in full</b>, then click to see a model. Don't look before you've spoken.");
+fillx([
+ ["Bonjour ! Comment vous appelez-vous ? — What's your name?","Je m'appelle Rajveer. Et vous ?","throw the question back"],
+ ["Quel âge avez-vous ? — How old are you?","J'ai vingt-trois ans.","avoir + ans"],
+ ["D'où venez-vous ? — Where are you from?","Je viens d'Inde, mais j'habite au Canada depuis deux ans.","d'Inde / au Canada / depuis + present"],
+ ["Qu'est-ce que vous faites dans la vie ? — What do you do?","Je suis administrateur système. Je travaille dans l'informatique.","no article after être"],
+ ["Pourquoi apprenez-vous le français ? — Why are you learning French?","J'apprends le français parce que je voudrais passer le TEF.","parce que + conditional"],
+ ["Qu'est-ce que vous avez fait le week-end dernier ? — What did you do last weekend?","Je suis allé au centre-ville et j'ai vu un film.","être + avoir in one sentence"],
+ ["Qu'est-ce que vous allez faire demain ? — What are you doing tomorrow?","Je vais travailler, et après je vais étudier le français.","futur proche"],
+ ["Parlez-moi de votre ville. — Tell me about your town.","J'habite à Brampton. C'est une grande ville, mais mon quartier est calme.","c'est + est + mais"],
+ ["Quelle heure est-il ? — What time is it?","Il est trois heures et quart.","il est, never c'est"],
+ ["Vous avez des questions ? — Any questions?","Oui — est-ce que vous pouvez me dire quand j'aurai les résultats ?","never answer non"]
+]);
+h3('Jeu de rôle ① — Au café / At the café');
+ex("<b>Examinateur :</b> <i>Bonjour, vous désirez ?</i> — <i>Hello, what would you like?</i><br><b>Vous :</b> <i>Bonjour. <b>Je voudrais</b> un café, s'il vous plaît.</i><br><b>Examinateur :</b> <i>Un café, très bien. Autre chose ?</i> — <i>Anything else?</i><br><b>Vous :</b> <i>Oui, <b>je voudrais aussi</b> un croissant. <b>Ça coûte combien ?</b></i><br><b>Examinateur :</b> <i>Ça fait cinq euros cinquante.</i><br><b>Vous :</b> <i>Voilà. <b>Merci beaucoup.</b></i><br><b>Examinateur :</b> <i>Je vous en prie. Bonne journée !</i><br><b>Vous :</b> <i>Bonne journée à vous aussi !</i>");
+note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>je voudrais</b> — the whole scene hangs on it. <i>Je veux un café</i> would be rude.<br>· <b>ça coûte combien ?</b> — a follow-up question. Don't just order and stop; ask something.<br>· <b>bonne journée</b> + <b>à vous aussi</b> — closing properly is on the marking grid.");
+h3('Jeu de rôle ② — Demander son chemin / Asking directions');
+ex("<b>Vous :</b> <i>Excusez-moi, <b>pour aller à</b> la gare, s'il vous plaît ?</i><br>&nbsp;&nbsp;— <i>Excuse me, how do I get to the station, please?</i><br><b>Examinateur :</b> <i>Allez tout droit et tournez à droite.</i> — <i>Go straight on and turn right.</i><br><b>Vous :</b> <i><b>C'est loin ?</b></i> — <i>Is it far?</i><br><b>Examinateur :</b> <i>Non, c'est à dix minutes à pied.</i><br><b>Vous :</b> <i>Et <b>est-ce qu'</b>il y a un bus ?</i><br><b>Examinateur :</b> <i>Oui, le bus numéro douze.</i><br><b>Vous :</b> <i>Merci beaucoup, c'est très gentil !</i>");
+note("<b>These two role-plays are the most common at A1.</b> Both run on the same skeleton:<br><br><b>1.</b> polite opener → <b>2.</b> the request (<i>je voudrais</i> / <i>pour aller à</i>) → <b>3.</b> a follow-up question (<i>ça coûte combien ? / c'est loin ?</i>) → <b>4.</b> thanks → <b>5.</b> closing<br><br>Change the place and the item; the shell stays. <b>If you only learn two dialogues, learn these.</b>");
+
+h2('11 · Bonne chance — Good luck');
+ex("<b>You know more than you think.</b><br><br>You've done over thirty classes, and you've covered the present, the passé composé, the imparfait, the future, negation, questions, comparisons, telling the time, the town, food and daily routine.<br><br>Today's exam doesn't test all of that. It tests whether you can <b>hold a simple conversation</b>. You can.<br><br><b>Parlez lentement. Faites des phrases complètes. Dites « parce que ». Et ne vous taisez jamais.</b><br><i>Speak slowly. Use full sentences. Say « because ». And never go silent.</i><br><br>Bonne chance !");
+
+</script>
+<script src="french_glossary.js"></script>
+</body>
+</html>

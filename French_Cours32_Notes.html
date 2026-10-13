@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 32 — Le temps et l'heure</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+</style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1><h1>French — Cours 32: Le temps et l'heure</h1></h1>
+  <p class="sub">The Language SKOOL · Fiche de cours A1 — demander et dire l'heure, les formats 12 h et 24 h, le vocabulaire du temps</p>
+
+  <nav>
+    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
+    <a href="French_Cours1_Intro.html">My introduction</a>
+    <a href="French_Cours2_Notes.html">Cours 2</a>
+    <a href="French_Cours3_Notes.html">Cours 3</a>
+    <a href="French_Cours4_Notes.html">Cours 4</a>
+    <a href="French_Cours5_Notes.html">Cours 5</a>
+    <a href="French_Cours6_Notes.html">Cours 6</a>
+    <a href="French_Cours7_Notes.html">Cours 7</a>
+    <a href="French_Cours8_Notes.html">Cours 8</a>
+    <a href="French_Cours9_Notes.html">Cours 9</a>
+    <a href="French_Cours10_Notes.html">Cours 10</a>
+    <a href="French_Cours11_Notes.html">Cours 11</a>
+    <a href="French_Cours12_Notes.html">Cours 12</a>
+    <a href="French_Cours13_Notes.html">Cours 13</a>
+    <a href="French_Cours14_Notes.html">Cours 14</a>
+    <a href="French_Cours15_Notes.html">Cours 15</a>
+    <a href="French_Cours16_Notes.html">Cours 16</a>
+    <a href="French_Cours17_Notes.html">Cours 17</a>
+    <a href="French_Cours18_Notes.html">Cours 18</a>
+    <a href="French_Cours19_Notes.html">Cours 19</a>
+    <a href="French_Cours20_Notes.html">Cours 20</a>
+    <a href="French_Cours21_Notes.html">Cours 21</a>
+    <a href="French_Cours22_Notes.html">Cours 22</a>
+    <a href="French_Cours23_Notes.html">Cours 23</a>
+    <a href="French_Cours24_Notes.html">Cours 24</a>
+    <a href="French_Cours25_Notes.html">Cours 25</a>
+    <a href="French_Cours26_Notes.html">Cours 26</a>
+    <a href="French_Cours27_Notes.html">Cours 27</a>
+    <a href="French_Cours28_Notes.html">Cours 28</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
+    <a href="French_Full_Guide.html">Full Guide</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
+    <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a><a href="French_Oral_Crash_Course.html">Crash Course</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_Cours30_Notes.html">Cours 30</a><a href="French_Cours31_Notes.html">Cours 31</a><a href="French_Cours32_Notes.html" class="active">Cours 32</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_A1_PC_Etre.html">PC avec être</a>
+    <a href="French_A1_Imperatif.html">Impératif</a>
+    <a href="French_A1_Ville.html">Ville</a>
+    <a href="French_A1_Sante.html">Santé</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
+  </nav>
+
+<div class="whybox">
+  <h4><span>Pourquoi ça marche comme ça</span>Pourquoi « il » ne veut rien dire dans « il pleut »</h4>
+  <p>Nobody is raining. The <b>il</b> in <i>il pleut</i> and <i>il fait froid</i> refers to nothing at all — it is an empty placeholder, exactly like the "it" in English "it's raining".<br><br>French requires every sentence to have a subject, so when there is no real one, it supplies a dummy. That is also why the <i>il</i> never becomes <i>elle</i>, and why you never see <i>fait chaud</i> standing alone.<br><br>Same mechanism in <b>il y a</b> and <b>il faut</b> — two more phrases where <i>il</i> is holding a seat for nobody.</p>
+  <a class="more" href="French_Grammaire.html">Aller plus loin →</a>
+</div>
+
+
+  <div class="bar">
+    <span>Speed:</span>
+    <div class="toggle" id="speed">
+      <button data-rate="1" class="on">Normal</button>
+      <button data-rate="0.6">Slow</button>
+    </div>
+    <span id="voiceStatus"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate; return u;
+}
+function speak(text){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').textContent=fr; c.querySelector('.ph').textContent=ph;
+    c.onclick=()=>speak(fr); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+/* ===== 1 ===== */
+function fillx(list){ fill(list.map(x=>({s:x[0], a:[x[1]], en:x[2]||'', why:x[3]||('Réponse : <b>'+x[1]+'</b>')}))); }
+function mcqx(list){ mcq(list.map(x=>({q:x[0], opts:x[1], a:x[2], why:x[3]||''}))); }
+src("<b>Source :</b> <i>French A1 — Le temps et l'heure</i>, The Language SKOOL (cours en direct du 7 octobre 2026, tableau blanc + PDF de 7 pages). Sections suivies en classe, avec les explications, les exemples supplémentaires et les exercices ajoutés.");
+
+h2('1 · Objectifs du cours');
+ex("<b>À la fin de ce chapitre, je peux :</b><br>· demander l'heure de trois façons<br>· dire l'heure avec <b>il est + nombre + heure(s)</b><br>· utiliser <b>et quart</b>, <b>et demie</b>, <b>moins le quart</b><br>· passer du format <b>12 h</b> au format <b>24 h</b><br>· dire <b>à quelle heure</b> quelque chose se passe<br>· utiliser <b>de … à …</b> pour une plage horaire");
+lead("L'heure est l'un des trois sujets qui tombent dans presque toutes les compréhensions orales du TEF, avec les prix et les lieux. Ce n'est pas de la grammaire décorative : c'est de l'information qu'on vous demandera de repérer dans un enregistrement rapide.");
+
+h2('2 · Demander l\'heure');
+rows([
+ ["Quelle heure est-il ?","kel ur ay-TEEL","What time is it?"],
+ ["Il est quelle heure ?","eel ay kel UR","What time is it? (informel)"],
+ ["Vous avez l'heure, s'il vous plaît ?","voo zah-vay LUR, seel voo PLAY","Do you have the time, please?"]
+]);
+note("<b>Les trois sont les trois registres de la question française</b> (voir le chapitre <i>Les questions</i> de la Grammaire) :<br>· <b>Quelle heure est-il ?</b> — <u>inversion</u>, la forme soutenue. C'est celle à écrire et celle à utiliser au TEF.<br>· <b>Il est quelle heure ?</b> — <u>intonation</u>, mot interrogatif à la fin. Familier, très courant à l'oral.<br>· <b>Vous avez l'heure ?</b> — <u>intonation</u> aussi, mais c'est la formule qu'on emploie avec un <b>inconnu dans la rue</b>, parce qu'elle demande un service au lieu d'exiger une information.");
+warn("<b>Notez le -t- dans « est-il ».</b> On écrit <i>est-il</i> et on prononce <b>ay-TEEL</b> : le <b>t</b> final de <i>est</i>, normalement muet, se réveille dans l'inversion. C'est une liaison obligatoire.<br><br>Et avec un verbe qui ne finit pas par -t ou -d, il faut ajouter un <b>-t-</b> : <i>a-<b>t</b>-il</i>, <i>va-<b>t</b>-on</i>. C'est le <i>t</i> euphonique.");
+h3('Et pour répondre si on ne sait pas');
+rows([
+ ["Je ne sais pas, désolé.","zhuh nuh say pah, day-zoh-LAY","I don't know, sorry."],
+ ["Je n'ai pas de montre.","zhuh nay pah duh MOHNTR","I don't have a watch."],
+ ["Il est environ dix heures.","eel ay tahn-vee-rohn dee ZUR","It's about ten."]
+]);
+
+h2('3 · La structure de base');
+note("<b>IL EST &nbsp;+&nbsp; NOMBRE &nbsp;+&nbsp; HEURE(S)</b>");
+table(['Heure','Français','Prononciation'],[
+ ['1:00','Il est <b>une heure</b>.','eel ay tewn UR'],
+ ['2:00','Il est <b>deux heures</b>.','eel ay duh ZUR'],
+ ['8:00','Il est <b>huit heures</b>.','eel ay wee TUR'],
+ ['12:00 (midi)','Il est <b>midi</b>.','eel ay mee-DEE'],
+ ['12:00 (minuit)','Il est <b>minuit</b>.','eel ay mee-NWEE']
+]);
+warn("<b>Les deux notes du prof, et elles comptent toutes les deux :</b><br><br><b>1.</b> <i>heure</i> est <u>singulier</u> à 1 h (<b>une heure</b>) et <u>pluriel</u> à partir de 2 h (<b>deux heures</b>). Logique, mais facile à oublier à l'écrit — le <b>-s</b> ne s'entend pas.<br><br><b>2.</b> On dit <b>IL EST</b>, jamais <b>c'est</b>.<br>· ✓ <i><b>Il est</b> huit heures.</i><br>· ✗ <i>C'est huit heures.</i><br><br>C'est la règle du chapitre <i>C'EST / IL EST / IL Y A</i> : l'heure prend toujours <b>il est</b>, comme la météo prend toujours <b>il fait</b>. Ce <i>il</i> ne désigne personne — c'est un sujet grammatical vide, exactement comme l'anglais <i>it</i> dans <i>it is eight o'clock</i>.");
+ex("<b>Pourquoi MIDI et MINUIT n'ont pas de « heures ».</b><br><br>Ce sont des <u>noms</u> à part entière, pas des nombres. <i>Midi</i> vient du latin <i>medius dies</i> — « le milieu du jour » — et <i>minuit</i> de <i>media nox</i> — « le milieu de la nuit ».<br><br>Donc on ne dit jamais <i>douze heures</i> en conversation : c'est <b>midi</b> ou <b>minuit</b>. En format 24 h officiel, en revanche, <i>douze heures</i> existe (12:00) et <i>zéro heure</i> aussi (00:00).");
+h3('Les liaisons — ce qui change à l\'oreille');
+rows([
+ ["une heure","ew-NUR","1:00 — élision + liaison"],
+ ["deux heures","duh-ZUR","2:00 — le x se dit « z »"],
+ ["trois heures","trwah-ZUR","3:00 — le s se dit « z »"],
+ ["quatre heures","kah-TRUR","4:00"],
+ ["cinq heures","sank-UR","5:00 — le q se prononce"],
+ ["six heures","see-ZUR","6:00 — liaison en z"],
+ ["sept heures","set-UR","7:00 — le t se prononce"],
+ ["huit heures","wee-TUR","8:00 — le t se réveille"],
+ ["neuf heures","nuh-VUR","9:00 — le f devient V"],
+ ["dix heures","dee-ZUR","10:00 — liaison en z"],
+ ["onze heures","ohn-ZUR","11:00"]
+]);
+warn("<b>Cette colonne est la vraie difficulté de l'heure, et personne ne la montre jamais.</b><br><br>Presque tous les nombres changent de son devant <i>heures</i>, parce que <i>heure</i> commence par une voyelle (le <b>h</b> est muet). Et <b>neuf</b> est le seul mot du français où le <b>f</b> devient <b>v</b> en liaison — il ne le fait que devant <i>heures</i> et <i>ans</i>.<br><br>Si vous ne faites pas ces liaisons, on vous comprendra, mais ça s'entend immédiatement.");
+
+h2('4 · Les minutes');
+table(['Heure','Français','Logique'],[
+ ['3:05','Il est trois heures <b>cinq</b>.','on ajoute'],
+ ['3:10','Il est trois heures <b>dix</b>.','on ajoute'],
+ ['3:15','Il est trois heures <b>et quart</b>.','expression figée'],
+ ['3:20','Il est trois heures <b>vingt</b>.','on ajoute'],
+ ['3:30','Il est trois heures <b>et demie</b>.','expression figée'],
+ ['3:35','Il est quatre heures <b>moins vingt-cinq</b>.','on retire'],
+ ['3:45','Il est quatre heures <b>moins le quart</b>.','expression figée'],
+ ['3:50','Il est quatre heures <b>moins dix</b>.','on retire'],
+ ['3:55','Il est quatre heures <b>moins cinq</b>.','on retire']
+]);
+ex("<b>La règle en une phrase :</b> jusqu'à <b>30 minutes</b>, on <u>ajoute</u> à l'heure en cours ; après 30 minutes, on <u>retire de l'heure suivante</u>.<br><br><b>Le mot-charnière est MOINS</b> — littéralement « minus ». <i>Quatre heures moins le quart</i> = quatre heures <u>moins</u> un quart d'heure = 3 h 45.<br><br>C'est exactement l'anglais <i>a quarter <b>to</b> four</i>, sauf que l'anglais dit « vers » et le français dit « moins ». L'anglais regarde où on va ; le français fait le calcul.");
+warn("<b>Le piège d'orthographe que le prof a signalé :</b><br><br>· <i>trois heures <b>et demie</b></i> — avec un <b>e</b><br>· <i>midi <b>et demi</b></i> — <u>sans</u> e<br>· <i>minuit <b>et demi</b></i> — <u>sans</u> e<br><br><b>Pourquoi :</b> <i>demi</i> s'accorde avec le mot qu'il suit. <b>Heure</b> est <u>féminin</u> → <i>demi<b>e</b></i>. <b>Midi</b> et <b>minuit</b> sont <u>masculins</u> → <i>demi</i>.<br><br>C'est simplement la règle de l'accord de l'adjectif, appliquée à un mot qu'on ne pense pas à traiter comme un adjectif.<br><br><i>(Et placé <u>avant</u> le nom, « demi » ne s'accorde jamais : <b>une demi-heure</b>, avec un trait d'union.)</i>");
+h3('Exercice — ajoutez ou retirez ?');
+fillx([
+ ["3:05 → Il est trois heures ______ .","cinq","3:05"],
+ ["3:15 → Il est trois heures ______ .","et quart","3:15"],
+ ["3:30 → Il est trois heures ______ .","et demie","3:30 — avec un e, heure est féminin"],
+ ["3:45 → Il est quatre heures ______ .","moins le quart","3:45 — on retire de 4 h"],
+ ["3:50 → Il est quatre heures ______ .","moins dix","3:50"],
+ ["12:30 → Il est midi ______ .","et demi","12:30 — sans e, midi est masculin"]
+]);
+
+h2('5 · Le matin, l\'après-midi, le soir — 12 h et 24 h');
+lead("Il y a <b>deux façons</b> d'exprimer l'heure en français, et elles ne sont pas interchangeables : l'une est de la conversation, l'autre est officielle.");
+table(['Conversationnel (12 h)','Officiel (24 h)','Heure'],[
+ ['Il est <b>trois heures de l\'après-midi</b>.','Il est <b>quinze heures</b>.','15:00'],
+ ['Il est <b>huit heures du soir</b>.','Il est <b>vingt heures</b>.','20:00'],
+ ['Il est <b>sept heures du matin</b>.','Il est <b>sept heures</b>.','07:00']
+]);
+warn("<b>Il n'y a PAS de AM / PM en français.</b> C'est la différence la plus pratique avec l'anglais. Pour lever l'ambiguïté, on a deux solutions et seulement deux :<br><br>· <b>ajouter le moment de la journée</b> → <i>huit heures <b>du matin</b></i><br>· <b>passer au format 24 h</b> → <i>vingt heures</i><br><br>Dire <i>huit heures PM</i> ne veut rien dire en français.");
+h3('Les quatre moments de la journée');
+grid([
+ ["du matin","dew mah-TAN — 00 h → 12 h"],
+ ["de l'après-midi","duh lah-pray-mee-DEE — 12 h → 18 h"],
+ ["du soir","dew SWAHR — 18 h → 00 h"],
+ ["de la nuit","duh lah NWEE — tard dans la nuit"]
+]);
+note("<b>Attention à la préposition : c'est DU / DE L' / DE LA, pas « dans ».</b><br>· ✓ <i>huit heures <b>du</b> soir</i><br>· ✗ <i>huit heures <b>dans</b> le soir</i><br><br>C'est la contraction <i>de + le = du</i>, et le sens est partitif : « huit heures <u>prises dans</u> le soir ». Même logique que <i>le plus grand <b>de</b> la ville</i>.<br><br><b>Et ne confondez pas :</b> <i>le matin</i> (tous les matins, habitude) ≠ <i>ce matin</i> (celui-ci) ≠ <i>du matin</i> (pour préciser une heure).");
+ex("<b>Comment convertir, dans les deux sens :</b><br><br><b>12 h → 24 h :</b> si c'est l'après-midi ou le soir, <b>ajoutez 12</b>.<br>· 3 h de l'après-midi → 3 + 12 = <b>quinze heures</b><br>· 8 h du soir → 8 + 12 = <b>vingt heures</b><br>· 11 h du soir → 11 + 12 = <b>vingt-trois heures</b><br><br><b>24 h → 12 h :</b> si le nombre dépasse 12, <b>retirez 12</b> et ajoutez le moment.<br>· <i>dix-sept heures</i> → 17 − 12 = 5 → <b>cinq heures de l'après-midi</b><br>· <i>vingt et une heures</i> → 21 − 12 = 9 → <b>neuf heures du soir</b>");
+warn("<b>⚠ La correction du tableau blanc.</b> Pendant le cours, on a écrit « <i>Il est vingt et <b>un</b> heures</i> ». La forme correcte est :<br><br><b>Il est vingt et <u>une</u> heures.</b><br><br><b>Pourquoi :</b> <i>heure</i> est <u>féminin</u>, et le nombre <b>un</b> est le seul nombre français qui s'accorde. Il devient <b>une</b> devant un nom féminin — exactement comme l'article.<br><br>· <i>vingt et <b>une</b> heures</i> (21:00) · <i>trente et <b>une</b> personnes</i> · <i>quarante et <b>une</b> minutes</i><br>· mais <i>vingt et <b>un</b> ans</i> — <i>an</i> est masculin<br><br>C'est la seule irrégularité d'accord de tout le système des nombres, et elle ne touche que <b>un</b>. <i>deux, trois, quatre…</i> ne bougent jamais.");
+note("<b>Et une remarque sur le tableau :</b> « 9 o'clock / It is 9 in the morning » correspond à <b>neuf heures du matin</b> (09:00). <i>Vingt et une heures</i>, c'est 21:00 — soit <b>neuf heures du soir</b>. Les deux sont « 9 », mais l'un est <i>du matin</i> et l'autre <i>du soir</i> : c'est précisément le genre d'ambiguïté que le format 24 h sert à supprimer.");
+warn("<b>Pour le TEF :</b> le prof l'a dit explicitement — le format 24 h est celui des <b>horaires, trains, vols et annonces officielles</b>. C'est donc celui que vous entendrez dans les enregistrements de compréhension orale. Entraînez-vous à faire la soustraction mentalement et vite : <i>dix-neuf heures quarante-cinq</i> doit devenir « 7 h 45 du soir » sans effort.");
+
+h2('6 · Demander et dire QUAND');
+rows([
+ ["À quelle heure commence le cours ?","ah kel ur koh-mahns luh KOOR","What time does the class start?"],
+ ["Il commence à neuf heures.","eel koh-mahns ah nuh VUR","It starts at nine."],
+ ["À quelle heure tu manges ?","ah kel ur tew MAHNZH","What time do you eat?"],
+ ["Je mange à midi.","zhuh mahnzh ah mee-DEE","I eat at midday."],
+ ["Le magasin est ouvert de neuf heures à dix-huit heures.","luh mah-gah-zan ay too-vehr duh nuh vur ah deez-wee TUR","The shop is open from 9 to 6."]
+]);
+warn("<b>Deux prépositions à ne pas confondre — et c'est tout le contenu de cette section.</b><br><br>· <b>QUELLE HEURE EST-IL ?</b> → <i>Il <b>est</b> neuf heures.</i> &nbsp;— l'heure qu'il est, <u>sans préposition</u><br>· <b>À QUELLE HEURE… ?</b> → <i>Il commence <b>à</b> neuf heures.</i> &nbsp;— le moment d'un événement, <u>avec à</u><br><br>· ✗ <i>Il est à neuf heures.</i><br>· ✗ <i>Le cours commence neuf heures.</i><br><br>Le <b>à</b> marque un point dans le temps, exactement comme il marque un point dans l'espace (<i>à Paris</i>, <i>à la gare</i>). C'est la même préposition, la même idée de cible.");
+h3('DE … À … — la plage horaire');
+rows([
+ ["Je travaille de neuf heures à dix-sept heures.","zhuh trah-vye duh nuh vur ah dee-set UR","I work from 9 to 5."],
+ ["Le magasin est ouvert de dix heures à vingt heures.","luh mah-gah-zan ay too-vehr duh dee zur ah van TUR","The shop is open from 10 to 8."],
+ ["Le cours dure d'une heure à trois heures.","luh koor dewr dewn ur ah trwah ZUR","The class runs from 1 to 3."],
+ ["Du lundi au vendredi.","dew luhn-dee oh vahn-druh-DEE","From Monday to Friday."]
+]);
+note("<b>DE … À …</b> est la paire origine/destination du français (voir le chapitre des prépositions). Elle marche pour l'espace comme pour le temps :<br>· <i><b>de</b> Paris <b>à</b> Lyon</i> — espace<br>· <i><b>de</b> neuf heures <b>à</b> six heures</i> — temps<br><br><b>Et attention aux contractions avec les jours :</b> <i><b>du</b> lundi <b>au</b> vendredi</i> — parce que <i>de + le</i> = <b>du</b> et <i>à + le</i> = <b>au</b>. Les jours sont masculins.");
+h3('Les autres façons de situer dans le temps');
+grid([
+ ["vers huit heures","around eight"],
+ ["à huit heures précises","at eight sharp"],
+ ["avant huit heures","before eight"],
+ ["après huit heures","after eight"],
+ ["jusqu'à huit heures","until eight"],
+ ["à partir de huit heures","from eight onwards"],
+ ["entre huit et neuf heures","between eight and nine"],
+ ["dans une heure","in an hour (from now)"],
+ ["en une heure","in an hour (it takes)"],
+ ["il y a une heure","an hour ago"],
+ ["depuis une heure","for an hour (and still)"],
+ ["pendant une heure","for an hour (finished)"]
+]);
+warn("<b>Les quatre dernières sont le vrai test, et elles tombent au TEF.</b><br><br>· <i>Je finis <b>dans</b> une heure.</i> — dans 60 minutes à partir de maintenant<br>· <i>Je finis <b>en</b> une heure.</i> — ça me <u>prend</u> une heure<br>· <i>J'ai fini <b>il y a</b> une heure.</i> — c'était il y a 60 minutes<br>· <i>J'attends <b>depuis</b> une heure.</i> — ça fait 60 minutes et j'attends <u>encore</u> → <b>présent</b><br>· <i>J'ai attendu <b>pendant</b> une heure.</i> — c'est terminé → <b>passé composé</b><br><br>Cinq prépositions, cinq sens différents, un seul mot anglais pour trois d'entre elles (<i>in</i>, <i>for</i>). C'est pour ça qu'on se trompe.");
+h3('Exercice — quelle préposition ?');
+mcqx([
+ ["Quelle heure est-il ? — Il ______ neuf heures.",["est","est à"],0,"L'heure qu'il est → <b>il est</b>, sans préposition."],
+ ["Le cours commence ______ neuf heures.",["à","(rien)"],0,"Le moment d'un événement → <b>à</b>."],
+ ["Je travaille ______ 9 h ______ 17 h.",["de … à","depuis … à"],0,"Plage horaire → <b>de … à</b>."],
+ ["Le magasin est ouvert ______ lundi ______ vendredi.",["du … au","de … à"],0,"Les jours sont masculins → contractions <b>du … au</b>."],
+ ["Je pars ______ deux heures. (dans 120 minutes)",["dans","en"],0,"Délai depuis maintenant → <b>dans</b>."],
+ ["J'ai fait l'exercice ______ dix minutes. (ça m'a pris 10 min)",["dans","en"],1,"Durée du travail → <b>en</b>."],
+ ["J'attends ______ une heure et j'attends encore.",["depuis","pendant"],0,"Ça continue → <b>depuis</b> + présent."]
+]);
+
+h2('7 · Le vocabulaire du temps');
+h3('Les moments de la journée');
+rows([
+ ["le matin","luh mah-TAN","the morning"],
+ ["midi","mee-DEE","midday"],
+ ["l'après-midi","lah-pray-mee-DEE","the afternoon"],
+ ["le soir","luh SWAHR","the evening"],
+ ["la nuit","lah NWEE","the night"],
+ ["minuit","mee-NWEE","midnight"],
+ ["l'aube","LOHB","dawn"],
+ ["le coucher du soleil","luh koo-shay dew soh-LAY","sunset"]
+]);
+warn("<b>Trois mots qui se ressemblent et qu'on confond :</b><br><br>· <b>un an</b> / <b>une année</b> — <i>an</i> compte (<i>j'ai 23 ans</i>), <i>année</i> décrit la durée (<i>une bonne année</i>)<br>· <b>un jour</b> / <b>une journée</b> — même logique : <i>trois jours</i> mais <i>une belle journée</i><br>· <b>un matin</b> / <b>une matinée</b> · <b>un soir</b> / <b>une soirée</b><br><br><b>La règle :</b> la forme courte compte des unités, la forme longue en <b>-ée</b> parle du contenu, du déroulement.<br>· <i>J'ai passé deux <b>jours</b> à Paris.</i> — on compte<br>· <i>J'ai passé une bonne <b>journée</b>.</i> — on décrit<br><br>C'est pour ça qu'on dit <b>bonne journée !</b> et <b>bonne soirée !</b> en partant — on souhaite un bon <u>déroulement</u>, pas une bonne unité de 24 heures.");
+h3('Situer dans le temps');
+grid([
+ ["aujourd'hui","oh-zhoor-DWEE — today"],
+ ["hier","ee-YEHR — yesterday"],
+ ["demain","duh-MAN — tomorrow"],
+ ["avant-hier","ah-vahn-tee-YEHR — the day before yesterday"],
+ ["après-demain","ah-pray-duh-MAN — the day after tomorrow"],
+ ["ce matin","suh mah-TAN — this morning"],
+ ["ce soir","suh SWAHR — tonight"],
+ ["cette semaine","set suh-MEN — this week"],
+ ["la semaine prochaine","lah suh-men proh-SHEN — next week"],
+ ["la semaine dernière","lah suh-men dehr-NYEHR — last week"],
+ ["tôt","TOH — early"],
+ ["tard","TAHR — late"],
+ ["maintenant","mant-NAHN — now"],
+ ["tout de suite","too duh SWEET — right away"],
+ ["bientôt","byan-TOH — soon"],
+ ["tout à l'heure","too tah LUR — later today"]
+]);
+warn("<b>EN RETARD ≠ TARD.</b> C'est une erreur qui coûte cher parce qu'elle change le sens.<br>· <i>Je suis <b>en retard</b>.</i> — I'm <u>late</u> (par rapport à l'heure prévue)<br>· <i>Je me couche <b>tard</b>.</i> — I go to bed <u>late</u> (dans la soirée)<br><br>Les trois états par rapport à un rendez-vous :<br>· <b>en avance</b> — early &nbsp;·&nbsp; <b>à l'heure</b> — on time &nbsp;·&nbsp; <b>en retard</b> — late");
+h3('La fréquence');
+grid([
+ ["toujours","always"],["souvent","often"],["parfois / quelquefois","sometimes"],
+ ["de temps en temps","from time to time"],["rarement","rarely"],["ne … jamais","never"],
+ ["tous les jours","every day"],["une fois par semaine","once a week"],
+ ["deux fois par mois","twice a month"],["d'habitude","usually"]
+]);
+
+h2('8 · Le dialogue type');
+lead("Voici la conversation que ce chapitre vous permet de tenir. Apprenez-la en bloc : elle contient les trois questions, les deux formats d'heure et la plage horaire.");
+rows([
+ ["— Excusez-moi, vous avez l'heure, s'il vous plaît ?","ex-kew-zay-mwah, voo zah-vay lur, seel voo PLAY","Excuse me, do you have the time?"],
+ ["— Oui, il est trois heures et quart.","wee, eel ay trwah zur ay KAHR","Yes, it's a quarter past three."],
+ ["— Merci ! Et à quelle heure ferme la poste ?","mehr-see ! ay ah kel ur fehrm lah POHST","Thanks! And what time does the post office close?"],
+ ["— Elle est ouverte de neuf heures à dix-huit heures.","el ay too-vehrt duh nuh vur ah deez-wee TUR","It's open from nine to six."],
+ ["— Donc j'ai le temps. C'est loin ?","dohnk zhay luh tahn. say LWAN","So I have time. Is it far?"],
+ ["— Non, c'est à cinq minutes à pied.","nohn, say tah sank mee-newt ah PYAY","No, it's five minutes on foot."],
+ ["— Parfait, merci beaucoup !","par-fay, mehr-see boh-KOO","Perfect, thanks a lot!"],
+ ["— Je vous en prie.","zhuh voo zahn PREE","You're welcome."]
+]);
+note("<b>Relevez les structures :</b> <i>vous avez l'heure</i> (demande polie) · <i>il est … et quart</i> (dire l'heure) · <i>à quelle heure</i> (moment d'un événement) · <i>de … à …</i> (plage) · <i>c'est à cinq minutes</i> (distance exprimée en temps — très français).");
+
+h2('9 · Parler de votre journée');
+lead("Le TEF vous demandera presque certainement de décrire une journée type. Voici le modèle, construit avec vos vraies heures.");
+ex("<i>Je me lève à <b>six heures et demie</b>. Je prends mon petit-déjeuner vers <b>sept heures</b>. Je pars de la maison à <b>sept heures et quart</b> et j'arrive au travail à <b>huit heures</b>. Je travaille <b>de huit heures à seize heures</b>. Je déjeune à <b>midi</b>. Le soir, je rentre vers <b>dix-sept heures</b>. Je dîne à <b>dix-neuf heures</b> et je me couche vers <b>vingt-trois heures</b>.</i>");
+rows([
+ ["Je me lève à six heures et demie.","zhuh muh lev ah see zur ay duh-MEE","I get up at half past six."],
+ ["Je pars de la maison à sept heures et quart.","zhuh par duh lah may-zohn ah set ur ay KAHR","I leave home at a quarter past seven."],
+ ["Je travaille de huit heures à seize heures.","zhuh trah-vye duh wee tur ah sez UR","I work from eight to four."],
+ ["Je déjeune à midi.","zhuh day-zhun ah mee-DEE","I have lunch at midday."],
+ ["Je me couche vers vingt-trois heures.","zhuh muh koosh vehr van-trwah ZUR","I go to bed around eleven."]
+]);
+warn("<b>Trois verbes de repas à ne pas confondre :</b><br>· <b>prendre le petit-déjeuner</b> — to have breakfast<br>· <b>déjeuner</b> — to have lunch (verbe !)<br>· <b>dîner</b> — to have dinner (verbe !)<br><br><i>Déjeuner</i> et <i>dîner</i> sont à la fois des noms et des verbes : <i>le déjeuner</i> (le repas) et <i>je déjeune</i> (je mange).<br><br><b>Au Québec et en Belgique, les trois noms glissent d'un cran :</b> <i>déjeuner</i> = petit-déjeuner, <i>dîner</i> = déjeuner, <i>souper</i> = dîner. Utile à savoir au Canada.");
+h3('À vous — remplissez votre journée');
+fillx([
+ ["Je me lève à ______ .","six heures et demie","your wake-up time"],
+ ["Je pars de la maison à ______ .","sept heures et quart","your departure time"],
+ ["Je travaille ______ huit heures ______ seize heures.","de à","from … to …"],
+ ["Je déjeune à ______ .","midi","your lunch time"],
+ ["Je me couche vers ______ .","vingt-trois heures","your bedtime"]
+]);
+
+h2('10 · Exercices de révision');
+h3('A · Écrivez l\'heure en toutes lettres');
+fillx([
+ ["1:00 → Il est ______ .","une heure","singular at 1:00"],
+ ["2:00 → Il est ______ .","deux heures","plural from 2:00"],
+ ["3:15 → Il est ______ .","trois heures et quart",""],
+ ["3:30 → Il est ______ .","trois heures et demie","with an e — heure is feminine"],
+ ["3:45 → Il est ______ .","quatre heures moins le quart","subtract from the next hour"],
+ ["12:00 (jour) → Il est ______ .","midi","not douze heures"],
+ ["12:30 (jour) → Il est ______ .","midi et demi","no e — midi is masculine"],
+ ["21:00 → Il est ______ .","vingt et une heures","UNE, because heure is feminine"]
+]);
+h3('B · 12 h ↔ 24 h');
+fillx([
+ ["15:00 → trois heures ______","de l'après-midi",""],
+ ["20:00 → huit heures ______","du soir",""],
+ ["07:00 → sept heures ______","du matin",""],
+ ["cinq heures de l'après-midi → ______ heures","dix-sept","5 + 12"],
+ ["neuf heures du soir → ______ heures","vingt et une","9 + 12, and UNE"]
+]);
+h3('C · Il est ou c\'est ?');
+mcqx([
+ ["______ huit heures.",["Il est","C'est"],0,"L'heure prend toujours <b>il est</b>."],
+ ["______ une heure.",["Il est","C'est"],0,"<b>Il est une heure</b> — singulier à 1 h."],
+ ["Quelle heure ______ -il ?",["est","c'est"],0,"<b>Quelle heure est-il ?</b> avec inversion et liaison en T."]
+]);
+h3('D · Trouvez l\'erreur');
+mcqx([
+ ["« Il est vingt et un heures. »",["Correct","Il est vingt et une heures."],1,"<i>heure</i> est <b>féminin</b> → le nombre <b>un</b> devient <b>une</b>. Seul <i>un</i> s'accorde."],
+ ["« C'est huit heures. »",["Correct","Il est huit heures."],1,"L'heure prend <b>il est</b>, jamais <i>c'est</i>."],
+ ["« Il est deux heure. »",["Correct","Il est deux heures."],1,"Pluriel à partir de 2 h → <b>heures</b>."],
+ ["« Il est midi et demie. »",["Correct","Il est midi et demi."],1,"<i>midi</i> est <b>masculin</b> → <b>demi</b> sans e."],
+ ["« Le cours commence neuf heures. »",["Correct","Le cours commence à neuf heures."],1,"Le moment d'un événement exige <b>à</b>."],
+ ["« Il est à huit heures. »",["Correct","Il est huit heures."],1,"Pour dire l'heure qu'il est, <u>pas</u> de préposition."]
+]);
+h3('E · Prononciation — les liaisons');
+mcqx([
+ ["« neuf heures » se dit :",["nuf ur","nuh-vur"],1,"Le <b>f</b> devient <b>V</b> devant <i>heures</i> et <i>ans</i> — le seul mot du français qui fait ça."],
+ ["« deux heures » se dit :",["duh ur","duh-zur"],1,"Le <b>x</b> se prononce <b>z</b> en liaison."],
+ ["« huit heures » se dit :",["wee ur","wee-tur"],1,"Le <b>t</b> final, muet seul, se réveille devant la voyelle."],
+ ["« une heure » se dit :",["ewn ur","ew-nur"],1,"Élision + enchaînement : le <b>n</b> se rattache à <i>heure</i>."],
+ ["« Quelle heure est-il ? » se dit :",["kel ur ay eel","kel ur ay-teel"],1,"Le <b>t</b> de <i>est</i> se prononce dans l'inversion."]
+]);
+
+document.getElementById('speed').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  rate=parseFloat(e.target.dataset.rate);
+  [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+});
+</script>
+<script src="french_glossary.js">
+h2('11 · Les questions de la classe — corrigées');
+lead("Pendant le cours, plusieurs questions ont été posées dans le chat. Les voici avec la correction et la raison — ce sont les erreurs les plus typiques à ce niveau, et les comprendre vaut plus que de les mémoriser.");
+warn("<b>« Tu couches apres cette cours ? »</b><br><br>→ <b>Tu te couches après ce cours ?</b><br><br><b>Trois corrections :</b><br>1. <b>te</b> manquait. <i>Se coucher</i> est un verbe <u>pronominal</u> : le pronom est obligatoire. <i>Tu <b>te</b> couches.</i> Sans le <i>te</i>, <i>coucher</i> veut dire « mettre quelqu'un au lit ».<br>2. <b>ce</b>, pas <i>cette</i>. <i>Cours</i> est <u>masculin</u> → <b>ce cours</b>. (<i>cette</i> est la forme féminine.)<br>3. <b>après</b> avec un accent grave. Sans accent, <i>apres</i> n'existe pas.");
+warn("<b>« Quelle sport du fait ? »</b><br><br>→ <b>Quel sport tu fais ?</b> &nbsp;ou&nbsp; <b>Quel sport fais-tu ?</b><br><br><b>Trois corrections :</b><br>1. <b>Quel</b>, pas <i>quelle</i>. <i>Sport</i> est <u>masculin</u> → <b>quel sport</b>. (<i>quelle</i> irait avec <i>quelle heure</i>, parce que <i>heure</i> est féminin — c'est exactement la même règle que dans le titre de ce cours.)<br>2. <b>tu fais</b>, pas <i>du fait</i>. Le verbe <i>faire</i> à la 2<sup>e</sup> personne est <b>tu fais</b>. <i>Du fait</i> n'est pas une forme verbale.<br>3. Il faut un <b>sujet</b>. Soit <i>Quel sport <b>tu</b> fais ?</i> (intonation), soit <i>Quel sport <b>fais-tu</b> ?</i> (inversion).");
+note("<b>Le point commun des deux erreurs : l'accord de QUEL et de CE.</b><br><br>Ces deux mots s'accordent avec le nom qui suit, exactement comme un adjectif :<br><br>· <b>quel</b> sport · <b>quelle</b> heure · <b>quels</b> sports · <b>quelles</b> heures<br>· <b>ce</b> cours · <b>cette</b> heure · <b>ces</b> cours<br><br>Et ils ne se prononcent pas différemment : <i>quel</i> et <i>quelle</i> se disent tous les deux <b>KEL</b> ; <i>cet</i> et <i>cette</i> se disent tous les deux <b>SET</b>. La différence est <u>uniquement écrite</u>, ce qui la rend facile à rater — et facile à corriger si on connaît le genre du nom.");
+h3('Les quatre formes de QUEL');
+table(['','Masculin','Féminin'],[
+ ['Singulier','<b>quel</b> sport, <b>quel</b> jour','<b>quelle</b> heure, <b>quelle</b> date'],
+ ['Pluriel','<b>quels</b> sports','<b>quelles</b> heures']
+]);
+rows([
+ ["Quel sport tu fais ?","kel spor tew FAY","What sport do you do?"],
+ ["Quelle heure est-il ?","kel ur ay-TEEL","What time is it?"],
+ ["Quel jour sommes-nous ?","kel zhoor som-NOO","What day is it?"],
+ ["Quelle est la date aujourd'hui ?","kel ay lah daht oh-zhoor-DWEE","What's the date today?"],
+ ["À quelle heure tu te couches ?","ah kel ur tew tuh KOOSH","What time do you go to bed?"],
+ ["Tu te couches après ce cours ?","tew tuh koosh ah-pray suh KOOR","Do you go to bed after this class?"]
+]);
+h3('Exercice — quel, quelle, quels ou quelles ?');
+fillx([
+ ["______ heure est-il ?","Quelle","heure is feminine"],
+ ["______ sport tu fais ?","Quel","sport is masculine"],
+ ["______ jour sommes-nous ?","Quel","jour is masculine"],
+ ["______ est la date ?","Quelle","date is feminine"],
+ ["______ sont tes matières préférées ?","Quelles","matières is feminine plural"],
+ ["À ______ heure tu commences ?","quelle","heure is feminine"]
+]);
+h3('Exercice — ce, cet, cette ou ces ?');
+fillx([
+ ["______ cours","ce","cours is masculine + consonant"],
+ ["______ heure","cette","heure is feminine"],
+ ["______ homme","cet","masculine + mute h → cet"],
+ ["______ sport","ce","sport is masculine"],
+ ["______ matin","ce","matin is masculine"],
+ ["______ après-midi","cet","masculine + vowel → cet"]
+]);
+warn("<b>Piège bonus :</b> <i>après-midi</i> commence par une voyelle et est masculin → <b>cet</b> après-midi. Mais <i>cette</i> après-midi se rencontre aussi, parce que le mot accepte les deux genres. Les deux passent ; <b>cet après-midi</b> est le plus courant.");
+
+h2('12 · Récapitulatif — la fiche à retenir');
+ex("<b>DEMANDER</b><br>· Quelle heure est-il ? &nbsp;·&nbsp; Il est quelle heure ? &nbsp;·&nbsp; Vous avez l'heure, s'il vous plaît ?<br>· À quelle heure … ?<br><br><b>DIRE</b><br>· <b>Il est</b> + nombre + <b>heure(s)</b> — jamais <i>c'est</i><br>· 1 h → <b>une heure</b> (singulier) · 2 h → <b>deux heures</b> (pluriel)<br>· 12 h → <b>midi</b> / <b>minuit</b><br>· 21 h → <b>vingt et une heures</b> — UNE, parce que <i>heure</i> est féminin<br><br><b>LES MINUTES</b><br>· avant 30 : on ajoute → <i>trois heures vingt</i><br>· après 30 : on retire de l'heure suivante → <i>quatre heures moins vingt</i><br>· <b>et quart</b> · <b>et demie</b> (avec e) · <b>moins le quart</b><br>· <i>midi et demi</i> / <i>minuit et demi</i> — <u>sans</u> e<br><br><b>12 h / 24 h</b><br>· du matin · de l'après-midi · du soir — pas de AM/PM<br>· 24 h pour les horaires, les trains, le TEF<br><br><b>SITUER</b><br>· <b>à</b> + heure → <i>à neuf heures</i><br>· <b>de … à …</b> → <i>de neuf heures à dix-huit heures</i><br>· <b>vers</b> → approximativement<br>· <b>dans</b> / <b>en</b> / <b>il y a</b> / <b>depuis</b> / <b>pendant</b> — cinq sens différents");
+note("<b>Pour aller plus loin sur ce sujet :</b> le chapitre <b>Les nombres, l'heure et la date</b> de la Grammaire reprend tout ça avec les nombres de 0 à un million, les jours, les mois, les dates et les ordinaux. Et le chapitre <b>C'EST, IL EST, IL Y A</b> explique pourquoi l'heure prend obligatoirement <i>il est</i>.");
+
+</script>
+</body>
+</html>
