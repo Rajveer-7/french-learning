@@ -81,6 +81,37 @@
   .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
   .whybox a.more:hover { text-decoration:underline; }
 </style>
+<style id="mobile-fix">
+@media (max-width: 640px){
+  .wrap{ padding:12px 12px 70px; }
+  h1{ font-size:22px; line-height:1.25; }
+  h2{ font-size:19px; }
+  h3{ font-size:16px; }
+  /* nav becomes one swipeable row instead of a wall of chips */
+  nav{ flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
+       padding-bottom:6px; margin-bottom:14px; scrollbar-width:thin; }
+  nav a{ flex:0 0 auto; white-space:nowrap; font-size:12px; padding:6px 9px; }
+  /* tables scroll sideways instead of crushing */
+  table, .conjt{ display:block; width:100%; overflow-x:auto;
+                 -webkit-overflow-scrolling:touch; white-space:nowrap; font-size:13px; }
+  table td, table th, .conjt td, .conjt th{ white-space:normal; min-width:92px; }
+  /* reading blocks */
+  .note,.example,.warn,.source,.lead,.txtp{ font-size:14.5px; }
+  .grid{ grid-template-columns:1fr !important; }
+  /* bigger tap targets on the audio rows */
+  .row{ padding:10px 8px; }
+  .play{ min-width:38px; min-height:38px; }
+  .fr{ font-size:16px; }
+  .ph,.en{ font-size:13px; }
+  /* exercises */
+  .fillrow input{ width:100%; box-sizing:border-box; font-size:16px; padding:8px; }
+  .fillrow button,.riddle button{ padding:9px 12px; font-size:14px; margin-top:6px; }
+  .riddle .btns{ display:flex; flex-wrap:wrap; gap:6px; }
+  /* book page chapter tabs */
+  .parttabs{ flex-wrap:nowrap; overflow-x:auto; }
+  .parttabs button{ flex:0 0 auto; white-space:nowrap; }
+}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -291,6 +322,25 @@ rows([
 ]);
 h3('Version développée (aim for this) — 1 minute');
 ex("<i>Bonjour, je m'appelle Rajveer. J'ai vingt-trois ans et je suis indien. J'habite à Brampton, <b>au</b> Canada, <b>depuis</b> deux ans. Avant, j'<b>habitais</b> en Inde.<br><br>Je suis administrateur système : je travaille dans l'informatique, pour une grande entreprise. J'aime beaucoup mon travail <b>parce que</b> c'est technique et il y a toujours quelque chose de nouveau.<br><br>J'apprends le français depuis six mois, <b>parce que</b> je <b>voudrais</b> passer le TEF. <b>C'est</b> difficile, <b>mais c'est</b> intéressant. <b>Ce que j'aime</b>, c'est la grammaire — elle est logique.<br><br>Enchanté !</i>");
+h3('Ligne par ligne — avec prononciation · click to hear each line');
+rows([
+ ["Bonjour, je m'appelle Rajveer.","bohn-ZHOOR, zhuh mah-PEL raj-VEER","Hello, my name is Rajveer."],
+ ["J'ai vingt-trois ans et je suis indien.","zhay van-trwah-ZAHN ay zhuh swee zan-DYAN","I'm twenty-three and I'm Indian."],
+ ["J'habite à Brampton, au Canada, depuis deux ans.","zhah-BEET ah bramp-TOHN, oh kah-nah-DAH, duh-pwee duh-ZAHN","I've lived in Brampton, in Canada, for two years."],
+ ["Avant, j'habitais en Inde.","ah-VAHN, zhah-bee-TAY ahn NAND","Before that, I lived in India."],
+ ["Je suis administrateur système.","zhuh swee zad-mee-nee-strah-TUR sees-TEM","I'm a systems administrator."],
+ ["Je travaille dans l'informatique, pour une grande entreprise.","zhuh trah-VYE dahn lan-for-mah-TEEK, poor ewn grahnd ahn-truh-PREEZ","I work in IT, for a large company."],
+ ["J'aime beaucoup mon travail parce que c'est technique.","zhem boh-KOO mohn trah-VYE pars-kuh say tek-NEEK","I like my job a lot because it's technical."],
+ ["Et il y a toujours quelque chose de nouveau.","ay eel yah too-ZHOOR kel-kuh shohz duh noo-VOH","And there's always something new."],
+ ["J'apprends le français depuis six mois.","zhah-PRAHN luh frahn-SAY duh-pwee see MWAH","I've been learning French for six months."],
+ ["Parce que je voudrais passer le TEF.","pars-kuh zhuh voo-DRAY pah-say luh TEF","Because I'd like to take the TEF."],
+ ["C'est difficile, mais c'est intéressant.","say dee-fee-SEEL, may say tan-tay-ray-SAHN","It's difficult, but it's interesting."],
+ ["Ce que j'aime, c'est la grammaire.","suh kuh ZHEM, say lah grah-MEHR","What I like is the grammar."],
+ ["Elle est logique.","el ay loh-ZHEEK","It's logical."],
+ ["Enchanté !","ahn-shahn-TAY","Pleased to meet you!"]
+]);
+warn("<b>LES LIAISONS À FAIRE — the links you must make</b><br><br>These are the joins that make it sound French instead of word-by-word. The ‿ marks where two words run together:<br><br>· <i>vingt-trois‿ans</i> → van-trwah-<b>Z</b>AHN &nbsp;— the <b>s</b> of <i>trois</i> wakes up as a <b>z</b><br>· <i>je suis‿indien</i> → zhuh swee-<b>Z</b>an-dyan &nbsp;— same thing with <i>suis</i><br>· <i>deux‿ans</i> → duh-<b>Z</b>AHN &nbsp;— the <b>x</b> becomes a <b>z</b><br>· <i>en‿Inde</i> → ahn-<b>N</b>AND &nbsp;— the <b>n</b> carries over<br>· <i>c'est‿intéressant</i> → say-<b>T</b>an-tay-ray-sahn &nbsp;— the <b>t</b> of <i>est</i> wakes up<br>· <i>dans l'informatique</i> → dahn <b>l</b>an-for-mah-teek &nbsp;— elision, <i>le</i> → <i>l'</i><br><br><b>If you skip these the sentence still works</b> — a missing liaison reads as plain style, not as an error. But making them is cheap and it sounds markedly better.");
+note("<b>DEUX PIÈGES DE PRONONCIATION DANS CE TEXTE</b><br><br><b>1 · « administrateur » — don't say it the English way.</b><br>French: <b>ad-mee-nee-strah-TUR</b>. Stress on the <u>last</u> syllable, and the ending is <b>-TUR</b> (like <i>sur</i>), not « -tor ».<br>Remember: French stress is <u>always</u> final. Never <i>ad-MIN-istrator</i>.<br><br><b>2 · « système » and « technique ».</b><br>· <i>système</i> → <b>sees-TEM</b>, not « sis-tem ». The <b>y</b> is an <i>i</i> sound.<br>· <i>technique</i> → <b>tek-NEEK</b>. The <b>ch</b> here is a hard <b>k</b> (Greek origin), not « sh ».<br><br>Both are near-identical to English words, which is exactly why they come out wrong — you have to consciously re-aim them.");
 ex("<b>ENGLISH</b><br><i>Hello, my name is Rajveer. I'm twenty-three and I'm Indian. I've lived in Brampton, in Canada, for two years. Before that, I lived in India.<br><br>I'm a systems administrator: I work in IT, for a large company. I like my job a lot because it's technical and there's always something new.<br><br>I've been learning French for six months, because I'd like to take the TEF. It's difficult, but it's interesting. What I like is the grammar — it's logical.<br><br>Pleased to meet you!</i>");
 note("<b>WHAT YOU'RE USING / WHY — count the structures</b><br><br>· <b>présent</b> — <i>je suis, j'habite, je travaille</i><br>· <b>imparfait</b> — <i>j'habitais</i>, for a past habit. One imparfait in your opening is a strong signal.<br>· <b>depuis + présent</b> — still ongoing<br>· <b>parce que</b> ×2 — justifying, the A1→A2 line<br>· <b>mais</b> — contrast<br>· <b>c'est</b> + adjective — general judgement, always masculine singular<br>· <b>elle est</b> + adjective — about one specific thing (la grammaire), so it agrees<br>· <b>ce que j'aime, c'est…</b> — a cleft sentence. B1 territory.<br>· <b>je voudrais</b> — conditional, polite<br>· <b>au</b> Canada / <b>en</b> Inde — masculine vs feminine country<br><br><b>Ten structures in four sentences — and you only memorised one paragraph.</b> That's the whole trick.");
 warn("<b>LES CINQ PIÈGES — THE FIVE TRAPS</b><br><br><b>1.</b> <b>J'<u>ai</u> vingt-trois ans</b> — <i>avoir</i>, never <i>être</i>. And <b>ans</b> is compulsory.<br>&nbsp;&nbsp;<i>French</i> has <i>an age; English</i> is <i>an age.</i><br><b>2.</b> <b>Je suis administrateur</b> — <u>no article</u>. Not <i>un administrateur</i>.<br>&nbsp;&nbsp;<i>After</i> être, <i>a job is a category, not a countable object.</i><br><b>3.</b> <b>au</b> Canada (masculine) but <b>en</b> Inde (feminine), and <b>d'</b>Inde for « from ».<br><b>4.</b> <b>depuis + présent</b>: <i>j'apprends depuis six mois</i>, never <i>j'ai appris depuis</i>.<br><b>5.</b> <b>indien</b> lowercase as an adjective (<i>je suis indien</i>); capital only as a noun (<i>un Indien</i>).");
@@ -311,84 +361,238 @@ lead("Read the question. <b>Answer out loud BEFORE</b> looking at the model. The
 
 h3('① Vous vous appelez comment ? — What\'s your name?');
 ex("<i>Je m'appelle Rajveer. R-A-J-V-E-E-R. <b>Et vous ?</b></i><br><br><i>My name is Rajveer. R-A-J-V-E-E-R. And you?</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">zhuh mah-PEL raj-VEER. ay VOO ?</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
 note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>je m'appelle</b> — a <u>reflexive verb</u>, literally « I call myself ». French has no other way to say this.<br>· <b>Et vous ?</b> — throwing the question back. Shows you're holding a <u>conversation</u>, not being interrogated. Free marks.<br><br><b>TIP:</b> know how to spell your name aloud. You'll almost certainly be asked.");
 
 h3('② Quel âge avez-vous ? — How old are you?');
 ex("<i>J'ai vingt-trois ans.</i> — <i>I'm twenty-three.</i><br>Longer: <i>J'ai vingt-trois ans. Je suis né en deux mille trois.</i> — <i>I'm 23. I was born in 2003.</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">zhay van-trwah-ZAHN. zhuh swee nay ahn duh meel TRWAH.</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
 note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>avoir</b>, not <i>être</i> — French <u>has</u> an age, English <u>is</u> an age. <i>Je suis 23</i> is meaningless in French.<br>· <b>ans</b> is compulsory — English can drop « years old », French cannot.<br>· <b>je suis né</b> — passé composé with <u>être</u> (<i>naître</i> is one of the 14).");
 
 h3('③ D\'où venez-vous ? — Where are you from?');
 ex("<i>Je viens <b>d'</b>Inde, du Punjab. Mais j'habite au Canada <b>depuis</b> deux ans.</i><br><br><i>I'm from India, from Punjab. But I've lived in Canada for two years.</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">zhuh vyan DAND, dew poon-ZHAHB. may zhah-beet oh kah-nah-dah duh-pwee duh-ZAHN.</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
 note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>d'Inde</b> — <i>Inde</i> is feminine and starts with a vowel, so <i>de</i> elides to <b>d'</b>.<br>· <b>au Canada</b> — <i>Canada</i> is masculine → <b>au</b>. (Feminine countries take <i>en</i>: <i>en France</i>.)<br>· <b>depuis + présent</b> — the action is still going, so French uses the <u>present</u>. English says « I have lived »; French says « j'habite ».<br>· <b>mais</b> — a connector. Contrast earns marks.");
 
 h3('④ Où habitez-vous ? — Where do you live?');
 ex("<i>J'habite à Brampton, près de Toronto. C'est une grande ville, mais mon quartier est assez calme. Il y a un parc et beaucoup de restaurants indiens.</i><br><br><i>I live in Brampton, near Toronto. It's a big city, but my neighbourhood is fairly quiet. There's a park and lots of Indian restaurants.</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">zhah-beet ah bramp-TOHN, pray duh toh-rohn-TOH. say tewn grahnd VEEL, may mohn kar-tyay ay tah-say KALM. eel yah uhn PARK ay boh-koo duh res-toh-rahn zan-DYAN.</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
 note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>à</b> + city (<i>à Brampton</i>) — cities always take <b>à</b>.<br>· <b>c'est</b> + article + noun (<i>c'est une ville</i>) vs <b>il est / mon quartier est</b> + adjective. Two different structures, correctly chosen.<br>· <b>grande ville</b> — <i>grand</i> is a BAGS adjective, so it goes <u>before</u> the noun. <i>indiens</i> goes after. Both placements in one answer.<br>· <b>il y a</b> — « there is / there are ». Never changes, even with plurals.<br>· <b>beaucoup de</b> — quantity words always take <b>de</b>.");
 
 h3('⑤ Qu\'est-ce que vous faites dans la vie ? — What do you do for a living?');
 ex("<i>Je suis administrateur système. Je travaille dans l'informatique, pour une entreprise qui s'appelle Sobeys. Je m'occupe des serveurs.</i><br><br><i>I'm a systems administrator. I work in IT, for a company called Sobeys. I look after the servers.</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">zhuh swee zad-mee-nee-strah-TUR sees-TEM. zhuh trah-VYE dahn lan-for-mah-TEEK, poor ewn ahn-truh-preez kee sah-PEL soh-bayz. zhuh moh-kewp day sehr-VUR.</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
 note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>Je suis administrateur</b> — <u>no article</u>. After <i>être</i>, a job is a category, not a countable thing. <i>Je suis UN administrateur</i> is the classic English-speaker error.<br>· <b>qui s'appelle</b> — a <u>relative pronoun</u>. <i>qui</i> because a verb follows directly. This is a B1 marker in an A2 exam — worth having.<br>· <b>des serveurs</b> — <i>s'occuper <u>de</u></i> + <i>les</i> → <b>des</b>.");
 warn("<b>If the vocabulary runs out, SIMPLIFY — don't go silent.</b><br><i>Je travaille avec les ordinateurs. Quand il y a un problème technique, je le répare.</i><br>— <i>I work with computers. When there's a technical problem, I fix it.</i><br><br>A simple correct sentence beats a complicated abandoned one every time.");
 
 h3('⑥ Vous avez des frères et sœurs ? — Do you have brothers and sisters?');
 ex("<i>Non, je ne suis pas marié, je suis célibataire. J'ai un frère. Il habite en Inde avec mes parents.</i><br><br><i>No, I'm not married, I'm single. I have one brother. He lives in India with my parents.</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">nohn, zhuh nuh swee pah mah-RYAY, zhuh swee say-lee-bah-TEHR. zhay uhn FREHR. eel ah-beet ahn NAND ah-vek may pah-RAHN.</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
 note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>ne … pas</b> around the verb — the negation. Examiners look for one.<br>· <b>célibataire</b> — no article, same rule as a job.<br>· <b>en Inde</b> — feminine country → <b>en</b>. Compare <i>au Canada</i> in Q3. Using both correctly in one exam is noticed.<br>· <b>mes parents</b> — possessive, plural.");
 
 h3('⑦ Pourquoi apprenez-vous le français ? — Why are you learning French?');
 ex("<i>J'apprends le français <b>parce que</b> je voudrais passer le TEF. C'est important <b>pour</b> travailler au Canada. Et <b>aussi parce que</b> j'aime les langues.</i><br><br><i>I'm learning French because I'd like to take the TEF. It's important in order to work in Canada. And also because I like languages.</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">zhah-PRAHN luh frahn-SAY pars-kuh zhuh voo-DRAY pah-say luh TEF. say tan-por-TAHN poor trah-vye-yay oh kah-nah-DAH. ay oh-see pars-kuh zhem lay LAHNG.</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
 note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>parce que</b> twice — justifying an opinion is the explicit A1→A2 criterion. This question is your best chance to use it.<br>· <b>je voudrais</b> — <u>conditional</u>, polite. Never <i>je veux</i>.<br>· <b>pour + infinitif</b> — « in order to ». Reusable everywhere: <i>pour apprendre</i>, <i>pour réussir</i>.<br>· <b>le français</b>, <b>les langues</b> — French puts an article on general nouns where English uses none. <i>J'aime <u>les</u> langues</i>, not <i>j'aime langues</i>.<br><br><b>This question comes up almost every time. Prepare it.</b>");
 
 h3('⑧ Depuis combien de temps étudiez-vous le français ? — How long have you been studying French?');
 ex("<i>J'étudie le français <b>depuis</b> six mois. Je prends des cours en ligne deux fois par semaine.</i><br><br><i>I've been studying French for six months. I take online classes twice a week.</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">zhay-tew-DEE luh frahn-say duh-pwee see MWAH. zhuh prahn day koor ahn LEEN duh fwah par suh-MEN.</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
 warn("<b>DEPUIS takes the PRESENT.</b><br>· ✗ <i>J'ai étudié depuis six mois.</i><br>· ✓ <i>J'étudie depuis six mois.</i><br><br><b>Why:</b> the studying is still happening. English marks « still happening » with <i>have been</i>; French just uses the plain present. This is one of the most reliable giveaways of an English speaker.<br><br>· <b>deux fois par semaine</b> — frequency. <i>par</i> = « per ».");
 
 h3('⑨ Qu\'est-ce que vous aimez faire ? — What do you like doing?');
 ex("<i>J'aime beaucoup regarder des films et faire du sport. J'aime <b>aussi</b> cuisiner. <b>Par contre</b>, je n'aime pas le froid — l'hiver est long au Canada !</i><br><br><i>I really like watching films and doing sport. I also like cooking. On the other hand, I don't like the cold — winter is long in Canada!</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">zhem boh-koo ruh-gar-day day FEELM ay fehr dew SPOR. zhem oh-see kwee-zee-NAY. par KOHNTR, zhuh nem pah luh FRWAH — lee-vehr ay lohn oh kah-nah-DAH.</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
 note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>aimer + infinitif</b> — « like doing » = <i>aimer faire</i>, with no preposition. Not <i>aimer de faire</i>.<br>· <b>beaucoup</b> after the verb — never between subject and verb.<br>· <b>faire du sport</b> — <i>faire</i> + partitive for activities: <i>faire <b>du</b> sport</i>, <i>faire <b>de la</b> musique</i>.<br>· <b>par contre</b> — a contrast connector. Lifts the answer above a flat list.<br>· <b>je n'aime pas</b> — a negation, and it doubles your answer for free.<br><br><b>Saying what you DON'T like is the cheapest way to lengthen any answer</b> and it slips in a negation. Examiners look for negations.");
 
 h3('⑩ Décrivez votre journée type. — Describe a typical day.');
 ex("<i>Je <b>me lève</b> à six heures et demie. Je <b>me douche</b>, je prends mon petit-déjeuner, et je pars à sept heures et quart. Je <b>prends</b> le bus — ça <b>prend</b> vingt minutes. Je travaille de huit heures à seize heures. Le soir, je rentre, je dîne vers dix-neuf heures, et je <b>me couche</b> vers vingt-trois heures.</i><br><br><i>I get up at half six. I shower, have breakfast, and leave at quarter past seven. I take the bus — it takes twenty minutes. I work from eight to four. In the evening I come home, have dinner around seven, and go to bed around eleven.</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">zhuh muh LEV ah see zur ay duh-MEE. zhuh muh DOOSH, zhuh prahn mohn puh-tee-day-zhuh-NAY, ay zhuh par ah set ur ay KAHR. zhuh prahn luh BEWS — sah prahn van mee-NEWT. zhuh trah-VYE duh wee tur ah sez UR. luh SWAHR, zhuh RAHNTR, zhuh deen vehr deez-nuh VUR, ay zhuh muh KOOSH vehr van-trwah ZUR.</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
 note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>three reflexive verbs</b> — <i>se lever, se doucher, se coucher</i>. The <b>me</b> is compulsory: without it, <i>lever</i> means lifting something else.<br>· <b>prendre twice, two meanings</b> — <i>je prends le bus</i> (I take) and <i>ça prend vingt minutes</i> (it takes/lasts). Same verb, and showing both is impressive.<br>· <b>telling the time</b> — <i>et demie</i> (with -e, <i>heure</i> is feminine), <i>et quart</i>, and the 24-hour <i>dix-neuf heures</i>.<br>· <b>de … à …</b> — a time range.<br>· <b>vers</b> — « around », approximate. Useful hedge when you're unsure.<br><br><b>One of the most profitable questions. Prepare it in detail.</b>");
 
 h3('⑪ Qu\'est-ce que vous avez fait le week-end dernier ? — What did you do last weekend?');
 ex("<i>Samedi, je <b>suis allé</b> au centre-ville avec un ami. Nous <b>avons mangé</b> au restaurant et après, nous <b>avons vu</b> un film. Dimanche, je <b>suis resté</b> à la maison. J'<b>ai fait</b> le ménage et j'<b>ai étudié</b> le français. Il <b>faisait</b> froid, alors je <b>ne suis pas sorti</b>.</i><br><br><i>On Saturday I went into town with a friend. We ate at a restaurant and afterwards we saw a film. On Sunday I stayed home. I did the housework and studied French. It was cold, so I didn't go out.</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">sam-DEE, zhuh swee zah-lay oh sahntr-VEEL ah-vek uhn nah-MEE. noo zah-vohn mahn-ZHAY oh res-toh-RAHN ay ah-PRAY, noo zah-vohn vew uhn FEELM. dee-MAHNSH, zhuh swee ray-stay ah lah may-ZOHN. zhay fay luh may-NAHZH ay zhay ay-tew-dyay luh frahn-SAY. eel fuh-zay FRWAH, ah-lor zhuh nuh swee pah sor-TEE.</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
 warn("<b>WHAT YOU'RE USING / WHY — this is the richest answer on the page</b><br><br>· <b>être verbs:</b> <i>suis allé</i>, <i>suis resté</i>, <i>suis sorti</i> — all three are on the DR & MRS VANDERTRAMP list (movement / change of state).<br>· <b>avoir verbs:</b> <i>avons mangé</i>, <i>avons vu</i>, <i>ai fait</i>, <i>ai étudié</i> — everything else.<br>· <b>irregular participles:</b> <i>vu</i> (voir), <i>fait</i> (faire).<br>· <b>imparfait for the backdrop:</b> <i>il faisait froid</i> — weather and description are <u>always</u> imparfait. This is the single clearest A2→B1 signal you can give.<br>· <b>negation in the past:</b> <i>je <u>ne</u> suis <u>pas</u> sorti</i> — <i>ne … pas</i> wraps the <u>auxiliary</u>, not the participle.<br>· <b>alors</b> — consequence connector.<br><br><b>If you prepare only one long answer, prepare this one.</b> It demonstrates both past tenses, both auxiliaries, a negation and a connector in six sentences.");
 
 h3('⑫ Qu\'est-ce que vous allez faire ce week-end ? — What are you going to do this weekend?');
 ex("<i>Ce week-end, je <b>vais</b> étudier pour l'examen. Samedi, je <b>vais</b> voir des amis. Et dimanche, je <b>vais</b> me reposer. Peut-être que j'<b>irai</b> au parc s'il fait beau.</i><br><br><i>This weekend I'm going to study for the exam. On Saturday I'm going to see friends. And on Sunday I'm going to rest. Maybe I'll go to the park if the weather's nice.</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">suh week-END, zhuh vay zay-tew-DYAY poor lex-ah-MAN. sam-DEE, zhuh vay vwahr day zah-MEE. ay dee-MAHNSH, zhuh vay muh ruh-poh-ZAY. puh-tetr kuh zhee-RAY oh park seel fay BOH.</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
 note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>futur proche</b> = <i>aller</i> + infinitive. Exactly English « going to ». Covers 80% of spoken future.<br>· <b>j'irai</b> — one <b>futur simple</b>, irregular stem <i>ir-</i>. Slipping in a single one proves you have the tense. Don't overdo it.<br>· <b>je vais me reposer</b> — reflexive in the infinitive: the <b>me</b> sits before <i>reposer</i>, not before <i>vais</i>.<br>· <b>s'il fait beau</b> — <i>si</i> + <u>present</u>. Never a future after <i>si</i>.");
 
 h3('⑬ Parlez-moi de votre ville. — Tell me about your town.');
 ex("<i>J'habite à Brampton. C'est une grande ville, mais mon quartier est calme. Il y a un parc, des magasins et beaucoup de restaurants. Toronto est <b>plus grande que</b> Brampton et il y a <b>plus de</b> musées, <b>mais</b> Brampton est <b>moins cher</b> et <b>plus tranquille</b>. Pour aller au centre, je prends le bus.</i><br><br><i>I live in Brampton. It's a big city, but my area is quiet. There's a park, shops and lots of restaurants. Toronto is bigger than Brampton and there are more museums, but Brampton is cheaper and quieter. To get into town, I take the bus.</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">zhah-beet ah bramp-TOHN. say tewn grahnd VEEL, may mohn kar-tyay ay KALM. eel yah uhn PARK, day mah-gah-ZAN ay boh-koo duh res-toh-RAHN. toh-rohn-toh ay plew grahnd kuh bramp-TOHN ay eel yah plew duh mew-ZAY, may bramp-tohn ay mwan SHEHR ay plew trahn-KEEL. poor ah-lay oh SAHNTR, zhuh prahn luh BEWS.</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
 note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>plus … que</b> + adjective — <u>no</u> <i>de</i>. (<i>plus grande que</i>)<br>· <b>plus de</b> + noun — <u>with</u> <i>de</i>. (<i>plus de musées</i>)<br>&nbsp;&nbsp;That one-word difference is the commonest comparison error. Adjective = quality, no <i>de</i>. Noun = quantity, <i>de</i>.<br>· <b>four comparisons in one answer</b> — variety is what's being marked.<br>· <b>pour aller au centre</b> — <i>pour</i> + infinitive again, and <i>à + le</i> → <b>au</b>.");
 
 h3('⑭ Décrivez votre logement. — Describe where you live.');
 ex("<i>J'habite dans une maison. Il y a trois chambres, un salon, une cuisine et deux salles de bains. Ma chambre est au premier étage. J'aime bien <b>parce qu'</b>il y a un jardin.</i><br><br><i>I live in a house. There are three bedrooms, a living room, a kitchen and two bathrooms. My bedroom is on the first floor. I like it because there's a garden.</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">zhah-beet dahn zewn may-ZOHN. eel yah trwah SHAHMBR, uhn sah-LOHN, ewn kwee-ZEEN ay duh sal duh BAN. mah shahmbr ay toh pruh-myay ay-TAHZH. zhem byan pars-keel yah uhn zhar-DAN.</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
 note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>il y a</b> for listing what exists.<br>· <b>au premier étage</b> — ordinal number + <i>à + le</i> → <b>au</b>.<br>· <b>parce qu'</b> — elided before a vowel. <i>Parce que il</i> is never written.<br>· <b>j'aime bien</b> — softer than <i>j'aime</i>, very natural.");
 
 h3('⑮ Qu\'est-ce que vous mangez ? — What do you eat?');
 ex("<i>Le matin, je prends un café et des toasts. À midi, je mange un sandwich ou une salade. Le soir, je cuisine — souvent <b>de la</b> cuisine indienne, avec <b>du</b> riz et <b>des</b> légumes. J'aime beaucoup la nourriture épicée.</i><br><br><i>In the morning I have a coffee and toast. At midday I eat a sandwich or a salad. In the evening I cook — often Indian food, with rice and vegetables. I really like spicy food.</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">luh mah-TAN, zhuh prahn uhn kah-FAY ay day TOHST. ah mee-DEE, zhuh mahnzh uhn sahn-DWEECH oo ewn sah-LAHD. luh SWAHR, zhuh kwee-ZEEN — soo-vahn duh lah kwee-zeen an-dyen, ah-vek dew REE ay day lay-GEWM. zhem boh-koo lah noo-ree-tewr ay-pee-SAY.</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
 warn("<b>WHAT YOU'RE USING / WHY — the partitive</b><br><br>French cannot name an uncounted quantity bare. You must say <b>du / de la / des</b>:<br>· <b>du</b> riz (masculine) · <b>de la</b> cuisine (feminine) · <b>des</b> légumes (plural)<br><br>· ✗ <i>je mange riz</i> &nbsp;·&nbsp; ✓ <i>je mange <b>du</b> riz</i><br><br><b>And after a negative they all collapse to <i>de</i>:</b><br>· <i>je mange <b>de la</b> viande</i> → <i>je ne mange <b>pas de</b> viande</i><br><br>· <b>le matin / le soir</b> — with the article = <u>every</u> morning, a habit. Without it (<i>ce matin</i>) = this one.");
 
 h3('⑯ Quel temps fait-il ? — What\'s the weather like?');
 ex("<i><b>Il fait</b> froid aujourd'hui, et <b>il pleut</b>. Hier, <b>il faisait</b> beau. En hiver, <b>il neige</b> beaucoup au Canada.</i><br><br><i>It's cold today, and it's raining. Yesterday it was nice. In winter it snows a lot in Canada.</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">eel fay FRWAH oh-zhoor-DWEE, ay eel PLUH. ee-YEHR, eel fuh-zay BOH. ahn nee-VEHR, eel nezh boh-koo oh kah-nah-DAH.</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
 note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>il fait</b> + adjective — the standard weather frame. This <i>il</i> refers to nobody; it's an empty grammatical subject, like English « it » in « it's raining ».<br>· <b>il pleut / il neige</b> — single verbs, no <i>faire</i>.<br>· <b>il faisait</b> — imparfait, because weather is description. Weather in the past is <u>almost always</u> imparfait.<br>· <b>en hiver</b> — <i>en</i> for three seasons, but <b>au printemps</b> for spring.<br><br>Compare the three empty-subject structures: <b>il fait</b> (weather) · <b>il est</b> (time) · <b>il y a</b> (existence). Same trick, three jobs.");
 
 h3('⑰ Quelle heure est-il ? — What time is it?');
 ex("<i>Il est trois heures et quart.</i> — <i>It's quarter past three.</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">eel ay trwah zur ay KAHR.</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
 note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>il est</b>, never <i>c'est</i>. Time always takes <i>il est</i>.<br>· <b>une heure</b> at 1:00 (singular), <b>deux heures</b> from 2:00 (plural).<br>· <b>et quart / et demie / moins le quart</b> — up to 30 min you add, after 30 you subtract from the <u>next</u> hour.<br>· <b>est-il</b> — inversion, with the <i>t</i> of <i>est</i> waking up: <b>ay-TEEL</b>.");
 
 h3('⑱ Comment allez-vous au travail ? — How do you get to work?');
 ex("<i>Je <b>prends</b> le bus. Ça <b>prend</b> environ vingt minutes. Quelquefois, quand il fait beau, j'y vais <b>à pied</b>.</i><br><br><i>I take the bus. It takes about twenty minutes. Sometimes, when the weather's nice, I walk.</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">zhuh prahn luh BEWS. sah prahn ahn-vee-rohn van mee-NEWT. kel-kuh-FWAH, kahn teel fay BOH, zhee vay zah PYAY.</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
 note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>prendre + le/un</b> for transport — always with an article. Never <i>je prends bus</i>.<br>· <b>à pied</b> — « on foot », because you're on it, not in it. Same for <i>à vélo</i>. But <b>en</b> voiture, <b>en</b> bus — you're inside.<br>· <b>j'y vais</b> — the pronoun <b>y</b> replacing « there ». A small word that sounds advanced.<br>· <b>quand</b> + present for a habit.");
 
 h3('⑲ Quels sont vos projets ? — What are your plans?');
 ex("<i>Je <b>voudrais</b> passer le TEF cette année. Après, j'<b>espère</b> trouver un travail où je peux utiliser le français. <b>Un jour</b>, je voudrais visiter la France.</i><br><br><i>I'd like to take the TEF this year. Afterwards, I hope to find a job where I can use French. One day I'd like to visit France.</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">zhuh voo-DRAY pah-say luh TEF set ah-NAY. ah-PRAY, zhes-PEHR troo-vay uhn trah-VYE oo zhuh puh ew-tee-lee-zay luh frahn-SAY. uhn ZHOOR, zhuh voo-dray vee-zee-tay lah FRAHNS.</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
 note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>je voudrais / j'espère / je compte</b> + infinitive — three ways to state a plan, from softest to most committed. Use two.<br>· <b>où</b> as a relative pronoun — « a job <u>where</u> ». Covers place <u>and</u> time in French.<br>· <b>un jour</b> — vague future, pairs naturally with the conditional.");
 
 h3('⑳ Avez-vous des questions ? — Do you have any questions?');
 ex("<i>Oui — <b>est-ce que</b> vous pouvez me dire quand j'aurai les résultats, s'il vous plaît ?</i><br><br><i>Yes — could you tell me when I'll get the results, please?</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">wee — es-kuh voo poo-vay muh deer kahn zhoh-RAY lay ray-zewl-TAH, seel voo PLAY ?</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
 warn("<b>NEVER answer « non » to this.</b><br><br>It's a free opportunity to produce a question in French, and therefore to show an interrogative structure. Prepare one.<br><br>· <b>est-ce que</b> — the safe question register.<br>· <b>quand j'aurai</b> — after <i>quand</i>, French uses the <u>future</u> where English uses the present. <i>When I get</i> → <i>quand j'<b>aurai</b></i>. Getting this right is noticed.");
+
+
+
+h2('3c · Comment lire la prononciation — How to read the phonetics');
+lead("Every phonetic line on this site uses the same system. It's written for an English-speaking mouth, not IPA — read it as if it were English and you'll be close.");
+table(['Écrit','Se lit','Exemple','Attention'],[
+ ['<b>zh</b>','like the <b>s</b> in <i>plea<u>s</u>ure</i>','<i>je</i> → <b>zhuh</b>','never the <b>j</b> of <i>jam</i>'],
+ ['<b>ew</b>','say « ee », then round your lips','<i>tu</i> → <b>tew</b>','<u>not</u> « oo »'],
+ ['<b>oo</b>','like <i>f<u>oo</u>d</i>','<i>vous</i> → <b>voo</b>','this is the one that <u>is</u> « oo »'],
+ ['<b>ahn / ohn / an</b>','nasal — through the nose','<i>dans</i> → <b>dahn</b>','the <b>n</b> is <u>not</u> pronounced'],
+ ['<b>uh</b>','like <i>th<u>e</u></i>','<i>le</i> → <b>luh</b>','—'],
+ ['<b>ay</b>','like <i>s<u>ay</u></i> without the glide','<i>parler</i> → <b>par-LAY</b>','—'],
+ ['<b>eh</b>','like <i>b<u>e</u>t</i>','<i>père</i> → <b>PEHR</b>','more open than <b>ay</b>'],
+ ['<b>CAPITALS</b>','where the stress goes','<i>restaurant</i> → <b>res-toh-RAHN</b>','always the last syllable'],
+ ['<b>‿</b>','two words run together','<i>vous‿avez</i> → <b>voo-zah-vay</b>','a liaison']
+]);
+warn("<b>THE THREE THINGS THAT MATTER MOST FOR YOUR ACCENT</b><br><br><b>1 · Stress is ALWAYS on the last syllable.</b><br>Not <i>RES-taurant</i> but <b>res-toh-RAHN</b>. Not <i>ad-MIN-istrator</i> but <b>ad-mee-nee-strah-TUR</b>.<br>And it goes on the last syllable of the whole <u>group</u>, not every word: <i>un petit restaurant italien</i> has <b>one</b> stressed syllable, right at the end.<br><br><b>2 · Speak flatter than you would in English.</b><br>English bounces — it stresses important words all through a sentence. French doesn't. Keep an even pace and only rise at the end of the group. This single change does more for your accent than any vowel drill.<br><br><b>3 · The nasal vowels: never close your mouth on the N.</b><br><i>bon</i> is <b>bohn</b> with the air going out through your nose — your tongue never touches the roof of your mouth. Say the English word « bon » and <u>stop</u> just before the n lands. That's the sound.");
+note("<b>Le son U — the one worth five minutes of practice</b><br><br><i>tu</i> (tew) and <i>tout</i> (too) are different words. So are <i>rue</i>/<i>roue</i>, <i>du</i>/<i>doux</i>, <i>vu</i>/<i>vous</i>.<br><br><b>How to make the French u:</b> say « ee » as in <i>see</i>. Hold it. Now — <u>without moving your tongue at all</u> — round your lips as if to whistle. The sound changes; that's <b>u</b>.<br><br>If your tongue slides back, you get <b>ou</b>. The whole difference is tongue position, not lips.");
+h3('Les mots du texte qui piègent — words in your intro that come out wrong');
+rows([
+ ["administrateur","ad-mee-nee-strah-TUR","stress at the END, ending like « sur » not « tor »"],
+ ["système","sees-TEM","the y is an « ee » sound, not « i » as in sit"],
+ ["technique","tek-NEEK","ch = hard K here, not « sh »"],
+ ["informatique","an-for-mah-TEEK","starts with a nasal: an-, not « in-"],
+ ["entreprise","ahn-truh-PREEZ","nasal start, stress at the end"],
+ ["intéressant","an-tay-ray-SAHN","four syllables, stress on the last"],
+ ["grammaire","grah-MEHR","double m is one sound; stress at the end"],
+ ["logique","loh-ZHEEK","the g is zh, like « pleasure »"],
+ ["enchanté","ahn-shahn-TAY","two nasals then the stress"],
+ ["Canada","kah-nah-DAH","stress on the LAST a, unlike English"]
+]);
+warn("<b>Why these specific words trip you up:</b> they all exist in English too. Your mouth already has a motor programme for them, and it fires automatically. Words that look nothing like English (<i>pamplemousse</i>, <i>grenouille</i>) you learn fresh and say correctly. The near-identical ones you have to <u>consciously override</u>.<br><br>Say each of the ten above out loud three times before the exam. They're all in your introduction.");
+
+h2('3b · Plus de sujets — More topics he may ask about');
+lead("Family, parents, the house, what's nearby, hobbies, sport, TV. Same method: <b>answer out loud first</b>, then check the model and the <b>what you're using</b> box.");
+
+h3('㉑ Parlez-moi de votre famille. — Tell me about your family.');
+ex("<i>Ma famille n'est pas très grande. J'ai un frère — il <b>s'appelle</b> Arjun et il a vingt ans. Mes parents habitent en Inde, au Punjab. Mon père <b>est</b> ingénieur et ma mère <b>ne travaille pas</b> — elle <b>s'occupe de</b> la maison. Je <b>leur</b> parle au téléphone tous les dimanches. Ma famille <b>me</b> manque beaucoup.</i><br><br><i>My family isn't very big. I have one brother — he's called Arjun and he's twenty. My parents live in India, in Punjab. My father is an engineer and my mother doesn't work — she looks after the house. I speak to them on the phone every Sunday. I miss my family a lot.</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">mah fah-mee nay pah tray GRAHND. zhay uhn FREHR — eel sah-pel ar-ZHOON ay eel ah van-TAHN. may pah-rahn ah-beet ahn NAND, oh poon-ZHAHB. mohn pehr ay tan-zhay-NYUR ay mah mehr nuh trah-vye PAH — el soh-kewp duh lah may-ZOHN. zhuh luhr parl oh tay-lay-FOHN too lay dee-MAHNSH. mah fah-mee muh mahnk boh-KOO.</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
+note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>mon / ma / mes</b> — possessives agreeing with the <u>thing owned</u>, not the owner: <i><b>mon</b> père</i> (m.), <i><b>ma</b> mère</i> (f.), <i><b>mes</b> parents</i> (pl.).<br>· <b>il s'appelle</b> — reflexive again.<br>· <b>est ingénieur</b> — profession, <u>no article</u>.<br>· <b>ne travaille pas</b> — a negation, and it lengthens the answer.<br>· <b>leur</b> — indirect object pronoun, « to them ». <i>parler <b>à</b> qqn</i> → <b>lui / leur</b>, never <i>le/la/les</i>.<br>· <b>tous les dimanches</b> — article = habit, every Sunday.");
+warn("<b>« Ma famille me manque » — the verb MANQUER is backwards.</b><br><br>French doesn't say « I miss my family ». It says « my family <u>is missing to</u> me ». The thing you miss is the <b>subject</b>.<br><br>· <i>Ma famille <b>me</b> manque.</i> — I miss my family.<br>· <i>Tu <b>me</b> manques.</i> — I miss <u>you</u>. (not « you miss me »!)<br>· <i>Mon pays <b>me</b> manque.</i> — I miss my country.<br><br>Getting this right is noticed, because almost every English speaker gets it inside out.");
+h3('Le vocabulaire de la famille');
+grid([
+ ["le père / papa","luh pehr — father / dad"],["la mère / maman","lah mehr — mother / mum"],
+ ["les parents","lay pah-rahn — parents"],["le frère","luh frehr — brother"],
+ ["la sœur","lah sur — sister"],["le fils","luh feess — son"],
+ ["la fille","lah fee — daughter / girl"],["le mari","luh mah-ree — husband"],
+ ["la femme","lah fahm — wife / woman"],["les grands-parents","lay grahn-pah-rahn — grandparents"],
+ ["l'oncle / la tante","lohnkl / lah tahnt — uncle / aunt"],["le cousin / la cousine","luh koo-zan — cousin"],
+ ["le neveu / la nièce","luh nuh-vuh — nephew / niece"],["les enfants","lay zahn-fahn — children"],
+ ["célibataire","say-lee-bah-tehr — single"],["marié(e)","mah-ryay — married"]
+]);
+warn("<b>Two traps in that list.</b><br><br><b>1.</b> <i>le <b>fils</b></i> (son) is pronounced <b>FEESS</b> — the L is silent and the S <u>is</u> pronounced. Nothing like English « fills ».<br><b>2.</b> <i>la <b>femme</b></i> is pronounced <b>FAHM</b>, not « fem ». It's the one word in French where <b>e</b> is said as <b>a</b>.<br><br>And <i>femme</i> means both « woman » and « wife »; <i>fille</i> means both « girl » and « daughter ». Context decides.");
+
+h3('㉒ Que font vos parents ? — What do your parents do?');
+ex("<i>Mon père <b>est</b> ingénieur, il travaille pour une entreprise de construction. Ma mère <b>était</b> professeure, mais maintenant elle <b>est</b> à la retraite. Ils habitent <b>toujours</b> en Inde.</i><br><br><i>My father is an engineer, he works for a construction company. My mother was a teacher, but now she's retired. They still live in India.</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">mohn pehr ay tan-zhay-NYUR, eel trah-vye poor ewn ahn-truh-preez duh kohn-strewk-SYOHN. mah mehr ay-tay proh-fay-SUR, may mant-nahn el ay tah lah ruh-TRET. eel zah-beet too-ZHOOR ahn NAND.</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
+note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>était</b> — imparfait, for a past state. Perfect here: a job someone <u>used to</u> have is description, not an event.<br>· <b>à la retraite</b> — « retired ». Fixed expression.<br>· <b>toujours</b> — careful, it has two meanings: « always » <u>and</u> « still ». Here it's « still ».<br>· <b>professeure</b> — feminine form, now standard in Canada and France.");
+
+h3('㉓ Décrivez votre maison. — Describe your house.');
+ex("<i>J'habite dans une maison avec deux colocataires. Il y a trois chambres, un salon, une cuisine et deux salles de bains. Ma chambre est <b>au premier étage</b>, et elle est assez grande — il y a un lit, un bureau et une armoire. <b>Ce que j'aime</b>, c'est qu'il y a un jardin <b>derrière</b> la maison.</i><br><br><i>I live in a house with two flatmates. There are three bedrooms, a living room, a kitchen and two bathrooms. My room is on the first floor, and it's fairly big — there's a bed, a desk and a wardrobe. What I like is that there's a garden behind the house.</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">zhah-beet dahn zewn may-ZOHN ah-vek duh koh-loh-kah-TEHR. eel yah trwah SHAHMBR, uhn sah-LOHN, ewn kwee-ZEEN ay duh sal duh BAN. mah shahmbr ay toh pruh-myay ay-TAHZH, ay el ay tah-say GRAHND — eel yah uhn LEE, uhn bew-ROH ay ewn ar-MWAHR. suh kuh ZHEM, say keel yah uhn zhar-dan deh-ryehr lah may-ZOHN.</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
+note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>il y a</b> ×3 — the workhorse for describing any space.<br>· <b>au premier étage</b> — ordinal + <i>à + le</i> → <b>au</b>.<br>· <b>assez</b> — « fairly ». A hedge word; using one sounds more natural than flat adjectives.<br>· <b>ce que j'aime, c'est…</b> — cleft sentence, B1 flavour.<br>· <b>derrière</b> — preposition of place.");
+h3('Le vocabulaire du logement');
+grid([
+ ["une maison","ewn may-zohn — house"],["un appartement","uhn nah-par-tuh-mahn — flat"],
+ ["une chambre","ewn shahmbr — bedroom"],["le salon","luh sah-lohn — living room"],
+ ["la cuisine","lah kwee-zeen — kitchen"],["la salle de bains","lah sal duh ban — bathroom"],
+ ["les toilettes","lay twah-let — toilet"],["le jardin","luh zhar-dan — garden"],
+ ["le balcon","luh bal-kohn — balcony"],["le garage","luh gah-rahzh — garage"],
+ ["un lit","uhn lee — bed"],["un bureau","uhn bew-roh — desk / office"],
+ ["une armoire","ewn ar-mwahr — wardrobe"],["une table","ewn tahbl — table"],
+ ["une chaise","ewn shez — chair"],["un canapé","uhn kah-nah-pay — sofa"],
+ ["le rez-de-chaussée","luh ray-duh-shoh-say — ground floor"],["le premier étage","luh pruh-myay ay-tahzh — first floor"]
+]);
+warn("<b>CHAMBRE is a bedroom, not a room in general.</b><br>· <i>une <b>chambre</b></i> = a <u>bed</u>room<br>· <i>une <b>pièce</b></i> = a room of any kind<br>· <i>une <b>salle</b></i> = a large/public room (<i>salle de bains</i>, <i>salle de classe</i>)<br><br>So « my flat has four rooms » = <i>mon appartement a quatre <b>pièces</b></i>. Saying <i>quatre chambres</i> claims four bedrooms.");
+
+h3('㉔ Qu\'est-ce qu\'il y a près de chez vous ? — What\'s near where you live?');
+ex("<i><b>Près de chez moi</b>, il y a un supermarché, une pharmacie et un parc. La station de bus est <b>à côté de</b> la maison — c'est très pratique. Il y a <b>aussi</b> beaucoup de restaurants, <b>surtout</b> des restaurants indiens. <b>Par contre</b>, il n'y a <b>pas de</b> métro à Brampton.</i><br><br><i>Near my place there's a supermarket, a pharmacy and a park. The bus stop is next to the house — it's very handy. There are also lots of restaurants, especially Indian ones. On the other hand, there's no metro in Brampton.</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">pray duh shay MWAH, eel yah uhn sew-pehr-mar-SHAY, ewn far-mah-SEE ay uhn PARK. lah stah-syohn duh bews ay tah koh-tay duh lah may-ZOHN — say tray prah-TEEK. eel yah oh-see boh-koo duh res-toh-RAHN, sewr-too day res-toh-rahn zan-DYAN. par KOHNTR, eel nyah pah duh may-troh ah bramp-TOHN.</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
+note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>près de chez moi</b> — <i>chez</i> + stressed pronoun. English has no single word for <i>chez</i>; it means « at the place of ».<br>· <b>à côté de la</b> — the preposition ends in <i>de</i>, so it contracts: <i>à côté <b>du</b> parc</i> (m.) but <i>à côté <b>de la</b> maison</i> (f.).<br>· <b>il n'y a pas de métro</b> — after a negative, <i>un/une/du/des</i> all collapse to <b>de</b>. Not <i>pas un métro</i>.<br>· <b>surtout</b>, <b>par contre</b> — two connectors, which is what lifts this above a list.");
+
+h3('㉕ Quels sont vos loisirs ? — What are your hobbies?');
+ex("<i><b>Pendant mon temps libre</b>, j'aime regarder des films et écouter de la musique. Je <b>fais du</b> sport trois fois par semaine — je <b>vais à</b> la salle de sport. J'aime <b>aussi</b> cuisiner, surtout la cuisine indienne. Et depuis six mois, j'<b>apprends</b> le français — c'est devenu un loisir !</i><br><br><i>In my free time I like watching films and listening to music. I do sport three times a week — I go to the gym. I also like cooking, especially Indian food. And for six months I've been learning French — it's become a hobby!</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">pahn-dahn mohn tahn LEEBR, zhem ruh-gar-day day feelm ay ay-koo-tay duh lah mew-ZEEK. zhuh fay dew SPOR trwah fwah par suh-MEN — zhuh vay zah lah sal duh SPOR. zhem oh-see kwee-zee-NAY, sewr-too lah kwee-zeen an-DYEN. ay duh-pwee see MWAH, zhah-prahn luh frahn-SAY — say duh-vuh-new uhn lwah-ZEER !</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
+warn("<b>FAIRE DE / JOUER À / JOUER DE — three verbs, and you must pick the right one.</b><br><br>· <b>faire <u>du</u> / <u>de la</u></b> + any activity → <i>je fais <b>du</b> sport, <b>de la</b> natation, <b>du</b> vélo</i><br>· <b>jouer <u>à</u></b> + a <u>game or sport</u> → <i>je joue <b>au</b> foot, <b>au</b> tennis, <b>aux</b> cartes</i><br>· <b>jouer <u>de</u></b> + a <u>musical instrument</u> → <i>je joue <b>du</b> piano, <b>de la</b> guitare</i><br><br><b>Why the split makes sense:</b> in a sport you aim <u>at</u> a goal → <b>à</b>, the arrow towards a target. From an instrument you draw sound <u>out of</u> it → <b>de</b>, the origin. Once you see the arrow, they stop needing memorising.<br><br>And <b>faire de</b> works for everything, so it's your safe fallback.");
+h3('Le vocabulaire des loisirs');
+grid([
+ ["le temps libre","luh tahn leebr — free time"],["les loisirs","lay lwah-zeer — hobbies"],
+ ["faire du sport","fehr dew spor — do sport"],["aller à la salle de sport","— go to the gym"],
+ ["faire de la marche","— go walking"],["faire du vélo","— cycle"],
+ ["jouer au foot","zhoo-ay oh foot — play football"],["jouer au cricket","— play cricket"],
+ ["nager","nah-zhay — swim"],["courir","koo-reer — run"],
+ ["lire","leer — read"],["cuisiner","kwee-zee-nay — cook"],
+ ["écouter de la musique","— listen to music"],["jouer aux jeux vidéo","— play video games"],
+ ["voir des amis","vwahr day zah-mee — see friends"],["se reposer","suh ruh-poh-zay — rest"]
+]);
+
+h3('㉖ Vous faites du sport ? — Do you do any sport?');
+ex("<i>Oui, je <b>fais du</b> sport trois fois par semaine. Je <b>vais</b> à la salle de sport le lundi, le mercredi et le vendredi. J'aime <b>aussi</b> le cricket — c'est très populaire en Inde. Quand il fait beau, je <b>cours</b> dans le parc près de chez moi. <b>Par contre</b>, je ne <b>joue pas</b> au hockey — je ne sais pas patiner !</i><br><br><i>Yes, I do sport three times a week. I go to the gym on Mondays, Wednesdays and Fridays. I also like cricket — it's very popular in India. When the weather's nice, I run in the park near my place. I don't play hockey though — I can't skate!</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">wee, zhuh fay dew SPOR trwah fwah par suh-MEN. zhuh vay zah lah sal duh spor luh luhn-DEE, luh mehr-kruh-DEE ay luh vahn-druh-DEE. zhem oh-see luh kree-KET — say tray poh-pew-lehr ahn NAND. kahn teel fay BOH, zhuh koor dahn luh park pray duh shay MWAH. par KOHNTR, zhuh nuh zhoo pah oh oh-KAY — zhuh nuh say pah pah-tee-NAY !</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
+note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>le lundi, le mercredi</b> — the article makes it a <u>habit</u>, « on Mondays ». Without it (<i>lundi</i>) it means this coming Monday only.<br>· <b>trois fois par semaine</b> — frequency. <i>par</i> = per.<br>· <b>je cours</b> — <i>courir</i>, irregular. <i>je cours, nous courons</i>.<br>· <b>je ne joue pas au hockey</b> — negation + <i>jouer à</i>.<br>· <b>je ne sais pas patiner</b> — <b>savoir</b> + infinitive = a learned skill. <i>Je ne <u>peux</u> pas</i> would mean you're physically prevented today.");
+warn("<b>SAVOIR vs POUVOIR — both become « can » in English, and they're not interchangeable.</b><br><br>· <b>savoir</b> + infinitive = you've <u>learned how</u><br>&nbsp;&nbsp;<i>Je <b>sais</b> nager.</i> — I can swim (I know how).<br>· <b>pouvoir</b> + infinitive = you're <u>able / allowed</u> right now<br>&nbsp;&nbsp;<i>Je <b>peux</b> nager aujourd'hui.</i> — I can swim today (I'm free, the pool's open).<br><br>Saying <i>je peux nager</i> when you mean you learned as a child sounds odd. A good one to get right.");
+
+h3('㉗ Qu\'est-ce que vous regardez à la télé ? — What do you watch on TV?');
+ex("<i>Je regarde surtout des séries et des films. En ce moment, je regarde une série sur Netflix. J'aime bien les documentaires <b>aussi</b>, surtout sur l'histoire. <b>Par contre</b>, je ne regarde <b>jamais</b> les informations — c'est toujours déprimant ! Et je regarde quelquefois des matchs de cricket.</i><br><br><i>I mostly watch series and films. At the moment I'm watching a series on Netflix. I like documentaries too, especially about history. I never watch the news though — it's always depressing! And I sometimes watch cricket matches.</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">zhuh ruh-gard sewr-too day say-REE ay day FEELM. ahn suh moh-MAHN, zhuh ruh-gard ewn say-ree sewr net-FLEEX. zhem byan lay doh-kew-mahn-TEHR oh-SEE, sewr-too sewr lees-TWAHR. par KOHNTR, zhuh nuh ruh-gard zhah-may lay zan-for-mah-SYOHN — say too-zhoor day-pree-MAHN ! ay zhuh ruh-gard kel-kuh-fwah day match duh kree-KET.</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
+note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>regarder</b> takes <u>no preposition</u> — <i>regarder la télé</i>, not <i>regarder à</i>. Same for <i>écouter la radio</i>, <i>chercher mes clés</i>, <i>attendre le bus</i>. The preposition is already inside the French verb.<br>· <b>des séries</b> — plural indefinite. Not <i>je regarde séries</i>.<br>· <b>ne … jamais</b> — a second negation form. Using <i>jamais</i> as well as <i>pas</i> shows range.<br>· <b>en ce moment</b> — « at the moment ». Note: <u>not</u> <i>actuellement</i>'s English twin — <i>actuellement</i> means « currently », while English « actually » is <b>en fait</b>. Classic false friend.");
+h3('Le vocabulaire des médias');
+grid([
+ ["une série","ewn say-ree — a series"],["un film","uhn feelm — a film"],
+ ["une émission","ewn ay-mee-syohn — a programme"],["un documentaire","— a documentary"],
+ ["les informations / les infos","lay zan-foh — the news"],["un match","uhn match — a match"],
+ ["une chaîne","ewn shen — a channel"],["un épisode","uhn ay-pee-zod — an episode"],
+ ["regarder","ruh-gar-day — to watch"],["écouter","ay-koo-tay — to listen to"],
+ ["j'aime bien","zhem byan — I quite like"],["j'adore","zhah-dor — I love"],
+ ["je déteste","zhuh day-test — I hate"],["ça m'intéresse","sah man-tay-ress — it interests me"],
+ ["c'est drôle","say drohl — it's funny"],["c'est ennuyeux","say tahn-nwee-yuh — it's boring"]
+]);
+
+h3('㉘ Parlez-moi de votre travail. — Tell me about your job.');
+ex("<i>Je <b>suis</b> administrateur système chez Sobeys, une entreprise d'alimentation. Je <b>m'occupe des</b> serveurs : quand il y a un problème technique, je le <b>répare</b>. Je travaille <b>de</b> huit heures <b>à</b> seize heures, du lundi au vendredi. J'aime mon travail <b>parce que</b> c'est technique et il y a toujours quelque chose de nouveau. <b>Par contre</b>, quelquefois c'est stressant.</i><br><br><i>I'm a systems administrator at Sobeys, a food company. I look after the servers: when there's a technical problem, I fix it. I work from eight to four, Monday to Friday. I like my job because it's technical and there's always something new. Sometimes it's stressful though.</i>");
+note("<b>PRONONCIATION</b><br><span style=\"font-size:15px;letter-spacing:.3px\">zhuh swee zad-mee-nee-strah-TUR sees-tem shay soh-BAYZ, ewn ahn-truh-preez dah-lee-mahn-tah-SYOHN. zhuh moh-kewp day sehr-VUR : kahn teel yah uhn proh-blem tek-NEEK, zhuh luh ray-PAHR. zhuh trah-VYE duh wee tur ah sez UR, dew luhn-dee oh vahn-druh-DEE. zhem mohn trah-VYE pars-kuh say tek-NEEK ay eel yah too-zhoor kel-kuh shohz duh noo-VOH. par KOHNTR, kel-kuh-fwah say stray-SAHN.</span><br><br><i>Capitals = where the stress falls. In French the stress is always on the <u>last</u> syllable of each group.</i>");
+note("<b>WHAT YOU'RE USING / WHY</b><br>· <b>chez</b> + a company — <i>chez Sobeys</i>, « at Sobeys ». French treats a firm like a person.<br>· <b>s'occuper <u>de</u></b> → <i>des serveurs</i> (de + les).<br>· <b>je le répare</b> — direct object pronoun <b>le</b>, placed <u>before</u> the verb.<br>· <b>du lundi au vendredi</b> — contractions, because days are masculine.<br>· <b>parce que</b> + <b>par contre</b> — a reason and a qualification. Saying one negative thing about your job makes the answer sound real, and adds a structure.");
+h3('Exercice — les trois verbes de loisir');
+mcqx([
+ ["Je ______ du sport.",["fais","joue"],0,"Any activity → <b>faire du</b>. The safe default."],
+ ["Je ______ au foot.",["fais","joue"],1,"A game/sport you play → <b>jouer à</b> (à + le = au)."],
+ ["Je ______ du piano.",["joue","fais"],0,"An instrument → <b>jouer de</b> (de + le = du)."],
+ ["Je ______ nager. (I learned how)",["sais","peux"],0,"A learned skill → <b>savoir</b>."],
+ ["Je ne ______ pas venir ce soir. (I'm busy)",["sais","peux"],1,"Ability/permission right now → <b>pouvoir</b>."],
+ ["Je regarde ______ la télé.",["à","(rien)"],1,"<i>regarder</i> takes no preposition."],
+ ["Je vais à la salle de sport ______ lundi. (every Monday)",["le","(rien)"],0,"The article makes it a habit: <b>le lundi</b> = on Mondays."]
+]);
 
 h2('4 · Poser des questions — Asking questions (you will have to)');
 lead("In almost every oral there's a moment where <b>you</b> have to ask the examiner something, or act out a scene where you request something. There are three registers; you only need two.");

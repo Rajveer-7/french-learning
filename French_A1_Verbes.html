@@ -72,6 +72,37 @@
   .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
   .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
 </style>
+<style id="mobile-fix">
+@media (max-width: 640px){
+  .wrap{ padding:12px 12px 70px; }
+  h1{ font-size:22px; line-height:1.25; }
+  h2{ font-size:19px; }
+  h3{ font-size:16px; }
+  /* nav becomes one swipeable row instead of a wall of chips */
+  nav{ flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
+       padding-bottom:6px; margin-bottom:14px; scrollbar-width:thin; }
+  nav a{ flex:0 0 auto; white-space:nowrap; font-size:12px; padding:6px 9px; }
+  /* tables scroll sideways instead of crushing */
+  table, .conjt{ display:block; width:100%; overflow-x:auto;
+                 -webkit-overflow-scrolling:touch; white-space:nowrap; font-size:13px; }
+  table td, table th, .conjt td, .conjt th{ white-space:normal; min-width:92px; }
+  /* reading blocks */
+  .note,.example,.warn,.source,.lead,.txtp{ font-size:14.5px; }
+  .grid{ grid-template-columns:1fr !important; }
+  /* bigger tap targets on the audio rows */
+  .row{ padding:10px 8px; }
+  .play{ min-width:38px; min-height:38px; }
+  .fr{ font-size:16px; }
+  .ph,.en{ font-size:13px; }
+  /* exercises */
+  .fillrow input{ width:100%; box-sizing:border-box; font-size:16px; padding:8px; }
+  .fillrow button,.riddle button{ padding:9px 12px; font-size:14px; margin-top:6px; }
+  .riddle .btns{ display:flex; flex-wrap:wrap; gap:6px; }
+  /* book page chapter tabs */
+  .parttabs{ flex-wrap:nowrap; overflow-x:auto; }
+  .parttabs button{ flex:0 0 auto; white-space:nowrap; }
+}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -435,6 +466,122 @@ table(["Verbe","nous","Pourquoi"],[
 ]);
 note("<b>These two tricks are the same idea.</b> <b>g</b> and <b>c</b> are soft before <i>e</i> and <i>i</i>, hard before <i>a, o, u</i>. The <i>-ons</i> ending starts with <b>o</b>, which would harden them — so French inserts a silent <b>e</b> after the g, or hooks a <b>cedilla</b> under the c. Nothing changes in the sound; the spelling is defending it.");
 
+h3("E · y → i (payer, envoyer, essayer, nettoyer)");
+lead("This is the fifth spelling-change family, and it follows exactly the same logic as A, B and C: the vowel changes <b>only where the ending is silent</b> — the boot shape.");
+table(["Personne","payer (to pay)","envoyer (to send)","nettoyer (to clean)"],[
+ ["je","pa<b>i</b>e","envo<b>i</b>e","netto<b>i</b>e"],
+ ["tu","pa<b>i</b>es","envo<b>i</b>es","netto<b>i</b>es"],
+ ["il / elle / on","pa<b>i</b>e","envo<b>i</b>e","netto<b>i</b>e"],
+ ["nous","pa<b>y</b>ons","envo<b>y</b>ons","netto<b>y</b>ons"],
+ ["vous","pa<b>y</b>ez","envo<b>y</b>ez","netto<b>y</b>ez"],
+ ["ils / elles","pa<b>i</b>ent","envo<b>i</b>ent","netto<b>i</b>ent"]
+]);
+ex("<b>Why it happens — same reason as every other family on this page.</b><br><br>Look where the change is: <b>nous</b> and <b>vous</b> keep the <b>y</b>; the other four switch to <b>i</b>. That's the boot again.<br><br>In <i>nous payons</i> the ending <b>-ons</b> is pronounced, so the stem is unstressed and survives unchanged. In <i>je paie</i> the ending <b>-e</b> is silent, so the stress lands on the stem — and a stressed <b>y</b> between two vowels turned into <b>i</b> centuries ago.<br><br>It's the same mechanism as <i>j'achète</i> / <i>nous achetons</i> and <i>je préfère</i> / <i>nous préférons</i>. <b>One sound law, five apparent families.</b>");
+rows([
+ ["Je paie l'addition.","zhuh pay lah-dee-SYOHN","I'm paying the bill."],
+ ["Nous payons le loyer.","noo pay-yohn luh lwah-YAY","We pay the rent."],
+ ["J'envoie un message.","zhahn-vwah uhn may-SAHZH","I'm sending a message."],
+ ["Vous envoyez la lettre ?","voo zahn-vwah-yay lah LETR","Are you sending the letter?"],
+ ["Je nettoie ma chambre.","zhuh net-wah mah SHAHMBR","I'm cleaning my room."],
+ ["Il essaie de comprendre.","eel ay-say duh kohn-PRAHNDR","He's trying to understand."]
+]);
+warn("<b>Verbs in -AYER may keep the y — both spellings are correct.</b><br><br>· <i>je <b>paie</b></i> &nbsp;or&nbsp; <i>je <b>paye</b></i> — both accepted<br>· <i>j'<b>essaie</b></i> &nbsp;or&nbsp; <i>j'<b>essaye</b></i> — both accepted<br><br>But verbs in <b>-OYER</b> and <b>-UYER</b> have <u>no</u> choice: the <b>i</b> is compulsory.<br>· ✓ <i>j'envo<b>i</b>e</i> &nbsp;·&nbsp; ✗ <i>j'envoye</i><br>· ✓ <i>je netto<b>i</b>e</i> &nbsp;·&nbsp; ✗ <i>je nettoye</i><br><br><b>Safest habit: always write i.</b> It's correct for all of them.");
+note("<b>Common -yer verbs worth knowing:</b><br><b>payer</b> (to pay) · <b>essayer</b> (to try) · <b>envoyer</b> (to send) · <b>nettoyer</b> (to clean) · <b>employer</b> (to use/employ) · <b>s'ennuyer</b> (to be bored) · <b>appuyer</b> (to press)<br><br>And note <b>envoyer</b> is irregular in the <u>future</u>: <i>j'<b>enverr</b>ai</i>, not <i>j'envoyerai</i>. One of the few.");
+
+h3("F · Les verbes en -IR irréguliers : ouvrir, offrir, souffrir");
+lead("A small family that looks like Group 2 but behaves like Group 1 — a classic trap.");
+table(["Personne","ouvrir (to open)","Prononciation"],[
+ ["j'","ouvr<b>e</b>","OOVR"],
+ ["tu","ouvr<b>es</b>","OOVR"],
+ ["il / elle / on","ouvr<b>e</b>","OOVR"],
+ ["nous","ouvr<b>ons</b>","oo-VROHN"],
+ ["vous","ouvr<b>ez</b>","oo-VRAY"],
+ ["ils / elles","ouvr<b>ent</b>","OOVR"]
+]);
+warn("<b>These end in -IR but take -ER endings.</b><br><br>· ✓ <i>j'ouvr<b>e</b></i> &nbsp;·&nbsp; ✗ <i>j'ouvris</i><br><br>The family: <b>ouvrir</b> (open) · <b>offrir</b> (offer, give a gift) · <b>souffrir</b> (suffer) · <b>couvrir</b> (cover) · <b>découvrir</b> (discover)<br><br>And their past participles end in <b>-ERT</b>, not <i>-i</i>: <b>ouvert, offert, souffert, couvert, découvert</b>.<br><br><i>J'ai <b>ouvert</b> la porte.</i> — I opened the door.");
+rows([
+ ["J'ouvre la fenêtre.","zhoovr lah fuh-NETR","I'm opening the window."],
+ ["Le magasin ouvre à neuf heures.","luh mah-gah-zan oovr ah nuh VUR","The shop opens at nine."],
+ ["J'offre un cadeau à mon frère.","zhofr uhn kah-doh ah mohn FREHR","I'm giving my brother a present."],
+ ["Nous découvrons la ville.","noo day-koo-vrohn lah VEEL","We're discovering the city."]
+]);
+
+h3("G · Les derniers verbes à connaître");
+table(["Verbe","je","nous","ils","Sens"],[
+ ["<b>mettre</b>","mets","mettons","mettent","to put / to put on"],
+ ["<b>lire</b>","lis","lisons","lisent","to read"],
+ ["<b>écrire</b>","écris","écrivons","écrivent","to write"],
+ ["<b>dire</b>","dis","disons","<b>disent</b>","to say"],
+ ["<b>boire</b>","bois","buvons","boivent","to drink"],
+ ["<b>suivre</b>","suis","suivons","suivent","to follow / to take (a course)"],
+ ["<b>recevoir</b>","reçois","recevons","reçoivent","to receive"],
+ ["<b>vivre</b>","vis","vivons","vivent","to live"]
+]);
+warn("<b>Two traps in that table.</b><br><br><b>1.</b> <i>vous <b>dites</b></i> — not <i>vous disez</i>. One of only three verbs in the language whose <i>vous</i> form doesn't end in <b>-ez</b>: <b>vous êtes</b>, <b>vous faites</b>, <b>vous dites</b>.<br><br><b>2.</b> <i>je <b>suis</b></i> is two different verbs:<br>· <i>je suis</i> = I <b>am</b> (être)<br>· <i>je suis</i> = I <b>follow</b> (suivre)<br>Identical form, no way to tell them apart except context. <i>Je suis un cours de français</i> = « I'm <u>taking</u> a French course », not « I am a French course ».");
+rows([
+ ["Je mets mon manteau.","zhuh may mohn mahn-TOH","I'm putting on my coat."],
+ ["Je lis un livre.","zhuh lee uhn LEEVR","I'm reading a book."],
+ ["J'écris un message.","zhay-kree uhn may-SAHZH","I'm writing a message."],
+ ["Qu'est-ce que vous dites ?","kes-kuh voo DEET","What are you saying?"],
+ ["Je bois du café le matin.","zhuh bwah dew kah-fay luh mah-TAN","I drink coffee in the morning."],
+ ["Je suis un cours de français.","zhuh swee zuhn koor duh frahn-SAY","I'm taking a French course."],
+ ["Nous recevons beaucoup de messages.","noo ruh-suh-vohn boh-koo duh may-SAHZH","We get a lot of messages."]
+]);
+
+
+h2("4b · Les verbes impersonnels — IL FAUT et compagnie");
+lead("These verbs exist in <b>one form only</b>: the <i>il</i> form. That <i>il</i> doesn't refer to anybody — it's an empty grammatical subject, like the « it » in English « it's raining ».");
+table(["Verbe","Forme","Sens","Exemple"],[
+ ["<b>falloir</b>","il <b>faut</b>","must / it is necessary","<i>Il faut partir.</i> — We must go."],
+ ["<b>pleuvoir</b>","il <b>pleut</b>","it's raining","<i>Il pleut aujourd'hui.</i>"],
+ ["<b>neiger</b>","il <b>neige</b>","it's snowing","<i>Il neige en hiver.</i>"],
+ ["<b>faire</b> (météo)","il <b>fait</b>","the weather is…","<i>Il fait froid.</i>"],
+ ["<b>y avoir</b>","il <b>y a</b>","there is / there are","<i>Il y a un parc.</i>"],
+ ["<b>être</b> (heure)","il <b>est</b>","it is (o'clock)","<i>Il est huit heures.</i>"]
+]);
+warn("<b>IL FAUT is one of the most used structures in French — and it was missing from this page until now.</b><br><br>It has <u>no</u> <i>je</i>, <i>tu</i> or <i>nous</i> form. You cannot say <i>je faux</i>. There is only <b>il faut</b>, and you change what comes after it.");
+h3("Les deux constructions de IL FAUT");
+ex("<b>1 · IL FAUT + INFINITIF</b> — a general obligation, true for everyone<br><br>· <i><b>Il faut</b> partir.</i> — We/one must go.<br>· <i><b>Il faut</b> étudier pour réussir.</i> — You have to study to pass.<br>· <i><b>Il faut</b> réserver à l'avance.</i> — You need to book in advance.<br><br><b>2 · IL FAUT QUE + SUBJONCTIF</b> — an obligation on a <u>specific</u> person<br><br>· <i><b>Il faut que je</b> parte.</i> — <b>I</b> must go.<br>· <i><b>Il faut que tu</b> sois à l'heure.</i> — <b>You</b> must be on time.<br>· <i><b>Il faut qu'on</b> fasse attention.</i> — <b>We</b> must be careful.<br><br><b>The rule:</b> no named person → infinitive. A named person → <i>que</i> + subjunctive.");
+note("<b>If the subjunctive worries you, use the escape hatch — it's completely correct.</b><br><br>· <i>Il faut que je parte</i> → <b>Je dois partir.</b> — I have to go.<br>· <i>Il faut que tu étudies</i> → <b>Tu dois étudier.</b><br><br><b>devoir</b> + infinitive says the same thing with no subjunctive at all. At A1–A2 nobody will mark you down for it. Learn <i>il faut + infinitif</i> (easy, very frequent) and keep <i>devoir</i> in reserve for the personal version.");
+h3("Le négatif — attention au sens");
+warn("<b>IL NE FAUT PAS does NOT mean « you don't have to ». It means « you must NOT ».</b><br><br>· <i><b>Il ne faut pas</b> fumer ici.</i> — You <u>must not</u> smoke here. (prohibition)<br>· <i><b>Il ne faut pas</b> oublier.</i> — You mustn't forget.<br><br>To say « you don't <u>have</u> to », use something else:<br>· <i><b>Ce n'est pas obligatoire.</b></i> — It's not compulsory.<br>· <i><b>Tu n'es pas obligé de</b> venir.</i> — You don't have to come.<br><br>English has the same split (<i>mustn't</i> vs <i>don't have to</i>) and learners mix it up in both directions. Getting it right in French is noticed.");
+rows([
+ ["Il faut partir maintenant.","eel foh par-teer mant-NAHN","We have to go now."],
+ ["Il faut que je parte.","eel foh kuh zhuh PART","I have to go."],
+ ["Il ne faut pas fumer ici.","eel nuh foh pah few-may ee-SEE","You mustn't smoke here."],
+ ["Qu'est-ce qu'il faut faire ?","kes-keel foh FEHR","What do we need to do?"],
+ ["Il faut combien de temps ?","eel foh kohn-byan duh TAHN","How long does it take?"],
+ ["Il me faut un stylo.","eel muh foh uhn stee-LOH","I need a pen."]
+]);
+note("<b>Bonus form: IL ME FAUT + nom</b> = « I need ».<br>· <i>Il <b>me</b> faut un stylo.</i> — I need a pen.<br>· <i>Il <b>lui</b> faut du temps.</i> — He/she needs time.<br><br>Slightly formal; <b>j'ai besoin de</b> is more common in speech. But you'll meet <i>il me faut</i> in reading.");
+
+h2("4c · Les verbes pronominaux au présent");
+lead("A verb with <b>se</b> in front of it. The pronoun changes with the person and is <u>never</u> optional. This is how you describe your day — the single most likely speaking topic at A1.");
+table(["Personne","Pronom","se lever (to get up)","Prononciation"],[
+ ["je","<b>me</b>","je <b>me</b> lève","zhuh muh LEV"],
+ ["tu","<b>te</b>","tu <b>te</b> lèves","tew tuh LEV"],
+ ["il / elle / on","<b>se</b>","il <b>se</b> lève","eel suh LEV"],
+ ["nous","<b>nous</b>","nous <b>nous</b> levons","noo noo luh-VOHN"],
+ ["vous","<b>vous</b>","vous <b>vous</b> levez","voo voo luh-VAY"],
+ ["ils / elles","<b>se</b>","ils <b>se</b> lèvent","eel suh LEV"]
+]);
+warn("<b>The pronoun is compulsory. Dropping it changes the meaning.</b><br><br>· <i>je <b>me</b> lève</i> — I get up<br>· <i>je lève</i> — I lift (something else)<br><br>· <i>je <b>m'</b>appelle Rajveer</i> — my name is Rajveer<br>· <i>j'appelle Rajveer</i> — I'm phoning Rajveer<br><br>And it <b>elides</b> before a vowel: <i>je <b>m'</b>appelle</i>, <i>tu <b>t'</b>habilles</i>, <i>il <b>s'</b>appelle</i>.");
+note("<b>Notice: <i>se lever</i> is also an e → è verb</b> (family A on this page). <i>Je me l<b>è</b>ve</i> but <i>nous nous l<b>e</b>vons</i> — the boot, again. Reflexive and spelling-change stack on top of each other; they're independent rules.");
+h3("La journée — your day in order");
+rows([
+ ["Je me réveille à six heures.","zhuh muh ray-vay ah see ZUR","I wake up at six."],
+ ["Je me lève tout de suite.","zhuh muh lev too duh SWEET","I get up straight away."],
+ ["Je me douche.","zhuh muh DOOSH","I shower."],
+ ["Je me brosse les dents.","zhuh muh bross lay DAHN","I brush my teeth."],
+ ["Je m'habille.","zhuh mah-BEE","I get dressed."],
+ ["Je me dépêche.","zhuh muh day-PESH","I hurry."],
+ ["Je me repose le soir.","zhuh muh ruh-pohz luh SWAHR","I rest in the evening."],
+ ["Je me couche vers onze heures.","zhuh muh koosh vehr ohn ZUR","I go to bed around eleven."]
+]);
+warn("<b>With body parts, use the ARTICLE — not the possessive.</b><br><br>· ✓ <i>Je me brosse <b>les</b> dents.</i> — I brush <u>my</u> teeth.<br>· ✗ <i>Je brosse <b>mes</b> dents.</i><br><br><b>Why:</b> the <i>me</i> already tells you whose teeth they are. Repeating it with <i>mes</i> is redundant, and French doesn't restate information it has already given.<br><br>Same with <i>j'ai mal à <b>la</b> tête</i> (I have a headache) and <i>il a <b>les</b> cheveux courts</i> (his hair is short). It's one of the most reliable giveaways of an English speaker.");
+h3("Les trois sens de SE");
+ex("<b>1 · Réfléchi</b> — the action comes back on the subject<br><i>Je <b>me</b> lave.</i> — I wash <u>myself</u>.<br><br><b>2 · Réciproque</b> — to each other<br><i>Ils <b>se</b> parlent.</i> — They talk <u>to each other</u>.<br><i>Nous <b>nous</b> connaissons.</i> — We know each other.<br><br><b>3 · Idiomatique</b> — the pronoun means nothing, it's just part of the verb<br><i>Je <b>m'</b>appelle…</i> · <i>Il <b>se</b> souvient.</i> · <i>Je <b>me</b> dépêche.</i> · <i>Qu'est-ce qui <b>se</b> passe ?</i><br><br><b>The third group is the biggest</b>, and there's nothing to work out — those verbs are learned with their <i>se</i> attached, as one block.");
+
 h2("5 · Le présent — trois sens en anglais");
 ex("<b>French has one present tense where English has three.</b><br><br><i>Je parle français</i> can mean:<br>· I <b>speak</b> French<br>· I <b>am speaking</b> French<br>· I <b>do speak</b> French<br><br>There is no continuous form to build and no auxiliary to choose. This is a genuine simplification — one of the few places where French asks less of you than English.");
 warn("<b>So never translate \"I am …ing\" literally.</b> <i>Je suis parlant</i> is not French. If you want to stress that something is happening right now, French uses <b>être en train de + infinitif</b>: <i>Je suis en train de manger</i> — I'm (in the middle of) eating.");
@@ -481,6 +628,39 @@ mcq([
  {q:"« Il répondt à la question. »", opts:["Correct","Il répond à la question.","Il réponds à la question."], a:1, why:"-RE verbs take <b>no ending at all</b> in the third person singular."}
 ]);
 
+
+h3("Exercice 6 — les verbes en -YER");
+fill([
+ {s:"payer, je → je ______", a:["paie","paye"], en:"I pay", why:"Silent ending → <b>paie</b> (or <i>paye</i> — -ayer verbs accept both)."},
+ {s:"payer, nous → nous ______", a:["payons"], en:"we pay", why:"The ending <i>-ons</i> is pronounced → the <b>y</b> survives: <b>payons</b>."},
+ {s:"envoyer, j' → j'______", a:["envoie"], en:"I send", why:"<b>-oyer</b> has no choice → <b>envoie</b>, never <i>envoye</i>."},
+ {s:"envoyer, vous → vous ______", a:["envoyez"], en:"you send", why:"<b>envoyez</b> — y kept."},
+ {s:"nettoyer, ils → ils ______", a:["nettoient"], en:"they clean", why:"Silent <i>-ent</i> → <b>nettoient</b>."},
+ {s:"essayer, tu → tu ______", a:["essaies","essayes"], en:"you try", why:"-ayer → both <b>essaies</b> and <i>essayes</i> are correct."}
+]);
+h3("Exercice 7 — IL FAUT");
+mcq([
+ {q:"« I have to leave. » (specifically me)", opts:["Il faut partir.","Il faut que je parte."], a:1, why:"A named person → <b>que</b> + subjunctive. (Or avoid it entirely: <i>Je dois partir.</i>)"},
+ {q:"« You have to study to pass. » (people in general)", opts:["Il faut étudier pour réussir.","Il faut que tu étudies pour réussir."], a:0, why:"No specific person → <b>il faut + infinitif</b>."},
+ {q:"« Il ne faut pas fumer ici » means:", opts:["You don't have to smoke here.","You must not smoke here."], a:1, why:"<b>Il ne faut pas</b> = prohibition, not absence of obligation. For « don't have to », say <i>ce n'est pas obligatoire</i>."},
+ {q:"Which is NOT possible?", opts:["Il faut","Je faux","Il me faut"], a:1, why:"<i>Falloir</i> exists <b>only</b> in the <i>il</i> form. There is no <i>je</i> form."}
+]);
+h3("Exercice 8 — les verbes pronominaux");
+fill([
+ {s:"se lever, je → je ______ à sept heures.", a:["me lève"], en:"I get up at seven.", why:"<b>me</b> + <i>lève</i> — and the accent, because the ending is silent."},
+ {s:"s'appeler, tu → comment tu ______ ?", a:["t'appelles"], en:"what's your name?", why:"<i>te</i> elides before a vowel → <b>t'appelles</b>."},
+ {s:"se coucher, nous → nous ______ tard.", a:["nous couchons"], en:"we go to bed late.", why:"<b>nous nous couchons</b> — the pronoun is also <i>nous</i>."},
+ {s:"se dépêcher, vous → vous ______ !", a:["vous dépêchez"], en:"you're hurrying!", why:"<b>vous vous dépêchez</b>."},
+ {s:"Body part: je me brosse ______ dents.", a:["les"], en:"I brush my teeth", why:"Article, <u>not</u> <i>mes</i> — the <i>me</i> already says whose."}
+]);
+h3("Exercice 9 — ouvrir, dire, suivre");
+mcq([
+ {q:"j'______ la porte. (ouvrir)", opts:["ouvris","ouvre"], a:1, why:"<i>ouvrir</i> ends in -ir but takes <b>-ER endings</b> → <b>j'ouvre</b>."},
+ {q:"vous ______ ? (dire)", opts:["disez","dites"], a:1, why:"<b>vous dites</b> — one of only three verbs whose <i>vous</i> doesn't end in -ez."},
+ {q:"« Je suis un cours de français » means:", opts:["I am a French course.","I'm taking a French course."], a:1, why:"Here <i>suis</i> is <b>suivre</b> (to follow/take), not <i>être</i>. Identical form, context decides."},
+ {q:"Past participle of ouvrir:", opts:["ouvri","ouvert"], a:1, why:"This family ends in <b>-ert</b>: ouvert, offert, souffert, couvert."}
+]);
+
 h2("7 · Texte parallèle — Une semaine ordinaire");
 ex("<b>Ma semaine</b><br><br>Je m'appelle Rajveer et j'habite à Brampton. Du lundi au vendredi, je me lève à six heures et demie. Je prends mon petit-déjeuner, puis je pars au travail à huit heures moins le quart.<br><br>Je travaille dans l'informatique. Je répare les ordinateurs et je réponds aux questions de mes collègues. Nous commençons à huit heures et nous finissons à cinq heures. À midi, nous mangeons ensemble — mon collègue Anirudh prend toujours un sandwich, moi je préfère un plat chaud.<br><br>Le soir, je rentre, je dîne et je lis un peu. J'apprends le français : trois fois par semaine, je vais à mon cours et j'écris des exercices. Je ne comprends pas tout, mais je fais des progrès.<br><br>Le week-end, je ne travaille pas. Je dors tard, je sors avec mes amis, et nous jouons au cricket s'il fait beau. S'il pleut, nous restons à la maison et nous regardons un film.<br><br>Je sais que c'est long, mais je veux réussir. Je dois continuer !");
 h3("Glossaire du texte");
@@ -519,6 +699,11 @@ document.getElementById('speed').addEventListener('click',e=>{
   [...e.currentTarget.children].forEach(b=>b.classList.remove('on'));
   e.target.classList.add('on');
 });
+h2("8 · Récapitulatif — the whole present tense on one screen");
+ex("<b>THE THREE REGULAR GROUPS</b><br>· <b>-ER</b> → e, es, e, ons, ez, ent &nbsp;<i>(≈90% of all verbs)</i><br>· <b>-IR</b> → is, is, it, issons, issez, issent<br>· <b>-RE</b> → s, s, —, ons, ez, ent<br><br><b>THE EIGHT YOU CANNOT AVOID</b><br>être · avoir · aller · faire · venir · pouvoir · vouloir · devoir<br><br><b>THE SPELLING-CHANGE FAMILIES</b><br>· <b>A</b> e → è &nbsp;<i>(acheter, lever)</i><br>· <b>B</b> é → è &nbsp;<i>(préférer, espérer)</i><br>· <b>C</b> doubled consonant &nbsp;<i>(appeler, jeter)</i><br>· <b>D</b> soft-sound protectors &nbsp;<i>(mangeons, commençons)</i><br>· <b>E</b> y → i &nbsp;<i>(paie, envoie, nettoie)</i><br>· <b>F</b> -ir with -er endings &nbsp;<i>(ouvre, offre)</i><br><br><b>THE IMPERSONALS — one form only</b><br>il faut · il pleut · il neige · il fait · il y a · il est<br><br><b>THE REFLEXIVES</b><br>me / te / se / nous / vous / se + verb — compulsory, elides before a vowel");
+warn("<b>THE ONE PATTERN BEHIND ALMOST ALL OF IT</b><br><br>Look at where every irregularity on this page falls. Families A, B, C and E all change in exactly the same four places — <b>je, tu, il, ils</b> — and leave <b>nous</b> and <b>vous</b> alone. The irregular verbs (<i>prendre</i>, <i>boire</i>, <i>venir</i>) split the same way.<br><br>That's the <b>boot</b>. In Latin, stress fell on the stem for <i>je/tu/il/ils</i> and on the ending for <i>nous/vous</i>. Stressed vowels changed over the centuries; unstressed ones didn't.<br><br><b>These aren't six families to memorise. They're one sound law, fifteen hundred years old, showing up in six places.</b> Once you see the boot, you can predict most of it.");
+note("<b>Where to go next:</b><br>· the <b>Grammaire</b> → Chapitre 8 (le présent) and Chapitre 9 (les familles irrégulières) for the full treatment<br>· Chapitre 10 for pronominal verbs and the imperative<br>· Chapitre 18 for the passé composé, which needs these participles<br>· Chapitre 23 for the subjunctive, where <b>il faut que</b> leads");
+
 </script>
 <script src="french_glossary.js"></script>
 </body>
