@@ -186,8 +186,9 @@ function elGrid(items){
   items.forEach(([fr,ph])=>{
     const c=document.createElement('div'); c.className='cell';
     c.innerHTML='<div class="fr"></div><div class="ph"></div>';
-    c.querySelector('.fr').textContent=fr; c.querySelector('.ph').textContent=ph||'';
-    c.onclick=()=>speak(fr);
+    c.querySelector('.fr').innerHTML=fr; c.querySelector('.ph').innerHTML=ph||'';
+    const plain=String(fr).replace(/<[^>]*>/g,'').replace(/\s*—.*$/,'').trim();
+    c.onclick=()=>speak(plain);
     g.appendChild(c);
   });
   return g;

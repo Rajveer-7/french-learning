@@ -115,7 +115,7 @@
     <a href="index.html">Home</a><a href="French_Oral_Crash_Course.html">Crash Course</a>
     <a href="French_Prof_Notes.html" class="active">Prof's Notes</a>
     <a href="French_Complete_Book.html">Complete Book</a>
-    <a href="French_Grammaire.html">Grammaire</a>
+    <a href="French_Cours_Complet.html">Cours complet</a><a href="French_Grammaire.html">Grammaire</a>
     <a href="French_Audio_Library.html">Audio Library</a>
     <a href="French_Full_Guide.html">Full Guide</a>
     <a href="French_Conversations.html">Conversations</a>
@@ -174,8 +174,9 @@ function elGrid(items){
   items.forEach(([fr,ph])=>{
     const c=document.createElement('div'); c.className='cell';
     c.innerHTML='<div class="fr"></div><div class="ph"></div>';
-    c.querySelector('.fr').textContent=fr; c.querySelector('.ph').textContent=ph||'';
-    c.onclick=()=>speak(fr);
+    c.querySelector('.fr').innerHTML=fr; c.querySelector('.ph').innerHTML=ph||'';
+    const plain=String(fr).replace(/<[^>]*>/g,'').replace(/\s*—.*$/,'').trim();
+    c.onclick=()=>speak(plain);
     g.appendChild(c);
   });
   return g;

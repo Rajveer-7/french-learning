@@ -143,7 +143,7 @@
     <a href="French_Dialogues.html">Dialogues</a>
     <a href="French_Full_Guide.html">Full Guide</a>
     <a href="French_Complete_Book.html">Complete Book</a>
-    <a href="French_Grammaire.html">Grammaire</a>
+    <a href="French_Cours_Complet.html">Cours complet</a><a href="French_Grammaire.html">Grammaire</a>
     <a href="French_Prof_Notes.html">Prof's Notes</a>
     <a href="French_Book_Audio.html">Book Audio</a>
     <a href="French_Audio_Library.html">Audio Library</a>
@@ -222,8 +222,9 @@ function grid(list){
   list.forEach(([fr,ph])=>{
     const c=document.createElement('div'); c.className='cell';
     c.innerHTML='<div class="fr"></div><div class="ph"></div>';
-    c.querySelector('.fr').textContent=fr; c.querySelector('.ph').textContent=ph;
-    c.onclick=()=>speak(fr); g.appendChild(c);
+    c.querySelector('.fr').innerHTML=fr; c.querySelector('.ph').innerHTML=ph;
+    const plain=String(fr).replace(/<[^>]*>/g,'').replace(/\s*—.*$/,'').trim();
+    c.onclick=()=>speak(plain); g.appendChild(c);
   });
   content.appendChild(g);
 }
