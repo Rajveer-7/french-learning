@@ -161,10 +161,10 @@ function pickVoice(){
 }
 speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
 function clean(t){ return String(t).replace(/\s+([!?])/g,'$1').replace(/___/g,'').replace(/→/g,',').replace(/\(.*?\)/g,''); }
-function speak(text){
+function speak(text, r){
   speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(clean(text));
-  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=rate;
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=(r||rate);
   speechSynthesis.speak(u);
 }
 
@@ -256,6 +256,33 @@ function elReading(paras){
   return d;
 }
 
+function elDict(items){
+  const wrap=document.createElement('div');
+  items.forEach((it,n)=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const top=document.createElement('div'); top.className='sent';
+    top.innerHTML='<b>'+(n+1)+'.</b> \u00c9coutez, puis \u00e9crivez ce que vous entendez. <i>(Listen, then write what you hear.)</i>';
+    const bar=document.createElement('div'); bar.style.cssText='display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:8px 0';
+    const pb=document.createElement('button'); pb.textContent='\u25b6 \u00c9couter';
+    pb.onclick=()=>speak(it.fr);
+    const sb=document.createElement('button'); sb.textContent='\u25b6 Lentement';
+    sb.onclick=()=>speak(it.fr,0.55);
+    const inp=document.createElement('input'); inp.placeholder='\u00c9crivez ici\u2026'; inp.style.flex='1';
+    const cb=document.createElement('button'); cb.textContent='V\u00e9rifier';
+    const fb=document.createElement('div'); fb.className='fb';
+    function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9' ]/g,' ').replace(/\s+/g,' ').trim(); }
+    cb.onclick=()=>{
+      if(norm(inp.value)===norm(it.fr)){ fb.className='fb ok'; fb.innerHTML='\u2713 <b>'+it.fr+'</b><br>'+(it.en||'')+(it.why?'<br><i>'+it.why+'</i>':''); }
+      else { fb.className='fb bad'; fb.innerHTML='\u2717 R\u00e9ponse : <b>'+it.fr+'</b><br>'+(it.en||'')+(it.why?'<br><i>'+it.why+'</i>':''); }
+    };
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') cb.onclick(); });
+    bar.appendChild(pb); bar.appendChild(sb); bar.appendChild(inp); bar.appendChild(cb);
+    d.appendChild(top); d.appendChild(bar); d.appendChild(fb);
+    wrap.appendChild(d);
+  });
+  return wrap;
+}
+
 function renderBlock(b){
   if(b.t==='p'){ const p=document.createElement('p'); p.className='txtp'; p.innerHTML=b.x; return p; }
   if(b.t==='h'){ const h=document.createElement('h3'); h.className='sub2'; h.textContent=b.x; return h; }
@@ -268,6 +295,7 @@ function renderBlock(b){
   if(b.t==='fill'){ return elFill(b.items); }
   if(b.t==='mcq'){ return elMcq(b.items); }
   if(b.t==='read'){ return elReading(b.paras); }
+  if(b.t==='dict'){ return elDict(b.items); }
   return document.createTextNode('');
 }
 
@@ -281,6 +309,7 @@ BOOK.push({
   chapters:[
   { title:'Comment ce livre est construit — How this book works', blocks:[
     {t:'p', x:"This book assumes you know <b>zero French</b>. Every chapter starts from nothing, explains in English, and builds on the one before it. You can read it in order from Chapter 1 and never need anything else."},
+    {t:'ex', x:"<b>ET APRÈS CHAQUE PARTIE — UN ATELIER</b><br><br>At the end of every Part there's an <b>Atelier</b> — a workshop where all the chapters so far are used <u>together</u>, the way real French uses them:<br><br>· <b>Compréhension écrite</b> — a short text with questions<br>· <b>Compréhension orale</b> — listen, then answer<br>· <b>Dictée</b> — listen and write it down<br>· <b>Grammaire mélangée</b> — drills with no context clues<br>· <b>Production</b> — build your own sentences<br><br>Those five are the four TCF papers plus writing practice. The chapters teach; the ateliers make it stick."},
     {t:'ex', x:"<b>CHAQUE CHAPITRE A LA MÊME FORME — every chapter has the same six parts</b><br><br><b>1 · Objectifs</b> — what you'll be able to do by the end<br><b>2 · Le vocabulaire</b> — every word, with pronunciation and meaning. Click any line to hear it.<br><b>3 · La grammaire</b> — the structure, explained from zero in plain English<br><b>4 · Pourquoi</b> — why French does it that way (this is what makes it stick)<br><b>5 · Les pièges</b> — the mistakes English speakers make here<br><b>6 · Exercices</b> — type the answer, press Check. The reason is explained, not just the answer."},
     {t:'note', x:"<b>Le but : le TCF Canada.</b><br><br>The TCF has four papers: <b>compréhension orale</b> (listening), <b>compréhension écrite</b> (reading), <b>expression orale</b> (speaking), <b>expression écrite</b> (writing).<br><br>Chapters 1–18 take you through <b>A1–A2</b>. Chapters 19–30 take you to <b>B1</b>. Chapters 31–34 are exam technique for each of the four papers.<br><br>For Express Entry, the level that matters is <b>NCLC 7</b>, which is roughly <b>B2</b>. This book gets you to solid B1 and sets up B2."},
     {t:'warn', x:"<b>Comment l'utiliser — how to use it</b><br><br>· <b>Don't skip Chapter 1.</b> It's pronunciation. Without it you'll learn words wrong and have to unlearn them later.<br>· <b>Do the exercises before reading the answer.</b> Recognising an answer is not the same as producing one.<br>· <b>Say everything out loud.</b> You're preparing for a speaking exam; silent reading won't build the muscle.<br>· <b>One chapter per sitting.</b> Two is too many — nothing sticks."}
@@ -1734,6 +1763,139 @@ BOOK.push({
     ]}
   ]}
 
+  ]
+});
+
+
+BOOK.push({
+  id:'at1', part:'ATELIER 1 — Révision intégrée (ch. 1–6)',
+  sub:"Everything from Part 1, working together. Reading, listening, dictation and production — like a real workbook.",
+  chapters:[
+  { title:'A1.0 · Comment marche cet atelier', blocks:[
+    {t:'p', x:"The six chapters taught things one at a time. Real French uses them <b>all at once</b>. This workshop is where they meet."},
+    {t:'ex', x:"<b>CE QU'IL Y A DEDANS — what's in here</b><br><br><b>1 · Compréhension écrite</b> — a short text, then questions. Reading.<br><b>2 · Compréhension orale</b> — listen and answer. The text is hidden until you've tried.<br><b>3 · Dictée</b> — listen and write it down. The hardest and the most useful.<br><b>4 · Grammaire mélangée</b> — drills that mix all six chapters, so you can't guess from context.<br><b>5 · Production</b> — build your own sentences.<br><br>These four skills are exactly the four TCF papers. This is deliberate."},
+    {t:'warn', x:"<b>Do it in order, and don't look ahead.</b><br><br>Reading a model answer before attempting it feels like learning but isn't — recognising something is a completely different skill from producing it.<br><br><b>Dictation is the single most valuable exercise here.</b> It forces you to hear the silent letters you can't hear, the liaisons, and the difference between <i>il a</i> and <i>il est</i>. It's uncomfortable precisely because it's working."}
+  ]},
+  { title:'A1.1 · Compréhension écrite — un texte', blocks:[
+    {t:'p', x:"Read it through once without stopping. Then read again and answer. Every word is from Chapters 1–6."},
+    {t:'read', paras:[
+      "Bonjour ! Je m'appelle <b>Amélie Dubois</b>. J'ai <b>vingt-neuf ans</b> et je suis <b>française</b>. Je viens de Lyon, mais j'habite <b>à Montréal</b>, <b>au Canada</b>, depuis trois ans.",
+      "Je suis <b>infirmière</b>. Je travaille dans un grand hôpital. C'est un travail difficile, mais j'aime beaucoup les gens.",
+      "J'habite dans un petit appartement avec ma sœur. Elle s'appelle Claire et elle a <b>vingt-six ans</b>. Elle est <b>étudiante</b> — elle étudie <b>la biologie</b>.",
+      "Dans notre quartier, il y a <b>une pharmacie</b>, <b>deux restaurants</b> et <b>un parc</b>. Il n'y a <b>pas de</b> métro, mais il y a <b>beaucoup de</b> bus.",
+      "Nous n'avons <b>pas de</b> voiture. Ce n'est pas un problème : tout est à côté."
+    ]},
+    {t:'h', x:'Questions — répondez sans regarder le texte'},
+    {t:'mcq', items:[
+      {q:"Quel âge a Amélie ?", opts:["26 ans","29 ans","36 ans"], a:1, why:"« J'ai <b>vingt-neuf</b> ans » — 29. (Claire, her sister, is 26.)"},
+      {q:"Où habite-t-elle ?", opts:["à Lyon","à Montréal","à Paris"], a:1, why:"She's <u>from</u> Lyon but <u>lives</u> in Montreal. <i>je viens de</i> vs <i>j'habite à</i>."},
+      {q:"Quelle est sa profession ?", opts:["étudiante","infirmière","professeure"], a:1, why:"<b>infirmière</b> — the feminine of <i>infirmier</i>. <i>Étudiante</i> is her sister."},
+      {q:"Qui est Claire ?", opts:["sa sœur","sa mère","son amie"], a:0, why:"« j'habite avec <b>ma sœur</b>… elle s'appelle Claire »."},
+      {q:"Qu'est-ce qu'il n'y a PAS dans le quartier ?", opts:["de parc","de métro","de pharmacie"], a:1, why:"« Il n'y a <b>pas de métro</b> » — and note <i>un</i> became <b>de</b> after the negative."},
+      {q:"Ont-elles une voiture ?", opts:["Oui","Non"], a:1, why:"« Nous n'avons <b>pas de</b> voiture »."},
+      {q:"Depuis combien de temps habite-t-elle au Canada ?", opts:["trois ans","vingt-neuf ans","six mois"], a:0, why:"« depuis <b>trois ans</b> » — and <i>depuis</i> takes the present because she still lives there."}
+    ]},
+    {t:'h', x:'Repérez la grammaire — find the grammar'},
+    {t:'mcq', items:[
+      {q:"Why « au Canada » and not « en Canada » ?", opts:["Canada is masculine","Canada is feminine"], a:0, why:"Ch.2 — masculine country → <b>au</b>. Feminine would be <i>en</i> (la France → en France)."},
+      {q:"Why « française » and not « français » ?", opts:["Amélie is a woman","it's plural"], a:0, why:"Ch.2 — nationality agrees. The final <b>-e</b> wakes the s: frahn-SEZ."},
+      {q:"Why « pas de voiture » and not « pas une voiture » ?", opts:["after a negative, un → de","voiture is plural"], a:0, why:"Ch.5 — after a negative, <i>un/une/du/des</i> all collapse to <b>de</b>."},
+      {q:"Why « beaucoup de bus » and not « beaucoup des bus » ?", opts:["quantity words take bare de","bus is masculine"], a:0, why:"Ch.5 — every quantity expression takes bare <b>de</b>."},
+      {q:"« Je suis infirmière » — why no « une » ?", opts:["jobs after être take no article","it's a mistake"], a:0, why:"Ch.2 — a job after <i>être</i> is a category, not a countable thing."}
+    ]}
+  ]},
+  { title:'A1.2 · Compréhension orale — écoutez et répondez', blocks:[
+    {t:'warn', x:"<b>Listen first. Don't read the lines below until you've answered.</b><br><br>Click <b>▶ Écouter</b>, listen twice, then answer. Use <b>▶ Lentement</b> if you need it — but try at normal speed first, because that's what the exam gives you."},
+    {t:'dict', items:[
+      {fr:"Bonjour, je m'appelle Marc.", en:"Hello, my name is Marc.", why:"Ch.2 — the reflexive <i>je m'appelle</i>."},
+      {fr:"J'ai trente-deux ans.", en:"I'm thirty-two.", why:"Ch.3 + Ch.4 — <i>avoir</i> for age, and <i>ans</i> is compulsory."},
+      {fr:"Je suis professeur.", en:"I'm a teacher.", why:"Ch.2 — no article after <i>être</i> for a job."},
+      {fr:"J'habite à Paris, en France.", en:"I live in Paris, in France.", why:"Ch.2 — <b>à</b> for a city, <b>en</b> for a feminine country."},
+      {fr:"Il y a un parc près de chez moi.", en:"There's a park near my place.", why:"Ch.4 — <i>il y a</i>, which never changes."}
+    ]},
+    {t:'h', x:'Maintenant répondez — now answer'},
+    {t:'mcq', items:[
+      {q:"Comment s'appelle-t-il ?", opts:["Marc","Marcel","Max"], a:0, why:"« Je m'appelle <b>Marc</b> »."},
+      {q:"Quel âge a-t-il ?", opts:["22","32","42"], a:1, why:"<b>trente-deux</b> = 32. Listen for <i>trente</i> (trahnt) vs <i>quarante</i> (kah-rahnt)."},
+      {q:"Quelle est sa profession ?", opts:["médecin","professeur","ingénieur"], a:1, why:"<b>professeur</b>."},
+      {q:"Où habite-t-il ?", opts:["à Lyon","à Paris","à Nice"], a:1, why:"<b>à Paris, en France</b>."},
+      {q:"Qu'est-ce qu'il y a près de chez lui ?", opts:["un parc","une pharmacie","un musée"], a:0, why:"« il y a <b>un parc</b> »."}
+    ]},
+    {t:'note', x:"<b>Ce que l'examen teste vraiment.</b> Notice the wrong answers above weren't random — they were <b>22/32/42</b> and <b>Marc/Marcel/Max</b>. The TCF does exactly this: the distractors differ from the right answer by one sound.<br><br>So the skill isn't understanding the sentence. It's <b>catching one detail</b> at speed. Train for that specifically: listen for the number, not the grammar."}
+  ]},
+  { title:'A1.3 · Dictée — listen and write', blocks:[
+    {t:'warn', x:"<b>The hardest exercise here, and the most valuable.</b><br><br>Dictation forces you to deal with everything French hides: silent endings, liaisons, and the fact that <i>il a</i> and <i>il est</i> sound almost alike.<br><br><b>Method:</b> listen once at normal speed. Listen again slowly. Write. Check. Then listen a third time while reading the correct version — that's where the learning happens.<br><br>Accents and capitals are ignored when checking; spelling isn't."},
+    {t:'dict', items:[
+      {fr:"Je suis étudiant.", en:"I'm a student.", why:"Liaison: <i>suis‿étudiant</i> → swee-zay-tew-dyahn. The <b>s</b> you hear belongs to <i>suis</i>."},
+      {fr:"Vous avez deux enfants.", en:"You have two children.", why:"Two liaisons: <i>vous‿avez</i> (voo-zah-vay) and <i>deux‿enfants</i> (duh-zahn-fahn)."},
+      {fr:"Il n'y a pas de métro ici.", en:"There's no metro here.", why:"<i>ne</i> → <b>n'</b>, and after the negative <i>un</i> → <b>de</b>."},
+      {fr:"Elle a vingt et un ans.", en:"She's twenty-one.", why:"<i>vingt et un</i> with <b>et</b>, and the liaison <i>un‿ans</i>."},
+      {fr:"Nous habitons au Canada.", en:"We live in Canada.", why:"<i>nous‿habitons</i> — the h is silent so the liaison happens: noo-zah-bee-tohn."},
+      {fr:"Est-ce que vous parlez français ?", en:"Do you speak French?", why:"<b>est-ce que</b> is four words said as one: kes-kuh."},
+      {fr:"Je n'aime pas le café.", en:"I don't like coffee.", why:"Trap: <b>le</b> survives the negative, because it's a category, not a quantity."},
+      {fr:"Il y a beaucoup de restaurants.", en:"There are lots of restaurants.", why:"Quantity word → bare <b>de</b>, never <i>des</i>."}
+    ]},
+    {t:'note', x:"<b>Si vous avez écrit « sweezaytewdyahn » comme un seul mot — c'est normal.</b><br><br>That's exactly what French sounds like, and it's why listening feels impossible at first. Speakers don't separate words; they separate <b>groups</b>. <i>Je suis étudiant</i> is one sound-chunk with a single stress at the end.<br><br>The way out is knowing the words already, so your brain can slice the stream. <b>That's why vocabulary helps listening more than listening practice does.</b>"}
+  ]},
+  { title:'A1.4 · Grammaire mélangée — all six chapters at once', blocks:[
+    {t:'p', x:"No context clues, no chapter headings to help you guess. This is the real test of whether it's stuck."},
+    {t:'h', x:'A · Complétez'},
+    {t:'fill', items:[
+      {s:"J'______ vingt-cinq ______ .", a:["ai ans"], en:"I'm 25.", why:"Ch.4 <i>avoir</i> + Ch.3 number + <b>ans</b>."},
+      {s:"Je suis ______ . (nationality, man from India)", a:["indien"], en:"", why:"Ch.2 — no article, small letter."},
+      {s:"J'habite ______ Japon.", a:["au"], en:"in Japan", why:"Ch.2 — masculine country."},
+      {s:"J'habite ______ Montréal.", a:["à"], en:"in Montreal", why:"Ch.2 — a city takes <b>à</b>."},
+      {s:"Il y a ______ pharmacie. (one)", a:["une"], en:"", why:"Ch.5 — <i>pharmacie</i> is feminine."},
+      {s:"Je n'ai pas ______ voiture.", a:["de"], en:"", why:"Ch.5 — after a negative, <i>une</i> → <b>de</b>."},
+      {s:"J'ai beaucoup ______ travail.", a:["de"], en:"", why:"Ch.5 — quantity → bare <b>de</b>."},
+      {s:"J'aime ______ musique.", a:["la"], en:"I like music", why:"Ch.5 — a general noun needs the definite article."},
+      {s:"______ heure est-il ?", a:["Quelle","quelle"], en:"", why:"Ch.6 — <i>heure</i> is feminine."},
+      {s:"Je vais ______ cinéma.", a:["au"], en:"", why:"Ch.5 — à + le = <b>au</b>, compulsory."}
+    ]},
+    {t:'h', x:'B · Choisissez'},
+    {t:'mcq', items:[
+      {q:"J'______ froid.", opts:["suis","ai"], a:1, why:"Ch.4 — <i>froid</i> is a noun here → <b>avoir</b>."},
+      {q:"Je ______ fatigué.", opts:["suis","ai"], a:0, why:"Ch.4 — <i>fatigué</i> is an adjective → <b>être</b>."},
+      {q:"______ un bon restaurant.", opts:["C'est","Il est"], a:0, why:"Ch.4 — there's an article → <b>c'est</b>."},
+      {q:"______ médecin.", opts:["C'est","Il est"], a:1, why:"Ch.4 — bare job → <b>il est</b>."},
+      {q:"« petit » — final T pronounced?", opts:["yes","no"], a:1, why:"Ch.1 — not in CaReFuL → silent."},
+      {q:"« neuf heures » is said:", opts:["nuf ur","nuh-vur"], a:1, why:"Ch.3 — <i>neuf</i> turns f → v before <i>heures</i> and <i>ans</i>."},
+      {q:"21:00 → vingt et ______ heures", opts:["un","une"], a:1, why:"Ch.3 — <i>heure</i> is feminine, and <b>un</b> is the only number that agrees."},
+      {q:"« Vous n'êtes pas canadien ? » — but you are:", opts:["Oui","Si"], a:1, why:"Ch.6 — contradicting a negative → <b>si</b>."},
+      {q:"______ table", opts:["le","la"], a:1, why:"Ch.5 — feminine."},
+      {q:"______ musée", opts:["le","la"], a:0, why:"Ch.5 — trap: ends in <i>-ée</i> but masculine."}
+    ]},
+    {t:'h', x:'C · Trouvez l\'erreur — six sentences, six different chapters'},
+    {t:'mcq', items:[
+      {q:"« Je suis vingt-trois ans. »", opts:["Correct","J'ai vingt-trois ans."], a:1, why:"Ch.4 — age takes <b>avoir</b>."},
+      {q:"« Je suis un ingénieur. »", opts:["Correct","Je suis ingénieur."], a:1, why:"Ch.2 — no article for a job."},
+      {q:"« J'habite en Canada. »", opts:["Correct","J'habite au Canada."], a:1, why:"Ch.2 — masculine country → <b>au</b>."},
+      {q:"« Je vais à le cinéma. »", opts:["Correct","Je vais au cinéma."], a:1, why:"Ch.5 — the contraction is compulsory."},
+      {q:"« J'aime café. »", opts:["Correct","J'aime le café."], a:1, why:"Ch.5 — a bare French noun is nearly always wrong."},
+      {q:"« Quel heure est-il ? »", opts:["Correct","Quelle heure est-il ?"], a:1, why:"Ch.6 — <i>heure</i> is feminine."}
+    ]}
+  ]},
+  { title:'A1.5 · Production — build your own', blocks:[
+    {t:'p', x:"Now produce, not recognise. Say each one <b>out loud</b> before typing."},
+    {t:'fill', items:[
+      {s:"Say your name.", a:["je m'appelle rajveer","Je m'appelle Rajveer"], en:"", why:"<b>Je m'appelle …</b> — the reflexive from Ch.2."},
+      {s:"Say your age.", a:["j'ai vingt-trois ans","J'ai vingt-trois ans"], en:"", why:"<b>J'ai … ans</b> — <i>avoir</i>, and <i>ans</i> compulsory."},
+      {s:"Say where you're from (India).", a:["je viens d'inde","Je viens d'Inde"], en:"", why:"<b>Je viens d'Inde</b> — feminine + vowel → <i>d'</i>."},
+      {s:"Say where you live (Brampton, Canada).", a:["j'habite à brampton au canada","J'habite à Brampton, au Canada"], en:"", why:"<b>à</b> + city, <b>au</b> + masculine country."},
+      {s:"Say your job (no article!).", a:["je suis administrateur","Je suis administrateur"], en:"", why:"No <i>un</i> after <i>être</i>."},
+      {s:"Say there's a park near you.", a:["il y a un parc près de chez moi","Il y a un parc près de chez moi"], en:"", why:"<b>il y a</b> for existence."},
+      {s:"Say you don't have a car.", a:["je n'ai pas de voiture","Je n'ai pas de voiture"], en:"", why:"Negative → <i>une</i> becomes <b>de</b>."},
+      {s:"Ask someone their name (formal).", a:["comment vous appelez-vous","Comment vous appelez-vous ?"], en:"", why:"French asks <b>how</b> you call yourself."}
+    ]},
+    {t:'h', x:'Votre paragraphe — put it all together'},
+    {t:'ex', x:"<b>Write or say this as one connected paragraph. It uses every chapter in Part 1.</b><br><br><i>Bonjour ! Je m'appelle <b>[name]</b>. J'ai <b>[age]</b> ans et je suis <b>[nationality]</b>. Je viens <b>[de/du/d']</b> <b>[country]</b>, mais j'habite <b>[à]</b> <b>[city]</b>, <b>[au/en]</b> <b>[country]</b>. Je suis <b>[job]</b>. Dans mon quartier, il y a <b>[places]</b>, mais il n'y a pas <b>de</b> <b>[thing]</b>. J'aime beaucoup <b>[le/la]</b> <b>[thing you like]</b>. Enchanté !</i>"},
+    {t:'note', x:"<b>Un modèle rempli :</b><br><br><i>Bonjour ! Je m'appelle Rajveer. J'ai vingt-trois ans et je suis indien. Je viens d'Inde, mais j'habite à Brampton, au Canada. Je suis administrateur système. Dans mon quartier, il y a un parc et beaucoup de restaurants, mais il n'y a pas de métro. J'aime beaucoup le cricket. Enchanté !</i><br><br><b>Count what's in there:</b> a reflexive verb, <i>avoir</i> for age, a nationality agreeing, three different prepositions for places, a job with no article, <i>il y a</i>, a quantity with <i>de</i>, a negative with <i>de</i>, and a general noun with <i>le</i>.<br><br><b>Nine structures. Six chapters. One paragraph.</b> That's what « it all fits together » means."}
+  ]},
+  { title:'A1.6 · Bilan — where you are now', blocks:[
+    {t:'ex', x:"<b>CE QUE VOUS SAVEZ FAIRE — what you can now do</b><br><br>· read any French word aloud correctly, including ones you've never seen<br>· introduce yourself fully and ask the same questions back<br>· count, give prices, say your age and the date<br>· use <b>être</b> and <b>avoir</b>, the two verbs everything else needs<br>· put the right article in front of any noun, and change it after a negative<br>· ask a question three different ways<br><br><b>That's a genuine A1 foundation.</b> Not a phrasebook — a system."},
+    {t:'warn', x:"<b>Ce qui manque encore — what's still missing.</b><br><br>You can describe <u>states</u>, but you can't yet describe <u>actions</u>. You know <i>je suis</i> and <i>j'ai</i>, but not <i>je mange</i>, <i>je travaille</i>, <i>je vais</i> in any systematic way. And you can only talk about <b>now</b> — no past, no future.<br><br>That's exactly what Partie 2 fixes."},
+    {t:'note', x:"<b>SUIVANT — PARTIE 2 : la vie quotidienne</b><br><br>· <b>Ch. 7</b> La famille — describing people, <i>mon/ma/mes</i><br>· <b>Ch. 8</b> Le présent — the three verb groups, so you can use <u>any</u> verb<br>· <b>Ch. 9</b> Les adjectifs — describing things, and why they follow the noun<br>· <b>Ch. 10</b> L'heure et la date<br>· <b>Ch. 11</b> Ma journée — reflexive verbs, your whole routine<br>· <b>Ch. 12</b> La négation — beyond <i>ne…pas</i><br><br>Then <b>ATELIER 2</b> does this again with everything from Chapters 1–12."}
+  ]}
   ]
 });
 
