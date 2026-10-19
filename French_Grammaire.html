@@ -249,8 +249,9 @@ function elMcq(items){
 function elReading(paras){
   const d=document.createElement('div'); d.className='reading';
   paras.forEach(p=>{
-    const el=document.createElement('p'); el.textContent=p; el.style.cursor='pointer';
-    el.onclick=()=>speak(p);
+    const el=document.createElement('p'); el.innerHTML=p; el.style.cursor='pointer';
+    const plain=String(p).replace(/<[^>]*>/g,'');
+    el.onclick=()=>speak(plain);
     d.appendChild(el);
   });
   return d;

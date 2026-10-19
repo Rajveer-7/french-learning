@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 33 — Unité 7 : La brocante</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+</style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
+<style id="mobile-fix">
+@media (max-width: 640px){
+  .wrap{ padding:12px 12px 70px; }
+  h1{ font-size:22px; line-height:1.25; }
+  h2{ font-size:19px; }
+  h3{ font-size:16px; }
+  /* nav becomes one swipeable row instead of a wall of chips */
+  nav{ flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
+       padding-bottom:6px; margin-bottom:14px; scrollbar-width:thin; }
+  nav a{ flex:0 0 auto; white-space:nowrap; font-size:12px; padding:6px 9px; }
+  /* tables scroll sideways instead of crushing */
+  table, .conjt{ display:block; width:100%; overflow-x:auto;
+                 -webkit-overflow-scrolling:touch; white-space:nowrap; font-size:13px; }
+  table td, table th, .conjt td, .conjt th{ white-space:normal; min-width:92px; }
+  /* reading blocks */
+  .note,.example,.warn,.source,.lead,.txtp{ font-size:14.5px; }
+  .grid{ grid-template-columns:1fr !important; }
+  /* bigger tap targets on the audio rows */
+  .row{ padding:10px 8px; }
+  .play{ min-width:38px; min-height:38px; }
+  .fr{ font-size:16px; }
+  .ph,.en{ font-size:13px; }
+  /* exercises */
+  .fillrow input{ width:100%; box-sizing:border-box; font-size:16px; padding:8px; }
+  .fillrow button,.riddle button{ padding:9px 12px; font-size:14px; margin-top:6px; }
+  .riddle .btns{ display:flex; flex-wrap:wrap; gap:6px; }
+  /* book page chapter tabs */
+  .parttabs{ flex-wrap:nowrap; overflow-x:auto; }
+  .parttabs button{ flex:0 0 auto; white-space:nowrap; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 33 : Unité 7 · La brocante</h1>
+  <p class="sub">The Language SKOOL · Saison 1 (A1+), Livre p. 137 — <i>Découvrir : Où trouver de vieux objets</i> · vidéo piste 8 « Tous à la Brocante ! »</p>
+
+  <nav>
+    <a href="French_Cours_Complet.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
+    <a href="French_Cours31_Notes.html">Cours 31</a>
+    <a href="French_Cours32_Notes.html">Cours 32</a>
+    <a href="French_Cours33_Notes.html" class="active">Cours 33</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_Oral_Crash_Course.html">Crash Course</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <span class="toggle"><button id="n" class="on">Normal</button><button id="s">Slow</button></span>
+    <span id="voicewarn"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+<script>
+
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=(r||rate); return u;
+}
+function speak(text, r){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').innerHTML=fr; c.querySelector('.ph').innerHTML=ph;
+    const plain=String(fr).replace(/<[^>]*>/g,'').replace(/\s*—.*$/,'').trim();
+    c.onclick=()=>speak(plain); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+/* ===== 1 ===== */
+function fillx(list){ fill(list.map(x=>({s:x[0], a:[x[1]], en:x[2]||'', why:x[3]||('Réponse : <b>'+x[1]+'</b>')}))); }
+function mcqx(list){ mcq(list.map(x=>({q:x[0], opts:x[1], a:x[2], why:x[3]||''}))); }
+src("<b>Source :</b> <i>French A1 — Le temps et l'heure</i>, The Language SKOOL (cours en direct du 7 octobre 2026, tableau blanc + PDF de 7 pages). Sections suivies en classe, avec les explications, les exemples supplémentaires et les exercices ajoutés.");
+
+function dict(items){
+  items.forEach((it,n)=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const top=document.createElement('div'); top.className='sent';
+    top.innerHTML='<b>'+(n+1)+'.</b> Écoutez, puis écrivez ce que vous entendez. <i>(Listen, then write what you hear.)</i>';
+    const bar=document.createElement('div'); bar.style.cssText='display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:8px 0';
+    const pb=document.createElement('button'); pb.textContent='▶ Écouter'; pb.onclick=()=>speak(it.fr);
+    const sb=document.createElement('button'); sb.textContent='▶ Lentement'; sb.onclick=()=>speak(it.fr,0.55);
+    const inp=document.createElement('input'); inp.placeholder='Écrivez ici…'; inp.style.flex='1';
+    const cb=document.createElement('button'); cb.textContent='Vérifier';
+    const fb=document.createElement('div'); fb.className='fb';
+    function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9' ]/g,' ').replace(/\s+/g,' ').trim(); }
+    cb.onclick=()=>{
+      if(norm(inp.value)===norm(it.fr)){ fb.className='fb ok'; fb.innerHTML='✓ <b>'+it.fr+'</b><br>'+(it.en||'')+(it.why?'<br><i>'+it.why+'</i>':''); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Réponse : <b>'+it.fr+'</b><br>'+(it.en||'')+(it.why?'<br><i>'+it.why+'</i>':''); }
+    };
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') cb.onclick(); });
+    bar.appendChild(pb); bar.appendChild(sb); bar.appendChild(inp); bar.appendChild(cb);
+    d.appendChild(top); d.appendChild(bar); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+h2('0 · Ce qui s’est passé en cours');
+lead('What was on screen, in order — so you can reconstruct the lesson.');
+note("<b>Le plan du cours</b><br><br><b>1 ·</b> La prof a diffusé la vidéo <b>« Tous à la Brocante ! »</b> (38 secondes, générique d’une émission de télévision française, <i>Mistral Production &amp; La Créature, en coproduction avec France 3</i>, présentée par Jullienne Bertaux).<br><b>2 ·</b> Discussion orale — chacun répond à la question <b>1 « Qu’est-ce que vous voyez ? »</b><br><b>3 ·</b> Puis la page du livre : <b>Saison 1 (A1+), p. 137</b>, Unité 7 — <i>Découvrir : Où trouver de vieux objets</i>.<br><br><b>Participants :</b> 7 personnes. Intervenant repéré à l’écran : <b>Jaspreet Verma</b>.");
+warn("<b>Note honnête :</b> je vois votre écran mais je n’entends pas le son. Tout ce qui suit vient de ce qui était <u>affiché</u> — la vidéo, la page du livre — plus le vocabulaire et la grammaire que cette leçon demande. Si la prof a dit quelque chose d’important qui n’était pas à l’écran, dites-le-moi et je l’ajoute.");
+
+h2('1 · Qu’est-ce que vous voyez ? — les trois questions');
+lead('The three questions on the page, with answers at three levels. Say the longest one you can manage.');
+h3('Question A — Comment s’appelle ce type de vidéo ?');
+ex("<b>Ce qu’on vous demande :</b> what do you call this kind of video? The answer wanted is <b>un générique</b> — the opening title sequence of a TV programme.<br><br><b>Version courte :</b><br><i>C’est un générique.</i><br><br><b>Version moyenne :</b><br><i>C’est le générique d’une émission de télévision.</i><br><br><b>Version longue :</b><br><i>C’est le générique d’une émission de télévision française. L’émission s’appelle « Tous à la Brocante ! » et elle est présentée par Jullienne Bertaux.</i>");
+rows([
+ ["un générique","uhn zhay-nay-REEK","opening titles, title sequence"],
+ ["une émission","ewn ay-mee-SYOHN","a (TV or radio) programme"],
+ ["une émission de télévision","…duh tay-lay-vee-ZYOHN","a TV programme"],
+ ["une chaîne","ewn SHEN","a channel"],
+ ["un reportage","uhn ruh-por-TAHZH","a report, a feature"],
+ ["un documentaire","uhn doh-kew-mahn-TEHR","a documentary"],
+ ["une publicité / une pub","ewn pew-blee-see-TAY / PEWB","an advert"],
+ ["présenté par","pray-zahn-tay PAR","presented by"],
+ ["en coproduction avec","ahn koh-proh-dewk-syohn ah-VEK","co-produced with"]
+]);
+note("<b>Attention à « émission ».</b> It does <u>not</u> mean “emission” in the English sense of something given off. <b>Une émission</b> is a <u>broadcast programme</u> — the thing you watch. A faux ami worth filing now.<br><br>And <b>un générique</b> is the title sequence at the start, or the credits at the end. Related: <i>le générique de début</i> / <i>le générique de fin</i>.");
+h3('Question B — À votre avis, de quoi parle l’émission ?');
+ex("<b>« À votre avis » = in your opinion.</b> So the examiner — and your teacher — wants a <u>guess</u>, not a fact. You are being invited to speculate, and the phrases that signal speculation are worth more marks than the content.<br><br><b>Version courte :</b><br><i>À mon avis, l’émission parle des brocantes.</i><br><br><b>Version moyenne :</b><br><i>À mon avis, c’est une émission sur les brocantes. Je pense qu’on y vend de vieux objets.</i><br><br><b>Version longue :</b><br><i>À mon avis, c’est une émission sur les brocantes et les vide-greniers. Je pense que la présentatrice visite des brocantes en France et qu’elle montre les objets qu’on y vend — des vieux meubles, des jouets, des vélos. Peut-être qu’elle parle aussi du prix des objets.</i>");
+rows([
+ ["À mon avis…","ah moh-nah-VEE","In my opinion…"],
+ ["Je pense que…","zhuh pahns KUH","I think that…"],
+ ["Je crois que…","zhuh krwah KUH","I believe that…"],
+ ["Il me semble que…","eel muh sahnbl KUH","It seems to me that…"],
+ ["Peut-être que…","puh-tetr KUH","Maybe…"],
+ ["On dirait que…","ohn dee-reh KUH","It looks like…"],
+ ["Ça a l’air de…","sah ah LEHR duh","It seems to…"],
+ ["Je ne suis pas sûr, mais…","zhuh nuh swee pah SEWR meh","I’m not sure, but…"]
+]);
+warn("<b>Ces huit expressions valent de l’or à l’oral.</b><br><br>At the TCF speaking test you are constantly asked to describe a picture or guess what something is about. If you answer with a bare statement — <i>c’est une brocante</i> — you sound A1. If you open with <b>à mon avis</b> or <b>on dirait que</b>, you have signalled that you can express an opinion, which is an A2/B1 descriptor.<br><br>They cost nothing to learn and they work on every topic. Memorise all eight this week.");
+h3('Question C — Quels objets reconnaissez-vous ?');
+ex("<b>Ce que vous avez vu dans le générique :</b> des jouets anciens (un ours en peluche, une girafe, un clown, un robot, un cheval à bascule, un camion), un vélo, une vieille radio, une machine à écrire, un chapeau, une voiture ancienne, une commode.<br><br><b>Version courte :</b><br><i>Je reconnais un vélo et une vieille radio.</i><br><br><b>Version longue :</b><br><i>Je reconnais beaucoup de jouets anciens : un ours en peluche, une girafe, un robot et un cheval à bascule. Il y a aussi un vélo, une vieille radio, une machine à écrire et un chapeau. Tous ces objets sont vieux — ce sont des objets d’occasion.</i>");
+
+h2('2 · Qu’est-ce qu’on vend ? — les quatre objets de la page');
+lead('The four photos on p. 137. Learn them with their gender — the gender is half the word.');
+grid([
+ ["des disques vinyles","day deesk vee-NEEL — vinyl records"],
+ ["une machine à écrire","ewn mah-sheen ah ay-KREER — a typewriter"],
+ ["un vélo","uhn vay-LOH — a bicycle"],
+ ["une radio (un poste de radio)","ewn rah-DYOH — a radio set"]
+]);
+note("<b>Trois façons de dire « bicyclette ».</b><br><br>· <b>un vélo</b> — the normal everyday word. Use this one.<br>· <b>une bicyclette</b> — correct but slightly old-fashioned, a bit formal.<br>· <b>un deux-roues</b> — a two-wheeler, covers bikes and scooters, administrative.<br><br>And note the gender trap: <b>un</b> vélo is masculine, <b>une</b> bicyclette is feminine. Same object, opposite genders — because they are different words, and gender belongs to the word, not the thing.");
+h3('Le vocabulaire complet de la brocante');
+rows([
+ ["une brocante","ewn broh-KAHNT","a flea market, antiques fair"],
+ ["un vide-grenier","uhn veed-gruh-NYAY","a car-boot sale (lit. ‘attic-emptying’)"],
+ ["une vente de garage","ewn vahnt duh gah-RAHZH","a garage sale (Quebec)"],
+ ["un marché aux puces","uhn mar-shay oh PEWSS","a flea market (lit. ‘flea market’)"],
+ ["un brocanteur","uhn broh-kahn-TUR","a second-hand dealer"],
+ ["un antiquaire","uhn ahn-tee-KEHR","an antique dealer"],
+ ["un stand","uhn STAHND","a stall"],
+ ["un objet","uhn ohb-ZHAY","an object, an item"],
+ ["une occasion","ewn oh-kah-ZYOHN","a bargain; also an opportunity"],
+ ["d’occasion","doh-kah-ZYOHN","second-hand, used"],
+ ["neuf / neuve","NUHF / NUHV","brand new"],
+ ["ancien / ancienne","ahn-SYAN / ahn-SYEN","old, antique, former"],
+ ["vieux / vieille","VYUH / VYAY","old"],
+ ["vendre","VAHNDR","to sell"],
+ ["acheter","ahsh-TAY","to buy"],
+ ["chiner","shee-NAY","to hunt for bargains at a brocante"],
+ ["négocier","nay-goh-SYAY","to haggle, negotiate"],
+ ["marchander","mar-shahn-DAY","to haggle"],
+ ["ça vaut combien ?","sah voh kohn-BYAN","what’s it worth?"],
+ ["faire une bonne affaire","fehr ewn bun ah-FEHR","to get a good deal"]
+]);
+warn("<b>LE + INFO de la page — et pourquoi ça vous concerne directement.</b><br><br>Le livre dit : <i>« Savez-vous que les Français organisent souvent des ‹ vide-greniers › ? Les Québécois les appellent des ‹ ventes de garage ›. »</i><br><br>· <b>un vide-grenier</b> — literally <i>empty-attic</i>: <b>vider</b> (to empty) + <b>un grenier</b> (an attic). People sell their own unwanted things, usually in the street or a car park, once a year.<br>· <b>une vente de garage</b> — the Quebec term, a direct translation of the North American <i>garage sale</i>.<br>· <b>une brocante</b> — bigger, often with professional dealers selling genuinely old things.<br><br><b>Pour vous au Canada :</b> if you take the TCF Canada or speak to a Quebec examiner, <b>vente de garage</b> is the local term and will sound natural. But <b>vide-grenier</b> is what the book and French materials use — know both, produce whichever fits your listener.");
+note("<b>Une distinction qui vaut des points : ANCIEN, VIEUX, ou D’OCCASION ?</b><br><br>· <b>d’occasion</b> — second-hand. Says only that someone owned it before. <i>une voiture d’occasion</i> = a used car, maybe two years old.<br>· <b>vieux</b> — old, and usually a bit negative: worn, past it. <i>un vieux vélo</i> = an old bike, nothing special.<br>· <b>ancien</b> — old in the sense of <u>from another era</u>, and usually positive: antique, period. <i>un vélo ancien</i> = a vintage bicycle.<br><br>So at a brocante you buy <b>des objets anciens</b> if you want to flatter the seller, and <b>de vieux objets</b> if you want to bring the price down. That is not a joke — it is exactly how the haggling works.<br><br><b>Et le piège de la place :</b> <i>ancien</i> changes meaning depending on where it sits. <b>mon ancien appartement</b> = my <u>former</u> flat. <b>un appartement ancien</b> = a <u>period</u> flat. Before the noun → former; after the noun → antique.");
+
+h2('3 · Écoutez et répondez — piste 65, la famille Castel');
+lead('Activity 2 on the page: three questions on the recording.');
+ex("<b>Les trois questions du livre :</b><br><br><b>a.</b> Où se passe la scène ?<br><b>b.</b> Que font les trois personnes ? Pourquoi ?<br><b>c.</b> De quels objets parle la famille Castel ?");
+warn("<b>Je n’entends pas l’audio — je ne peux donc pas vous donner les réponses de la piste 65.</b> Ce qui suit, ce sont les <u>structures</u> pour répondre, pas les réponses. Donnez-moi ce que vous avez entendu et je complète la fiche.");
+h3('a · Où se passe la scène ?');
+ex("<b>« Se passer » = to take place, to happen.</b> It is a reflexive verb, and it is the standard way to ask where or when something happens.<br><br><b>Comment répondre — la structure :</b><br><i>La scène se passe <b>à / dans / chez</b> …</i><br><br>· <i>La scène se passe <b>dans</b> une brocante.</i><br>· <i>La scène se passe <b>à</b> un vide-grenier.</i><br>· <i>La scène se passe <b>chez</b> la famille Castel.</i><br>· <i>La scène se passe <b>dans</b> un grenier.</i><br><br>Ou plus simplement : <i>C’est dans une brocante.</i>");
+rows([
+ ["Que se passe-t-il ?","kuh suh pahss-TEEL","What’s happening?"],
+ ["Qu’est-ce qui se passe ?","kess-kee suh PAHSS","What’s going on?"],
+ ["Où se passe la scène ?","oo suh pahss lah SEN","Where does the scene take place?"],
+ ["Ça se passe où ?","sah suh pahss OO","Where’s it happening? (spoken)"],
+ ["Ça s’est bien passé ?","sah say byan pah-SAY","Did it go well?"]
+]);
+h3('b · Que font les trois personnes ? Pourquoi ?');
+ex("<b>Deux questions en une : l’action, puis la raison.</b> The <i>pourquoi</i> is the part that earns marks, because it forces a <b>parce que</b> clause.<br><br><b>La structure :</b><br><i>Ils / elles <b>___</b>, parce qu’ils veulent <b>___</b>.</i><br><br>· <i>Ils vident leur grenier, parce qu’ils veulent vendre de vieux objets.</i><br>· <i>Ils trient des objets, parce qu’ils préparent un vide-grenier.</i><br>· <i>Ils regardent les objets, parce qu’ils cherchent une bonne affaire.</i><br>· <i>Ils discutent du prix, parce qu’ils veulent négocier.</i>");
+rows([
+ ["vider le grenier","vee-day luh gruh-NYAY","to clear out the attic"],
+ ["trier","tree-AY","to sort through"],
+ ["ranger","rahn-ZHAY","to tidy, put away"],
+ ["jeter","zhuh-TAY","to throw away"],
+ ["garder","gar-DAY","to keep"],
+ ["donner","doh-NAY","to give away"],
+ ["chercher","shehr-SHAY","to look for"],
+ ["discuter du prix","dees-kew-tay dew PREE","to discuss the price"],
+ ["parce que / parce qu’","pars KUH","because"],
+ ["pour + infinitif","POOR","in order to"]
+]);
+note("<b>PARCE QUE contre POUR — les deux façons de répondre à « pourquoi ».</b><br><br>· <b>parce que</b> + <u>sujet + verbe conjugué</u> : <i>Ils vendent leurs objets <b>parce qu’</b>ils déménagent.</i><br>· <b>pour</b> + <u>infinitif</u>, no subject : <i>Ils vendent leurs objets <b>pour</b> gagner de l’argent.</i><br><br>Both answer <i>pourquoi</i>. Using both in the same answer is a cheap way to show range:<br><i>Ils vident le grenier <b>pour</b> faire de la place, <b>parce qu’</b>ils ont trop d’objets.</i>");
+h3('c · De quels objets parle la famille Castel ?');
+ex("<b>« Parler DE » — notez la préposition.</b> In French you talk <u>of</u> something: <b>parler de</b>. So the question word becomes <b>de quels</b>, and your answer keeps the <i>de</i>:<br><br>· <i>Ils parlent <b>d’</b>une vieille radio et <b>d’</b>un vélo.</i><br>· <i>Ils parlent <b>des</b> disques vinyles de leur père.</i><br>· <i>La famille Castel parle <b>de</b> trois objets : <b>___</b>, <b>___</b> et <b>___</b>.</i><br><br><b>Rappel de la contraction :</b> <i>de + les</i> → <b>des</b>. <i>Ils parlent <b>des</b> objets</i>, jamais <i>de les objets</i>.");
+
+h2('4 · Mots et expressions — l’état des objets');
+lead('The teal box on the page. Three examples, and the whole scale they belong to.');
+ex("<b>Les trois exemples du livre :</b><br><br>· une machine à écrire <b>en bon état</b><br>· un vélo <b>d’occasion</b><br>· un vinyle <b>en mauvais état</b>");
+h3('L’échelle complète, du meilleur au pire');
+rows([
+ ["neuf / neuve","NUHF / NUHV","brand new, never used"],
+ ["comme neuf","kum NUHF","as good as new"],
+ ["en parfait état","ahn par-feh-tay-TAH","in perfect condition"],
+ ["en très bon état","ahn treh boh-nay-TAH","in very good condition"],
+ ["en bon état","ahn boh-nay-TAH","in good condition"],
+ ["d’occasion","doh-kah-ZYOHN","second-hand (neutral — says nothing about condition)"],
+ ["un peu abîmé","uhn puh ah-bee-MAY","a bit damaged, slightly worn"],
+ ["usé / usée","ew-ZAY","worn out"],
+ ["rayé / rayée","ray-YAY","scratched"],
+ ["cassé / cassée","kah-SAY","broken"],
+ ["en mauvais état","ahn moh-veh-zay-TAH","in bad condition"],
+ ["hors d’usage","or dew-ZAHZH","unusable"],
+ ["à réparer","ah ray-pah-RAY","needs repairing"],
+ ["à restaurer","ah res-toh-RAY","needs restoring"]
+]);
+warn("<b>La structure : EN + état. Et la liaison est obligatoire.</b><br><br>· <i>en <b>b</b>on état</i> → <b>ahn boh-nay-TAH</b> — the n of <i>bon</i> liaises into <i>état</i>.<br>· <i>en <b>m</b>auvais état</i> → <b>ahn moh-veh-zay-TAH</b> — the silent s of <i>mauvais</i> wakes up as a z.<br>· <i>en <b>p</b>arfait état</i> → <b>ahn par-feh-tay-TAH</b> — the silent t wakes up.<br><br>All three run together as one block. Saying them as separate words is the clearest marker of a learner, and here the liaison is <u>obligatoire</u>, not optional.<br><br><b>Et notez :</b> <b>un état</b> is masculine, so it is <i>en <b>bon</b> état</i>, never <i>en bonne état</i>.");
+note("<b>« D’occasion » n’est pas un jugement.</b> It states a fact — someone owned it before — and says nothing about condition. That is why the book pairs it with the two <i>état</i> phrases rather than putting it on the scale: a <i>vélo d’occasion</i> can be <b>en bon état</b> or <b>en mauvais état</b>.<br><br>So a complete description stacks both: <i>un vélo <b>d’occasion</b>, <b>en bon état</b></i>. That is exactly the sentence you would say or write when buying or selling something — and it is the sentence this page is building you towards.");
+h3('Pour décrire un objet — la phrase complète');
+ex("<b>Le modèle à réutiliser pour n’importe quel objet :</b><br><br><i>C’est <b>un/une ___</b> <b>(couleur/matière)</b>, <b>d’occasion</b>, <b>en ___ état</b>. Ça coûte <b>___</b> euros.</i><br><br><b>Trois exemples :</b><br>· <i>C’est une machine à écrire ancienne, en bon état. Elle coûte quarante euros.</i><br>· <i>C’est un vélo d’occasion, un peu abîmé, mais il marche bien. Il coûte quatre-vingts euros.</i><br>· <i>C’est un vinyle des années soixante, en mauvais état — il est rayé.</i>");
+
+h2('5 · Écoutez à nouveau — activité 3');
+lead('The second listening on the same track, and the table that goes with it.');
+ex("<b>a.</b> Quels objets sont : ☐ en bon état &nbsp; ☐ un peu abîmés &nbsp; ☐ en mauvais état<br><br><b>b.</b> Complétez le tableau.");
+table(['Souvenirs','Objets','Quand ?'],[
+ ['On écoutait de la musique.','vinyles, tourne-disque','tous les week-ends'],
+ ['Tu écrivais ton courrier.','…','…'],
+ ['Tu écoutais les infos.','…','…'],
+ ['…','…','…']
+]);
+warn("<b>ARRÊTEZ-VOUS ICI. Ce tableau est le cœur de la leçon, et ce n’est pas du vocabulaire — c’est de la grammaire.</b><br><br>Regardez la première colonne :<br><br>· On <b>écoutait</b> de la musique.<br>· Tu <b>écrivais</b> ton courrier.<br>· Tu <b>écoutais</b> les infos.<br><br>Ces verbes ne sont ni au présent ni au passé composé. Ils sont à l’<b>IMPARFAIT</b> — et la colonne s’appelle <b>« Souvenirs »</b>, ce qui vous dit exactement pourquoi.<br><br>L’imparfait, c’est le temps des <u>habitudes passées</u> : ce qu’on <b>faisait régulièrement</b>, avant. Et la troisième colonne confirme : <b>« tous les week-ends »</b> — une répétition, pas un événement unique.<br><br><b>C’est donc ça, la vraie leçon de l’Unité 7 :</b> les vieux objets servent de prétexte pour vous faire parler de vos souvenirs à l’imparfait.");
+h3('L’imparfait en trente secondes');
+ex("<b>Formation — deux étapes, zéro exception (ou presque) :</b><br><br><b>1 ·</b> Prenez la forme <b>nous</b> du présent.<br><b>2 ·</b> Enlevez <b>-ons</b>, ajoutez la terminaison.<br><br><b>Les six terminaisons : -ais, -ais, -ait, -ions, -iez, -aient</b><br><br>· écouter → nous <b>écout</b>ons → j’écout<b>ais</b>, tu écout<b>ais</b>, il écout<b>ait</b>, nous écout<b>ions</b>, vous écout<b>iez</b>, ils écout<b>aient</b><br>· écrire → nous <b>écriv</b>ons → j’écriv<b>ais</b>, tu écriv<b>ais</b>, il écriv<b>ait</b><br><br><b>La seule vraie irrégularité :</b> <b>être</b> → radical <b>ét-</b> → j’<b>étais</b>, tu <b>étais</b>, il <b>était</b>, nous <b>étions</b>, vous <b>étiez</b>, ils <b>étaient</b>.");
+rows([
+ ["On écoutait de la musique.","oh-nay-koo-teh duh lah mew-ZEEK","We used to listen to music."],
+ ["Tu écrivais ton courrier.","tew ay-kree-veh tohn koo-RYAY","You used to write your letters."],
+ ["Tu écoutais les infos.","tew ay-koo-teh lay-zan-FOH","You used to listen to the news."],
+ ["Quand j’étais petit…","kahn zhay-teh puh-TEE","When I was little…"],
+ ["À l’époque, on n’avait pas Internet.","ah lay-pok ohn nah-veh pah…","Back then we didn’t have the internet."],
+ ["C’était une autre époque.","say-teh ew-noh-tray-POK","It was a different time."],
+ ["Il y avait un tourne-disque.","ee-lyah-veh uhn toorn-DEESK","There was a record player."]
+]);
+note("<b>Les mots qui annoncent l’imparfait — et il y en a un dans le tableau.</b><br><br>· <b>tous les week-ends</b> ← celui du livre<br>· tous les jours, tous les matins<br>· souvent, toujours, d’habitude, généralement<br>· à l’époque, avant, autrefois<br>· quand j’étais petit / jeune<br><br>Si vous voyez un de ces mots à côté d’un verbe au passé, c’est presque toujours l’imparfait. À l’examen, le marqueur temporel vous donne la réponse avant le verbe.");
+h3('Le vocabulaire des objets anciens — pour remplir le tableau');
+rows([
+ ["un tourne-disque","uhn toorn-DEESK","a record player"],
+ ["un vinyle / un disque","uhn vee-NEEL / uhn DEESK","a vinyl record"],
+ ["une machine à écrire","ewn mah-sheen ah ay-KREER","a typewriter"],
+ ["le courrier","luh koo-RYAY","post, letters, correspondence"],
+ ["une lettre","ewn LETR","a letter"],
+ ["les infos (les informations)","lay-zan-FOH","the news"],
+ ["un poste de radio","uhn post duh rah-DYOH","a radio set"],
+ ["un magnétoscope","uhn mah-nyay-toh-SKOP","a video recorder"],
+ ["une cassette","ewn kah-SET","a cassette"],
+ ["un appareil photo","uhn ah-pah-ray foh-TOH","a camera"],
+ ["une montre","ewn MOHNTR","a watch"],
+ ["des meubles","day MUHBL","furniture"],
+ ["un jouet","uhn zhoo-AY","a toy"],
+ ["un ours en peluche","uhn oors ahn puh-LEWSH","a teddy bear"],
+ ["de la vaisselle","duh lah veh-SEL","crockery, dishes"],
+ ["un grenier","uhn gruh-NYAY","an attic"],
+ ["une cave","ewn KAHV","a cellar"],
+ ["un souvenir","uhn soo-vuh-NEER","a memory; a souvenir"]
+]);
+
+h3('Le tableau — et comment le remplir');
+ex("<b>Le livre vous donne la première ligne. L’activité 4 vous donne deux autres réponses sans le dire.</b><br><br>Regardez les phrases de l’activité 4 :<br><br>· <i>J’allais <b>tous les jours</b> à l’école <b>à vélo</b>.</i> → ligne « J’allais à l’école » : objet = <b>le vélo</b>, quand = <b>tous les jours</b><br>· <i><b>Tous les soirs</b>, tu écrivais ton courrier.</i> → ligne « Tu écrivais ton courrier » : quand = <b>tous les soirs</b>, objet = <b>la machine à écrire</b><br>· <i>Avec mes amis, on écoutait de la musique <b>tous les week-ends</b>.</i> → confirme la première ligne<br><br>Il ne reste donc que <b>« Tu écoutais les infos »</b> — objet : <b>la radio</b> (le poste de radio). Le « quand », il faut l’entendre dans la piste 65.");
+table(['Souvenirs','Objets','Quand ?'],[
+ ['On écoutait de la musique.','les vinyles, le tourne-disque','tous les week-ends'],
+ ['Tu écrivais ton courrier.','la machine à écrire','tous les soirs'],
+ ['Tu écoutais les infos.','la radio (le poste de radio)','— à compléter à l’écoute'],
+ ['J’allais à l’école.','le vélo','tous les jours']
+]);
+warn("<b>Ces quatre objets sont exactement les quatre photos de la page.</b> Ce n’est pas un hasard : la page est construite pour que chaque objet déclenche un souvenir, et chaque souvenir une phrase à l’imparfait. Si vous retenez les quatre paires <b>objet ↔ souvenir</b>, vous avez la leçon entière.");
+
+h2('6 · Observez ces phrases — activité 4 : la grammaire');
+lead('The three sentences the book asks you to observe. This is where the imparfait is introduced.');
+ex("<b>Les trois phrases du livre :</b><br><br><i>J’<b>allais</b> tous les jours à l’école à vélo. Je <b>faisais</b> des kilomètres avec ce vélo.</i><br><i>Tous les soirs, tu <b>écrivais</b> ton courrier.</i><br><i>Avec mes amis, on <b>écoutait</b> de la musique tous les week-ends.</i>");
+note("<b>Ce que la prof veut que vous remarquiez — trois choses.</b><br><br><b>1 · Les terminaisons.</b> <i>all<b>ais</b></i>, <i>fais<b>ais</b></i>, <i>écriv<b>ais</b></i>, <i>écout<b>ait</b></i>. Toutes se prononcent <b>-EH</b>. C’est la signature sonore de l’imparfait.<br><br><b>2 · Les expressions de temps.</b> <i>tous les jours</i>, <i>tous les soirs</i>, <i>tous les week-ends</i>. Chaque phrase en contient une — parce que l’imparfait sert ici à dire une <b>habitude répétée</b>.<br><br><b>3 · Le sens.</b> Aucune de ces phrases ne raconte un événement. Elles décrivent <u>comment c’était avant</u>. En anglais, on traduirait par <i>I used to…</i> ou <i>I would…</i>");
+h3('Les quatre verbes des phrases, conjugués en entier');
+table(['','aller','faire','écrire','écouter'],[
+ ['je / j’','allais','faisais','écrivais','écoutais'],
+ ['tu','allais','faisais','écrivais','écoutais'],
+ ['il / elle / on','allait','faisait','écrivait','écoutait'],
+ ['nous','allions','faisions','écrivions','écoutions'],
+ ['vous','alliez','faisiez','écriviez','écoutiez'],
+ ['ils / elles','allaient','faisaient','écrivaient','écoutaient']
+]);
+warn("<b>D’où viennent ces radicaux ? De la forme NOUS du présent.</b><br><br>· nous <b>all</b>ons → <b>all-</b> → j’allais<br>· nous <b>fais</b>ons → <b>fais-</b> → je faisais <i>(écrit fai-, dit <b>fuh</b>-zeh)</i><br>· nous <b>écriv</b>ons → <b>écriv-</b> → j’écrivais<br>· nous <b>écout</b>ons → <b>écout-</b> → j’écoutais<br><br>C’est pour ça que les verbes les plus irréguliers du présent deviennent faciles à l’imparfait : vous empruntez le radical au pluriel, et tout rentre dans l’ordre. <b>Une seule exception dans toute la langue : être → j’étais.</b>");
+note("<b>Le piège d’orthographe à surveiller : -AIS / -AIT / -AIENT.</b><br><br>Les quatre formes <i>allais / allais / allait / allaient</i> se prononcent <u>exactement pareil</u> : <b>ah-LEH</b>. Seul le sujet vous dit quoi écrire :<br><br>· <b>je, tu</b> → <b>-ais</b><br>· <b>il, elle, on</b> → <b>-ait</b><br>· <b>ils, elles</b> → <b>-aient</b><br><br>À l’écrit, regardez toujours à gauche avant d’écrire la terminaison. C’est l’un des points les plus testés du TCF « structures de la langue », et c’est un point gratuit une fois la règle sue.");
+
+h2('7 · Tendez l’oreille — le son [u]');
+lead('Activity 3c, piste 44: raise your hand when you hear the sound [u].');
+ex("<b>Le son [u], c’est le son écrit « OU »</b> — comme dans <i>b<b>ou</b>jour</i>… pardon, <i>b<b>on</b>j<b>ou</b>r</i>. Bouche très arrondie, langue en arrière, comme le <i>oo</i> de l’anglais <i>food</i>.<br><br><b>Ne le confondez pas avec [y]</b>, le son écrit « U » (<i>t<b>u</b></i>, <i>s<b>u</b>r</i>), qui n’existe pas en anglais : lèvres arrondies <u>mais</u> langue en avant.");
+grid([
+ ["t<u>ou</u>rne-disque","TOORN-deesk — [u]"],
+ ["c<u>ou</u>rrier","koo-RYAY — [u]"],
+ ["bonj<u>ou</u>r","bohn-ZHOOR — [u]"],
+ ["t<u>ou</u>s les j<u>ou</u>rs","too lay ZHOOR — [u] deux fois"],
+ ["v<u>ou</u>s éc<u>ou</u>tiez","voo-zay-koo-TYAY — [u] deux fois"],
+ ["bea<u>u</u>c<u>ou</u>p","boh-KOO — [u]"],
+ ["t<u>ou</u>jours","too-ZHOOR — [u] deux fois"],
+ ["r<u>ou</u>ge","ROOZH — [u]"]
+]);
+ex("<b>Les paires à travailler — [u] contre [y] :</b><br><br>· <b>tout</b> (TOO, everything) / <b>tu</b> (TEW, you)<br>· <b>pour</b> (POOR, for) / <b>pur</b> (PEWR, pure)<br>· <b>nous</b> (NOO, we) / <b>nu</b> (NEW, bare)<br>· <b>joue</b> (ZHOO, cheek) / <b>jus</b> (ZHEW, juice)<br>· <b>roue</b> (ROO, wheel) / <b>rue</b> (REW, street)<br>· <b>dessous</b> (duh-SOO, underneath) / <b>dessus</b> (duh-SEW, on top)<br><br>La dernière paire est la plus dangereuse : <i>dessous</i> et <i>dessus</i> veulent dire le contraire l’un de l’autre et ne diffèrent que par ce son.");
+warn("<b>Comment faire le [y] si vous n’y arrivez pas — la méthode en trois secondes.</b><br><br><b>1 ·</b> Dites <b>i</b> (comme dans <i>si</i>). Gardez la langue exactement où elle est.<br><b>2 ·</b> Sans bouger la langue, arrondissez les lèvres comme pour siffler.<br><b>3 ·</b> Le son qui sort est le <b>[y]</b> français.<br><br>Si vous entendez <i>oo</i>, c’est que votre langue a reculé. Recommencez à partir du <b>i</b>. C’est la langue qui fait la différence, pas les lèvres.");
+
+h2('8 · Vos phrases — production');
+lead('The point of the whole lesson: talk about your own past with old objects.');
+ex("<b>Imitez les trois phrases de l’activité 4, mais sur votre vie en Inde.</b><br><br><i>J’allais tous les jours à <b>___</b> à <b>___</b>.<br>Tous les soirs, je <b>___</b>.<br>Avec mes amis, on <b>___</b> tous les week-ends.<br>Quand j’étais petit, il y avait <b>___</b> à la maison.<br>À l’époque, on n’avait pas <b>___</b>.</i>");
+note("<b>Un modèle rempli — à adapter :</b><br><br><i>Quand j’étais petit, j’habitais à Jalandhar. J’allais tous les jours à l’école à pied avec ma sœur — c’était à vingt minutes.<br><br>À la maison, il y avait une vieille radio. Mon grand-père écoutait les infos tous les matins à six heures. Il ne regardait jamais la télévision.<br><br>Tous les soirs, ma grand-mère racontait des histoires. Avec mes amis, on jouait au cricket dans la rue tous les week-ends. On n’avait pas de vrai terrain.<br><br>À l’époque, on n’avait pas de téléphone portable. C’était une autre époque — mais c’était bien.</i><br><br><b>Comptez :</b> douze verbes, tous à l’imparfait, deux <i>c’était</i>, un <i>il y avait</i>, et quatre marqueurs d’habitude. C’est exactement ce que la page vous demande de produire.");
+h3('Le jeu de rôle de la brocante — acheteur et vendeur');
+rows([
+ ["Bonjour, je peux vous aider ?","…zhuh puh voo-zay-DAY","Hello, can I help you?"],
+ ["Je regarde, merci.","zhuh ruh-GARD mehr-SEE","I’m just looking, thanks."],
+ ["Ça coûte combien ?","sah koot kohn-BYAN","How much is it?"],
+ ["C’est combien, le vélo ?","say kohn-byan luh vay-LOH","How much is the bike?"],
+ ["Il est en bon état ?","ee-lay-tahn boh-nay-TAH","Is it in good condition?"],
+ ["Il est un peu abîmé.","ee-lay-tuhn puh ah-bee-MAY","It’s a bit damaged."],
+ ["Ça marche encore ?","sah marsh ahn-KOR","Does it still work?"],
+ ["C’est trop cher.","say troh SHEHR","That’s too expensive."],
+ ["Vous pouvez faire un prix ?","voo poo-vay fehr uhn PREE","Can you do me a deal?"],
+ ["Je vous le laisse à vingt euros.","zhuh voo luh less ah van-tuh-ROH","I’ll let you have it for twenty euros."],
+ ["D’accord, je le prends.","dah-kor zhuh luh PRAHN","All right, I’ll take it."],
+ ["C’est une bonne affaire.","say-tewn bun ah-FEHR","It’s a good deal."]
+]);
+ex("<b>Un dialogue complet à apprendre par cœur — il tient en huit répliques :</b><br><br>— <i>Bonjour ! C’est combien, la machine à écrire ?</i><br>— <i>Quarante euros. Elle est en très bon état.</i><br>— <i>Elle marche encore ?</i><br>— <i>Oui, oui. Elle est ancienne mais elle marche très bien.</i><br>— <i>Quarante euros, c’est un peu cher… Vous pouvez faire un prix ?</i><br>— <i>Trente-cinq, et je vous la laisse.</i><br>— <i>D’accord, je la prends. Merci !</i><br>— <i>Merci à vous, bonne journée !</i><br><br><b>Notez :</b> <i>je <b>la</b> prends</i> — <i>machine</i> est féminin, donc le pronom est <b>la</b>. Si c’était le vélo : <i>je <b>le</b> prends</i>.");
+
+h2('9 · Exercices — rappel actif');
+h3('A · Mettez à l’imparfait');
+fill([
+ {s:"J’ ______ à l’école à vélo. (aller)", a:["allais"], why:"<i>nous allons</i> → radical <b>all-</b> → <b>allais</b>."},
+ {s:"Tu ______ ton courrier. (écrire)", a:["écrivais"], why:"<i>nous écrivons</i> → <b>écriv-</b>."},
+ {s:"On ______ de la musique. (écouter)", a:["écoutait"], why:"<i>on</i> prend la terminaison de <i>il</i> : <b>-ait</b>."},
+ {s:"Je ______ des kilomètres. (faire)", a:["faisais"], why:"<i>nous faisons</i> → <b>fais-</b>, dit <b>fuh</b>-zeh."},
+ {s:"Nous ______ au cricket. (jouer)", a:["jouions"], why:"<i>nous</i> → <b>-ions</b>."},
+ {s:"Mes parents ______ la radio. (écouter)", a:["écoutaient"], why:"Sujet pluriel → <b>-aient</b>."},
+ {s:"Il y ______ un tourne-disque. (avoir)", a:["avait"], why:"<b>il y avait</b> — à apprendre en bloc."},
+ {s:"C’ ______ une autre époque. (être)", a:["était"], why:"<b>c’était</b> — radical irrégulier <b>ét-</b>."},
+ {s:"Quand j’ ______ petit… (être)", a:["étais"], why:"La phrase d’ouverture de tout souvenir."},
+ {s:"Vous ______ souvent ? (sortir)", a:["sortiez"], why:"<i>nous sortons</i> → <b>sort-</b>, <i>vous</i> → <b>-iez</b>."}
+]);
+h3('B · -ais, -ait ou -aient ?');
+mcq([
+ {q:"Je regard______ la télé.", opts:["-ais","-ait","-aient"], a:0, why:"<i>je</i> → <b>-ais</b>."},
+ {q:"Tu écout______ les infos.", opts:["-ais","-ait","-aient"], a:0, why:"<i>tu</i> → <b>-ais</b>, comme <i>je</i>."},
+ {q:"On écout______ de la musique.", opts:["-ais","-ait","-aient"], a:1, why:"<i>on</i> suit <i>il</i> → <b>-ait</b>."},
+ {q:"Mes amis jou______ au cricket.", opts:["-ait","-aient"], a:1, why:"Sujet pluriel → <b>-aient</b>."},
+ {q:"La famille Castel vend______ de vieux objets.", opts:["-ait","-aient"], a:0, why:"<i>la famille</i> est grammaticalement <u>singulier</u> → <b>-ait</b>. Piège classique."},
+ {q:"Les quatre formes se prononcent :", opts:["différemment","toutes -EH"], a:1, why:"Identiques à l’oreille. Seul le sujet décide de l’écriture."}
+]);
+h3('C · L’état des objets — choisissez');
+mcq([
+ {q:"Un vélo que quelqu’un a déjà utilisé :", opts:["neuf","d’occasion"], a:1, why:"<b>d’occasion</b> = second-hand."},
+ {q:"Un vinyle rayé qui saute :", opts:["en bon état","en mauvais état"], a:1, why:"Rayé → <b>en mauvais état</b>."},
+ {q:"Une machine à écrire qui marche parfaitement :", opts:["en bon état","abîmée"], a:0, why:"<b>en bon état</b>."},
+ {q:"« en bon ______ » — masculin ou féminin ?", opts:["bon état","bonne état"], a:0, why:"<b>un état</b> est masculin."},
+ {q:"« mon ______ appartement » = my FORMER flat", opts:["ancien","vieux"], a:0, why:"<b>ancien</b> <u>avant</u> le nom = former."},
+ {q:"« un appartement ______ » = a PERIOD flat", opts:["ancien","vieux"], a:0, why:"<b>ancien</b> <u>après</u> le nom = antique, period."},
+ {q:"Le mot qu’un vendeur préfère pour son objet :", opts:["vieux","ancien"], a:1, why:"<i>Ancien</i> flatte, <i>vieux</i> déprécie. C’est tout l’art de la négociation."},
+ {q:"« vide-grenier » au Québec se dit :", opts:["vente de garage","marché aux puces"], a:0, why:"Le livre le précise dans l’encadré LE + INFO."}
+]);
+h3('D · Le son [u] ou [y] ?');
+mcq([
+ {q:"« tourne-disque »", opts:["[u] — OU","[y] — U"], a:0, why:"TOORN — le son OU."},
+ {q:"« tu »", opts:["[u] — OU","[y] — U"], a:1, why:"TEW — le son U."},
+ {q:"« courrier »", opts:["[u] — OU","[y] — U"], a:0, why:"koo-RYAY."},
+ {q:"« musique »", opts:["[u] — OU","[y] — U"], a:1, why:"mew-ZEEK."},
+ {q:"« vous »", opts:["[u] — OU","[y] — U"], a:0, why:"VOO."},
+ {q:"« vendu »", opts:["[u] — OU","[y] — U"], a:1, why:"vahn-DEW."},
+ {q:"« dessous » et « dessus » :", opts:["même sens","sens opposés"], a:1, why:"<i>dessous</i> = underneath, <i>dessus</i> = on top. Un seul son les sépare."}
+]);
+h3('E · Traduisez');
+fill([
+ {s:"It’s a second-hand bike. → ______", a:["C’est un vélo d’occasion"], why:"<b>d’occasion</b> après le nom."},
+ {s:"The typewriter is in good condition. → ______", a:["La machine à écrire est en bon état"], why:"<b>en bon état</b>, masculin."},
+ {s:"How much is it? → ______", a:["Ça coûte combien","C’est combien"], why:"Les deux marchent."},
+ {s:"When I was little, I used to play cricket. → ______", a:["Quand j’étais petit, je jouais au cricket"], why:"Deux imparfaits."},
+ {s:"We used to listen to music every weekend. → ______", a:["On écoutait de la musique tous les week-ends"], why:"La phrase du livre."},
+ {s:"There was an old radio. → ______", a:["Il y avait une vieille radio"], why:"<b>il y avait</b>."},
+ {s:"It was another time. → ______", a:["C’était une autre époque"], why:"<b>c’était</b>."},
+ {s:"Where does the scene take place? → ______", a:["Où se passe la scène"], why:"<b>se passer</b>, verbe pronominal."}
+]);
+h3('F · Dictée');
+dict([
+ {fr:"On écoutait de la musique tous les week-ends.", en:"We used to listen to music every weekend.", why:"La phrase modèle du livre."},
+ {fr:"J’allais tous les jours à l’école à vélo.", en:"I used to cycle to school every day.", why:"<b>à vélo</b> pour le moyen de transport."},
+ {fr:"Tous les soirs, tu écrivais ton courrier.", en:"Every evening you used to write your letters.", why:"Marqueur de temps en tête de phrase."},
+ {fr:"C’est un vélo d’occasion, en bon état.", en:"It’s a second-hand bike, in good condition.", why:"Les deux structures ensemble."},
+ {fr:"Ce vinyle est en mauvais état.", en:"This record is in bad condition.", why:"Liaison : ahn moh-veh-zay-TAH."},
+ {fr:"Il y avait un tourne-disque à la maison.", en:"There was a record player at home.", why:"<b>il y avait</b> en un seul bloc."},
+ {fr:"Ça coûte combien, la machine à écrire ?", en:"How much is the typewriter?", why:"Question par intonation."},
+ {fr:"Quand j’étais petit, c’était une autre époque.", en:"When I was little, it was a different time.", why:"Deux formes de <i>être</i> à l’imparfait."}
+]);
+src('Cours 33 · Saison 1 (A1+), Livre p. 137 — Unité 7, Découvrir : Où trouver de vieux objets · vidéo « Tous à la Brocante ! », pistes 65 et 44. Notes prises en direct depuis l’écran ; explications et exercices rédigés ici.');
+</script>
+</body>
+</html>
