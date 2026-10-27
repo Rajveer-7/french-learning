@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ressources — écouter, lire, parler</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+  .reading { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:10px 0; }
+  .reading p { margin:0 0 10px; }
+
+  .tkbox { background:var(--card); border:2px solid var(--accent); border-radius:14px; padding:14px 16px; margin:0 0 22px; }
+  .tkhead { font-size:17px; color:var(--accent); margin-bottom:10px; }
+  .tktodo { background:var(--accentbg); border-radius:10px; padding:12px 14px; font-size:14px; line-height:1.6; margin-bottom:14px; }
+  .tktab { width:100%; border-collapse:collapse; font-size:13px; }
+  .tktab th { text-align:center; padding:6px 4px; border-bottom:2px solid var(--line); font-size:12px; color:var(--muted); font-weight:600; }
+  .tktab th span { font-weight:400; font-size:10px; }
+  .tktab td { padding:4px; border-bottom:1px solid var(--line); text-align:center; }
+  .tktab td.nm { text-align:left; font-size:13px; }
+  .tkb { font-size:11px; padding:4px 8px; min-width:52px; border:1px solid var(--line); background:var(--bg); color:var(--muted); border-radius:6px; cursor:pointer; }
+  .tkb.done { background:var(--green); color:#fff; border-color:var(--green); font-weight:600; }
+  .tktab td.st { font-size:12px; color:var(--muted); white-space:nowrap; }
+  .tktab td.st.ok { color:var(--green); font-weight:600; }
+  .tktab td.st.mid { color:var(--accent); }
+  .tktab td.st.warn { color:#b45309; font-weight:600; }
+  .tkfoot { margin-top:10px; font-size:12px; color:var(--muted); display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .tkreset { font-size:12px; padding:4px 10px; border:1px solid var(--line); background:var(--bg); color:var(--muted); border-radius:6px; cursor:pointer; }
+</style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
+<style id="mobile-fix">
+@media (max-width: 640px){
+  .wrap{ padding:12px 12px 70px; }
+  h1{ font-size:22px; line-height:1.25; }
+  h2{ font-size:19px; }
+  h3{ font-size:16px; }
+  /* nav becomes one swipeable row instead of a wall of chips */
+  nav{ flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
+       padding-bottom:6px; margin-bottom:14px; scrollbar-width:thin; }
+  nav a{ flex:0 0 auto; white-space:nowrap; font-size:12px; padding:6px 9px; }
+  /* tables scroll sideways instead of crushing */
+  table, .conjt{ display:block; width:100%; overflow-x:auto;
+                 -webkit-overflow-scrolling:touch; white-space:nowrap; font-size:13px; }
+  table td, table th, .conjt td, .conjt th{ white-space:normal; min-width:92px; }
+  /* reading blocks */
+  .note,.example,.warn,.source,.lead,.txtp{ font-size:14.5px; }
+  .grid{ grid-template-columns:1fr !important; }
+  /* bigger tap targets on the audio rows */
+  .row{ padding:10px 8px; }
+  .play{ min-width:38px; min-height:38px; }
+  .fr{ font-size:16px; }
+  .ph,.en{ font-size:13px; }
+  /* exercises */
+  .fillrow input{ width:100%; box-sizing:border-box; font-size:16px; padding:8px; }
+  .fillrow button,.riddle button{ padding:9px 12px; font-size:14px; margin-top:6px; }
+  .riddle .btns{ display:flex; flex-wrap:wrap; gap:6px; }
+  /* book page chapter tabs */
+  .parttabs{ flex-wrap:nowrap; overflow-x:auto; }
+  .parttabs button{ flex:0 0 auto; white-space:nowrap; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Ressources — écouter, lire, parler</h1>
+  <p class="sub">Les 30 % que le livre ne peut pas fournir · classées par niveau, avec la dose et le moment de commencer</p>
+
+  <nav>
+    <a href="French_Start_Here.html"><b>★ Start Here</b></a>
+    <a href="French_Cours_Complet.html">Complete Book</a>
+    <a href="French_Comment_Etudier.html">Comment étudier</a>
+    <a href="French_Ressources.html" class="active">Ressources</a>
+    <a href="French_Plan_10_Mois.html">Plan 10 mois</a>
+    <a href="French_TCF_Guide.html">TCF Guide</a><a href="French_Cours35_Notes.html">Cours 35</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <span class="toggle"><button id="n" class="on">Normal</button><button id="s">Slow</button></span>
+    <span id="voicewarn"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+<script>
+
+
+
+
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=(r||rate); return u;
+}
+function speak(text, r){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').innerHTML=fr; c.querySelector('.ph').innerHTML=ph;
+    const plain=String(fr).replace(/<[^>]*>/g,'').replace(/\s*—.*$/,'').trim();
+    c.onclick=()=>speak(plain); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+/* ===== 1 ===== */
+function fillx(list){ fill(list.map(x=>({s:x[0], a:[x[1]], en:x[2]||'', why:x[3]||('Réponse : <b>'+x[1]+'</b>')}))); }
+function mcqx(list){ mcq(list.map(x=>({q:x[0], opts:x[1], a:x[2], why:x[3]||''}))); }
+
+function read(paras){
+  const d=document.createElement('div'); d.className='reading';
+  paras.forEach(t=>{
+    const el=document.createElement('p'); el.innerHTML=t; el.style.cursor='pointer';
+    const plain=String(t).replace(/<[^>]*>/g,'');
+    el.onclick=()=>speak(plain);
+    d.appendChild(el);
+  });
+  content.appendChild(d);
+}
+
+function dict(items){
+  items.forEach((it,n)=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const top=document.createElement('div'); top.className='sent';
+    top.innerHTML='<b>'+(n+1)+'.</b> Écoutez, puis écrivez ce que vous entendez. <i>(Listen, then write what you hear.)</i>';
+    const bar=document.createElement('div'); bar.style.cssText='display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:8px 0';
+    const pb=document.createElement('button'); pb.textContent='▶ Écouter'; pb.onclick=()=>speak(it.fr);
+    const sb=document.createElement('button'); sb.textContent='▶ Lentement'; sb.onclick=()=>speak(it.fr,0.55);
+    const inp=document.createElement('input'); inp.placeholder='Écrivez ici…'; inp.style.flex='1';
+    const cb=document.createElement('button'); cb.textContent='Vérifier';
+    const fb=document.createElement('div'); fb.className='fb';
+    function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9' ]/g,' ').replace(/\s+/g,' ').trim(); }
+    cb.onclick=()=>{
+      if(norm(inp.value)===norm(it.fr)){ fb.className='fb ok'; fb.innerHTML='✓ <b>'+it.fr+'</b><br>'+(it.en||'')+(it.why?'<br><i>'+it.why+'</i>':''); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Réponse : <b>'+it.fr+'</b><br>'+(it.en||'')+(it.why?'<br><i>'+it.why+'</i>':''); }
+    };
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') cb.onclick(); });
+    bar.appendChild(pb); bar.appendChild(sb); bar.appendChild(inp); bar.appendChild(cb);
+    d.appendChild(top); d.appendChild(bar); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+h2('0 · Avant la liste : comment choisir');
+warn("<b>LA RÈGLE DES 50–90 % — appliquez-la à tout ce qui suit.</b><br><br>Une ressource est au bon niveau pour vous si vous en comprenez <b>entre 50 et 90 %</b> sans aide.<br><br>· <b>Moins de 50 %</b> → trop dur. Vous ne devinez plus, vous subissez. Redescendez d’un niveau <u>sans hésiter</u> — il n’y a aucune honte à réécouter de l’A2 au mois 6.<br>· <b>Plus de 90 %</b> → trop facile. C’est agréable et ça ne construit rien. Montez.<br>· <b>Entre les deux</b> → c’est là que le travail se fait.<br><br>Soyez honnête dans l’estimation : « j’ai saisi le sujet » n’est pas « j’ai compris 70 % ».");
+note("<b>Et une mise en garde honnête sur cette page.</b><br><br>Je n’ai pas pu ouvrir et tester chacun de ces sites un par un — certaines adresses sont bloquées pour moi. Je les ai repérées via des guides de préparation et, pour deux d’entre elles, dans le <b>manuel officiel du candidat TCF</b>, qui les recommande nommément.<br><br>Les noms et les niveaux sont fiables. <b>Vérifiez vous-même</b> que le contenu correspond à votre niveau et que les offres gratuites n’ont pas changé avant d’en faire une habitude. Et méfiez-vous systématiquement des sites payants qui promettent le NCLC 7 en trois mois.");
+
+h2('1 · Les trois essentielles — à faire tous les jours');
+warn("<b>Si vous ne retenez que trois choses de cette page, ce sont celles-là.</b><br><br><b>1 · RFI — Journal en français facile</b> &nbsp;<i>francaisfacile.rfi.fr</i><br>Un bulletin d’actualité de <b>dix minutes, tous les jours, avec transcription gratuite</b>, pitché autour du B1. C’est le cœur de votre Trajet B. <b>Le manuel du candidat TCF le recommande explicitement.</b> Téléchargeable pour l’écoute hors ligne — préparez-le la veille en Wi-Fi.<br><br><b>2 · TV5Monde — Apprendre le français</b> &nbsp;<i>apprendre.tv5monde.com</i><br>Exercices vidéo <b>classés par niveau A1 à B2</b>, correction automatique, format proche de l’examen. <b>Également recommandé par le manuel du candidat</b>, et il existe une section dédiée au TCF.<br><br><b>3 · France Éducation International — exemples d’items officiels</b><br>Les seuls exercices écrits par l’organisme qui conçoit le test. Peu nombreux. <b>Gardez-en pour vos examens blancs des mois 6 et 9</b> plutôt que de tout brûler maintenant — une fois faits, ils ne sont plus un test.");
+
+h2('2 · Écoute — l’échelle, du plus simple au plus dur');
+lead('Montez quand vous atteignez 70 % sans transcription. Pas avant.');
+table(['Niveau','Ressource','Format','Transcription'],[
+ ['<b>A1–A2</b>','<b>Coffee Break French</b>, saison 1–2','Balado, leçons structurées, beaucoup d’anglais','partielle'],
+ ['<b>A2–B1</b>','<b>InnerFrench</b>','Monologues entièrement en français, débit lent, sujets adultes','<b>oui, sur le site</b>'],
+ ['<b>A2–B1</b>','<b>LanguaTalk Slow French</b>','Conversations ralenties','<b>interactive, gratuite</b>'],
+ ['<b>B1</b>','<b>One Thing in a French Day</b>','Épisodes courts, vie quotidienne, tout en français','selon épisode'],
+ ['<b>B1</b>','<b>RFI — français facile</b>','10 min/jour, actualité','<b>oui, gratuite</b>'],
+ ['<b>B1–B2</b>','<b>Duolingo French Podcast</b> (archives)','Histoires vraies, narration bilingue','oui — <i>n’produit plus de nouveaux épisodes</i>'],
+ ['<b>B2</b>','<b>franceinfo</b>, <b>France Inter</b>','Radio normale, débit réel','non'],
+ ['<b>B2+</b>','<b>France Culture</b>','Sujets abstraits, débit soutenu','non']
+]);
+note("<b>Pourquoi la transcription compte autant.</b><br><br>Sans transcription, l’écoute reste de l’exposition : vous entendez du français et vous ne savez jamais <u>ce que vous avez raté</u>.<br><br>Avec transcription, vous pouvez faire la troisième passe — celle qui compte : écouter, puis lire, puis surligner tout ce que vous n’aviez pas entendu. C’est là que vous découvrez <u>pourquoi</u> vous n’aviez pas entendu : mot inconnu, liaison, ou élision. Trois causes, trois remèdes.<br><br><b>Donc : privilégiez toujours une ressource avec transcription</b>, même si le contenu vous intéresse moins.");
+
+h2('3 · L’accent québécois — obligatoire, pas optionnel');
+warn("<b>Le manuel du candidat TCF le dit noir sur blanc :</b><br><br><i>« Certains items de compréhension de cette version du test marquent une appartenance à l’univers canadien francophone par leur accent et/ou le contexte de la situation. »</i><br><br>Si vous ne vous entraînez que sur du français de France, vous découvrirez l’accent québécois <b>le jour de l’examen, sous chronomètre, sans deuxième écoute</b>.<br><br>Et vous vivez au Canada — c’est aussi l’accent que vous entendrez si vous travaillez un jour en français ici.");
+table(['Ressource','Ce que c’est','Niveau'],[
+ ['<b>Radio-Canada / ICI Première</b>','Radio publique québécoise, en direct et en balado. Diffusion gratuite dans le monde entier.','B1–B2'],
+ ['<b>ICI Télé — Le Téléjournal</b>','Journal télévisé, québécois soigné','B2'],
+ ['<b>Radio-Canada OHdio</b>','La plateforme de balados de Radio-Canada','varie'],
+ ['<b>Quebec French Podcast</b> (French with Frédéric)','Balado centré sur le français québécois','A2–B1'],
+ ['<b>TV5 Québec Canada</b>','Programmes canadiens','varie']
+]);
+ex("<b>Comment l’intégrer sans vous décourager :</b><br><br>· <b>Une séance sur deux</b> au Trajet B. Pas plus au début.<br>· Les <b>vingt premières minutes</b> seront déconcertantes. C’est normal — les voyelles et l’intonation diffèrent vraiment.<br>· Au bout de <b>trois semaines</b>, ça passe.<br>· Commencez par le <b>journal télévisé</b> plutôt que par la conversation libre : le québécois des journalistes est beaucoup plus proche du français standard que celui de la rue.");
+
+h2('4 · Lecture — là où se construit le vocabulaire');
+warn("<b>Le chiffre qui explique pourquoi la lecture n’est pas optionnelle.</b><br><br>Il faut environ <b>3 000 à 5 000 mots</b> pour lire confortablement au niveau B2. <i>(Chiffre courant dans la littérature pédagogique ; je ne l’ai pas vérifié à la source primaire.)</i><br><br>Le livre vous en donnera peut-être <b>1 500 à 2 000</b>. Le reste vient du <b>volume</b> — et il n’existe aucune liste qui remplace ça. On n’apprend pas 3 000 mots par cœur ; on les rencontre.<br><br><b>Dose : 15 à 20 minutes par jour.</b> C’est peu et c’est non négociable à partir du mois 3.");
+h3('Sites de lecture graduée');
+table(['Site','Ce qu’il offre','Niveau','Note'],[
+ ['<b>lingua.com/french/reading</b>','Textes + QCM, gratuits','A1–B1','<b>Celui de votre cours</b> — la prof l’a utilisé pour « Les vêtements »'],
+ ['<b>waytofrench.com/reading</b>','Textes gradués A1–B2, vocabulaire surligné + quiz sur chaque texte','A1–B2','le plus complet des gratuits'],
+ ['<b>1jour1actu.com</b>','Actualité écrite pour enfants français','A2–B1','<b>mon préféré pour vous</b> — vrai français, vocabulaire limité'],
+ ['<b>lirefrancais.com</b>','Passages A1–C1 avec traduction anglaise sous chaque ligne','A1–C1','~20 passages gratuits'],
+ ['<b>melolingua.com</b>','Passages avec audio, traduction, vocabulaire et questions','A2–B1','quelques-uns gratuits par niveau'],
+ ['<b>Le Point du FLE</b>','Annuaire qui renvoie vers des exercices de lecture, avec le niveau indiqué','tous','un carrefour, pas un contenu'],
+ ['<b>Radio-Canada — en bref</b>','Vraie presse canadienne, articles courts','B1+','à partir du mois 5']
+]);
+note("<b>Pourquoi 1jour1actu est particulièrement bon pour vous.</b><br><br>C’est de l’actualité réelle, écrite par des journalistes, mais destinée à des enfants français de 8 à 12 ans. Résultat : <b>la syntaxe est authentique</b> (contrairement aux textes de manuel, qui sont fabriqués) mais le <b>vocabulaire est volontairement limité</b>, et chaque article fait 200 à 300 mots.<br><br>C’est exactement le profil dont vous avez besoin entre A2 et B1 : du français vrai, à une densité lexicale que vous pouvez absorber.");
+h3('La méthode de lecture — sinon ça ne sert à rien');
+ex("<b>Ne lisez pas en cherchant chaque mot inconnu. Vous n’iriez nulle part.</b><br><br><b>1 ·</b> Lisez l’article en entier, <u>sans dictionnaire</u>. Acceptez de ne pas tout comprendre.<br><b>2 ·</b> Relisez et <b>soulignez seulement les mots qui bloquent le sens</b> — pas tous les inconnus, seulement ceux sans lesquels vous ne comprenez pas la phrase. En général : trois à cinq par article.<br><b>3 ·</b> Cherchez ces trois à cinq-là.<br><b>4 ·</b> Pour chacun, <b>écrivez une phrase à vous</b>, sur votre vie. Pas la phrase de l’article.<br><b>5 ·</b> Relisez l’article une dernière fois, à voix haute.<br><br><b>Cinq mots par jour × 200 jours = 1 000 mots</b>, appris en contexte et ancrés dans des phrases qui vous concernent. C’est comme ça qu’on comble l’écart, pas en apprenant des listes.");
+
+h2('5 · Parler à des humains — le point qui décide');
+warn("<b>C’est la ressource la plus importante de cette page, et la seule qui demande de sortir de chez soi — au moins virtuellement.</b><br><br>Vous pouvez atteindre un très bon niveau de compréhension tout seul. <b>Vous ne pouvez pas atteindre NCLC 7 en expression orale tout seul.</b> Les mots ne sortent avec fluidité que quand quelqu’un attend la réponse.<br><br><b>Dose : 30 minutes par semaine minimum, à partir du mois 5</b>, <u>en plus</u> de vos cours.");
+table(['Option','Coût','Ce que c’est'],[
+ ['<b>Vos cours du soir</b>','déjà payé','<b>Parlez à chaque séance, même mal.</b> C’est la chose la plus difficile à obtenir et vous l’avez déjà.'],
+ ['<b>Tandem</b> / <b>HelloTalk</b>','gratuit','Échange : vous aidez quelqu’un en anglais, il vous aide en français'],
+ ['<b>italki — community tutor</b>','faible','Tuteur non diplômé, largement suffisant pour converser. Bien moins cher qu’un professeur certifié.'],
+ ['<b>Preply</b>','faible à moyen','Équivalent'],
+ ['<b>Groupes francophones de l’Ontario</b>','gratuit','Cherchez « centre francophone » ou « club de conversation française » près de Brampton / Toronto']
+]);
+note("<b>Comment utiliser une séance de 30 minutes pour qu’elle serve à l’examen :</b><br><br>· <b>5 min</b> — votre présentation de 2 minutes, comme à la tâche 1. Demandez qu’on vous interrompe avec des questions.<br>· <b>10 min</b> — un jeu de rôle où <u>vous</u> posez les questions : réserver, demander un renseignement, régler un problème. C’est la tâche 2, celle où les candidats bloquent.<br>· <b>10 min</b> — un des dix thèmes de la tâche 3, en monologue, sans préparation.<br>· <b>5 min</b> — demandez à votre interlocuteur : <b>quelles sont mes trois erreurs les plus fréquentes ?</b><br><br>Cette dernière question vaut à elle seule le prix de la séance. Vous ne pouvez pas entendre vos propres erreurs récurrentes ; quelqu’un d’autre les entend en cinq minutes.");
+
+h2('6 · Outils de vocabulaire et de vérification');
+rows([
+ ["WordReference","wurd-REF…","dictionnaire avec exemples en contexte — bien meilleur qu’un traducteur"],
+ ["Le Conjugueur","luh kohn-zhew-GUR","vérifier une conjugaison en deux secondes"],
+ ["Reverso Contexte","ruh-vehr-SOH","voir un mot dans de vraies phrases bilingues"],
+ ["Anki","AHN-kee","révision espacée automatique — gratuit sur ordinateur et Android"],
+ ["Forvo","FOR-voh","entendre un mot prononcé par des natifs, plusieurs accents"]
+]);
+warn("<b>Si vous utilisez Anki — une seule règle, et elle est absolue.</b><br><br><b>N’y mettez QUE des phrases entières</b>, tirées de vos lectures et réécrites sur votre vie. Jamais des mots nus.<br><br>· ✘ <i>le loyer = rent</i><br>· ✔ <i>Mon loyer est de mille quatre cents dollars par mois.</i><br><br>Une carte avec un mot nu vous apprend à reconnaître ce mot dans une carte Anki. Une carte avec une phrase vous apprend à produire du français.<br><br>Et limitez-vous : <b>cinq cartes nouvelles par jour</b>. Les gens créent 200 cartes la première semaine, se noient sous les révisions au bout d’un mois et abandonnent.");
+
+h2('7 · Ce qu’il faut éviter');
+warn("<b>1 · Les applis à séries et à points</b> (Duolingo et compagnie). Utiles pour l’habitude quotidienne, très insuffisantes pour un B2. Si ça vous amuse, gardez-le — mais <u>en plus</u>, jamais à la place, et ne comptez pas ces minutes dans vos 16 heures.<br><br><b>2 · Les sites payants qui promettent le NCLC 7 en trois mois.</b> Ce n’est pas possible depuis l’A1, et ils le savent.<br><br><b>3 · Les listes de « 1 000 mots essentiels ».</b> Apprises hors contexte, elles ne ressortent pas en parlant.<br><br><b>4 · Les vidéos YouTube « apprendre le français en dormant ».</b> Non.<br><br><b>5 · Collectionner les ressources au lieu de les utiliser.</b> C’est le piège de cette page. <b>Trois ressources utilisées tous les jours battent quinze ressources ouvertes une fois.</b> Choisissez-en trois et fermez cet onglet.");
+
+h2('8 · Votre semaine, avec les ressources dedans');
+table(['Moment','Ressource','Durée'],[
+ ['<b>Trajet A</b> (lundi)','Le livre — un chapitre, passage 1','2 h'],
+ ['<b>Trajet B</b> (mercredi)','RFI + dictée · TV5Monde · Radio-Canada une fois sur deux · shadowing','2 h'],
+ ['<b>Trajet C</b> (vendredi)','Expression écrite + préparation orale + exercice inversé','2 h'],
+ ['<b>Tous les jours</b>','1jour1actu — un article, méthode en 5 étapes','15–20 min'],
+ ['<b>Mardi / jeudi</b>','Vos cours du soir — <b>parlez</b>','1 h 30 × 2'],
+ ['<b>À partir du mois 5</b>','30 min de conversation avec un humain','30 min'],
+ ['<b>Dimanche</b>','Vous enregistrer et vous réécouter','30 min']
+]);
+warn("<b>LE CONTRÔLE HEBDOMADAIRE — la répartition 50/30/15/5</b><br><br>Chaque dimanche, comptez vos heures de la semaine :<br><br>· <b>~50 %</b> le livre (les trois passages) — environ <b>8 h</b><br>· <b>~30 %</b> écoute réelle, dictée, shadowing — environ <b>5 h</b><br>· <b>~15 %</b> votre propre production, écrite et orale — environ <b>2 h 30</b><br>· <b>~5 %</b> révision espacée d’anciens chapitres — environ <b>30 min</b><br><br><b>Si l’écoute est en dessous de 20 %</b>, c’est le problème numéro un à corriger la semaine suivante — c’est presque toujours la compétence la plus faible, et c’est elle qui fixera votre NCLC.<br><br><b>Si la production est à zéro</b>, vous avez passé la semaine à consommer du français sans jamais en fabriquer. C’est la semaine type de quelqu’un qui stagne.");
+src("<b>Sources.</b> RFI et TV5Monde sont recommandés nommément dans le <i>Manuel du candidat TCF Canada</i> (CIEP / France Éducation International), qui est aussi la source de la mention sur l’accent québécois. Les autres sites ont été repérés via des guides de préparation tiers, non officiels et parfois datés — je n’ai pas pu ouvrir chaque site pour le tester. Le chiffre de 3 000 à 5 000 mots pour le B2 est courant dans la littérature pédagogique mais non vérifié à la source primaire. Doses, méthodes et répartition : mes recommandations.");
+</script>
+</body>
+</html>

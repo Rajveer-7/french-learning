@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TCF Canada — Le guide complet</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+</style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
+<style id="mobile-fix">
+@media (max-width: 640px){
+  .wrap{ padding:12px 12px 70px; }
+  h1{ font-size:22px; line-height:1.25; }
+  h2{ font-size:19px; }
+  h3{ font-size:16px; }
+  /* nav becomes one swipeable row instead of a wall of chips */
+  nav{ flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
+       padding-bottom:6px; margin-bottom:14px; scrollbar-width:thin; }
+  nav a{ flex:0 0 auto; white-space:nowrap; font-size:12px; padding:6px 9px; }
+  /* tables scroll sideways instead of crushing */
+  table, .conjt{ display:block; width:100%; overflow-x:auto;
+                 -webkit-overflow-scrolling:touch; white-space:nowrap; font-size:13px; }
+  table td, table th, .conjt td, .conjt th{ white-space:normal; min-width:92px; }
+  /* reading blocks */
+  .note,.example,.warn,.source,.lead,.txtp{ font-size:14.5px; }
+  .grid{ grid-template-columns:1fr !important; }
+  /* bigger tap targets on the audio rows */
+  .row{ padding:10px 8px; }
+  .play{ min-width:38px; min-height:38px; }
+  .fr{ font-size:16px; }
+  .ph,.en{ font-size:13px; }
+  /* exercises */
+  .fillrow input{ width:100%; box-sizing:border-box; font-size:16px; padding:8px; }
+  .fillrow button,.riddle button{ padding:9px 12px; font-size:14px; margin-top:6px; }
+  .riddle .btns{ display:flex; flex-wrap:wrap; gap:6px; }
+  /* book page chapter tabs */
+  .parttabs{ flex-wrap:nowrap; overflow-x:auto; }
+  .parttabs button{ flex:0 0 auto; white-space:nowrap; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>TCF Canada — le guide complet</h1>
+  <p class="sub">Ce que c'est, ce qu'il vous faut, et comment y arriver · chiffres officiels IRCC et manuel du candidat</p>
+
+  <nav>
+    <a href="French_Start_Here.html"><b>★ Start Here</b></a>
+    <a href="French_Cours_Complet.html">Complete Book</a>
+    <a href="French_Grammaire.html">Grammaire</a>
+    <a href="French_TCF_Guide.html" class="active">TCF Guide</a><a href="French_Plan_10_Mois.html">Plan 10 mois</a><a href="French_Comment_Etudier.html">Comment étudier</a><a href="French_Ressources.html">Ressources</a>
+    <a href="French_Oral_Crash_Course.html">Crash Course</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_Cours33_Notes.html">Cours 33</a><a href="French_Cours34_Notes.html">Cours 34</a><a href="French_Cours35_Notes.html">Cours 35</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <span class="toggle"><button id="n" class="on">Normal</button><button id="s">Slow</button></span>
+    <span id="voicewarn"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+<script>
+
+
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=(r||rate); return u;
+}
+function speak(text, r){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').innerHTML=fr; c.querySelector('.ph').innerHTML=ph;
+    const plain=String(fr).replace(/<[^>]*>/g,'').replace(/\s*—.*$/,'').trim();
+    c.onclick=()=>speak(plain); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+/* ===== 1 ===== */
+function fillx(list){ fill(list.map(x=>({s:x[0], a:[x[1]], en:x[2]||'', why:x[3]||('Réponse : <b>'+x[1]+'</b>')}))); }
+function mcqx(list){ mcq(list.map(x=>({q:x[0], opts:x[1], a:x[2], why:x[3]||''}))); }
+
+function dict(items){
+  items.forEach((it,n)=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const top=document.createElement('div'); top.className='sent';
+    top.innerHTML='<b>'+(n+1)+'.</b> Écoutez, puis écrivez ce que vous entendez. <i>(Listen, then write what you hear.)</i>';
+    const bar=document.createElement('div'); bar.style.cssText='display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:8px 0';
+    const pb=document.createElement('button'); pb.textContent='▶ Écouter'; pb.onclick=()=>speak(it.fr);
+    const sb=document.createElement('button'); sb.textContent='▶ Lentement'; sb.onclick=()=>speak(it.fr,0.55);
+    const inp=document.createElement('input'); inp.placeholder='Écrivez ici…'; inp.style.flex='1';
+    const cb=document.createElement('button'); cb.textContent='Vérifier';
+    const fb=document.createElement('div'); fb.className='fb';
+    function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9' ]/g,' ').replace(/\s+/g,' ').trim(); }
+    cb.onclick=()=>{
+      if(norm(inp.value)===norm(it.fr)){ fb.className='fb ok'; fb.innerHTML='✓ <b>'+it.fr+'</b><br>'+(it.en||'')+(it.why?'<br><i>'+it.why+'</i>':''); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Réponse : <b>'+it.fr+'</b><br>'+(it.en||'')+(it.why?'<br><i>'+it.why+'</i>':''); }
+    };
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') cb.onclick(); });
+    bar.appendChild(pb); bar.appendChild(sb); bar.appendChild(inp); bar.appendChild(cb);
+    d.appendChild(top); d.appendChild(bar); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+h2('0 · Avant tout : d’où viennent ces chiffres');
+warn("<b>Lisez ce paragraphe avant le reste.</b><br><br>Tout ce qui est marqué <b>OFFICIEL</b> dans ce guide vient de deux sources et de deux seulement :<br><br>① le <b>Manuel du candidat TCF Canada</b> publié par le CIEP (aujourd’hui France Éducation International), qui est l’organisme qui conçoit le test ;<br>② la page <b>Express Entry : résultats de test linguistique</b> d’IRCC, mise à jour le <b>16 octobre 2026</b>.<br><br>Tout le reste — les stratégies, les modèles, le planning — c’est mon analyse, et je le signale quand c’est le cas.<br><br><b>Deux mises en garde honnêtes :</b><br>· Le manuel du candidat que j’ai pu consulter porte la mention <b>CIEP-2018</b>. La structure qu’il décrit correspond à ce que décrivent aujourd’hui les sites de préparation, mais <b>vérifiez le format et les durées auprès de votre centre de passation</b> avant le jour J.<br>· Les barèmes NCLC <b>changent</b>. Celui ci-dessous était à jour au 16 octobre 2026. Revérifiez-le sur canada.ca avant de vous inscrire.");
+note("<b>Et une précision importante sur votre situation.</b> Dans nos échanges vous avez parlé tantôt du <b>TEF</b>, tantôt du <b>TCF</b>. Ce sont <u>deux tests différents</u>, tous deux acceptés par IRCC, avec des formats et des barèmes distincts. Ce guide porte sur le <b>TCF Canada</b>. Si vous passez le TEF Canada, la stratégie générale reste valable mais <u>les chiffres et les tâches changent</u> — dites-le-moi et je fais la version TEF.");
+
+h2('1 · Le test en un coup d’œil — OFFICIEL');
+lead('Quatre épreuves obligatoires, dans la même session. Source : Manuel du candidat TCF Canada.');
+table(['Épreuve','Format','Durée','Noté sur'],[
+ ['<b>Compréhension orale</b> (CO)','39 questions à choix multiple','<b>35 min</b>','100–699'],
+ ['<b>Compréhension écrite</b> (CE)','39 questions à choix multiple','<b>60 min</b>','100–699'],
+ ['<b>Expression écrite</b> (EE)','3 tâches rédactionnelles','<b>60 min</b>','20'],
+ ['<b>Expression orale</b> (EO)','3 tâches avec un examinateur','<b>12 min</b> environ','20']
+]);
+warn("<b>SEPT FAITS OFFICIELS QUI CHANGENT VOTRE FAÇON DE PASSER LE TEST</b><br><br><b>1 · Une mauvaise réponse et une absence de réponse valent exactement pareil : zéro.</b><br>Le manuel est explicite : <i>« Chaque bonne réponse est notée 1 point, chaque mauvaise réponse ou absence de réponse est notée 0. »</i><br>→ <b>Il n’y a aucune pénalité pour une erreur. Ne laissez JAMAIS une case vide.</b> Avec 4 options, deviner au hasard vous rapporte en moyenne 25 % de ces questions. Laisser vide rapporte 0 %. C’est la règle la plus rentable de tout ce guide.<br><br><b>2 · Les documents sonores ne passent QU’UNE SEULE FOIS.</b><br>Le manuel le répète : <i>« vous les entendrez une seule fois »</i>. Pas de deuxième écoute, jamais.<br><br><b>3 · Les questions sont rangées par difficulté croissante.</b><br>« Toutes les questions de compréhension sont organisées par niveau de difficulté progressive. » Les premières sont du A1, les dernières du C2.<br>→ Le début est facile : prenez ces points vite et sans hésiter, pour garder du temps pour la fin.<br><br><b>4 · Personne n’échoue au TCF.</b><br>« Personne ne peut échouer au TCF. » Vous recevez un niveau, pas un verdict. Ce qui compte, c’est d’atteindre le seuil NCLC dont vous avez besoin.<br><br><b>5 · Vous pouvez le repasser autant de fois que vous voulez — avec 30 jours d’écart minimum.</b><br><br><b>6 · L’attestation est valable 2 ans.</b> Et IRCC exige qu’elle ait moins de 2 ans <u>au moment où vous soumettez votre demande</u>, pas seulement au moment du profil.<br><br><b>7 · L’oral est enregistré et corrigé deux fois.</b> Une fois par l’examinateur sur place, une fois au siège. L’écrit aussi est en double correction. C’est plutôt une bonne nouvelle : un examinateur de mauvaise humeur ne décide pas seul.");
+note("<b>Deux particularités canadiennes du TCF Canada</b>, précisées par le manuel :<br><br>· <b>Certains documents ont l’accent québécois</b> ou un contexte canadien (lexique, lieux). Vous n’entendrez pas que du français de France.<br>· <b>Les sujets d’expression tournent autour de l’émigration et de l’expatriation</b>, notamment vers le Canada.<br><br>→ Conséquence pratique : écoutez de la radio et de la télé <b>québécoises</b>, pas seulement françaises. Et préparez d’avance vos arguments sur l’immigration, l’intégration, le travail à l’étranger, apprendre une langue — ce sont les thèmes qui tomberont.");
+
+h2('2 · Ce qu’il vous faut exactement — OFFICIEL IRCC');
+lead('Table de correspondance TCF Canada → NCLC. Source : canada.ca, page modifiée le 16 octobre 2026.');
+table(['NCLC','CECRL','Expression orale','Compréhension orale','Compréhension écrite','Expression écrite'],[
+ ['<b>10 et +</b>','C1–C2','16–20','549–699','549–699','16–20'],
+ ['<b>9</b>','C1','14–15','523–548','524–548','14–15'],
+ ['<b>8</b>','B2','12–13','503–522','499–523','12–13'],
+ ['<b>7</b>','B2','<b>10–11</b>','<b>458–502</b>','<b>453–498</b>','<b>10–11</b>'],
+ ['<b>6</b>','B1','7–9','398–457','406–452','7–9'],
+ ['<b>5</b>','B1','6','369–397','375–405','6'],
+ ['<b>4</b>','A2','4–5','331–368','342–374','4–5']
+]);
+warn("<b>VOTRE CIBLE : NCLC 7 DANS LES QUATRE COMPÉTENCES</b><br><br>· <b>Expression orale : 10/20</b><br>· <b>Compréhension orale : 458</b><br>· <b>Compréhension écrite : 453</b><br>· <b>Expression écrite : 10/20</b><br><br><b>Le point le plus important de tout ce guide :</b> IRCC regarde <u>chaque compétence séparément</u>. Il n’y a pas de moyenne. Un 520 en compréhension écrite ne compense <b>pas</b> un 9/20 à l’oral.<br><br>→ Votre niveau réel, c’est votre <b>compétence la plus faible</b>. Travaillez vos points faibles, pas vos points forts. C’est contre-intuitif et c’est la seule stratégie qui marche.");
+note("<b>Pour le Programme des travailleurs qualifiés (fédéral) — OFFICIEL :</b><br><br>· <b>Première langue officielle : NCLC 7 dans les 4 compétences</b> (minimum)<br>· <b>Deuxième langue officielle : NCLC/CLB 5</b><br><br>Pour la <b>Catégorie de l’expérience canadienne</b>, ça dépend de votre code CNP : <b>TEER 0 ou 1 → NCLC 7</b>, <b>TEER 2 ou 3 → NCLC 5</b>. Administrateur système est généralement TEER 1 ou 2 — <b>vérifiez votre code CNP exact</b>, parce que ça change votre cible de deux niveaux entiers.<br><br>Et au-delà du minimum, les points CRS montent avec le niveau : NCLC 7 = 4 points par compétence, NCLC 8 = 5, NCLC 9+ = 6. Plus le français rapporte des points supplémentaires pour une deuxième langue officielle. <b>Ne visez pas 458 : visez 500.</b> Un test, c’est un jour ; une marge de sécurité, ça absorbe une mauvaise journée.");
+
+h2('3 · Compréhension orale — 39 questions, 35 minutes');
+lead('Votre compétence la plus faible, presque certainement. C’est aussi celle où les points se gagnent le plus vite.');
+ex("<b>Ce que le manuel dit qu’on évalue :</b><br><br>· des mots et expressions courantes dans des situations quotidiennes (dialogues, interviews, entretiens, discussions au téléphone) ;<br>· l’essentiel de messages et d’annonces publiques ;<br>· des informations sur des personnes, des faits ou des événements dans des émissions de radio ou de télévision ;<br>· des exposés sur des sujets concrets ou abstraits ;<br>· tout genre de discours à un débit standard.");
+warn("<b>LA STRATÉGIE DE LA CO — six règles</b><br><br><b>1 · Lisez la question AVANT l’audio, pas après.</b><br>Vous ne pouvez pas revenir en arrière. Si vous découvrez la question après avoir écouté, vous avez écouté sans savoir quoi chercher. Les quelques secondes entre deux items servent à lire la suivante.<br><br><b>2 · Repérez le TYPE d’information demandée.</b><br>Un chiffre ? un lieu ? une heure ? un sentiment ? une raison ? Vous n’écoutez pas « tout » — vous écoutez <u>une chose</u>.<br><br><b>3 · Les chiffres : écrivez-les immédiatement, en chiffres.</b><br>Vous entendez <i>soixante-quinze</i>, vous écrivez <b>75</b> tout de suite, avant d’essayer de comprendre la phrase. La compréhension peut attendre ; le chiffre, non.<br><br><b>4 · Écoutez APRÈS le verbe, pas avant.</b><br>En français parlé, le <i>ne</i> de la négation disparaît. Seul le <b>pas</b> / <b>jamais</b> / <b>plus</b> après le verbe vous dit que la phrase est négative — et les distracteurs sont construits là-dessus.<br><br><b>5 · Si vous ratez un item, il est perdu. Passez.</b><br>Le pire scénario, c’est de ruminer l’item 12 et de rater le 13 et le 14. Une question perdue coûte un point ; la panique en coûte dix.<br><br><b>6 · Cochez TOUT.</b> Même à l’aveugle. Zéro pénalité.");
+note("<b>L’entraînement qui marche pour la CO — et il n’est pas agréable.</b><br><br>Écouter des podcasts en fond ne fait presque rien. Ce qui fait progresser, c’est la <b>dictée</b> : écouter une phrase, l’écrire, vérifier mot à mot, et nommer le type d’erreur.<br><br>La dictée force quatre choses en même temps et n’en laisse passer aucune : <b>entendre</b> les sons, <b>découper</b> en mots, <b>orthographier</b>, et <b>appliquer la grammaire</b>. La lecture vous permet de sauter les deux premières ; la conversation vous permet de sauter les deux dernières.<br><br>C’est pour ça que chaque chapitre de ce site a une section Dictée. Quinze minutes par jour, tous les jours, valent plus que trois heures le dimanche.");
+ex("<b>Sources d’écoute, par ordre d’utilité pour vous :</b><br><br><b>1 · RFI — Journal en français facile.</b> Dix minutes par jour, transcription fournie. C’est l’outil numéro un, et le manuel du candidat le recommande lui-même.<br><b>2 · TV5Monde — section TCF.</b> Exercices calibrés par niveau, également recommandés par le manuel.<br><b>3 · Radio-Canada / ICI Première.</b> Pour l’accent québécois, qui <u>sera</u> dans le test.<br><b>4 · Les pistes audio de Saison 1</b> — votre propre manuel de cours, que vous avez déjà.<br><br><b>La méthode en trois passes, sur un seul document de 2 minutes :</b><br>① Écoutez une fois, sans rien lire. Notez ce que vous avez compris.<br>② Écoutez en vous arrêtant toutes les deux phrases pour les écrire.<br>③ Lisez la transcription et surlignez tout ce que vous n’aviez pas entendu.<br><br>La passe ③ est celle qui compte : elle vous montre <u>pourquoi</u> vous n’avez pas entendu — mot inconnu, liaison, ou élision.");
+
+h2('4 · Compréhension écrite — 39 questions, 60 minutes');
+lead('L’épreuve la plus facile à améliorer, et celle où le temps est votre vrai adversaire.');
+ex("<b>Ce que le manuel dit qu’on évalue — du plus simple au plus dur :</b><br><br>· des noms familiers et des phrases très simples (messages, lettres amicales ou administratives) ;<br>· des documents courants : petites annonces, prospectus, menus, horaires ;<br>· des lettres personnelles ;<br>· des textes en langue courante sur la vie quotidienne ou le travail ;<br>· des articles et comptes rendus où les auteurs prennent position ;<br>· des textes factuels ou littéraires longs et complexes, des articles spécialisés.");
+warn("<b>LA GESTION DU TEMPS — c’est ça, l’épreuve</b><br><br>60 minutes pour 39 questions = <b>92 secondes par question</b> en moyenne. Mais les questions ne sont pas égales : les dix premières prennent 30 secondes, les cinq dernières peuvent en prendre quatre minutes.<br><br><b>Le découpage que je recommande :</b><br>· <b>Q1–Q15</b> (A1–A2) : <b>12 minutes</b>. Rapides, sûres. Ne relisez pas.<br>· <b>Q16–Q28</b> (B1–B2) : <b>25 minutes</b>. C’est votre zone de bataille, celle qui décide de votre NCLC.<br>· <b>Q29–Q39</b> (C1–C2) : <b>18 minutes</b>. Au-dessus de votre niveau cible — prenez ce que vous pouvez.<br>· <b>5 minutes</b> à la fin pour <b>remplir toutes les cases vides</b>, au hasard s’il le faut.<br><br>Ce dernier point n’est pas facultatif. Onze cases vides, c’est onze zéros garantis. Onze cases cochées au hasard, c’est environ trois points gratuits.");
+note("<b>La technique qui fait gagner le plus de points : lire la question d’abord, puis chercher.</b><br><br>Ne lisez pas le texte en entier puis les questions. Faites l’inverse :<br>① Lisez la question et les options.<br>② Repérez le <b>mot-clé</b> de la question.<br>③ Balayez le texte pour trouver ce mot-clé — ou plutôt son <u>synonyme</u>, parce que le TCF reformule presque toujours.<br>④ Lisez attentivement les deux phrases autour.<br><br><b>Le piège classique :</b> l’option qui reprend <u>mot pour mot</u> une phrase du texte est très souvent fausse. La bonne réponse est en général une <b>reformulation</b>. Les examinateurs testent la compréhension, pas la capacité à repérer des mots identiques.");
+ex("<b>Le vocabulaire : c’est là que tout se joue.</b><br><br>À ce niveau, la CE n’est plus un problème de grammaire — c’est un problème de vocabulaire. On estime qu’il faut autour de <b>3 000 à 5 000 mots</b> pour lire confortablement à un niveau B2. <i>(Chiffre courant dans la littérature pédagogique ; je ne l’ai pas vérifié sur une source primaire.)</i><br><br><b>Les champs lexicaux à travailler en priorité pour le TCF Canada :</b><br>· le travail, l’emploi, le CV, l’entretien d’embauche<br>· le logement, le déménagement, les démarches administratives<br>· la santé et les services publics<br>· l’éducation et la formation<br>· l’immigration et l’intégration<br>· l’environnement, les transports, la technologie<br>· les médias et les réseaux sociaux<br><br>Ce sont les thèmes des textes B1–B2, et ce sont aussi les sujets d’expression. Un mot appris sert donc deux fois.");
+
+h2('5 · Expression écrite — 3 tâches, 60 minutes — OFFICIEL');
+lead('Les trois tâches, avec les nombres de mots exigés par le manuel du candidat. Apprenez-les par cœur.');
+table(['Tâche','Ce qu’on vous demande','Nombre de mots','Temps conseillé'],[
+ ['<b>1</b>','Un <b>message</b> pour décrire, raconter et/ou expliquer, adressé à un ou plusieurs destinataires dont le statut est précisé','<b>60 – 120</b>','15 min'],
+ ['<b>2</b>','Un <b>article, courrier ou note</b> : compte rendu d’expérience ou récit, accompagné de commentaires, opinions ou arguments','<b>120 – 150</b>','20 min'],
+ ['<b>3</b>','<b>Comparer deux points de vue</b> donnés dans deux documents d’environ 90 mots, puis <b>prendre position</b>','<b>120 – 180</b><br>(40–60 + 80–120)','25 min']
+]);
+warn("<b>LA TÂCHE 3 EST EN DEUX PARTIES, ET LA PLUPART DES CANDIDATS L’IGNORENT.</b><br><br>Le manuel est précis : <b>40 à 60 mots</b> pour la première partie (comparer les deux documents) et <b>80 à 120 mots</b> pour la seconde (votre position).<br><br>Si vous écrivez 180 mots d’opinion personnelle sans comparer les deux textes, vous perdez la moitié des points de la tâche — même si votre français est excellent. <b>Faites les deux parties, dans l’ordre, avec un paragraphe chacune.</b>");
+ex("<b>Ce sur quoi vous êtes évalué — la liste du manuel, mot pour mot :</b><br><br>· communiquer un message de façon claire ;<br>· donner les informations demandées ;<br>· décrire, raconter, expliquer ;<br>· justifier un choix, une position, une décision ;<br>· enchaîner des idées et faire preuve de cohérence ;<br>· comparer deux points de vue ;<br>· exprimer votre avis et l’argumenter ;<br>· utiliser un vocabulaire et des structures adaptés à la tâche ;<br>· faire une synthèse et reformuler.<br><br><b>Remarquez ce qui n’est PAS dans la liste :</b> « écrire sans faute ». La perfection grammaticale n’est pas le critère principal. <b>Répondre précisément à la consigne</b> et <b>enchaîner vos idées</b> comptent davantage. Un texte simple qui fait exactement ce qu’on demande bat un texte ambitieux hors sujet.");
+h3('Tâche 1 — le squelette (60–120 mots)');
+ex("<i>Salut <b>[prénom]</b> / Bonjour Monsieur <b>[nom]</b>,<br><br>J’espère que tu vas bien. Je t’écris parce que <b>[la raison, 1 phrase]</b>.<br><br><b>[2 à 3 phrases de détail : quoi, quand, où, pourquoi]</b><br><br>Est-ce que tu peux <b>[la demande]</b> ? Dis-moi ce que tu en penses.<br><br>À bientôt,<br><b>[votre prénom]</b></i><br><br><b>Trois règles pour la tâche 1 :</b><br>① <b>Respectez le registre.</b> Si la consigne dit « votre ami » → <b>tu</b>, <i>Salut</i>, <i>À bientôt</i>. Si elle dit « votre responsable » → <b>vous</b>, <i>Bonjour Monsieur</i>, <i>Cordialement</i>. Se tromper de registre coûte cher et c’est facile à éviter.<br>② <b>Relisez la consigne et cochez chaque élément demandé.</b> S’il y a trois choses à dire, dites les trois.<br>③ <b>Comptez vos mots.</b> En dessous de 60, vous êtes pénalisé. Visez 90–100 : confortable, et sans risque de dépasser.");
+h3('Tâche 2 — le squelette (120–150 mots)');
+ex("<i><b>[Titre, si c’est un article]</b><br><br><b>Introduction — 2 phrases :</b> de quoi je parle et pourquoi.<br><br><b>Le récit — 5 à 6 phrases au passé :</b> D’abord… Ensuite… Puis… Enfin…<br><br><b>Le commentaire — 3 à 4 phrases :</b> À mon avis… Je pense que… parce que…<br><br><b>La conclusion — 1 phrase :</b> ce que j’en retiens ou ce que je recommande.</i><br><br><b>Le piège de la tâche 2 :</b> le manuel dit <i>« comptes rendus et récits seront accompagnés de commentaires, d’opinions ou d’arguments »</i>. Raconter ne suffit pas — il faut <b>commenter</b>. Beaucoup de candidats racontent 150 mots et oublient de donner leur avis. Gardez un tiers du texte pour le commentaire.<br><br><b>Et c’est ici que vos Chapitres 13 à 16 paient :</b> un récit au passé qui alterne correctement <b>passé composé</b> (les événements) et <b>imparfait</b> (le cadre) est exactement ce qu’un correcteur cherche pour vous mettre au-dessus de B1.");
+h3('Tâche 3 — le squelette (40–60 + 80–120 mots)');
+ex("<b>Partie 1 — la comparaison (40–60 mots). Ne donnez PAS votre avis ici.</b><br><br><i>Les deux documents traitent de <b>[le thème]</b>, mais ils adoptent des points de vue différents. Le premier auteur pense que <b>[position A]</b>. Le second, au contraire, estime que <b>[position B]</b>. Le premier insiste sur <b>[argument A]</b>, tandis que le second met en avant <b>[argument B]</b>.</i><br><br><b>Partie 2 — votre position (80–120 mots).</b><br><br><i>Personnellement, je partage plutôt l’avis du <b>[premier/second]</b> auteur. D’abord, parce que <b>[argument 1 + exemple]</b>. Ensuite, <b>[argument 2 + exemple]</b>. Il est vrai que <b>[concession à l’autre position]</b>, mais <b>[votre réponse à la concession]</b>. Pour toutes ces raisons, je pense que <b>[conclusion]</b>.</i>");
+note("<b>La concession, c’est ce qui fait passer de B1 à B2.</b><br><br><i>« Il est vrai que…, mais… »</i> montre que vous pouvez tenir deux idées opposables en même temps. C’est explicitement un descripteur B2, et c’est une phrase, pas une compétence mystérieuse.<br><br><b>Les quatre formules de concession à connaître :</b><br>· <b>Il est vrai que…, mais…</b><br>· <b>Certes…, cependant…</b><br>· <b>Bien que…</b> (+ subjonctif — si vous ne l’avez pas encore, utilisez les autres)<br>· <b>Même si…</b> (+ indicatif — le plus simple et le plus sûr)<br><br>Mettez-en <u>une</u> dans la tâche 3. Une seule suffit.");
+warn("<b>Les cinq règles matérielles de l’EE — OFFICIEL</b><br><br><b>1 ·</b> <b>Aucun brouillon n’est corrigé.</b> Écrivez dans l’espace prévu. Un plan au brouillon est utile, mais ce qui compte est ce qui est au propre.<br><b>2 ·</b> <b>Il faut faire les trois tâches.</b> Une tâche non faite = zéro sur cette tâche.<br><b>3 ·</b> <b>Ni grammaire, ni dictionnaire, ni dictionnaire électronique.</b><br><b>4 ·</b> <b>Comptez vos mots.</b> Entraînez-vous à savoir à quoi ressemblent 60, 120 et 180 mots dans votre écriture, pour ne pas perdre de temps à compter le jour J.<br><b>5 ·</b> <b>Gardez 5 minutes de relecture.</b> Avec une liste fixe : accords sujet-verbe, accords des adjectifs, auxiliaire <i>avoir</i>/<i>être</i>, accents, et la place de <i>pas</i>.");
+
+h2('6 · Expression orale — 3 tâches, 12 minutes — OFFICIEL');
+lead('Les durées exactes de chaque tâche, d’après le manuel du candidat. C’est l’épreuve la plus prévisible du test.');
+table(['Tâche','Nature','Préparation','Durée de l’échange'],[
+ ['<b>1</b>','<b>Entretien dirigé</b> — parler de vous','<b>aucune</b>','<b>2 minutes</b>'],
+ ['<b>2</b>','<b>Exercice en interaction</b> — obtenir des informations','<b>2 minutes</b>','<b>3 min 30</b>'],
+ ['<b>3</b>','<b>Expression d’un point de vue</b>','<b>aucune</b>','<b>4 min 30</b>']
+]);
+warn("<b>LISEZ CE TABLEAU ENCORE UNE FOIS. IL VOUS DIT TOUT.</b><br><br>· La <b>tâche 1 dure 2 minutes et porte sur vous</b>. Vous connaissez déjà le sujet. Il n’y a aucune raison de ne pas la préparer à la perfection — c’est le seul moment de tout l’examen où vous savez à l’avance ce qu’on va vous demander.<br>· La <b>tâche 3 dure 4 min 30 sans préparation</b>. C’est la plus longue et la plus difficile : il faut parler seul, de façon continue, sur un sujet imposé.<br>· La <b>tâche 2 est la seule avec préparation</b>, et c’est la seule où <b>vous posez les questions</b>.<br><br><b>Exemples donnés par le manuel lui-même :</b><br>· Tâche 2 : <i>« chercher quelqu’un pour garder son animal domestique pendant son absence »</i><br>· Tâche 3 : <i>« Si vous aviez une activité humanitaire, laquelle choisiriez-vous ? Expliquez pourquoi. »</i>");
+note("<b>Deux droits que vous avez et que presque personne n’utilise — OFFICIEL.</b><br><br><b>1 ·</b> <i>« À tout instant, vous pouvez faire répéter ou clarifier un mot ou une question si vous en ressentez le besoin. »</i><br>→ <b>Vous pouvez demander à l’examinateur de répéter.</b> Ce n’est pas un aveu de faiblesse : demander une clarification est une <u>compétence communicative</u> que les grilles CECRL valorisent. Apprenez : <b>« Pardon, vous pouvez répéter, s’il vous plaît ? »</b> et <b>« Qu’est-ce que ça veut dire, ‹ ___ › ? »</b><br><br><b>2 ·</b> Avant l’entretien, l’examinateur répond à vos questions sur l’épreuve pendant deux ou trois minutes — et à ce moment-là <u>uniquement</u>, <b>vous pouvez parler une autre langue</b>. Profitez-en pour lever tout doute sur le déroulement.<br><br><b>3 ·</b> Pendant les 2 minutes de préparation de la tâche 2, <b>vous avez le droit de prendre de courtes notes</b>.");
+h3('Tâche 1 — 2 minutes sur vous. À préparer mot pour mot.');
+ex("<b>Deux minutes, c’est environ 250 à 300 mots.</b> L’examinateur pose des questions simples : qui vous êtes, ce que vous faites, pourquoi vous apprenez le français, vos projets.<br><br><b>Les dix questions qui tombent :</b><br>① Pouvez-vous vous présenter ?<br>② Que faites-vous dans la vie ?<br>③ Depuis combien de temps habitez-vous au Canada ?<br>④ Pourquoi apprenez-vous le français ?<br>⑤ Parlez-moi de votre famille.<br>⑥ Qu’est-ce que vous faites le week-end ?<br>⑦ Qu’est-ce que vous avez fait le week-end dernier ?<br>⑧ Comment était votre vie en Inde ?<br>⑨ Quels sont vos projets ?<br>⑩ Qu’est-ce que vous aimez au Canada ?<br><br><b>Préparez une réponse de 30 à 40 secondes pour chacune.</b> Dix réponses × 35 secondes = plus de cinq minutes de matériel pour une tâche qui en dure deux. Vous ne pouvez pas tomber à court.");
+note("<b>Ce qui fait la différence entre NCLC 6 et NCLC 7 à la tâche 1 :</b> le temps des verbes.<br><br>· Question ④ au <b>présent</b> : <i>J’apprends le français depuis six mois.</i> → et rappelez-vous, <b>depuis + présent</b>.<br>· Question ⑦ au <b>passé composé</b> : <i>Le week-end dernier, j’ai travaillé samedi, puis je suis sorti avec des collègues.</i><br>· Question ⑧ à l’<b>imparfait</b> : <i>Quand j’étais en Inde, j’habitais chez mes parents et j’allais à l’université.</i><br>· Question ⑨ au <b>futur proche</b> : <i>Je vais passer le TCF, et ensuite je vais faire ma demande de résidence permanente.</i><br><br>Quatre temps en deux minutes. Un candidat qui reste au présent plafonne ; un candidat qui en utilise quatre a démontré une gamme. <b>C’est le seul critère que vous pouvez contrôler totalement à l’avance.</b>");
+h3('Tâche 2 — 3 min 30. C’est VOUS qui posez les questions.');
+warn("<b>C’est la tâche où les candidats se plantent, et pour une raison précise : ils n’ont jamais entraîné la <u>production</u> de questions.</b><br><br>On passe des mois à répondre à des questions. Puis l’examen demande d’en <u>poser</u>, sous pression, et la machine se bloque.<br><br>Vous devez obtenir des informations dans une situation quotidienne. Le manuel donne l’exemple : trouver quelqu’un pour garder votre animal pendant votre absence.<br><br><b>Le plan universel, qui marche pour n’importe quelle situation :</b><br>① <b>Saluer et expliquer</b> — <i>Bonjour, je vous appelle parce que…</i><br>② <b>Poser 5 à 6 questions</b> — voir la liste ci-dessous<br>③ <b>Réagir à chaque réponse</b> — <i>D’accord… Ah bon ?… Très bien…</i><br>④ <b>Conclure</b> — <i>Parfait, je vous remercie. À bientôt.</i>");
+rows([
+ ["C’est combien ?","say kohn-BYAN","How much is it?"],
+ ["C’est à quelle heure ?","say tah kel UR","What time is it at?"],
+ ["Ça dure combien de temps ?","sah dewr kohn-byan duh TAHN","How long does it last?"],
+ ["Est-ce qu’il faut réserver ?","ess-keel foh ray-zehr-VAY","Do I need to book?"],
+ ["Qu’est-ce qu’il faut apporter ?","kess-keel foh tah-por-TAY","What do I need to bring?"],
+ ["Vous êtes ouvert le dimanche ?","voo-zet oo-vehr luh dee-MAHNSH","Are you open on Sundays?"],
+ ["Est-ce que c’est possible de… ?","ess-kuh say poh-SEEBL duh","Is it possible to…?"],
+ ["Comment est-ce qu’on fait pour… ?","koh-mahn tess-kohn fay POOR","How do you go about…?"],
+ ["Vous pourriez m’expliquer ?","voo poo-ryay mek-splee-KAY","Could you explain?"],
+ ["Et si je ne peux pas venir ?","ay see zhuh nuh puh pah vuh-NEER","And if I can’t come?"],
+ ["Pardon, vous pouvez répéter ?","par-dohn voo poo-vay ray-pay-TAY","Sorry, could you repeat that?"],
+ ["Qu’est-ce que ça veut dire ?","kess-kuh sah vuh DEER","What does that mean?"]
+]);
+ex("<b>L’entraînement à faire, dix minutes par semaine — et c’est l’exercice inversé :</b><br><br>Je vous donne une réponse, vous produisez la question.<br><br>· <i>— Ça coûte quarante dollars.</i> → <b>C’est combien ?</b><br>· <i>— Non, c’est fermé le lundi.</i> → <b>Vous êtes ouvert le lundi ?</b><br>· <i>— Il faut apporter une pièce d’identité.</i> → <b>Qu’est-ce qu’il faut apporter ?</b><br>· <i>— Ça dure environ deux heures.</i> → <b>Ça dure combien de temps ?</b><br>· <i>— Oui, mais il faut réserver avant.</i> → <b>Est-ce qu’il faut réserver ?</b><br><br>Faites-en cinq par semaine, à voix haute. C’est peu, et c’est la différence entre tenir la tâche 2 et la perdre.");
+h3('Tâche 3 — 4 min 30 sans préparation. La plus longue.');
+ex("<b>Quatre minutes trente à parler seul, sur un sujet que vous découvrez à l’instant.</b> C’est beaucoup. La seule façon de tenir, c’est d’avoir une <b>structure</b> prête — pas des idées prêtes, une <u>structure</u>.<br><br><b>Le plan en cinq temps, qui fonctionne sur n’importe quel sujet :</b><br><br><b>① Reformuler la question</b> <i>(15 s — et ça vous donne 15 secondes pour réfléchir)</i><br><i>« Alors, si je comprends bien, la question c’est de savoir si… C’est une question intéressante. »</i><br><br><b>② Annoncer votre position</b> <i>(20 s)</i><br><i>« Personnellement, je pense que… Je vais vous expliquer pourquoi, avec deux raisons. »</i><br><br><b>③ Premier argument + exemple personnel</b> <i>(1 min 15)</i><br><i>« D’abord… Par exemple, moi, quand je suis arrivé au Canada… »</i><br><br><b>④ Deuxième argument + exemple</b> <i>(1 min 15)</i><br><i>« Ensuite… Je pense à mon frère, qui… »</i><br><br><b>⑤ Concession puis conclusion</b> <i>(1 min)</i><br><i>« Bien sûr, il est vrai que… Mais pour moi,… Donc, en conclusion, je pense que… »</i>");
+warn("<b>L’exemple personnel est votre meilleure arme à la tâche 3.</b><br><br>Quand vous ne savez plus quoi dire sur un sujet abstrait, <b>racontez une histoire personnelle</b>. Trois avantages, tous décisifs :<br><br>① C’est du vocabulaire que vous maîtrisez déjà.<br>② Ça remplit facilement une minute.<br>③ Ça vous fait passer au <b>passé</b>, ce qui montre une gamme de temps — exactement ce que la grille récompense.<br><br><i>« … et pour illustrer, je vais vous donner un exemple personnel. Quand je suis arrivé au Canada, je ne parlais pas du tout français. C’était très difficile au début, parce que… »</i><br><br>Cette transition s’adapte à n’importe quel sujet. Apprenez-la.");
+note("<b>Les thèmes qui tombent au TCF Canada</b> — le manuel précise que les sujets d’expression sont <i>« davantage tournés vers l’émigration/expatriation, notamment vers le Canada »</i>. Préparez deux arguments et un exemple personnel pour chacun :<br><br>· l’immigration et l’intégration dans un nouveau pays<br>· apprendre une langue étrangère : pourquoi, comment<br>· le travail : télétravail, équilibre vie pro / vie perso<br>· vivre loin de sa famille<br>· la technologie et les réseaux sociaux<br>· l’environnement et les transports<br>· l’éducation : les études à l’étranger<br>· la santé et le mode de vie<br>· le bénévolat et l’humanitaire <i>(le manuel donne précisément cet exemple)</i><br>· la ville contre la campagne<br><br>Dix thèmes × deux arguments × un exemple = trente éléments. C’est deux semaines de travail et ça couvre la quasi-totalité de ce qui peut tomber.");
+warn("<b>Les cinq règles de l’oral — ce que l’examinateur écoute vraiment</b><br><br><b>1 · Le silence coûte plus cher que l’erreur.</b> Une réponse fluide avec deux fautes est mieux notée qu’une réponse parfaite avec quatre blancs de dix secondes.<br><b>2 · Se corriger est valorisé.</b> <i>« Je me suis trompé — je voulais dire… »</i> montre que vous contrôlez votre langue. Se taire ne montre rien.<br><b>3 · Les connecteurs transforment une liste en discours.</b> <i>D’abord, ensuite, puis, enfin, donc, parce que, c’est-à-dire, en revanche.</i> Ils coûtent zéro effort et changent la perception.<br><b>4 · Parlez plus longtemps que vous ne le pensez nécessaire.</b> Une réponse de dix secondes est une réponse ratée, même si elle est juste.<br><b>5 · Souriez et regardez l’examinateur.</b> C’est un entretien entre deux personnes, pas un oral de récitation.");
+
+h2('7 · Comment apprendre — ce que la recherche soutient vraiment');
+lead('J’ai cherché les preuves. Voici ce qui tient, et ce qui ne tient pas.');
+warn("<b>D’ABORD, L’AVERTISSEMENT.</b><br><br>Le monde des « méthodes pour apprendre une langue » est plein de chiffres précis et faux. En cherchant, je suis tombé sur des sites affirmant un <i>« accès au vocabulaire 340 % plus rapide »</i> ou un <i>« bénéfice de 43 % »</i> de telle technique, attribués à des chercheurs réels mais <b>sans qu’on puisse remonter à l’étude</b>.<br><br>Méfiez-vous de tout chiffre précis sans référence. Ci-dessous, je sépare clairement ce qui est <b>soutenu par des travaux publiés</b>, ce qui est <b>plausible mais non établi</b>, et ce qui est <b>mon avis</b>.");
+h3('① Ce qui est le mieux soutenu : la récupération espacée');
+ex("<b>Le principe :</b> ne relisez pas — <b>testez-vous</b>, et répartissez les tests dans le temps au lieu de tout faire d’un coup.<br><br><b>Ce que disent les travaux :</b> une méta-analyse sur la pratique espacée en langue seconde trouve un effet positif de l’espacement, qui varie selon le type d’activité. Une revue sur répétition, récupération et pratique espacée conclut que les activités qui amènent l’apprenant à <b>rappeler activement</b> le sens ou la forme d’un mot produisent un apprentissage lexical substantiel.<br><br><b>Ce que ça veut dire concrètement :</b><br>· Relire une liste de vocabulaire est pratiquement inutile.<br>· Se cacher la colonne française et essayer de produire le mot — <u>avant</u> de vérifier — est ce qui fait apprendre. L’échec de rappel fait partie du mécanisme.<br>· Revoir le même mot à J+1, J+3, J+7, J+21 bat quatre révisions le même soir.<br><br><b>Application sur ce site :</b> c’est exactement pourquoi chaque chapitre a des sections « Rappel actif » où vous devez <u>taper</u> la réponse, et pourquoi vos réponses sont sauvegardées — pour que vous puissiez refaire un bloc trois jours plus tard et comparer.");
+h3('② Ce qui est plausible mais que je n’ai pas pu établir : l’input compréhensible');
+note("<b>Le principe :</b> on acquiert une langue surtout en recevant beaucoup de langue qu’on comprend à peu près — lecture et écoute légèrement au-dessus de son niveau.<br><br><b>Honnêtement :</b> ma recherche n’a pas trouvé d’étude contrôlée solide comparant « input + révision espacée » contre « input seul ». L’idée est très répandue et intuitivement raisonnable ; elle n’est pas, dans ce que j’ai pu consulter, démontrée avec la même force que la récupération espacée.<br><br><b>Ce que j’en fais quand même :</b> l’écoute et la lecture régulières sont nécessaires, ne serait-ce que parce que <b>l’épreuve elle-même est faite de compréhension orale et écrite</b>. On s’entraîne à ce qu’on va faire. Mais ne comptez pas sur l’écoute passive seule pour apprendre du vocabulaire — là, c’est le rappel actif qui travaille.");
+h3('③ Mon avis, clairement étiqueté comme tel');
+warn("<b>LES SIX RÈGLES QUE JE VOUS RECOMMANDE — c’est mon jugement, pas de la recherche citée.</b><br><br><b>1 · Tous les jours bat le week-end.</b> 30 minutes × 7 jours vaut mieux que 3 h 30 le dimanche, et pas d’un peu. C’est cohérent avec l’effet d’espacement.<br><br><b>2 · Travaillez votre compétence la plus faible.</b> IRCC ne fait pas de moyenne. Votre résultat est votre minimum. C’est désagréable parce que notre point faible est celui qu’on évite — et c’est précisément pour ça qu’il reste faible.<br><br><b>3 · À voix haute, toujours.</b> Vous préparez une épreuve orale. Lire en silence n’entraîne pas la bouche. Tout ce que vous lisez sur ce site, dites-le.<br><br><b>4 · Une erreur analysée vaut dix exercices justes.</b> Quand vous vous trompez, classez : <i>je n’ai pas entendu</i> / <i>j’ai mal orthographié</i> / <i>j’ai raté la grammaire</i>. Les trois demandent des remèdes différents.<br><br><b>5 · Simulez en conditions réelles, au moins trois fois.</b> Chronomètre, sans pause, sans dictionnaire. La première fois sera mauvaise. C’est le but — mieux vaut que ça arrive chez vous.<br><br><b>6 · N’apprenez jamais un mot seul.</b> Apprenez-le dans une phrase sur votre vie. Un mot appris nu reste nu ; un mot appris dans une phrase ressort en parlant.");
+
+h2('8 · Combien de temps — la réponse honnête');
+warn("<b>Je ne peux pas vous donner un chiffre fiable, et les sites qui le font inventent.</b><br><br>J’ai cherché une source primaire. Je n’en ai pas trouvé. Ce que j’ai trouvé, ce sont des blogs secondaires qui convergent autour de <b>500 à 650 heures d’apprentissage guidé pour atteindre le B2 à partir de zéro</b>, certains citant 600 à 800 heures pour de vrais débutants. Plusieurs attribuent ce chiffre au Conseil de l’Europe ou à l’Alliance Française <u>sans référence vérifiable</u>. Le Foreign Service Institute américain cite 600 à 750 heures de cours pour un niveau voisin, mais sur une échelle différente du CECRL.<br><br><b>Traitez donc « environ 600 heures » comme un ordre de grandeur, pas comme une mesure.</b> Et rappelez-vous que ces chiffres parlent d’<u>heures guidées</u> — les heures de travail personnel s’ajoutent.");
+note("<b>Ce que ça donne dans votre cas, si on prend 600 heures comme ordre de grandeur.</b><br><br>Vous visez <b>NCLC 7, soit B2</b> sur les quatre compétences. Vous avez fait l’A1 en cours et vous le refaites.<br><br>· à <b>1 h/jour</b> : environ <b>20 mois</b><br>· à <b>1 h 30/jour</b> : environ <b>13 mois</b><br>· à <b>2 h/jour</b> : environ <b>10 mois</b><br><br>Plus vos cours du soir, qui comptent dans le total.<br><br><b>Je préfère vous le dire franchement :</b> si quelqu’un vous promet le B2 en trois mois à partir de l’A1, il vous vend quelque chose. En revanche, 13 à 20 mois pour un changement de statut permanent, c’est un excellent rapport effort / résultat — et vous avez déjà commencé.");
+h3('Et une stratégie que peu de gens considèrent');
+ex("<b>Vous n’êtes pas obligé de viser NCLC 7 du premier coup.</b><br><br>Le test est repassable tous les <b>30 jours</b>, autant de fois que vous voulez, et <b>personne n’échoue</b> — vous obtenez simplement un niveau.<br><br>Donc une approche raisonnable :<br>① Passez le test <b>plus tôt que vous ne le pensez prêt</b>, une fois que vous êtes solide en B1. Vous obtiendrez probablement NCLC 5 ou 6.<br>② Vous saurez alors <b>exactement</b> quelle compétence vous retient, avec un chiffre, au lieu de deviner.<br>③ Vous travaillez cette compétence pendant trois mois et vous repassez.<br><br><b>Le coût :</b> les frais d’inscription, deux fois. <b>Le gain :</b> vous arrêtez de préparer à l’aveugle, et vous éliminez l’angoisse du premier passage — le deuxième est toujours plus calme.<br><br><i>(C’est mon avis, pas une recommandation officielle. Et vérifiez les frais actuels auprès de votre centre avant de décider.)</i>");
+
+h2('9 · Votre semaine type — 1 h par jour');
+lead('Un plan concret, pas un principe. Adaptez les durées, gardez les proportions.');
+table(['Jour','45 min','15 min'],[
+ ['<b>Lundi</b>','Chapitre du livre : lire + exercices de rappel actif','Dictée du chapitre'],
+ ['<b>Mardi</b>','<b>Cours du soir</b> + relire les notes du cours le soir même','Vocabulaire : refaire un bloc d’il y a 3 jours'],
+ ['<b>Mercredi</b>','Compréhension orale : RFI français facile, méthode en 3 passes','Dictée'],
+ ['<b>Jeudi</b>','<b>Cours du soir</b> + notes','Vocabulaire espacé'],
+ ['<b>Vendredi</b>','Expression écrite : une tâche complète, chronométrée','Relecture avec la liste de vérification'],
+ ['<b>Samedi</b>','Compréhension écrite : un texte long + questions, chronométré','Vocabulaire du texte'],
+ ['<b>Dimanche</b>','Expression orale : les 10 questions de la tâche 1, enregistrées','Réécouter l’enregistrement et compter les silences']
+]);
+note("<b>Pourquoi cette répartition.</b> Quatre séances sur sept visent directement une épreuve du TCF (CO mercredi, EE vendredi, CE samedi, EO dimanche). Les trois autres construisent la base. Et le créneau de 15 minutes est toujours du <b>rappel espacé</b> — c’est la partie que les gens suppriment en premier et c’est celle qui fait tenir le reste.<br><br><b>La règle du dimanche est la plus importante et la plus évitée :</b> <b>enregistrez-vous et réécoutez</b>. C’est désagréable. C’est aussi le seul moyen d’entendre ce que l’examinateur entendra.");
+h3('Les trois mois avant le test');
+ex("<b>M-3 — construire</b><br>· Finir les chapitres du livre jusqu’au futur et aux pronoms<br>· Dictée quotidienne<br>· Préparer les 10 réponses de la tâche 1 de l’oral<br><br><b>M-2 — convertir en compétences d’examen</b><br>· Une tâche d’EE chronométrée tous les deux jours, en alternant les trois types<br>· Les 10 thèmes de la tâche 3, deux arguments + un exemple chacun<br>· L’exercice inversé (réponse → question) pour la tâche 2<br>· CO quotidienne avec du québécois une fois sur deux<br><br><b>M-1 — simuler</b><br>· <b>Trois examens blancs complets</b>, en conditions réelles : 2 h 47, sans pause, sans dictionnaire<br>· Après chacun, classer toutes les erreurs par type<br>· Consacrer le reste de la semaine au type d’erreur le plus fréquent<br>· <b>La dernière semaine : ne rien apprendre de nouveau.</b> Réviser et dormir.");
+
+h2('10 · La semaine du test, et le jour J');
+warn("<b>LA DERNIÈRE SEMAINE — quatre règles</b><br><br><b>1 · N’apprenez rien de nouveau.</b> Une structure à moitié acquise sous stress fait plus de dégâts qu’elle n’en évite.<br><b>2 · Révisez vos propres phrases</b>, celles que vous avez écrites : votre présentation, vos 10 thèmes, vos connecteurs.<br><b>3 · Écoutez du français tous les jours</b>, même 20 minutes. L’oreille se dérègle vite.<br><b>4 · Dormez.</b> Une nuit courte coûte plus de points que la révision gagnée ne vous en rapporte.");
+ex("<b>LA VEILLE</b><br><br>· Vérifier : <b>pièce d’identité avec photo, en cours de validité</b> + convocation. Le manuel exige la pièce d’identité à chaque épreuve, y compris à l’oral.<br>· Préparer stylos et montre.<br>· Vérifier le trajet et prévoir 45 minutes de marge.<br>· Relire une seule page : vos connecteurs et vos phrases de secours.<br>· <b>Pas de révision après 21 h.</b>");
+ex("<b>LE JOUR J — l’ordre des opérations</b><br><br><b>Avant d’entrer :</b> parlez français à voix haute pendant cinq minutes, dans la voiture ou en marchant. Votre présentation suffit. Entrer « à froid » coûte les deux premières minutes de l’oral.<br><br><b>Compréhension orale (35 min) :</b> lire chaque question avant l’audio. Écrire les chiffres immédiatement. Ne jamais revenir en arrière. Tout cocher.<br><br><b>Compréhension écrite (60 min) :</b> suivre le découpage 12 / 25 / 18 / 5. Garder les 5 dernières minutes pour remplir les vides.<br><br><b>Expression écrite (60 min) :</b> 15 / 20 / 25. Compter les mots. Relire avec la liste fixe. Écrire au propre dans l’espace prévu — le brouillon n’est pas corrigé.<br><br><b>Expression orale (12 min) :</b> poser vos questions à l’examinateur <u>avant</u> de commencer — c’est le seul moment où une autre langue est autorisée. Puis sourire, regarder la personne, et ne pas s’arrêter.");
+h3('Vos cinq phrases de secours — à savoir par cœur');
+rows([
+ ["Pardon, vous pouvez répéter, s’il vous plaît ?","par-dohn voo poo-vay ray-pay-TAY","Sorry, could you repeat that?"],
+ ["Je me suis trompé, je voulais dire…","zhuh muh swee trohn-PAY","I made a mistake, I meant…"],
+ ["Comment dire… attendez…","koh-mahn DEER ah-tahn-DAY","How can I put it… hang on…"],
+ ["Je ne sais pas comment on dit ça en français, mais…","…","I don’t know how to say this in French, but…"],
+ ["C’est une question intéressante.","say-tewn kes-tyohn an-tay-reh-SAHNT","That’s an interesting question."]
+]);
+note("<b>Ces cinq phrases ne sont pas du remplissage.</b> Trois d’entre elles — demander une répétition, se corriger, reformuler quand le mot manque — sont des <b>stratégies de communication explicitement valorisées</b> dans les grilles d’évaluation. Un candidat qui dit <i>« je ne sais pas comment on dit ça, mais c’est une machine pour écrire »</i> démontre une compétence que le silence ne démontre pas.");
+
+h2('11 · Les dix erreurs qui coûtent le plus cher');
+warn("<b>1 · Laisser des cases vides.</b> Zéro pénalité pour une erreur. Une case vide est un point jeté.<br><br><b>2 · Travailler ses points forts.</b> Agréable, inutile. IRCC lit votre minimum.<br><br><b>3 · Confondre TEF et TCF.</b> Deux tests, deux barèmes. Préparez celui que vous passez.<br><br><b>4 · Rester au présent à l’oral.</b> Quatre temps en deux minutes, c’est la différence entre A2 et B2.<br><br><b>5 · Ne pas respecter le nombre de mots à l’écrit.</b> 60–120, 120–150, 120–180. Hors des bornes, vous êtes pénalisé.<br><br><b>6 · Oublier la partie 1 de la tâche 3.</b> Comparer d’abord, donner son avis ensuite. Deux paragraphes.<br><br><b>7 · Se taire à l’oral.</b> Le silence est le seul vrai zéro.<br><br><b>8 · Choisir l’option qui recopie le texte.</b> La bonne réponse est presque toujours une reformulation.<br><br><b>9 · Rester bloqué sur une question.</b> Un point perdu coûte un point. La panique coûte dix.<br><br><b>10 · Ne jamais simuler en conditions réelles.</b> 2 h 47 de concentration, ça s’entraîne comme le reste.");
+
+h2('12 · Récapitulatif — à relire la veille');
+ex("<b>LE TEST</b> — CO 39 q / 35 min · CE 39 q / 60 min · EE 3 tâches / 60 min · EO 3 tâches / 12 min. Environ <b>2 h 47</b> au total.<br><br><b>VOTRE CIBLE</b> — NCLC 7 : <b>EO 10/20 · CO 458 · CE 453 · EE 10/20</b>. Chaque compétence séparément, aucune moyenne.<br><br><b>LES RÈGLES D’OR</b><br>· Tout cocher, toujours.<br>· Audio une seule fois : lire la question avant.<br>· Difficulté croissante : prendre le début vite.<br>· À l’écrit : compter les mots, faire les trois tâches, relire 5 minutes.<br>· À l’oral : quatre temps, des connecteurs, un exemple personnel, et ne jamais se taire.<br>· Vous pouvez faire répéter l’examinateur.<br>· Personne n’échoue. Repassable à 30 jours. Valable 2 ans.");
+src("<b>Sources.</b> Structure des épreuves, durées, nombres de mots, durées des tâches orales, règles de notation et de passation : <i>Manuel du candidat TCF Canada</i>, CIEP / France Éducation International. Table de correspondance NCLC : <i>Express Entry : résultats de test linguistique</i>, IRCC, canada.ca, page modifiée le 16 octobre 2026. Pratique espacée et récupération : méta-analyse sur la pratique espacée en langue seconde et revue sur répétition, récupération et pratique espacée. Estimations d’heures : sources secondaires, non vérifiées sur une source primaire — traitées comme ordre de grandeur. Stratégies, modèles et planning : rédigés ici.<br><br><b>Vérifiez toujours le format et le barème en vigueur auprès de votre centre de passation et sur canada.ca avant de vous inscrire.</b>");
+</script>
+</body>
+</html>

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 35 — Piste 65, l'impératif, Fiche 43</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+  .reading { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:10px 0; }
+  .reading p { margin:0 0 10px; }
+</style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
+<style id="mobile-fix">
+@media (max-width: 640px){
+  .wrap{ padding:12px 12px 70px; }
+  h1{ font-size:22px; line-height:1.25; }
+  h2{ font-size:19px; }
+  h3{ font-size:16px; }
+  /* nav becomes one swipeable row instead of a wall of chips */
+  nav{ flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
+       padding-bottom:6px; margin-bottom:14px; scrollbar-width:thin; }
+  nav a{ flex:0 0 auto; white-space:nowrap; font-size:12px; padding:6px 9px; }
+  /* tables scroll sideways instead of crushing */
+  table, .conjt{ display:block; width:100%; overflow-x:auto;
+                 -webkit-overflow-scrolling:touch; white-space:nowrap; font-size:13px; }
+  table td, table th, .conjt td, .conjt th{ white-space:normal; min-width:92px; }
+  /* reading blocks */
+  .note,.example,.warn,.source,.lead,.txtp{ font-size:14.5px; }
+  .grid{ grid-template-columns:1fr !important; }
+  /* bigger tap targets on the audio rows */
+  .row{ padding:10px 8px; }
+  .play{ min-width:38px; min-height:38px; }
+  .fr{ font-size:16px; }
+  .ph,.en{ font-size:13px; }
+  /* exercises */
+  .fillrow input{ width:100%; box-sizing:border-box; font-size:16px; padding:8px; }
+  .fillrow button,.riddle button{ padding:9px 12px; font-size:14px; margin-top:6px; }
+  .riddle .btns{ display:flex; flex-wrap:wrap; gap:6px; }
+  /* book page chapter tabs */
+  .parttabs{ flex-wrap:nowrap; overflow-x:auto; }
+  .parttabs button{ flex:0 0 auto; white-space:nowrap; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 35 : Piste 65, l'impératif et la Fiche 43</h1>
+  <p class="sub">Deux séances · l'audio de la famille Castel enfin transcrit · le tutoriel « cadre photo » et l'impératif · plus les corrections de prononciation</p>
+
+  <nav>
+    <a href="French_Start_Here.html"><b>★ Start Here</b></a>
+    <a href="French_Cours_Complet.html">Complete Book</a>
+    <a href="French_Cours33_Notes.html">Cours 33</a>
+    <a href="French_Cours34_Notes.html">Cours 34</a>
+    <a href="French_Cours35_Notes.html" class="active">Cours 35</a>
+    <a href="French_Ressources.html">Ressources</a>
+    <a href="French_TCF_Guide.html">TCF Guide</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <span class="toggle"><button id="n" class="on">Normal</button><button id="s">Slow</button></span>
+    <span id="voicewarn"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+<script>
+
+
+
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=(r||rate); return u;
+}
+function speak(text, r){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').innerHTML=fr; c.querySelector('.ph').innerHTML=ph;
+    const plain=String(fr).replace(/<[^>]*>/g,'').replace(/\s*—.*$/,'').trim();
+    c.onclick=()=>speak(plain); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+/* ===== 1 ===== */
+function fillx(list){ fill(list.map(x=>({s:x[0], a:[x[1]], en:x[2]||'', why:x[3]||('Réponse : <b>'+x[1]+'</b>')}))); }
+function mcqx(list){ mcq(list.map(x=>({q:x[0], opts:x[1], a:x[2], why:x[3]||''}))); }
+
+function read(paras){
+  const d=document.createElement('div'); d.className='reading';
+  paras.forEach(t=>{
+    const el=document.createElement('p'); el.innerHTML=t; el.style.cursor='pointer';
+    const plain=String(t).replace(/<[^>]*>/g,'');
+    el.onclick=()=>speak(plain);
+    d.appendChild(el);
+  });
+  content.appendChild(d);
+}
+
+function dict(items){
+  items.forEach((it,n)=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const top=document.createElement('div'); top.className='sent';
+    top.innerHTML='<b>'+(n+1)+'.</b> Écoutez, puis écrivez ce que vous entendez. <i>(Listen, then write what you hear.)</i>';
+    const bar=document.createElement('div'); bar.style.cssText='display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:8px 0';
+    const pb=document.createElement('button'); pb.textContent='▶ Écouter'; pb.onclick=()=>speak(it.fr);
+    const sb=document.createElement('button'); sb.textContent='▶ Lentement'; sb.onclick=()=>speak(it.fr,0.55);
+    const inp=document.createElement('input'); inp.placeholder='Écrivez ici…'; inp.style.flex='1';
+    const cb=document.createElement('button'); cb.textContent='Vérifier';
+    const fb=document.createElement('div'); fb.className='fb';
+    function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9' ]/g,' ').replace(/\s+/g,' ').trim(); }
+    cb.onclick=()=>{
+      if(norm(inp.value)===norm(it.fr)){ fb.className='fb ok'; fb.innerHTML='✓ <b>'+it.fr+'</b><br>'+(it.en||'')+(it.why?'<br><i>'+it.why+'</i>':''); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Réponse : <b>'+it.fr+'</b><br>'+(it.en||'')+(it.why?'<br><i>'+it.why+'</i>':''); }
+    };
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') cb.onclick(); });
+    bar.appendChild(pb); bar.appendChild(sb); bar.appendChild(inp); bar.appendChild(cb);
+    d.appendChild(top); d.appendChild(bar); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+h2('0 · À lire avant le reste — les corrections de prononciation');
+warn("<b>Les fiches de prononciation que vous avez reçues contiennent une quinzaine d’erreurs.</b> Ce n’est pas grave et ce n’est pas votre faute — mais si vous les répétez à voix haute, elles vont s’installer, et une prononciation mal apprise coûte trois fois plus cher à corriger qu’à apprendre.<br><br><b>Voici les corrections.</b> Les plus importantes sont en haut.");
+table(['Mot ou phrase','Ce qui était écrit','La bonne prononciation','Pourquoi'],[
+ ['<b>partager</b>','<i>shar-tay</i>','<b>par-tah-ZHAY</b>','mot complètement différent — erreur de frappe'],
+ ['<b>j’ai acheté</b>','<i>zhay aш-tuh</i>','<b>zhay ahsh-TAY</b>','il y avait un caractère cyrillique dans le texte'],
+ ['<b>préparer</b>','<i>pray-par-uh</i>','<b>pray-pah-RAY</b>','-er final = AY, jamais « uh »'],
+ ['<b>montrer</b>','<i>mohntr</i>','<b>mohn-TRAY</b>','même règle : -er = AY'],
+ ['<b>le but</b>','<i>luh beet</i>','<b>luh BEWT</b>','le <b>u</b> français, pas « ee »'],
+ ['<b>un miroir</b>','<i>un meer-war</i>','<b>uhn mee-RWAHR</b>','<i>-oir</i> = WAHR'],
+ ['<b>une horloge</b>','<i>or-log</i>','<b>or-LOZH</b>','le <b>g</b> devant <b>e</b> est doux (ZH), pas dur'],
+ ['<b>C’est un cadeau</b>','<i>say un kah-doh</i>','<b>say-TUHN kah-DOH</b>','liaison obligatoire : <i>c’es<b>t</b> un</i>'],
+ ['<b>Elle est en argent</b>','<i>el eh tahn ahr-zhahn</i>','<b>e-lay tah-nar-ZHAHN</b>','deux liaisons enchaînées'],
+ ['<b>Sur mon bureau</b>','<i>Sur mohn…</i>','<b>SEWR mohn…</b>','<i>sur</i> a le son <b>u</b>, pas « sour »'],
+ ['<b>il a un écran</b>','<i>un ay-krahn</i>','<b>uh-nay-KRAHN</b>','liaison : <i>u<b>n</b> écran</i>'],
+ ['<b>indispensable</b>','<i>lan-dees-pahn-stabl</i>','<b>an-dees-pahn-SAHBL</b>','syllabe finale mal découpée'],
+ ['<b>marché aux puces</b>','<i>oh pues</i>','<b>oh PEWSS</b>','le <b>s</b> final se prononce ici'],
+ ['<b>Choisissez</b>','<i>Schwa-zi-say</i>','<b>shwah-zee-SAY</b>','« schwa » prête à confusion'],
+ ['<b>la peinture</b>','<i>peyn-chur</i>','<b>pan-TEWR</b>','<i>ein</i> = nasale AN, et <i>-ure</i> = EWR'],
+ ['<b>N’utilisez pas</b>','<i>Nay-too-li-zay</i>','<b>new-tee-lee-ZAY</b>','<i>n’u-</i> = NEW, pas « nay »'],
+ ['<b>Mesurez</b>','<i>Muh-zu-ray</i>','<b>muh-zew-RAY</b>','le <b>u</b> français'],
+ ['<b>des agrafes</b>','<i>d’ag-raf</i>','<b>day-zah-GRAF</b>','liaison au pluriel']
+]);
+note("<b>Et une petite mise au point honnête sur ma propre notation.</b><br><br>Tout ce que j’écris moi aussi (<i>mohn-TRAY</i>, <i>or-LOZH</i>) reste une <b>approximation</b> en lettres anglaises. Aucun système de ce type ne rend exactement le français — le <b>u</b>, le <b>r</b> et les nasales n’existent pas en anglais.<br><br><b>Donc la règle :</b> servez-vous de l’écriture pour vous orienter, mais <b>vérifiez toujours au son</b>. Cliquez les lignes de ce site pour entendre, ou tapez le mot dans <b>Forvo</b> pour entendre de vrais francophones. Le son est la référence, jamais la transcription.");
+warn("<b>Une erreur dans le texte source lui-même — pas dans vos notes.</b><br><br>Le texte « Les vêtements » de lingua.com dit :<br><br>· <i>« Lili et Marc vont <b>à plage</b> pendant le weekend. »</i><br><br>C’est incorrect. Il faut : <b>à la plage</b>. L’article est obligatoire.<br><br>Ce n’est pas grave, mais c’est un bon rappel : <b>les sites gratuits contiennent des coquilles</b>. Quand quelque chose vous paraît bizarre, méfiez-vous plutôt du site que de vous-même — surtout quand ça contredit une règle que vous connaissez.");
+
+h2('1 · Piste 65 — l’audio de la famille Castel, enfin complet');
+lead('Je n’avais pas pu l’entendre pendant le cours. Avec la transcription, on peut enfin remplir le tableau.');
+warn("<b>D’abord : combien de personnes parlent ?</b><br><br>Le livre demande « Que font <u>les trois personnes</u> ? ». Dans la transcription, on entend :<br><br>· <b>le fils</b> — il pose les questions et propose de vendre<br>· <b>le père</b> — il raconte le vélo et le tourne-disque<br>· <b>le grand-père</b> — identifié par la réplique du fils : <i>« C’est à toi, <b>papi</b> ? »</i>, et c’est lui qui parle de la radio et des années 50<br><br><b>Donc trois générations :</b> le fils, le père, le grand-père. Les notes que vous avez reçues disaient « deux personnes » — c’est ce qui arrive quand on compte les voix sans relier <i>papi</i> à un troisième locuteur.<br><br><i>Je n’ai pas entendu l’audio moi-même — je travaille sur la transcription. Si en classe la prof a attribué les répliques autrement, dites-le-moi.</i>");
+h3('Les réponses de l’exercice 2');
+ex("<b>a · Où se passe la scène ?</b><br><i>La scène se passe <b>chez la famille Castel</b>, à la maison — probablement dans le grenier ou le garage.</i><br><br><b>b · Que font les trois personnes ? Pourquoi ?</b><br><i>Ils <b>trient de vieux objets</b> pour choisir ce qu’ils vont <b>vendre à la brocante</b> de demain. Mais à chaque objet, le père ou le grand-père raconte un souvenir — et décide de le garder.</i><br><br><b>c · De quels objets parle la famille Castel ?</b><br><i>Ils parlent <b>d’un vélo</b>, <b>d’une radio</b>, <b>de disques vinyles</b>, <b>d’un tourne-disque</b> et <b>d’une machine à écrire</b>.</i><br><br><b>La chute du dialogue, et elle est drôle :</b> <i>« Bon, mais alors… qu’est-ce qu’on va vendre demain ? »</i> — ils ont tout gardé.");
+h3('Exercice 3a — l’état des objets');
+table(['Objet','État','Ce que dit l’audio'],[
+ ['<b>le vélo</b>','<b>en bon état</b>','« Il est en bon état. »'],
+ ['<b>la radio</b>','<b>un peu abîmée</b>','« Elle est un peu abîmée, mais elle n’est pas cassée. »'],
+ ['<b>les vinyles</b>','<b>en mauvais état</b>','« Certains sont en mauvais état. Quelle poussière ! »'],
+ ['<b>le tourne-disque</b>','—','acheté en 1973'],
+ ['<b>la machine à écrire</b>','—','gardée pour décorer le salon']
+]);
+h3('Exercice 3b — le tableau complet');
+table(['Souvenirs','Objets','Quand ?'],[
+ ['On écoutait de la musique.','les vinyles, le tourne-disque','<b>tous les week-ends</b>'],
+ ['Tu écrivais ton courrier.','la machine à écrire','<b>tous les soirs</b>'],
+ ['Tu écoutais les infos.','la radio','<b>toute la journée</b> — dans les années 50'],
+ ['J’allais à l’école.','le vélo','<b>tous les jours de la semaine</b>']
+]);
+warn("<b>Et maintenant regardez la première colonne — c’est là qu’est la leçon.</b><br><br>· On <b>écoutait</b> · Tu <b>écrivais</b> · Tu <b>écoutais</b> · J’<b>allais</b><br><br>Quatre <b>imparfaits</b>, et la colonne s’appelle <b>« Souvenirs »</b>.<br><br>La troisième colonne confirme : <i>tous les week-ends</i>, <i>tous les soirs</i>, <i>toute la journée</i>, <i>tous les jours</i> — <b>que de la répétition</b>. Aucun événement unique.<br><br><b>C’est exactement la règle du Chapitre 15 :</b> l’imparfait pour les <u>habitudes passées</u>. Les vieux objets ne sont qu’un prétexte pour vous faire produire quatre imparfaits.");
+h3('Les phrases clés de l’audio — à écouter et répéter');
+rows([
+ ["Tu veux vendre ton vélo à la brocante ?","tew vuh vahndr tohn vay-loh ah lah broh-KAHNT","Do you want to sell your bike at the flea market?"],
+ ["Il est en bon état.","ee-lay tahn boh-nay-TAH","It’s in good condition."],
+ ["Quand j’étais jeune, je faisais des kilomètres.","kahn zhay-teh ZHUHN zhuh fuh-zeh day kee-loh-METR","When I was young, I used to do kilometres."],
+ ["J’allais à l’école tous les jours.","zhah-leh ah lay-kol too lay ZHOOR","I went to school every day."],
+ ["Elle marche encore ?","el marsh ahn-KOR","Does it still work?"],
+ ["Avant, on n’avait pas de télé.","ah-vahn ohn nah-veh pah duh tay-LAY","Back then we didn’t have a TV."],
+ ["Elle est un peu abîmée, mais elle n’est pas cassée.","e-lay tuhn puh ah-bee-MAY meh el nay pah kah-SAY","It’s a bit damaged, but it isn’t broken."],
+ ["Certains sont en mauvais état.","sehr-tan sohn tahn moh-veh-zay-TAH","Some are in bad condition."],
+ ["Quelle poussière !","kel poo-SYEHR","What a lot of dust!"],
+ ["J’ai acheté ça en 1973.","zhay ahsh-tay sah ahn deez-nuhf-sahn swah-sahnt-TREZ","I bought this in 1973."],
+ ["On écoutait de la musique tous les week-ends.","oh-nay-koo-teh duh lah mew-zeek too lay week-END","We listened to music every weekend."],
+ ["C’était il y a longtemps !","say-teh ee-lyah lohn-TAHN","That was a long time ago!"],
+ ["On peut la garder pour décorer le salon.","ohn puh lah gar-day poor day-koh-ray luh sah-LOHN","We can keep it to decorate the living room."]
+]);
+note("<b>Deux structures à ramasser dans cet audio :</b><br><br>· <b>« Ça marche encore ? »</b> — <i>marcher</i> pour un objet veut dire <b>fonctionner</b>, pas « marcher ». <i>Mon téléphone ne marche plus</i> = my phone doesn’t work any more. Extrêmement courant.<br><br>· <b>« C’est à toi ? »</b> — la façon normale de demander à qui appartient une chose. <i>C’est à moi / à toi / à lui / à elle.</i> Bien plus fréquent que <i>« Est-ce que c’est ton… ? »</i>");
+
+h2('2 · Fiche nº 43 — « Créer un cadre photo avec une vieille porte »');
+lead('Le deuxième cours : un tutoriel de bricolage. Et derrière le bricolage, un point de grammaire majeur.');
+warn("<b>CE DOCUMENT ENSEIGNE L’IMPÉRATIF — et c’est pour ça qu’il a été choisi.</b><br><br>Regardez les verbes : <b>Nettoyez</b>, <b>Mesurez</b>, <b>Choisissez</b>, <b>découpez</b>, <b>Collez</b>, <b>Ne mettez pas</b>, <b>N’utilisez pas</b>.<br><br>Aucun sujet devant. C’est <b>l’impératif</b> : le mode des ordres, des conseils et des instructions. Un tutoriel de bricolage en est entièrement fait — c’est le texte idéal pour l’introduire.<br><br>Et c’est <b>très utile pour le TCF</b> : les recettes, les modes d’emploi, les consignes et les panneaux sont du matériel classique de compréhension écrite, et l’impératif y est partout.");
+h3('Le matériel');
+rows([
+ ["une vieille porte","ewn vyay PORT","an old door"],
+ ["des photos","day foh-TOH","photos"],
+ ["de la peinture","duh lah pan-TEWR","paint"],
+ ["des ciseaux","day see-ZOH","scissors"],
+ ["un cutter","uhn kuh-TEHR","a craft knife"],
+ ["du scotch","dew SKOTCH","sticky tape"],
+ ["du scotch double face","…doobl FAHSS","double-sided tape"],
+ ["un mètre","uhn METR","a tape measure"],
+ ["un pinceau","uhn pan-SOH","a paintbrush"],
+ ["de la colle","duh lah KOL","glue"],
+ ["des agrafes","day-zah-GRAF","staples"],
+ ["un carreau / des carreaux","uhn kah-ROH / day kah-ROH","a pane / panes"],
+ ["un cadre photo","uhn kahdr foh-TOH","a photo frame"]
+]);
+h3('Les quatre étapes — avec la prononciation corrigée');
+rows([
+ ["Nettoyez votre vieille porte.","neh-twah-YAY votr vyay PORT","Clean your old door."],
+ ["Passez un coup de peinture fraîche.","pah-SAY uhn koo duh pan-tewr FRESH","Apply a coat of fresh paint."],
+ ["Mesurez la taille des carreaux avec un mètre.","muh-zew-RAY lah tahy day kah-roh ah-vek uhn METR","Measure the size of the panes with a tape measure."],
+ ["Il faut être très précis.","eel foh etr treh pray-SEE","You have to be very precise."],
+ ["Choisissez bien vos photos et découpez-les.","shwah-zee-SAY byan voh foh-toh ay day-koo-pay LAY","Choose your photos carefully and cut them out."],
+ ["Il ne faut pas choisir des photos plus grandes que les carreaux.","eel nuh foh pah shwah-zeer…","You mustn’t choose photos bigger than the panes."],
+ ["Enfin, collez vos photos sur les carreaux.","ahn-FAN koh-lay voh foh-toh sewr lay kah-ROH","Finally, stick your photos onto the panes."],
+ ["Vous devez utiliser du scotch double face.","voo duh-vay ew-tee-lee-zay dew skotch doobl FAHSS","You must use double-sided tape."],
+ ["Ne mettez pas de colle ou d’agrafes !","nuh meh-tay pah duh kol oo dah-GRAF","Don’t use glue or staples!"],
+ ["N’utilisez pas de scotch de mauvaise qualité !","new-tee-lee-zay pah duh skotch duh moh-vez kah-lee-TAY","Don’t use poor-quality tape!"]
+]);
+
+h2('3 · L’impératif — la grammaire du jour');
+lead('Trois formes, aucun sujet, et une seule irrégularité qui compte.');
+warn("<b>L’impératif, c’est le présent SANS le pronom sujet.</b><br><br>· <i>tu <b>nettoies</b></i> → <b>Nettoie !</b><br>· <i>vous <b>nettoyez</b></i> → <b>Nettoyez !</b><br>· <i>nous <b>nettoyons</b></i> → <b>Nettoyons !</b><br><br><b>Il n’existe que trois personnes</b> — <i>tu</i>, <i>nous</i>, <i>vous</i>. On ne donne pas d’ordre à <i>je</i>, <i>il</i> ou <i>ils</i>, donc ces formes n’existent pas. C’est le temps le plus court du français.");
+table(['','tu → ordre familier','vous → ordre poli ou pluriel','nous → « allons-y »'],[
+ ['<b>regarder</b>','Regarde !','Regardez !','Regardons !'],
+ ['<b>finir</b>','Finis !','Finissez !','Finissons !'],
+ ['<b>attendre</b>','Attends !','Attendez !','Attendons !'],
+ ['<b>faire</b>','Fais !','Faites !','Faisons !'],
+ ['<b>prendre</b>','Prends !','Prenez !','Prenons !'],
+ ['<b>venir</b>','Viens !','Venez !','Venons !']
+]);
+warn("<b>LA SEULE RÈGLE QUI SURPREND : les verbes en -ER perdent leur S à la forme TU.</b><br><br>· présent : <i>tu regarde<b>s</b></i> → impératif : <b>Regarde !</b> <span style=\"color:#0f7a54\">(sans s)</span><br>· présent : <i>tu écoute<b>s</b></i> → <b>Écoute !</b><br>· présent : <i>tu va<b>s</b></i> → <b>Va !</b><br><br><b>Mais les autres groupes gardent leur s :</b><br>· <i>tu fini<b>s</b></i> → <b>Finis !</b> ✔<br>· <i>tu attend<b>s</b></i> → <b>Attends !</b> ✔<br><br>Pourquoi : c’est purement de l’orthographe. Le <b>s</b> était de toute façon muet, et l’Académie l’a supprimé là où il ne servait à rien.<br><br><b>Une exception à l’exception :</b> le <b>s</b> revient devant <b>y</b> et <b>en</b>, pour la liaison. <i><b>Vas-y !</b></i> (vah-ZEE), <i><b>Manges-en !</b></i> (mahnzh-AHN).");
+h3('Les quatre verbes vraiment irréguliers');
+table(['Infinitif','tu','vous','nous','Usage'],[
+ ['<b>être</b>','Sois','Soyez','Soyons','<i>Soyez à l’heure !</i>'],
+ ['<b>avoir</b>','Aie','Ayez','Ayons','<i>N’ayez pas peur !</i>'],
+ ['<b>savoir</b>','Sache','Sachez','Sachons','<i>Sachez que…</i>'],
+ ['<b>vouloir</b>','Veuille','Veuillez','—','<i>Veuillez patienter.</i>']
+]);
+note("<b>VEUILLEZ est le mot le plus poli du français administratif</b>, et vous le verrez partout dans les documents officiels :<br><br>· <i><b>Veuillez</b> patienter.</i> — Please wait.<br>· <i><b>Veuillez</b> remplir ce formulaire.</i> — Please fill in this form.<br>· <i><b>Veuillez</b> agréer…</i> — la formule de fin de lettre formelle.<br><br>Dans une lettre formelle au TCF (tâche 2 de l’expression écrite), un <b>Veuillez</b> bien placé vaut des points de registre.");
+h3('L’impératif négatif');
+ex("<b>Exactement la règle du Chapitre 12 : <i>ne</i> devant, <i>pas</i> derrière.</b><br><br>· <b>Ne</b> mettez <b>pas</b> de colle !<br>· <b>N’</b>utilisez <b>pas</b> de scotch de mauvaise qualité !<br>· <b>Ne</b> t’inquiète <b>pas</b> ! — Don’t worry!<br>· <b>N’</b>oubliez <b>pas</b> votre pièce d’identité !<br><br><b>Et la règle de l’article tient toujours :</b> <i>Ne mettez pas <b>de</b> colle</i> — <i>de la colle</i> devient <b>de</b> après la négation. La Fiche 43 l’applique deux fois.");
+warn("<b>Le seul piège réel de l’impératif : la place des pronoms change selon l’affirmatif ou le négatif.</b><br><br><b>À l’affirmatif, le pronom passe APRÈS, avec un trait d’union :</b><br>· <i>Découpez-<b>les</b> !</i> — Cut them out! <span style=\"color:#6b675f\">(la Fiche 43)</span><br>· <i>Regarde-<b>moi</b> !</i> — et <b>me</b> devient <b>moi</b><br>· <i>Donnez-<b>lui</b> !</i><br><br><b>Au négatif, il revient AVANT, comme d’habitude :</b><br>· <i><b>Ne les</b> découpez <b>pas</b> !</i><br>· <i><b>Ne me</b> regarde <b>pas</b> !</i> — et <b>moi</b> redevient <b>me</b><br><br>C’est le seul endroit du français où un pronom se déplace comme ça. Les pronoms complèts arrivent au Chapitre 19 — pour l’instant, retenez juste la paire <b>Découpez-les</b> / <b>Ne les découpez pas</b>.");
+h3('Les trois façons de donner une instruction');
+table(['Structure','Exemple de la Fiche 43','Registre'],[
+ ['<b>Impératif</b>','<i>Nettoyez votre vieille porte.</i>','direct, le plus courant dans un tutoriel'],
+ ['<b>Il faut</b> + infinitif','<i>Il faut être très précis.</i>','impersonnel — « on doit »'],
+ ['<b>Vous devez</b> + infinitif','<i>Vous devez utiliser du scotch double face.</i>','personnel, un peu plus doux'],
+ ['<b>Il ne faut pas</b> + infinitif','<i>Il ne faut pas choisir des photos plus grandes.</i>','interdiction impersonnelle'],
+ ['<b>Infinitif seul</b>','<i>Ne pas fumer.</i> (panneau)','écrit, instructions générales']
+]);
+note("<b>La Fiche 43 utilise les quatre premières dans un seul document.</b> Ce n’est pas un hasard : un bon tutoriel alterne pour ne pas être monotone.<br><br><b>Pour vous, à l’écrit du TCF :</b> si on vous demande d’expliquer comment faire quelque chose — une recette, un trajet, une démarche — alternez ces structures au lieu d’enchaîner dix impératifs. C’est exactement le genre de variation que la grille appelle « utiliser des structures adaptées à la tâche ».");
+
+h2('4 · Décrire un objet qui compte pour vous — la production');
+lead('L’exercice que vous avez travaillé : cinq lignes sur un objet qui a une valeur sentimentale.');
+warn("<b>Pourquoi cet exercice revient sans arrêt — et pourquoi il faut le prendre au sérieux.</b><br><br>« Décrivez un objet qui compte pour vous » est un sujet classique de l’<b>expression orale tâche 1</b> et de l’<b>expression écrite tâche 1</b>. Il combine tout ce que l’Unité 7 enseigne :<br><br>· la <b>description</b> (forme, matière, taille) — p. 137–138<br>· l’<b>état</b> de l’objet — l’encadré Mots et expressions<br>· l’<b>imparfait</b> pour le souvenir — le tableau de la piste 65<br>· le <b>passé composé</b> pour dire comment vous l’avez eu<br><br><b>Préparez-en un et apprenez-le.</b> Vous le réutiliserez.");
+h3('La structure en cinq temps');
+ex("<b>① Ce que c’est et où il est</b> — <i>Sur mon bureau, j’ai…</i><br><b>② Description physique</b> — taille, forme, matière, couleur<br><b>③ D’où il vient</b> — <u>passé composé</u> : <i>C’est un cadeau de… / Je l’ai trouvé…</i><br><b>④ Ce que vous en faites</b> — <u>présent</u> : <i>Je ne le porte pas tous les jours, mais…</i><br><b>⑤ Pourquoi il compte</b> — <u>imparfait</u> pour le souvenir : <i>Quand j’étais petit…</i><br><br><b>Trois temps en cinq phrases.</b> C’est exactement ce qui fait passer de A2 à B1 à l’oral — pas le vocabulaire, la <u>gamme de temps</u>.");
+h3('Votre version — corrigée et améliorée');
+rows([
+ ["Sur mon bureau, j’ai une vieille montre de famille.","sewr mohn bew-ROH zhay ewn vyay mohntr duh fah-MEEY","On my desk I have an old family watch."],
+ ["C’est un cadeau de mon grand-père.","say-TUHN kah-doh duh mohn grahn-PEHR","It’s a gift from my grandfather."],
+ ["Elle est en argent, et le tic-tac est très discret.","e-lay tah-nar-ZHAHN ay luh teek-tak eh treh dees-KREH","It’s silver, and the ticking is very quiet."],
+ ["Je ne la porte pas tous les jours, mais je la garde précieusement.","zhuh nuh lah port pah too lay ZHOOR meh zhuh lah gard pray-syuh-zuh-MAHN","I don’t wear it every day, but I keep it carefully."],
+ ["Cet objet me rappelle de beaux souvenirs d’enfance.","set ohb-zheh muh rah-PEL duh boh soo-vuh-neer dahn-FAHNSS","This object reminds me of lovely childhood memories."]
+]);
+note("<b>Votre texte est bon. Deux améliorations qui le feraient monter d’un cran :</b><br><br><b>1 · Ajoutez un passé composé et un imparfait.</b> Vos cinq phrases sont au présent sauf la dernière. Ajoutez :<br><i>« Mon grand-père me l’<b>a donnée</b> avant mon départ pour le Canada. Quand j’<b>étais</b> petit, il la <b>portait</b> tous les jours. »</i><br>Deux phrases, et vous passez de un temps à trois.<br><br><b>2 · Ajoutez une dimension.</b> C’est ce que fait Mehdi dans le texte de la p. 138 : <i>« Elle <b>fait</b> environ quatre centimètres de diamètre. »</i> Ça montre que vous maîtrisez les nombres et la structure <i>faire … de haut / de large</i>.<br><br><b>Et une correction minuscule :</b> <i>« qui a beaucoup de valeur »</i> est correct, mais <i>« qui a <b>une grande</b> valeur »</i> ou <i>« qui compte beaucoup pour moi »</i> sonne plus naturel.");
+h3('La version longue — 8 phrases, pour l’oral');
+ex("<i>Sur mon bureau, j’ai une vieille montre de famille. C’est un cadeau de mon grand-père.<br><br>Elle est petite et ronde, en argent, et elle fait environ quatre centimètres de diamètre. Elle est un peu abîmée — le bracelet est usé — mais elle marche encore très bien.<br><br>Mon grand-père me l’a donnée avant mon départ pour le Canada. Quand j’étais petit, il la portait tous les jours et il me montrait l’heure avec.<br><br>Je ne la porte pas souvent, parce que j’ai peur de la perdre. Mais je la garde précieusement sur mon bureau, et chaque matin je la regarde.<br><br>Cet objet me rappelle de beaux souvenirs d’enfance, et surtout il me rappelle mon grand-père.</i><br><br><b>Comptez :</b> présent, passé composé, imparfait, une dimension, un état, une négation avec <i>de</i>, deux connecteurs, et une chute émotionnelle. C’est du B1 solide, et ça tient en 50 secondes.");
+
+h2('5 · Parler d’une vidéo — les phrases de secours');
+lead('Vous avez eu besoin de « j’explique une vidéo ». Voici le kit complet.');
+rows([
+ ["La vidéo s’intitule…","lah vee-day-oh san-tee-TEWL","The video is called…"],
+ ["C’est le générique d’une émission.","say luh zhay-nay-reek dewn ay-mee-SYOHN","It’s the title sequence of a programme."],
+ ["La vidéo montre…","lah vee-day-oh MOHNTR","The video shows…"],
+ ["La vidéo présente…","lah vee-day-oh pray-ZAHNT","The video presents…"],
+ ["L’émission parle de…","lay-mee-syohn parl DUH","The programme is about…"],
+ ["Le but de l’émission est de montrer…","luh bewt duh lay-mee-syohn ay duh mohn-TRAY","The aim of the programme is to show…"],
+ ["À mon avis, ça parle de…","ah moh-nah-vee sah parl DUH","In my opinion it’s about…"],
+ ["On voit des gens qui…","ohn vwah day zhahn KEE","You can see people who…"],
+ ["Je reconnais…","zhuh ruh-koh-NEH","I recognise…"],
+ ["Ce que j’ai compris, c’est que…","suh kuh zhay kohn-pree say KUH","What I understood is that…"],
+ ["Je n’ai pas tout compris, mais…","zhuh nay pah too kohn-PREE meh","I didn’t understand everything, but…"]
+]);
+warn("<b>La dernière phrase est la plus utile de la liste.</b><br><br><i>« Je n’ai pas tout compris, mais j’ai compris que… »</i><br><br>À l’examen, quand vous n’avez saisi qu’une partie d’un document, <b>dites-le et continuez</b>. C’est une <u>stratégie de communication</u>, et les grilles CECRL la valorisent explicitement. Se taire ne démontre rien ; dire ce qu’on a compris malgré les trous démontre qu’on gère la situation.<br><br>Et rappelez-vous votre droit officiel à l’oral : <b>« Pardon, vous pouvez répéter, s’il vous plaît ? »</b> Le manuel du candidat le précise — vous pouvez faire répéter à tout moment.");
+
+h2('6 · Exercices');
+h3('A · L’impératif — formez l’ordre');
+fill([
+ {s:"(regarder, vous) → ______ !", a:["Regardez"], why:"Présent sans le pronom."},
+ {s:"(regarder, tu) → ______ !", a:["Regarde"], why:"Verbe en -ER → <b>pas de s</b> à la forme tu."},
+ {s:"(finir, vous) → ______ !", a:["Finissez"], why:"<i>vous finissez</i> moins le pronom."},
+ {s:"(finir, tu) → ______ !", a:["Finis"], why:"Groupe 2 → <b>le s reste</b>."},
+ {s:"(attendre, tu) → ______ !", a:["Attends"], why:"Groupe 3 → le s reste."},
+ {s:"(faire, vous) → ______ attention !", a:["Faites"], why:"Un des trois <i>vous</i> sans -ez."},
+ {s:"(être, vous) → ______ à l’heure !", a:["Soyez"], why:"Irrégulier."},
+ {s:"(avoir, vous) → N’ ______ pas peur !", a:["ayez"], why:"Irrégulier."},
+ {s:"(aller, tu) → ______ -y !", a:["Vas"], why:"Le <b>s</b> revient devant <b>y</b> pour la liaison : <i>vas-y</i>."},
+ {s:"(nettoyer, vous) → ______ la porte !", a:["Nettoyez"], why:"La Fiche 43."},
+ {s:"(mesurer, vous) → ______ les carreaux !", a:["Mesurez"], why:"La Fiche 43."},
+ {s:"(choisir, vous) → ______ bien vos photos !", a:["Choisissez"], why:"Groupe 2 : <i>vous choisissez</i>."}
+]);
+h3('B · Mettez à la forme négative');
+fill([
+ {s:"Mettez de la colle ! → ______", a:["Ne mettez pas de colle"], why:"<i>ne</i> devant, <i>pas</i> derrière, et <i>de la</i> → <b>de</b>."},
+ {s:"Utilisez ce scotch ! → ______", a:["N’utilisez pas ce scotch"], why:"<b>n’</b> devant une voyelle."},
+ {s:"Regarde ! → ______", a:["Ne regarde pas"], why:"Pareil à la forme tu."},
+ {s:"Prenez des photos ! → ______", a:["Ne prenez pas de photos"], why:"<i>des</i> → <b>de</b>."},
+ {s:"Découpez-les ! → ______", a:["Ne les découpez pas"], why:"Au négatif, le pronom <b>revient devant</b>."},
+ {s:"Regarde-moi ! → ______", a:["Ne me regarde pas"], why:"Et <b>moi</b> redevient <b>me</b>."}
+]);
+h3('C · Choisissez');
+mcq([
+ {q:"Impératif de « tu écoutes » :", opts:["Écoutes !","Écoute !"], a:1, why:"Verbe en -ER → pas de s."},
+ {q:"Impératif de « tu finis » :", opts:["Fini !","Finis !"], a:1, why:"Groupe 2 → le s reste."},
+ {q:"« ______ -y ! » (aller, tu)", opts:["Va","Vas"], a:1, why:"Le s revient devant <b>y</b>."},
+ {q:"Combien de personnes a l’impératif ?", opts:["trois","six"], a:0, why:"Seulement <i>tu</i>, <i>nous</i>, <i>vous</i>."},
+ {q:"« Veuillez patienter » est :", opts:["familier","très poli, administratif"], a:1, why:"Impératif de <i>vouloir</i> — la formule polie par excellence."},
+ {q:"« Il faut être précis » est :", opts:["personnel","impersonnel"], a:1, why:"<b>Il faut</b> ne désigne personne en particulier."},
+ {q:"« Vous devez utiliser… » est :", opts:["personnel","impersonnel"], a:0, why:"<i>Vous</i> s’adresse directement au lecteur."},
+ {q:"Sur un panneau : « ______ fumer »", opts:["Ne pas","Ne fumez pas"], a:0, why:"Instruction générale → infinitif : <b>Ne pas fumer</b>. Les deux existent, mais le panneau utilise l’infinitif."}
+]);
+h3('D · Le vocabulaire des deux cours');
+fill([
+ {s:"L’objet pour mesurer : un ______", a:["mètre"], why:"uhn METR."},
+ {s:"L’outil pour peindre : un ______", a:["pinceau"], why:"uhn pan-SOH."},
+ {s:"Pour couper : des ______ ou un cutter", a:["ciseaux"], why:"day see-ZOH, toujours pluriel."},
+ {s:"Le tourne-disque sert à écouter des ______", a:["disques","vinyles"], why:"Les deux marchent."},
+ {s:"« Ça ______ encore ? » = does it still work?", a:["marche"], why:"<i>marcher</i> = fonctionner, pour un objet."},
+ {s:"Un objet un peu endommagé est un peu ______", a:["abîmé"], why:"ah-bee-MAY."},
+ {s:"Le contraire de « lourd » : ______", a:["léger"], why:"lay-ZHAY."},
+ {s:"« C’est à ______ ? » = is it yours? (tu)", a:["toi"], why:"<b>C’est à toi</b> — la façon normale de demander la possession."}
+]);
+h3('E · Dictée');
+dict([
+ {fr:"Nettoyez votre vieille porte.", en:"Clean your old door.", why:"Impératif, forme vous."},
+ {fr:"Mesurez la taille des carreaux.", en:"Measure the size of the panes.", why:"muh-zew-RAY."},
+ {fr:"Ne mettez pas de colle !", en:"Don’t use glue!", why:"Négation + <i>de la</i> → <b>de</b>."},
+ {fr:"N’utilisez pas de scotch de mauvaise qualité !", en:"Don’t use poor-quality tape!", why:"<b>n’</b> devant voyelle."},
+ {fr:"Il faut être très précis.", en:"You have to be very precise.", why:"<b>il faut</b> + infinitif."},
+ {fr:"Vous devez utiliser du scotch double face.", en:"You must use double-sided tape.", why:"<b>devoir</b> + infinitif."},
+ {fr:"Elle est un peu abîmée, mais elle n’est pas cassée.", en:"It’s a bit damaged, but it isn’t broken.", why:"Deux accords au féminin."},
+ {fr:"Quand j’étais jeune, j’allais à l’école à vélo.", en:"When I was young, I cycled to school.", why:"Deux imparfaits."},
+ {fr:"On écoutait de la musique tous les week-ends.", en:"We listened to music every weekend.", why:"La phrase du tableau."},
+ {fr:"C’est un cadeau de mon grand-père.", en:"It’s a gift from my grandfather.", why:"Liaison : <b>say-TUHN</b>."}
+]);
+
+h2('7 · Ce que ces deux cours ajoutent à votre dossier');
+note("<b>Bilan de l’Unité 7, maintenant qu’elle est complète :</b><br><br>· <b>Vocabulaire</b> — la brocante, les objets anciens, les vêtements, le bricolage<br>· <b>Décrire un objet</b> — taille + forme + matière + dimensions + état<br>· <b>L’imparfait</b> — les souvenirs et les habitudes passées<br>· <b>Le passé composé</b> — avec les deux auxiliaires et l’accord<br>· <b>Les indicateurs de temps</b> — hier, avant-hier, la semaine dernière, l’année prochaine<br>· <b>L’impératif</b> — instructions, conseils, interdictions<br><br><b>C’est une unité très dense</b>, et tout y est directement réutilisable à l’examen.");
+warn("<b>Les trois choses à retenir de ces deux séances :</b><br><br><b>1 · L’impératif perd son S aux verbes en -ER à la forme TU.</b> <i>Regarde !</i>, pas <i>Regardes !</i> — sauf devant <b>y</b> et <b>en</b>.<br><br><b>2 · Au négatif, le pronom repasse devant.</b> <i>Découpez-les</i> / <i>Ne les découpez pas</i>.<br><br><b>3 · Le tableau de la piste 65 est un tableau d’imparfaits.</b> Quatre souvenirs, quatre objets, quatre marqueurs de répétition. Si vous ne retenez qu’une chose de l’Unité 7, retenez que <b>les vieux objets servent à faire parler de ce qu’on faisait avant</b>.");
+src('Cours 35 · Saison 1 (A1+) Unité 7, piste 65 · Fiche nº 43 « Créer un cadre photo avec une vieille porte » · lingua.com « Les vêtements ». Transcription de la piste 65 fournie par Rajveer ; corrections de prononciation, explications grammaticales et exercices rédigés ici. <b>Je n’ai pas entendu l’audio moi-même</b> — si la prof a donné des réponses différentes en classe, dites-le-moi et je corrige.');
+</script>
+</body>
+</html>

@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Cours 34 — La brocante de Courpière</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+  .reading { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:10px 0; }
+  .reading p { margin:0 0 10px; }
+</style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
+<style id="mobile-fix">
+@media (max-width: 640px){
+  .wrap{ padding:12px 12px 70px; }
+  h1{ font-size:22px; line-height:1.25; }
+  h2{ font-size:19px; }
+  h3{ font-size:16px; }
+  /* nav becomes one swipeable row instead of a wall of chips */
+  nav{ flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
+       padding-bottom:6px; margin-bottom:14px; scrollbar-width:thin; }
+  nav a{ flex:0 0 auto; white-space:nowrap; font-size:12px; padding:6px 9px; }
+  /* tables scroll sideways instead of crushing */
+  table, .conjt{ display:block; width:100%; overflow-x:auto;
+                 -webkit-overflow-scrolling:touch; white-space:nowrap; font-size:13px; }
+  table td, table th, .conjt td, .conjt th{ white-space:normal; min-width:92px; }
+  /* reading blocks */
+  .note,.example,.warn,.source,.lead,.txtp{ font-size:14.5px; }
+  .grid{ grid-template-columns:1fr !important; }
+  /* bigger tap targets on the audio rows */
+  .row{ padding:10px 8px; }
+  .play{ min-width:38px; min-height:38px; }
+  .fr{ font-size:16px; }
+  .ph,.en{ font-size:13px; }
+  /* exercises */
+  .fillrow input{ width:100%; box-sizing:border-box; font-size:16px; padding:8px; }
+  .fillrow button,.riddle button{ padding:9px 12px; font-size:14px; margin-top:6px; }
+  .riddle .btns{ display:flex; flex-wrap:wrap; gap:6px; }
+  /* book page chapter tabs */
+  .parttabs{ flex-wrap:nowrap; overflow-x:auto; }
+  .parttabs button{ flex:0 0 auto; white-space:nowrap; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 34 : La brocante de Courpière</h1>
+  <p class="sub">Saison 1 (A1+), Livre p. 138 — Unité 7, la compréhension écrite · décrire un objet · les indicateurs de temps · + Les vêtements (lingua.com)</p>
+
+  <nav>
+    <a href="French_Start_Here.html"><b>★ Start Here</b></a>
+    <a href="French_Cours_Complet.html">Complete Book</a>
+    <a href="French_TCF_Guide.html">TCF Guide</a>
+    <a href="French_Plan_10_Mois.html">Plan 10 mois</a><a href="French_Comment_Etudier.html">Comment étudier</a><a href="French_Ressources.html">Ressources</a>
+    <a href="French_Cours33_Notes.html">Cours 33</a>
+    <a href="French_Cours34_Notes.html" class="active">Cours 34</a><a href="French_Cours35_Notes.html">Cours 35</a>
+    <a href="French_Grammaire.html">Grammaire</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <span class="toggle"><button id="n" class="on">Normal</button><button id="s">Slow</button></span>
+    <span id="voicewarn"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+<script>
+
+
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=(r||rate); return u;
+}
+function speak(text, r){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').innerHTML=fr; c.querySelector('.ph').innerHTML=ph;
+    const plain=String(fr).replace(/<[^>]*>/g,'').replace(/\s*—.*$/,'').trim();
+    c.onclick=()=>speak(plain); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+/* ===== 1 ===== */
+function fillx(list){ fill(list.map(x=>({s:x[0], a:[x[1]], en:x[2]||'', why:x[3]||('Réponse : <b>'+x[1]+'</b>')}))); }
+function mcqx(list){ mcq(list.map(x=>({q:x[0], opts:x[1], a:x[2], why:x[3]||''}))); }
+
+function read(paras){
+  const d=document.createElement('div'); d.className='reading';
+  paras.forEach(t=>{
+    const el=document.createElement('p'); el.innerHTML=t; el.style.cursor='pointer';
+    const plain=String(t).replace(/<[^>]*>/g,'');
+    el.onclick=()=>speak(plain);
+    d.appendChild(el);
+  });
+  content.appendChild(d);
+}
+
+function dict(items){
+  items.forEach((it,n)=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const top=document.createElement('div'); top.className='sent';
+    top.innerHTML='<b>'+(n+1)+'.</b> Écoutez, puis écrivez ce que vous entendez. <i>(Listen, then write what you hear.)</i>';
+    const bar=document.createElement('div'); bar.style.cssText='display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:8px 0';
+    const pb=document.createElement('button'); pb.textContent='▶ Écouter'; pb.onclick=()=>speak(it.fr);
+    const sb=document.createElement('button'); sb.textContent='▶ Lentement'; sb.onclick=()=>speak(it.fr,0.55);
+    const inp=document.createElement('input'); inp.placeholder='Écrivez ici…'; inp.style.flex='1';
+    const cb=document.createElement('button'); cb.textContent='Vérifier';
+    const fb=document.createElement('div'); fb.className='fb';
+    function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9' ]/g,' ').replace(/\s+/g,' ').trim(); }
+    cb.onclick=()=>{
+      if(norm(inp.value)===norm(it.fr)){ fb.className='fb ok'; fb.innerHTML='✓ <b>'+it.fr+'</b><br>'+(it.en||'')+(it.why?'<br><i>'+it.why+'</i>':''); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Réponse : <b>'+it.fr+'</b><br>'+(it.en||'')+(it.why?'<br><i>'+it.why+'</i>':''); }
+    };
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') cb.onclick(); });
+    bar.appendChild(pb); bar.appendChild(sb); bar.appendChild(inp); bar.appendChild(cb);
+    d.appendChild(top); d.appendChild(bar); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+h2('0 · Ce qu’il y avait à l’écran');
+lead('Saison 1 (A1+), Livre p. 138 — la suite directe de la page 137 vue au cours 33.');
+note("<b>La page contient trois choses :</b><br><br><b>1 ·</b> Un article de presse : <b>« … de Courpière »</b> — un reportage sur une brocante de village, avec quatre témoignages.<br><b>2 ·</b> Un encadré <b>Stratégie</b> sur la façon d’aborder un texte.<br><b>3 ·</b> Un encadré <b>Mots et expressions — Les indicateurs de temps</b> : <i>hier</i>, <i>la semaine dernière</i>, <i>l’année dernière</i>.<br><br><b>Ce que la page enseigne vraiment</b> — et ce n’est pas annoncé : le <b>passé composé</b> et surtout la <b>description d’objets</b> (forme, matière, dimensions). Tout le texte est construit là-dessus.");
+
+h2('1 · L’encadré Stratégie — et pourquoi il compte pour le TCF');
+ex("<b>Ce que dit le livre :</b><br><br><i>« Avant de lire un texte, je commence par lire le titre pour préparer le contexte. Qu’est-ce que je connais sur le sujet ? »</i>");
+warn("<b>Ce conseil vaut des points réels à l’examen, et voici pourquoi.</b><br><br>En compréhension écrite du TCF, vous avez <b>60 minutes pour 39 questions</b>. Vous n’avez pas le temps de lire chaque texte deux fois.<br><br>Lire le titre d’abord et <u>activer ce que vous savez déjà</u> fait deux choses :<br><br>① Ça vous donne le <b>champ lexical</b> avant de commencer. Ici, « brocante » prépare votre cerveau à : objets, prix, vendre, acheter, ancien, vieux. Quand ces mots arrivent, vous ne les décodez plus — vous les reconnaissez.<br>② Ça vous permet de <b>deviner les mots inconnus</b> au lieu de bloquer dessus. Si vous savez que le sujet est une brocante et que vous lisez <i>chiner</i> sans le connaître, le contexte vous donne « chercher des objets » — ce qui suffit.<br><br><b>La méthode complète, en quatre temps :</b><br>· Lire le <b>titre</b> et se demander ce qu’on sait du sujet.<br>· Lire les <b>questions</b> avant le texte.<br>· Balayer le texte pour trouver les <b>mots-clés</b> des questions — ou plutôt leurs <u>synonymes</u>.<br>· Lire attentivement seulement les deux phrases autour de chaque trouvaille.");
+
+h2('2 · Le texte — avec la traduction');
+lead('Le reportage complet, phrase par phrase. Cliquez pour écouter.');
+h3('Le chapeau');
+rows([
+ ["La semaine dernière, le village de Nérondes a organisé une grande brocante.","lah suh-men dehr-nyehr luh vee-lahzh duh nay-ROHND ah or-gah-nee-zay ewn grahnd broh-KAHNT","Last week, the village of Nérondes organised a big flea market."],
+ ["La commune de Courpière a suivi l’exemple.","lah koh-mewn duh koor-PYEHR ah swee-vee leg-ZAHMPL","The town of Courpière followed suit."],
+ ["Et hier, les brocanteurs sont arrivés très tôt à Courpière.","ay yehr lay broh-kahn-tur sohn-tah-ree-vay treh TOH","And yesterday, the dealers arrived very early at Courpière."]
+]);
+h3('Maëva');
+rows([
+ ["Maëva parle de sa journée à la brocante.","mah-ay-vah parl duh sah zhoor-NAY","Maëva talks about her day at the flea market."],
+ ["« Je n’ai pas vu d’antiquités… »","zhuh nay pah vew dahn-tee-kee-TAY","“I didn’t see any antiques…”"],
+ ["« …mais j’ai acheté cette petite horloge rectangulaire en argent. »","meh zhay ahsh-tay set puh-teet or-lozh rek-tahn-gew-lehr ahn-nar-ZHAHN","“…but I bought this small rectangular silver clock.”"]
+]);
+h3('Mehdi');
+rows([
+ ["Mehdi, lui aussi, a fait des affaires au marché aux puces.","meh-dee lwee oh-see ah fay day-zah-FEHR oh mar-shay oh PEWSS","Mehdi, too, got some good deals at the flea market."],
+ ["« C’est un miroir ovale. »","say-tuhn mee-rwahr oh-VAHL","“It’s an oval mirror.”"],
+ ["« Il mesure 1 m de haut et 50 cm de large. »","eel muh-zewr uhn metr duh OH ay san-kahnt sahn-tee-metr duh LARZH","“It’s 1 m high and 50 cm wide.”"],
+ ["« Il est en bois, il est très lourd ! »","ee-lay tahn BWAH ee-lay treh LOOR","“It’s wooden, it’s very heavy!”"]
+]);
+h3('Sébastien');
+rows([
+ ["Sébastien et ses amis brocanteurs ont passé une bonne journée.","say-bas-tyan ay say-zah-mee broh-kahn-tur ohn pah-say ewn bun zhoor-NAY","Sébastien and his dealer friends had a good day."],
+ ["« L’année dernière, on a vendu moins d’objets ! »","lah-nay dehr-nyehr ohn nah vahn-dew mwan dohb-ZHEH","“Last year we sold fewer things!”"]
+]);
+h3('Léa');
+rows([
+ ["Enfin, Léa, grande amoureuse des brocantes, est repartie avec beaucoup d’objets.","ahn-fan lay-ah grahnd ah-moo-ruhz day broh-KAHNT ay ruh-par-TEE","Finally Léa, a great lover of flea markets, left with a lot of things."],
+ ["« J’adore chiner ! »","zhah-dor shee-NAY","“I love bargain-hunting!”"],
+ ["« Avant-hier, je suis allée à Dalet pour un vide-grenier. »","ah-vahn-tyehr zhuh swee-zah-lay ah dah-LEH","“The day before yesterday I went to Dalet for a car-boot sale.”"],
+ ["« Ce matin, j’ai trouvé des jouets en bois, un grand sac en cuir et une petite table carrée en métal. »","suh mah-TAN zhay troo-VAY…","“This morning I found wooden toys, a big leather bag and a small square metal table.”"],
+ ["« Par contre, je n’ai pas trouvé de vieux jeux de société ou de cartes postales… »","par KOHNTR zhuh nay pah troo-vay duh vyuh zhuh duh soh-syay-TAY","“On the other hand, I didn’t find any old board games or postcards…”"]
+]);
+h3('La chute');
+rows([
+ ["C’était une belle journée à Courpière.","say-teh ewn bel zhoor-nay ah koor-PYEHR","It was a lovely day at Courpière."],
+ ["Rendez-vous l’année prochaine !","rahn-day-voo lah-nay proh-SHEN","See you next year!"]
+]);
+
+h2('3 · La vraie leçon de la page : décrire un objet');
+lead('Relisez les témoignages. Chacun décrit un objet — et toujours dans le même ordre.');
+warn("<b>LA FORMULE QUE LE TEXTE RÉPÈTE QUATRE FOIS :</b><br><br><b>un/une + (taille) + NOM + forme + en + matière</b><br><br>· une <b>petite</b> horloge <b>rectangulaire</b> <b>en argent</b><br>· un miroir <b>ovale</b>… <b>en bois</b><br>· un <b>grand</b> sac <b>en cuir</b><br>· une <b>petite</b> table <b>carrée</b> <b>en métal</b><br><br>Remarquez la place des adjectifs — c’est exactement la règle du <b>Chapitre 10</b> :<br>· <b>petit</b> et <b>grand</b> passent <u>avant</u> le nom (taille = BAGS)<br>· <b>rectangulaire</b>, <b>ovale</b>, <b>carrée</b> passent <u>après</u> (forme)<br>· la matière vient en dernier, avec <b>en</b><br><br>Cette formule est réutilisable pour n’importe quel objet, et c’est exactement ce qu’on vous demandera à l’oral si on vous montre une image.");
+h3('A · Les formes');
+rows([
+ ["rond / ronde","ROHN / ROHND","round"],
+ ["carré / carrée","kah-RAY","square"],
+ ["rectangulaire","rek-tahn-gew-LEHR","rectangular"],
+ ["ovale","oh-VAHL","oval"],
+ ["triangulaire","tree-ahn-gew-LEHR","triangular"],
+ ["long / longue","LOHN / LOHNG","long"],
+ ["plat / plate","PLAH / PLAHT","flat"],
+ ["pointu / pointue","pwan-TEW","pointed"]
+]);
+h3('B · Les matières — toujours avec EN');
+rows([
+ ["en bois","ahn BWAH","wooden"],
+ ["en métal","ahn may-TAHL","metal"],
+ ["en fer","ahn FEHR","iron"],
+ ["en argent","ahn-nar-ZHAHN","silver"],
+ ["en or","ahn-NOR","gold"],
+ ["en cuir","ahn KWEER","leather"],
+ ["en plastique","ahn plas-TEEK","plastic"],
+ ["en verre","ahn VEHR","glass"],
+ ["en papier","ahn pah-PYAY","paper"],
+ ["en tissu","ahn tee-SEW","fabric"],
+ ["en coton","ahn koh-TOHN","cotton"],
+ ["en laine","ahn LEN","wool"],
+ ["en porcelaine","ahn por-suh-LEN","porcelain"]
+]);
+warn("<b>EN + matière ne s’accorde JAMAIS.</b><br><br>· <i>une table <b>en bois</b></i> · <i>des tables <b>en bois</b></i> · <i>un sac <b>en cuir</b></i> · <i>des sacs <b>en cuir</b></i><br><br>La matière est invariable — pas de <i>s</i>, pas de <i>e</i>. C’est un bloc figé.<br><br><b>Et attention aux deux liaisons :</b><br>· <b>en argent</b> → <b>ahn-nar-ZHAHN</b> — le n de <i>en</i> se lie<br>· <b>en or</b> → <b>ahn-NOR</b> — pareil<br><br><b>Variante plus soutenue : DE + matière.</b> <i>une table <b>de</b> bois</i> existe et se trouve surtout à l’écrit littéraire. À votre niveau, utilisez toujours <b>en</b> — c’est ce que fait le texte.");
+h3('C · Les dimensions — la structure de Mehdi');
+ex("<b>Le livre donne la formule complète :</b><br><br><i>« Il <b>mesure</b> 1 m <b>de haut</b> et 50 cm <b>de large</b>. »</i><br><br><b>Le verbe : MESURER</b> — et il s’emploie aussi pour les personnes (<i>je mesure 1 m 75</i>, Chapitre 3).<br><br><b>Les quatre dimensions :</b><br>· <b>de haut</b> (duh OH) — high / tall<br>· <b>de large</b> (duh LARZH) — wide<br>· <b>de long</b> (duh LOHN) — long<br>· <b>d’épaisseur</b> (day-peh-SUR) — thick");
+rows([
+ ["Il mesure un mètre de haut.","eel muh-zewr uhn metr duh OH","It’s one metre high."],
+ ["Elle fait cinquante centimètres de large.","el fay san-kahnt sahn-tee-metr duh LARZH","It’s fifty centimetres wide."],
+ ["Ça pèse deux kilos.","sah pez duh kee-LOH","It weighs two kilos."],
+ ["C’est très lourd.","say treh LOOR","It’s very heavy."],
+ ["C’est très léger.","say treh lay-ZHAY","It’s very light."],
+ ["Ça prend beaucoup de place.","sah prahn boh-koo duh PLAHSS","It takes up a lot of room."]
+]);
+note("<b>MESURER ou FAIRE ?</b> Les deux marchent, et <b>faire</b> est plus courant à l’oral :<br><br>· <i>Il <b>mesure</b> un mètre de haut.</i> — neutre, un peu technique<br>· <i>Il <b>fait</b> un mètre de haut.</i> — plus naturel en conversation<br><br>Vous avez déjà vu ce <b>faire</b> au Chapitre 3 : <i>je fais 1,75</i>, <i>je fais du 42</i>. C’est le même verbe qui sert pour toutes les mesures du corps et des objets.");
+h3('D · La description complète — le modèle à réutiliser');
+ex("<b>Assemblez les quatre éléments dans cet ordre :</b><br><br><b>① Ce que c’est</b> — <i>C’est un/une…</i><br><b>② Taille + forme + matière</b> — <i>…une petite table carrée en métal…</i><br><b>③ Les dimensions</b> — <i>Elle fait 60 cm de haut et 40 cm de large.</i><br><b>④ L’état et le prix</b> — <i>Elle est d’occasion, en bon état. Ça coûte 25 euros.</i><br><br><b>Trois exemples complets :</b><br><br>· <i>C’est une petite horloge rectangulaire en argent. Elle fait vingt centimètres de haut. Elle est ancienne et en très bon état.</i><br>· <i>C’est un grand miroir ovale en bois. Il mesure un mètre de haut et cinquante centimètres de large. Il est très lourd, mais il est magnifique.</i><br>· <i>C’est un grand sac en cuir marron. Il est d’occasion, un peu abîmé, mais il coûte seulement quinze euros — c’est une bonne affaire.</i>");
+
+h2('4 · La grammaire cachée : tout le texte est au passé composé');
+lead('Comptez les verbes. Il y en a quinze, et quatorze sont au passé composé. Ce n’est pas un hasard.');
+table(['Verbe du texte','Auxiliaire','Pourquoi'],[
+ ['Nérondes <b>a organisé</b>','avoir','<i>organiser</i> — pas dans la liste des seize'],
+ ['Courpière <b>a suivi</b>','avoir','<i>suivre</i> → participe <b>suivi</b>'],
+ ['les brocanteurs <b>sont arrivés</b>','<b>être</b>','<i>arriver</i> est dans les seize → accord <b>-s</b>'],
+ ['je <b>n’ai pas vu</b>','avoir','<i>voir</i> → <b>vu</b>, négation autour de l’auxiliaire'],
+ ['j’<b>ai acheté</b>','avoir','régulier en -er → <b>-é</b>'],
+ ['Mehdi <b>a fait</b>','avoir','<i>faire</i> → <b>fait</b>'],
+ ['ils <b>ont passé</b> une journée','<b>avoir</b>','<i>une journée</i> est un objet direct → avoir'],
+ ['on <b>a vendu</b>','avoir','<i>vendre</i> → <b>vendu</b>, règle -re → u'],
+ ['Léa <b>est repartie</b>','<b>être</b>','<i>repartir</i>, composé de <i>partir</i> → accord <b>-e</b>'],
+ ['je <b>suis allée</b>','<b>être</b>','<i>aller</i> → accord <b>-e</b> : c’est Léa qui parle'],
+ ['j’<b>ai trouvé</b>','avoir','régulier'],
+ ['je <b>n’ai pas trouvé</b>','avoir','négation + <b>de</b>'],
+ ['c’<b>était</b>','—','<b>imparfait</b> — le seul du texte']
+]);
+warn("<b>TROIS ACCORDS À REPÉRER — c’est exactement le Chapitre 14 dans la nature.</b><br><br>· <i>les brocanteurs sont arriv<b>és</b></i> — sujet masculin pluriel → <b>+s</b><br>· <i>Léa est repart<b>ie</b></i> — sujet féminin singulier → <b>+e</b><br>· <i>je suis all<b>ée</b> à Dalet</i> — et ici le <b>-e</b> vous dit que <u>c’est une femme qui parle</u>. C’est Léa.<br><br><b>C’est un vrai outil de compréhension, pas une décoration.</b> Dans un texte à plusieurs voix, l’accord du participe vous dit qui parle, même sans nom. Si vous aviez lu <i>je suis allé</i> sans <b>e</b>, ce serait Mehdi ou Sébastien.<br><br>Et rappelez-vous : les trois se prononcent <u>pareil</u>. C’est une information que seuls vos yeux reçoivent.");
+note("<b>Et le PASSER de Sébastien est un piège du Chapitre 14.5.</b><br><br><i>« Sébastien et ses amis <b>ont</b> passé une bonne journée »</i> — avec <b>avoir</b>, pas <i>être</i>.<br><br>Pourquoi : <b>une bonne journée</b> est un <u>objet direct</u>. Quand <i>passer</i> a un objet, il prend <b>avoir</b>.<br><br>Comparez :<br>· <i>Ils <b>ont</b> passé une bonne journée.</i> — objet direct → avoir<br>· <i>Je <b>suis</b> passé à la banque.</i> — pas d’objet, mouvement → être<br><br>C’est la même logique que <i>j’ai passé trois ans au Canada</i>, que vous aviez déjà rencontrée.");
+h3('Et la négation : deux fois la règle de l’article');
+ex("· <i>Je n’ai pas vu <b>d’</b>antiquités.</i> ← <i>des antiquités</i><br>· <i>Je n’ai pas trouvé <b>de</b> vieux jeux de société.</i> ← <i>des vieux jeux</i><br><br>C’est la règle 12.5 : après une négation, <b>un / une / du / de la / des → de</b>, et <b>de → d’</b> devant une voyelle.<br><br>Et notez où se place <b>pas</b> : <i>je n’ai <u>pas</u> vu</i> — entre l’auxiliaire et le participe. Jamais <i>je n’ai vu pas</i>.");
+
+h2('5 · Les indicateurs de temps — l’encadré, complété');
+lead('Le livre en donne trois. Voici la série complète, parce que le texte en utilise six.');
+table(['Passé','','Futur',''],[
+ ['<b>hier</b>','yesterday','<b>demain</b>','tomorrow'],
+ ['<b>avant-hier</b>','the day before yesterday','<b>après-demain</b>','the day after tomorrow'],
+ ['<b>la semaine dernière</b>','last week','<b>la semaine prochaine</b>','next week'],
+ ['<b>le mois dernier</b>','last month','<b>le mois prochain</b>','next month'],
+ ['<b>l’année dernière</b>','last year','<b>l’année prochaine</b>','next year'],
+ ['<b>il y a trois jours</b>','three days ago','<b>dans trois jours</b>','in three days']
+]);
+warn("<b>Le texte utilise les deux côtés du tableau — et ça vous dit quelque chose.</b><br><br>Il s’ouvre sur <i>« La semaine dernière… »</i> et se ferme sur <i>« Rendez-vous <b>l’année prochaine</b> ! »</i><br><br>Entre les deux, cinq repères temporels différents : <b>la semaine dernière</b>, <b>hier</b>, <b>avant-hier</b>, <b>ce matin</b>, <b>l’année dernière</b>, puis <b>l’année prochaine</b>.<br><br><b>C’est exactement ce qu’une question de compréhension vous demandera :</b> « Quand Léa est-elle allée à Dalet ? » → <i>avant-hier</i>, et pas <i>ce matin</i>, qui est le moment où elle a trouvé les jouets. Les deux sont dans la même réplique, à deux phrases d’écart. <b>Les textes de TCF sont construits exactement comme ça.</b>");
+note("<b>DERNIER et PROCHAIN s’accordent, et se placent après le nom.</b><br><br>· la semaine derni<b>ère</b> / proch<b>aine</b> — féminin<br>· le mois derni<b>er</b> / proch<b>ain</b> — masculin<br>· l’année derni<b>ère</b> / proch<b>aine</b> — féminin<br><br>Et le piège de position : <b>avant</b> le nom, le sens change. <i>Le <b>dernier</b> train</i> = le train final. <i>Le train <b>dernier</b></i> ne se dit pas. Pareil pour <i>mon <b>ancien</b> appartement</i> (l’ancien) contre <i>un appartement <b>ancien</b></i> (d’époque).");
+
+h2('6 · Le vocabulaire de la page');
+rows([
+ ["une brocante","ewn broh-KAHNT","a flea market, antiques fair"],
+ ["un brocanteur","uhn broh-kahn-TUR","a second-hand dealer"],
+ ["un vide-grenier","uhn veed-gruh-NYAY","a car-boot sale"],
+ ["un marché aux puces","uhn mar-shay oh PEWSS","a flea market"],
+ ["une commune","ewn koh-MEWN","a town, a municipality"],
+ ["un village","uhn vee-LAHZH","a village"],
+ ["organiser","or-gah-nee-ZAY","to organise"],
+ ["suivre l’exemple","sweevr leg-ZAHMPL","to follow suit"],
+ ["chiner","shee-NAY","to hunt for bargains"],
+ ["faire des affaires","fehr day-zah-FEHR","to get good deals"],
+ ["une antiquité","ewn ahn-tee-kee-TAY","an antique"],
+ ["une horloge","ewn or-LOZH","a clock"],
+ ["un miroir","uhn mee-RWAHR","a mirror"],
+ ["un jouet","uhn zhoo-AY","a toy"],
+ ["un sac","uhn SAK","a bag"],
+ ["une table","ewn TAHBL","a table"],
+ ["un jeu de société","uhn zhuh duh soh-syay-TAY","a board game"],
+ ["une carte postale","ewn kart pos-TAHL","a postcard"],
+ ["lourd / léger","LOOR / lay-ZHAY","heavy / light"],
+ ["tôt / tard","TOH / TAR","early / late"],
+ ["moins de","mwan DUH","fewer, less"],
+ ["par contre","par KOHNTR","on the other hand"],
+ ["enfin","ahn-FAN","finally"],
+ ["rendez-vous !","rahn-day-VOO","see you! / meet you there!"]
+]);
+warn("<b>TROIS MOTS DE CE TEXTE QUI VALENT PLUS QUE LES AUTRES</b><br><br><b>1 · PAR CONTRE</b> — « on the other hand ». C’est un <u>connecteur d’opposition</u>, et les connecteurs sont ce qui fait passer un discours de A2 à B1. Léa l’utilise pour opposer ce qu’elle a trouvé à ce qu’elle n’a pas trouvé.<br><i>Variantes : <b>en revanche</b> (plus soutenu), <b>mais</b> (plus simple), <b>cependant</b> (écrit).</i><br><br><b>2 · FAIRE DES AFFAIRES</b> — attention au faux ami. Ça ne veut pas dire « faire du business » ici, mais <b>trouver de bonnes occasions</b>. Et <i>une affaire</i> = une bonne affaire = a bargain. Vous aviez déjà <i>c’est une bonne affaire</i> au cours 33.<br><br><b>3 · MOINS DE</b> — <i>« on a vendu <b>moins d’</b>objets »</i>. C’est le comparatif d’infériorité, et il prend toujours <b>de</b> devant un nom : <i>moins de / plus de / autant de</i>. On y reviendra au chapitre du comparatif.");
+
+h2('7 · Exercices');
+h3('A · Compréhension du texte');
+mcq([
+ {q:"Où a eu lieu la première brocante ?", opts:["à Nérondes","à Courpière"], a:0, why:"« La semaine dernière, le village de Nérondes a organisé une grande brocante. »"},
+ {q:"Quand les brocanteurs sont-ils arrivés à Courpière ?", opts:["hier, très tôt","la semaine dernière"], a:0, why:"« hier, les brocanteurs sont arrivés très tôt »."},
+ {q:"Maëva a-t-elle vu des antiquités ?", opts:["Non","Oui, beaucoup"], a:0, why:"« Je n’ai pas vu d’antiquités » — mais elle a quand même acheté une horloge."},
+ {q:"Qu’a acheté Maëva ?", opts:["une horloge en argent","un miroir en bois"], a:0, why:"« cette petite horloge rectangulaire en argent »."},
+ {q:"De quelle forme est le miroir de Mehdi ?", opts:["ovale","carré"], a:0, why:"« C’est un miroir ovale. »"},
+ {q:"Quelles sont les dimensions du miroir ?", opts:["1 m de haut, 50 cm de large","50 cm de haut, 1 m de large"], a:0, why:"« Il mesure 1 m de haut et 50 cm de large. »"},
+ {q:"Sébastien a-t-il vendu plus ou moins que l’année dernière ?", opts:["plus cette année","moins cette année"], a:0, why:"Piège ! « L’année dernière, on a vendu <u>moins</u> d’objets » — donc cette année, c’est mieux. D’où « une bonne journée »."},
+ {q:"Quand Léa est-elle allée à Dalet ?", opts:["avant-hier","ce matin"], a:0, why:"« Avant-hier, je suis allée à Dalet ». <i>Ce matin</i>, c’est quand elle a trouvé les jouets."},
+ {q:"Qu’est-ce que Léa n’a PAS trouvé ?", opts:["des jeux de société et des cartes postales","un sac en cuir"], a:0, why:"« je n’ai pas trouvé de vieux jeux de société ou de cartes postales »."},
+ {q:"Comment sait-on que c’est une femme qui dit « je suis allée » ?", opts:["à cause du -e de allée","à cause du verbe aller"], a:0, why:"L’accord du participe avec <i>être</i> trahit le genre du sujet. C’est Léa."}
+]);
+h3('B · Forme, matière, dimension');
+fill([
+ {s:"un miroir de forme ovale → un miroir ______", a:["ovale"], why:"La forme se place après le nom."},
+ {s:"une table faite en métal → une table ______ ______", a:["en métal"], why:"<b>en</b> + matière, invariable."},
+ {s:"un sac fait en cuir → un sac ______ ______", a:["en cuir"], why:"Toujours <b>en</b>."},
+ {s:"une horloge de forme rectangulaire → une horloge ______", a:["rectangulaire"], why:"Après le nom."},
+ {s:"Il fait 1 mètre ______ ______ . (high)", a:["de haut"], why:"<b>de haut</b> pour la hauteur."},
+ {s:"Elle fait 50 cm ______ ______ . (wide)", a:["de large"], why:"<b>de large</b> pour la largeur."},
+ {s:"Le contraire de « lourd » : ______", a:["léger"], why:"LOOR / lay-ZHAY."},
+ {s:"Une petite table de forme carrée, en métal → une ______ table ______ ______ ______", a:["petite table carrée en métal"], why:"Taille avant, forme après, matière en dernier."}
+]);
+h3('C · Le passé composé du texte — avoir ou être ?');
+mcq([
+ {q:"Nérondes ______ organisé une brocante.", opts:["a","est"], a:0, why:"<i>organiser</i> n’est pas dans la liste des seize."},
+ {q:"Les brocanteurs ______ arrivés tôt.", opts:["ont","sont"], a:1, why:"<i>arriver</i> est dans la liste → <b>être</b> + accord."},
+ {q:"Léa ______ repartie avec beaucoup d’objets.", opts:["a","est"], a:1, why:"<i>repartir</i> → <b>être</b>, féminin → <b>-e</b>."},
+ {q:"Sébastien et ses amis ______ passé une bonne journée.", opts:["ont","sont"], a:0, why:"<i>une journée</i> est un objet direct → <b>avoir</b>."},
+ {q:"Je ______ allée à Dalet.", opts:["ai","suis"], a:1, why:"<i>aller</i> → <b>être</b>."},
+ {q:"J’ ______ trouvé des jouets.", opts:["ai","suis"], a:0, why:"<i>trouver</i> → <b>avoir</b>."},
+ {q:"Les brocanteurs sont arriv______ .", opts:["é","és"], a:1, why:"Masculin pluriel → <b>-s</b>."},
+ {q:"Léa est repart______ .", opts:["i","ie"], a:1, why:"Féminin singulier → <b>-e</b>."},
+ {q:"« Je n’ai pas vu ______ antiquités. »", opts:["des","d’"], a:1, why:"Négation → <i>des</i> devient <b>d’</b> devant une voyelle."},
+ {q:"« Je n’ai pas trouvé ______ vieux jeux. »", opts:["des","de"], a:1, why:"Négation → <b>de</b>."}
+]);
+h3('D · Les indicateurs de temps');
+fill([
+ {s:"Le jour avant aujourd’hui : ______", a:["hier"], why:"YEHR."},
+ {s:"Deux jours avant aujourd’hui : ______", a:["avant-hier"], why:"ah-vahn-TYEHR."},
+ {s:"Le contraire de « la semaine dernière » : ______", a:["la semaine prochaine"], why:"<b>prochaine</b> s’accorde au féminin."},
+ {s:"Le contraire de « l’année prochaine » : ______", a:["l’année dernière"], why:"Les deux après le nom."},
+ {s:"Le mois ______ (last) — masculin", a:["dernier"], why:"<i>mois</i> est masculin."},
+ {s:"Il y a trois jours ↔ ______ trois jours (futur)", a:["dans"], why:"<b>il y a</b> = passé, <b>dans</b> = futur."}
+]);
+h3('E · Dictée');
+dict([
+ {fr:"La semaine dernière, le village a organisé une grande brocante.", en:"Last week the village organised a big flea market.", why:"Indicateur de temps + passé composé avec <i>avoir</i>."},
+ {fr:"Les brocanteurs sont arrivés très tôt.", en:"The dealers arrived very early.", why:"<b>être</b> + accord au masculin pluriel."},
+ {fr:"J’ai acheté une petite horloge rectangulaire en argent.", en:"I bought a small rectangular silver clock.", why:"Taille avant, forme après, matière en dernier."},
+ {fr:"C’est un miroir ovale en bois.", en:"It’s an oval wooden mirror.", why:"<b>en bois</b>, invariable."},
+ {fr:"Il mesure un mètre de haut et cinquante centimètres de large.", en:"It’s one metre high and fifty centimetres wide.", why:"<b>de haut</b> / <b>de large</b>."},
+ {fr:"Je n’ai pas vu d’antiquités.", en:"I didn’t see any antiques.", why:"<i>des</i> → <b>d’</b> au négatif."},
+ {fr:"Avant-hier, je suis allée à Dalet.", en:"The day before yesterday I went to Dalet.", why:"Le <b>-e</b> dit que c’est une femme."},
+ {fr:"Par contre, je n’ai pas trouvé de cartes postales.", en:"On the other hand, I didn’t find any postcards.", why:"<b>par contre</b> + la règle de l’article."},
+ {fr:"C’était une belle journée à Courpière.", en:"It was a lovely day at Courpière.", why:"<b>c’était</b> — le seul imparfait du texte."},
+ {fr:"Rendez-vous l’année prochaine !", en:"See you next year!", why:"<b>prochaine</b>, féminin."}
+]);
+
+h2('8 · Production — à vous');
+ex("<b>Écrivez le même type d’article sur une brocante où vous seriez allé. 120–150 mots.</b><br><br><b>Obligatoire :</b><br>· <b>huit verbes au passé composé</b>, dont <b>deux avec être</b><br>· <b>deux négations</b> avec la règle de l’article (<i>pas de / pas d’</i>)<br>· <b>trois objets décrits</b> avec taille + forme + matière<br>· <b>une dimension</b> (<i>ça fait … de haut</i>)<br>· <b>quatre indicateurs de temps</b><br>· <b>par contre</b> une fois<br>· une phrase de conclusion avec <b>c’était</b>");
+note("<b>Un modèle rempli — 138 mots :</b><br><br><i>Samedi dernier, je suis allé à une vente de garage à Brampton. Je suis arrivé très tôt, vers huit heures, parce que mon collègue m’a dit que les meilleures choses partent vite.<br><br>J’ai trouvé trois objets intéressants. D’abord, une petite lampe ronde en métal — elle fait trente centimètres de haut et elle est très légère. Ensuite, un grand miroir rectangulaire en bois, un peu abîmé mais en bon état. Enfin, un vieux sac en cuir marron pour quinze dollars — une bonne affaire !<br><br>Par contre, je n’ai pas trouvé de livres en français. Je n’ai pas vu d’antiquités non plus : c’était surtout des objets ordinaires.<br><br>Je suis reparti vers onze heures. J’ai dépensé quarante dollars en tout. C’était une bonne matinée — j’y retournerai le mois prochain.</i>");
+warn("<b>Vérifiez votre texte — la liste de cette page :</b><br><br><b>1 ·</b> Chaque verbe au passé : auxiliaire correct ? Réflexif ou dans les seize → <b>être</b>, sinon <b>avoir</b>.<br><b>2 ·</b> Chaque verbe avec <b>être</b> : le participe s’accorde-t-il avec le sujet ?<br><b>3 ·</b> Chaque négation : <i>un/une/du/des</i> est-il devenu <b>de</b> ou <b>d’</b> ?<br><b>4 ·</b> Chaque objet : taille <u>avant</u> le nom, forme <u>après</u>, matière avec <b>en</b> en dernier.<br><b>5 ·</b> <b>en</b> + matière : pas d’accord, jamais.<br><b>6 ·</b> <b>dernier / prochain</b> : accordés avec leur nom ?<br><b>7 ·</b> Au moins un <b>c’était</b> pour conclure.");
+h2('9 · Deuxième partie du cours — « Les vêtements »');
+lead('Après la page 138, la prof a partagé un texte de lecture sur lingua.com : <i>Les vêtements</i>, avec un QCM.');
+note("<b>Le lien :</b> <i>lingua.com/french/reading/vetements/</i> — un site de lectures graduées avec questions. Utile pour vos trajets : textes courts, questions immédiates, gratuit.");
+h3('Le texte');
+read([
+ "Pour aller au travail, Marc porte <b>une veste</b>, <b>un pantalon</b>, <b>une chemise</b> et <b>une belle cravate rouge</b>. Ses amis trouvent qu’il est très élégant avec son <b>bracelet-montre doré</b> et ses <b>chaussures noires</b>.",
+ "Quand il doit rencontrer un client important, Marc n’hésite pas à s’habiller sobrement. Il met son plus beau <b>costume</b> et son <b>chapeau</b>. Il se sent plus à l’aise avec une <b>tenue vestimentaire</b> classique.",
+ "Sa secrétaire Lili porte <b>des lunettes</b>. Elle adore mettre sa <b>jupe à fleurs</b> et un <b>chemisier assorti</b> lorsqu’il fait beau. En hiver, elle ne sort jamais sans son <b>parapluie</b> et son <b>écharpe</b>. Elle préfère aussi mettre <b>un pull</b>, des <b>chaussettes en laine</b>, des <b>bottes</b> et ses <b>gants</b> pour ne pas avoir froid aux doigts. Parfois, elle exhibe un joli <b>collier en perles</b> autour du cou qui lui donne une allure très attrayante.",
+ "En été, lorsqu’il fait chaud, Lili et Marc vont à la plage pendant le weekend. Ils mettent des <b>lunettes de soleil</b>, une <b>belle casquette</b>, un <b>T-shirt</b>, des <b>shorts</b> et des <b>sandales</b>. Ils aiment passer des journées ensemble au bord de la mer."
+]);
+h3('Le QCM du site');
+mcq([
+ {q:"1 · Que porte Marc pour aller au travail ?", opts:["une veste","un short","un T-shirt","une belle casquette"], a:0, why:"« Marc porte une veste, un pantalon, une chemise et une belle cravate rouge. » Les trois autres sont ses vêtements de plage."},
+ {q:"2 · Que prend Lili quand elle sort en hiver ?", opts:["une cravate rouge","un bracelet-montre","un panier","un parapluie"], a:3, why:"« En hiver, elle ne sort jamais sans son parapluie et son écharpe. » La cravate et le bracelet-montre sont à Marc."},
+ {q:"3 · Quand Marc porte-t-il un costume ?", opts:["quand il fait chaud","pendant le weekend","pour aller à la plage","pour rencontrer un client important"], a:3, why:"« Quand il doit rencontrer un client important… Il met son plus beau costume. »"},
+ {q:"4 · Que met Lili quand elle va à la plage ?", opts:["des bottes et des gants","des lunettes de soleil et des sandales"], a:1, why:"« Ils mettent des lunettes de soleil, une belle casquette, un T-shirt, des shorts et des sandales. »"}
+]);
+warn("<b>LA STRATÉGIE DE LA PAGE 138 S’APPLIQUE ICI, ET C’EST LA CLÉ DU QCM.</b><br><br>Regardez comment les mauvaises réponses sont fabriquées : ce sont <u>toutes</u> des mots qui existent dans le texte, mais attachés à <b>la mauvaise personne</b> ou à <b>la mauvaise saison</b>.<br><br>· Q1 : <i>short</i>, <i>T-shirt</i>, <i>casquette</i> sont dans le texte — mais au dernier paragraphe, à la plage, pas au travail.<br>· Q2 : <i>cravate rouge</i> et <i>bracelet-montre</i> sont dans le texte — mais ils appartiennent à Marc.<br>· Q3 : <i>fait chaud</i>, <i>weekend</i>, <i>plage</i> sont tous dans le texte — mais dans le paragraphe sur l’été.<br><br><b>C’est exactement la technique du TCF.</b> Repérer un mot ne suffit jamais : il faut vérifier <u>qui</u> et <u>quand</u>. Entraînez-vous à lire les deux phrases autour du mot-clé, pas le mot seul.");
+h3('Le vocabulaire des vêtements — la liste complète');
+rows([
+ ["un vêtement","uhn vet-MAHN","an item of clothing"],
+ ["une tenue","ewn tuh-NEW","an outfit"],
+ ["une veste","ewn VEST","a jacket"],
+ ["un pantalon","uhn pahn-tah-LOHN","trousers (singular in French!)"],
+ ["une chemise","ewn shuh-MEEZ","a shirt (men’s)"],
+ ["un chemisier","uhn shuh-mee-ZYAY","a blouse (women’s)"],
+ ["une cravate","ewn krah-VAHT","a tie"],
+ ["un costume","uhn kos-TEWM","a suit"],
+ ["un chapeau","uhn shah-POH","a hat"],
+ ["une casquette","ewn kas-KET","a cap"],
+ ["une jupe","ewn ZHEWP","a skirt"],
+ ["une robe","ewn ROB","a dress"],
+ ["un pull","uhn PEWL","a jumper, sweater"],
+ ["un T-shirt","uhn tee-SHURT","a T-shirt"],
+ ["un short","uhn SHORT","shorts (singular!)"],
+ ["un manteau","uhn mahn-TOH","a coat"],
+ ["une écharpe","ewn ay-SHARP","a scarf"],
+ ["des gants","day GAHN","gloves"],
+ ["des chaussettes","day shoh-SET","socks"],
+ ["des chaussures","day shoh-SEWR","shoes"],
+ ["des bottes","day BOT","boots"],
+ ["des sandales","day sahn-DAHL","sandals"],
+ ["des lunettes","day lew-NET","glasses"],
+ ["des lunettes de soleil","…duh soh-LAY","sunglasses"],
+ ["un parapluie","uhn pah-rah-PLWEE","an umbrella"],
+ ["un collier","uhn koh-LYAY","a necklace"],
+ ["un bracelet-montre","uhn brahss-leh MOHNTR","a wristwatch"]
+]);
+warn("<b>TROIS PIÈGES DE NOMBRE — l’anglais et le français ne comptent pas pareil.</b><br><br>· <b>un pantalon</b> = trousers. <u>Singulier</u> en français, pluriel en anglais. <i>Je porte <b>un</b> pantalon</i>, jamais <i>des pantalons</i> (sauf pour plusieurs vêtements).<br>· <b>un short</b> = shorts. Pareil, singulier.<br>· <b>des lunettes</b> = glasses. <u>Toujours pluriel</u> en français. <i>Je porte <b>des</b> lunettes</i>, jamais <i>une lunette</i>.<br><br>Et deux faux amis de genre : <b>une</b> chemise (shirt, pour homme) contre <b>un</b> chemisier (blouse, pour femme). Le mot féminin désigne le vêtement masculin et inversement — c’est contre-intuitif, retenez-les en paire.");
+h3('PORTER ou METTRE ? Le verbe qui change tout');
+ex("<b>Le texte utilise les deux, et la différence est importante :</b><br><br>· <b>PORTER</b> = to <u>wear</u>, l’état. <i>Marc <b>porte</b> une veste.</i> — il l’a sur lui.<br>· <b>METTRE</b> = to <u>put on</u>, l’action. <i>Il <b>met</b> son costume.</i> — il l’enfile.<br><br><b>Les autres verbes du champ :</b><br>· <b>s’habiller</b> — to get dressed. <i>Il n’hésite pas à <b>s’habiller</b> sobrement.</i><br>· <b>enlever</b> / <b>retirer</b> — to take off<br>· <b>essayer</b> — to try on<br>· <b>aller à quelqu’un</b> — to suit someone. <i>Ça te va bien !</i><br><br><b>Rappel du Chapitre 9 :</b> <i>mettre</i> est irrégulier — <b>je mets, tu mets, il met, nous mettons, vous mettez, ils mettent</b>. Et son participe passé est <b>mis</b> : <i>j’ai mis mon manteau</i>.");
+h3('Décrire une tenue — la même formule que la brocante');
+ex("<b>Regardez : c’est exactement la structure de la page 138, appliquée aux vêtements.</b><br><br><b>article + (taille/qualité) + VÊTEMENT + couleur/motif + en + matière</b><br><br>· une <b>belle</b> cravate <b>rouge</b><br>· des chaussures <b>noires</b><br>· une jupe <b>à fleurs</b><br>· des chaussettes <b>en laine</b><br>· un collier <b>en perles</b><br>· un bracelet-montre <b>doré</b><br><br><b>Les motifs :</b> <b>à fleurs</b> (floral), <b>à rayures</b> (striped), <b>à carreaux</b> (checked), <b>à pois</b> (polka-dot), <b>uni</b> (plain).<br><b>Les matières :</b> <b>en laine</b> (wool), <b>en coton</b> (cotton), <b>en cuir</b> (leather), <b>en soie</b> (silk), <b>en lin</b> (linen).<br><br>Et comme à la brocante : <b>en + matière ne s’accorde jamais</b>, mais la <b>couleur s’accorde</b> — <i>des chaussures noir<b>es</b></i>.");
+h3('Vocabulaire supplémentaire du texte');
+rows([
+ ["élégant / élégante","ay-lay-GAHN / GAHNT","elegant, smart"],
+ ["sobrement","soh-bruh-MAHN","soberly, plainly"],
+ ["assorti / assortie","ah-sor-TEE","matching"],
+ ["doré / dorée","doh-RAY","gold-coloured"],
+ ["être à l’aise","etr ah LEZ","to feel comfortable"],
+ ["une allure","ewn ah-LEWR","a look, a style"],
+ ["attrayant / attrayante","ah-treh-YAHN","attractive"],
+ ["hésiter à","ay-zee-tay AH","to hesitate to"],
+ ["exhiber","eg-zee-BAY","to show off"],
+ ["lorsque","LORSK","when (= quand, plus soutenu)"],
+ ["parfois","par-FWAH","sometimes"],
+ ["au bord de la mer","oh bor duh lah MEHR","at the seaside"],
+ ["avoir froid aux doigts","ah-vwahr frwah oh DWAH","to have cold fingers"]
+]);
+note("<b>Deux mots à ramasser au passage :</b><br><br>· <b>LORSQUE</b> = <i>quand</i>, mais plus soutenu. Le texte l’utilise deux fois : <i>lorsqu’il fait beau</i>, <i>lorsqu’il fait chaud</i>. À l’écrit du TCF, alterner <i>quand</i> et <i>lorsque</i> montre une gamme. Notez l’élision : <b>lorsqu’il</b>.<br><br>· <b>AVOIR FROID AUX DOIGTS</b> — encore une expression avec <b>avoir</b> là où l’anglais dit <i>to be</i>. Ça s’ajoute à votre liste du Chapitre 4 : <i>avoir froid, avoir chaud, avoir faim, avoir soif, avoir peur, avoir sommeil, avoir raison</i>.");
+h3('Production — décrivez votre tenue');
+ex("<b>À voix haute, puis à l’écrit. 80–100 mots.</b><br><br><i>Pour aller au travail, je porte <b>___</b>, <b>___</b> et <b>___</b>.<br>En hiver, je mets <b>___</b> parce qu’il fait <b>___</b>.<br>En été, je préfère <b>___</b>.<br>Le week-end, je m’habille <b>___</b> : <b>___</b>.<br>Je n’aime pas porter <b>___</b>.</i><br><br><b>Un modèle :</b><br><i>Pour aller au travail, je porte un pantalon noir, une chemise bleue et des chaussures noires. Chez Sobeys, il n’y a pas d’uniforme, mais je préfère une tenue classique. En hiver, je mets un gros manteau, une écharpe et des gants — il fait moins vingt à Brampton ! En été, je préfère un T-shirt et un short. Le week-end, je m’habille de façon décontractée : un jean et un pull. Je n’aime pas porter de cravate — je ne suis pas à l’aise.</i><br><br><b>Remarquez :</b> <i>je n’aime pas porter <b>de</b> cravate</i> — la règle de l’article après une négation, encore une fois.");
+
+src('Cours 34 · Saison 1 (A1+), Livre p. 138 — Unité 7 : l’article « … de Courpière », l’encadré Stratégie et l’encadré Mots et expressions (les indicateurs de temps). Notes prises depuis l’écran ; traductions, explications grammaticales et exercices rédigés ici.');
+</script>
+</body>
+</html>

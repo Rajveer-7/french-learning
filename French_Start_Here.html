@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>START HERE — par où commencer</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+  .reading { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:10px 0; }
+  .reading p { margin:0 0 10px; }
+
+  .tkbox { background:var(--card); border:2px solid var(--accent); border-radius:14px; padding:14px 16px; margin:0 0 22px; }
+  .tkhead { font-size:17px; color:var(--accent); margin-bottom:10px; }
+  .tktodo { background:var(--accentbg); border-radius:10px; padding:12px 14px; font-size:14px; line-height:1.6; margin-bottom:14px; }
+  .tktab { width:100%; border-collapse:collapse; font-size:13px; }
+  .tktab th { text-align:center; padding:6px 4px; border-bottom:2px solid var(--line); font-size:12px; color:var(--muted); font-weight:600; }
+  .tktab th span { font-weight:400; font-size:10px; }
+  .tktab td { padding:4px; border-bottom:1px solid var(--line); text-align:center; }
+  .tktab td.nm { text-align:left; font-size:13px; }
+  .tkb { font-size:11px; padding:4px 8px; min-width:52px; border:1px solid var(--line); background:var(--bg); color:var(--muted); border-radius:6px; cursor:pointer; }
+  .tkb.done { background:var(--green); color:#fff; border-color:var(--green); font-weight:600; }
+  .tktab td.st { font-size:12px; color:var(--muted); white-space:nowrap; }
+  .tktab td.st.ok { color:var(--green); font-weight:600; }
+  .tktab td.st.mid { color:var(--accent); }
+  .tktab td.st.warn { color:#b45309; font-weight:600; }
+  .tkfoot { margin-top:10px; font-size:12px; color:var(--muted); display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .tkreset { font-size:12px; padding:4px 10px; border:1px solid var(--line); background:var(--bg); color:var(--muted); border-radius:6px; cursor:pointer; }
+</style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
+<style id="mobile-fix">
+@media (max-width: 640px){
+  .wrap{ padding:12px 12px 70px; }
+  h1{ font-size:22px; line-height:1.25; }
+  h2{ font-size:19px; }
+  h3{ font-size:16px; }
+  /* nav becomes one swipeable row instead of a wall of chips */
+  nav{ flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
+       padding-bottom:6px; margin-bottom:14px; scrollbar-width:thin; }
+  nav a{ flex:0 0 auto; white-space:nowrap; font-size:12px; padding:6px 9px; }
+  /* tables scroll sideways instead of crushing */
+  table, .conjt{ display:block; width:100%; overflow-x:auto;
+                 -webkit-overflow-scrolling:touch; white-space:nowrap; font-size:13px; }
+  table td, table th, .conjt td, .conjt th{ white-space:normal; min-width:92px; }
+  /* reading blocks */
+  .note,.example,.warn,.source,.lead,.txtp{ font-size:14.5px; }
+  .grid{ grid-template-columns:1fr !important; }
+  /* bigger tap targets on the audio rows */
+  .row{ padding:10px 8px; }
+  .play{ min-width:38px; min-height:38px; }
+  .fr{ font-size:16px; }
+  .ph,.en{ font-size:13px; }
+  /* exercises */
+  .fillrow input{ width:100%; box-sizing:border-box; font-size:16px; padding:8px; }
+  .fillrow button,.riddle button{ padding:9px 12px; font-size:14px; margin-top:6px; }
+  .riddle .btns{ display:flex; flex-wrap:wrap; gap:6px; }
+  /* book page chapter tabs */
+  .parttabs{ flex-wrap:nowrap; overflow-x:auto; }
+  .parttabs button{ flex:0 0 auto; white-space:nowrap; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>START HERE — par où commencer</h1>
+  <p class="sub">Il y a 65 pages sur ce site. Vous n'en avez besoin que de 5 au quotidien. Voici lesquelles, et quand.</p>
+
+  <nav>
+    <a href="French_Start_Here.html" class="active">★ Start Here</a>
+    <a href="French_Cours_Complet.html">① Le Livre</a>
+    <a href="French_Comment_Etudier.html">② Méthode</a>
+    <a href="French_Plan_10_Mois.html">③ Plan</a>
+    <a href="French_Ressources.html">④ Ressources</a>
+    <a href="French_TCF_Guide.html">⑤ TCF</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <span class="toggle"><button id="n" class="on">Normal</button><button id="s">Slow</button></span>
+    <span id="voicewarn"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+<script>
+
+
+
+
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=(r||rate); return u;
+}
+function speak(text, r){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').innerHTML=fr; c.querySelector('.ph').innerHTML=ph;
+    const plain=String(fr).replace(/<[^>]*>/g,'').replace(/\s*—.*$/,'').trim();
+    c.onclick=()=>speak(plain); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+/* ===== 1 ===== */
+function fillx(list){ fill(list.map(x=>({s:x[0], a:[x[1]], en:x[2]||'', why:x[3]||('Réponse : <b>'+x[1]+'</b>')}))); }
+function mcqx(list){ mcq(list.map(x=>({q:x[0], opts:x[1], a:x[2], why:x[3]||''}))); }
+
+function read(paras){
+  const d=document.createElement('div'); d.className='reading';
+  paras.forEach(t=>{
+    const el=document.createElement('p'); el.innerHTML=t; el.style.cursor='pointer';
+    const plain=String(t).replace(/<[^>]*>/g,'');
+    el.onclick=()=>speak(plain);
+    d.appendChild(el);
+  });
+  content.appendChild(d);
+}
+
+function dict(items){
+  items.forEach((it,n)=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const top=document.createElement('div'); top.className='sent';
+    top.innerHTML='<b>'+(n+1)+'.</b> Écoutez, puis écrivez ce que vous entendez. <i>(Listen, then write what you hear.)</i>';
+    const bar=document.createElement('div'); bar.style.cssText='display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:8px 0';
+    const pb=document.createElement('button'); pb.textContent='▶ Écouter'; pb.onclick=()=>speak(it.fr);
+    const sb=document.createElement('button'); sb.textContent='▶ Lentement'; sb.onclick=()=>speak(it.fr,0.55);
+    const inp=document.createElement('input'); inp.placeholder='Écrivez ici…'; inp.style.flex='1';
+    const cb=document.createElement('button'); cb.textContent='Vérifier';
+    const fb=document.createElement('div'); fb.className='fb';
+    function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9' ]/g,' ').replace(/\s+/g,' ').trim(); }
+    cb.onclick=()=>{
+      if(norm(inp.value)===norm(it.fr)){ fb.className='fb ok'; fb.innerHTML='✓ <b>'+it.fr+'</b><br>'+(it.en||'')+(it.why?'<br><i>'+it.why+'</i>':''); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Réponse : <b>'+it.fr+'</b><br>'+(it.en||'')+(it.why?'<br><i>'+it.why+'</i>':''); }
+    };
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') cb.onclick(); });
+    bar.appendChild(pb); bar.appendChild(sb); bar.appendChild(inp); bar.appendChild(cb);
+    d.appendChild(top); d.appendChild(bar); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+h2('1 · Les cinq pages qui comptent');
+warn("<b>Le site a grossi à 65 pages. C’est trop, et beaucoup se recoupent.</b><br><br>Voici la vérité simple : <b>cinq pages suffisent</b> pour tout votre travail quotidien. Les soixante autres sont des <u>archives</u> ou de la <u>référence</u> — vous les ouvrez quand vous cherchez quelque chose de précis, jamais pour étudier.<br><br><b>Mettez ces cinq-là en favori sur votre téléphone, et rien d’autre.</b>");
+table(['','La page','À quoi ça sert','Quand vous l’ouvrez'],[
+ ['<b>①</b>','<b>Le Livre</b><br><i>French_Cours_Complet</i>','Les 22 chapitres, de zéro au TCF. 257 sections, 3 745 exercices. <b>C’est 70 % de votre travail.</b>','<b>Trajet A</b>, tous les lundis. Et pour les révisions.'],
+ ['<b>②</b>','<b>Comment étudier</b><br><i>French_Comment_Etudier</i>','La méthode (les 3 passages, le rappel actif) <b>+ le tableau de bord</b> qui vous dit quoi faire aujourd’hui.','<b>Chaque jour</b>, 10 secondes, pour savoir quoi faire.'],
+ ['<b>③</b>','<b>Plan 10 mois</b><br><i>French_Plan_10_Mois</i>','Le calendrier jusqu’à l’examen, les trois trajets, les points de contrôle.','<b>Une fois par mois</b>, pour vérifier que vous êtes à l’heure.'],
+ ['<b>④</b>','<b>Ressources</b><br><i>French_Ressources</i>','RFI, TV5Monde, Radio-Canada, les sites de lecture. <b>Les 30 % que le livre ne fait pas.</b>','<b>Trajet B</b>, tous les mercredis.'],
+ ['<b>⑤</b>','<b>Guide TCF</b><br><i>French_TCF_Guide</i>','Le format de l’examen, les barèmes IRCC, les modèles pour chaque tâche.','<b>À partir du mois 6</b>, puis chaque semaine avant l’examen.']
+]);
+note("<b>Si vous ne deviez en garder qu’une seule :</b> <b>Comment étudier</b>. Parce qu’elle contient le tableau de bord, et le tableau de bord vous envoie vers les autres. Ouvrez-la, regardez ce qu’elle dit de faire, faites-le.");
+
+h2('2 · Votre journée type — en 30 secondes');
+ex("<b>Tous les jours, dans cet ordre :</b><br><br><b>①</b> Ouvrez <b>Comment étudier</b>. Le panneau « Aujourd’hui » vous dit deux choses :<br>&nbsp;&nbsp;&nbsp;· quel <b>nouveau chapitre</b> faire<br>&nbsp;&nbsp;&nbsp;· quels <b>anciens chapitres</b> réviser<br><br><b>②</b> Faites-le dans <b>Le Livre</b>.<br><br><b>③</b> Revenez cocher les cases du tableau de bord.<br><br><b>④</b> Si c’est un jour d’écoute (mercredi), passez à <b>Ressources</b>.<br><br><b>C’est tout.</b> Vous n’avez jamais à décider quoi faire — le tableau de bord décide.");
+
+h2('3 · Les autres pages — ce qu’elles sont vraiment');
+lead('Classées par usage. Vous n’étudiez dans aucune : vous y cherchez quelque chose.');
+h3('Référence — à consulter, pas à lire');
+table(['Page','Quand l’ouvrir'],[
+ ['<b>Grammaire</b> <i>(372 Ko)</i>','Quand vous voulez la règle complète sur un point précis, au-delà de ce que dit le chapitre.'],
+ ['<b>Vocabulaire</b> <i>(740 Ko)</i>','Quand vous cherchez tout le champ lexical d’un thème.'],
+ ['<b>Verbes</b> <i>(A1_Verbes)</i>','Quand vous hésitez sur une conjugaison au présent.'],
+ ['<b>Carte de la grammaire</b>','Pour voir d’un coup d’œil ce qui reste à apprendre.'],
+ ['<b>Audio Library</b>','Les 85 pistes du manuel Saison 1.'],
+ ['<b>Crash Course oral</b>','La semaine avant l’examen oral. Pas avant.']
+]);
+h3('Notes de cours — 35 pages, une par séance');
+note("<b>Cours 1 à 35.</b> C’est votre <u>archive chronologique</u> : ce qui a été fait en classe, séance par séance.<br><br><b>Quand les ouvrir :</b><br>· le soir du cours, pour relire ce qui vient d’être vu<br>· quand votre prof renvoie à une séance précédente<br>· jamais pour étudier de façon systématique — pour ça, c’est <b>Le Livre</b><br><br>Les plus récentes et les plus denses : <b>Cours 33, 34, 35</b> (l’Unité 7 complète : la brocante, les vêtements, l’impératif).");
+h3('Pages remplacées par Le Livre — vous pouvez les ignorer');
+warn("<b>Ces pages ont été construites avant le Livre et leur contenu y est maintenant, en mieux et avec des exercices.</b> Je ne les supprime pas — elles ne gê nent personne — mais <u>n’étudiez plus dedans</u> :<br><br>· <b>Complete Book</b> et <b>Full Guide</b> → remplacés par <b>Le Livre</b> en entier<br>· <b>Study Guide</b> → remplacé par <b>Plan 10 mois</b><br>· <b>A1 Impératif</b> → remplacé par le <b>Chapitre 18</b><br>· <b>A2 Imparfait</b> → remplacé par le <b>Chapitre 15</b><br>· <b>A1 PC Être</b> → remplacé par le <b>Chapitre 14</b><br>· <b>A1 Temps</b> → remplacé par le <b>Chapitre 11</b><br>· <b>Articles</b> et <b>A1 Articles</b> → doublons l’un de l’autre, remplacés par le <b>Chapitre 5</b><br>· <b>How It Works</b> → intégré au <b>Chapitre 1</b><br><br><b>Pourquoi le Livre est meilleur :</b> même contenu, plus les exercices tapés avec sauvegarde, plus les dictées, plus les lectures, plus la progression ordonnée.");
+h3('Encore utiles — pas encore dans Le Livre');
+note("Ces pages couvrent du vocabulaire thématique qui arrivera dans les chapitres 21 à 24, mais qui n’y est pas encore :<br><br>· <b>A1 Nourriture</b> — la nourriture et le restaurant<br>· <b>A1 Ville</b> — la ville et les directions<br>· <b>A1 Santé</b> — le corps et la santé<br>· <b>Dialogues</b>, <b>Conversations</b>, <b>Book Audio</b> — de l’écoute supplémentaire<br>· <b>Prof’s Notes</b> — l’archive des documents distribués en classe<br><br>Gardez-les sous la main ; je les intégrerai au Livre quand j’arriverai à ces chapitres.");
+
+h2('4 · Le plan complet — de maintenant à l’examen');
+lead('Tout le projet sur une page. Les détails sont dans Plan 10 mois ; voici la vue d’ensemble.');
+table(['Phase','Mois','Chapitres','L’objectif vérifiable'],[
+ ['<b>1 · Consolider l’A1</b>','oct–nov 2026','<b>1 → 12</b> + Ateliers 1 et 2','Parler 2 min de vous sans vous arrêter'],
+ ['<b>2 · L’A2</b>','déc 2026 – fév 2027','<b>13 → 24</b> + Atelier 3','Raconter 3 min au passé, deux temps mélangés'],
+ ['<b>3 · Le B1 + format TCF</b>','mars – mai 2027','<b>25 → 30</b>','<b>Test blanc complet au mois 6</b>'],
+ ['<b>4 · Le B2 + simulation</b>','juin – août 2027','<b>31 → 34</b>','NCLC 7 dans les 4 compétences aux blancs'],
+ ['<b>★ L’examen</b>','<b>août–sept 2027</b>','—','Inscription <b>3 mois à l’avance</b>']
+]);
+warn("<b>OÙ VOUS EN ÊTES AUJOURD’HUI</b><br><br>Chapitres construits : <b>1 à 18</b> + les trois ateliers. C’est <b>tout l’A1 et la majeure partie de l’A2</b>.<br><br>· <b>Partie 1</b> (ch. 1–6) — les fondations ✓<br>· <b>Partie 2</b> (ch. 7–12) — la vie quotidienne ✓<br>· <b>Partie 3</b> (ch. 13–16) — tout le passé ✓<br>· <b>Partie 4</b> (ch. 17–18) — futur proche, impératif ✓ &nbsp;<span style=\"color:#b45309\">(19–24 à venir)</span><br><br><b>Il reste à construire :</b> les pronoms compléments (19), EN et Y (20), le comparatif, le futur simple, le conditionnel, le subjonctif, les relatifs, et les 4 chapitres de technique d’examen.<br><br><b>Vous n’êtes pas en retard</b> — le calendrier prévoit la Partie 4 aux mois 3–5 et la Partie 5 aux mois 6–8. Le contenu se construit au rythme où vous en avez besoin.");
+h3('La répartition de votre semaine — 16 heures');
+table(['Part','Heures','Ce que vous faites','Où'],[
+ ['<b>50 %</b>','~8 h','Le Livre — les trois passages par chapitre','<b>① Le Livre</b>'],
+ ['<b>30 %</b>','~5 h','Écoute réelle, dictée, shadowing','<b>④ Ressources</b>'],
+ ['<b>15 %</b>','~2 h 30','Votre propre production, écrite et orale','<b>① Le Livre</b> (sections Production)'],
+ ['<b>5 %</b>','~30 min','Révision espacée d’anciens chapitres','<b>② le tableau de bord</b>']
+]);
+note("<b>Les 16 heures viennent de là :</b> <b>6 h de trajets</b> (2 h × 3 jours, assis, mains libres) + <b>7 h à la maison</b> (1 h/jour) + <b>3 h de cours</b>. Sur 43 semaines, ça fait environ <b>690 heures</b> — dans la fourchette généralement citée pour atteindre le B2 depuis zéro.<br><br><b>Et vos trajets valent 37 % du total</b> — plus que vos cours. C’est le levier numéro un de tout le plan.");
+
+h2('5 · Les trois trajets — votre semaine en pratique');
+table(['','Jour','2 heures','La page à ouvrir'],[
+ ['<b>A</b>','lundi','<b>Un chapitre complet</b> : lire 30 · vocab 20 · exercices 30 · lecture 20 · dictée 20','<b>① Le Livre</b>'],
+ ['<b>B</b>','mercredi','<b>Écoute</b> : RFI ×2 · dictée sur le même audio · TV5Monde · québécois · shadowing','<b>④ Ressources</b>'],
+ ['<b>C</b>','vendredi','<b>Production</b> : une tâche écrite chronométrée · correction · prépa orale · exercice inversé','<b>① Le Livre</b> + <b>⑤ TCF</b>']
+]);
+warn("<b>ET LES 10 DERNIÈRES MINUTES DE CHAQUE TRAJET : la révision espacée.</b><br><br>Rouvrez un chapitre fait il y a <b>3 ou 7 jours</b>, appuyez sur <b>↺ Réinitialiser cette section</b> en haut du bloc d’exercices, et refaites-le à froid.<br><br>C’est 30 minutes par semaine au total. C’est la partie que tout le monde supprime, et c’est celle qui empêche les 15 autres heures de s’évaporer.<br><br><b>Le tableau de bord vous dit quel chapitre réinitialiser.</b> Vous n’avez pas à retenir les dates.");
+
+h2('6 · Les règles non négociables');
+warn("<b>1 · Jamais deux jours de suite à zéro.</b> Un jour raté est un accident ; deux jours de suite, c’est le début d’un arrêt. Si vous n’avez que 15 minutes, faites <u>le passage 2 d’un ancien chapitre</u> — jamais un nouveau chapitre survolé.<br><br><b>2 · Tout à voix haute.</b> Si une heure passe sans qu’un son sorte de votre bouche, vous avez lu, pas étudié. Dans le bus, murmurez.<br><br><b>3 · Produire avant de regarder.</b> Cachez la réponse, sortez-la de votre tête, <u>puis</u> vérifiez. Se tromper fait partie du mécanisme.<br><br><b>4 · Travaillez votre compétence la plus faible.</b> IRCC ne fait pas de moyenne — votre score est votre minimum. C’est presque toujours l’écoute.<br><br><b>5 · Un chapitre = trois passages.</b> Jour 0 comprendre, jour +3 récupérer, jour +7 produire. <b>Douze chapitres faits trois fois battent trente chapitres faits une fois.</b><br><br><b>6 · À l’examen, ne laissez jamais une case vide.</b> Zéro pénalité pour une erreur — c’est officiel.");
+
+h2('7 · Les quatre points de contrôle');
+table(['Quand','Le test','Si ça ne passe pas'],[
+ ['<b>Fin mois 2</b>','Parler 2 min de vous sans vous arrêter','Refaire les Ateliers 1 et 2 avant d’avancer'],
+ ['<b>Fin mois 5</b>','Raconter 3 min au passé, PC et imparfait mélangés','Refaire les ch. 13–16 et l’Atelier 3'],
+ ['<b>Fin mois 6</b>','<b>Un TCF blanc complet, 2 h 47 chronométrées</b>','En dessous de NCLC 5 → décaler l’examen à nov–déc 2027'],
+ ['<b>Fin mois 9</b>','NCLC 7 dans les 4 compétences, avec marge','S’inscrire quand même — personne n’échoue, et c’est repassable à 30 jours']
+]);
+note("<b>Le point de contrôle du mois 6 est le plus important du plan.</b><br><br>Jusque-là, vous construisez à l’aveugle. À partir du blanc complet, vous avez un <b>chiffre par compétence</b>, et vous savez exactement laquelle vous retient. Les quatre mois suivants ne servent qu’à ça.<br><br><b>Ne sautez pas ce test parce que vous ne vous sentez pas prêt.</b> C’est précisément quand on ne se sent pas prêt qu’un diagnostic sert à quelque chose.");
+
+h2('8 · Si vous ne lisez qu’un encadré, que ce soit celui-ci');
+warn("<b>Ouvrez <a href=\"French_Comment_Etudier.html\" style=\"color:inherit\">Comment étudier</a>. Regardez le panneau « Aujourd’hui ». Faites ce qu’il dit. Cochez les cases.</b><br><br>C’est tout le système.<br><br>Le reste de ce site — les 65 pages, les 3 745 exercices, les guides, les notes de cours — n’existe que pour alimenter ce panneau. Vous n’avez jamais à décider quoi faire : il décide, vous faites, vous cochez.<br><br><b>Dix mois à ce rythme et vous passez le TCF en ayant fait le travail.</b> Il n’y a pas de raccourci, mais il n’y a pas non plus de mystère.");
+src("Hub de navigation · Les chiffres du livre : 22 parties, 257 sections, 3 745 items d’exercice. Les barèmes NCLC viennent d’IRCC (canada.ca, page modifiée le 16 octobre 2026) et le format de l’examen du <i>Manuel du candidat TCF Canada</i>. Le calendrier, la répartition 50/30/15/5 et les points de contrôle sont mes recommandations.");
+</script>
+</body>
+</html>
