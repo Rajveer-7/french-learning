@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cours 36 — Le passé composé avec ÊTRE (DR MRS VANDERTRAMPP)</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+  .reading { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:10px 0; }
+  .reading p { margin:0 0 10px; }
+</style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
+<style id="mobile-fix">
+@media (max-width: 640px){
+  .wrap{ padding:12px 12px 70px; }
+  h1{ font-size:22px; line-height:1.25; }
+  h2{ font-size:19px; }
+  h3{ font-size:16px; }
+  /* nav becomes one swipeable row instead of a wall of chips */
+  nav{ flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
+       padding-bottom:6px; margin-bottom:14px; scrollbar-width:thin; }
+  nav a{ flex:0 0 auto; white-space:nowrap; font-size:12px; padding:6px 9px; }
+  /* tables scroll sideways instead of crushing */
+  table, .conjt{ display:block; width:100%; overflow-x:auto;
+                 -webkit-overflow-scrolling:touch; white-space:nowrap; font-size:13px; }
+  table td, table th, .conjt td, .conjt th{ white-space:normal; min-width:92px; }
+  /* reading blocks */
+  .note,.example,.warn,.source,.lead,.txtp{ font-size:14.5px; }
+  .grid{ grid-template-columns:1fr !important; }
+  /* bigger tap targets on the audio rows */
+  .row{ padding:10px 8px; }
+  .play{ min-width:38px; min-height:38px; }
+  .fr{ font-size:16px; }
+  .ph,.en{ font-size:13px; }
+  /* exercises */
+  .fillrow input{ width:100%; box-sizing:border-box; font-size:16px; padding:8px; }
+  .fillrow button,.riddle button{ padding:9px 12px; font-size:14px; margin-top:6px; }
+  .riddle .btns{ display:flex; flex-wrap:wrap; gap:6px; }
+  /* book page chapter tabs */
+  .parttabs{ flex-wrap:nowrap; overflow-x:auto; }
+  .parttabs button{ flex:0 0 auto; white-space:nowrap; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 36 : Le passé composé avec ÊTRE</h1>
+  <p class="sub">DR MRS VANDERTRAMPP · les 17 verbes de mouvement · l’accord du participe passé avec le sujet · plus la page A2 du jour (adjectifs, qui/que, imparfait)</p>
+
+  <nav>
+    <a href="French_Start_Here.html"><b>★ Start Here</b></a>
+    <a href="French_Cours_Complet.html">Complete Book</a>
+    <a href="French_Cours33_Notes.html">Cours 33</a>
+    <a href="French_Cours34_Notes.html">Cours 36</a>
+    <a href="French_Cours35_Notes.html" class="active">Cours 36</a>
+    <a href="French_Ressources.html">Ressources</a>
+    <a href="French_TCF_Guide.html">TCF Guide</a>
+  </nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <span class="toggle"><button id="n" class="on">Normal</button><button id="s">Slow</button></span>
+    <span id="voicewarn"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+<script>
+
+
+
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=(r||rate); return u;
+}
+function speak(text, r){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').innerHTML=fr; c.querySelector('.ph').innerHTML=ph;
+    const plain=String(fr).replace(/<[^>]*>/g,'').replace(/\s*—.*$/,'').trim();
+    c.onclick=()=>speak(plain); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+/* ===== 1 ===== */
+function fillx(list){ fill(list.map(x=>({s:x[0], a:[x[1]], en:x[2]||'', why:x[3]||('Réponse : <b>'+x[1]+'</b>')}))); }
+function mcqx(list){ mcq(list.map(x=>({q:x[0], opts:x[1], a:x[2], why:x[3]||''}))); }
+
+function read(paras){
+  const d=document.createElement('div'); d.className='reading';
+  paras.forEach(t=>{
+    const el=document.createElement('p'); el.innerHTML=t; el.style.cursor='pointer';
+    const plain=String(t).replace(/<[^>]*>/g,'');
+    el.onclick=()=>speak(plain);
+    d.appendChild(el);
+  });
+  content.appendChild(d);
+}
+
+function dict(items){
+  items.forEach((it,n)=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const top=document.createElement('div'); top.className='sent';
+    top.innerHTML='<b>'+(n+1)+'.</b> Écoutez, puis écrivez ce que vous entendez. <i>(Listen, then write what you hear.)</i>';
+    const bar=document.createElement('div'); bar.style.cssText='display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:8px 0';
+    const pb=document.createElement('button'); pb.textContent='▶ Écouter'; pb.onclick=()=>speak(it.fr);
+    const sb=document.createElement('button'); sb.textContent='▶ Lentement'; sb.onclick=()=>speak(it.fr,0.55);
+    const inp=document.createElement('input'); inp.placeholder='Écrivez ici…'; inp.style.flex='1';
+    const cb=document.createElement('button'); cb.textContent='Vérifier';
+    const fb=document.createElement('div'); fb.className='fb';
+    function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9' ]/g,' ').replace(/\s+/g,' ').trim(); }
+    cb.onclick=()=>{
+      if(norm(inp.value)===norm(it.fr)){ fb.className='fb ok'; fb.innerHTML='✓ <b>'+it.fr+'</b><br>'+(it.en||'')+(it.why?'<br><i>'+it.why+'</i>':''); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Réponse : <b>'+it.fr+'</b><br>'+(it.en||'')+(it.why?'<br><i>'+it.why+'</i>':''); }
+    };
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') cb.onclick(); });
+    bar.appendChild(pb); bar.appendChild(sb); bar.appendChild(inp); bar.appendChild(cb);
+    d.appendChild(top); d.appendChild(bar); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+h2('0 · Ce que la prof a mis à l’écran aujourd’hui');
+lead("Deux documents sont passés à l’écran pendant la séance. D’abord la <b>page 14 du PDF « unité 789 »</b> de la prof, entièrement consacrée au <b>passé composé avec l’auxiliaire ÊTRE</b> et à l’acronyme <b>DR MRS VANDERTRAMPP</b>. Ensuite une <b>page de corrigés du niveau A2</b> qui revient sur l’accord du participe passé, les adjectifs au féminin et au pluriel, <i>qui / que</i> et <i>ce qui / ce que</i>, et l’imparfait. Les deux sont repris ici, expliqués en entier, avec des exercices.");
+note("<b>Pourquoi cette séance compte énormément.</b> Jusqu’ici, le passé composé que vous aviez vu se construisait avec <b>avoir</b> : <i>j’ai mangé</i>, <i>tu as vu</i>, <i>elle a fini</i>. Avec <b>avoir</b>, le participe passé ne bouge jamais — il reste figé. Aujourd’hui vous entrez dans la <b>deuxième moitié</b> du passé composé : une liste fermée d’environ dix-sept verbes qui refusent <i>avoir</i> et exigent <b>être</b>. Et dès qu’on passe à <b>être</b>, le participe passé se met à <b>bouger</b> : il s’accorde avec le sujet, comme un adjectif. C’est le seul vrai piège du passé composé, et c’est aussi ce que le TCF teste le plus souvent dans la partie « structures de la langue ».");
+
+h2('1 · Les deux formules du tableau');
+lead("La prof a écrit l’ordre des mots sous forme de formule. Apprenez-les telles quelles : à l’examen, une bonne partie des questions de grammaire se résolvent uniquement en vérifiant l’<b>ordre</b>.");
+table(['Forme','Ordre des mots','Exemple'],[
+ ['Affirmative','SUJET + auxiliaire ÊTRE + PARTICIPE PASSÉ + (objet / complément)','<b>Je suis allé</b> au marché.'],
+ ['Négative','SUJET + NE + auxiliaire ÊTRE + PAS + PARTICIPE PASSÉ + (objet)','<b>Je ne suis pas allé</b> au marché.']
+]);
+warn("<b>Le point à ne jamais oublier :</b> au négatif, <b>ne … pas</b> encadre <b>l’auxiliaire seul</b>, jamais le participe. On dit <i>je ne suis pas allé</i>, et <u>jamais</u> <i>je ne suis allé pas</i>. Le participe passé reste toujours en dehors du sandwich. C’est exactement la même règle qu’avec <i>avoir</i> : <i>je n’ai pas mangé</i>.");
+rows([
+ ["Je suis allé au marché.","zhuh swee za-LAY oh mar-SHAY","I went to the market."],
+ ["Je ne suis pas allé au marché.","zhuh nuh swee pa za-LAY oh mar-SHAY","I didn’t go to the market."],
+ ["Elle est arrivée hier.","el eh ta-ree-VAY ee-YAIR","She arrived yesterday."],
+ ["Elle n’est pas arrivée hier.","el neh pa za-ree-VAY ee-YAIR","She didn’t arrive yesterday."],
+ ["Nous sommes partis à huit heures.","noo som par-TEE a wee-TUR","We left at eight o’clock."],
+ ["Ils ne sont pas rentrés.","eel nuh son pa ron-TRAY","They didn’t come back."]
+]);
+note("<b>Les liaisons de ce tableau, parce qu’elles s’entendent toutes.</b><br><br>· <b>suis allé</b> → le S de <i>suis</i> se prononce Z : <b>swee-za-LAY</b>.<br>· <b>est arrivée</b> → le T de <i>est</i> se prononce : <b>eh-ta-ree-VAY</b>.<br>· <b>sommes partis</b> → pas de liaison, <i>partis</i> commence par une consonne.<br>· <b>pas allé</b> → le S de <i>pas</i> se prononce Z : <b>pa-za-LAY</b>.<br><br>Si vous ne faites pas ces liaisons, un correcteur d’oral l’entend immédiatement. Si vous les faites, vous sonnez tout de suite plus avancé que votre niveau réel.");
+
+h2('2 · DR MRS VANDERTRAMPP — la liste de la prof, mot pour mot');
+lead("Voici l’acronyme <b>exactement dans l’ordre où la prof l’a écrit</b>, avec sa traduction anglaise et son participe passé. Notez les <b>deux P à la fin</b> : le premier est <i>partir</i>, le second est <i>passer</i>. Beaucoup de versions sur internet n’en mettent qu’un — celle de votre classe en met deux, et c’est celle-là que vous devez suivre.");
+table(['Lettre','Verbe','Anglais','Participe passé'],[
+ ['<b>D</b>','devenir','to become','devenu'],
+ ['<b>R</b>','revenir','to come back','revenu'],
+ ['<b>M</b>','monter','to go up','monté'],
+ ['<b>R</b>','rester','to stay','resté'],
+ ['<b>S</b>','sortir','to exit / go out','sorti'],
+ ['<b>V</b>','venir','to come','venu'],
+ ['<b>A</b>','aller','to go','allé'],
+ ['<b>N</b>','naître','to be born','né'],
+ ['<b>D</b>','descendre','to descend / go down','descendu'],
+ ['<b>E</b>','entrer','to enter','entré'],
+ ['<b>R</b>','retourner','to return','retourné'],
+ ['<b>T</b>','tomber','to fall','tombé'],
+ ['<b>R</b>','rentrer','to re-enter / go back home','rentré'],
+ ['<b>A</b>','arriver','to arrive','arrivé'],
+ ['<b>M</b>','mourir','to die','mort'],
+ ['<b>P</b>','partir','to leave','parti'],
+ ['<b>P</b>','passer','to pass (by something, somewhere)','passé']
+]);
+note("<b>Comment la prof a découpé l’acronyme au tableau :</b> colonne de gauche <b>D · R · M · R · S · V · A · N</b>, colonne de droite <b>D · E · R · T · R · A · M · P · P</b>. Donc <b>« DR MRS VAN — DERTRAMPP »</b>. Récitez-le en deux souffles, pas en un seul : la mémoire retient beaucoup mieux deux paquets de huit ou neuf que dix-sept éléments d’affilée.");
+h3('2.1 · Les dix-sept verbes prononcés');
+lead("Cliquez sur chaque ligne pour entendre le verbe, puis son participe. Les participes irréguliers sont signalés juste après.");
+rows([
+ ["devenir · je suis devenu","duh-vuh-NEER · zhuh swee duh-vuh-NU","to become · I became"],
+ ["revenir · je suis revenu","ruh-vuh-NEER · zhuh swee ruh-vuh-NU","to come back · I came back"],
+ ["monter · je suis monté","mon-TAY · zhuh swee mon-TAY","to go up · I went up"],
+ ["rester · je suis resté","res-TAY · zhuh swee res-TAY","to stay · I stayed"],
+ ["sortir · je suis sorti","sor-TEER · zhuh swee sor-TEE","to go out · I went out"],
+ ["venir · je suis venu","vuh-NEER · zhuh swee vuh-NU","to come · I came"],
+ ["aller · je suis allé","a-LAY · zhuh swee za-LAY","to go · I went"],
+ ["naître · je suis né","NEH-truh · zhuh swee NAY","to be born · I was born"],
+ ["descendre · je suis descendu","deh-SON-druh · zhuh swee deh-son-DU","to go down · I went down"],
+ ["entrer · je suis entré","on-TRAY · zhuh swee zon-TRAY","to enter · I entered"],
+ ["retourner · je suis retourné","ruh-toor-NAY · zhuh swee ruh-toor-NAY","to return · I returned"],
+ ["tomber · je suis tombé","ton-BAY · zhuh swee ton-BAY","to fall · I fell"],
+ ["rentrer · je suis rentré","ron-TRAY · zhuh swee ron-TRAY","to go back home · I went home"],
+ ["arriver · je suis arrivé","a-ree-VAY · zhuh swee za-ree-VAY","to arrive · I arrived"],
+ ["mourir · il est mort","moo-REER · eel eh MOR","to die · he died"],
+ ["partir · je suis parti","par-TEER · zhuh swee par-TEE","to leave · I left"],
+ ["passer · je suis passé","pa-SAY · zhuh swee pa-SAY","to pass by · I passed by"]
+]);
+warn("<b>Les quatre participes qui ne suivent pas la règle des -ER.</b><br><br>· <b>venir → venu</b>, et donc <b>devenir → devenu</b>, <b>revenir → revenu</b>. Trois verbes pour le prix d’un : la famille <i>venir</i> fait toujours <b>-venu</b>.<br>· <b>sortir → sorti</b> et <b>partir → parti</b>. Les verbes en <i>-ir</i> du deuxième groupe irrégulier font <b>-i</b>, pas <b>-é</b>.<br>· <b>descendre → descendu</b>. Les verbes en <i>-re</i> font souvent <b>-u</b> (comme <i>vendre → vendu</i>, <i>attendre → attendu</i>).<br>· <b>naître → né</b> et <b>mourir → mort</b>. Ces deux-là sont à apprendre par cœur, il n’y a pas de logique. <i>Mort</i> est le seul participe de la liste qui ne finit pas par une voyelle.");
+
+h2('3 · Pourquoi ces verbes-là et pas d’autres');
+lead("Un acronyme se retient mieux quand on comprend la logique qui est derrière. Ces dix-sept verbes ne sont pas un tirage au sort : ils partagent tous une caractéristique.");
+note("<b>La logique en une phrase :</b> ce sont des verbes qui décrivent un <b>changement d’endroit ou un changement d’état du sujet lui-même</b>. Le sujet se déplace, apparaît, disparaît, monte, descend, entre, sort, naît, meurt. Personne ne subit l’action — le sujet <b>est</b> l’action. D’où l’auxiliaire <b>être</b>, qui sert précisément à dire ce que le sujet <b>est</b> devenu.<br><br>Comparez : <i>j’<b>ai</b> mangé une pomme</i> — il y a un objet, la pomme subit l’action, donc <b>avoir</b>. <i>Je <b>suis</b> allé à Paris</i> — il n’y a pas d’objet qui subit quoi que ce soit, je me suis simplement déplacé, donc <b>être</b>.");
+h3('3.1 · Les huit paires d’opposés');
+lead("Presque toute la liste fonctionne par couples. Apprendre les couples divise le travail par deux, parce que si vous vous rappelez d’un verbe, le second arrive tout seul.");
+table(['Aller / venir','Entrer / sortir','Monter / descendre','Arriver / partir'],[
+ ['aller ↔ venir','entrer ↔ sortir','monter ↔ descendre','arriver ↔ partir'],
+ ['allé ↔ venu','entré ↔ sorti','monté ↔ descendu','arrivé ↔ parti']
+]);
+table(['Naître / mourir','Rester / passer','Rentrer / retourner','Devenir / revenir'],[
+ ['naître ↔ mourir','rester ↔ passer','rentrer ↔ retourner','devenir ↔ revenir'],
+ ['né ↔ mort','resté ↔ passé','rentré ↔ retourné','devenu ↔ revenu']
+]);
+ex("<b>Les quatre nuances que les étudiants confondent systématiquement.</b><br><br>· <b>rentrer</b> = rentrer <i>chez soi</i>. <i>Je suis rentré à onze heures</i> = je suis arrivé à la maison à onze heures.<br>· <b>retourner</b> = repartir vers un endroit où on était déjà. <i>Je suis retourné à l’agence</i> = j’y étais déjà allé, j’y suis allé une deuxième fois.<br>· <b>revenir</b> = revenir vers <i>celui qui parle</i>. <i>Il est revenu me voir</i> = il est venu une deuxième fois, vers moi.<br>· <b>rester</b> = ne pas bouger. C’est le seul verbe de la liste qui signifie <u>l’absence</u> de mouvement, et il est quand même avec <i>être</i> — parce qu’il décrit un état du sujet.");
+h3('3.2 · Le piège : six de ces verbes peuvent aussi prendre AVOIR');
+lead("Ceci dépasse un peu le A1, mais vous le verrez au TCF et autant le savoir dès maintenant plutôt que de devoir le désapprendre plus tard.");
+warn("<b>Monter, descendre, sortir, rentrer, retourner et passer changent d’auxiliaire quand on leur donne un objet direct.</b><br><br>· <i>Je <b>suis</b> monté.</i> → je me suis déplacé vers le haut. Pas d’objet → <b>être</b>.<br>· <i>J’<b>ai</b> monté les valises.</i> → j’ai fait monter quelque chose. Il y a un objet (<i>les valises</i>) → <b>avoir</b>.<br><br>· <i>Elle <b>est</b> sortie.</i> → elle est partie dehors.<br>· <i>Elle <b>a</b> sorti son téléphone.</i> → elle a fait sortir le téléphone de sa poche.<br><br>· <i>Nous <b>sommes</b> passés devant la gare.</i> → nous avons longé la gare.<br>· <i>Nous <b>avons</b> passé un bon moment.</i> → nous avons vécu un bon moment.<br><br><b>Le test, en une question :</b> est-ce qu’il y a un COD juste après le verbe ? Oui → <b>avoir</b>. Non → <b>être</b>.");
+
+h2('4 · L’accord du participe passé avec ÊTRE');
+lead("C’est le titre de la section suivante du PDF de la prof : « <b>Putting accords in participe passé with verbs used with être</b> ». Traduction : accorder le participe passé en genre et en nombre avec le sujet. C’est la vraie difficulté de la leçon.");
+note("<b>La règle, en une ligne :</b> avec <b>être</b>, le participe passé se comporte comme un <b>adjectif</b>. Il regarde le sujet, et il prend son genre et son nombre.<br><br>· sujet masculin singulier → participe <b>nu</b> : <i>allé</i><br>· sujet féminin singulier → <b>+ E</b> : <i>allée</i><br>· sujet masculin pluriel → <b>+ S</b> : <i>allés</i><br>· sujet féminin pluriel → <b>+ ES</b> : <i>allées</i>");
+table(['Sujet','Forme','Exemple','Anglais'],[
+ ['il / je (homme)','allé','<b>Il est allé</b> au cinéma.','He went to the cinema.'],
+ ['elle / je (femme)','allé<b>e</b>','<b>Elle est allée</b> au cinéma.','She went to the cinema.'],
+ ['ils / nous (hommes ou mixte)','allé<b>s</b>','<b>Ils sont allés</b> au cinéma.','They went to the cinema.'],
+ ['elles / nous (que des femmes)','allé<b>es</b>','<b>Elles sont allées</b> au cinéma.','They (f.) went to the cinema.']
+]);
+warn("<b>Le détail qui fait rater la question à l’examen :</b> ces quatre formes se prononcent <b>exactement pareil</b>. <i>allé</i>, <i>allée</i>, <i>allés</i>, <i>allées</i> → toutes <b>a-LAY</b>. L’accord est <b>muet</b>. Donc en compréhension orale, l’accord ne vous aide pas ; mais à l’écrit, c’est une faute visible immédiatement, et c’est exactement ce que la section « structures de la langue » du TCF teste.<br><br><b>Exception audible :</b> <i>mourir → mort / morte</i>. Là, le T se prononce au féminin : <b>MOR</b> au masculin, <b>MORT-uh</b> au féminin. C’est le seul de la liste où l’oreille entend l’accord.");
+rows([
+ ["Il est né en 1990.","eel eh NAY on meel nuf son ka-truh-van-DEES","He was born in 1990."],
+ ["Elle est née en 1990.","el eh NAY on meel nuf son ka-truh-van-DEES","She was born in 1990."],
+ ["Mes parents sont partis.","may pa-RON son par-TEE","My parents left."],
+ ["Mes sœurs sont parties.","may SUR son par-TEE","My sisters left."],
+ ["Il est mort.","eel eh MOR","He died."],
+ ["Elle est morte.","el eh MORT-uh","She died."]
+]);
+h3('4.1 · Les deux cas où les étudiants se trompent');
+ex("<b>1 · « nous » quand le groupe est mixte.</b> Dès qu’il y a <u>un seul</u> homme dans le groupe, le participe se met au <b>masculin pluriel</b>. <i>Ma sœur, ma mère et mon père sont <b>arrivés</b></i> — trois personnes, deux femmes, un homme : <b>arrivés</b>, pas <i>arrivées</i>. C’est la même règle que pour les adjectifs, et c’est exactement ce que dit le corrigé A2 vu en classe à propos de <i>« sportifs »</i> accordé avec <i>« amies et amis »</i>.<br><br><b>2 · « vous » de politesse.</b> Si <i>vous</i> ne désigne <u>qu’une seule personne</u> (le vouvoiement), le participe reste au <b>singulier</b> : <i>Madame, vous êtes <b>arrivée</b> en retard</i> — un E, pas de S. Si <i>vous</i> désigne un vrai groupe : <i>Vous êtes <b>arrivés</b> en retard</i>.");
+
+h2('5 · Exercices — choisir ÊTRE ou AVOIR');
+lead("Première série. Vous ne conjuguez pas encore : vous décidez seulement quel auxiliaire il faut. C’est le premier réflexe à automatiser.");
+mcqx([
+ ["Je ___ allé au cinéma.",["suis","ai"],0,"<b>Aller</b> est le A de VAN — toujours <b>être</b>."],
+ ["Elle ___ mangé une pomme.",["est","a"],1,"<b>Manger</b> n’est pas dans la liste, et il y a un objet (<i>une pomme</i>) → <b>avoir</b>."],
+ ["Nous ___ partis à six heures.",["sommes","avons"],0,"<b>Partir</b> est le premier P → <b>être</b>."],
+ ["Tu ___ fini ton travail ?",["es","as"],1,"<b>Finir</b> n’est pas dans la liste → <b>avoir</b>."],
+ ["Ils ___ nés en Inde.",["sont","ont"],0,"<b>Naître</b> est le N de VAN → <b>être</b>."],
+ ["Vous ___ vu ce film ?",["êtes","avez"],1,"<b>Voir</b> → <b>avoir</b>. Participe : <i>vu</i>."],
+ ["Elle ___ restée à la maison.",["est","a"],0,"<b>Rester</b> est le R de MRS → <b>être</b>, même si personne ne bouge."],
+ ["Mon grand-père ___ mort l’année dernière.",["est","a"],0,"<b>Mourir</b> est le M de DERTRAMPP → <b>être</b>. Participe : <i>mort</i>."],
+ ["J’___ monté les valises au premier étage.",["suis","ai"],1,"Il y a un COD (<i>les valises</i>) → <b>avoir</b>, malgré <i>monter</i>."],
+ ["Je ___ monté au premier étage.",["suis","ai"],0,"Pas de COD, je me suis déplacé → <b>être</b>."],
+ ["Elles ___ sorties hier soir.",["sont","ont"],0,"<b>Sortir</b> sans objet → <b>être</b>, et accord <i>-es</i>."],
+ ["Elle ___ sorti son passeport.",["est","a"],1,"COD = <i>son passeport</i> → <b>avoir</b>, et le participe ne s’accorde pas."],
+ ["Nous ___ passé une très bonne soirée.",["sommes","avons"],1,"COD = <i>une soirée</i> → <b>avoir</b>."],
+ ["Nous ___ passés devant la gare.",["sommes","avons"],0,"Pas de COD, mouvement → <b>être</b>."],
+ ["Il ___ devenu médecin.",["est","a"],0,"<b>Devenir</b> est le D initial → <b>être</b>."],
+ ["Vous ___ pris le train ?",["êtes","avez"],1,"<b>Prendre</b> → <b>avoir</b>. Participe : <i>pris</i>."]
+]);
+h3('5.1 · Exercices — l’accord');
+lead("Deuxième série. L’auxiliaire est donné ; c’est la terminaison du participe qu’il faut trouver. Écrivez le participe complet.");
+fillx([
+ ["Elle est ___ (aller) au marché.","allée","She went to the market.","Sujet féminin singulier → <b>+ E</b>."],
+ ["Ils sont ___ (arriver) en retard.","arrivés","They arrived late.","Sujet masculin pluriel → <b>+ S</b>."],
+ ["Mes sœurs sont ___ (partir) ce matin.","parties","My sisters left this morning.","Féminin pluriel → <b>parties</b>, avec I puis ES."],
+ ["Il est ___ (naître) à Lyon.","né","He was born in Lyon.","Masculin singulier → participe nu."],
+ ["Ma grand-mère est ___ (mourir) en 2020.","morte","My grandmother died in 2020.","Féminin de <i>mort</i> → <b>morte</b>, et ici le T s’entend."],
+ ["Nous sommes ___ (rester) deux heures. (groupe d’hommes)","restés","We stayed two hours.","Masculin pluriel → <b>+ S</b>."],
+ ["Madame, vous êtes ___ (venir) seule ?","venue","Madam, did you come alone?","<i>Vous</i> de politesse, une femme → singulier féminin."],
+ ["Elles sont ___ (descendre) à la cave.","descendues","They went down to the cellar.","<i>descendu</i> + ES."],
+ ["Mon frère et ma sœur sont ___ (sortir).","sortis","My brother and sister went out.","Groupe mixte → masculin pluriel."],
+ ["Elle est ___ (rentrer) très tard.","rentrée","She came home very late.","Féminin singulier."],
+ ["Les enfants sont ___ (tomber) dans la cour.","tombés","The children fell in the playground.","Masculin pluriel."],
+ ["Je suis ___ (retourner) à l’agence. (une femme parle)","retournée","I went back to the agency.","Le <i>je</i> est féminin → <b>+ E</b>."],
+ ["Vous êtes ___ (monter) par l’escalier ? (un groupe)","montés","Did you come up by the stairs?","Masculin pluriel."],
+ ["Elle est ___ (devenir) professeure.","devenue","She became a teacher.","<i>devenu</i> + E."],
+ ["Ils sont ___ (revenir) hier soir.","revenus","They came back last night.","<i>revenu</i> + S."],
+ ["La lettre est ___ (arriver) ce matin.","arrivée","The letter arrived this morning.","<i>La lettre</i> est féminin singulier."]
+]);
+
+h3('5.2 · Dictée — écoutez et écrivez');
+lead("Troisième série, la plus utile pour l’examen. Vous entendez la phrase ; vous devez écrire l’accord que vous <b>n’entendez pas</b>. C’est exactement l’exercice que fait le TCF.");
+dict([
+ {fr:"Je suis allé au marché ce matin.", en:"I went to the market this morning.", why:"Liaison <b>swee-za-LAY</b>. Sujet masculin → pas de E."},
+ {fr:"Elle est arrivée très tôt.", en:"She arrived very early.", why:"Liaison <b>eh-ta-ree-VAY</b>, et accord féminin muet."},
+ {fr:"Nous ne sommes pas sortis hier soir.", en:"We didn’t go out last night.", why:"Négation autour de l’auxiliaire seul."},
+ {fr:"Mes parents sont partis en vacances.", en:"My parents went on holiday.", why:"Masculin pluriel : <i>partis</i>."},
+ {fr:"Il est né au mois de juin.", en:"He was born in June.", why:"<i>naître → né</i>."},
+ {fr:"Elles sont restées à la maison.", en:"They (f.) stayed at home.", why:"Féminin pluriel : <i>restées</i>."},
+ {fr:"Tu es rentré à quelle heure ?", en:"What time did you get home?", why:"<i>rentrer</i> = rentrer chez soi."},
+ {fr:"Ma grand-mère est morte l’année dernière.", en:"My grandmother died last year.", why:"Le seul accord audible : <b>MORT-uh</b>."},
+ {fr:"Vous êtes descendus par l’ascenseur ?", en:"Did you come down by the lift?", why:"<i>descendre → descendu</i> + S."},
+ {fr:"Je ne suis pas allée à la réunion.", en:"I didn’t go to the meeting.", why:"Une femme parle → <i>allée</i>."},
+ {fr:"Ils sont revenus la semaine dernière.", en:"They came back last week.", why:"<i>revenir → revenu</i> + S."},
+ {fr:"Elle est tombée dans l’escalier.", en:"She fell on the stairs.", why:"<i>tomber → tombé</i> + E."},
+ {fr:"Nous sommes passés devant la gare.", en:"We passed by the station.", why:"Sans COD → être."},
+ {fr:"Il est devenu ingénieur en 2019.", en:"He became an engineer in 2019.", why:"<i>devenir → devenu</i>."},
+ {fr:"Mon frère et moi sommes montés au deuxième étage.", en:"My brother and I went up to the second floor.", why:"Groupe masculin → <i>montés</i>."},
+ {fr:"Elles ne sont pas venues avec nous.", en:"They (f.) didn’t come with us.", why:"Négation + accord féminin pluriel."}
+]);
+
+h2('6 · Lecture — un texte entièrement au passé composé');
+lead("Cliquez sur chaque paragraphe pour l’entendre. Tous les verbes avec <b>être</b> sont en gras : comptez-les, il y en a douze.");
+read([
+ "Samedi dernier, Marion <b>est partie</b> de chez elle à huit heures. Elle <b>est allée</b> à la gare à pied, parce qu’il faisait beau. Elle <b>est arrivée</b> dix minutes avant le train.",
+ "Dans le train, elle a lu un livre et elle a écouté de la musique. À midi, elle <b>est descendue</b> à Lyon. Sa cousine Claire l’attendait sur le quai.",
+ "Elles <b>sont montées</b> dans un bus et elles <b>sont rentrées</b> chez Claire. Elles ont déjeuné, puis elles <b>sont sorties</b> visiter le vieux quartier. Elles <b>sont entrées</b> dans trois boutiques et Marion a acheté une écharpe.",
+ "Vers six heures, elles <b>sont retournées</b> à l’appartement. Le frère de Claire <b>est venu</b> dîner avec elles. Il <b>est resté</b> jusqu’à onze heures.",
+ "Marion <b>est repartie</b> le lendemain matin. Elle a dit que c’était le meilleur week-end de l’année."
+]);
+note("<b>Ce qu’il faut remarquer dans ce texte.</b><br><br>· <i>a lu</i>, <i>a écouté</i>, <i>ont déjeuné</i>, <i>a acheté</i>, <i>a dit</i> → ces verbes ont un objet ou pas de mouvement : <b>avoir</b>, et le participe ne bouge pas.<br>· Tous les verbes en gras concernent un <b>déplacement de Marion ou de Claire</b> : <b>être</b>, et le participe s’accorde.<br>· <i>Elles sont montées / rentrées / sorties / entrées / retournées</i> → cinq participes avec <b>-ES</b> parce que les deux sujets sont des femmes. Aucun de ces cinq S ne s’entend. C’est toute la difficulté.<br>· <i>il faisait beau</i> et <i>l’attendait</i> sont à l’<b>imparfait</b> — le décor, pas l’action. Vous l’avez vu au chapitre 15.");
+fillx([
+ ["Marion ___ (partir) à huit heures.","est partie","Marion left at eight.","Féminin singulier."],
+ ["Elles ___ (sortir) visiter le quartier.","sont sorties","They went out to visit the area.","Féminin pluriel."],
+ ["Le frère de Claire ___ (venir) dîner.","est venu","Claire’s brother came to dinner.","Masculin singulier."],
+ ["Marion ___ (acheter) une écharpe.","a acheté","Marion bought a scarf.","COD = <i>une écharpe</i> → avoir, pas d’accord."],
+ ["Il ___ (rester) jusqu’à onze heures.","est resté","He stayed until eleven.","<i>Rester</i> → être."]
+]);
+
+h2('7 · La deuxième page de l’écran — niveau A2');
+lead("Après le PDF de l’unité, la prof a ouvert un corrigé de <b>Saison 2 (A2)</b>. Quatre points y sont traités. Ils sont tous en avance sur le A1, mais ils annoncent la suite du programme, donc voici l’essentiel — réécrit avec mes propres exemples.");
+h3('7.1 · L’accord, vu depuis le A2');
+note("Le corrigé reformule exactement ce que vous venez de faire : un passé composé est toujours <b>auxiliaire + participe passé</b> ; on utilise <b>avoir</b> dans la majorité des cas ; <b>être</b> s’emploie avec <i>aller, venir, arriver, partir…</i> ; et on écrit <i>arrivé<b>s</b></i> parce que le participe <b>s’accorde avec le sujet</b> quand ce sujet est pluriel. Même règle, formulée autrement. Si vous avez compris la section 4, vous avez déjà le A2 sur ce point.");
+h3('7.2 · Le féminin et le pluriel des adjectifs');
+lead("C’est le même mécanisme que l’accord du participe, appliqué aux adjectifs. Les deux s’apprennent ensemble.");
+table(['Règle','Masculin','Féminin','Explication'],[
+ ['Générale','vert','verte','on ajoute un <b>e</b>'],
+ ['-eur → -rice','amateur','amatrice','suffixe qui change'],
+ ['-eux → -euse','sérieux','sérieuse','très fréquent'],
+ ['-if → -ive','sportif','sportive','<i>vif → vive</i>, <i>motivé</i> reste régulier'],
+ ['-c → -che','blanc','blanche','<i>franc → franche</i>'],
+ ['-al → -aux (pl. m.)','musical','musicaux','pluriel masculin irrégulier'],
+ ['déjà en -e','large','large','aucun changement']
+]);
+warn("<b>La règle du groupe mixte, encore une fois.</b> Quand un adjectif qualifie à la fois un nom féminin et un nom masculin, il se met au <b>masculin pluriel</b> : <i>mes amies et mes amis sont <b>sportifs</b></i>. C’est la même logique que <i>sont arrivés</i> pour un groupe mixte. Deux règles, un seul réflexe.");
+fillx([
+ ["Elle est très ___ (heureux).","heureuse","She is very happy.","-eux → -euse."],
+ ["Une femme ___ (vif) et ___ (franc).","vive et franche","A lively and frank woman.","-if → -ive ; -c → -che."],
+ ["Des hommes ___ (égoïste).","égoïstes","Selfish men.","Déjà en -e → on ajoute seulement le S."],
+ ["Des paysages ___ (normal) au pluriel masculin.","normaux","Normal landscapes.","-al → -aux."],
+ ["Mes amies et mes amis sont ___ (généreux).","généreux","My friends are generous.","Groupe mixte → masculin pluriel, et <i>-eux</i> ne change pas au pluriel."],
+ ["Une soirée ___ (spécial).","spéciale","A special evening.","Féminin régulier : + e."],
+ ["Elles sont ___ (beau).","belles","They are beautiful.","<i>beau</i> a un féminin irrégulier : <b>belle</b>."],
+ ["Des enfants ___ (peureux).","peureux","Fearful children.","Masculin pluriel en -eux : invariable."]
+]);
+
+h3('7.3 · Qui / que, et ce qui / ce que');
+lead("Les pronoms relatifs. Vous ne les avez pas encore travaillés en A1, mais ils reviennent constamment au TCF et ils sont faciles si on pose la bonne question.");
+note("<b>Le test, en une question : qu’est-ce qui vient juste après ?</b><br><br>· Après <b>qui</b>, il y a un <b>verbe</b>. <i>L’homme <b>qui</b> parle est mon voisin.</i> → <i>qui</i> est le sujet du verbe <i>parle</i>.<br>· Après <b>que</b>, il y a un <b>sujet</b> (un nom ou un pronom). <i>Le livre <b>que</b> j’ai lu est excellent.</i> → <i>j’</i> est le sujet, <i>que</i> est l’objet.<br><br><b>Ce qui / ce que</b> = la même chose, mais sans nom devant. Ils remplacent une idée entière.<br>· <i><b>Ce qui</b> me plaît chez mon père, c’est sa générosité.</i> → après <i>ce qui</i>, le verbe <i>plaît</i>.<br>· <i><b>Ce que</b> je n’aime pas, c’est le bruit.</i> → après <i>ce que</i>, le sujet <i>je</i>.");
+ex("<b>Pourquoi ces pronoms existent.</b> Sans eux, il faudrait répéter le nom : <i>J’ai vu un film. Le film était long.</i> Avec eux, on soude les deux phrases : <i>J’ai vu un film <b>qui</b> était long.</i> Le corrigé A2 le dit en une ligne : le pronom relatif <b>évite la répétition</b> et <b>relie deux phrases</b>. C’est précisément ce que l’examinateur veut voir à l’oral : des phrases reliées, pas des phrases courtes mises bout à bout.");
+mcqx([
+ ["La femme ___ habite en face est médecin.",["qui","que"],0,"Après le trou vient le verbe <i>habite</i> → <b>qui</b>."],
+ ["Le film ___ nous avons vu était long.",["qui","que"],1,"Après le trou vient le sujet <i>nous</i> → <b>que</b>."],
+ ["___ me plaît ici, c’est le calme.",["Ce qui","Ce que"],0,"Suivi du verbe <i>plaît</i> → <b>ce qui</b>."],
+ ["___ je déteste, c’est attendre.",["Ce qui","Ce que"],1,"Suivi du sujet <i>je</i> → <b>ce que</b>."],
+ ["Voilà le bus ___ va à la gare.",["qui","que"],0,"Suivi du verbe <i>va</i>."],
+ ["C’est le cadeau ___ mon grand-père m’a donné.",["qui","que"],1,"Suivi du sujet <i>mon grand-père</i>."]
+]);
+h3('7.4 · L’imparfait — le rappel du corrigé');
+note("Deux faits que le corrigé A2 rappelle et qui sont utiles dès maintenant :<br><br><b>1 ·</b> L’imparfait et le conditionnel ont les <b>mêmes terminaisons</b> : <b>-ais, -ais, -ait, -ions, -iez, -aient</b>. Vous apprenez donc deux temps en apprenant une seule série.<br><br><b>2 ·</b> Le radical de l’imparfait se prend sur la forme <b>nous</b> du présent, à laquelle on enlève <b>-ons</b>. <i>nous <b>buv</b>ons → elle <b>buv</b>ait</i>. <i>nous <b>finiss</b>ons → il <b>finiss</b>ait</i>. <i>nous <b>fais</b>ons → tu <b>fais</b>ais</i>. Une seule exception dans toute la langue : <b>être → j’étais</b>.");
+fillx([
+ ["nous buvons → elle ___","buvait","she used to drink","Radical <i>buv-</i> + <i>-ait</i>."],
+ ["nous prenons → ils ___","prenaient","they used to take","Radical <i>pren-</i> + <i>-aient</i>."],
+ ["nous allons → j’___","allais","I used to go","Radical <i>all-</i> + <i>-ais</i>."],
+ ["nous faisons → vous ___","faisiez","you used to do","Radical <i>fais-</i> + <i>-iez</i>."],
+ ["être → nous ___","étions","we used to be","La seule exception : radical <b>ét-</b>."]
+]);
+
+h2('8 · L’exercice des ordinaux, en haut de la page');
+lead("Juste au-dessus du tableau du passé composé, la page portait la fin d’un exercice sur les <b>nombres ordinaux</b>, avec les sept nains. C’est un bon rappel : les ordinaux tombent très souvent au TCF (étages, dates, classements).");
+rows([
+ ["Le cinquième est Atchoum.","luh sank-YEM eh a-TCHOOM","The fifth one is Sneezy."],
+ ["Le sixième est Timide.","luh see-ZYEM eh tee-MEED","The sixth one is Bashful."],
+ ["Le dernier, le septième, est Simplet.","luh dair-NYAY luh set-YEM eh sam-PLEH","The last one, the seventh, is Dopey."]
+]);
+note("<b>Comment on fabrique un ordinal :</b> on prend le nombre, on enlève le <b>e</b> final s’il y en a un, et on ajoute <b>-ième</b>. <i>quatre → quatr<b>ième</b></i>, <i>six → six<b>ième</b></i>, <i>sept → sept<b>ième</b></i>.<br><br><b>Trois irrégularités à connaître :</b><br>· <b>un → premier / première</b> (et non <i>unième</i>, sauf dans <i>vingt-et-unième</i>).<br>· <b>cinq → cinquième</b> — on ajoute un <b>u</b> pour garder le son K.<br>· <b>neuf → neuvième</b> — le F devient <b>V</b>.<br><br>Et <b>dernier</b> n’est pas un ordinal mais un adjectif : il s’accorde, <i>la dernière</i>.");
+fillx([
+ ["4 → le ___","quatrième","the fourth","On enlève le <i>e</i> de <i>quatre</i> puis <i>-ième</i>."],
+ ["5 → le ___","cinquième","the fifth","Un <b>u</b> s’ajoute."],
+ ["9 → le ___","neuvième","the ninth","Le F devient V."],
+ ["1 → la ___","première","the first (f.)","Forme irrégulière, et elle s’accorde."],
+ ["21 → le ___","vingt-et-unième","the twenty-first","Seul cas où <i>unième</i> s’emploie."]
+]);
+
+
+h2('10 · Passé composé OU imparfait — le tableau de la fin de séance');
+lead("Dernier document de la séance : <b>unité 13 (A2), page 7</b>, un tableau à deux colonnes qui oppose les deux temps du passé. C’est la question qui revient le plus souvent au TCF dans la partie « structures », et c’est aussi ce qui fait la différence entre un oral A1 et un oral B1.");
+table(['LE PASSÉ COMPOSÉ','L’IMPARFAIT'],[
+ ['Une action à un <b>moment précis</b>','Une <b>période</b> dans le passé'],
+ ['Un <b>événement</b>','Une <b>description</b> dans le passé'],
+ ['La <b>suite</b> des actions dans le passé','Une <b>habitude</b> dans le passé'],
+ ['Le temps <b>spécifique</b>','Une action <b>répétée</b>'],
+ ['—','Le temps <b>non spécifique</b>']
+]);
+note("<b>L’image qui résume tout : le film et la photo.</b><br><br>L’<b>imparfait</b>, c’est la <b>photo</b> — le décor, l’ambiance, ce qui était déjà là, ce qui durait, ce qui se répétait. Rien n’avance. <i>Il pleuvait. J’avais vingt ans. Je prenais le bus tous les matins.</i><br><br>Le <b>passé composé</b>, c’est le <b>film</b> — ce qui arrive, ce qui change la situation, ce qui fait avancer l’histoire. <i>Le téléphone a sonné. Je suis sorti. Elle a dit non.</i><br><br>Dans un vrai récit, les deux se mélangent en permanence : <b>l’imparfait plante le décor, le passé composé y fait tomber les événements</b>. <i>Il <b>pleuvait</b> (décor) quand le téléphone <b>a sonné</b> (événement).</i>");
+ex("<b>Les deux exemples du document, décortiqués.</b><br><br><b>Colonne passé composé</b> — <i>« Quand j’ai décidé d’être politicien, j’ai commencé à étudier tous les jours. J’ai fait des recherches et j’ai choisi une grande école. Cependant, j’ai lu le journal trois fois en un an, et, un soir, quand j’ai parlé de l’actualité pendant un dîner, je me suis rendu ridicule devant tout le monde. »</i><br><br>Tout est au passé composé parce que tout est un <b>événement daté</b> : j’ai décidé → j’ai commencé → j’ai fait → j’ai choisi → j’ai lu → j’ai parlé → je me suis rendu ridicule. C’est une <b>chaîne</b>. Chaque verbe pousse le suivant. Remarquez <i>« trois fois en un an »</i> et <i>« un soir »</i> : des quantités et des moments <b>finis</b>.<br><br><b>Colonne imparfait</b> — <i>« Quand j’étais lycéen, j’étudiais tous les jours. Je voulais être accepté dans une grande école parce que je souhaitais être politicien. Je lisais les journaux régulièrement et je parlais constamment de l’actualité avec mes amis. »</i><br><br>Rien ne se passe. Ce sont des <b>habitudes</b> et des <b>états</b> : j’étais → j’étudiais → je voulais → je souhaitais → je lisais → je parlais. Remarquez <i>« tous les jours »</i>, <i>« régulièrement »</i>, <i>« constamment »</i> : des marqueurs de <b>répétition sans fin précise</b>.<br><br><b>Le contraste est volontaire :</b> c’est presque la même histoire racontée deux fois. Seul le temps change, et avec lui tout le sens.");
+warn("<b>Le test en trois questions, à faire dans cet ordre.</b><br><br><b>① Est-ce que ça se répétait ?</b> « tous les jours », « chaque semaine », « souvent », « d’habitude » → <b>imparfait</b>.<br><br><b>② Est-ce que c’est un décor ou un état ?</b> le temps qu’il faisait, l’âge, l’endroit, l’humeur, ce qu’on voulait ou pensait → <b>imparfait</b>.<br><br><b>③ Sinon, est-ce que ça fait avancer l’histoire une seule fois ?</b> → <b>passé composé</b>.<br><br>Et le cas classique à reconnaître d’un coup d’œil : <b>« j’étais en train de … quand … »</b>. La première partie est à l’imparfait, la seconde au passé composé. <i>Je <b>dormais</b> quand tu <b>as appelé</b>.</i> L’action longue est à l’imparfait, l’action courte qui la coupe est au passé composé.");
+h3('10.0b · « je me suis rendu ridicule » — le mot que la prof a annoté');
+lead("Dans l’exemple du tableau, un verbe est surligné à part : <b>se rendre</b>. Il mérite son propre encadré, parce qu’il ouvre une troisième famille de verbes avec <i>être</i>.");
+note("<b>Se rendre</b> a deux sens, et ils n’ont presque rien à voir :<br><br>· <b>se rendre + adjectif</b> = <i>se rendre ridicule, se rendre utile, se rendre malade</i> → « se faire devenir ». <i>Je me suis rendu ridicule</i> = I made a fool of myself.<br>· <b>se rendre + lieu</b> = aller quelque part, en langue soutenue. <i>Je me suis rendu à Paris</i> = I went to Paris.<br><br>Et il existe aussi <b>se rendre compte de / que</b> = se rendre compte = réaliser, s’apercevoir. <i>Je me suis rendu compte que j’avais tort.</i> C’est une des expressions les plus fréquentes du français parlé.");
+warn("<b>La troisième famille d’« être » : les verbes pronominaux.</b><br><br>DR MRS VANDERTRAMPP ne les mentionne pas, mais <b>tous les verbes avec <i>me / te / se / nous / vous</i> prennent <i>être</i></b> au passé composé. Sans exception. Il y en a des centaines.<br><br>· <i>je <b>me suis</b> levé</i> · <i>tu <b>t’es</b> lavé</i> · <i>il <b>s’est</b> trompé</i><br>· <i>nous <b>nous sommes</b> dépêchés</i> · <i>vous <b>vous êtes</b> assis</i> · <i>elles <b>se sont</b> rencontrées</i><br><br>C’est le plus gros angle mort de l’acronyme, et c’est pour ça que le chapitre 14 du livre vous donne une <b>méthode en trois questions</b> plutôt qu’une simple liste :<br><b>①</b> y a-t-il un pronom réfléchi ? → <b>être</b> · <b>②</b> le verbe est-il dans la liste ? → <b>être</b> · <b>③</b> sinon → <b>avoir</b>.");
+rows([
+ ["Je me suis rendu ridicule.","zhuh muh swee ron-DU ree-dee-KUL","I made a fool of myself."],
+ ["Je me suis rendu compte de mon erreur.","zhuh muh swee ron-DU KONT duh mon-eh-RUR","I realised my mistake."],
+ ["Elle s’est levée à six heures.","el seh luh-VAY a see-ZUR","She got up at six."],
+ ["Nous nous sommes trompés de train.","noo noo som tron-PAY duh TRAN","We took the wrong train."],
+ ["Ils se sont rencontrés à Paris.","eel suh son ron-kon-TRAY a pa-REE","They met in Paris."]
+]);
+h3('10.1 · Les mots qui vous disent quel temps choisir');
+lead("La seconde moitié de la page listait « <b>les mots utiles en passé composé et imparfait</b> ». Ce sont des <b>déclencheurs</b> : dès qu’un de ces mots apparaît dans une phrase, le temps est presque décidé. Apprenez-les par colonne, pas en vrac.");
+table(['→ IMPARFAIT (répétition, habitude)','→ PASSÉ COMPOSÉ (événement, moment fini)'],[
+ ['chaque semaine, chaque mois, chaque année','hier, avant-hier'],
+ ['tous les jours, tous les matins','un jour, un soir, une fois'],
+ ['souvent','soudain, tout à coup'],
+ ['parfois, quelquefois <span style="color:#6b675f">(sometimes)</span>','d’abord, ensuite, puis, enfin <span style="color:#6b675f">(finally)</span>'],
+ ['d’habitude, généralement','la semaine dernière, l’année dernière'],
+ ['toujours <span style="color:#6b675f">(au sens de « en ce temps-là »)</span>','trois fois, deux heures <span style="color:#6b675f">(durée finie)</span>'],
+ ['généralement <span style="color:#6b675f">(generally)</span>','plusieurs fois <span style="color:#6b675f">(several times)</span>'],
+ ['souvent <span style="color:#6b675f">(often)</span>','à ce moment-là'],
+ ['pendant que, quand <span style="color:#6b675f">(décor)</span>','quand <span style="color:#6b675f">(événement qui coupe)</span>']
+]);
+rows([
+ ["Chaque semaine, j’allais au marché.","shak suh-MEN zhal-LEH oh mar-SHAY","Every week, I used to go to the market."],
+ ["Parfois, nous mangions dehors.","par-FWA noo mon-ZHYON duh-OR","Sometimes we ate outside."],
+ ["Un jour, j’ai décidé de partir.","un ZHOOR zhay day-see-DAY duh par-TEER","One day, I decided to leave."],
+ ["Tout à coup, il a commencé à pleuvoir.","too ta KOO eel a ko-mon-SAY a pluh-VWAR","All of a sudden it started to rain."],
+ ["D’abord, ensuite, puis, enfin.","da-BOR on-SWEET pwee on-FAN","First, then, next, finally."],
+ ["D’habitude, je prenais le bus.","da-bee-TUUD zhuh pruh-NEH luh BUS","Usually I took the bus."]
+]);
+warn("<b>Attention au mot « quand » : il joue dans les deux camps.</b><br><br>· <i><b>Quand j’étais</b> jeune, je jouais au foot.</i> → ici <i>quand</i> introduit une <b>période</b> : imparfait des deux côtés.<br>· <i>Je dormais <b>quand tu as appelé</b>.</i> → ici <i>quand</i> introduit un <b>événement qui coupe</b> : imparfait d’un côté, passé composé de l’autre.<br><br>Ne vous fiez donc pas à <i>quand</i> tout seul. Demandez-vous à chaque fois : <b>est-ce que ça dure, ou est-ce que ça tombe ?</b>");
+h3('10.2 · Exercices — passé composé ou imparfait ?');
+mcqx([
+ ["Quand j’___ petit, j’habitais à Delhi.",["étais","ai été"],0,"<i>Quand j’étais petit</i> = une période. Décor → imparfait."],
+ ["Hier, je ___ au cinéma.",["allais","suis allé"],1,"<i>Hier</i> = moment précis et fini → passé composé."],
+ ["Tous les étés, nous ___ à la montagne.",["partions","sommes partis"],0,"<i>Tous les étés</i> = habitude → imparfait."],
+ ["Soudain, le téléphone ___.",["sonnait","a sonné"],1,"<i>Soudain</i> = événement qui coupe → passé composé."],
+ ["Il ___ beau, alors nous sommes sortis.",["faisait","a fait"],0,"La météo est un décor → imparfait."],
+ ["Je ___ quand tu es arrivé.",["dormais","ai dormi"],0,"Action longue coupée par une action courte → imparfait."],
+ ["L’année dernière, elle ___ son permis.",["passait","a passé"],1,"<i>L’année dernière</i> + événement unique → passé composé."],
+ ["D’habitude, il ___ le bus de sept heures.",["prenait","a pris"],0,"<i>D’habitude</i> → imparfait."],
+ ["Un soir, nous ___ une décision importante.",["prenions","avons pris"],1,"<i>Un soir</i> = un moment précis → passé composé."],
+ ["Quand j’étais jeune, je ___ beaucoup de livres.",["lisais","ai lu"],0,"Habitude dans le passé → imparfait."],
+ ["J’___ trois fois en Inde en 2019.",["allais","suis allé"],1,"<i>Trois fois</i> = nombre fini → passé composé."],
+ ["Elle ___ fatiguée, donc elle est restée chez elle.",["était","a été"],0,"Un état → imparfait."],
+ ["Enfin, ils ___ la vérité.",["savaient","ont su"],1,"<i>Enfin</i> annonce la fin d’une chaîne → passé composé. <i>Ont su</i> = « ils ont appris »."],
+ ["Parfois, mon père nous ___ des histoires.",["racontait","a raconté"],0,"<i>Parfois</i> = répétition → imparfait."],
+ ["Je lisais le journal quand elle ___.",["entrait","est entrée"],1,"L’action courte qui coupe → passé composé."],
+ ["Nous ___ au restaurant chaque vendredi.",["mangions","avons mangé"],0,"<i>Chaque vendredi</i> → imparfait."]
+]);
+h3('10.3 · Un récit complet à compléter');
+lead("Le vrai test : un texte où les deux temps alternent. Écrivez le verbe conjugué en entier (auxiliaire compris s’il en faut un).");
+fillx([
+ ["Quand j’___ (avoir) dix ans, ma famille habitait à Chandigarh.","avais","When I was ten…","État / période → imparfait."],
+ ["Chaque dimanche, nous ___ (aller) au parc.","allions","Every Sunday we went to the park.","Habitude → imparfait."],
+ ["Un dimanche de juillet, mon père ___ (acheter) un vieux vélo.","a acheté","One July Sunday my father bought an old bike.","<i>Un dimanche</i> = moment précis → passé composé."],
+ ["Il ___ (être) rouge et il ___ (avoir) une sonnette cassée.","était / avait","It was red and had a broken bell.","Description → imparfait."],
+ ["Je ___ (apprendre) à rouler en deux jours.","ai appris","I learnt to ride in two days.","Événement avec durée finie → passé composé."],
+ ["Ensuite, je ___ (partir) à l’école à vélo tous les matins.","suis parti","Then I left for school by bike every morning.","<i>Ensuite</i> + début d’une nouvelle étape → passé composé. <i>Partir</i> → être."],
+ ["Un matin d’hiver, je ___ (tomber) sur la route mouillée.","suis tombé","One winter morning I fell on the wet road.","Événement unique → passé composé, <i>tomber</i> → être."],
+ ["Il ___ (pleuvoir) et je ___ (ne pas voir) le trou.","pleuvait / n’ai pas vu","It was raining and I didn’t see the hole.","Décor à l’imparfait, événement au passé composé."],
+ ["Depuis ce jour, je ___ (faire) toujours attention.","fais","Since that day I’ve always been careful.","Le présent, parce que c’est encore vrai aujourd’hui."]
+]);
+
+h2('12 · DEVOIRS — la conjugaison de l’imparfait, les douze verbes demandés');
+lead("À la fin de la séance, la prof a affiché la conjugaison de l’imparfait et a posé la question : <b>« Écrivez la conjugaison des verbes suivants : aller, pouvoir, vouloir, faire, venir, voir, parler, travailler, partir, dire, connaître, savoir. »</b> Faites-la d’abord vous-même, puis vérifiez ici.");
+note("<b>La méthode, en trois gestes — elle marche pour les douze.</b><br><br><b>①</b> Prenez le verbe au <b>présent</b>, forme <b>nous</b>.<br><b>②</b> Enlevez la terminaison <b>-ons</b>. Ce qui reste est le <b>radical</b>.<br><b>③</b> Ajoutez les six terminaisons : <b>-ais, -ais, -ait, -ions, -iez, -aient</b>.<br><br>Exemple : <i>nous <b>fais</b>ons</i> → radical <b>fais-</b> → <i>je faisais, tu faisais, il faisait, nous faisions, vous faisiez, ils faisaient</i>.<br><br><b>Il n’existe qu’une seule exception dans toute la langue française : ÊTRE</b>, dont le radical est <b>ét-</b> (<i>j’étais</i>) — parce que <i>nous sommes</i> ne finit pas par <i>-ons</i>.");
+table(['Terminaison','Personne','Prononciation'],[
+ ['-ais','je','/ɛ/ · « è »'],
+ ['-ais','tu','/ɛ/ · « è »'],
+ ['-ait','il / elle / on','/ɛ/ · « è »'],
+ ['-ions','nous','/jɔ̃/ · « yon »'],
+ ['-iez','vous','/je/ · « yé »'],
+ ['-aient','ils / elles','/ɛ/ · « è »']
+]);
+warn("<b>Le fait de prononciation le plus utile de tout l’imparfait :</b> <b>-ais, -ais, -ait</b> et <b>-aient</b> se prononcent <u>tous les quatre exactement pareil</u> — le son /ɛ/, le « è » ouvert de <i>mère</i>. Quatre orthographes, un seul son.<br><br><i>je parlais · tu parlais · il parlait · ils parlaient</i> → <b>/paʁ.lɛ/</b> les quatre fois.<br><br>Conséquence pratique : à l’<b>oral</b>, vous n’avez que deux formes à maîtriser — celle en /ɛ/ et les deux formes <i>nous/vous</i>. À l’<b>écrit</b>, vous en avez six, et c’est là que le TCF vous attend. Travaillez-les en dictée.");
+h3('12.1 · Les douze verbes, conjugués en entier');
+table(['Infinitif','Nous (présent)','Radical','L’imparfait complet'],[
+ ['<b>aller</b>','nous all<b>ons</b>','all-','j’allais · tu allais · il allait · nous allions · vous alliez · ils allaient'],
+ ['<b>pouvoir</b>','nous pouv<b>ons</b>','pouv-','je pouvais · tu pouvais · il pouvait · nous pouvions · vous pouviez · ils pouvaient'],
+ ['<b>vouloir</b>','nous voul<b>ons</b>','voul-','je voulais · tu voulais · il voulait · nous voulions · vous vouliez · ils voulaient'],
+ ['<b>faire</b>','nous fais<b>ons</b>','fais-','je faisais · tu faisais · il faisait · nous faisions · vous faisiez · ils faisaient'],
+ ['<b>venir</b>','nous ven<b>ons</b>','ven-','je venais · tu venais · il venait · nous venions · vous veniez · ils venaient'],
+ ['<b>voir</b>','nous voy<b>ons</b>','voy-','je voyais · tu voyais · il voyait · nous voyions · vous voyiez · ils voyaient'],
+ ['<b>parler</b>','nous parl<b>ons</b>','parl-','je parlais · tu parlais · il parlait · nous parlions · vous parliez · ils parlaient'],
+ ['<b>travailler</b>','nous travaill<b>ons</b>','travaill-','je travaillais · tu travaillais · il travaillait · nous travaillions · vous travailliez · ils travaillaient'],
+ ['<b>partir</b>','nous part<b>ons</b>','part-','je partais · tu partais · il partait · nous partions · vous partiez · ils partaient'],
+ ['<b>dire</b>','nous dis<b>ons</b>','dis-','je disais · tu disais · il disait · nous disions · vous disiez · ils disaient'],
+ ['<b>connaître</b>','nous connaiss<b>ons</b>','connaiss-','je connaissais · tu connaissais · il connaissait · nous connaissions · vous connaissiez · ils connaissaient'],
+ ['<b>savoir</b>','nous sav<b>ons</b>','sav-','je savais · tu savais · il savait · nous savions · vous saviez · ils savaient']
+]);
+warn("<b>Les quatre verbes de la liste où les étudiants se trompent — vérifiez les vôtres.</b><br><br><b>1 · FAIRE → je faisais</b>, prononcé <b>/fə.zɛ/</b>, « fuh-ZÈ » — <u>pas</u> « fè-zè ». Le <i>ai</i> de <i>faisais</i> se prononce comme un E muet. C’est une irrégularité de prononciation unique en français, et elle revient en compréhension orale.<br><br><b>2 · VOIR → nous voyions</b>, avec <b>deux I</b> : le Y du radical <i>voy-</i> plus le I de la terminaison <i>-ions</i>. Même chose pour <i>vous voyiez</i>. Presque tout le monde n’en écrit qu’un.<br><br><b>3 · TRAVAILLER → nous travaillions</b>, avec le double L <u>et</u> le I. Même piège.<br><br><b>4 · CONNAÎTRE → connaiss-</b>, avec <b>deux S</b> et <u>sans</u> accent circonflexe. L’accent de <i>connaître</i> disparaît à l’imparfait parce qu’il n’y a plus de I devant le T.");
+note("<b>Deux verbes à ne pas confondre dans cette liste.</b><br><br>· <b>savoir</b> = connaître un fait, ou savoir faire quelque chose. <i>Je savais la réponse. Je savais nager.</i><br>· <b>connaître</b> = être familier d’une personne, d’un lieu, d’une œuvre. <i>Je connaissais bien ce quartier. Je connaissais son frère.</i><br><br>En anglais les deux se disent <i>to know</i>, et c’est précisément pour ça que le TCF les oppose si souvent. Règle de poche : <b>connaître</b> prend toujours un <u>nom</u> comme objet ; <b>savoir</b> prend une <u>proposition</u> (<i>que…</i>, <i>si…</i>, <i>où…</i>) ou un <u>infinitif</u>.");
+
+h2('12b · L’exercice de la page 10 — « Conjuguez les verbes à la forme qui convient »');
+lead("C’est le meilleur exercice de toute la séance, parce qu’il force les deux temps à cohabiter dans une seule histoire. Faites-le d’abord sur papier. Les réponses et le raisonnement sont en dessous.");
+note("<b>Le texte à compléter :</b><br><br><i>Il y ___ (avoir) une ville. Elle ___ (être) calme. Il n’y ___ (avoir) pas les gens et les rues ___ (être) désertées. Il ___ (être) 3 h du matin, quand une voiture ___ (arriver). Elle ___ (s’arrêter) sur la place. Un homme ___ (descendre) de la voiture. Il ___ (porter) un blouson de cuir noir et une casquette. Il ___ (sortir) des clés de sa poche. Il ___ (entrer) dans une bijouterie. On ___ (entendre) une sonnerie d’alarme. L’homme ___ (courir) vers la voiture et la voiture ___ (disparaître).</i>");
+table(['#','Réponse','Temps','Pourquoi'],[
+ ['1','Il y <b>avait</b> une ville','imparfait','On plante le décor. <i>Il y avait</i> est le démarrage par défaut de tout récit.'],
+ ['2','Elle <b>était</b> calme','imparfait','Description d’un état.'],
+ ['3','Il n’y <b>avait</b> pas de gens','imparfait','Description, au négatif.'],
+ ['4','les rues <b>étaient</b> désertes','imparfait','Description. Accord au féminin pluriel : <i>étaient</i>.'],
+ ['5','Il <b>était</b> 3 h du matin','imparfait','L’heure est un décor, jamais un événement.'],
+ ['6','quand une voiture <b>est arrivée</b>','passé composé','<b>Le basculement.</b> <i>Arriver</i> = DR MRS VANDERTRAMPP → être, + E (voiture est féminin).'],
+ ['7','Elle <b>s’est arrêtée</b>','passé composé','Verbe <b>pronominal</b> → toujours être, et accord féminin.'],
+ ['8','Un homme <b>est descendu</b>','passé composé','<i>Descendre</i> sans objet → être. Sujet masculin → pas de E.'],
+ ['9','Il <b>portait</b> un blouson','imparfait','<b>Description du personnage</b>, pas une action. Piège classique.'],
+ ['10','Il <b>a sorti</b> des clés','passé composé','<b>Le piège du texte.</b> <i>Sortir</i> + objet direct (<i>des clés</i>) → <b>AVOIR</b>, pas être.'],
+ ['11','Il <b>est entré</b> dans une bijouterie','passé composé','<i>Entrer</i> → être.'],
+ ['12','On <b>a entendu</b> une sonnerie','passé composé','<i>Entendre</i> → avoir. Participe en <b>-u</b>.'],
+ ['13','L’homme <b>a couru</b>','passé composé','<i>Courir</i> → avoir. Participe irrégulier : <b>couru</b>.'],
+ ['14','la voiture <b>a disparu</b>','passé composé','<i>Disparaître</i> → avoir. Participe : <b>disparu</b>.']
+]);
+warn("<b>Les trois choses que cet exercice teste réellement — et que le TCF teste de la même façon.</b><br><br><b>1 · Le basculement à « quand ».</b> Les cinq premiers trous sont des décors, donc imparfait. Le mot <b>quand</b> fait entrer le premier événement, et tout bascule au passé composé. Repérez ce mot et vous avez la moitié de l’exercice.<br><br><b>2 · « Il portait un blouson » est une description, pas une action.</b> Beaucoup d’étudiants écrivent <i>il a porté</i> parce que l’homme vient d’agir juste avant. Mais porter un blouson n’est pas quelque chose qu’on <u>fait</u> à un moment précis — c’est l’état dans lequel il se trouve. Imparfait.<br><br><b>3 · « Il a sorti des clés » et non « il est sorti ».</b> C’est exactement la règle du chapitre 14 : <i>sortir, monter, descendre, passer, rentrer, retourner</i> passent à <b>avoir</b> dès qu’un objet direct les suit. Ici l’objet est <i>des clés</i>. Et comparez avec le trou nº 8 : <i>il est descendu</i>, sans objet, donc être. Le même texte vous donne les deux cas à trois lignes d’écart — ce n’est pas un hasard, c’est le but de l’exercice.");
+note("<b>Deux détails de langue dans l’énoncé lui-même.</b><br><br>· La photocopie écrit <i>« il n’y a pas <b>les</b> gens »</i>. En français correct, après une négation l’article devient <b>de</b> : <b>il n’y avait pas <u>de</u> gens</b>. C’est la règle du chapitre 12 (<i>je n’ai pas de voiture</i>, et non <i>pas la voiture</i>).<br>· La photocopie écrit <i>« les rues étaient <b>désertées</b> »</i>. <i>Désertée</i> est un participe (= « que l’on a quittée ») ; l’adjectif habituel ici est <b>déserte</b> : <b>les rues étaient désertes</b>. Les deux se prononcent presque pareil, mais à l’écrit c’est <i>désertes</i> qu’on attend.<br><br>Je les signale parce que vous apprenez aussi en lisant, et qu’une coquille recopiée dix fois devient une habitude.");
+h3('12c · Le même exercice, à refaire en interactif');
+fillx([
+ ["Il y ___ (avoir) une ville.","avait","There was a town.","Décor → imparfait."],
+ ["Il ___ (être) 3 h du matin.","était","It was 3 a.m.","L’heure = décor."],
+ ["Quand une voiture ___ (arriver).","est arrivée","When a car arrived.","Événement + <i>arriver</i> → être + E."],
+ ["Elle ___ (s’arrêter) sur la place.","s’est arrêtée","It stopped in the square.","Pronominal → être + accord."],
+ ["Un homme ___ (descendre) de la voiture.","est descendu","A man got out of the car.","Sans objet → être."],
+ ["Il ___ (porter) un blouson de cuir.","portait","He was wearing a leather jacket.","Description → imparfait."],
+ ["Il ___ (sortir) des clés de sa poche.","a sorti","He took keys out of his pocket.","Objet direct → avoir."],
+ ["Il ___ (entrer) dans une bijouterie.","est entré","He went into a jeweller’s.","<i>Entrer</i> → être."],
+ ["On ___ (entendre) une sonnerie d’alarme.","a entendu","An alarm was heard.","<i>Entendre</i> → avoir."],
+ ["L’homme ___ (courir) vers la voiture.","a couru","The man ran to the car.","Participe irrégulier <b>couru</b>."],
+ ["Et la voiture ___ (disparaître).","a disparu","And the car disappeared.","Participe irrégulier <b>disparu</b>."]
+]);
+
+h2('13 · Ce qu’il faut emporter de cette séance');
+warn("<b>Les six choses à retenir, dans l’ordre d’importance :</b><br><br><b>1 · Dix-sept verbes prennent ÊTRE.</b> DR MRS VAN + DERTRAMPP, en deux souffles. Tant que la liste n’est pas automatique, tout le reste reste difficile.<br><br><b>2 · Avec ÊTRE, le participe s’accorde avec le sujet.</b> Masculin nu, féminin + E, pluriel + S, féminin pluriel + ES. Avec AVOIR, il ne bouge pas — sauf si le COD passe devant (<i>je l’ai invit<b>ée</b></i>).<br><br><b>3 · L’accord est muet.</b> Il ne s’entend presque jamais, sauf <i>mort / morte</i>. C’est donc un point d’<b>écrit</b> : travaillez-le en dictée, pas à l’oreille.<br><br><b>4 · La négation encadre l’auxiliaire seul.</b> <i>Je ne suis pas allé</i>, jamais <i>je ne suis allé pas</i>.<br><br><b>5 · Imparfait = photo, passé composé = film.</b> Le décor dure, l’événement tombe dedans.<br><br><b>6 · Les mots déclencheurs décident presque toujours.</b> <i>Chaque, tous les, d’habitude, parfois</i> → imparfait. <i>Hier, un jour, soudain, enfin, trois fois</i> → passé composé.");
+note("<b>Votre travail d’ici au prochain cours :</b><br><br>· <b>Jour même</b> — relisez les sections 1 à 4, puis refaites la série 5 (choix de l’auxiliaire) jusqu’à zéro faute.<br>· <b>+2 jours</b> — série 5.1 (accord) sans relire la leçon. C’est le test réel.<br>· <b>+1 jour</b> — rendez les douze conjugaisons de la section 12 sans regarder le tableau.<br>· <b>+3 jours</b> — série 10.2 (passé composé ou imparfait). Visez quatorze sur seize.<br>· <b>+4 jours</b> — les seize dictées de la section 5.2.<br>· <b>+7 jours</b> — écrivez huit phrases sur votre enfance : quatre à l’imparfait (ce que vous faisiez tous les jours) et quatre au passé composé (quatre événements précis). Lisez-les à voix haute en faisant les liaisons.<br><br>Les chapitres <b>13 à 16</b> du livre couvrent exactement cette matière : 13 (passé composé avec <i>avoir</i>), 14 (avec <i>être</i> et l’accord), 15 (imparfait), 16 (passé composé contre imparfait).");
+src('Cours 36 · Trois documents affichés en séance : PDF « unité 789 » p. 14 (formules affirmative / négative et tableau <b>DR MRS VANDERTRAMPP</b>) ; corrigés <i>Saison 2 (A2)</i> p. 41 (accord du participe passé, féminin et pluriel des adjectifs, <i>qui/que</i> et <i>ce qui/ce que</i>, imparfait) ; PDF « unité 13 A2 » p. 7 (tableau passé composé / imparfait et mots déclencheurs). Les listes de verbes, les titres et les catégories du tableau sont ceux de la classe. <b>Toutes les explications, les transcriptions phonétiques, la lecture et la centaine d’exercices de cette page sont rédigés ici</b>, avec des exemples différents de ceux des manuels. Je n’ai pas entendu le son du cours, seulement vu l’écran — si la prof a dit autre chose à l’oral, signalez-le et je corrige.');
+</script>
+</body>
+</html>
