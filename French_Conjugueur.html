@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Le Conjugueur — tous les verbes</title>
+<style>
+:root{--bg:#faf9f7;--card:#fff;--line:#e6e3dc;--ink:#23201b;--muted:#6b675f;--accent:#4338ca;--accentbg:#eceafe;--green:#0f7a54;--greenbg:#e7f5ef}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Georgia,'Iowan Old Style',serif}
+nav{background:#fff;border-bottom:1px solid var(--line);padding:8px 14px;display:flex;flex-wrap:wrap;gap:4px;font-family:system-ui,sans-serif;font-size:12px;position:sticky;top:0;z-index:20}
+nav a{color:var(--muted);text-decoration:none;padding:4px 8px;border-radius:5px}
+nav a:hover{background:var(--accentbg);color:var(--accent)}
+header{max-width:1000px;margin:0 auto;padding:28px 20px 10px}
+h1{font-size:30px;margin:0 0 6px}
+.sub{color:var(--muted);margin:0 0 18px;font-size:15px}
+main{max-width:1000px;margin:0 auto;padding:0 20px 80px}
+.searchbar{position:sticky;top:41px;background:var(--bg);padding:14px 0;z-index:10;border-bottom:1px solid var(--line)}
+#q{width:100%;padding:13px 16px;font-size:17px;font-family:Georgia,serif;border:2px solid var(--line);border-radius:9px;background:#fff;color:var(--ink)}
+#q:focus{outline:none;border-color:var(--accent)}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;font-family:system-ui,sans-serif;font-size:12px}
+.filters button{border:1px solid var(--line);background:#fff;color:var(--muted);padding:5px 11px;border-radius:999px;cursor:pointer;font-family:inherit;font-size:12px}
+.filters button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.count{color:var(--muted);font-size:13px;font-family:system-ui,sans-serif;margin:12px 0 4px}
+.vcard{background:var(--card);border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden}
+.vhead{padding:14px 18px;cursor:pointer;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.vhead:hover{background:#faf9f7}
+.vinf{font-size:21px;font-weight:bold}
+.ven{color:var(--muted);font-size:15px;font-style:italic}
+.tag{font-family:system-ui,sans-serif;font-size:10.5px;padding:2px 8px;border-radius:999px;background:var(--accentbg);color:var(--accent);margin-left:auto}
+.tag.etre{background:var(--greenbg);color:var(--green)}
+.vbody{display:none;padding:0 18px 18px;border-top:1px solid var(--line)}
+.vbody.open{display:block}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:#f4f2ee;font-family:system-ui,sans-serif;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);font-weight:600}
+td:first-child{color:var(--muted);font-size:13px;white-space:nowrap;background:#fbfaf8}
+.note{background:#fffdf5;border-left:3px solid #d9b45b;padding:11px 14px;margin:12px 0;font-size:14.5px;border-radius:0 7px 7px 0}
+.meta{display:flex;flex-wrap:wrap;gap:16px;margin:12px 0 0;font-size:14px}
+.meta b{color:var(--accent)}
+.speak{cursor:pointer;border:none;background:var(--accentbg);color:var(--accent);border-radius:6px;padding:2px 8px;font-size:12px;font-family:system-ui,sans-serif;margin-left:6px}
+.empty{text-align:center;color:var(--muted);padding:40px;font-style:italic}
+.intro{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:18px 22px;margin:16px 0}
+.intro h2{font-size:17px;margin:0 0 10px}
+@media(max-width:620px){table{font-size:12.5px}th,td{padding:5px 6px}.vinf{font-size:18px}}
+</style>
+</head>
+<body>
+<nav>
+    <a href="French_Start_Here.html"><b>★ Start Here</b></a>
+    <a href="French_Cours_Complet.html">Complete Book</a>
+    <a href="French_Cours33_Notes.html">Cours 33</a>
+    <a href="French_Cours34_Notes.html">Cours 36</a>
+    <a href="French_Cours35_Notes.html" class="active">Cours 36</a>
+    <a href="French_Ressources.html">Ressources</a>
+    <a href="French_TCF_Guide.html">TCF Guide</a>
+  </nav>
+<header>
+<h1>Le Conjugueur</h1>
+<p class="sub">Tapez n’importe quel verbe. Tous les temps, l’auxiliaire, le participe passé, et la note qui explique ce qui cloche.</p>
+</header>
+<main>
+<div class="searchbar">
+  <input id="q" type="search" placeholder="Cherchez un verbe en français ou en anglais — aller, to buy, prendre…" autocomplete="off">
+  <div class="filters" id="filters"></div>
+</div>
+<div class="count" id="count"></div>
+<div id="list"></div>
+
+<div class="intro">
+<h2>Pourquoi cette page ne contient pas « tous » les verbes — et pourquoi ça n’a pas d’importance</h2>
+<p>Le français compte environ <b>douze mille verbes</b>. Mais plus de <b>90 %</b> d’entre eux sont des verbes réguliers en <b>-ER</b>, et ils se conjuguent tous <u>exactement</u> comme <i>parler</i>. Il n’y a donc rien à apprendre de plus pour eux : prenez l’infinitif, enlevez <b>-er</b>, et ajoutez les terminaisons.</p>
+<p>Ce qui reste vraiment à mémoriser, ce sont les <b>irréguliers</b> — et il y en a peut-être cent cinquante en usage courant. Ils sont tous ici, avec leurs composés.</p>
+<p><b>Si un verbe manque</b> et qu’il finit en <b>-er</b> : conjuguez-le comme <i>parler</i>. S’il finit en <b>-ir</b> et que vous pouvez dire <i>nous …issons</i> : comme <i>finir</i>. S’il finit en <b>-re</b> : comme <i>vendre</i>. Dans les trois cas, vous aurez raison.</p>
+</div>
+
+<div class="intro">
+<h2>Les quatre choses que cette page vous évite d’apprendre</h2>
+<p><b>1 · Les terminaisons ne changent jamais.</b> L’imparfait est <i>-ais, -ais, -ait, -ions, -iez, -aient</i> pour les douze mille verbes. Le futur est <i>-ai, -as, -a, -ons, -ez, -ont</i>. Sans exception.</p>
+<p><b>2 · L’imparfait se calcule.</b> Prenez la forme <i>nous</i> du présent, enlevez <b>-ons</b>, ajoutez les terminaisons. <i>nous buvons</i> → <i>je buvais</i>. Une seule exception dans toute la langue : <b>être → j’étais</b>.</p>
+<p><b>3 · Le conditionnel se calcule aussi.</b> Radical du futur + terminaisons de l’imparfait. <i>je saurai</i> → <i>je saurais</i>.</p>
+<p><b>4 · Donc vous ne mémorisez que trois choses par verbe :</b> le <b>présent</b>, le <b>participe passé</b>, et le <b>radical du futur</b>. Le reste se fabrique.</p>
+</div>
+</main>
+<script>
+/* ===== MOTEUR DE CONJUGAISON ===== */
+/* Endings never change. Only the radical varies. */
+var E = {
+  pres_er : ['e','es','e','ons','ez','ent'],
+  pres_ir : ['is','is','it','issons','issez','issent'],
+  pres_re : ['s','s','','ons','ez','ent'],
+  impf    : ['ais','ais','ait','ions','iez','aient'],
+  fut     : ['ai','as','a','ons','ez','ont'],
+  cond    : ['ais','ais','ait','ions','iez','aient'],
+  subj    : ['e','es','e','ions','iez','ent']
+};
+var SUBJ = ['je','tu','il/elle','nous','vous','ils/elles'];
+
+function elide(sub, form){
+  if(sub==='je' && /^[aeiouéèêîôûh]/i.test(form)) return "j’"+form;
+  return sub+' '+form;
+}
+/* spelling tweaks for -cer / -ger before a or o */
+function soften(rad, ending, kind){
+  if(kind==='cer' && /^[ao]/.test(ending)) return rad.slice(0,-1)+'ç';
+  if(kind==='ger' && /^[ao]/.test(ending)) return rad+'e';
+  return rad;
+}
+
+function build(v){
+  var inf=v.inf, k=v.k, out={};
+  var rad = inf.replace(/(er|ir|re)$/,'');
+  var présent, ppa=v.pp, futR=v.fr, aux=v.aux||'avoir';
+
+  if(k==='X'){
+    présent = v.p.slice();
+    if(!futR) futR = inf.replace(/e$/,'');
+  } else if(k==='ir'){
+    présent = E.pres_ir.map(function(t){ return rad+t; });
+    if(!futR) futR = inf;
+    if(!ppa) ppa = rad+'i';
+  } else if(k==='re'){
+    présent = E.pres_re.map(function(t){ return rad+t; });
+    if(!futR) futR = inf.replace(/e$/,'');
+    if(!ppa) ppa = rad+'u';
+  } else { /* all -ER families */
+    présent = E.pres_er.map(function(t,i){
+      var r = rad;
+      if(k==='cer'||k==='ger') r = soften(rad,t,k);
+      else if(k==='ll'  && i!==3 && i!==4) r = rad.replace(/l$/,'ll');
+      else if(k==='tt'  && i!==3 && i!==4) r = rad.replace(/t$/,'tt');
+      else if(k==='è'   && i!==3 && i!==4) r = rad.replace(/e([^e]*)$/,'è$1');
+      else if(k==='éè'  && i!==3 && i!==4) r = rad.replace(/é([^é]*)$/,'è$1');
+      else if(k==='yi'  && i!==3 && i!==4) r = rad.replace(/y$/,'i');
+      return r+t;
+    });
+    if(!ppa) ppa = rad+'é';
+    if(!futR){
+      if(k==='ll')      futR = rad.replace(/l$/,'ll')+'er';
+      else if(k==='tt') futR = rad.replace(/t$/,'tt')+'er';
+      else if(k==='è')  futR = rad.replace(/e([^e]*)$/,'è$1')+'er';
+      else if(k==='yi') futR = rad.replace(/y$/,'i')+'er';
+      else              futR = inf;
+    }
+  }
+
+  /* imparfait: nous-form minus -ons  (one exception: être) */
+  var impfR = v.ir || présent[3].replace(/ons$/,'');
+  if(k==='cer') impfR = impfR.replace(/ç$/,'c');   /* ç only before a/o */
+  var imparfait = E.impf.map(function(t,i){
+    var r=impfR;
+    if(k==='cer' && /^[ao]/.test(t)) r = impfR.slice(0,-1)+'ç';
+    if(k==='ger' && /^[ao]/.test(t) && !/e$/.test(impfR)) r = impfR+'e';
+    if(k==='ger' && /^i/.test(t)) r = impfR.replace(/e$/,'');
+    return r+t;
+  });
+
+  var futur = E.fut.map(function(t){ return futR+t; });
+  var cond  = E.cond.map(function(t){ return futR+t; });
+
+  var auxP = (aux==='être') ? ['suis','es','est','sommes','êtes','sont']
+                            : ['ai','as','a','avons','avez','ont'];
+  var ppf  = (aux==='être') ? [ppa+'(e)',ppa+'(e)',ppa+'(e)',ppa+'(e)s',ppa+'(e)(s)',ppa+'(e)s']
+                            : [ppa,ppa,ppa,ppa,ppa,ppa];
+  var pc = auxP.map(function(a,i){ return a+' '+ppf[i]; });
+
+  var pqp = auxP.map(function(a,i){
+    var impAux = (aux==='être') ? ['étais','étais','était','étions','étiez','étaient'][i]
+                                : ['avais','avais','avait','avions','aviez','avaient'][i];
+    return impAux+' '+ppf[i];
+  });
+
+  var imper = v.imp || [présent[1].replace(/^(.*)es$/, (k==='X'?'$1es':'$1e')), présent[3], présent[4]];
+  if(!v.imp && k!=='X' && /er$/.test(inf)) imper = [présent[1].replace(/s$/,''), présent[3], présent[4]];
+  if(!v.imp && k==='X') imper = [présent[1], présent[3], présent[4]];
+
+  out.inf=inf; out.en=v.en; out.aux=aux; out.pp=ppa; out.fam=v.fam||'';
+  out.présent=présent; out.pc=pc; out.imparfait=imparfait;
+  out.futur=futur; out.cond=cond; out.pqp=pqp; out.imper=imper;
+  out.note=v.n||'';
+  return out;
+}
+var VERBS = [
+{inf:'être', en:'to be', k:'X', p:['suis','es','est','sommes','êtes','sont'], pp:'été', fr:'ser', ir:'ét', imp:['sois','soyons','soyez'], fam:'pilier',
+ n:"Le seul verbe dont l’imparfait ne vient pas de la forme <i>nous</i> : radical <b>ét-</b>. Futur en <b>ser-</b>, impératif <b>sois / soyez</b>."},
+{inf:'avoir', en:'to have', k:'X', p:['ai','as','a','avons','avez','ont'], pp:'eu', fr:'aur', imp:['aie','ayons','ayez'], fam:'pilier',
+ n:"Participe <b>eu</b>, prononcé simplement « ü ». Futur en <b>aur-</b>, impératif <b>aie / ayez</b>."},
+{inf:'aller', en:'to go', k:'X', p:['vais','vas','va','allons','allez','vont'], pp:'allé', fr:'ir', aux:'être', imp:['va','allons','allez'], fam:'mouvement',
+ n:"Trois radicaux : <b>v-</b> présent, <b>all-</b> imparfait, <b>ir-</b> futur. Prend <b>être</b>. <i>Va</i> reprend son S devant y : <b>vas-y</b>."},
+{inf:'faire', en:'to do, to make', k:'X', p:['fais','fais','fait','faisons','faites','font'], pp:'fait', fr:'fer', fam:'courant',
+ n:"<b>vous faites</b>, jamais <i>faisez</i>. <b>faisons / faisais</b> se prononcent avec un E muet : « fuh-ZON », « fuh-ZEH »."},
+{inf:'dire', en:'to say, to tell', k:'X', p:['dis','dis','dit','disons','dites','disent'], pp:'dit', fr:'dir', fam:'courant',
+ n:"<b>vous dites</b>. Mais les composés sont réguliers : <i>vous interdisez, prédisez, contredisez</i>."},
+{inf:'pouvoir', en:'can, to be able to', k:'X', p:['peux','peux','peut','pouvons','pouvez','peuvent'], pp:'pu', fr:'pourr', imp:['—','—','—'], fam:'modal',
+ n:"Pas d’impératif. Futur à <b>deux R</b>. <i>Pourriez-vous…</i> est la formule polie du français."},
+{inf:'vouloir', en:'to want', k:'X', p:['veux','veux','veut','voulons','voulez','veulent'], pp:'voulu', fr:'voudr', imp:['veuille','veuillons','veuillez'], fam:'modal',
+ n:"<b>Je voudrais</b> est la demande polie. <i>Je veux</i> est brutal. Impératif <b>veuillez</b> en langue formelle."},
+{inf:'devoir', en:'must, to have to', k:'X', p:['dois','dois','doit','devons','devez','doivent'], pp:'dû', fr:'devr', fam:'modal',
+ n:"Participe <b>dû</b> avec accent circonflexe au masculin singulier seulement : <i>dû, due, dus, dues</i>."},
+{inf:'savoir', en:'to know (a fact)', k:'X', p:['sais','sais','sait','savons','savez','savent'], pp:'su', fr:'saur', imp:['sache','sachons','sachez'], fam:'modal',
+ n:"<b>savoir</b> + proposition ou infinitif. <i>J’ai su</i> = j’ai appris, pas « je savais »."},
+{inf:'voir', en:'to see', k:'X', p:['vois','vois','voit','voyons','voyez','voient'], pp:'vu', fr:'verr', fam:'perception',
+ n:"Imparfait <b>nous voyions / vous voyiez</b>, avec deux I. Futur en <b>verr-</b>."},
+{inf:'prévoir', en:'to foresee, to plan', k:'X', p:['prévois','prévois','prévoit','prévoyons','prévoyez','prévoient'], pp:'prévu', fr:'prévoir', fam:'perception',
+ n:"Exception : contrairement à <i>voir</i>, le futur est <b>je prévoirai</b>."},
+{inf:'venir', en:'to come', k:'X', p:['viens','viens','vient','venons','venez','viennent'], pp:'venu', fr:'viendr', aux:'être', fam:'mouvement',
+ n:"Un <b>D</b> apparaît au futur : <b>viendr-</b>. <i>venir de</i> + infinitif = le passé récent."},
+{inf:'tenir', en:'to hold', k:'X', p:['tiens','tiens','tient','tenons','tenez','tiennent'], pp:'tenu', fr:'tiendr', fam:'mouvement',
+ n:"Même modèle que <i>venir</i>, mais il prend <b>avoir</b>, pas être."},
+{inf:'prendre', en:'to take', k:'X', p:['prends','prends','prend','prenons','prenez','prennent'], pp:'pris', fr:'prendr', fam:'courant',
+ n:"Le D disparaît au pluriel : <i>nous pre<b>n</b>ons</i>. Participe <b>pris</b>, dont le féminin <i>prise</i> s’entend."},
+{inf:'mettre', en:'to put', k:'X', p:['mets','mets','met','mettons','mettez','mettent'], pp:'mis', fr:'mettr', fam:'courant',
+ n:"Participe <b>mis</b> — le féminin <i>mise</i> s’entend. <i>se mettre à</i> = commencer à."}
+];
+VERBS.push(
+{inf:'connaître', en:'to know (a person, a place)', k:'X', p:['connais','connais','connaît','connaissons','connaissez','connaissent'], pp:'connu', fr:'connaîtr', fam:'perception',
+ n:"L’accent circonflexe ne survit que devant un T. <i>J’ai connu</i> = j’ai rencontré."},
+{inf:'partir', en:'to leave', k:'X', p:['pars','pars','part','partons','partez','partent'], pp:'parti', fr:'partir', aux:'être', fam:'mouvement',
+ n:"Modèle des <i>-ir</i> <b>sans -iss-</b>. <i>Partir</i> n’a jamais d’objet direct : on dit <i>je quitte la maison</i>."},
+{inf:'sortir', en:'to go out', k:'X', p:['sors','sors','sort','sortons','sortez','sortent'], pp:'sorti', fr:'sortir', aux:'être', fam:'mouvement',
+ n:"<b>Être</b> sans objet (<i>je suis sorti</i>), <b>avoir</b> avec objet (<i>j’ai sorti les clés</i>)."},
+{inf:'dormir', en:'to sleep', k:'X', p:['dors','dors','dort','dormons','dormez','dorment'], pp:'dormi', fr:'dormir', fam:'quotidien', n:"Famille de <i>partir</i> : pas de <b>-iss-</b>."},
+{inf:'sentir', en:'to feel, to smell', k:'X', p:['sens','sens','sent','sentons','sentez','sentent'], pp:'senti', fr:'sentir', fam:'perception', n:"Famille de <i>partir</i>. <i>se sentir</i> = se trouver dans un état."},
+{inf:'servir', en:'to serve', k:'X', p:['sers','sers','sert','servons','servez','servent'], pp:'servi', fr:'servir', fam:'courant', n:"<i>se servir de</i> = utiliser."},
+{inf:'mentir', en:'to lie', k:'X', p:['mens','mens','ment','mentons','mentez','mentent'], pp:'menti', fr:'mentir', fam:'courant', n:"<i>mentir <b>à</b></i> quelqu’un → COI, donc jamais d’accord du participe."},
+{inf:'ouvrir', en:'to open', k:'X', p:['ouvre','ouvres','ouvre','ouvrons','ouvrez','ouvrent'], pp:'ouvert', fr:'ouvrir', fam:'courant',
+ n:"Verbe en <i>-ir</i> qui se conjugue au présent <b>comme un -ER</b>. Participe <b>ouvert</b>, dont le T s’entend au féminin."},
+{inf:'offrir', en:'to offer, to give (a gift)', k:'X', p:['offre','offres','offre','offrons','offrez','offrent'], pp:'offert', fr:'offrir', fam:'courant', n:"Comme <i>ouvrir</i>. Participe <b>offert</b>."},
+{inf:'souffrir', en:'to suffer', k:'X', p:['souffre','souffres','souffre','souffrons','souffrez','souffrent'], pp:'souffert', fr:'souffrir', fam:'courant', n:"Comme <i>ouvrir</i>. Participe <b>souffert</b>."},
+{inf:'courir', en:'to run', k:'X', p:['cours','cours','court','courons','courez','courent'], pp:'couru', fr:'courr', fam:'mouvement', n:"Futur à <b>deux R</b> : <i>je courrai</i>, à ne pas confondre avec <i>je courais</i>."},
+{inf:'mourir', en:'to die', k:'X', p:['meurs','meurs','meurt','mourons','mourez','meurent'], pp:'mort', fr:'mourr', aux:'être', fam:'vie',
+ n:"Participe <b>mort</b> — le seul de DR MRS VANDERTRAMPP dont l’accord <u>s’entend</u> : <i>mort</i> / <i>mor<b>te</b></i>."},
+{inf:'naître', en:'to be born', k:'X', p:['nais','nais','naît','naissons','naissez','naissent'], pp:'né', fr:'naîtr', aux:'être', fam:'vie', n:"Participe très court : <b>né</b>."},
+{inf:'écrire', en:'to write', k:'X', p:['écris','écris','écrit','écrivons','écrivez','écrivent'], pp:'écrit', fr:'écrir', fam:'courant', n:"Un <b>V</b> apparaît au pluriel. Participe <b>écrit</b>, féminin <i>écrite</i> audible."},
+{inf:'lire', en:'to read', k:'X', p:['lis','lis','lit','lisons','lisez','lisent'], pp:'lu', fr:'lir', fam:'courant', n:"Un <b>S</b> au pluriel : <i>nous li<b>s</b>ons</i>."},
+{inf:'boire', en:'to drink', k:'X', p:['bois','bois','boit','buvons','buvez','boivent'], pp:'bu', fr:'boir', fam:'quotidien', n:"Trois radicaux : <b>boi-</b>, <b>buv-</b>, <b>boiv-</b>. L’imparfait vient du pluriel : <i>je buvais</i>."},
+{inf:'croire', en:'to believe', k:'X', p:['crois','crois','croit','croyons','croyez','croient'], pp:'cru', fr:'croir', fam:'courant', n:"Imparfait <b>nous croyions</b>, deux I — comme <i>voir</i>."},
+{inf:'vivre', en:'to live', k:'X', p:['vis','vis','vit','vivons','vivez','vivent'], pp:'vécu', fr:'vivr', fam:'vie', n:"Participe très irrégulier : <b>vécu</b>."},
+{inf:'suivre', en:'to follow, to take (a course)', k:'X', p:['suis','suis','suit','suivons','suivez','suivent'], pp:'suivi', fr:'suivr', fam:'courant',
+ n:"<b>Je suis</b> est ambigu : c’est aussi <i>être</i>. <i>Je suis un cours de français</i> = I’m taking a course."},
+{inf:'rire', en:'to laugh', k:'X', p:['ris','ris','rit','rions','riez','rient'], pp:'ri', fr:'rir', fam:'courant', n:"Imparfait <b>nous riions</b>, avec deux I."},
+{inf:'conduire', en:'to drive', k:'X', p:['conduis','conduis','conduit','conduisons','conduisez','conduisent'], pp:'conduit', fr:'conduir', fam:'mouvement', n:"Modèle de <i>construire, produire, traduire, détruire, réduire</i>."},
+{inf:'plaire', en:'to please', k:'X', p:['plais','plais','plaît','plaisons','plaisez','plaisent'], pp:'plu', fr:'plair', fam:'sentiment',
+ n:"<i>plaire <b>à</b></i> quelqu’un → COI, jamais d’accord. <i>Ce film m’a plu.</i>"},
+{inf:'recevoir', en:'to receive', k:'X', p:['reçois','reçois','reçoit','recevons','recevez','reçoivent'], pp:'reçu', fr:'recevr', fam:'courant', n:"Cédille devant O : <b>reçois, reçu</b>. Pas devant E : <i>recevons</i>."},
+{inf:'falloir', en:'to be necessary', k:'X', p:['—','—','faut','—','—','—'], pp:'fallu', fr:'faudr', imp:['—','—','—'], fam:'impersonnel',
+ n:"<b>Verbe impersonnel</b> : seulement la 3<sup>e</sup> personne du singulier. <i>Il faut partir. Il faut que tu viennes.</i>"},
+{inf:'pleuvoir', en:'to rain', k:'X', p:['—','—','pleut','—','—','—'], pp:'plu', fr:'pleuvr', imp:['—','—','—'], fam:'impersonnel', n:"Impersonnel. <i>Il pleut. Il a plu. Il pleuvait.</i>"},
+{inf:'valoir', en:'to be worth', k:'X', p:['vaux','vaux','vaut','valons','valez','valent'], pp:'valu', fr:'vaudr', fam:'courant', n:"Surtout en expression : <b>ça vaut la peine</b>, <b>il vaut mieux</b>."},
+{inf:'asseoir', en:'to seat', k:'X', p:['assieds','assieds','assied','asseyons','asseyez','asseyent'], pp:'assis', fr:'assiér', fam:'quotidien', n:"Presque toujours pronominal : <b>s’asseoir</b>. <i>Assieds-toi ! Asseyez-vous !</i>"},
+{inf:'battre', en:'to beat', k:'X', p:['bats','bats','bat','battons','battez','battent'], pp:'battu', fr:'battr', fam:'courant', n:"Un T au singulier, deux au pluriel."},
+{inf:'craindre', en:'to fear', k:'X', p:['crains','crains','craint','craignons','craignez','craignent'], pp:'craint', fr:'craindr', fam:'sentiment', n:"Modèle de <i>peindre, éteindre, joindre, plaindre</i> : <b>-gn-</b> au pluriel."},
+{inf:'envoyer', en:'to send', k:'X', p:['envoie','envoies','envoie','envoyons','envoyez','envoient'], pp:'envoyé', fr:'enverr', fam:'courant', n:"Futur totalement irrégulier : <b>j’enverrai</b>."}
+);
+/* --- COMPOSÉS : même conjugaison que le verbe de base + préfixe --- */
+var COMPOUNDS = [
+ ['prendre',['apprendre:to learn','comprendre:to understand','reprendre:to take back / resume','surprendre:to surprise','entreprendre:to undertake']],
+ ['mettre',['permettre:to allow','promettre:to promise','remettre:to hand in / postpone','admettre:to admit','soumettre:to submit','transmettre:to pass on']],
+ ['venir',['devenir:to become','revenir:to come back','parvenir:to manage to','intervenir:to intervene','survenir:to occur','prévenir:to warn']],
+ ['tenir',['obtenir:to obtain','maintenir:to maintain','retenir:to retain / book','contenir:to contain','soutenir:to support','appartenir:to belong']],
+ ['voir',['revoir:to see again','entrevoir:to glimpse']],
+ ['écrire',['décrire:to describe','inscrire:to register']],
+ ['conduire',['construire:to build','produire:to produce','traduire:to translate','détruire:to destroy','réduire:to reduce','introduire:to introduce']],
+ ['connaître',['reconnaître:to recognise','paraître:to appear','apparaître:to appear','disparaître:to disappear']],
+ ['ouvrir',['couvrir:to cover','découvrir:to discover','rouvrir:to reopen']],
+ ['partir',['repartir:to set off again']],
+ ['sortir',['ressortir:to go back out']],
+ ['courir',['parcourir:to travel through','secourir:to rescue']],
+ ['dire',['redire:to say again']],
+ ['faire',['refaire:to redo','satisfaire:to satisfy','défaire:to undo']],
+ ['battre',['combattre:to fight','débattre:to debate','abattre:to knock down']],
+ ['craindre',['plaindre:to pity','peindre:to paint','éteindre:to switch off','atteindre:to reach','joindre:to join','rejoindre:to meet up with']],
+ ['suivre',['poursuivre:to pursue']],
+ ['vivre',['survivre:to survive']],
+ ['sentir',['ressentir:to feel','consentir:to consent']],
+ ['servir',['desservir:to serve (a route)']],
+ ['recevoir',['apercevoir:to notice','concevoir:to conceive','décevoir:to disappoint']]
+];
+/* verbs whose compounds take être */
+/* compounds of an ÊTRE verb that nevertheless take AVOIR */
+var AVOIR_EXCEPT = ['prévenir'];
+var ETRE_COMPOUNDS = ['devenir','revenir','parvenir','intervenir','survenir','repartir','ressortir'];
+/* --- RÉGULIERS -ER : le modèle de 90 % des verbes français --- */
+var REG_ER = ("parler:to speak|travailler:to work|aimer:to like, to love|habiter:to live (somewhere)|"+
+"regarder:to watch|écouter:to listen to|chercher:to look for|trouver:to find|donner:to give|"+
+"demander:to ask|penser:to think|rester:to stay|arriver:to arrive|entrer:to enter|monter:to go up|"+
+"tomber:to fall|rentrer:to go home|retourner:to return|marcher:to walk, to work (function)|"+
+"porter:to wear, to carry|montrer:to show|jouer:to play|chanter:to sing|danser:to dance|"+
+"préparer:to prepare|cuisiner:to cook|laver:to wash|garder:to keep|louer:to rent|"+
+"coûter:to cost|dépenser:to spend (money)|gagner:to earn, to win|visiter:to visit (a place)|"+
+"réserver:to book|annuler:to cancel|arrêter:to stop|continuer:to continue|"+
+"oublier:to forget|expliquer:to explain|raconter:to tell (a story)|discuter:to discuss|"+
+"téléphoner:to phone|inviter:to invite|rencontrer:to meet|présenter:to introduce|"+
+"remercier:to thank|aider:to help|étudier:to study|enseigner:to teach|réviser:to revise|"+
+"détester:to hate|adorer:to adore|souhaiter:to wish|décider:to decide|"+
+"changer:to change|utiliser:to use|créer:to create|dessiner:to draw|"+
+"fermer:to close|allumer:to switch on|poser:to put down, to ask (a question)|"+
+"crier:to shout|pleurer:to cry|embrasser:to kiss|quitter:to leave (a place or person)|"+
+"installer:to install|réparer:to repair|bricoler:to do DIY|jardiner:to garden|"+
+"klaxonner:to honk|téléviser:to televise|accepter:to accept|refuser:to refuse|"+
+"proposer:to propose|organiser:to organise|participer:to take part|profiter:to make the most of|"+
+"rêver:to dream|imaginer:to imagine|remarquer:to notice|oser:to dare|"+
+"durer:to last|exister:to exist|sembler:to seem|représenter:to represent|"+
+"ajouter:to add|compter:to count|mesurer:to measure|dessiner:to draw|"+
+"inscrire_X:skip|fatiguer:to tire|réveiller:to wake (someone)|coucher:to put to bed|"+
+"habiller:to dress (someone)|raser:to shave (someone)|promener:skip|"+
+"déjeuner:to have lunch|dîner:to have dinner|goûter:to taste|"+
+"saluer:to greet|bavarder:to chat|rigoler:to have a laugh|"+
+"skier:to ski|nager:skip|grimper:to climb|sauter:to jump|"+
+"tourner:to turn|traverser:to cross|avancer:skip|reculer:to go backwards").split('|');
+
+/* --- -ER À VARIATION ORTHOGRAPHIQUE --- */
+var SPEC_ER = [
+ ['cer','commencer:to begin','avancer:to move forward','placer:to place','remplacer:to replace','annoncer:to announce','lancer:to throw','prononcer:to pronounce','divorcer:to divorce'],
+ ['ger','manger:to eat','nager:to swim','voyager:to travel','ranger:to tidy','partager:to share','changer:to change','obliger:to oblige','déménager:to move house','encourager:to encourage','corriger:to correct'],
+ ['ll','appeler:to call','rappeler:to call back, to remind','épeler:to spell','renouveler:to renew','jeter:skip'],
+ ['tt','jeter:to throw','rejeter:to reject','feuilleter:to leaf through'],
+ ['è','acheter:to buy','lever:to lift','emmener:to take (someone)','amener:to bring (someone)','promener:to walk (a dog)','peser:to weigh','geler:to freeze','mener:to lead'],
+ ['éè','préférer:to prefer','espérer:to hope','répéter:to repeat','considérer:to consider','posséder:to own','céder:to give up','inquiéter:to worry','compléter:to complete'],
+ ['yi','payer:to pay','essayer:to try','employer:to employ, to use','nettoyer:to clean','ennuyer:to bore','appuyer:to press','envoyer:skip']
+];
+
+/* --- 2e GROUPE : -IR avec -iss- --- */
+var REG_IR = ("finir:to finish|choisir:to choose|réussir:to succeed|remplir:to fill|grandir:to grow up|"+
+"réfléchir:to think, to reflect|obéir:to obey|punir:to punish|guérir:to heal|"+
+"applaudir:to applaud|bâtir:to build|définir:to define|établir:to establish|"+
+"nourrir:to feed|avertir:to warn|rougir:to blush|vieillir:to grow old|"+
+"ralentir:to slow down|saisir:to grab|agir:to act|réagir:to react|"+
+"maigrir:to lose weight|grossir:to put on weight|salir:to make dirty|投:skip").split('|');
+
+/* --- 3e GROUPE RÉGULIER : -RE comme vendre --- */
+var REG_RE = ("vendre:to sell|attendre:to wait for|entendre:to hear|descendre:to go down|"+
+"répondre:to answer|perdre:to lose|rendre:to give back|défendre:to defend|"+
+"prétendre:to claim|confondre:to confuse|correspondre:to correspond|"+
+"mordre:to bite|tordre:to twist|fondre:to melt|interrompre:skip").split('|');
+/* ===== EXPANSION : transformer les listes compactes en entrées complètes ===== */
+function pair(s){ var i=s.indexOf(':'); return [s.slice(0,i), s.slice(i+1)]; }
+function clean(list){ return list.filter(function(x){ return x && x.indexOf(':skip')===-1 && /^[a-zàâçéèêëîïôûùüÿœ]/i.test(x); }); }
+
+clean(REG_ER).forEach(function(s){ var p=pair(s); VERBS.push({inf:p[0], en:p[1], k:'er', fam:'régulier -ER'}); });
+clean(REG_IR).forEach(function(s){ var p=pair(s); VERBS.push({inf:p[0], en:p[1], k:'ir', fam:'régulier -IR'}); });
+clean(REG_RE).forEach(function(s){ var p=pair(s); VERBS.push({inf:p[0], en:p[1], k:'re', fam:'régulier -RE'}); });
+
+var SPEC_NOTE = {
+  cer:"Verbe en <b>-cer</b> : le C prend une <b>cédille</b> devant A et O pour garder le son « s ». <i>nous commen<b>ç</b>ons</i>, <i>je commen<b>ç</b>ais</i> — mais <i>vous commencez</i>, sans cédille.",
+  ger:"Verbe en <b>-ger</b> : on garde un <b>E</b> devant A et O pour garder le son « zh ». <i>nous man<b>ge</b>ons</i>, <i>je man<b>ge</b>ais</i> — mais <i>vous mangez</i>, sans E.",
+  ll:"Verbe en <b>-eler</b> : le L <b>double</b> quand la syllabe est accentuée. <i>j’appe<b>ll</b>e</i> mais <i>nous appe<b>l</b>ons</i>. Le futur garde le double L : <i>j’appe<b>ll</b>erai</i>.",
+  tt:"Verbe en <b>-eter</b> : le T <b>double</b> quand la syllabe est accentuée. <i>je je<b>tt</b>e</i> mais <i>nous je<b>t</b>ons</i>. Futur : <i>je je<b>tt</b>erai</i>.",
+  'è':"Le E devient <b>È</b> quand la syllabe est accentuée. <i>j’ach<b>è</b>te</i> mais <i>nous ach<b>e</b>tons</i>. Le futur garde l’accent : <i>j’ach<b>è</b>terai</i>.",
+  'éè':"Le É devient <b>È</b> au présent quand la syllabe est accentuée. <i>je préf<b>è</b>re</i> mais <i>nous préf<b>é</b>rons</i>. <b>Le futur garde le É</b> : <i>je préf<b>é</b>rerai</i>.",
+  yi:"Verbe en <b>-yer</b> : le Y devient <b>I</b> quand la syllabe est accentuée. <i>je pa<b>i</b>e</i> mais <i>nous pa<b>y</b>ons</i>. Futur : <i>je pa<b>i</b>erai</i>."
+};
+SPEC_ER.forEach(function(grp){
+  var k=grp[0];
+  grp.slice(1).forEach(function(s){
+    if(s.indexOf(':skip')!==-1) return;
+    var p=pair(s);
+    VERBS.push({inf:p[0], en:p[1], k:k, fam:'-ER à variation', n:SPEC_NOTE[k]});
+  });
+});
+
+/* composés : on copie le verbe de base et on remplace le radical */
+COMPOUNDS.forEach(function(g){
+  var base = VERBS.filter(function(v){ return v.inf===g[0]; })[0];
+  if(!base) return;
+  g[1].forEach(function(s){
+    var p=pair(s), inf=p[0];
+    var refl = inf.indexOf('se ')===0;
+    var bare = refl ? inf.slice(3) : inf;
+    var pre  = bare.slice(0, bare.length - base.inf.length);
+    var v = {
+      inf: inf, en: p[1], k:'X',
+      p: base.p.map(function(f){ return f==='—' ? '—' : pre+f; }),
+      pp: pre+base.pp,
+      fr: pre+base.fr,
+      aux: (AVOIR_EXCEPT.indexOf(bare)!==-1) ? 'avoir'
+           : (ETRE_COMPOUNDS.indexOf(bare)!==-1 || refl) ? 'être' : (base.aux||'avoir'),
+      fam: 'composé de '+base.inf,
+      n: "Se conjugue exactement comme <b>"+base.inf+"</b>, avec le préfixe <b>"+pre+"</b>. "+
+         (AVOIR_EXCEPT.indexOf(bare)!==-1
+            ? "<b>Attention :</b> contrairement à <i>"+base.inf+"</i>, il prend <b>avoir</b> au passé composé — <i>j\u2019ai prévenu</i>."
+            : (ETRE_COMPOUNDS.indexOf(bare)!==-1||refl) ? "Prend <b>être</b> au passé composé, donc le participe s\u2019accorde avec le sujet."
+            : "Prend <b>avoir</b> au passé composé.")
+    };
+    if(base.imp) v.imp = base.imp.map(function(f){ return f==='—'?'—':pre+f; });
+    VERBS.push(v);
+  });
+});
+
+/* dédoublonnage */
+(function(){ var seen={}, out=[];
+  VERBS.forEach(function(v){ if(!seen[v.inf]){ seen[v.inf]=1; out.push(v); } });
+  VERBS = out;
+  VERBS.sort(function(a,b){ return a.inf.localeCompare(b.inf,'fr'); });
+})();
+/* ===== INTERFACE ===== */
+var ALL = VERBS.map(build);
+var FAMS = [];
+ALL.forEach(function(v){ var f=v.fam.indexOf('composé')===0?'composés':v.fam; if(FAMS.indexOf(f)===-1) FAMS.push(f); });
+FAMS.sort();
+var activeFam = null;
+
+var VOICE=null;
+function pickVoice(){
+  var vs=speechSynthesis.getVoices()||[];
+  VOICE = vs.filter(function(v){return /fr(-|_)FR/i.test(v.lang);})[0] || vs.filter(function(v){return /^fr/i.test(v.lang);})[0] || null;
+}
+if(window.speechSynthesis){ pickVoice(); speechSynthesis.onvoiceschanged=pickVoice; }
+function say(t){
+  if(!window.speechSynthesis) return;
+  speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(t); u.lang='fr-FR'; u.rate=.85;
+  if(VOICE) u.voice=VOICE;
+  speechSynthesis.speak(u);
+}
+
+var SUBJ6 = ['je','tu','il / elle','nous','vous','ils / elles'];
+function el(sub,f){
+  if(f==='—') return '—';
+  if(sub==='je' && /^[aeiouéèêîôûh]/i.test(f)) return 'j’'+f;
+  return sub+' '+f;
+}
+function row(i,v){
+  return '<tr><td>'+SUBJ6[i]+'</td>'+
+    '<td>'+el(SUBJ6[i].split(' / ')[0], v.présent[i])+'</td>'+
+    '<td>'+(v.présent[i]==='—'?'—':el(SUBJ6[i].split(' / ')[0], v.pc[i]))+'</td>'+
+    '<td>'+(v.présent[i]==='—'?'—':el(SUBJ6[i].split(' / ')[0], v.imparfait[i]))+'</td>'+
+    '<td>'+(v.présent[i]==='—'?'—':el(SUBJ6[i].split(' / ')[0], v.futur[i]))+'</td>'+
+    '<td>'+(v.présent[i]==='—'?'—':el(SUBJ6[i].split(' / ')[0], v.cond[i]))+'</td></tr>';
+}
+function card(v,idx){
+  var etre = v.aux==='être';
+  var h='<div class="vcard"><div class="vhead" data-i="'+idx+'">'+
+    '<span class="vinf">'+v.inf+'</span><span class="ven">'+v.en+'</span>'+
+    '<span class="tag'+(etre?' etre':'')+'">'+(etre?'ÊTRE':'avoir')+'</span></div>'+
+    '<div class="vbody" id="b'+idx+'"></div></div>';
+  return h;
+}
+function fill(v){
+  var h='<div class="meta"><div><b>Participe passé :</b> '+v.pp+'</div>'+
+    '<div><b>Auxiliaire :</b> '+v.aux+'</div>'+
+    '<div><b>Impératif :</b> '+v.imper.join(' · ')+'</div>'+
+    '<div><b>Modèle :</b> '+v.fam+'</div></div>';
+  h+='<table><tr><th></th><th>Présent</th><th>Passé composé</th><th>Imparfait</th><th>Futur</th><th>Conditionnel</th></tr>';
+  for(var i=0;i<6;i++) h+=row(i,v);
+  h+='</table>';
+  h+='<div style="font-family:system-ui,sans-serif;font-size:13px;color:var(--muted);margin:8px 0">Plus-que-parfait : '+
+     el('je',v.pqp[0])+' · '+el('tu',v.pqp[1])+' · '+el('il',v.pqp[2])+
+     ' <button class="speak" data-say="'+(v.présent[0]==='—'?v.présent[2]:el('je',v.présent[0]))+'">▶ écouter</button></div>';
+  if(v.note) h+='<div class="note">'+v.note+'</div>';
+  return h;
+}
+function norm(s){ return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); }
+
+function render(){
+  var q=norm(document.getElementById('q').value.trim());
+  var out=ALL.filter(function(v){
+    if(activeFam){ var f=v.fam.indexOf('composé')===0?'composés':v.fam; if(f!==activeFam) return false; }
+    if(!q) return true;
+    return norm(v.inf).indexOf(q)!==-1 || norm(v.en).indexOf(q)!==-1;
+  });
+  document.getElementById('count').textContent = out.length+' verbe'+(out.length>1?'s':'')+' · '+ALL.length+' au total';
+  document.getElementById('list').innerHTML = out.length
+    ? out.map(function(v,i){ return card(v, ALL.indexOf(v)); }).join('')
+    : '<div class="empty">Aucun verbe trouvé.<br><br>S’il finit en <b>-er</b>, conjuguez-le comme <i>parler</i>.<br>En <b>-ir</b> avec <i>-issons</i>, comme <i>finir</i>. En <b>-re</b>, comme <i>vendre</i>.</div>';
+}
+document.getElementById('q').addEventListener('input', render);
+document.addEventListener('click', function(e){
+  var hd=e.target.closest('.vhead');
+  if(hd){ var i=hd.getAttribute('data-i'); var b=document.getElementById('b'+i);
+    if(!b.innerHTML) b.innerHTML=fill(ALL[i]);
+    b.classList.toggle('open'); return; }
+  var sp=e.target.closest('.speak');
+  if(sp){ say(sp.getAttribute('data-say')); }
+});
+var fb=document.getElementById('filters');
+fb.innerHTML='<button class="on" data-f="">tous</button>'+FAMS.map(function(f){return '<button data-f="'+f+'">'+f+'</button>';}).join('');
+fb.addEventListener('click',function(e){
+  var b=e.target.closest('button'); if(!b) return;
+  [].forEach.call(fb.children,function(x){x.classList.remove('on')});
+  b.classList.add('on');
+  activeFam = b.getAttribute('data-f') || null;
+  render();
+});
+render();
+</script>
+</body>
+</html>
