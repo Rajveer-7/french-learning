@@ -729,10 +729,10 @@ BOOK.push({
       {s:"évident → ______", a:["évidemment"], en:"", why:"<i>-ent</i> → <b>-emment</b>."},
       {s:"doux → ______", a:["doucement"], en:"", why:"Féminin <i>douce</i>."},
       {s:"facile → ______", a:["facilement"], en:"", why:"Déjà une voyelle finale."},
-      {s:"Il parle ______ français. (bon/bien)", a:["bien"], en:"", why:"Il modifie le verbe → adverbe."},
-      {s:"C’est un ______ restaurant. (bon/bien)", a:["bon"], en:"", why:"Il décrit un nom → adjectif."},
+      {s:"Il parle ______ français. (bon/bien)", a:["bien"], en:"He speaks French well.", why:"Il modifie le verbe → adverbe."},
+      {s:"C’est un ______ restaurant. (bon/bien)", a:["bon"], en:"It's a good restaurant.", why:"Il décrit un nom → adjectif."},
       {s:"Je travaille ______ . (très/beaucoup)", a:["beaucoup"], en:"", why:"Avec un verbe → <b>beaucoup</b>."},
-      {s:"Je suis ______ fatigué. (très/beaucoup)", a:["très"], en:"", why:"Avec un adjectif → <b>très</b>."},
+      {s:"Je suis ______ fatigué. (très/beaucoup)", a:["très"], en:"I'm very tired.", why:"Avec un adjectif → <b>très</b>."},
       {s:"J’ai ______ faim. (très/beaucoup)", a:["très"], en:"", why:"Exception : les expressions en <i>avoir</i> prennent <b>très</b>."}
     ]},
     {t:'mcq', items:[
@@ -1675,11 +1675,11 @@ BOOK.push({
     {t:'warn', x:"<b>Deux choses à copier de ce dialogue :</b><br><br><b>1 · « Et vous ? »</b> appears once and does a lot of work. In an exam, returning the question shows you're managing the exchange, not just surviving it.<br><br><b>2 · The closing.</b> <i>Bon, à bientôt — bonne journée !</i> French conversations don't stop, they're <u>closed</u>. Walking away without a closing formula reads as abrupt."},
     {t:'h', x:'À vous — reconstruisez'},
     {t:'fill', items:[
-      {s:"— Vous venez d'où ? — Je ______ d'Inde.", a:["viens"], en:"", why:"<b>venir</b>, 1st person: <i>je viens</i>."},
+      {s:"— Vous venez d'où ? — Je ______ d'Inde.", a:["viens"], en:"— Where are you from? — I'm from India.", why:"<b>venir</b>, 1st person: <i>je viens</i>."},
       {s:"— Et vous ? — ______, c'est Sophie.", a:["Moi","moi"], en:"", why:"Stressed pronoun <b>moi</b>, not <i>je</i>."},
       {s:"J'habite ici ______ deux ans.", a:["depuis"], en:"", why:"<b>depuis</b> + present, because it continues."},
       {s:"Je suis ______ . (nurse, woman)", a:["infirmière","infirmiere"], en:"", why:"Feminine of <i>infirmier</i>, and no article."},
-      {s:"Closing in the daytime: Bonne ______ !", a:["journée","journee"], en:"", why:"<b>bonne journée</b>. In the evening, <i>bonne soirée</i>."}
+      {s:"Closing in the daytime: Bonne ______ !", a:["journée","journee"], en:"Closing in the daytime: have a good day!", why:"<b>bonne journée</b>. In the evening, <i>bonne soirée</i>."}
     ]}
   ]},
   { title:'2.7e · Glossaire du chapitre', blocks:[
@@ -2135,7 +2135,7 @@ BOOK.push({
     {t:'fill', items:[
       {s:"2003 → ______", a:["deux mille trois"], en:"", why:"One whole number — never « twenty oh three »."},
       {s:"1999 → ______", a:["mille neuf cent quatre-vingt-dix-neuf"], en:"", why:"<i>mille neuf cent</i> + 99."},
-      {s:"I was born in 2003 → Je suis né ______ deux mille trois.", a:["en"], en:"", why:"<b>en</b> + year."},
+      {s:"I was born in 2003 → Je suis né ______ deux mille trois.", a:["en"], en:"I was born in 2003.", why:"<b>en</b> + year."},
       {s:"on 6 October → ______ six octobre", a:["le"], en:"", why:"<b>le</b> + date, no preposition."}
     ]}
   ]},
@@ -2178,7 +2178,7 @@ BOOK.push({
       {s:"How much is it? → Ça ______ combien ?", a:["coûte","fait"], en:"", why:"<b>Ça coûte combien ?</b> or <b>Ça fait combien ?</b> — both normal."},
       {s:"I'm 23. → J'______ vingt-trois ______ .", a:["ai ans"], en:"", why:"<b>avoir</b> + number + <b>ans</b>, from Chapter 2."},
       {s:"Take the first street. → Prenez la ______ rue.", a:["première"], en:"", why:"<i>rue</i> is feminine → <b>première</b>."},
-      {s:"I live on the 2nd floor. → J'habite au ______ étage.", a:["deuxième"], en:"", why:"<b>deuxième</b> — ordinals for floors."},
+      {s:"I live on the 2nd floor. → J'habite au ______ étage.", a:["deuxième"], en:"I live on the 2nd floor.", why:"<b>deuxième</b> — ordinals for floors."},
       {s:"That's too expensive. → C'est trop ______ .", a:["cher"], en:"", why:"<b>cher</b>."}
     ]},
     {t:'h', x:'C · Find the mistake'},
@@ -2367,8 +2367,8 @@ BOOK.push({
       {s:"J'habite au ______, rue Queen. (87)", a:["quatre-vingt-sept"], en:"", why:"Street numbers are read as whole numbers."},
       {s:"Le vol dure ______ heures. (15)", a:["quinze"], en:"", why:"<i>quinze</i>, not <i>cinquante</i> — kan-ZUR with the liaison."},
       {s:"Il fait moins ______ dehors. (20)", a:["vingt"], en:"", why:"Brampton in January."},
-      {s:"Nous sommes ______ dans la classe. (11)", a:["onze"], en:"", why:"OHNZ."},
-      {s:"Mon loyer est de ______ dollars. (1400)", a:["mille quatre cents"], en:"", why:"Built from <i>mille</i>."},
+      {s:"Nous sommes ______ dans la classe. (11)", a:["onze"], en:"There are eleven of us in the class.", why:"OHNZ."},
+      {s:"Mon loyer est de ______ dollars. (1400)", a:["mille quatre cents"], en:"My rent is 1,400 dollars.", why:"Built from <i>mille</i>."},
       {s:"Je mesure un mètre ______ . (75)", a:["soixante-quinze"], en:"", why:"Height in metres and centimetres."},
       {s:"Je pèse ______ kilos. (68)", a:["soixante-huit"], en:"", why:"swah-sahnt-WEET."},
       {s:"C'est à ______ kilomètres. (30)", a:["trente"], en:"", why:"TRAHNT."},
@@ -2581,7 +2581,7 @@ BOOK.push({
       {s:"There isn't a metro. → Il ______ de métro.", a:["n'y a pas"], en:"", why:"<b>il n'y a pas de</b>."},
       {s:"Shall we go? → ______ y va ?", a:["On","on"], en:"", why:"<b>on</b> = we, in everyday speech."},
       {s:"I agree. → Je suis ______ .", a:["d'accord"], en:"", why:"<b>être d'accord</b>."},
-      {s:"I'm in the middle of eating. → Je suis ______ manger.", a:["en train de"], en:"", why:"<b>être en train de</b> + infinitive."}
+      {s:"I'm in the middle of eating. → Je suis ______ manger.", a:["en train de"], en:"I'm in the middle of eating.", why:"<b>être en train de</b> + infinitive."}
     ]}
   ]},
   { title:'4.7 · Glossaire du chapitre', blocks:[
@@ -2909,9 +2909,9 @@ BOOK.push({
     {t:'fill', items:[
       {s:"Je vais à + le cinéma → Je vais ______ cinéma.", a:["au"], en:"", why:"à + le → <b>au</b>. Compulsory."},
       {s:"Je vais à + la gare → Je vais ______ gare.", a:["à la"], en:"", why:"à + la → <b>à la</b>, no change."},
-      {s:"Je viens de + le Canada → Je viens ______ Canada.", a:["du"], en:"", why:"de + le → <b>du</b>."},
+      {s:"Je viens de + le Canada → Je viens ______ Canada.", a:["du"], en:"I come from Canada.", why:"de + le → <b>du</b>."},
       {s:"Je parle à + les enfants → Je parle ______ enfants.", a:["aux"], en:"", why:"à + les → <b>aux</b>."},
-      {s:"la voiture de + les voisins → la voiture ______ voisins", a:["des"], en:"", why:"de + les → <b>des</b>."},
+      {s:"la voiture de + les voisins → la voiture ______ voisins", a:["des"], en:"the neighbours' car", why:"de + les → <b>des</b>."},
       {s:"Je vais à + l'école → Je vais ______ école.", a:["à l'"], en:"", why:"à + l' → <b>à l'</b>, no change."}
     ]}
   ]},
@@ -3002,7 +3002,7 @@ BOOK.push({
       {s:"I like music. → J'aime ______ musique.", a:["la"], en:"", why:"Q2: in general → <b>la</b>."},
       {s:"I'm listening to music. → J'écoute ______ musique.", a:["de la"], en:"", why:"Q3: a mass, not countable → <b>de la</b>."},
       {s:"I eat bread. (some) → Je mange ______ pain.", a:["du"], en:"", why:"Q3: mass, masculine → <b>du</b>."},
-      {s:"I don't eat bread. → Je ne mange pas ______ pain.", a:["de"], en:"", why:"Q1: negative + <i>manger</i> → <b>de</b>. Stop at Q1."},
+      {s:"I don't eat bread. → Je ne mange pas ______ pain.", a:["de"], en:"I don't eat bread.", why:"Q1: negative + <i>manger</i> → <b>de</b>. Stop at Q1."},
       {s:"I don't like bread. → Je n'aime pas ______ pain.", a:["le"], en:"", why:"Q1: negative <u>but</u> the verb is <i>aimer</i> → <b>le</b> survives."},
       {s:"I'd like a beer. → Je voudrais ______ bière.", a:["une"], en:"", why:"Q3: countable, one glass, feminine → <b>une</b>."},
       {s:"I'm buying apples. → J'achète ______ pommes.", a:["des"], en:"", why:"Q3: countable, several → <b>des</b>."},
@@ -3061,7 +3061,7 @@ BOOK.push({
     {t:'h', x:'C · Put it in the negative'},
     {t:'fill', items:[
       {s:"J'ai un frère. → Je n'ai ______ frère.", a:["pas de"], en:"", why:"After a negative, <i>un</i> → <b>pas de</b>."},
-      {s:"Je mange du pain. → Je ne mange ______ pain.", a:["pas de"], en:"", why:"<i>du</i> → <b>pas de</b>."},
+      {s:"Je mange du pain. → Je ne mange ______ pain.", a:["pas de"], en:"I don't eat bread. (negative of 'je mange du pain')", why:"<i>du</i> → <b>pas de</b>."},
       {s:"Il y a des restaurants. → Il n'y a ______ restaurants.", a:["pas de"], en:"", why:"<i>des</i> → <b>pas de</b>."},
       {s:"J'aime le café. → Je n'aime ______ café.", a:["pas le"], en:"", why:"Trap! <b>le</b> does <u>not</u> change — it's a category, not a quantity."}
     ]},
@@ -3347,7 +3347,7 @@ BOOK.push({
     {t:'h', x:'A · Turn it into a question three ways'},
     {t:'fill', items:[
       {s:"Vous habitez ici. → (intonation) ______ ?", a:["Vous habitez ici","vous habitez ici"], en:"", why:"Change nothing, just raise your voice: <b>Vous habitez ici ?</b>"},
-      {s:"Vous habitez ici. → (est-ce que) ______ vous habitez ici ?", a:["Est-ce que","est-ce que"], en:"", why:"Bolt <b>est-ce que</b> on the front. Safest method."},
+      {s:"Vous habitez ici. → (est-ce que) ______ vous habitez ici ?", a:["Est-ce que","est-ce que"], en:"Do you live here?", why:"Bolt <b>est-ce que</b> on the front. Safest method."},
       {s:"Vous habitez ici. → (inversion) ______ ici ?", a:["Habitez-vous","habitez-vous"], en:"", why:"Swap verb and pronoun with a hyphen: <b>Habitez-vous</b>."}
     ]},
     {t:'h', x:'B · The -t- euphonique'},
@@ -3585,7 +3585,7 @@ BOOK.push({
     {t:'h', x:'A · Complétez'},
     {t:'fill', items:[
       {s:"J'______ vingt-cinq ______ .", a:["ai ans"], en:"I'm 25.", why:"Ch.4 <i>avoir</i> + Ch.3 number + <b>ans</b>."},
-      {s:"Je suis ______ . (nationality, man from India)", a:["indien"], en:"", why:"Ch.2 — no article, small letter."},
+      {s:"Je suis ______ . (nationality, man from India)", a:["indien"], en:"I'm Indian. (said by a man)", why:"Ch.2 — no article, small letter."},
       {s:"J'habite ______ Japon.", a:["au"], en:"in Japan", why:"Ch.2 — masculine country."},
       {s:"J'habite ______ Montréal.", a:["à"], en:"in Montreal", why:"Ch.2 — a city takes <b>à</b>."},
       {s:"Il y a ______ pharmacie. (one)", a:["une"], en:"", why:"Ch.5 — <i>pharmacie</i> is feminine."},
@@ -3623,12 +3623,12 @@ BOOK.push({
     {t:'fill', items:[
       {s:"Say your name.", a:["je m'appelle rajveer","Je m'appelle Rajveer"], en:"", why:"<b>Je m'appelle …</b> — the reflexive from Ch.2."},
       {s:"Say your age.", a:["j'ai vingt-trois ans","J'ai vingt-trois ans"], en:"", why:"<b>J'ai … ans</b> — <i>avoir</i>, and <i>ans</i> compulsory."},
-      {s:"Say where you're from (India).", a:["je viens d'inde","Je viens d'Inde"], en:"", why:"<b>Je viens d'Inde</b> — feminine + vowel → <i>d'</i>."},
-      {s:"Say where you live (Brampton, Canada).", a:["j'habite à brampton au canada","J'habite à Brampton, au Canada"], en:"", why:"<b>à</b> + city, <b>au</b> + masculine country."},
-      {s:"Say your job (no article!).", a:["je suis administrateur","Je suis administrateur"], en:"", why:"No <i>un</i> after <i>être</i>."},
-      {s:"Say there's a park near you.", a:["il y a un parc près de chez moi","Il y a un parc près de chez moi"], en:"", why:"<b>il y a</b> for existence."},
-      {s:"Say you don't have a car.", a:["je n'ai pas de voiture","Je n'ai pas de voiture"], en:"", why:"Negative → <i>une</i> becomes <b>de</b>."},
-      {s:"Ask someone their name (formal).", a:["comment vous appelez-vous","Comment vous appelez-vous ?"], en:"", why:"French asks <b>how</b> you call yourself."}
+      {s:"Say where you're from (India).", a:["je viens d'inde","Je viens d'Inde"], en:"Say where you're from: I'm from India.", why:"<b>Je viens d'Inde</b> — feminine + vowel → <i>d'</i>."},
+      {s:"Say where you live (Brampton, Canada).", a:["j'habite à brampton au canada","J'habite à Brampton, au Canada"], en:"Say where you live: I live in Brampton, in Canada.", why:"<b>à</b> + city, <b>au</b> + masculine country."},
+      {s:"Say your job (no article!).", a:["je suis administrateur","Je suis administrateur"], en:"Say your job: I'm an administrator.", why:"No <i>un</i> after <i>être</i>."},
+      {s:"Say there's a park near you.", a:["il y a un parc près de chez moi","Il y a un parc près de chez moi"], en:"Say there's a park near you: There's a park near my place.", why:"<b>il y a</b> for existence."},
+      {s:"Say you don't have a car.", a:["je n'ai pas de voiture","Je n'ai pas de voiture"], en:"Say you don't have a car: I don't have a car.", why:"Negative → <i>une</i> becomes <b>de</b>."},
+      {s:"Ask someone their name (formal).", a:["comment vous appelez-vous","Comment vous appelez-vous ?"], en:"Ask someone their name, formally: What is your name?", why:"French asks <b>how</b> you call yourself."}
     ]},
     {t:'h', x:'Votre paragraphe — put it all together'},
     {t:'ex', x:"<b>Write or say this as one connected paragraph. It uses every chapter in Part 1.</b><br><br><i>Bonjour ! Je m'appelle <b>[name]</b>. J'ai <b>[age]</b> ans et je suis <b>[nationality]</b>. Je viens <b>[de/du/d']</b> <b>[country]</b>, mais j'habite <b>[à]</b> <b>[city]</b>, <b>[au/en]</b> <b>[country]</b>. Je suis <b>[job]</b>. Dans mon quartier, il y a <b>[places]</b>, mais il n'y a pas <b>de</b> <b>[thing]</b>. J'aime beaucoup <b>[le/la]</b> <b>[thing you like]</b>. Enchanté !</i>"},
@@ -3833,10 +3833,10 @@ BOOK.push({
       {s:"______ frère s'appelle Arjun.", a:["Mon","mon"], en:"", why:"<b>mon</b> + masculine noun."},
       {s:"______ sœur habite en Inde.", a:["Ma","ma"], en:"", why:"<b>ma</b> + feminine noun."},
       {s:"______ parents sont à Delhi.", a:["Mes","mes"], en:"", why:"<b>mes</b> + plural."},
-      {s:"C'est ______ amie Claire. (feminine but vowel!)", a:["mon"], en:"", why:"Trap: <i>amie</i> is feminine, but the vowel forces <b>mon</b>."},
+      {s:"C'est ______ amie Claire. (feminine but vowel!)", a:["mon"], en:"This is my friend Claire.", why:"Trap: <i>amie</i> is feminine, but the vowel forces <b>mon</b>."},
       {s:"Il a ______ cheveux noirs.", a:["les"], en:"", why:"Body parts → the article, not <i>ses</i>."},
       {s:"Ma famille me ______ .", a:["manque"], en:"", why:"<i>famille</i> is singular → <b>manque</b>."},
-      {s:"Mon frère est plus jeune ______ moi.", a:["que"], en:"", why:"<b>plus … que</b> for comparison."}
+      {s:"Mon frère est plus jeune ______ moi.", a:["que"], en:"My brother is younger than me.", why:"<b>plus … que</b> for comparison."}
     ]}
   ]},
   { title:'7.7 · Glossaire du chapitre', blocks:[
@@ -4606,7 +4606,7 @@ BOOK.push({
       {s:"I'm going to eat. → Je ______ manger.", a:["vais"], en:"", why:"<b>aller</b> + infinitive = near future."},
       {s:"I've just eaten. → Je ______ manger.", a:["viens de"], en:"", why:"<b>venir de</b> + infinitive = recent past."},
       {s:"We're going to leave. → Nous ______ partir.", a:["allons"], en:"", why:"<b>allons</b> + infinitive."},
-      {s:"I'm not going to go out. → Je ne ______ pas sortir.", a:["vais"], en:"", why:"<i>ne … pas</i> wraps <b>vais</b>, not <i>sortir</i>."}
+      {s:"I'm not going to go out. → Je ne ______ pas sortir.", a:["vais"], en:"I'm not going to go out.", why:"<i>ne … pas</i> wraps <b>vais</b>, not <i>sortir</i>."}
     ]},
     {t:'h', x:'D · Trouvez l\'erreur'},
     {t:'mcq', items:[
@@ -4696,14 +4696,14 @@ BOOK.push({
     ]},
     {t:'h', x:'E · Verbe + infinitif — complétez'},
     {t:'fill', items:[
-      {s:"Je ______ partir. (devoir — I have to)", a:["dois"], en:"", why:"<b>devoir</b> + infinitive, no preposition."},
+      {s:"Je ______ partir. (devoir — I have to)", a:["dois"], en:"I have to leave.", why:"<b>devoir</b> + infinitive, no preposition."},
       {s:"Je ______ venir. (pouvoir — I can)", a:["peux"], en:"", why:"<b>pouvoir</b> + infinitive."},
-      {s:"Je ______ apprendre. (vouloir — I want to)", a:["veux"], en:"", why:"<b>vouloir</b> + infinitive."},
-      {s:"Je ______ nager. (savoir — I know how to)", a:["sais"], en:"", why:"<b>savoir</b> + infinitive = to know <u>how</u> to."},
-      {s:"Je ______ au travail. (aller — I'm going)", a:["vais"], en:"", why:"<b>aller</b> + place."},
-      {s:"Je ______ travailler demain. (aller — I'm going to)", a:["vais"], en:"", why:"<b>aller</b> + infinitive = the near future, Chapter 17."},
+      {s:"Je ______ apprendre. (vouloir — I want to)", a:["veux"], en:"I want to learn.", why:"<b>vouloir</b> + infinitive."},
+      {s:"Je ______ nager. (savoir — I know how to)", a:["sais"], en:"I know how to swim.", why:"<b>savoir</b> + infinitive = to know <u>how</u> to."},
+      {s:"Je ______ au travail. (aller — I'm going)", a:["vais"], en:"I'm going to work.", why:"<b>aller</b> + place."},
+      {s:"Je ______ travailler demain. (aller — I'm going to)", a:["vais"], en:"I'm going to work tomorrow.", why:"<b>aller</b> + infinitive = the near future, Chapter 17."},
       {s:"Vous ______ répéter ? (pouvoir)", a:["pouvez"], en:"", why:"The exam phrase: <i>Vous pouvez répéter ?</i>"},
-      {s:"Qu'est-ce que ça ______ dire ? (vouloir)", a:["veut"], en:"", why:"<b>vouloir dire</b> = to mean."}
+      {s:"Qu'est-ce que ça ______ dire ? (vouloir)", a:["veut"], en:"What does that mean?", why:"<b>vouloir dire</b> = to mean."}
     ]},
     {t:'h', x:'F · Trouvez l\'erreur'},
     {t:'mcq', items:[
@@ -6009,9 +6009,9 @@ BOOK.push({
       {s:"Je travaille ______ ______ ans. (depuis)", a:["depuis"], en:"", why:"<b>depuis</b> + présent."},
       {s:"J'apprends le français ______ ______ mois.", a:["depuis"], en:"", why:"Same structure."},
       {s:"Je me lève à ______ .", a:["six heures et demie"], en:"", why:"Your real time, written out."},
-      {s:"Je commence à ______ et je finis à ______ .", a:["huit heures"], en:"", why:"Two times."},
-      {s:"Le week-end, je ne ______ pas ______ .", a:["travaille"], en:"", why:"One negation."},
-      {s:"Je n'ai pas ______ . (something you don't have)", a:["de voiture"], en:"", why:"Remember the article collapse."}
+      {s:"Je commence à ______ et je finis à ______ .", a:["huit heures"], en:"I start at eight o'clock and I finish at …", why:"Two times."},
+      {s:"Le week-end, je ne ______ pas ______ .", a:["travaille"], en:"At the weekend, I don't work.", why:"One negation."},
+      {s:"Je n'ai pas ______ . (something you don't have)", a:["de voiture"], en:"I don't have a car.", why:"Remember the article collapse."}
     ]},
     {t:'h', x:'Étape 2 — écrivez le texte'},
     {t:'ex', x:"<b>Écrivez 110–140 mots sur vous, votre famille et votre semaine. Obligatoire :</b><br><br>· <b>trois possessifs</b> différents (mon / ma / mes)<br>· <b>quatre adjectifs</b>, dont au moins un au féminin<br>· <b>trois verbes irréguliers</b> (être, avoir, aller, faire, venir, prendre…)<br>· <b>trois heures précises</b> et <b>deux jours</b><br>· <b>trois négations</b> différentes (pas / jamais / plus / rien / ne…que)<br>· <b>une phrase avec depuis</b><br><br>Write it out by hand if you can — the physical act helps the spellings stick."},
@@ -6405,11 +6405,11 @@ BOOK.push({
     ]},
     {t:'h', x:'E · Posez la question'},
     {t:'fill', items:[
-      {s:"Réponse : J'ai mangé une pizza. Question (qu'est-ce que) : ______", a:["Qu'est-ce que tu as mangé"], en:"", why:"The auxiliary stays with the subject."},
-      {s:"Réponse : Je suis allé au cinéma. Question (où, est-ce que) : ______", a:["Où est-ce que tu es allé"], en:"", why:"<i>aller</i> takes <i>être</i> — Chapter 14."},
-      {s:"Réponse : J'ai fini à six heures. Question (quand, inversion) : ______", a:["Quand as-tu fini"], en:"", why:"Inversion moves <b>as</b>, not <i>fini</i>."},
-      {s:"Réponse : Oui, j'ai compris. Question (inversion) : ______", a:["As-tu compris"], en:"", why:"Auxiliary + hyphen + subject."},
-      {s:"Réponse : Oui, il a téléphoné. Question (inversion, il) : ______", a:["A-t-il téléphoné"], en:"", why:"The inserted <b>-t-</b> because <i>a</i> and <i>il</i> would collide."}
+      {s:"Réponse : J'ai mangé une pizza. Question (qu'est-ce que) : ______", a:["Qu'est-ce que tu as mangé"], en:"Answer: I ate a pizza. → What did you eat?", why:"The auxiliary stays with the subject."},
+      {s:"Réponse : Je suis allé au cinéma. Question (où, est-ce que) : ______", a:["Où est-ce que tu es allé"], en:"Answer: I went to the cinema. → Where did you go?", why:"<i>aller</i> takes <i>être</i> — Chapter 14."},
+      {s:"Réponse : J'ai fini à six heures. Question (quand, inversion) : ______", a:["Quand as-tu fini"], en:"Answer: I finished at six. → When did you finish?", why:"Inversion moves <b>as</b>, not <i>fini</i>."},
+      {s:"Réponse : Oui, j'ai compris. Question (inversion) : ______", a:["As-tu compris"], en:"Answer: Yes, I understood. → Did you understand?", why:"Auxiliary + hyphen + subject."},
+      {s:"Réponse : Oui, il a téléphoné. Question (inversion, il) : ______", a:["A-t-il téléphoné"], en:"Answer: Yes, he phoned. → Did he phone?", why:"The inserted <b>-t-</b> because <i>a</i> and <i>il</i> would collide."}
     ]},
     {t:'h', x:'F · Trouvez l\'erreur'},
     {t:'mcq', items:[
@@ -6916,11 +6916,11 @@ BOOK.push({
       {s:"Nous ______ pris le bus.", a:["avons"], en:"", why:"<i>prendre</i> isn't on the list."},
       {s:"Ils ______ partis à six heures.", a:["sont"], en:"", why:"<i>partir</i> is on the list."},
       {s:"Je me ______ levé tôt.", a:["suis"], en:"", why:"Reflexive → <b>être</b>."},
-      {s:"J' ______ été malade la semaine dernière.", a:["ai"], en:"", why:"<i>être</i> takes <b>avoir</b>."},
+      {s:"J' ______ été malade la semaine dernière.", a:["ai"], en:"I was ill last week.", why:"<i>être</i> takes <b>avoir</b>."},
       {s:"Elle ______ eu un bébé.", a:["a"], en:"", why:"<i>avoir</i> takes itself."},
       {s:"Vous ______ restés longtemps ?", a:["êtes"], en:"", why:"<i>rester</i> is on the list."},
       {s:"Tu t' ______ trompé.", a:["es"], en:"", why:"Reflexive <i>se tromper</i>."},
-      {s:"Mon grand-père ______ mort en 2020.", a:["est"], en:"", why:"<i>mourir</i> is on the list."},
+      {s:"Mon grand-père ______ mort en 2020.", a:["est"], en:"My grandfather died in 2020.", why:"<i>mourir</i> is on the list."},
       {s:"J' ______ passé deux ans à Toronto.", a:["ai"], en:"", why:"<i>deux ans</i> is a direct object → <b>avoir</b>."}
     ]},
     {t:'h', x:'B · L\'accord du participe'},
@@ -6930,11 +6930,11 @@ BOOK.push({
       {s:"Elles sont ______ . (sortir)", a:["sorties"], en:"", why:"Feminine plural → <b>+es</b>."},
       {s:"Nous sommes ______ . (rentrer)", a:["rentrés"], en:"", why:"<i>nous</i> is plural."},
       {s:"Marie est ______ en 1995. (naître)", a:["née"], en:"", why:"Feminine → <b>née</b>."},
-      {s:"Ma tante est ______ l'année dernière. (mourir)", a:["morte"], en:"", why:"Feminine → <b>morte</b>, and here the t is audible."},
-      {s:"Elle s'est ______ à sept heures. (lever)", a:["levée"], en:"", why:"Reflexive, feminine subject."},
-      {s:"Ils se sont ______ tard. (coucher)", a:["couchés"], en:"", why:"Reflexive, masculine plural."},
-      {s:"Madame, vous êtes ______ quand ? (venir)", a:["venue"], en:"", why:"One woman, formal <i>vous</i> → feminine singular."},
-      {s:"Mes sœurs se sont bien ______ . (amuser)", a:["amusées"], en:"", why:"Feminine plural reflexive."}
+      {s:"Ma tante est ______ l'année dernière. (mourir)", a:["morte"], en:"My aunt died last year.", why:"Feminine → <b>morte</b>, and here the t is audible."},
+      {s:"Elle s'est ______ à sept heures. (lever)", a:["levée"], en:"She got up at seven.", why:"Reflexive, feminine subject."},
+      {s:"Ils se sont ______ tard. (coucher)", a:["couchés"], en:"They went to bed late.", why:"Reflexive, masculine plural."},
+      {s:"Madame, vous êtes ______ quand ? (venir)", a:["venue"], en:"Madam, when did you come?", why:"One woman, formal <i>vous</i> → feminine singular."},
+      {s:"Mes sœurs se sont bien ______ . (amuser)", a:["amusées"], en:"My sisters had a great time.", why:"Feminine plural reflexive."}
     ]},
     {t:'h', x:'C · Conjuguez au passé composé'},
     {t:'fill', items:[
@@ -6942,9 +6942,9 @@ BOOK.push({
       {s:"Elle ______ (venir) avec nous.", a:["est venue"], en:"", why:"<b>venue</b> — irregular participle plus feminine e."},
       {s:"Nous ______ (sortir) hier soir.", a:["sommes sortis"], en:"", why:"No object → être, plural → s."},
       {s:"Ils ______ (rester) deux jours.", a:["sont restés"], en:"", why:"<i>rester</i> is on the list."},
-      {s:"Je ______ (se lever) à cinq heures.", a:["me suis levé"], en:"", why:"Pronoun before the auxiliary."},
+      {s:"Je ______ (se lever) à cinq heures.", a:["me suis levé"], en:"I got up at five o'clock.", why:"Pronoun before the auxiliary."},
       {s:"Tu ______ (se coucher) quand ?", a:["t'es couché"], en:"", why:"<i>te</i> elides to <b>t'</b> before <i>es</i>."},
-      {s:"Elle ______ (se réveiller) en retard.", a:["s'est réveillée"], en:"", why:"<i>se</i> → <b>s'</b>, plus feminine agreement."},
+      {s:"Elle ______ (se réveiller) en retard.", a:["s'est réveillée"], en:"She woke up late.", why:"<i>se</i> → <b>s'</b>, plus feminine agreement."},
       {s:"Nous ______ (se dépêcher).", a:["nous sommes dépêchés"], en:"", why:"<i>nous</i> doesn't elide."},
       {s:"Je ______ (naître) en 2003.", a:["suis né"], en:"", why:"<b>né</b>, short."},
       {s:"Il ______ (devenir) médecin.", a:["est devenu"], en:"", why:"<i>devenir</i> → <b>devenu</b>, from <i>venir</i>."}
@@ -6961,11 +6961,11 @@ BOOK.push({
     ]},
     {t:'h', x:'E · Posez la question'},
     {t:'fill', items:[
-      {s:"Réponse : Je suis allé au restaurant. Question (où, est-ce que) : ______", a:["Où est-ce que tu es allé"], en:"", why:"<i>est-ce que</i> changes nothing in the verb block."},
-      {s:"Réponse : Je me suis levé à sept heures. Question (à quelle heure, est-ce que) : ______", a:["À quelle heure est-ce que tu t'es levé"], en:"", why:"The reflexive pronoun travels with the verb."},
-      {s:"Réponse : Elle est partie hier. Question (quand, inversion) : ______", a:["Quand est-elle partie"], en:"", why:"No <b>-t-</b> needed — <i>est</i> already ends in a consonant."},
-      {s:"Réponse : Oui, je suis né ici. Question (inversion) : ______", a:["Es-tu né ici"], en:"", why:"Auxiliary + hyphen + subject."},
-      {s:"Réponse : Non, je ne suis jamais allé au Québec. Question (déjà) : ______", a:["Tu es déjà allé au Québec"], en:"", why:"<b>déjà</b> inside; the answer flips it to <i>jamais</i>."}
+      {s:"Réponse : Je suis allé au restaurant. Question (où, est-ce que) : ______", a:["Où est-ce que tu es allé"], en:"Answer: I went to the restaurant. → Where did you go?", why:"<i>est-ce que</i> changes nothing in the verb block."},
+      {s:"Réponse : Je me suis levé à sept heures. Question (à quelle heure, est-ce que) : ______", a:["À quelle heure est-ce que tu t'es levé"], en:"Answer: I got up at seven. → What time did you get up?", why:"The reflexive pronoun travels with the verb."},
+      {s:"Réponse : Elle est partie hier. Question (quand, inversion) : ______", a:["Quand est-elle partie"], en:"Answer: She left yesterday. → When did she leave?", why:"No <b>-t-</b> needed — <i>est</i> already ends in a consonant."},
+      {s:"Réponse : Oui, je suis né ici. Question (inversion) : ______", a:["Es-tu né ici"], en:"Answer: Yes, I was born here. → Were you born here?", why:"Auxiliary + hyphen + subject."},
+      {s:"Réponse : Non, je ne suis jamais allé au Québec. Question (déjà) : ______", a:["Tu es déjà allé au Québec"], en:"Answer: No, I've never been to Quebec. → Have you already been to Quebec?", why:"<b>déjà</b> inside; the answer flips it to <i>jamais</i>."}
     ]},
     {t:'h', x:'F · Trouvez l\'erreur'},
     {t:'mcq', items:[
@@ -6995,15 +6995,15 @@ BOOK.push({
     ]},
     {t:'h', x:'H · Récit mélangé — complétez le texte'},
     {t:'fill', items:[
-      {s:"Hier, je ______ (se réveiller) à six heures.", a:["me suis réveillé"], en:"", why:"Reflexive."},
+      {s:"Hier, je ______ (se réveiller) à six heures.", a:["me suis réveillé"], en:"Yesterday I woke up at six.", why:"Reflexive."},
       {s:"Je ______ (prendre) une douche.", a:["ai pris"], en:"", why:"<i>prendre</i> → avoir."},
       {s:"Je ______ (partir) à sept heures.", a:["suis parti"], en:"", why:"<i>partir</i> → être."},
-      {s:"Je ______ (attendre) le bus pendant vingt minutes.", a:["ai attendu"], en:"", why:"<i>attendre</i> → avoir."},
-      {s:"Je ______ (arriver) en retard au bureau.", a:["suis arrivé"], en:"", why:"<i>arriver</i> → être."},
-      {s:"Mon chef ne ______ (dire) rien.", a:["m'a rien dit","a rien dit"], en:"", why:"<i>dire</i> → avoir; <b>rien</b> inside."},
-      {s:"À midi, je ______ (sortir) manger un sandwich.", a:["suis sorti"], en:"", why:"No object → être."},
-      {s:"Le soir, je ______ (rentrer) à pied.", a:["suis rentré"], en:"", why:"<i>rentrer</i> → être."},
-      {s:"Je ______ (se coucher) à dix heures.", a:["me suis couché"], en:"", why:"Reflexive."},
+      {s:"Je ______ (attendre) le bus pendant vingt minutes.", a:["ai attendu"], en:"I waited for the bus for twenty minutes.", why:"<i>attendre</i> → avoir."},
+      {s:"Je ______ (arriver) en retard au bureau.", a:["suis arrivé"], en:"I arrived late at the office.", why:"<i>arriver</i> → être."},
+      {s:"Mon chef ne ______ (dire) rien.", a:["m'a rien dit","a rien dit"], en:"My boss said nothing to me.", why:"<i>dire</i> → avoir; <b>rien</b> inside."},
+      {s:"À midi, je ______ (sortir) manger un sandwich.", a:["suis sorti"], en:"At midday I went out to eat a sandwich.", why:"No object → être."},
+      {s:"Le soir, je ______ (rentrer) à pied.", a:["suis rentré"], en:"In the evening I walked home.", why:"<i>rentrer</i> → être."},
+      {s:"Je ______ (se coucher) à dix heures.", a:["me suis couché"], en:"I went to bed at ten.", why:"Reflexive."},
       {s:"Je ______ (bien dormir).", a:["ai bien dormi"], en:"", why:"<i>dormir</i> → avoir; <b>bien</b> inside the sandwich."}
     ]},
     {t:'note', x:"<b>Suivant :</b> Chapitre 15 — <b>l'imparfait</b>. A second past tense, and this one is <u>easier</u> than the passé composé: one set of endings, three exceptions, no auxiliary, no agreement. It's for describing rather than narrating — what things were like, what you used to do. And once you have both, Chapter 16 teaches the choice, which is the thing that makes your past-tense French sound French."}
@@ -7317,7 +7317,7 @@ BOOK.push({
       {s:"J' ______ (avoir) faim.", a:["avais"], en:"", why:"Stem <b>av-</b>."},
       {s:"Elle ______ (être) fatiguée.", a:["était"], en:"", why:"Irregular stem <b>ét-</b>."},
       {s:"Nous ______ (être) six.", a:["étions"], en:"", why:"<b>ét-</b> + <b>-ions</b>."},
-      {s:"Je ______ (manger) avec les mains.", a:["mangeais"], en:"", why:"The <b>e</b> stays before the <b>a</b>."},
+      {s:"Je ______ (manger) avec les mains.", a:["mangeais"], en:"I used to eat with my hands.", why:"The <b>e</b> stays before the <b>a</b>."},
       {s:"Nous ______ (manger) ensemble.", a:["mangions"], en:"", why:"No <b>e</b> before <b>-ions</b> — the i softens the g."},
       {s:"Je ______ (commencer) à huit heures.", a:["commençais"], en:"", why:"<b>ç</b> before the <b>a</b>."},
       {s:"Nous ______ (commencer) tôt.", a:["commencions"], en:"", why:"No cedilla before <b>-ions</b>."},
@@ -7384,13 +7384,13 @@ BOOK.push({
     ]},
     {t:'h', x:'H · Texte à compléter — tout à l\'imparfait'},
     {t:'fill', items:[
-      {s:"Quand j' ______ (être) à l'université, j' ______ (habiter) avec trois amis.", a:["étais"], en:"", why:"<b>ét-</b> + <b>-ais</b>, then <i>habitais</i>."},
-      {s:"L'appartement ______ (être) petit et il ______ (faire) froid en hiver.", a:["était"], en:"", why:"Two descriptions."},
-      {s:"Nous ______ (manger) des pâtes tous les soirs.", a:["mangions"], en:"", why:"<i>nous</i> → <b>-ions</b>, no e."},
-      {s:"Je ______ (se lever) à six heures pour aller en cours.", a:["me levais"], en:"", why:"Reflexive at the imparfait: pronoun + verb, no auxiliary."},
-      {s:"Mes amis ______ (dormir) jusqu'à midi.", a:["dormaient"], en:"", why:"Plural → <b>-aient</b>."},
-      {s:"Il n'y ______ (avoir) jamais de place dans la bibliothèque.", a:["avait"], en:"", why:"<b>il n'y avait jamais</b>."},
-      {s:"Je ne ______ (savoir) pas quoi faire après mes études.", a:["savais"], en:"", why:"A state."},
+      {s:"Quand j' ______ (être) à l'université, j' ______ (habiter) avec trois amis.", a:["étais"], en:"When I was at university, I lived with three friends.", why:"<b>ét-</b> + <b>-ais</b>, then <i>habitais</i>."},
+      {s:"L'appartement ______ (être) petit et il ______ (faire) froid en hiver.", a:["était"], en:"The flat was small and it was cold in winter.", why:"Two descriptions."},
+      {s:"Nous ______ (manger) des pâtes tous les soirs.", a:["mangions"], en:"We used to eat pasta every evening.", why:"<i>nous</i> → <b>-ions</b>, no e."},
+      {s:"Je ______ (se lever) à six heures pour aller en cours.", a:["me levais"], en:"I got up at six to go to class.", why:"Reflexive at the imparfait: pronoun + verb, no auxiliary."},
+      {s:"Mes amis ______ (dormir) jusqu'à midi.", a:["dormaient"], en:"My friends used to sleep until midday.", why:"Plural → <b>-aient</b>."},
+      {s:"Il n'y ______ (avoir) jamais de place dans la bibliothèque.", a:["avait"], en:"There was never a free seat in the library.", why:"<b>il n'y avait jamais</b>."},
+      {s:"Je ne ______ (savoir) pas quoi faire après mes études.", a:["savais"], en:"I didn't know what to do after my studies.", why:"A state."},
       {s:"C' ______ (être) une bonne période.", a:["était"], en:"", why:"<b>c'était</b>, the natural way to close."}
     ]},
     {t:'note', x:"<b>Suivant :</b> Chapitre 16 — <b>passé composé ou imparfait ?</b> This is the chapter that makes the past work. You'll get a decision method, the three verbs whose <u>meaning</u> changes depending on which tense you pick, and extended practice weaving both tenses through a single story — which is exactly what the oral examiner is listening for."}
@@ -7698,13 +7698,13 @@ BOOK.push({
     ]},
     {t:'h', x:'C · Complétez — ligne et point'},
     {t:'fill', items:[
-      {s:"Je ______ (dormir) quand tu ______ (appeler).", a:["dormais"], en:"", why:"Line: <b>dormais</b>. Point: <b>as appelé</b>."},
-      {s:"Il ______ (pleuvoir) quand nous ______ (sortir).", a:["pleuvait"], en:"", why:"Rain is the line."},
-      {s:"Je ______ (travailler) quand le chef ______ (entrer).", a:["travaillais"], en:"", why:"Working is already going on."},
-      {s:"Quand je ______ (arriver), il n'y ______ (avoir) personne.", a:["suis arrivé"], en:"", why:"Arriving is the point even though it's first."},
-      {s:"Elle ______ (lire) pendant que je ______ (cuisiner).", a:["lisait"], en:"", why:"Two lines → both imparfait."},
-      {s:"Nous ______ (regarder) le film quand l'électricité ______ (couper).", a:["regardions"], en:"", why:"<i>nous</i> → <b>-ions</b>."},
-      {s:"J'______ (attendre) depuis dix minutes quand le bus ______ (arriver).", a:["attendais"], en:"", why:"<b>depuis</b> + imparfait for the ongoing wait."}
+      {s:"Je ______ (dormir) quand tu ______ (appeler).", a:["dormais"], en:"I was sleeping when you called.", why:"Line: <b>dormais</b>. Point: <b>as appelé</b>."},
+      {s:"Il ______ (pleuvoir) quand nous ______ (sortir).", a:["pleuvait"], en:"It was raining when we went out.", why:"Rain is the line."},
+      {s:"Je ______ (travailler) quand le chef ______ (entrer).", a:["travaillais"], en:"I was working when the boss came in.", why:"Working is already going on."},
+      {s:"Quand je ______ (arriver), il n'y ______ (avoir) personne.", a:["suis arrivé"], en:"When I arrived, there was nobody there.", why:"Arriving is the point even though it's first."},
+      {s:"Elle ______ (lire) pendant que je ______ (cuisiner).", a:["lisait"], en:"She was reading while I was cooking.", why:"Two lines → both imparfait."},
+      {s:"Nous ______ (regarder) le film quand l'électricité ______ (couper).", a:["regardions"], en:"We were watching the film when the electricity was cut off.", why:"<i>nous</i> → <b>-ions</b>."},
+      {s:"J'______ (attendre) depuis dix minutes quand le bus ______ (arriver).", a:["attendais"], en:"I had been waiting for ten minutes when the bus arrived.", why:"<b>depuis</b> + imparfait for the ongoing wait."}
     ]},
     {t:'h', x:'D · Les cinq verbes — sens'},
     {t:'mcq', items:[
@@ -7743,21 +7743,21 @@ BOOK.push({
     ]},
     {t:'h', x:'G · Récit long — complétez les quinze verbes'},
     {t:'fill', items:[
-      {s:"Samedi dernier, je ______ (décider) d'aller à Toronto.", a:["ai décidé"], en:"", why:"One decision, dated → PC."},
-      {s:"Il ______ (faire) beau et je ______ (ne pas travailler).", a:["faisait"], en:"", why:"Setting → IMP."},
-      {s:"Je ______ (prendre) le train de neuf heures.", a:["ai pris"], en:"", why:"One event."},
-      {s:"Il y ______ (avoir) beaucoup de monde dans le wagon.", a:["avait"], en:"", why:"Description."},
-      {s:"Une femme ______ (lire) à côté de moi.", a:["lisait"], en:"", why:"Ongoing action, part of the scene."},
-      {s:"Je ______ (regarder) par la fenêtre pendant tout le trajet.", a:["ai regardé"], en:"", why:"A measured block — the whole journey."},
-      {s:"Quand je ______ (arriver), il ______ (pleuvoir).", a:["suis arrivé"], en:"", why:"Point + setting."},
-      {s:"Je ______ (ne pas avoir) de parapluie.", a:["n'avais pas"], en:"", why:"A state."},
-      {s:"Je ______ (courir) jusqu'au métro.", a:["ai couru"], en:"", why:"One action."},
-      {s:"Je ______ (retrouver) mon ami à midi.", a:["ai retrouvé"], en:"", why:"One event."},
-      {s:"Il ______ (attendre) depuis vingt minutes.", a:["attendait"], en:"", why:"<b>depuis</b> + IMP — the wait was still going."},
-      {s:"Nous ______ (manger) dans un petit restaurant indien.", a:["avons mangé"], en:"", why:"One meal."},
+      {s:"Samedi dernier, je ______ (décider) d'aller à Toronto.", a:["ai décidé"], en:"Last Saturday I decided to go to Toronto.", why:"One decision, dated → PC."},
+      {s:"Il ______ (faire) beau et je ______ (ne pas travailler).", a:["faisait"], en:"The weather was fine and I wasn't working.", why:"Setting → IMP."},
+      {s:"Je ______ (prendre) le train de neuf heures.", a:["ai pris"], en:"I took the nine o'clock train.", why:"One event."},
+      {s:"Il y ______ (avoir) beaucoup de monde dans le wagon.", a:["avait"], en:"There were a lot of people in the carriage.", why:"Description."},
+      {s:"Une femme ______ (lire) à côté de moi.", a:["lisait"], en:"A woman was reading next to me.", why:"Ongoing action, part of the scene."},
+      {s:"Je ______ (regarder) par la fenêtre pendant tout le trajet.", a:["ai regardé"], en:"I looked out of the window for the whole journey.", why:"A measured block — the whole journey."},
+      {s:"Quand je ______ (arriver), il ______ (pleuvoir).", a:["suis arrivé"], en:"When I arrived, it was raining.", why:"Point + setting."},
+      {s:"Je ______ (ne pas avoir) de parapluie.", a:["n'avais pas"], en:"I didn't have an umbrella.", why:"A state."},
+      {s:"Je ______ (courir) jusqu'au métro.", a:["ai couru"], en:"I ran to the metro.", why:"One action."},
+      {s:"Je ______ (retrouver) mon ami à midi.", a:["ai retrouvé"], en:"I met my friend at midday.", why:"One event."},
+      {s:"Il ______ (attendre) depuis vingt minutes.", a:["attendait"], en:"He had been waiting for twenty minutes.", why:"<b>depuis</b> + IMP — the wait was still going."},
+      {s:"Nous ______ (manger) dans un petit restaurant indien.", a:["avons mangé"], en:"We ate in a small Indian restaurant.", why:"One meal."},
       {s:"La nourriture ______ (être) excellente.", a:["était"], en:"", why:"Description."},
-      {s:"Ensuite nous ______ (marcher) deux heures dans la ville.", a:["avons marché"], en:"", why:"<b>deux heures</b> — measured."},
-      {s:"C' ______ (être) une très bonne journée.", a:["était"], en:"", why:"The closing verdict — always <b>c'était</b>."}
+      {s:"Ensuite nous ______ (marcher) deux heures dans la ville.", a:["avons marché"], en:"Then we walked around the city for two hours.", why:"<b>deux heures</b> — measured."},
+      {s:"C' ______ (être) une très bonne journée.", a:["était"], en:"It was a very good day.", why:"The closing verdict — always <b>c'était</b>."}
     ]},
     {t:'note', x:"<b>Si vous avez réussi l'exercice G, vous savez faire le passé français.</b> Fifteen verbs, alternating between the two tenses with no labels and no hints — that is exactly the task of narrating in French, and it's exactly what the TCF asks of you.<br><br>If you got more than three wrong, don't move on yet. Redo 16.1 and 16.2, then come back to G tomorrow. The choice becomes automatic faster than you'd expect, but only with repetition on mixed, unlabelled material."}
   ]}
@@ -7879,23 +7879,23 @@ BOOK.push({
     {t:'h', x:'A · Complétez'},
     {t:'fill', items:[
       {s:"Hier, j' ______ (prendre) le bus.", a:["ai pris"], en:"", why:"Irregular participle, <i>avoir</i>."},
-      {s:"Hier, je ______ (aller) au marché.", a:["suis allé"], en:"", why:"<i>aller</i> → <b>être</b>."},
-      {s:"Quand j'étais petit, je ______ (jouer) au cricket.", a:["jouais"], en:"", why:"<b>quand j'étais</b> → habit → imparfait."},
-      {s:"Elle ______ (partir) sans rien dire.", a:["est partie"], en:"", why:"<i>partir</i> → être, feminine agreement."},
-      {s:"Nous ______ (se lever) à six heures.", a:["nous sommes levés"], en:"", why:"Reflexive, plural agreement."},
-      {s:"Il ______ (faire) froid ce matin-là.", a:["faisait"], en:"", why:"Setting → imparfait, stem <b>fais-</b>."},
-      {s:"J' ______ (habiter) dix ans en Inde.", a:["ai habité"], en:"", why:"Measured period → passé composé."},
+      {s:"Hier, je ______ (aller) au marché.", a:["suis allé"], en:"Yesterday I went to the market.", why:"<i>aller</i> → <b>être</b>."},
+      {s:"Quand j'étais petit, je ______ (jouer) au cricket.", a:["jouais"], en:"When I was little, I used to play cricket.", why:"<b>quand j'étais</b> → habit → imparfait."},
+      {s:"Elle ______ (partir) sans rien dire.", a:["est partie"], en:"She left without saying anything.", why:"<i>partir</i> → être, feminine agreement."},
+      {s:"Nous ______ (se lever) à six heures.", a:["nous sommes levés"], en:"We got up at six o'clock.", why:"Reflexive, plural agreement."},
+      {s:"Il ______ (faire) froid ce matin-là.", a:["faisait"], en:"It was cold that morning.", why:"Setting → imparfait, stem <b>fais-</b>."},
+      {s:"J' ______ (habiter) dix ans en Inde.", a:["ai habité"], en:"I lived in India for ten years.", why:"Measured period → passé composé."},
       {s:"Avant, j' ______ (habiter) en Inde.", a:["habitais"], en:"", why:"<b>avant</b>, no measurement → imparfait."},
-      {s:"Je ______ (dormir) quand le téléphone ______ (sonner).", a:["dormais"], en:"", why:"Line and dot."},
+      {s:"Je ______ (dormir) quand le téléphone ______ (sonner).", a:["dormais"], en:"I was sleeping when the phone rang.", why:"Line and dot."},
       {s:"L'entretien ______ (durer) quarante minutes.", a:["a duré"], en:"", why:"Measured → passé composé."},
-      {s:"Il y ______ (avoir) beaucoup de monde.", a:["avait"], en:"", why:"Description → <b>il y avait</b>."},
+      {s:"Il y ______ (avoir) beaucoup de monde.", a:["avait"], en:"There were a lot of people.", why:"Description → <b>il y avait</b>."},
       {s:"C' ______ (être) difficile au début.", a:["était"], en:"", why:"<b>c'était</b>."},
-      {s:"J' ______ (être) malade pendant deux semaines.", a:["ai été"], en:"", why:"Measured illness → passé composé, and <i>être</i> takes <i>avoir</i>."},
-      {s:"Je ______ (ne pas savoir) quoi faire.", a:["ne savais pas"], en:"", why:"A state → imparfait."},
-      {s:"Je ______ (savoir) la vérité la semaine dernière.", a:["ai su"], en:"", why:"The moment of finding out → passé composé."},
-      {s:"Ma grand-mère ______ (mourir) en 2019.", a:["est morte"], en:"", why:"<i>mourir</i> → être, feminine → <b>morte</b>."},
-      {s:"Je ______ (ne pas pouvoir) venir.", a:["n'ai pas pu"], en:"", why:"A failed attempt → passé composé."},
-      {s:"Tous les dimanches, nous ______ (aller) chez mon oncle.", a:["allions"], en:"", why:"Habit → imparfait, <i>nous</i> → <b>-ions</b>."}
+      {s:"J' ______ (être) malade pendant deux semaines.", a:["ai été"], en:"I was ill for two weeks.", why:"Measured illness → passé composé, and <i>être</i> takes <i>avoir</i>."},
+      {s:"Je ______ (ne pas savoir) quoi faire.", a:["ne savais pas"], en:"I didn't know what to do.", why:"A state → imparfait."},
+      {s:"Je ______ (savoir) la vérité la semaine dernière.", a:["ai su"], en:"I found out the truth last week.", why:"The moment of finding out → passé composé."},
+      {s:"Ma grand-mère ______ (mourir) en 2019.", a:["est morte"], en:"My grandmother died in 2019.", why:"<i>mourir</i> → être, feminine → <b>morte</b>."},
+      {s:"Je ______ (ne pas pouvoir) venir.", a:["n'ai pas pu"], en:"I wasn't able to come.", why:"A failed attempt → passé composé."},
+      {s:"Tous les dimanches, nous ______ (aller) chez mon oncle.", a:["allions"], en:"Every Sunday we used to go to my uncle's.", why:"Habit → imparfait, <i>nous</i> → <b>-ions</b>."}
     ]},
     {t:'h', x:'B · Choisissez'},
     {t:'mcq', items:[
@@ -7956,26 +7956,26 @@ BOOK.push({
   { title:'A3.5 · Le récit de vingt verbes', blocks:[
     {t:'p', x:"The exam task, undisguised. Twenty verbs, no labels, no hints about which tense. Work through it in one sitting without checking as you go — then check all twenty at once and count."},
     {t:'fill', items:[
-      {s:"<b>1.</b> Il y a deux ans, je ______ (décider) de venir au Canada.", a:["ai décidé"], en:"", why:"<b>il y a</b> + a dated decision → PC."},
+      {s:"<b>1.</b> Il y a deux ans, je ______ (décider) de venir au Canada.", a:["ai décidé"], en:"Two years ago, I decided to come to Canada.", why:"<b>il y a</b> + a dated decision → PC."},
       {s:"<b>2.</b> À l'époque, je ______ (travailler) à Jalandhar.", a:["travaillais"], en:"", why:"<b>à l'époque</b> → IMP."},
-      {s:"<b>3.</b> Je ______ (ne pas parler) français.", a:["ne parlais pas"], en:"", why:"A lasting state → IMP."},
-      {s:"<b>4.</b> Mes parents ______ (ne pas être) d'accord au début.", a:["n'étaient pas"], en:"", why:"A state → IMP, plural → <b>-aient</b>."},
-      {s:"<b>5.</b> J' ______ (préparer) mon dossier pendant six mois.", a:["ai préparé"], en:"", why:"Measured period → PC."},
-      {s:"<b>6.</b> Je ______ (partir) de Delhi le quatorze août.", a:["suis parti"], en:"", why:"<i>partir</i> → être, dated event."},
-      {s:"<b>7.</b> Le vol ______ (durer) seize heures.", a:["a duré"], en:"", why:"Measured → PC."},
-      {s:"<b>8.</b> Quand je ______ (arriver), il ______ (faire) froid.", a:["suis arrivé"], en:"", why:"Point + setting."},
+      {s:"<b>3.</b> Je ______ (ne pas parler) français.", a:["ne parlais pas"], en:"I didn't speak French.", why:"A lasting state → IMP."},
+      {s:"<b>4.</b> Mes parents ______ (ne pas être) d'accord au début.", a:["n'étaient pas"], en:"My parents weren't happy about it at first.", why:"A state → IMP, plural → <b>-aient</b>."},
+      {s:"<b>5.</b> J' ______ (préparer) mon dossier pendant six mois.", a:["ai préparé"], en:"I prepared my application for six months.", why:"Measured period → PC."},
+      {s:"<b>6.</b> Je ______ (partir) de Delhi le quatorze août.", a:["suis parti"], en:"I left Delhi on the fourteenth of August.", why:"<i>partir</i> → être, dated event."},
+      {s:"<b>7.</b> Le vol ______ (durer) seize heures.", a:["a duré"], en:"The flight lasted sixteen hours.", why:"Measured → PC."},
+      {s:"<b>8.</b> Quand je ______ (arriver), il ______ (faire) froid.", a:["suis arrivé"], en:"When I arrived, it was cold.", why:"Point + setting."},
       {s:"<b>9.</b> Je ______ (ne connaître) personne.", a:["ne connaissais"], en:"", why:"A state → IMP. <b>personne</b> follows the verb."},
-      {s:"<b>10.</b> La première semaine ______ (être) difficile.", a:["a été"], en:"", why:"A closed, bounded week → PC. <i>être</i> takes <i>avoir</i>."},
-      {s:"<b>11.</b> Je ______ (se réveiller) à trois heures du matin pendant cinq jours.", a:["me suis réveillé"], en:"", why:"Reflexive + a counted stretch → PC."},
-      {s:"<b>12.</b> Je ______ (appeler) ma famille tous les jours.", a:["appelais"], en:"", why:"<b>tous les jours</b> → habit → IMP."},
-      {s:"<b>13.</b> Puis j' ______ (trouver) un travail chez Sobeys.", a:["ai trouvé"], en:"", why:"One event, <b>puis</b> → PC."},
+      {s:"<b>10.</b> La première semaine ______ (être) difficile.", a:["a été"], en:"The first week was hard.", why:"A closed, bounded week → PC. <i>être</i> takes <i>avoir</i>."},
+      {s:"<b>11.</b> Je ______ (se réveiller) à trois heures du matin pendant cinq jours.", a:["me suis réveillé"], en:"I woke up at three in the morning for five days.", why:"Reflexive + a counted stretch → PC."},
+      {s:"<b>12.</b> Je ______ (appeler) ma famille tous les jours.", a:["appelais"], en:"I used to call my family every day.", why:"<b>tous les jours</b> → habit → IMP."},
+      {s:"<b>13.</b> Puis j' ______ (trouver) un travail chez Sobeys.", a:["ai trouvé"], en:"Then I found a job at Sobeys.", why:"One event, <b>puis</b> → PC."},
       {s:"<b>14.</b> Je ______ (devenir) administrateur système.", a:["suis devenu"], en:"", why:"<i>devenir</i> → être."},
       {s:"<b>15.</b> Mes collègues ______ (être) sympas.", a:["étaient"], en:"", why:"Description → IMP, plural."},
-      {s:"<b>16.</b> Nous ______ (sortir) plusieurs fois ensemble.", a:["sommes sortis"], en:"", why:"<b>plusieurs fois</b> counts it → PC, and <i>sortir</i> with no object → être."},
-      {s:"<b>17.</b> Il y a six mois, j' ______ (commencer) le français.", a:["ai commencé"], en:"", why:"<b>il y a</b> → PC."},
-      {s:"<b>18.</b> Je ______ (ne pas savoir) que ça ______ (être) si difficile.", a:["ne savais pas"], en:"", why:"A state → IMP."},
-      {s:"<b>19.</b> Hier, je ______ (parler) français avec un client pendant dix minutes.", a:["ai parlé"], en:"", why:"Dated + measured → PC."},
-      {s:"<b>20.</b> C' ______ (être) le meilleur moment de mon année.", a:["était"], en:"", why:"The closing verdict → <b>c'était</b>."}
+      {s:"<b>16.</b> Nous ______ (sortir) plusieurs fois ensemble.", a:["sommes sortis"], en:"We went out together several times.", why:"<b>plusieurs fois</b> counts it → PC, and <i>sortir</i> with no object → être."},
+      {s:"<b>17.</b> Il y a six mois, j' ______ (commencer) le français.", a:["ai commencé"], en:"Six months ago, I started French.", why:"<b>il y a</b> → PC."},
+      {s:"<b>18.</b> Je ______ (ne pas savoir) que ça ______ (être) si difficile.", a:["ne savais pas"], en:"I didn't know it would be so hard.", why:"A state → IMP."},
+      {s:"<b>19.</b> Hier, je ______ (parler) français avec un client pendant dix minutes.", a:["ai parlé"], en:"Yesterday I spoke French with a customer for ten minutes.", why:"Dated + measured → PC."},
+      {s:"<b>20.</b> C' ______ (être) le meilleur moment de mon année.", a:["était"], en:"It was the best moment of my year.", why:"The closing verdict → <b>c'était</b>."}
     ]},
     {t:'warn', x:"<b>Notez-vous.</b><br><br>· <b>18–20 corrects</b> — you have the French past. Move on to Partie 4.<br>· <b>14–17</b> — solid. Reread 16.2 (time markers) and redo this section tomorrow.<br>· <b>10–13</b> — the formation is there but the choice isn't automatic. Redo Chapter 16 in full, then this.<br>· <b>moins de 10</b> — go back to Chapters 13–15 one at a time. Don't push forward; the past is the foundation everything after it sits on.<br><br>And look at <u>which kind</u> you got wrong. Auxiliary errors mean Chapter 14. Agreement errors mean 14.2. Tense-choice errors mean Chapter 16. Each has a different fix."}
   ]}
