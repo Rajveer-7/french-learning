@@ -1,0 +1,361 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Le lexique — vocabulaire par thème</title>
+<style>
+:root{--bg:#faf9f7;--card:#fff;--line:#e6e3dc;--ink:#23201b;--muted:#6b675f;--accent:#4338ca;--accentbg:#eceafe;--green:#0f7a54;--greenbg:#e7f5ef;--amber:#d9b45b;--amberbg:#fffdf5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 Georgia,'Iowan Old Style',serif}
+nav.site{background:#fff;border-bottom:1px solid var(--line);padding:8px 14px;display:flex;flex-wrap:wrap;gap:3px;font-family:system-ui,sans-serif;font-size:11.5px;position:sticky;top:0;z-index:30}
+nav.site a{color:var(--muted);text-decoration:none;padding:3px 7px;border-radius:5px}
+nav.site a:hover{background:var(--accentbg);color:var(--accent)}
+header{max-width:900px;margin:0 auto;padding:28px 20px 4px}
+h1{font-size:30px;margin:0 0 7px}
+.sub{color:var(--muted);margin:0 0 14px;font-size:15px}
+main{max-width:900px;margin:0 auto;padding:0 20px 90px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:19px 23px;margin:16px 0}
+.panel h3{margin:0 0 11px;font-size:17px}
+.panel p{margin:9px 0}
+.searchbar{position:sticky;top:41px;background:var(--bg);padding:13px 0;z-index:10;border-bottom:1px solid var(--line);margin-top:20px}
+#q{width:100%;padding:12px 16px;font-size:16.5px;font-family:Georgia,serif;border:2px solid var(--line);border-radius:9px;background:#fff;color:var(--ink)}
+#q:focus{outline:none;border-color:var(--accent)}
+.filters{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px;font-family:system-ui,sans-serif}
+.filters button{border:1px solid var(--line);background:#fff;color:var(--muted);padding:5px 11px;border-radius:999px;cursor:pointer;font-family:inherit;font-size:12px}
+.filters button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.bar{display:flex;gap:9px;align-items:center;margin:11px 0 2px;flex-wrap:wrap}
+.count{color:var(--muted);font-size:13px;font-family:system-ui,sans-serif}
+.tog{border:1px solid var(--line);background:#fff;color:var(--accent);border-radius:7px;padding:5px 12px;cursor:pointer;font-family:system-ui,sans-serif;font-size:12px}
+.tog.on{background:var(--accent);color:#fff}
+h2.th{font-size:19px;margin:26px 0 3px;color:var(--accent);border-bottom:2px solid var(--accent);padding-bottom:6px;text-transform:capitalize}
+h3.sth{font-size:13px;margin:16px 0 3px;color:var(--muted);font-family:system-ui,sans-serif;text-transform:uppercase;letter-spacing:.06em}
+table.lex{width:100%;border-collapse:collapse;font-size:15px;background:var(--card)}
+table.lex td{border-top:1px solid var(--line);padding:7px 10px;vertical-align:middle}
+table.lex tr:hover td{background:#faf9f7}
+.fr{font-weight:600;width:34%}
+.pr{color:var(--muted);font-size:13px;font-family:system-ui,sans-serif;width:28%}
+.en{width:30%}
+.hidden-en .en{color:transparent;background:#f0eeea;border-radius:4px;cursor:pointer}
+.hidden-en .en:hover,.hidden-en .en.show{color:var(--ink);background:transparent}
+.say{cursor:pointer;border:none;background:var(--accentbg);color:var(--accent);border-radius:5px;padding:2px 7px;font-size:11px;font-family:system-ui,sans-serif}
+.empty{text-align:center;color:var(--muted);padding:34px;font-style:italic}
+@media(max-width:620px){.pr{display:none}.fr{width:50%}.en{width:40%}}
+</style></head><body>
+<nav class="site">
+    <a href="index.html">Home</a>
+    <a href="French_Full_Guide.html">Full Guide (A1)</a>
+    <a href="French_Complete_Book.html">Complete Book</a>
+    <a href="French_Prof_Notes.html">Prof's Notes</a>
+    <a href="French_Conversations.html">Conversations</a>
+    <a href="French_Dialogues.html">Dialogues</a>
+    <a href="French_Book_Audio.html">Book Audio</a>
+    <a href="French_Audio_Library.html">Audio Library</a>
+    <a href="French_Articles.html">Articles</a>
+    <a href="French_Vocabulaire.html">Vocabulaire</a>
+    <a href="French_Study_Guide.html">Study Guide</a><a href="French_Oral_Crash_Course.html">Crash Course</a><a href="French_TCF_Guide.html">TCF Guide</a><a href="French_Cours34_Notes.html">Cours 34</a><a href="French_Cours35_Notes.html">Cours 35</a><a href="French_Cours36_Notes.html">Cours 36</a><a href="French_Conjugueur.html">Conjugueur</a><a href="French_Parcours.html">★ Le parcours</a><a href="French_Metiers.html">Les métiers</a><a href="French_Lexique.html">Le lexique</a><a href="French_Comprehension_Orale.html">Compréhension orale</a><a href="French_Plan_10_Mois.html">Plan 10 mois</a><a href="French_Comment_Etudier.html">Comment étudier</a><a href="French_Ressources.html">Ressources</a>
+    <a href="French_A1_Verbes.html">Verbes</a>
+    <a href="French_A1_Articles.html">Articles+</a>
+    <a href="French_A1_Temps.html">Heure+Dates</a>
+    <a href="French_Cours29_Notes.html">Cours 29</a>
+    <a href="French_A1_Nourriture.html">Nourriture</a>
+    <a href="French_Grammar_Map.html">Grammar Map</a>
+    <a href="French_A2_Imparfait.html">Imparfait</a>
+    <a href="French_How_It_Works.html">How French Works</a>
+  </nav><header>
+<h1>Le lexique</h1>
+<p class="sub">Le vocabulaire dont vous avez besoin, rangé par thème. Cherchez en français ou en anglais, ou masquez l’anglais pour vous tester.</p>
+</header>
+<main>
+<div class="panel">
+<h3>Comment apprendre du vocabulaire — et comment ne pas l’apprendre</h3>
+<p><b>Ne lisez pas cette page de haut en bas.</b> Lire une liste donne l’impression de la connaître et ne produit à peu près rien. Ce qui fonctionne tient en trois gestes.</p>
+<p><b>① Prenez un thème, pas la page.</b> Dix à quinze mots par séance, tirés d’un seul thème. Au-delà, le rendement s’effondre.</p>
+<p><b>② Masquez l’anglais et testez-vous.</b> Le bouton en haut cache la colonne de droite. Lisez le français, dites le sens à voix haute, cliquez pour vérifier. <u>C’est l’effort de rappel qui installe le mot</u>, pas la relecture.</p>
+<p><b>③ Fabriquez une phrase avec chaque mot, sur votre propre vie.</b> <i>« la pharmacie »</i> ne reste pas ; <i>« la pharmacie est en face de chez moi »</i> reste. Un mot isolé s’oublie, un mot dans une phrase qui vous concerne s’accroche.</p>
+<p>Et revenez sur le même thème <b>deux jours plus tard</b>, puis une semaine après. Trois passages espacés valent mieux que dix passages d’affilée.</p>
+</div>
+<div class="panel">
+<h3>Le genre, et pourquoi il est écrit partout ici</h3>
+<p>Chaque nom est donné <b>avec son article</b> : <i>le pain</i>, <i>la pomme</i>, <i>l’eau</i>. Ce n’est pas de la décoration.</p>
+<p>Le genre d’un nom français est arbitraire et il ne se devine pas. Si vous apprenez <i>pain</i> tout seul, vous aurez une chance sur deux de vous tromper chaque fois que vous aurez besoin d’un adjectif, d’un article ou d’un pronom. Si vous apprenez <b>le pain</b>, le genre entre dans la mémoire en même temps que le mot, sans effort supplémentaire.</p>
+<p>Pour les mots commençant par une voyelle, l’article ne dit rien (<i>l’eau</i>, <i>l’hôtel</i>) : ceux-là, il faut les vérifier. <i>L’eau</i> est féminin, <i>l’hôtel</i> est masculin.</p>
+</div>
+<div class="searchbar">
+<input id="q" type="search" placeholder="Cherchez en français ou en anglais — pain, bread, hôpital, train…" autocomplete="off">
+<div class="filters" id="filters"></div>
+</div>
+<div class="bar"><span class="count" id="count"></span><button class="tog" id="tog">Masquer l’anglais</button></div>
+<div id="list"></div>
+</main>
+<script>
+/* [français, prononciation, anglais, thème, sous-thème] */
+var LEX = [
+["la nourriture","la noo-ree-TÜR","food","nourriture","général"],
+["le pain","luh PAN","bread","nourriture","base"],
+["le beurre","luh BUR","butter","nourriture","base"],
+["le fromage","luh fro-MAZH","cheese","nourriture","base"],
+["le lait","luh LEH","milk","nourriture","base"],
+["un œuf / des œufs","un UF / day-ZUH","an egg / eggs","nourriture","base"],
+["le riz","luh REE","rice","nourriture","base"],
+["les pâtes","lay PAT","pasta","nourriture","base"],
+["la viande","la VYOND","meat","nourriture","protéines"],
+["le poulet","luh poo-LEH","chicken","nourriture","protéines"],
+["le bœuf","luh BUF","beef","nourriture","protéines"],
+["le porc","luh POR","pork","nourriture","protéines"],
+["l’agneau","la-NYOH","lamb","nourriture","protéines"],
+["le poisson","luh pwa-SON","fish","nourriture","protéines"],
+["les fruits de mer","lay frwee duh MAIR","seafood","nourriture","protéines"],
+["les légumes","lay lay-GÜM","vegetables","nourriture","légumes"],
+["la pomme de terre","la pom duh TAIR","potato","nourriture","légumes"],
+["la tomate","la to-MAT","tomato","nourriture","légumes"],
+["la carotte","la ka-ROT","carrot","nourriture","légumes"],
+["l’oignon","lo-NYON","onion","nourriture","légumes"],
+["la salade","la sa-LAD","salad, lettuce","nourriture","légumes"],
+["les haricots","lay a-ree-KOH","beans","nourriture","légumes"],
+["les fruits","lay FRWEE","fruit","nourriture","fruits"],
+["la pomme","la POM","apple","nourriture","fruits"],
+["la banane","la ba-NAN","banana","nourriture","fruits"],
+["l’orange","lo-RONZH","orange","nourriture","fruits"],
+["la fraise","la FREZ","strawberry","nourriture","fruits"],
+["le raisin","luh reh-ZAN","grapes","nourriture","fruits"],
+["le sel","luh SEL","salt","nourriture","assaisonnement"],
+["le poivre","luh PWAVR","pepper","nourriture","assaisonnement"],
+["le sucre","luh SÜKR","sugar","nourriture","assaisonnement"],
+["l’huile","LWEEL","oil","nourriture","assaisonnement"],
+["les épices","lay-zay-PEES","spices","nourriture","assaisonnement"],
+["l’eau","LOH","water","nourriture","boissons"],
+["le café","luh ka-FAY","coffee","nourriture","boissons"],
+["le thé","luh TAY","tea","nourriture","boissons"],
+["le jus","luh ZHÜ","juice","nourriture","boissons"],
+["le vin","luh VAN","wine","nourriture","boissons"],
+["la bière","la BYAIR","beer","nourriture","boissons"],
+["le petit-déjeuner","luh puh-tee day-zhuh-NAY","breakfast","nourriture","repas"],
+["le déjeuner","luh day-zhuh-NAY","lunch","nourriture","repas"],
+["le dîner","luh dee-NAY","dinner","nourriture","repas"],
+["l’entrée","lon-TRAY","starter","nourriture","repas"],
+["le plat principal","luh pla pran-see-PAL","main course","nourriture","repas"],
+["le dessert","luh deh-SAIR","dessert","nourriture","repas"],
+["l’addition","la-dee-SYON","the bill","nourriture","restaurant"],
+["la carte","la KART","the menu","nourriture","restaurant"],
+["le serveur","luh sair-VUR","the waiter","nourriture","restaurant"],
+["avoir faim","a-vwar FAN","to be hungry","nourriture","expressions"],
+["avoir soif","a-vwar SWAF","to be thirsty","nourriture","expressions"],
+["C’est délicieux.","seh day-lee-SYUH","It’s delicious.","nourriture","expressions"],
+["Je suis végétarien.","zhuh swee vay-zhay-ta-RYAN","I’m vegetarian.","nourriture","expressions"]
+];
+LEX = LEX.concat([
+["la maison","la may-ZON","house","maison","général"],
+["l’appartement","la-par-tuh-MON","flat, apartment","maison","général"],
+["l’immeuble","lee-MUBL","block of flats","maison","général"],
+["la pièce","la PYESS","room","maison","général"],
+["le salon","luh sa-LON","living room","maison","pièces"],
+["la cuisine","la kwee-ZEEN","kitchen","maison","pièces"],
+["la chambre","la SHONBR","bedroom","maison","pièces"],
+["la salle de bains","la sal duh BAN","bathroom","maison","pièces"],
+["les toilettes","lay twa-LET","toilet","maison","pièces"],
+["le couloir","luh koo-LWAR","corridor","maison","pièces"],
+["le balcon","luh bal-KON","balcony","maison","pièces"],
+["le jardin","luh zhar-DAN","garden","maison","pièces"],
+["le garage","luh ga-RAZH","garage","maison","pièces"],
+["la cave","la KAV","cellar","maison","pièces"],
+["le lit","luh LEE","bed","maison","meubles"],
+["la table","la TABL","table","maison","meubles"],
+["la chaise","la SHEZ","chair","maison","meubles"],
+["le canapé","luh ka-na-PAY","sofa","maison","meubles"],
+["l’armoire","lar-MWAR","wardrobe","maison","meubles"],
+["l’étagère","lay-ta-ZHAIR","shelf","maison","meubles"],
+["le bureau","luh bü-ROH","desk","maison","meubles"],
+["le frigo","luh free-GOH","fridge","maison","électroménager"],
+["le four","luh FOOR","oven","maison","électroménager"],
+["la machine à laver","la ma-sheen a la-VAY","washing machine","maison","électroménager"],
+["le lave-vaisselle","luh lav-veh-SEL","dishwasher","maison","électroménager"],
+["la porte","la PORT","door","maison","structure"],
+["la fenêtre","la fuh-NETR","window","maison","structure"],
+["le mur","luh MÜR","wall","maison","structure"],
+["le sol","luh SOL","floor","maison","structure"],
+["le toit","luh TWA","roof","maison","structure"],
+["l’escalier","les-ka-LYAY","stairs","maison","structure"],
+["l’ascenseur","la-son-SUR","lift, elevator","maison","structure"],
+["le loyer","luh lwa-YAY","rent","maison","logement"],
+["le propriétaire","luh pro-pree-ay-TAIR","landlord, owner","maison","logement"],
+["le locataire","luh lo-ka-TAIR","tenant","maison","logement"],
+["déménager","day-may-na-ZHAY","to move house","maison","logement"],
+["le quartier","luh kar-TYAY","neighbourhood","ville","général"],
+["le centre-ville","luh sontr-VEEL","town centre","ville","général"],
+["la rue","la RÜ","street","ville","général"],
+["l’avenue","lav-NÜ","avenue","ville","général"],
+["la place","la PLAS","square","ville","général"],
+["le pont","luh PON","bridge","ville","général"],
+["la banque","la BONK","bank","ville","commerces"],
+["la poste","la POST","post office","ville","commerces"],
+["la pharmacie","la far-ma-SEE","chemist’s","ville","commerces"],
+["la boulangerie","la boo-lon-zhuh-REE","bakery","ville","commerces"],
+["le supermarché","luh sü-pair-mar-SHAY","supermarket","ville","commerces"],
+["le marché","luh mar-SHAY","market","ville","commerces"],
+["le magasin","luh ma-ga-ZAN","shop","ville","commerces"],
+["l’hôpital","lo-pee-TAL","hospital","ville","services"],
+["l’école","lay-KOL","school","ville","services"],
+["la mairie","la may-REE","town hall","ville","services"],
+["la bibliothèque","la bee-blee-o-TEK","library","ville","services"],
+["le musée","luh mü-ZAY","museum","ville","loisirs"],
+["le cinéma","luh see-nay-MA","cinema","ville","loisirs"],
+["le parc","luh PARK","park","ville","loisirs"],
+["l’église","lay-GLEEZ","church","ville","loisirs"]
+]);
+LEX = LEX.concat([
+["le train","luh TRAN","train","transports","moyens"],
+["le bus","luh BÜS","bus","transports","moyens"],
+["le métro","luh may-TROH","underground","transports","moyens"],
+["le tramway","luh tram-WEH","tram","transports","moyens"],
+["la voiture","la vwa-TÜR","car","transports","moyens"],
+["le vélo","luh vay-LOH","bike","transports","moyens"],
+["l’avion","la-VYON","plane","transports","moyens"],
+["le bateau","luh ba-TOH","boat","transports","moyens"],
+["le taxi","luh tak-SEE","taxi","transports","moyens"],
+["à pied","a PYAY","on foot","transports","moyens"],
+["la gare","la GAR","train station","transports","lieux"],
+["l’aéroport","la-ay-ro-POR","airport","transports","lieux"],
+["l’arrêt de bus","la-reh duh BÜS","bus stop","transports","lieux"],
+["la station","la sta-SYON","station (metro)","transports","lieux"],
+["le quai","luh KEH","platform","transports","lieux"],
+["le billet","luh bee-YEH","ticket","transports","billets"],
+["l’aller simple","la-lay SANPL","single ticket","transports","billets"],
+["l’aller-retour","la-lay ruh-TOOR","return ticket","transports","billets"],
+["l’horaire","lo-RAIR","timetable","transports","billets"],
+["le retard","luh ruh-TAR","delay","transports","problèmes"],
+["la grève","la GREV","strike","transports","problèmes"],
+["l’embouteillage","lon-boo-tay-YAZH","traffic jam","transports","problèmes"],
+["prendre le bus","prondr luh BÜS","to take the bus","transports","verbes"],
+["monter dans","mon-TAY don","to get on","transports","verbes"],
+["descendre de","deh-SONDR duh","to get off","transports","verbes"],
+["changer à","shon-ZHAY a","to change at","transports","verbes"],
+["le voyage","luh vwa-YAZH","trip, journey","voyage","général"],
+["les vacances","lay va-KONS","holidays","voyage","général"],
+["la valise","la va-LEEZ","suitcase","voyage","général"],
+["le passeport","luh pas-POR","passport","voyage","général"],
+["le visa","luh vee-ZA","visa","voyage","général"],
+["l’hôtel","lo-TEL","hotel","voyage","hébergement"],
+["la chambre double","la shonbr DOOBL","double room","voyage","hébergement"],
+["la réservation","la ray-zair-va-SYON","booking","voyage","hébergement"],
+["la clé","la KLAY","key","voyage","hébergement"],
+["l’office de tourisme","lo-fees duh too-REEZM","tourist office","voyage","sur place"],
+["la carte","la KART","map","voyage","sur place"],
+["la visite guidée","la vee-zeet gee-DAY","guided tour","voyage","sur place"],
+["la santé","la son-TAY","health","santé","général"],
+["le médecin","luh mayd-SAN","doctor","santé","général"],
+["le rendez-vous","luh ron-day-VOO","appointment","santé","général"],
+["l’ordonnance","lor-do-NONS","prescription","santé","général"],
+["le médicament","luh may-dee-ka-MON","medicine","santé","général"],
+["la pharmacie","la far-ma-SEE","chemist’s","santé","général"],
+["être malade","etr ma-LAD","to be ill","santé","états"],
+["avoir mal à","a-vwar mal a","to have a pain in","santé","états"],
+["avoir de la fièvre","a-vwar duh la FYEVR","to have a temperature","santé","états"],
+["être fatigué","etr fa-tee-GAY","to be tired","santé","états"],
+["tousser","too-SAY","to cough","santé","états"],
+["le rhume","luh RÜM","a cold","santé","maladies"],
+["la grippe","la GREEP","flu","santé","maladies"],
+["une allergie","ün a-lair-ZHEE","an allergy","santé","maladies"],
+["se blesser","suh bleh-SAY","to hurt oneself","santé","accidents"],
+["se casser le bras","suh ka-SAY luh BRA","to break one’s arm","santé","accidents"],
+["aller mieux","a-lay MYUH","to feel better","santé","guérison"],
+["guérir","gay-REER","to get better","santé","guérison"]
+]);
+LEX = LEX.concat([
+["le travail","luh tra-VAI","work","travail","général"],
+["l’entreprise","lon-truh-PREEZ","company","travail","général"],
+["le bureau","luh bü-ROH","office","travail","général"],
+["le collègue","luh ko-LEG","colleague","travail","général"],
+["le chef","luh SHEF","boss","travail","général"],
+["le salaire","luh sa-LAIR","salary","travail","conditions"],
+["le contrat","luh kon-TRA","contract","travail","conditions"],
+["les horaires","lay-zo-RAIR","working hours","travail","conditions"],
+["le temps plein","luh ton PLAN","full-time","travail","conditions"],
+["le temps partiel","luh ton par-SYEL","part-time","travail","conditions"],
+["la réunion","la ray-ü-NYON","meeting","travail","quotidien"],
+["le projet","luh pro-ZHEH","project","travail","quotidien"],
+["la pause","la POHZ","break","travail","quotidien"],
+["le congé","luh kon-ZHAY","leave, time off","travail","quotidien"],
+["chercher un emploi","shair-shay un on-PLWA","to look for a job","travail","recherche"],
+["le CV","luh say-VAY","CV, résumé","travail","recherche"],
+["l’entretien","lon-truh-TYAN","interview","travail","recherche"],
+["l’expérience","leks-pay-RYONS","experience","travail","recherche"],
+["être au chômage","etr oh shoh-MAZH","to be unemployed","travail","situations"],
+["démissionner","day-mee-syo-NAY","to resign","travail","situations"],
+["être heureux","etr uh-RUH","to be happy","sentiments","positifs"],
+["être content","etr kon-TON","to be pleased","sentiments","positifs"],
+["être fier","etr FYAIR","to be proud","sentiments","positifs"],
+["être soulagé","etr soo-la-ZHAY","to be relieved","sentiments","positifs"],
+["avoir hâte de","a-vwar AHT duh","to look forward to","sentiments","positifs"],
+["être triste","etr TREEST","to be sad","sentiments","négatifs"],
+["être déçu","etr day-SÜ","to be disappointed","sentiments","négatifs"],
+["être inquiet","etr an-KYEH","to be worried","sentiments","négatifs"],
+["être en colère","etr on ko-LAIR","to be angry","sentiments","négatifs"],
+["être stressé","etr streh-SAY","to be stressed","sentiments","négatifs"],
+["avoir peur de","a-vwar PUR duh","to be afraid of","sentiments","négatifs"],
+["s’ennuyer","son-nwee-YAY","to be bored","sentiments","négatifs"],
+["être surpris","etr sür-PREE","to be surprised","sentiments","neutres"],
+["être étonné","etr ay-to-NAY","to be astonished","sentiments","neutres"],
+["ça me plaît","sa muh PLEH","I like it","sentiments","réactions"],
+["ça m’énerve","sa may-NAIRV","it annoys me","sentiments","réactions"],
+["ça m’est égal","sa meh-tay-GAL","I don’t mind","sentiments","réactions"],
+["j’en ai marre","zhon ay MAR","I’m fed up","sentiments","réactions"],
+["le temps","luh TON","weather","météo","général"],
+["il fait beau","eel feh BOH","it’s nice weather","météo","expressions"],
+["il fait mauvais","eel feh moh-VEH","the weather’s bad","météo","expressions"],
+["il fait chaud","eel feh SHOH","it’s hot","météo","expressions"],
+["il fait froid","eel feh FRWA","it’s cold","météo","expressions"],
+["il pleut","eel PLUH","it’s raining","météo","expressions"],
+["il neige","eel NEZH","it’s snowing","météo","expressions"],
+["il y a du vent","eel ya dü VON","it’s windy","météo","expressions"],
+["le soleil","luh so-LAY","sun","météo","noms"],
+["la pluie","la PLWEE","rain","météo","noms"],
+["la neige","la NEZH","snow","météo","noms"],
+["le nuage","luh nü-AZH","cloud","météo","noms"],
+["l’orage","lo-RAZH","storm","météo","noms"],
+["la température","la ton-pay-ra-TÜR","temperature","météo","noms"]
+]);
+var THEMES=[]; LEX.forEach(function(w){ if(THEMES.indexOf(w[3])===-1) THEMES.push(w[3]); });
+var activeT=null, hidden=false;
+var VOICE=null;
+function pickVoice(){var v=speechSynthesis.getVoices()||[];VOICE=v.filter(function(x){return /fr(-|_)FR/i.test(x.lang)})[0]||v.filter(function(x){return /^fr/i.test(x.lang)})[0]||null;}
+if(window.speechSynthesis){pickVoice();speechSynthesis.onvoiceschanged=pickVoice;}
+function say(t){if(!window.speechSynthesis)return;speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang='fr-FR';u.rate=.85;if(VOICE)u.voice=VOICE;speechSynthesis.speak(u);}
+function norm(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');}
+function render(){
+  var q=norm(document.getElementById('q').value.trim());
+  var rows=LEX.filter(function(w){
+    if(activeT && w[3]!==activeT) return false;
+    if(!q) return true;
+    return norm(w[0]).indexOf(q)!==-1 || norm(w[2]).indexOf(q)!==-1;
+  });
+  document.getElementById('count').textContent=rows.length+' mot'+(rows.length>1?'s':'')+' · '+LEX.length+' au total';
+  if(!rows.length){document.getElementById('list').innerHTML='<div class="empty">Aucun mot trouvé.</div>';return;}
+  var h='', th=null, sth=null;
+  rows.forEach(function(w){
+    if(w[3]!==th){ if(th)h+='</table>'; th=w[3]; sth=null; h+='<h2 class="th">'+w[3]+'</h2>'; }
+    if(w[4]!==sth){ if(sth)h+='</table>'; sth=w[4]; h+='<h3 class="sth">'+w[4]+'</h3><table class="lex">'; }
+    h+='<tr><td class="fr">'+w[0]+'</td><td class="pr">'+w[1]+'</td><td class="en">'+w[2]+'</td>'+
+       '<td style="width:8%"><button class="say" data-s="'+w[0].replace(/"/g,'')+'">▶</button></td></tr>';
+  });
+  document.getElementById('list').innerHTML=h+'</table>';
+}
+document.getElementById('q').addEventListener('input',render);
+document.addEventListener('click',function(e){
+  var b=e.target.closest('.say'); if(b){ say(b.getAttribute('data-s')); return; }
+  if(hidden){ var td=e.target.closest('.en'); if(td) td.classList.toggle('show'); }
+});
+document.getElementById('tog').addEventListener('click',function(){
+  hidden=!hidden;
+  document.getElementById('list').classList.toggle('hidden-en',hidden);
+  this.classList.toggle('on',hidden);
+  this.textContent = hidden ? 'Afficher l’anglais' : 'Masquer l’anglais';
+});
+var fb=document.getElementById('filters');
+fb.innerHTML='<button class="on" data-t="">tous</button>'+THEMES.map(function(t){return '<button data-t="'+t+'">'+t+'</button>';}).join('');
+fb.addEventListener('click',function(e){
+  var b=e.target.closest('button'); if(!b)return;
+  [].forEach.call(fb.children,function(x){x.classList.remove('on')});
+  b.classList.add('on'); activeT=b.getAttribute('data-t')||null; render();
+});
+render();
+</script>
+</body>
+</html>
