@@ -111,6 +111,12 @@
   .parttabs{ flex-wrap:nowrap; overflow-x:auto; }
   .parttabs button{ flex:0 0 auto; white-space:nowrap; }
 }
+
+nav.site{background:#fff;border-bottom:1px solid #e6e3dc;padding:9px 14px;display:flex;flex-wrap:wrap;gap:3px;font-family:system-ui,-apple-system,sans-serif;font-size:12.5px;position:sticky;top:0;z-index:40}
+nav.site a{color:#6b675f;text-decoration:none;padding:4px 9px;border-radius:6px;white-space:nowrap}
+nav.site a:hover{background:#eceafe;color:#4338ca}
+nav.site a.navhome{color:#4338ca;font-weight:600}
+nav.site a.navdim{color:#b9b4ab;margin-left:auto}
 </style>
 </head>
 <body>
@@ -118,63 +124,20 @@
   <h1>French — Cours 25: Les accents en français</h1>
   <p class="sub">The Language SKOOL · Fiche de cours A1 — é è ê ë ï ç: what every accent does and why it is never optional</p>
 
-  <nav>
-    <a href="French_Start_Here.html"><b>★ Start Here</b></a>
-    <a href="French_Class_Cours1_Audio.html">Cours 1</a>
-    <a href="French_Cours1_Intro.html">My introduction</a>
-    <a href="French_Cours2_Notes.html">Cours 2</a>
-    <a href="French_Cours3_Notes.html">Cours 3</a>
-    <a href="French_Cours4_Notes.html">Cours 4</a>
-    <a href="French_Cours5_Notes.html">Cours 5</a>
-    <a href="French_Cours6_Notes.html">Cours 6</a>
-    <a href="French_Cours7_Notes.html">Cours 7</a>
-    <a href="French_Cours8_Notes.html">Cours 8</a>
-    <a href="French_Cours9_Notes.html">Cours 9</a>
-    <a href="French_Cours10_Notes.html">Cours 10</a>
-    <a href="French_Cours11_Notes.html">Cours 11</a>
-    <a href="French_Cours12_Notes.html">Cours 12</a>
-    <a href="French_Cours13_Notes.html">Cours 13</a>
-    <a href="French_Cours14_Notes.html">Cours 14</a>
-    <a href="French_Cours15_Notes.html">Cours 15</a>
-    <a href="French_Cours16_Notes.html">Cours 16</a>
-    <a href="French_Cours17_Notes.html">Cours 17</a>
-    <a href="French_Cours18_Notes.html">Cours 18</a>
-    <a href="French_Cours19_Notes.html">Cours 19</a>
-    <a href="French_Cours20_Notes.html">Cours 20</a>
-    <a href="French_Cours21_Notes.html">Cours 21</a>
-    <a href="French_Cours22_Notes.html">Cours 22</a>
-    <a href="French_Cours23_Notes.html">Cours 23</a>
-    <a href="French_Cours24_Notes.html">Cours 24</a>
-    <a href="French_Cours25_Notes.html">Cours 25</a>
-    <a href="French_Cours26_Notes.html">Cours 26</a>
-    <a href="French_Cours27_Notes.html">Cours 27</a>
-    <a href="French_Cours28_Notes.html">Cours 28</a>
-    <a href="French_Cours25_Notes.html" class="active">Cours 25</a>
-    <a href="French_Conversations.html">Conversations</a>
-    <a href="French_Dialogues.html">Dialogues</a>
-    <a href="French_Full_Guide.html">Full Guide</a>
-    <a href="French_Complete_Book.html">Complete Book</a>
-    <a href="French_Cours_Complet.html">Cours complet</a><a href="French_Grammaire.html">Grammaire</a>
-    <a href="French_Prof_Notes.html">Prof's Notes</a>
-    <a href="French_Book_Audio.html">Book Audio</a>
-    <a href="French_Audio_Library.html">Audio Library</a>
-    <a href="French_Articles.html">Articles</a>
-    <a href="French_Vocabulaire.html">Vocabulaire</a>
-    <a href="French_Study_Guide.html">Study Guide</a><a href="French_Oral_Crash_Course.html">Crash Course</a><a href="French_TCF_Guide.html">TCF Guide</a><a href="French_Cours34_Notes.html">Cours 34</a><a href="French_Cours35_Notes.html">Cours 35</a><a href="French_Cours36_Notes.html">Cours 36</a><a href="French_Conjugueur.html">Conjugueur</a><a href="French_Parcours.html">★ Le parcours</a><a href="French_Metiers.html">Les métiers</a><a href="French_Lexique.html">Le lexique</a><a href="French_Comprehension_Orale.html">Compréhension orale</a><a href="French_Plan_10_Mois.html">Plan 10 mois</a><a href="French_Comment_Etudier.html">Comment étudier</a><a href="French_Ressources.html">Ressources</a>
-    <a href="French_A1_Verbes.html">Verbes</a>
-    <a href="French_A1_Articles.html">Articles+</a>
-    <a href="French_A1_Temps.html">Heure+Dates</a>
-    <a href="French_Cours29_Notes.html">Cours 29</a>
-    <a href="French_Cours30_Notes.html">Cours 30</a><a href="French_Cours31_Notes.html">Cours 31</a><a href="French_Cours32_Notes.html">Cours 32</a>
-    <a href="French_A1_Nourriture.html">Nourriture</a>
-    <a href="French_A1_PC_Etre.html">PC avec être</a>
-    <a href="French_A1_Imperatif.html">Impératif</a>
-    <a href="French_A1_Ville.html">Ville</a>
-    <a href="French_A1_Sante.html">Santé</a>
-    <a href="French_Grammar_Map.html">Grammar Map</a>
-    <a href="French_A2_Imparfait.html">Imparfait</a>
-    <a href="French_How_It_Works.html">How French Works</a>
-  </nav>
+  <nav class="site">
+  <a href="French_Parcours.html" class="navhome">★ Le parcours</a>
+  <a href="French_Cours_Complet.html"><b>Le livre</b></a>
+  <a href="French_Comprehension_Orale.html">Écoute</a>
+  <a href="French_Conjugueur.html">Conjugueur</a>
+  <a href="French_Lexique.html">Lexique</a>
+  <a href="French_Metiers.html">Métiers</a>
+  <a href="French_Cours_Index.html">Mes cours</a>
+  <a href="French_Comment_Etudier.html">Méthode</a>
+  <a href="French_Plan_10_Mois.html">Plan</a>
+  <a href="French_TCF_Guide.html">TCF</a>
+  <a href="French_Ressources.html">Ressources</a>
+  <a href="French_Archives.html" class="navdim">Archives</a>
+</nav>
 
 <div class="whybox">
   <h4><span>Pourquoi ça marche comme ça</span>Pourquoi les accents ne sont pas décoratifs</h4>

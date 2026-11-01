@@ -130,6 +130,12 @@
   .parttabs{ flex-wrap:nowrap; overflow-x:auto; }
   .parttabs button{ flex:0 0 auto; white-space:nowrap; }
 }
+
+nav.site{background:#fff;border-bottom:1px solid #e6e3dc;padding:9px 14px;display:flex;flex-wrap:wrap;gap:3px;font-family:system-ui,-apple-system,sans-serif;font-size:12.5px;position:sticky;top:0;z-index:40}
+nav.site a{color:#6b675f;text-decoration:none;padding:4px 9px;border-radius:6px;white-space:nowrap}
+nav.site a:hover{background:#eceafe;color:#4338ca}
+nav.site a.navhome{color:#4338ca;font-weight:600}
+nav.site a.navdim{color:#b9b4ab;margin-left:auto}
 </style>
 </head>
 <body>
@@ -137,14 +143,20 @@
   <h1>Ressources — écouter, lire, parler</h1>
   <p class="sub">Les 30 % que le livre ne peut pas fournir · classées par niveau, avec la dose et le moment de commencer</p>
 
-  <nav>
-    <a href="French_Start_Here.html"><b>★ Start Here</b></a>
-    <a href="French_Cours_Complet.html">Complete Book</a>
-    <a href="French_Comment_Etudier.html">Comment étudier</a>
-    <a href="French_Ressources.html" class="active">Ressources</a>
-    <a href="French_Plan_10_Mois.html">Plan 10 mois</a>
-    <a href="French_TCF_Guide.html">TCF Guide</a><a href="French_Cours35_Notes.html">Cours 35</a><a href="French_Cours36_Notes.html">Cours 36</a><a href="French_Conjugueur.html">Conjugueur</a><a href="French_Parcours.html">★ Le parcours</a><a href="French_Metiers.html">Les métiers</a><a href="French_Lexique.html">Le lexique</a><a href="French_Comprehension_Orale.html">Compréhension orale</a>
-  </nav>
+  <nav class="site">
+  <a href="French_Parcours.html" class="navhome">★ Le parcours</a>
+  <a href="French_Cours_Complet.html"><b>Le livre</b></a>
+  <a href="French_Comprehension_Orale.html">Écoute</a>
+  <a href="French_Conjugueur.html">Conjugueur</a>
+  <a href="French_Lexique.html">Lexique</a>
+  <a href="French_Metiers.html">Métiers</a>
+  <a href="French_Cours_Index.html">Mes cours</a>
+  <a href="French_Comment_Etudier.html">Méthode</a>
+  <a href="French_Plan_10_Mois.html">Plan</a>
+  <a href="French_TCF_Guide.html">TCF</a>
+  <a href="French_Ressources.html">Ressources</a>
+  <a href="French_Archives.html" class="navdim">Archives</a>
+</nav>
 
   <div class="bar">
     <span>Speed:</span>
