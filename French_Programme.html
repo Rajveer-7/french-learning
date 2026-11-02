@@ -1,0 +1,427 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Le programme — tout le français, de zéro au C2</title>
+<style>
+:root{--bg:#faf9f7;--card:#fff;--line:#e6e3dc;--ink:#23201b;--muted:#6b675f;--accent:#4338ca;--accentbg:#eceafe;--green:#0f7a54;--greenbg:#e7f5ef;--amber:#d9b45b;--amberbg:#fffdf5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.72 Georgia,'Iowan Old Style',serif}
+nav.site{background:#fff;border-bottom:1px solid var(--line);padding:9px 14px;display:flex;flex-wrap:wrap;gap:3px;font-family:system-ui,sans-serif;font-size:12.5px;position:sticky;top:0;z-index:40;transition:transform .25s ease}
+nav.site.navhidden{transform:translateY(-110%)}
+nav.site a{color:var(--muted);text-decoration:none;padding:4px 9px;border-radius:6px;white-space:nowrap}
+nav.site a:hover{background:var(--accentbg);color:var(--accent)}
+nav.site a.navhome{color:var(--accent);font-weight:600}
+nav.site a.navdim{color:#b9b4ab;margin-left:auto}
+header{max-width:900px;margin:0 auto;padding:30px 20px 4px}
+h1{font-size:32px;margin:0 0 8px;line-height:1.22}
+.sub{color:var(--muted);margin:0 0 6px;font-size:15.5px}
+main{max-width:900px;margin:0 auto;padding:0 20px 90px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:19px 23px;margin:17px 0}
+.panel h3{margin:0 0 11px;font-size:17px}
+.panel p{margin:10px 0}
+.jump{display:flex;flex-wrap:wrap;gap:7px;margin:18px 0 6px;position:sticky;top:42px;background:var(--bg);padding:10px 0;z-index:9;border-bottom:1px solid var(--line)}
+.jump a{font-family:system-ui,sans-serif;font-size:13px;border:1px solid var(--line);background:#fff;color:var(--accent);border-radius:999px;padding:6px 14px;text-decoration:none}
+.jump a:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.lvl{margin:36px 0 0;scroll-margin-top:96px}
+.lh{display:flex;align-items:baseline;gap:13px;border-bottom:2px solid var(--accent);padding-bottom:8px}
+.lb{font-family:system-ui,sans-serif;font-size:13px;font-weight:700;background:var(--accent);color:#fff;padding:4px 13px;border-radius:999px}
+.lh h2{font-size:22px;margin:0;color:var(--accent)}
+.cando{margin:13px 0;font-size:15.5px}
+.meta{display:flex;flex-wrap:wrap;gap:16px;font-family:system-ui,sans-serif;font-size:12.5px;color:var(--muted);margin:10px 0 4px}
+.meta .cov{color:var(--green)}
+.sh{font-size:12px;font-family:system-ui,sans-serif;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin:20px 0 6px}
+table.tp{width:100%;border-collapse:collapse;background:var(--card);font-size:15px}
+table.tp td{border-top:1px solid var(--line);padding:7px 11px;vertical-align:middle}
+table.tp tr:hover td{background:#faf9f7}
+td.w{width:36%;text-align:right;white-space:nowrap}
+a.go{font-family:system-ui,sans-serif;font-size:12px;color:var(--accent);text-decoration:none;background:var(--accentbg);padding:3px 9px;border-radius:999px}
+a.go:hover{background:var(--accent);color:#fff}
+.todo{font-family:system-ui,sans-serif;font-size:11.5px;color:#b9b4ab;font-style:italic}
+.pr{background:var(--greenbg);border-left:4px solid var(--green);border-radius:0 9px 9px 0;padding:13px 17px;margin:16px 0 0;font-size:15px}
+.warnbox{background:var(--amberbg);border-left:4px solid var(--amber);border-radius:0 10px 10px 0;padding:16px 20px;margin:16px 0}
+.warnbox h3{margin:0 0 9px;font-size:16px}
+ol,ul{padding-left:22px}li{margin:7px 0}
+table.r{width:100%;border-collapse:collapse;margin:13px 0;font-size:14.5px}
+table.r th,table.r td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+table.r th{background:#f4f2ee;font-family:system-ui,sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+@media(max-width:620px){td.w{width:auto}h1{font-size:25px}}
+</style></head><body>
+<nav class="site">
+  <a href="French_Parcours.html" class="navhome">★ Le parcours</a>
+  <a href="French_Programme.html">Le programme</a><a href="French_Cours_Complet.html"><b>Le livre</b></a>
+  <a href="French_Comprehension_Orale.html">Écoute</a>
+  <a href="French_Conjugueur.html">Conjugueur</a>
+  <a href="French_Lexique.html">Lexique</a>
+  <a href="French_Metiers.html">Métiers</a>
+  <a href="French_Cours_Index.html">Mes cours</a>
+  <a href="French_Comment_Etudier.html">Méthode</a>
+  <a href="French_Plan_10_Mois.html">Plan</a>
+  <a href="French_TCF_Guide.html">TCF</a>
+  <a href="French_Ressources.html">Ressources</a>
+  <a href="French_Archives.html" class="navdim">Archives</a>
+</nav>
+<header>
+<h1>Le programme</h1>
+<p class="sub">Tout ce qui existe en français, du premier jour au C2 — et où chaque sujet est traité sur ce site.</p>
+</header>
+<main>
+
+<div class="panel">
+<h3>Ce qu’est cette page</h3>
+<p>C’est l’<b>inventaire complet</b>. Chaque point de grammaire et chaque champ de vocabulaire du français, rangé par niveau, avec un lien vers le chapitre qui le traite — ou la mention honnête qu’il n’est pas encore écrit.</p>
+<p>Elle répond à trois questions : <b>qu’est-ce qui existe ?</b>, <b>où en suis-je ?</b>, et <b>qu’est-ce que je fais ensuite ?</b></p>
+<p>Elle n’enseigne rien elle-même. C’est une carte, pas un cours — le cours, c’est <a href="French_Cours_Complet.html">le livre</a>.</p>
+</div>
+
+<div class="panel">
+<h3>Comment les niveaux fonctionnent</h3>
+<p>Les six niveaux <b>A1, A2, B1, B2, C1, C2</b> viennent du <b>CECRL</b>, le Cadre européen commun de référence pour les langues. Ils décrivent ce que vous <u>savez faire</u>, pas ce que vous avez étudié — et c’est pourquoi on les appelle des descripteurs « je peux ».</p>
+<table class="r">
+<tr><th>Groupe</th><th>Niveaux</th><th>Ce que ça veut dire</th></tr>
+<tr><td><b>Utilisateur élémentaire</b></td><td>A1 · A2</td><td>Vous survivez. Phrases simples, sujets familiers, interlocuteur coopératif.</td></tr>
+<tr><td><b>Utilisateur indépendant</b></td><td>B1 · B2</td><td>Vous vous débrouillez seul. Vous argumentez, vous comprenez un texte long.</td></tr>
+<tr><td><b>Utilisateur expérimenté</b></td><td>C1 · C2</td><td>Vous êtes à l’aise partout, y compris dans l’implicite et le spécialisé.</td></tr>
+</table>
+<p><b>Pour l’immigration au Canada, la cible est le B1</b> — c’est-à-dire le <b>NCLC 7</b> dans les quatre compétences. C’est le niveau où l’on cesse d’être dépendant d’un interlocuteur patient.</p>
+</div>
+
+<div class="warnbox">
+<h3>Combien d’heures — et pourquoi je vous donne des fourchettes</h3>
+<p>Vous lirez partout des chiffres précis. Ils ne sont pas fiables : les établissements eux-mêmes ne sont pas d’accord entre eux, et certains comptent par palier quand d’autres comptent en cumulé.</p>
+<p>Pour le A1, les estimations vont de <b>60 à 150 heures</b> selon la source. Pour atteindre le C2, de <b>1 000 à 1 300 heures</b> cumulées. L’Alliance française de Vancouver annonce 90 à 110 heures pour le A1 ; celle de Montréal environ 980 à 1 320 heures cumulées jusqu’au C2, en précisant qu’il s’agit de repères et non d’un calendrier.</p>
+<p><b>Ce que ces chiffres ne disent pas :</b> ils comptent des <u>heures de cours</u>, pas des heures de travail personnel, et ils supposent une régularité. Trente minutes par jour battent trois heures le dimanche — ce n’est pas une question de motivation mais de fonctionnement de la mémoire.</p>
+<p>Prenez-les comme un ordre de grandeur. Votre vraie mesure, c’est ce que vous savez faire, pas le compteur.</p>
+</div>
+
+<div class="panel">
+<h3>Par où commencer, concrètement</h3>
+<ol>
+<li><b>Lisez la partie GRAMMAIRE du livre</b> — une heure. Elle n’apprend pas le français, elle apprend à <u>parler du</u> français : sujet, verbe, complément, conjugaison. Sans ce vocabulaire, toutes les explications qui suivent coûtent le double d’effort.</li>
+<li><b>Chapitre 1, la prononciation.</b> Ne le sautez pas. Un mot appris avec un mauvais son doit être désappris plus tard, et c’est bien plus long.</li>
+<li><b>Suivez l’ordre du livre.</b> Chaque chapitre suppose le précédent.</li>
+<li><b>Après les chapitres 6, 12 et 16, faites l’atelier.</b> S’il résiste, ne continuez pas : revenez sur ce qui a cédé.</li>
+<li><b>Ajoutez l’écoute dès la deuxième semaine</b>, vingt minutes deux ou trois fois par semaine, sur <a href="French_Comprehension_Orale.html">la page de compréhension orale</a>.</li>
+</ol>
+<p>Le détail du parcours, avec le contenu de chaque chapitre et les tests pour savoir si vous pouvez avancer, est sur <a href="French_Parcours.html">la page Parcours</a>.</p>
+</div>
+
+<div class="jump">
+<a href="#A1">A1</a><a href="#A2">A2</a><a href="#B1">B1</a><a href="#B2">B2</a><a href="#C1">C1</a><a href="#C2">C2</a><a href="#methode">Comment étudier</a><a href="#ressources">Ressources</a>
+</div>
+<section class="lvl" id="A1">
+<div class="lh"><span class="lb">A1</span><h2>A1 · Découverte</h2></div>
+<p class="cando">Vous vous présentez, vous demandez et donnez des informations simples sur vous, votre famille, votre travail, votre logement. Vous comprenez des phrases courtes dites lentement. Vous lisez des panneaux, des menus, des annonces simples.</p>
+<div class="meta"><span><b>Volume :</b> 60 à 150 heures de cours</span><span><b>Examens :</b> DELF A1 · TCF niveau 1–2 · NCLC 1–3</span><span class="cov"><b>47/47</b> sujets déjà écrits sur le site</span></div>
+<h3 class="sh">Grammaire</h3><table class="tp">
+<tr><td>Les sons, l’alphabet, les accents, la liaison</td><td class="w"><a class="go" href="French_Cours_Complet.html#c01">Ch 1 →</a></td></tr>
+<tr><td>Les pronoms sujets : je, tu, il, on, nous, vous, ils</td><td class="w"><a class="go" href="French_Cours_Complet.html#c02">Ch 2 →</a></td></tr>
+<tr><td>ÊTRE et AVOIR au présent</td><td class="w"><a class="go" href="French_Cours_Complet.html#c04">Ch 4 →</a></td></tr>
+<tr><td>Les expressions avec avoir : avoir faim, soif, froid, peur, ans</td><td class="w"><a class="go" href="French_Cours_Complet.html#c04">Ch 4 →</a></td></tr>
+<tr><td>Le genre des noms : masculin / féminin</td><td class="w"><a class="go" href="French_Cours_Complet.html#c05">Ch 5 →</a></td></tr>
+<tr><td>Le pluriel des noms</td><td class="w"><a class="go" href="French_Cours_Complet.html#c05">Ch 5 →</a></td></tr>
+<tr><td>Les articles définis : le, la, les</td><td class="w"><a class="go" href="French_Cours_Complet.html#c05">Ch 5 →</a></td></tr>
+<tr><td>Les articles indéfinis : un, une, des</td><td class="w"><a class="go" href="French_Cours_Complet.html#c05">Ch 5 →</a></td></tr>
+<tr><td>Les articles partitifs : du, de la, de l’</td><td class="w"><a class="go" href="French_Cours_Complet.html#c05">Ch 5 →</a></td></tr>
+<tr><td>Les contractions : au, aux, du, des</td><td class="w"><a class="go" href="French_Cours_Complet.html#c05">Ch 5 →</a></td></tr>
+<tr><td>« De » après une négation et après une quantité</td><td class="w"><a class="go" href="French_Cours_Complet.html#c05">Ch 5 →</a></td></tr>
+<tr><td>Les nombres 0 à 1 000 000, les prix, le téléphone</td><td class="w"><a class="go" href="French_Cours_Complet.html#c03">Ch 3 →</a></td></tr>
+<tr><td>Les nombres ordinaux : premier, deuxième…</td><td class="w"><a class="go" href="French_Cours_Complet.html#c03">Ch 3 →</a></td></tr>
+<tr><td>Les adjectifs : accord et place</td><td class="w"><a class="go" href="French_Cours_Complet.html#c10">Ch 10 →</a></td></tr>
+<tr><td>Les huit règles du féminin des adjectifs</td><td class="w"><a class="go" href="French_Cours_Complet.html#c10">Ch 10 →</a></td></tr>
+<tr><td>Les adjectifs invariables : marron, orange, sympa</td><td class="w"><a class="go" href="French_Cours_Complet.html#c10">Ch 10 →</a></td></tr>
+<tr><td>Les adjectifs possessifs : mon, ma, mes, son, leur</td><td class="w"><a class="go" href="French_Cours_Complet.html#c07">Ch 7 →</a></td></tr>
+<tr><td>Les adjectifs démonstratifs : ce, cet, cette, ces</td><td class="w"><a class="go" href="French_Cours_Complet.html#c22">Ch 22 →</a></td></tr>
+<tr><td>Le présent des verbes réguliers en -ER</td><td class="w"><a class="go" href="French_Cours_Complet.html#c08">Ch 8 →</a></td></tr>
+<tr><td>Le présent des verbes en -IR et -RE</td><td class="w"><a class="go" href="French_Cours_Complet.html#c08">Ch 8 →</a></td></tr>
+<tr><td>Les verbes irréguliers fréquents : aller, faire, prendre, venir…</td><td class="w"><a class="go" href="French_Cours_Complet.html#c09">Ch 9 →</a></td></tr>
+<tr><td>Les verbes modaux : pouvoir, vouloir, devoir, savoir</td><td class="w"><a class="go" href="French_Cours_Complet.html#c09">Ch 9 →</a></td></tr>
+<tr><td>La négation : ne … pas</td><td class="w"><a class="go" href="French_Cours_Complet.html#c12">Ch 12 →</a></td></tr>
+<tr><td>Poser une question : intonation, est-ce que, inversion</td><td class="w"><a class="go" href="French_Cours_Complet.html#c06">Ch 6 →</a></td></tr>
+<tr><td>Les mots interrogatifs : qui, que, où, quand, comment, pourquoi, combien</td><td class="w"><a class="go" href="French_Cours_Complet.html#c06">Ch 6 →</a></td></tr>
+<tr><td>Quel / quelle / quels / quelles</td><td class="w"><a class="go" href="French_Cours_Complet.html#c06">Ch 6 →</a></td></tr>
+<tr><td>L’heure, les jours, les mois, la date</td><td class="w"><a class="go" href="French_Cours_Complet.html#c11">Ch 11 →</a></td></tr>
+<tr><td>Il y a / il n’y a pas</td><td class="w"><a class="go" href="French_Cours_Complet.html#c05">Ch 5 →</a></td></tr>
+<tr><td>C’est / il est</td><td class="w"><a class="go" href="French_Cours_Complet.html#c22">Ch 22 →</a></td></tr>
+<tr><td>Le futur proche : aller + infinitif</td><td class="w"><a class="go" href="French_Cours_Complet.html#c17">Ch 17 →</a></td></tr>
+<tr><td>L’impératif</td><td class="w"><a class="go" href="French_Cours_Complet.html#c18">Ch 18 →</a></td></tr>
+<tr><td>Les verbes pronominaux et la journée</td><td class="w"><a class="go" href="French_Cours_Complet.html#c19">Ch 19 →</a></td></tr>
+<tr><td>Les prépositions de lieu : sur, sous, devant, près de</td><td class="w"><a class="go" href="French_Cours_Complet.html#c26">Ch 26 →</a></td></tr>
+<tr><td>À, en, au, aux + pays et villes</td><td class="w"><a class="go" href="French_Cours_Complet.html#c26">Ch 26 →</a></td></tr>
+</table>
+<h3 class="sh">Vocabulaire</h3><table class="tp">
+<tr><td>Se présenter : nom, âge, nationalité, profession</td><td class="w"><a class="go" href="French_Cours_Complet.html#c02">Ch 2 →</a></td></tr>
+<tr><td>La famille</td><td class="w"><a class="go" href="French_Cours_Complet.html#c07">Ch 7 →</a></td></tr>
+<tr><td>Les nombres, l’heure, les dates</td><td class="w"><a class="go" href="French_Cours_Complet.html#c03">Ch 3 →</a></td></tr>
+<tr><td>Les couleurs, les formes, les tailles</td><td class="w"><a class="go" href="French_Cours_Complet.html#c10">Ch 10 →</a></td></tr>
+<tr><td>Le corps humain</td><td class="w"><a class="go" href="French_Cours_Complet.html#c24">Ch 24 →</a></td></tr>
+<tr><td>Les vêtements</td><td class="w"><a class="go" href="French_Cours_Complet.html#c24">Ch 24 →</a></td></tr>
+<tr><td>Le caractère et les émotions</td><td class="w"><a class="go" href="French_Cours_Complet.html#c24">Ch 24 →</a></td></tr>
+<tr><td>La nourriture et le restaurant</td><td class="w"><a class="go" href="French_Lexique.html">Le lexique →</a></td></tr>
+<tr><td>Le logement et les meubles</td><td class="w"><a class="go" href="French_Lexique.html">Le lexique →</a></td></tr>
+<tr><td>La ville, les commerces, les directions</td><td class="w"><a class="go" href="French_Lexique.html">Le lexique →</a></td></tr>
+<tr><td>Les transports</td><td class="w"><a class="go" href="French_Lexique.html">Le lexique →</a></td></tr>
+<tr><td>La météo et les saisons</td><td class="w"><a class="go" href="French_Lexique.html">Le lexique →</a></td></tr>
+<tr><td>Les métiers</td><td class="w"><a class="go" href="French_Metiers.html">Les métiers →</a></td></tr>
+</table>
+<div class="pr"><b>Comment travailler ce niveau.</b> Lisez à voix haute tous les jours, même cinq minutes. Faites les dictées : à ce niveau, l’oreille est très en retard sur l’œil, et seule l’écriture sous dictée les rapproche.</div>
+</section>
+<section class="lvl" id="A2">
+<div class="lh"><span class="lb">A2</span><h2>A2 · Survie</h2></div>
+<p class="cando">Vous racontez ce que vous avez fait, vous décrivez votre passé, vous exprimez des goûts et des projets. Vous vous débrouillez dans un magasin, une gare, chez le médecin. Vous comprenez l’essentiel d’une conversation simple sur un sujet familier.</p>
+<div class="meta"><span><b>Volume :</b> 100 à 200 heures de plus</span><span><b>Examens :</b> DELF A2 · TCF niveau 3 · NCLC 4–5</span><span class="cov"><b>44/44</b> sujets déjà écrits sur le site</span></div>
+<h3 class="sh">Grammaire</h3><table class="tp">
+<tr><td>Le passé composé avec AVOIR</td><td class="w"><a class="go" href="French_Cours_Complet.html#c13">Ch 13 →</a></td></tr>
+<tr><td>Les participes passés irréguliers</td><td class="w"><a class="go" href="French_Cours_Complet.html#c13">Ch 13 →</a></td></tr>
+<tr><td>Le passé composé avec ÊTRE — DR MRS VANDERTRAMPP</td><td class="w"><a class="go" href="French_Cours_Complet.html#c14">Ch 14 →</a></td></tr>
+<tr><td>L’accord du participe passé avec le sujet</td><td class="w"><a class="go" href="French_Cours_Complet.html#c14">Ch 14 →</a></td></tr>
+<tr><td>Les verbes à deux auxiliaires : sortir, monter, passer</td><td class="w"><a class="go" href="French_Cours_Complet.html#c14">Ch 14 →</a></td></tr>
+<tr><td>L’imparfait : formation et emplois</td><td class="w"><a class="go" href="French_Cours_Complet.html#c15">Ch 15 →</a></td></tr>
+<tr><td>Passé composé ou imparfait — le choix</td><td class="w"><a class="go" href="French_Cours_Complet.html#c16">Ch 16 →</a></td></tr>
+<tr><td>Le plus-que-parfait</td><td class="w"><a class="go" href="French_Cours_Complet.html#c31">Ch 31 →</a></td></tr>
+<tr><td>Le passé récent : venir de + infinitif</td><td class="w"><a class="go" href="French_Cours_Complet.html#c31">Ch 31 →</a></td></tr>
+<tr><td>Le présent progressif : être en train de</td><td class="w"><a class="go" href="French_Cours_Complet.html#c31">Ch 31 →</a></td></tr>
+<tr><td>Le futur simple</td><td class="w"><a class="go" href="French_Cours_Complet.html#c27">Ch 27 →</a></td></tr>
+<tr><td>Le conditionnel présent et la politesse</td><td class="w"><a class="go" href="French_Cours_Complet.html#c27">Ch 27 →</a></td></tr>
+<tr><td>Les phrases avec SI (deux premiers types)</td><td class="w"><a class="go" href="French_Cours_Complet.html#c27">Ch 27 →</a></td></tr>
+<tr><td>Les pronoms COD : le, la, les</td><td class="w"><a class="go" href="French_Cours_Complet.html#c20">Ch 20 →</a></td></tr>
+<tr><td>Les pronoms COI : lui, leur</td><td class="w"><a class="go" href="French_Cours_Complet.html#c20">Ch 20 →</a></td></tr>
+<tr><td>L’accord du participe avec un COD placé avant</td><td class="w"><a class="go" href="French_Cours_Complet.html#c20">Ch 20 →</a></td></tr>
+<tr><td>Les pronoms Y et EN</td><td class="w"><a class="go" href="French_Cours_Complet.html#c21">Ch 21 →</a></td></tr>
+<tr><td>L’ordre de deux pronoms</td><td class="w"><a class="go" href="French_Cours_Complet.html#c21">Ch 21 →</a></td></tr>
+<tr><td>Les pronoms toniques : moi, toi, lui, eux</td><td class="w"><a class="go" href="French_Cours_Complet.html#c22">Ch 22 →</a></td></tr>
+<tr><td>Les pronoms démonstratifs : celui, celle, ceux</td><td class="w"><a class="go" href="French_Cours_Complet.html#c22">Ch 22 →</a></td></tr>
+<tr><td>Les pronoms relatifs QUI et QUE</td><td class="w"><a class="go" href="French_Cours_Complet.html#c25">Ch 25 →</a></td></tr>
+<tr><td>Le pronom relatif OÙ</td><td class="w"><a class="go" href="French_Cours_Complet.html#c25">Ch 25 →</a></td></tr>
+<tr><td>Ce qui, ce que</td><td class="w"><a class="go" href="French_Cours_Complet.html#c25">Ch 25 →</a></td></tr>
+<tr><td>Le comparatif : plus, moins, aussi … que</td><td class="w"><a class="go" href="French_Cours_Complet.html#c28">Ch 28 →</a></td></tr>
+<tr><td>Le superlatif : le plus, le moins</td><td class="w"><a class="go" href="French_Cours_Complet.html#c28">Ch 28 →</a></td></tr>
+<tr><td>Meilleur contre mieux</td><td class="w"><a class="go" href="French_Cours_Complet.html#c28">Ch 28 →</a></td></tr>
+<tr><td>La négation élargie : jamais, plus, rien, personne, aucun</td><td class="w"><a class="go" href="French_Cours_Complet.html#c12">Ch 12 →</a></td></tr>
+<tr><td>Les prépositions : à, de, en, dans, chez, pour, par</td><td class="w"><a class="go" href="French_Cours_Complet.html#c26">Ch 26 →</a></td></tr>
+<tr><td>Depuis, pendant, pour, il y a</td><td class="w"><a class="go" href="French_Cours_Complet.html#c26">Ch 26 →</a></td></tr>
+<tr><td>Les verbes et leur préposition devant un infinitif</td><td class="w"><a class="go" href="French_Cours_Complet.html#c26">Ch 26 →</a></td></tr>
+<tr><td>Les adverbes en -ment et leur place</td><td class="w"><a class="go" href="French_Cours_Complet.html#g00">Grammaire →</a></td></tr>
+<tr><td>Exprimer la fréquence : toujours, souvent, tous les jours</td><td class="w"><a class="go" href="French_Cours_Complet.html#c23">Ch 23 →</a></td></tr>
+<tr><td>« Le lundi » contre « lundi »</td><td class="w"><a class="go" href="French_Cours_Complet.html#c23">Ch 23 →</a></td></tr>
+<tr><td>Les connecteurs logiques : et, mais, donc, parce que, alors</td><td class="w"><a class="go" href="French_Cours_Complet.html#c30">Ch 30 →</a></td></tr>
+<tr><td>Organiser un propos : d’abord, ensuite, enfin</td><td class="w"><a class="go" href="French_Cours_Complet.html#c30">Ch 30 →</a></td></tr>
+<tr><td>Décrire quelqu’un : les quatre structures</td><td class="w"><a class="go" href="French_Cours_Complet.html#c24">Ch 24 →</a></td></tr>
+<tr><td>Les indéfinis : tout, quelques, plusieurs, chaque</td><td class="w"><a class="go" href="French_Cours_Complet.html#c23">Ch 23 →</a></td></tr>
+</table>
+<h3 class="sh">Vocabulaire</h3><table class="tp">
+<tr><td>Le travail et l’entreprise</td><td class="w"><a class="go" href="French_Lexique.html">Le lexique →</a></td></tr>
+<tr><td>La santé et le corps</td><td class="w"><a class="go" href="French_Lexique.html">Le lexique →</a></td></tr>
+<tr><td>Le voyage et l’hébergement</td><td class="w"><a class="go" href="French_Lexique.html">Le lexique →</a></td></tr>
+<tr><td>Les sentiments</td><td class="w"><a class="go" href="French_Lexique.html">Le lexique →</a></td></tr>
+<tr><td>Les études</td><td class="w"><a class="go" href="French_Lexique.html">Le lexique →</a></td></tr>
+<tr><td>Les loisirs et les centres d’intérêt</td><td class="w"><a class="go" href="French_Cours_Complet.html#c24">Ch 24 →</a></td></tr>
+<tr><td>Les 300 verbes les plus fréquents</td><td class="w"><a class="go" href="French_Conjugueur.html">Le Conjugueur →</a></td></tr>
+</table>
+<div class="pr"><b>Comment travailler ce niveau.</b> C’est ici que l’écoute doit devenir quotidienne. Écoutez d’abord sans transcription, toujours. Et commencez à écrire : trois phrases par jour sur votre journée suffisent à ancrer le passé composé.</div>
+</section>
+<section class="lvl" id="B1">
+<div class="lh"><span class="lb">B1</span><h2>B1 · Seuil — le niveau de l’immigration</h2></div>
+<p class="cando">Vous tenez une conversation sur des sujets familiers, vous racontez une expérience, vous justifiez une opinion, vous vous débrouillez dans la plupart des situations de voyage. Vous comprenez l’essentiel d’une émission ou d’un article si le sujet vous est familier.</p>
+<div class="meta"><span><b>Volume :</b> 150 à 250 heures de plus</span><span><b>Examens :</b> DELF B1 · TCF niveau 4 · NCLC 7 — le niveau visé pour Entrée express</span><span class="cov"><b>12/25</b> sujets déjà écrits sur le site</span></div>
+<h3 class="sh">Grammaire</h3><table class="tp">
+<tr><td>Le subjonctif présent : formation</td><td class="w"><a class="go" href="French_Cours_Complet.html#c29">Ch 29 →</a></td></tr>
+<tr><td>Les déclencheurs du subjonctif : il faut que, vouloir que, bien que</td><td class="w"><a class="go" href="French_Cours_Complet.html#c29">Ch 29 →</a></td></tr>
+<tr><td>Subjonctif ou infinitif : la règle du sujet identique</td><td class="w"><a class="go" href="French_Cours_Complet.html#c29">Ch 29 →</a></td></tr>
+<tr><td>Le pronom relatif DONT</td><td class="w"><a class="go" href="French_Cours_Complet.html#c25">Ch 25 →</a></td></tr>
+<tr><td>Ce dont</td><td class="w"><a class="go" href="French_Cours_Complet.html#c25">Ch 25 →</a></td></tr>
+<tr><td>Lequel, laquelle, auquel, duquel</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Le gérondif : en faisant</td><td class="w"><a class="go" href="French_Cours_Complet.html#c31">Ch 31 →</a></td></tr>
+<tr><td>Le conditionnel passé : j’aurais fait</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Les phrases avec SI — troisième type (le regret)</td><td class="w"><a class="go" href="French_Cours_Complet.html#c31">Ch 31 →</a></td></tr>
+<tr><td>Le discours indirect au présent : il dit que…</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Le discours indirect au passé et la concordance des temps</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>La voix passive : la lettre a été écrite</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Le participe présent : une personne parlant français</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>L’infinitif passé : après avoir mangé</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>La cause, la conséquence, le but, l’opposition</td><td class="w"><a class="go" href="French_Cours_Complet.html#c30">Ch 30 →</a></td></tr>
+<tr><td>Les connecteurs de l’écrit : cependant, en revanche, par conséquent</td><td class="w"><a class="go" href="French_Cours_Complet.html#c30">Ch 30 →</a></td></tr>
+<tr><td>La mise en relief : ce qui m’intéresse, c’est…</td><td class="w"><a class="go" href="French_Cours_Complet.html#c25">Ch 25 →</a></td></tr>
+<tr><td>Les indéfinis : chacun, quelques-uns, certains, n’importe quel</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Le futur antérieur : quand j’aurai fini</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Les doubles pronoms à l’impératif</td><td class="w"><a class="go" href="French_Cours_Complet.html#c21">Ch 21 →</a></td></tr>
+</table>
+<h3 class="sh">Vocabulaire</h3><table class="tp">
+<tr><td>L’actualité, la société, l’environnement</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Le monde du travail : entretien, CV, candidature</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>L’administration et les démarches</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>L’argumentation : à mon avis, selon moi, il me semble</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Les registres : familier, courant, soutenu</td><td class="w"><a class="go" href="French_Cours_Complet.html#c30">Ch 30 →</a></td></tr>
+</table>
+<div class="pr"><b>Comment travailler ce niveau.</b> Le passage A2 → B1 ne se joue pas sur le vocabulaire mais sur la <b>construction</b> : relatives, connecteurs, nuances. Un candidat qui dit « j’aime Paris, c’est beau, il y a des monuments » reste A2 ; « ce que j’aime à Paris, c’est qu’on peut tout faire à pied, même si c’est parfois fatigant » est B1 avec le même vocabulaire.</div>
+</section>
+<section class="lvl" id="B2">
+<div class="lh"><span class="lb">B2</span><h2>B2 · Avancé</h2></div>
+<p class="cando">Vous comprenez un texte long et complexe, vous suivez un débat, vous argumentez en défendant un point de vue. Vous vous exprimez spontanément sans chercher vos mots trop visiblement. C’est le niveau demandé par la plupart des universités francophones.</p>
+<div class="meta"><span><b>Volume :</b> 200 à 300 heures de plus</span><span><b>Examens :</b> DELF B2 · TCF niveau 5 · NCLC 8–9</span><span class="cov"><b>1/22</b> sujets déjà écrits sur le site</span></div>
+<h3 class="sh">Grammaire</h3><table class="tp">
+<tr><td>Le subjonctif passé : bien qu’il soit parti</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Le subjonctif après les verbes d’opinion niés</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Le conditionnel de l’information non confirmée</td><td class="w"><a class="go" href="French_Cours_Complet.html#c27">Ch 27 →</a></td></tr>
+<tr><td>La concordance des temps complète</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Le discours indirect complexe : interrogations, ordres</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Les propositions participiales : la nuit tombant, nous sommes rentrés</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>La double pronominalisation complète</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Les pronoms relatifs composés : auquel, duquel, parmi lesquels</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Le passif et ses alternatives : on, se faire, pronominal passif</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>L’expression de l’hypothèse : au cas où, à supposer que, si jamais</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>La concession : quoique, quel que, si … que</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>La restriction : ne … que, seulement, uniquement</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Les nuances de la cause : étant donné que, du fait que, sous prétexte que</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>L’expression du but : de peur que, de sorte que, afin de</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Les adverbes de modalisation : certes, sans doute, apparemment</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Le passé simple — à reconnaître en lecture</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Les nominalisations : la construction du pont (plutôt que « on a construit »)</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+</table>
+<h3 class="sh">Vocabulaire</h3><table class="tp">
+<tr><td>Le lexique de l’argumentation et du débat</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Le vocabulaire de la presse et des médias</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Les expressions idiomatiques courantes</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Les faux amis : actuellement, éventuellement, sensible, librairie</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Les registres et la variation : français de France / du Québec</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+</table>
+<div class="pr"><b>Comment travailler ce niveau.</b> À ce niveau, les manuels servent moins que la <b>consommation réelle</b> : presse, podcasts, séries en VO. L’objectif n’est plus d’apprendre des règles mais d’augmenter le volume et la vitesse.</div>
+</section>
+<section class="lvl" id="C1">
+<div class="lh"><span class="lb">C1</span><h2>C1 · Autonome</h2></div>
+<p class="cando">Vous vous exprimez couramment et spontanément, sans chercher vos mots. Vous saisissez l’implicite, l’ironie, les allusions. Vous écrivez des textes structurés sur des sujets complexes et vous adaptez votre registre à l’interlocuteur.</p>
+<div class="meta"><span><b>Volume :</b> 250 à 350 heures de plus</span><span><b>Examens :</b> DALF C1 · TCF niveau 6 · NCLC 10</span><span class="cov"><b>0/13</b> sujets déjà écrits sur le site</span></div>
+<h3 class="sh">Grammaire</h3><table class="tp">
+<tr><td>Le subjonctif imparfait — reconnaissance en littérature</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Le passé antérieur et le passé simple en récit</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>L’inversion stylistique : peut-être viendra-t-il</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Les constructions impersonnelles complexes</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>La concession littéraire : fût-ce, n’était</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Les connecteurs savants : nonobstant, au demeurant, partant</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>L’ellipse et la coordination complexe</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Les nuances aspectuelles : être sur le point de, ne pas tarder à</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>La modalisation fine : il semblerait que, force est de constater</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+</table>
+<h3 class="sh">Vocabulaire</h3><table class="tp">
+<tr><td>Le lexique spécialisé de votre domaine professionnel</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Les expressions figées et les proverbes</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>L’argot courant et le verlan de base</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Les niveaux de langue à l’écrit administratif</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+</table>
+<div class="pr"><b>Comment travailler ce niveau.</b> On n’atteint pas le C1 par des exercices. On l’atteint en <b>vivant</b> en français : lire un roman par mois, écouter des émissions non pédagogiques, écrire régulièrement et se faire corriger.</div>
+</section>
+<section class="lvl" id="C2">
+<div class="lh"><span class="lb">C2</span><h2>C2 · Maîtrise</h2></div>
+<p class="cando">Vous comprenez pratiquement tout ce que vous lisez ou entendez, y compris les textes abstraits et les variations régionales. Vous vous exprimez avec précision et nuance, en distinguant de fines nuances de sens même dans des situations complexes.</p>
+<div class="meta"><span><b>Volume :</b> 250 à 400 heures de plus — total cumulé d’environ 1 000 à 1 300 heures</span><span><b>Examens :</b> DALF C2 · TCF niveau 6+ · NCLC 10+</span><span class="cov"><b>0/7</b> sujets déjà écrits sur le site</span></div>
+<h3 class="sh">Grammaire</h3><table class="tp">
+<tr><td>Toute la grammaire est acquise — il ne reste que l’usage</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Les subtilités de l’accord du participe passé</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Les emplois littéraires et archaïques</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>La stylistique : rythme, figures, registre</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+</table>
+<h3 class="sh">Vocabulaire</h3><table class="tp">
+<tr><td>Le lexique de spécialité à un niveau professionnel</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>Les références culturelles et historiques implicites</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+<tr><td>L’humour, l’ironie, le second degré</td><td class="w"><span class="todo">pas encore écrit</span></td></tr>
+</table>
+<div class="pr"><b>Comment travailler ce niveau.</b> À ce stade, la question n’est plus « comment apprendre le français » mais « comment entretenir et affiner ». Lecture, écriture, immersion — il n’y a pas de raccourci et il n’y a plus de programme.</div>
+</section><section class="lvl" id="methode">
+<div class="lh"><span class="lb">MÉTHODE</span><h2>Comment étudier — ce qui marche et ce qui n’en a que l’air</h2></div>
+
+<div class="warnbox">
+<h3>Les trois choses qui donnent l’illusion d’apprendre</h3>
+<p><b>1 · Relire ses notes.</b> La relecture produit un sentiment de familiarité qu’on confond avec la connaissance. C’est l’erreur la plus répandue et la mieux documentée.</p>
+<p><b>2 · Écouter avec la transcription sous les yeux.</b> On comprend tout, on se sent compétent, et l’oreille ne travaille pas une seconde.</p>
+<p><b>3 · Regarder une vidéo de grammaire.</b> Comprendre une règle expliquée par quelqu’un d’autre n’est pas savoir l’appliquer. Il faut produire.</p>
+<p>Le point commun : ces trois activités sont <b>passives et agréables</b>. L’apprentissage, lui, est actif et un peu inconfortable.</p>
+</div>
+
+<div class="panel">
+<h3>Les quatre principes qui marchent vraiment</h3>
+<p><b>① Le rappel actif.</b> Fermez le livre et essayez de produire. Un exercice raté vous apprend plus qu’un paragraphe relu trois fois. C’est l’<u>effort</u> de récupération qui installe la mémoire, pas l’exposition.</p>
+<p><b>② L’espacement.</b> Revoyez à J+2, J+7, J+30 — pas trois fois dans la même soirée. L’oubli partiel, suivi d’un effort de rappel, est le mécanisme même de la mémorisation durable.</p>
+<p><b>③ Le mélange.</b> Ne faites pas quarante exercices sur l’imparfait d’affilée. Mélangez imparfait et passé composé : c’est plus dur, les résultats du jour sont moins bons, et la rétention à long terme est nettement meilleure.</p>
+<p><b>④ La production.</b> Écrire et parler, même mal, bat toute forme de consommation. Trois phrases par jour sur votre journée réelle valent mieux qu’une heure de vidéos.</p>
+</div>
+
+<div class="panel">
+<h3>Une semaine type, pour une heure par jour</h3>
+<table class="r">
+<tr><th>Jour</th><th>40 minutes</th><th>20 minutes</th></tr>
+<tr><td>Lundi</td><td>Nouveau chapitre : lire une section, faire ses exercices</td><td>Révision J+2 du chapitre précédent</td></tr>
+<tr><td>Mardi</td><td>Suite du chapitre</td><td><a href="French_Comprehension_Orale.html">Écoute</a> — une piste, sans transcription d’abord</td></tr>
+<tr><td>Mercredi</td><td>Fin du chapitre + dictée</td><td>Révision J+7</td></tr>
+<tr><td>Jeudi</td><td><a href="French_Lexique.html">Lexique</a> : un thème, anglais masqué</td><td>Écoute</td></tr>
+<tr><td>Vendredi</td><td>Écrire 8 à 10 phrases sur votre semaine</td><td>Révision</td></tr>
+<tr><td>Samedi</td><td>Atelier ou chapitre suivant</td><td>Écoute longue — podcast, vidéo</td></tr>
+<tr><td>Dimanche</td><td colspan="2">Repos, ou vingt minutes de lecture plaisir. Le repos fait partie de la méthode.</td></tr>
+</table>
+<p><b>Et comptez la révision DANS votre heure, pas en plus.</b> Une heure, c’est quarante minutes de neuf et vingt minutes d’ancien. Sinon la révision est la première chose qu’on sacrifie — et c’est celle qui fait la différence.</p>
+</div>
+
+<div class="panel">
+<h3>Comment travailler chacune des quatre compétences</h3>
+<table class="r">
+<tr><th>Compétence</th><th>Ce qui marche</th><th>Erreur fréquente</th></tr>
+<tr><td><b>Compréhension orale</b></td><td>Écouter <u>sans</u> texte, deux ou trois fois, noter ce qu’on attrape, puis seulement lire la transcription</td><td>Lire en écoutant dès la première fois</td></tr>
+<tr><td><b>Compréhension écrite</b></td><td>Lire un peu tous les jours, deviner avant de chercher, accepter de ne pas tout comprendre</td><td>Chercher chaque mot au dictionnaire — on ne finit jamais le texte</td></tr>
+<tr><td><b>Expression écrite</b></td><td>Écrire court et régulier, puis se relire à froid en cherchant trois fautes précises (accords, auxiliaire, prépositions)</td><td>Écrire long et ne jamais se relire</td></tr>
+<tr><td><b>Expression orale</b></td><td>Parler à voix haute même seul, s’enregistrer, préparer des blocs tout faits pour les sujets prévisibles</td><td>Attendre d’être « prêt » pour commencer à parler</td></tr>
+</table>
+</div>
+</section>
+
+<section class="lvl" id="ressources">
+<div class="lh"><span class="lb">RESSOURCES</span><h2>Quoi écouter, lire et utiliser en dehors du site</h2></div>
+
+<div class="panel">
+<h3>Écouter — par niveau</h3>
+<table class="r">
+<tr><th>Niveau</th><th>Quoi</th><th>Pourquoi</th></tr>
+<tr><td>A1 → A2</td><td><b>Français Authentique</b>, <b>InnerFrench</b> (début), <b>Coffee Break French</b></td><td>Débit ralenti, vocabulaire contrôlé, explications en français simple</td></tr>
+<tr><td>A2 → B1</td><td><b>InnerFrench</b>, <b>Journal en français facile</b> (RFI), <b>News in Slow French</b></td><td>Le pont entre le français scolaire et le français réel</td></tr>
+<tr><td>B1 → B2</td><td><b>RFI Savoirs</b>, <b>TV5Monde Apprendre</b>, podcasts natifs sur vos centres d’intérêt</td><td>Débit normal, sujets non pédagogiques</td></tr>
+<tr><td>B2 +</td><td>Radio France, France Culture, séries québécoises pour l’accent canadien</td><td>Français réel, sans adaptation</td></tr>
+</table>
+<p><b>Pour le TCF Canada en particulier :</b> habituez votre oreille à l’<b>accent québécois</b>, qui diffère nettement du français de France sur les voyelles. Les examens canadiens emploient les deux.</p>
+</div>
+
+<div class="panel">
+<h3>Lire — et des manuels libres de droits</h3>
+<p>Il existe de vrais manuels de français sous licence ouverte, gratuits et légaux :</p>
+<ul>
+<li><a href="https://open.umn.edu/opentextbooks/textbooks/248">Français Interactif</a> — University of Texas, licence Creative Commons. Cours complet avec PDF.</li>
+<li><a href="https://pressbooks.library.torontomu.ca/ryersonoerdiscipline/chapter/french/">Liberté</a> — manuel communicatif pour débutants, CC BY-NC-SA.</li>
+<li><a href="https://openlibrary-repo.ecampusontario.ca/jspui/bitstream/123456789/618/2/Introduction-to-French-1569861828._print%20(1).pdf">Introduction to French</a> — Conestoga College, Ontario, CC BY-NC-SA.</li>
+<li><a href="https://upload.wikimedia.org/wikipedia/commons/6/63/French.pdf">Wikibooks French</a> — 226 pages, du débutant à l’avancé.</li>
+</ul>
+<p>Les versions de licence varient d’une source à l’autre : vérifiez sur la page du manuel avant de redistribuer quoi que ce soit.</p>
+</div>
+
+<div class="panel">
+<h3>Les outils du site, et quand les ouvrir</h3>
+<table class="r">
+<tr><th>Outil</th><th>Quand</th></tr>
+<tr><td><a href="French_Cours_Complet.html"><b>Le livre</b></a></td><td>Tous les jours. C’est le cours.</td></tr>
+<tr><td><a href="French_Comprehension_Orale.html"><b>Écoute</b></a></td><td>Deux ou trois fois par semaine, vingt minutes.</td></tr>
+<tr><td><a href="French_Conjugueur.html"><b>Conjugueur</b></a></td><td>Quand vous butez sur une forme — pour vérifier, pas pour étudier.</td></tr>
+<tr><td><a href="French_Lexique.html"><b>Lexique</b></a></td><td>Un thème par séance, anglais masqué.</td></tr>
+<tr><td><a href="French_Metiers.html"><b>Métiers</b></a></td><td>Avant toute question sur le travail.</td></tr>
+<tr><td><a href="French_Parcours.html"><b>Parcours</b></a></td><td>Quand vous ne savez pas quoi faire ensuite.</td></tr>
+<tr><td><a href="French_TCF_Guide.html"><b>Guide TCF</b></a></td><td>Une fois maintenant, puis trois mois avant l’examen.</td></tr>
+</table>
+</div>
+
+<div class="warnbox">
+<h3>Ce que cette page ne couvre pas encore</h3>
+<p>Sur les <b>158 sujets</b> listés ici, <b>104 sont écrits sur le site</b>. Les 54 autres sont marqués « pas encore écrit » et sont presque tous en B2 et au-delà.</p>
+<p>Le A1 et le A2 sont complets. Le B1 l’est aux trois quarts — il manque surtout le discours indirect, la voix passive et les relatifs composés. Le B2, le C1 et le C2 sont pour l’instant une carte sans territoire : ils vous disent ce qui existe, pas comment le faire.</p>
+<p>C’est volontaire. Votre cible est le <b>B1 / NCLC 7</b>, et il vaut mieux un A1–B1 complet qu’un C2 esquissé.</p>
+</div>
+</section>
+</main>
+<script>
+(function(){var nav=document.querySelector('nav.site');if(!nav)return;var last=0,t=false;
+window.addEventListener('scroll',function(){if(t)return;t=true;requestAnimationFrame(function(){
+var y=window.pageYOffset;if(y>160&&y>last+4)nav.classList.add('navhidden');else if(y<last-4||y<=160)nav.classList.remove('navhidden');last=y;t=false;});},{passive:true});})();
+</script>
+</body></html>

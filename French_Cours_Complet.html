@@ -20,7 +20,13 @@
   .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
   .toggle button.on { background:var(--accent); color:#fff; }
   #search { flex:1 1 200px; min-width:160px; border:1px solid var(--line); border-radius:999px; padding:8px 14px; font-size:14px; background:var(--card); color:var(--ink); }
-  .parttabs { display:flex; gap:6px; flex-wrap:wrap; margin:14px 0 18px; position:sticky; top:0; background:var(--bg); padding:10px 0; z-index:9; border-bottom:1px solid var(--line); }
+  .parttabs { display:flex; gap:6px; flex-wrap:wrap; margin:14px 0 18px; position:sticky; top:0; background:var(--bg); padding:10px 0 8px; z-index:9; border-bottom:1px solid var(--line); transition:max-height .22s ease; }
+  .parttabs.collapsed { max-height:46px; overflow:hidden; }
+  .tabstoggle { position:sticky; top:0; z-index:10; display:flex; justify-content:flex-end; margin:-6px 0 0; }
+  .tabstoggle button { border:1px solid var(--line); background:var(--card); color:var(--accent); border-radius:999px; padding:4px 12px; font-size:12px; font-family:system-ui,sans-serif; cursor:pointer; }
+  .tabstoggle button:hover { background:var(--accentbg); }
+  nav.site { transition:transform .25s ease; }
+  nav.site.navhidden { transform:translateY(-110%); }
   .parttabs button { border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:999px; padding:7px 13px; font-size:13px; cursor:pointer; }
   .parttabs button.on { background:var(--accent); color:#fff; border-color:var(--accent); }
   .parthead { margin:6px 0 14px; }
@@ -123,11 +129,11 @@ nav.site a.navdim{color:#b9b4ab;margin-left:auto}
 <body>
 <div class="wrap">
   <h1>Grammaire complète — A1 → C1</h1>
-  <p class="sub">34 chapitres, à partir de zéro · vocabulaire, prononciation, grammaire expliquée en anglais, et exercices</p>
+  <p class="sub">37 parties, à partir de zéro · vocabulaire, prononciation, grammaire expliquée en anglais, et exercices</p>
 
   <nav class="site">
   <a href="French_Parcours.html" class="navhome">★ Le parcours</a>
-  <a href="French_Cours_Complet.html"><b>Le livre</b></a>
+  <a href="French_Programme.html">Le programme</a><a href="French_Cours_Complet.html"><b>Le livre</b></a>
   <a href="French_Comprehension_Orale.html">Écoute</a>
   <a href="French_Conjugueur.html">Conjugueur</a>
   <a href="French_Lexique.html">Lexique</a>
@@ -150,7 +156,8 @@ nav.site a.navdim{color:#b9b4ab;margin-left:auto}
     <span id="voiceStatus"></span>
   </div>
 
-  <div class="parttabs" id="parttabs"></div>
+  <div class="parttabs collapsed" id="parttabs"></div>
+  <div class="tabstoggle"><button id="tabstog">▾ Tous les chapitres</button></div>
   <div id="book"></div>
 </div>
 
@@ -343,7 +350,7 @@ const BOOK = [];
 
 
 BOOK.push({
-  id:'plan', part:'Le plan — The 34-chapter roadmap',
+  id:'plan', part:'Le plan — la feuille de route',
   sub:"Where you are, where this goes, and what each chapter contains. Start here.",
   chapters:[
   { title:'Comment ce livre est construit — How this book works', blocks:[
@@ -12511,5 +12518,34 @@ document.getElementById('speed').addEventListener('click',e=>{
 });
 </script>
 <script src="french_glossary.js"></script>
+
+<script>
+/* ---- collapsible chapter tabs ---- */
+(function(){
+  var tabs=document.getElementById('parttabs'), tog=document.getElementById('tabstog');
+  if(!tabs||!tog) return;
+  function label(){ tog.textContent = tabs.classList.contains('collapsed') ? '▾ Tous les chapitres' : '▴ Réduire'; }
+  tog.addEventListener('click', function(){ tabs.classList.toggle('collapsed'); label(); });
+  /* choosing a chapter re-collapses the bar so the text is visible */
+  tabs.addEventListener('click', function(e){
+    if(e.target.tagName==='BUTTON'){ tabs.classList.add('collapsed'); label(); }
+  });
+  label();
+})();
+/* ---- site nav hides when scrolling down, returns when scrolling up ---- */
+(function(){
+  var nav=document.querySelector('nav.site'); if(!nav) return;
+  var last=window.pageYOffset, ticking=false;
+  window.addEventListener('scroll', function(){
+    if(ticking) return; ticking=true;
+    window.requestAnimationFrame(function(){
+      var y=window.pageYOffset;
+      if(y>160 && y>last+4) nav.classList.add('navhidden');
+      else if(y<last-4 || y<=160) nav.classList.remove('navhidden');
+      last=y; ticking=false;
+    });
+  }, {passive:true});
+})();
+</script>
 </body>
 </html>
