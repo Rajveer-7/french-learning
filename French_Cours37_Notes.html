@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cours 37 — Les mots utiles du passé composé et de l’imparfait</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+  .reading { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:10px 0; }
+  .reading p { margin:0 0 10px; }
+</style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
+<style id="mobile-fix">
+@media (max-width: 640px){
+  .wrap{ padding:12px 12px 70px; }
+  h1{ font-size:22px; line-height:1.25; }
+  h2{ font-size:19px; }
+  h3{ font-size:16px; }
+  /* nav becomes one swipeable row instead of a wall of chips */
+  nav{ flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
+       padding-bottom:6px; margin-bottom:14px; scrollbar-width:thin; }
+  nav a{ flex:0 0 auto; white-space:nowrap; font-size:12px; padding:6px 9px; }
+  /* tables scroll sideways instead of crushing */
+  table, .conjt{ display:block; width:100%; overflow-x:auto;
+                 -webkit-overflow-scrolling:touch; white-space:nowrap; font-size:13px; }
+  table td, table th, .conjt td, .conjt th{ white-space:normal; min-width:92px; }
+  /* reading blocks */
+  .note,.example,.warn,.source,.lead,.txtp{ font-size:14.5px; }
+  .grid{ grid-template-columns:1fr !important; }
+  /* bigger tap targets on the audio rows */
+  .row{ padding:10px 8px; }
+  .play{ min-width:38px; min-height:38px; }
+  .fr{ font-size:16px; }
+  .ph,.en{ font-size:13px; }
+  /* exercises */
+  .fillrow input{ width:100%; box-sizing:border-box; font-size:16px; padding:8px; }
+  .fillrow button,.riddle button{ padding:9px 12px; font-size:14px; margin-top:6px; }
+  .riddle .btns{ display:flex; flex-wrap:wrap; gap:6px; }
+  /* book page chapter tabs */
+  .parttabs{ flex-wrap:nowrap; overflow-x:auto; }
+  .parttabs button{ flex:0 0 auto; white-space:nowrap; }
+}
+
+nav.site{background:#fff;border-bottom:1px solid #e6e3dc;padding:9px 14px;display:flex;flex-wrap:wrap;gap:3px;font-family:system-ui,-apple-system,sans-serif;font-size:12.5px;position:sticky;top:0;z-index:40}
+nav.site a{color:#6b675f;text-decoration:none;padding:4px 9px;border-radius:6px;white-space:nowrap}
+nav.site a:hover{background:#eceafe;color:#4338ca}
+nav.site a.navhome{color:#4338ca;font-weight:600}
+nav.site a.navdim{color:#b9b4ab;margin-left:auto}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>French — Cours 37 : les mots qui choisissent le temps</h1>
+  <p class="sub">La liste des indicateurs de temps, triée en deux colonnes — parce que la diapositive ne les sépare pas, et que c’est la seule chose qui compte</p>
+
+  <nav class="site">
+  <a href="French_Parcours.html" class="navhome">★ Le parcours</a>
+  <a href="French_Programme.html">Le programme</a><a href="French_Cours_Complet.html"><b>Le livre</b></a>
+  <a href="French_Comprehension_Orale.html">Écoute</a>
+  <a href="French_Conjugueur.html">Conjugueur</a>
+  <a href="French_Lexique.html">Lexique</a>
+  <a href="French_Metiers.html">Métiers</a>
+  <a href="French_Cours_Index.html">Mes cours</a>
+  <a href="French_Comment_Etudier.html">Méthode</a>
+  <a href="French_Plan_10_Mois.html">Plan</a>
+  <a href="French_TCF_Guide.html">TCF</a>
+  <a href="French_Ressources.html">Ressources</a>
+  <a href="French_Archives.html" class="navdim">Archives</a>
+</nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <span class="toggle"><button id="n" class="on">Normal</button><button id="s">Slow</button></span>
+    <span id="voicewarn"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+<script>
+
+
+
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=(r||rate); return u;
+}
+function speak(text, r){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').innerHTML=fr; c.querySelector('.ph').innerHTML=ph;
+    const plain=String(fr).replace(/<[^>]*>/g,'').replace(/\s*—.*$/,'').trim();
+    c.onclick=()=>speak(plain); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+/* ===== 1 ===== */
+function fillx(list){ fill(list.map(x=>({s:x[0], a:[x[1]], en:x[2]||'', why:x[3]||('Réponse : <b>'+x[1]+'</b>')}))); }
+function mcqx(list){ mcq(list.map(x=>({q:x[0], opts:x[1], a:x[2], why:x[3]||''}))); }
+
+function read(paras){
+  const d=document.createElement('div'); d.className='reading';
+  paras.forEach(t=>{
+    const el=document.createElement('p'); el.innerHTML=t; el.style.cursor='pointer';
+    const plain=String(t).replace(/<[^>]*>/g,'');
+    el.onclick=()=>speak(plain);
+    d.appendChild(el);
+  });
+  content.appendChild(d);
+}
+
+function dict(items){
+  items.forEach((it,n)=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const top=document.createElement('div'); top.className='sent';
+    top.innerHTML='<b>'+(n+1)+'.</b> Écoutez, puis écrivez ce que vous entendez. <i>(Listen, then write what you hear.)</i>';
+    const bar=document.createElement('div'); bar.style.cssText='display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:8px 0';
+    const pb=document.createElement('button'); pb.textContent='▶ Écouter'; pb.onclick=()=>speak(it.fr);
+    const sb=document.createElement('button'); sb.textContent='▶ Lentement'; sb.onclick=()=>speak(it.fr,0.55);
+    const inp=document.createElement('input'); inp.placeholder='Écrivez ici…'; inp.style.flex='1';
+    const cb=document.createElement('button'); cb.textContent='Vérifier';
+    const fb=document.createElement('div'); fb.className='fb';
+    function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9' ]/g,' ').replace(/\s+/g,' ').trim(); }
+    cb.onclick=()=>{
+      if(norm(inp.value)===norm(it.fr)){ fb.className='fb ok'; fb.innerHTML='✓ <b>'+it.fr+'</b><br>'+(it.en||'')+(it.why?'<br><i>'+it.why+'</i>':''); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Réponse : <b>'+it.fr+'</b><br>'+(it.en||'')+(it.why?'<br><i>'+it.why+'</i>':''); }
+    };
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') cb.onclick(); });
+    bar.appendChild(pb); bar.appendChild(sb); bar.appendChild(inp); bar.appendChild(cb);
+    d.appendChild(top); d.appendChild(bar); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+
+h2('0 · Ce que la diapositive ne dit pas');
+lead("La prof a affiché « <b>Les mots utiles en passé composé et imparfait</b> » — une liste de vingt indicateurs de temps, en trois colonnes. Le titre dit « <i>et</i> », et c’est exactement le problème : <b>la liste ne sépare pas les deux temps</b>.");
+warn("<b>Or c’est toute l’information.</b><br><br>Ces vingt mots ne sont pas des synonymes. Chacun appartient à <u>un</u> des deux temps, et il le choisit pour vous. Si vous apprenez la liste telle qu’elle est projetée, vous retenez vingt mots et zéro règle.<br><br>Voici donc la même liste, <b>triée</b>. C’est la seule note à retenir de ce cours.");
+table(['→ IMPARFAIT · ça se répétait','→ PASSÉ COMPOSÉ · c’est arrivé une fois'],[
+ ['<b>chaque</b> semaine, mois, année','<b>une</b> semaine, <b>un</b> mois, <b>un</b> an'],
+ ['<b>le</b> week-end','<b>un</b> week-end'],
+ ['<b>le</b> lundi, <b>le</b> mardi…','lundi, mardi… <span style="color:#6b675f">(sans article)</span>'],
+ ['tous les jours','une fois, deux fois'],
+ ['<b>le</b> matin, <b>le</b> soir','plusieurs fois'],
+ ['toujours','soudain, soudainement'],
+ ['normalement, d’habitude','enfin'],
+ ['en général, généralement','finalement'],
+ ['souvent','—'],
+ ['parfois, quelquefois','—'],
+ ['de temps en temps','—'],
+ ['rarement','—']
+]);
+note("<b>Regardez la colonne de gauche contre la colonne de droite, ligne par ligne.</b><br><br>· <b>le</b> week-end → <b>un</b> week-end<br>· <b>le</b> lundi → lundi<br>· <b>chaque</b> semaine → <b>une</b> semaine<br><br>Ce sont les <u>mêmes noms</u>. Ce qui change, c’est le petit mot devant — et ce petit mot décide du temps de votre verbe.<br><br><b>L’article défini (le, la, les) et <i>chaque</i> disent « à chaque fois » → imparfait.</b><br><b>L’article indéfini (un, une) ou rien du tout disent « cette fois-là » → passé composé.</b><br><br>Vous aviez déjà cette règle au chapitre 23, sous la forme « <i>le lundi</i> contre <i>lundi</i> ». La voici généralisée à tout le vocabulaire du temps.");
+rows([
+ ["Le week-end, je faisais du sport.","luh wee-KEND zhuh fuh-ZEH dü SPOR","At weekends, I used to do sport."],
+ ["Un week-end, j’ai fait du ski.","un wee-KEND zhay feh dü SKEE","One weekend, I went skiing."],
+ ["Le lundi, je travaillais tard.","luh lun-DEE zhuh tra-va-YEH TAR","On Mondays, I used to work late."],
+ ["Lundi, j’ai travaillé tard.","lun-DEE zhay tra-va-YAY TAR","On Monday, I worked late."],
+ ["Chaque année, nous allions en Inde.","shak a-NAY noo-za-LYON on AND","Every year we went to India."],
+ ["Une année, nous sommes allés au Japon.","ün a-NAY noo som-za-LAY oh zha-PON","One year we went to Japan."]
+]);
+
+h2('1 · La liste complète, avec les prononciations');
+lead("Les vingt indicateurs de la diapositive, dans l’ordre où ils ont été projetés. Cliquez pour entendre.");
+h3('1.1 · Ceux qui appellent l’IMPARFAIT');
+rows([
+ ["chaque semaine, chaque mois, chaque année","shak suh-MEN · shak MWA · shak a-NAY","every week, month, year"],
+ ["le week-end","luh wee-KEND","at weekends"],
+ ["le lundi, le mardi…","luh lun-DEE luh mar-DEE","on Mondays, on Tuesdays"],
+ ["tous les jours","too lay ZHOOR","every day"],
+ ["le matin, le soir","luh ma-TAN luh SWAR","in the mornings, in the evenings"],
+ ["toujours","too-ZHOOR","always"],
+ ["normalement","nor-mal-MON","normally"],
+ ["d’habitude","da-bee-TÜD","usually"],
+ ["en général","on zhay-nay-RAL","in general"],
+ ["généralement","zhay-nay-ral-MON","generally"],
+ ["souvent","soo-VON","often"],
+ ["parfois","par-FWA","sometimes"],
+ ["quelquefois","kel-kuh-FWA","sometimes"],
+ ["de temps en temps","duh ton-zon-TON","from time to time"],
+ ["rarement","rar-MON","rarely"]
+]);
+h3('1.2 · Ceux qui appellent le PASSÉ COMPOSÉ');
+rows([
+ ["un week-end","un wee-KEND","one weekend"],
+ ["lundi, mardi…","lun-DEE mar-DEE","on Monday, on Tuesday"],
+ ["une semaine, un mois, un an","ün suh-MEN · un MWA · un ON","one week, one month, one year"],
+ ["une fois","ün FWA","once"],
+ ["deux fois","duh FWA","twice"],
+ ["plusieurs fois","plü-zyur FWA","several times"],
+ ["soudain","soo-DAN","suddenly"],
+ ["soudainement","soo-den-MON","suddenly"],
+ ["enfin","on-FAN","finally, at last"],
+ ["finalement","fee-nal-MON","in the end"]
+]);
+warn("<b>Trois corrections sur la diapositive.</b><br><br><b>1 · « Souvent (oftenly) »</b> → en anglais le mot est <b>often</b>. « Oftenly » n’existe pas.<br><br><b>2 · « Toujours (always in the past) »</b> → la glose est trompeuse. <b>Toujours</b> veut simplement dire <i>always</i>, à n’importe quel temps : <i>je suis <b>toujours</b> en retard</i> (présent), <i>j’étais <b>toujours</b> en retard</i> (imparfait). Ce n’est pas un mot « du passé » ; c’est un mot de répétition, et c’est pour ça qu’il attire l’imparfait quand on raconte.<br><br><b>3 · « lundi, mardi… (one monday..) »</b> → en anglais, les jours prennent une majuscule : <i>one <b>M</b>onday</i>. En français, non : <i>lundi</i>, <i>mardi</i>, minuscules. C’est l’inverse des deux langues, et c’est une faute d’écrit fréquente.");
+note("<b>Et une quatrième remarque, qui n’est pas une erreur mais une nuance.</b><br><br>La diapositive donne <b>enfin</b> et <b>finalement</b> l’un à côté de l’autre. Ce ne sont pas des synonymes :<br><br>· <b>enfin</b> = <i>lastly</i>, le dernier élément d’une liste. <i>D’abord…, ensuite…, <b>enfin</b>…</i><br>· <b>finalement</b> = <i>in the end</i>, après hésitation, contre ce qui était prévu. <i><b>Finalement</b>, je ne suis pas parti.</i><br><br>C’est un faux ami classique : <i>finalement</i> ne traduit pas <i>finally</i> au sens de « en dernier ». Vous aviez déjà ce point au chapitre 30.");
+
+h2('2 · Exercices — le mot décide du temps');
+lead("Dans chaque phrase, l’indicateur de temps est donné. Choisissez le verbe qu’il impose.");
+mcqx([
+ ["Le week-end, nous ___ au marché.",["allions","sommes allés"],0,"<b>Le</b> week-end = tous les week-ends → imparfait."],
+ ["Un week-end, nous ___ à Montréal.",["allions","sommes allés"],1,"<b>Un</b> week-end = une fois → passé composé."],
+ ["Le lundi, je ___ tard.",["finissais","ai fini"],0,"<b>Le</b> lundi = chaque lundi."],
+ ["Lundi, je ___ tard.",["finissais","ai fini"],1,"Sans article = ce lundi-là."],
+ ["Chaque été, nous ___ chez mes grands-parents.",["allions","sommes allés"],0,"<b>Chaque</b> = répétition."],
+ ["Un été, nous ___ en Espagne.",["allions","sommes allés"],1,"<b>Un</b> été = une fois."],
+ ["Tous les jours, il ___ le même bus.",["prenait","a pris"],0,"Habitude."],
+ ["Une fois, il ___ le mauvais bus.",["prenait","a pris"],1,"<b>Une fois</b> = compte fini."],
+ ["D’habitude, je ___ à sept heures.",["me levais","me suis levé"],0,"<b>D’habitude</b> → imparfait."],
+ ["Soudain, le téléphone ___ .",["sonnait","a sonné"],1,"<b>Soudain</b> = rupture → passé composé."],
+ ["En général, elle ___ très peu.",["parlait","a parlé"],0,"<b>En général</b> → habitude."],
+ ["Finalement, elle ___ oui.",["disait","a dit"],1,"<b>Finalement</b> = l’issue → passé composé."],
+ ["Je l’ai vu plusieurs ___ cette semaine.",["fois","temps"],0,"<b>plusieurs fois</b>."],
+ ["De temps en temps, nous ___ au cinéma.",["allions","sommes allés"],0,"Répétition irrégulière mais répétition."],
+ ["Enfin, après deux heures, le train ___ .",["arrivait","est arrivé"],1,"<b>Enfin</b> clôt une attente → événement."],
+ ["Le matin, je ___ toujours un café.",["prenais","ai pris"],0,"<b>Le matin</b> + <b>toujours</b> : deux marqueurs d’habitude."]
+]);
+h3('2.1 · Le même nom, deux déterminants');
+lead("L’exercice le plus utile de la page. Écrivez le verbe conjugué en entier.");
+fillx([
+ ["Le samedi, je ___ (faire) les courses.","faisais","On Saturdays I did the shopping.","<b>Le</b> samedi → habitude → imparfait."],
+ ["Samedi, j’___ (faire) les courses.","ai fait","On Saturday I did the shopping.","Sans article → une fois → passé composé."],
+ ["Chaque mois, elle ___ (aller) voir sa mère.","allait","Every month she went to see her mother.","<b>Chaque</b> → imparfait."],
+ ["Un mois, elle ___ (ne pas pouvoir) y aller.","n’a pas pu","One month she couldn’t go.","<b>Un</b> mois → passé composé."],
+ ["Le soir, nous ___ (regarder) la télévision.","regardions","In the evenings we watched television.","<b>Le</b> soir → habitude."],
+ ["Ce soir-là, nous ___ (regarder) un film.","avons regardé","That evening we watched a film.","<b>Ce soir-là</b> → un moment précis."],
+ ["Tous les étés, il ___ (travailler) dans un restaurant.","travaillait","Every summer he worked in a restaurant.","Habitude."],
+ ["Deux fois, il ___ (oublier) ses clés.","a oublié","Twice he forgot his keys.","Compte fini → passé composé."],
+ ["Normalement, le bus ___ (passer) à huit heures.","passait","Normally the bus came at eight.","<b>Normalement</b> → habitude."],
+ ["Ce jour-là, le bus ___ (ne pas passer).","n’est pas passé","That day the bus didn’t come.","Jour précis → passé composé."]
+]);
+
+h2('3 · Lecture — un récit où les deux temps alternent');
+lead("Les indicateurs de temps sont en gras. Avant de lire le verbe, demandez-vous lequel l’indicateur impose.");
+read([
+ "<b>Quand j’étais étudiant</b>, ma vie était très régulière. <b>Le matin</b>, je me levais à sept heures. <b>Tous les jours</b>, je prenais le même bus, et <b>le soir</b> je rentrais vers dix-neuf heures.",
+ "<b>Le week-end</b>, je ne faisais pas grand-chose. <b>D’habitude</b>, je dormais tard et je révisais <b>de temps en temps</b>. <b>En général</b>, je sortais <b>rarement</b>.",
+ "Mais <b>un week-end</b> de novembre, des amis m’ont proposé d’aller à la montagne. <b>Une fois</b> dans ma vie, j’ai dit oui sans réfléchir.",
+ "Nous sommes partis <b>vendredi</b> soir. <b>Soudain</b>, à mi-chemin, la voiture est tombée en panne. Nous avons attendu deux heures. <b>Enfin</b>, un camion s’est arrêté et nous a dépannés.",
+ "<b>Finalement</b>, nous sommes arrivés à minuit. C’était le meilleur week-end de l’année — et <b>depuis</b>, je dis oui plus souvent."
+]);
+note("<b>Relevez le basculement.</b><br><br>Les deux premiers paragraphes sont <u>entièrement</u> à l’imparfait : <i>quand j’étais</i>, <i>le matin</i>, <i>tous les jours</i>, <i>le week-end</i>, <i>d’habitude</i>, <i>en général</i>, <i>rarement</i>. Sept indicateurs d’habitude, sept verbes à l’imparfait.<br><br>Le troisième paragraphe bascule sur <b>un week-end</b> — article indéfini — et tout passe au passé composé jusqu’à la fin.<br><br><b>Un seul mot fait tourner le récit :</b> <i>le week-end</i> devient <i><b>un</b> week-end</i>. C’est le pivot, et c’est ce que la diapositive ne montre pas.<br><br>Remarquez aussi la dernière phrase : <i>depuis, je dis oui plus souvent</i> — au <b>présent</b>, parce que c’est encore vrai aujourd’hui.");
+fillx([
+ ["Paragraphe 1 : « ___ les jours, je prenais le même bus. »","Tous","Every day I took the same bus.","Habitude."],
+ ["Paragraphe 2 : « ___ , je dormais tard. »","D’habitude","Usually I slept late.","Habitude."],
+ ["Paragraphe 3 : « ___ week-end de novembre… »","un","One weekend in November…","Article indéfini → le récit bascule."],
+ ["Paragraphe 4 : « ___ , la voiture est tombée en panne. »","Soudain","Suddenly the car broke down.","Rupture."],
+ ["Paragraphe 5 : « ___ , nous sommes arrivés à minuit. »","Finalement","In the end we arrived at midnight.","L’issue."]
+]);
+
+h2('4 · Dictée');
+dict([
+ {fr:"Le week-end, nous allions à la campagne.", en:"At weekends we used to go to the countryside.", why:"<b>Le</b> week-end → imparfait."},
+ {fr:"Un week-end, nous sommes allés à la mer.", en:"One weekend we went to the seaside.", why:"<b>Un</b> week-end → passé composé."},
+ {fr:"Le lundi, je commençais à huit heures.", en:"On Mondays I started at eight.", why:"Article défini = habitude."},
+ {fr:"Lundi, j’ai commencé à huit heures.", en:"On Monday I started at eight.", why:"Sans article = une fois."},
+ {fr:"Chaque année, ils partaient en Italie.", en:"Every year they went to Italy.", why:"<b>Chaque</b> → imparfait."},
+ {fr:"Tous les matins, elle buvait du thé.", en:"Every morning she drank tea.", why:"Habitude."},
+ {fr:"D’habitude, je ne sortais pas le soir.", en:"Usually I didn’t go out in the evening.", why:"<b>D’habitude</b> + négation."},
+ {fr:"De temps en temps, on se voyait.", en:"From time to time we saw each other.", why:"Répétition irrégulière."},
+ {fr:"Soudain, quelqu’un a frappé à la porte.", en:"Suddenly someone knocked at the door.", why:"<b>Soudain</b> → événement."},
+ {fr:"Une fois, j’ai oublié mon passeport.", en:"Once I forgot my passport.", why:"Compte fini."},
+ {fr:"Je l’ai vu plusieurs fois cette semaine.", en:"I’ve seen him several times this week.", why:"<b>plusieurs fois</b>."},
+ {fr:"Enfin, le train est arrivé.", en:"At last the train arrived.", why:"<b>Enfin</b> clôt une attente."},
+ {fr:"Finalement, je ne suis pas parti.", en:"In the end I didn’t go.", why:"<b>Finalement</b> = contre ce qui était prévu."},
+ {fr:"En général, il arrivait en retard.", en:"In general he arrived late.", why:"Habitude."},
+ {fr:"Rarement, elle parlait de son travail.", en:"She rarely spoke about her work.", why:"<b>Rarement</b> → imparfait."},
+ {fr:"Le matin, je prenais toujours un café.", en:"In the mornings I always had a coffee.", why:"Deux marqueurs d’habitude."}
+]);
+
+h2('5 · Ce qu’il faut retenir de cette séance');
+warn("<b>UNE SEULE RÈGLE, ET ELLE TIENT EN UN MOT : LE DÉTERMINANT.</b><br><br><b>le · la · les · chaque · tous les</b> → ça se répétait → <b>IMPARFAIT</b><br><b>un · une · rien du tout · un nombre</b> → c’est arrivé une fois → <b>PASSÉ COMPOSÉ</b><br><br>· <i><b>le</b> week-end</i> / <i><b>un</b> week-end</i><br>· <i><b>le</b> lundi</i> / <i>lundi</i><br>· <i><b>chaque</b> année</i> / <i><b>une</b> année</i><br>· <i>toujours</i> / <i><b>une</b> fois</i><br><br>Les huit mots de droite — <b>soudain</b>, <b>soudainement</b>, <b>enfin</b>, <b>finalement</b>, <b>une fois</b>, <b>deux fois</b>, <b>plusieurs fois</b>, <b>un week-end</b> — marquent tous une <u>rupture</u> ou un <u>compte fini</u>. Les douze de gauche marquent tous une <u>répétition</u>.");
+note("<b>Votre travail d’ici au prochain cours :</b><br><br>· <b>Jour même</b> — relisez le tableau du haut et refaites les seize questions de la section 2.<br>· <b>+2 jours</b> — la série 2.1, celle des paires (<i>le samedi</i> / <i>samedi</i>). C’est le vrai test.<br>· <b>+4 jours</b> — les seize dictées, sans relire.<br>· <b>+7 jours</b> — écrivez six phrases sur une année de votre vie : trois à l’imparfait avec un indicateur d’habitude, trois au passé composé avec un indicateur d’événement.<br><br>Le <b>chapitre 16</b> du livre traite le choix des deux temps en entier, et le <b>chapitre 23</b> traite les indicateurs de fréquence. Cette page est le pont entre les deux.");
+src('Cours 37 · PDF « unité 13 A2 », page 8 : « Les mots utiles en passé composé et imparfait » et le lien « Les indicateurs de temps ». La liste des vingt indicateurs est celle de la classe ; <b>le tri en deux colonnes, les explications, la lecture et les cinquante-sept exercices de cette page sont rédigés ici</b>. Trois coquilles du document sont signalées en 1.2. Je n’ai pas entendu le son du cours, seulement vu l’écran — si la prof a dit autre chose, signalez-le et je corrige.');
+</script>
+</body>
+</html>
