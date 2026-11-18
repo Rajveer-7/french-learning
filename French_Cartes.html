@@ -1,0 +1,333 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Les cartes — la grammaire en images</title>
+<style>
+:root{--bg:#faf9f7;--card:#fff;--line:#e6e3dc;--ink:#23201b;--muted:#6b675f;--accent:#4338ca;--accentbg:#eceafe;--green:#0f7a54;--greenbg:#e7f5ef;--red:#b3261e;--redbg:#fdeceb;--amber:#d9b45b;--amberbg:#fffdf5;--blue:#1d6fb8;--bluebg:#e8f1fa}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 Georgia,'Iowan Old Style',serif}
+nav.site{background:#fff;border-bottom:1px solid var(--line);padding:9px 14px;display:flex;flex-wrap:wrap;gap:3px;font-family:system-ui,sans-serif;font-size:12.5px;position:sticky;top:0;z-index:40;transition:transform .25s ease}
+nav.site.navhidden{transform:translateY(-110%)}
+nav.site a{color:var(--muted);text-decoration:none;padding:4px 9px;border-radius:6px;white-space:nowrap}
+nav.site a:hover{background:var(--accentbg);color:var(--accent)}
+nav.site a.navhome{color:var(--accent);font-weight:600}
+nav.site a.navdim{color:#b9b4ab;margin-left:auto}
+header{max-width:1000px;margin:0 auto;padding:28px 20px 4px}
+h1{font-size:31px;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 10px;font-size:15.5px}
+main{max-width:1000px;margin:0 auto;padding:0 20px 90px}
+.jump{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 4px;position:sticky;top:42px;background:var(--bg);padding:10px 0;z-index:9;border-bottom:1px solid var(--line)}
+.jump a{font-family:system-ui,sans-serif;font-size:12.5px;border:1px solid var(--line);background:#fff;color:var(--accent);border-radius:999px;padding:5px 13px;text-decoration:none}
+.jump a:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.carte{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:26px 0;scroll-margin-top:100px}
+.carte h2{font-size:21px;margin:0 0 4px;color:var(--accent)}
+.carte .cd{color:var(--muted);font-size:14.5px;margin:0 0 16px}
+.carte svg{width:100%;height:auto;display:block;margin:6px 0}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-family:system-ui,sans-serif;font-size:12px;color:var(--muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.note{background:var(--amberbg);border-left:4px solid var(--amber);border-radius:0 9px 9px 0;padding:13px 17px;margin:14px 0 0;font-size:14.5px}
+.note b{color:var(--ink)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:19px 23px;margin:16px 0}
+.panel h3{margin:0 0 10px;font-size:17px}
+svg text{font-family:system-ui,-apple-system,sans-serif}
+@media(max-width:640px){h1{font-size:25px}.carte{padding:16px 13px}}
+</style></head><body>
+<nav class="site">
+  <a href="French_Parcours.html" class="navhome">★ Le parcours</a>
+  <a href="French_Programme.html">Le programme</a><a href="French_Cours_Complet.html"><b>Le livre</b></a>
+  <a href="French_Comprehension_Orale.html">Écoute</a>
+  <a href="French_Conjugueur.html">Conjugueur</a>
+  <a href="French_Lexique.html">Lexique</a>
+  <a href="French_Metiers.html">Métiers</a>
+  <a href="French_Cours_Index.html">Mes cours</a>
+  <a href="French_Comment_Etudier.html">Méthode</a>
+  <a href="French_Plan_10_Mois.html">Plan</a>
+  <a href="French_TCF_Guide.html">TCF</a>
+  <a href="French_Ressources.html">Ressources</a>
+  <a href="French_Archives.html" class="navdim">Archives</a>
+</nav><header>
+<h1>Les cartes</h1>
+<p class="sub">Les points de grammaire qui se comprennent mieux en image qu’en paragraphe. Quatre cartes, à regarder plutôt qu’à lire.</p>
+</header>
+<main>
+<div class="panel">
+<h3>Pourquoi ces pages existent</h3>
+<p>Certaines règles sont des <b>listes</b> — on les apprend en les lisant. D’autres sont des <b>structures</b> : un arbre de décision, deux colonnes qui s’opposent, un centre avec des branches. Celles-là, un paragraphe les rend plus difficiles qu’elles ne sont.</p>
+<p>L’accord du participe passé en est l’exemple parfait : expliqué en prose, il paraît inextricable ; dessiné en quatre questions, il se parcourt en dix secondes.</p>
+<p>Chaque carte renvoie au chapitre qui la traite en détail, avec les exercices.</p>
+</div>
+<div class="jump">
+<a href="#comm">1 · La communication</a><a href="#accord">2 · L’accord</a><a href="#pcimp">3 · PC ou imparfait</a><a href="#decrire">4 · Décrire quelqu’un</a>
+</div>
+<section class="carte" id="comm">
+<h2>1 · La communication — « quelque chose à quelqu’un »</h2>
+<p class="cd">Treize verbes, une seule construction. La chose est un objet direct, la personne prend <b>à</b> — et c’est pour cela qu’ils réclament tous <b>lui</b> ou <b>leur</b>.</p>
+<svg viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Carte des verbes de communication">
+  <defs>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#4338ca"/>
+    </marker>
+    <marker id="arR" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#b3261e"/>
+    </marker>
+  </defs>
+  <!-- centre -->
+  <rect x="300" y="215" width="300" height="86" rx="43" fill="#eceafe" stroke="#4338ca" stroke-width="2.5"/>
+  <text x="450" y="248" text-anchor="middle" font-size="19" font-weight="700" fill="#4338ca">quelque chose</text>
+  <text x="450" y="277" text-anchor="middle" font-size="19" font-weight="700" fill="#4338ca">À quelqu’un</text>
+  <text x="450" y="330" text-anchor="middle" font-size="12.5" fill="#6b675f">COD = la chose · COI = la personne</text>
+
+  <!-- left column verbs -->
+  <g font-size="14.5" fill="#23201b">
+    <rect x="22" y="22" width="150" height="34" rx="17" fill="#fff" stroke="#e6e3dc"/><text x="97" y="44" text-anchor="middle">dire · to say</text>
+    <rect x="22" y="66" width="150" height="34" rx="17" fill="#fff" stroke="#e6e3dc"/><text x="97" y="88" text-anchor="middle">raconter · to tell</text>
+    <rect x="22" y="110" width="150" height="34" rx="17" fill="#fff" stroke="#e6e3dc"/><text x="97" y="132" text-anchor="middle">demander · to ask</text>
+    <rect x="22" y="154" width="150" height="34" rx="17" fill="#fff" stroke="#e6e3dc"/><text x="97" y="176" text-anchor="middle">écrire · to write</text>
+    <rect x="22" y="198" width="150" height="34" rx="17" fill="#fff" stroke="#e6e3dc"/><text x="97" y="220" text-anchor="middle">montrer · to show</text>
+    <rect x="22" y="242" width="150" height="34" rx="17" fill="#fff" stroke="#e6e3dc"/><text x="97" y="264" text-anchor="middle">souhaiter · to wish</text>
+  </g>
+  <g stroke="#4338ca" stroke-width="1.6" fill="none" marker-end="url(#ar)" opacity=".55">
+    <path d="M174,39 C250,60 270,200 298,238"/>
+    <path d="M174,83 C250,100 270,210 298,246"/>
+    <path d="M174,127 C240,145 265,220 298,252"/>
+    <path d="M174,171 C240,185 265,230 298,256"/>
+    <path d="M174,215 C235,225 265,240 298,260"/>
+    <path d="M174,259 C235,262 265,262 298,264"/>
+  </g>
+
+  <!-- right column verbs -->
+  <g font-size="14.5" fill="#23201b">
+    <rect x="728" y="22" width="150" height="34" rx="17" fill="#fff" stroke="#e6e3dc"/><text x="803" y="44" text-anchor="middle">donner · to give</text>
+    <rect x="728" y="66" width="150" height="34" rx="17" fill="#fff" stroke="#e6e3dc"/><text x="803" y="88" text-anchor="middle">prêter · to lend</text>
+    <rect x="728" y="110" width="150" height="34" rx="17" fill="#fff" stroke="#e6e3dc"/><text x="803" y="132" text-anchor="middle">rendre · to give back</text>
+    <rect x="728" y="154" width="150" height="34" rx="17" fill="#fff" stroke="#e6e3dc"/><text x="803" y="176" text-anchor="middle">envoyer · to send</text>
+    <rect x="728" y="198" width="150" height="34" rx="17" fill="#fff" stroke="#e6e3dc"/><text x="803" y="220" text-anchor="middle">répondre · to reply</text>
+    <rect x="728" y="242" width="150" height="34" rx="17" fill="#fff" stroke="#e6e3dc"/><text x="803" y="264" text-anchor="middle">parler · to speak</text>
+  </g>
+  <g stroke="#4338ca" stroke-width="1.6" fill="none" marker-end="url(#ar)" opacity=".55">
+    <path d="M726,39 C650,60 630,200 602,238"/>
+    <path d="M726,83 C650,100 630,210 602,246"/>
+    <path d="M726,127 C660,145 635,220 602,252"/>
+    <path d="M726,171 C660,185 635,230 602,256"/>
+    <path d="M726,215 C665,225 635,240 602,260"/>
+    <path d="M726,259 C665,262 635,262 602,264"/>
+  </g>
+
+  <!-- the exception -->
+  <rect x="300" y="390" width="300" height="74" rx="14" fill="#fdeceb" stroke="#b3261e" stroke-width="2"/>
+  <text x="450" y="418" text-anchor="middle" font-size="16" font-weight="700" fill="#b3261e">recevoir quelque chose</text>
+  <text x="450" y="443" text-anchor="middle" font-size="16" font-weight="700" fill="#b3261e">DE quelqu’un</text>
+  <path d="M450,470 L450,500" stroke="#b3261e" stroke-width="1.8" fill="none" marker-end="url(#arR)"/>
+  <text x="450" y="516" text-anchor="middle" font-size="12.5" fill="#b3261e">la seule flèche qui pointe vers vous</text>
+
+  <!-- consequence box -->
+  <rect x="300" y="345" width="300" height="0" fill="none"/>
+  <text x="450" y="368" text-anchor="middle" font-size="13.5" font-weight="600" fill="#0f7a54">→ donc : LUI au singulier, LEUR au pluriel</text>
+</svg>
+<div class="legend">
+  <span><i style="background:#eceafe;border:1px solid #4338ca"></i>la construction commune</span>
+  <span><i style="background:#fdeceb;border:1px solid #b3261e"></i>l’exception : <b>de</b>, pas <b>à</b></span>
+  <span><i style="background:#e7f5ef;border:1px solid #0f7a54"></i>le pronom qui en découle</span>
+</div>
+<div class="note"><b>Pourquoi cette carte vaut la liste.</b> Tous ces verbes partagent une chose : la personne est un <b>COI</b>. Donc aucun ne prend <i>le / la / les</i> pour la personne — ils prennent tous <b>lui</b> ou <b>leur</b>. <i>Je <b>lui</b> ai dit</i>, <i>je <b>leur</b> ai écrit</i>, jamais <i>je l’ai dit</i> pour une personne.<br><br>Et puisque <i>lui</i> et <i>leur</i> sont des COI, <b>le participe passé ne s’accorde jamais</b> après eux. Une seule carte vous donne la préposition, le pronom et l’accord.</div>
+</section>
+<section class="carte" id="accord">
+<h2>2 · L’accord du participe passé — l’arbre de décision</h2>
+<p class="cd">La règle la plus redoutée du français tient en quatre questions posées dans l’ordre. Suivez les flèches.</p>
+<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Arbre de décision de l'accord du participe passé">
+ <defs><marker id="a2" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#6b675f"/></marker></defs>
+
+ <rect x="330" y="14" width="240" height="46" rx="23" fill="#23201b"/>
+ <text x="450" y="43" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">un participe passé</text>
+ <path d="M450,62 L450,90" stroke="#6b675f" stroke-width="1.8" marker-end="url(#a2)"/>
+
+ <!-- Q1 -->
+ <rect x="285" y="92" width="330" height="48" rx="10" fill="#e8f1fa" stroke="#1d6fb8" stroke-width="2"/>
+ <text x="450" y="122" text-anchor="middle" font-size="15" font-weight="600" fill="#1d6fb8">L’auxiliaire est-il ÊTRE ?</text>
+
+ <path d="M285,116 L170,116 L170,150" stroke="#6b675f" stroke-width="1.6" fill="none" marker-end="url(#a2)"/>
+ <text x="222" y="108" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0f7a54">OUI</text>
+ <rect x="48" y="152" width="244" height="62" rx="10" fill="#e7f5ef" stroke="#0f7a54" stroke-width="2"/>
+ <text x="170" y="177" text-anchor="middle" font-size="14.5" font-weight="700" fill="#0f7a54">accord avec le SUJET</text>
+ <text x="170" y="199" text-anchor="middle" font-size="13" fill="#0f7a54">elle est allée · ils sont partis</text>
+
+ <path d="M615,116 L730,116 L730,150" stroke="#6b675f" stroke-width="1.6" fill="none" marker-end="url(#a2)"/>
+ <text x="676" y="108" text-anchor="middle" font-size="12.5" font-weight="700" fill="#b3261e">NON</text>
+
+ <!-- Q2 -->
+ <rect x="600" y="152" width="262" height="48" rx="10" fill="#e8f1fa" stroke="#1d6fb8" stroke-width="2"/>
+ <text x="731" y="173" text-anchor="middle" font-size="14" font-weight="600" fill="#1d6fb8">Le verbe est-il pronominal ?</text>
+ <text x="731" y="191" text-anchor="middle" font-size="12" fill="#1d6fb8">(me, te, se, nous, vous)</text>
+
+ <path d="M731,202 L731,236" stroke="#6b675f" stroke-width="1.6" marker-end="url(#a2)"/>
+ <text x="760" y="224" font-size="12.5" font-weight="700" fill="#0f7a54">OUI</text>
+ <path d="M600,176 L470,176 L470,236" stroke="#6b675f" stroke-width="1.6" fill="none" marker-end="url(#a2)"/>
+ <text x="520" y="168" text-anchor="middle" font-size="12.5" font-weight="700" fill="#b3261e">NON — c’est AVOIR</text>
+
+ <!-- Q3 avoir branch -->
+ <rect x="330" y="238" width="282" height="52" rx="10" fill="#e8f1fa" stroke="#1d6fb8" stroke-width="2"/>
+ <text x="471" y="260" text-anchor="middle" font-size="14" font-weight="600" fill="#1d6fb8">Le COD est-il AVANT le verbe ?</text>
+ <text x="471" y="279" text-anchor="middle" font-size="12" fill="#1d6fb8">pronom · que · quel</text>
+
+ <path d="M330,264 L250,264 L250,320" stroke="#6b675f" stroke-width="1.6" fill="none" marker-end="url(#a2)"/>
+ <text x="286" y="256" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0f7a54">OUI</text>
+ <rect x="128" y="322" width="244" height="62" rx="10" fill="#e7f5ef" stroke="#0f7a54" stroke-width="2"/>
+ <text x="250" y="347" text-anchor="middle" font-size="14.5" font-weight="700" fill="#0f7a54">accord avec ce COD</text>
+ <text x="250" y="369" text-anchor="middle" font-size="13" fill="#0f7a54">je l’ai vue · que j’ai prises</text>
+
+ <path d="M612,264 L690,264 L690,320" stroke="#6b675f" stroke-width="1.6" fill="none" marker-end="url(#a2)"/>
+ <text x="652" y="256" text-anchor="middle" font-size="12.5" font-weight="700" fill="#b3261e">NON</text>
+ <rect x="568" y="322" width="244" height="62" rx="10" fill="#fdeceb" stroke="#b3261e" stroke-width="2"/>
+ <text x="690" y="347" text-anchor="middle" font-size="14.5" font-weight="700" fill="#b3261e">AUCUN accord</text>
+ <text x="690" y="369" text-anchor="middle" font-size="13" fill="#b3261e">j’ai vu la maison</text>
+
+ <!-- pronominal branch -->
+ <rect x="560" y="238" width="0" height="0"/>
+ <rect x="596" y="414" width="282" height="52" rx="10" fill="#e8f1fa" stroke="#1d6fb8" stroke-width="2"/>
+ <text x="737" y="436" text-anchor="middle" font-size="14" font-weight="600" fill="#1d6fb8">« se » est-il un COD ?</text>
+ <text x="737" y="455" text-anchor="middle" font-size="12" fill="#1d6fb8">rien après · verbe sans « à »</text>
+ <path d="M731,238 L731,412" stroke="#6b675f" stroke-width="1.6" fill="none" marker-end="url(#a2)" opacity="0"/>
+ <path d="M860,200 C890,260 890,360 878,440" stroke="#6b675f" stroke-width="1.6" fill="none" marker-end="url(#a2)"/>
+
+ <path d="M737,468 L737,500" stroke="#6b675f" stroke-width="1.6" marker-end="url(#a2)"/>
+ <text x="766" y="490" font-size="12.5" font-weight="700" fill="#0f7a54">OUI</text>
+ <rect x="615" y="502" width="244" height="58" rx="10" fill="#e7f5ef" stroke="#0f7a54" stroke-width="2"/>
+ <text x="737" y="525" text-anchor="middle" font-size="14" font-weight="700" fill="#0f7a54">accord avec le sujet</text>
+ <text x="737" y="546" text-anchor="middle" font-size="12.5" fill="#0f7a54">elle s’est lavée</text>
+
+ <path d="M596,440 L480,440 L480,500" stroke="#6b675f" stroke-width="1.6" fill="none" marker-end="url(#a2)"/>
+ <text x="536" y="432" text-anchor="middle" font-size="12.5" font-weight="700" fill="#b3261e">NON</text>
+ <rect x="358" y="502" width="244" height="58" rx="10" fill="#fdeceb" stroke="#b3261e" stroke-width="2"/>
+ <text x="480" y="525" text-anchor="middle" font-size="14" font-weight="700" fill="#b3261e">AUCUN accord</text>
+ <text x="480" y="546" text-anchor="middle" font-size="12.5" fill="#b3261e">s’est lavé les mains · se sont parlé</text>
+</svg>
+<div class="legend">
+  <span><i style="background:#e8f1fa;border:1px solid #1d6fb8"></i>une question à poser</span>
+  <span><i style="background:#e7f5ef;border:1px solid #0f7a54"></i>il y a accord</span>
+  <span><i style="background:#fdeceb;border:1px solid #b3261e"></i>pas d’accord</span>
+</div>
+<div class="note"><b>Les deux raccourcis qui règlent presque tout.</b><br><br><b>①</b> Y a-t-il un objet <u>juste après</u> le participe ? → pas d’accord. <i>Elle s’est lavé <b>les mains</b>.</i><br><b>②</b> Le verbe se construit-il avec <b>à</b> ? — parler à, téléphoner à, écrire à, sourire à, plaire à, mentir à, ressembler à → pas d’accord. <i>Ils se sont parlé.</i><br><br>Et rappelez-vous : <b>qui</b>, <b>dont</b> et <b>où</b> ne déclenchent jamais rien. Seul <b>que</b> le fait.</div>
+</section>
+<section class="carte" id="pcimp">
+<h2>3 · Passé composé ou imparfait — la photo et le film</h2>
+<p class="cd">Le point le plus discriminant du niveau A2. Les mots de gauche imposent l’imparfait, ceux de droite le passé composé.</p>
+<svg viewBox="0 0 900 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Carte passé composé contre imparfait">
+ <!-- left panel -->
+ <rect x="20" y="14" width="410" height="118" rx="12" fill="#e8f1fa" stroke="#1d6fb8" stroke-width="2.5"/>
+ <text x="225" y="48" text-anchor="middle" font-size="20" font-weight="700" fill="#1d6fb8">L’IMPARFAIT</text>
+ <text x="225" y="76" text-anchor="middle" font-size="15" fill="#1d6fb8">la PHOTO — le décor</text>
+ <text x="225" y="100" text-anchor="middle" font-size="13.5" fill="#1d6fb8">ça durait · ça se répétait · ça décrivait</text>
+ <text x="225" y="121" text-anchor="middle" font-size="12.5" font-style="italic" fill="#6b675f">rien n’avance</text>
+
+ <!-- right panel -->
+ <rect x="470" y="14" width="410" height="118" rx="12" fill="#fdeceb" stroke="#b3261e" stroke-width="2.5"/>
+ <text x="675" y="48" text-anchor="middle" font-size="20" font-weight="700" fill="#b3261e">LE PASSÉ COMPOSÉ</text>
+ <text x="675" y="76" text-anchor="middle" font-size="15" fill="#b3261e">le FILM — l’événement</text>
+ <text x="675" y="100" text-anchor="middle" font-size="13.5" fill="#b3261e">c’est arrivé · une fois · c’est fini</text>
+ <text x="675" y="121" text-anchor="middle" font-size="12.5" font-style="italic" fill="#6b675f">l’histoire avance</text>
+
+ <!-- trigger words -->
+ <text x="225" y="166" text-anchor="middle" font-size="12" font-weight="700" fill="#6b675f" letter-spacing="1.2">LES MOTS QUI L’APPELLENT</text>
+ <text x="675" y="166" text-anchor="middle" font-size="12" font-weight="700" fill="#6b675f" letter-spacing="1.2">LES MOTS QUI L’APPELLENT</text>
+
+ <g font-size="14" fill="#1d6fb8">
+  <rect x="34" y="178" width="186" height="30" rx="15" fill="#fff" stroke="#bcd6ec"/><text x="127" y="198" text-anchor="middle">chaque semaine</text>
+  <rect x="230" y="178" width="186" height="30" rx="15" fill="#fff" stroke="#bcd6ec"/><text x="323" y="198" text-anchor="middle">tous les jours</text>
+  <rect x="34" y="216" width="186" height="30" rx="15" fill="#fff" stroke="#bcd6ec"/><text x="127" y="236" text-anchor="middle"><tspan font-weight="700">le</tspan> week-end</text>
+  <rect x="230" y="216" width="186" height="30" rx="15" fill="#fff" stroke="#bcd6ec"/><text x="323" y="236" text-anchor="middle"><tspan font-weight="700">le</tspan> lundi</text>
+  <rect x="34" y="254" width="186" height="30" rx="15" fill="#fff" stroke="#bcd6ec"/><text x="127" y="274" text-anchor="middle">d’habitude</text>
+  <rect x="230" y="254" width="186" height="30" rx="15" fill="#fff" stroke="#bcd6ec"/><text x="323" y="274" text-anchor="middle">souvent</text>
+  <rect x="34" y="292" width="186" height="30" rx="15" fill="#fff" stroke="#bcd6ec"/><text x="127" y="312" text-anchor="middle">toujours</text>
+  <rect x="230" y="292" width="186" height="30" rx="15" fill="#fff" stroke="#bcd6ec"/><text x="323" y="312" text-anchor="middle">rarement</text>
+  <rect x="34" y="330" width="186" height="30" rx="15" fill="#fff" stroke="#bcd6ec"/><text x="127" y="350" text-anchor="middle">parfois</text>
+  <rect x="230" y="330" width="186" height="30" rx="15" fill="#fff" stroke="#bcd6ec"/><text x="323" y="350" text-anchor="middle">en général</text>
+ </g>
+
+ <g font-size="14" fill="#b3261e">
+  <rect x="484" y="178" width="186" height="30" rx="15" fill="#fff" stroke="#f0c8c5"/><text x="577" y="198" text-anchor="middle"><tspan font-weight="700">une</tspan> semaine</text>
+  <rect x="680" y="178" width="186" height="30" rx="15" fill="#fff" stroke="#f0c8c5"/><text x="773" y="198" text-anchor="middle">une fois, deux fois</text>
+  <rect x="484" y="216" width="186" height="30" rx="15" fill="#fff" stroke="#f0c8c5"/><text x="577" y="236" text-anchor="middle"><tspan font-weight="700">un</tspan> week-end</text>
+  <rect x="680" y="216" width="186" height="30" rx="15" fill="#fff" stroke="#f0c8c5"/><text x="773" y="236" text-anchor="middle">lundi <tspan font-size="11.5">(sans article)</tspan></text>
+  <rect x="484" y="254" width="186" height="30" rx="15" fill="#fff" stroke="#f0c8c5"/><text x="577" y="274" text-anchor="middle">soudain</text>
+  <rect x="680" y="254" width="186" height="30" rx="15" fill="#fff" stroke="#f0c8c5"/><text x="773" y="274" text-anchor="middle">tout à coup</text>
+  <rect x="484" y="292" width="186" height="30" rx="15" fill="#fff" stroke="#f0c8c5"/><text x="577" y="312" text-anchor="middle">hier · la semaine dernière</text>
+  <rect x="680" y="292" width="186" height="30" rx="15" fill="#fff" stroke="#f0c8c5"/><text x="773" y="312" text-anchor="middle">enfin · finalement</text>
+  <rect x="484" y="330" width="186" height="30" rx="15" fill="#fff" stroke="#f0c8c5"/><text x="577" y="350" text-anchor="middle">plusieurs fois</text>
+  <rect x="680" y="330" width="186" height="30" rx="15" fill="#fff" stroke="#f0c8c5"/><text x="773" y="350" text-anchor="middle">d’abord · ensuite · puis</text>
+ </g>
+
+ <!-- the switch -->
+ <rect x="150" y="390" width="600" height="60" rx="12" fill="#23201b"/>
+ <text x="450" y="414" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">LE DÉTERMINANT EST L’INTERRUPTEUR</text>
+ <text x="450" y="437" text-anchor="middle" font-size="13.5" fill="#d8d4cc">le · la · les · chaque · tous les → imparfait   ·   un · une · rien → passé composé</text>
+
+ <!-- the hinge -->
+ <rect x="150" y="466" width="600" height="58" rx="12" fill="#fffdf5" stroke="#d9b45b" stroke-width="2"/>
+ <text x="450" y="489" text-anchor="middle" font-size="14" font-weight="700" fill="#8a6d1f">LE MOT « QUAND » FAIT BASCULER LE RÉCIT</text>
+ <text x="450" y="512" text-anchor="middle" font-size="13.5" font-style="italic" fill="#8a6d1f">Il pleuvait (décor) quand le téléphone a sonné (événement).</text>
+</svg>
+<div class="legend">
+  <span><i style="background:#e8f1fa;border:1px solid #1d6fb8"></i>imparfait</span>
+  <span><i style="background:#fdeceb;border:1px solid #b3261e"></i>passé composé</span>
+  <span><i style="background:#fffdf5;border:1px solid #d9b45b"></i>le point de bascule</span>
+</div>
+<div class="note"><b>Regardez les deux colonnes ligne par ligne : ce sont les mêmes noms.</b> <i>le week-end</i> contre <i>un week-end</i>, <i>le lundi</i> contre <i>lundi</i>, <i>chaque semaine</i> contre <i>une semaine</i>. Ce n’est pas le nom qui décide, c’est le petit mot devant lui.<br><br>Détaillé au <a href="French_Cours_Complet.html#c16">chapitre 16</a>, avec les indicateurs au <a href="French_Cours_Complet.html#c23">chapitre 23</a> et les notes de classe en <a href="French_Cours37_Notes.html">Cours 37</a>.</div>
+</section>
+<section class="carte" id="decrire">
+<h2>4 · Décrire quelqu’un — quatre verbes, quatre usages</h2>
+<p class="cd">On ne mélange jamais ces quatre structures. Chacune a son verbe, et le verbe dépend de ce qu’on décrit.</p>
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Carte des quatre structures de la description">
+ <rect x="330" y="196" width="240" height="64" rx="32" fill="#23201b"/>
+ <text x="450" y="224" text-anchor="middle" font-size="17" font-weight="700" fill="#fff">DÉCRIRE</text>
+ <text x="450" y="247" text-anchor="middle" font-size="17" font-weight="700" fill="#fff">QUELQU’UN</text>
+
+ <!-- 1 être -->
+ <rect x="30" y="24" width="300" height="92" rx="12" fill="#eceafe" stroke="#4338ca" stroke-width="2"/>
+ <text x="180" y="50" text-anchor="middle" font-size="16" font-weight="700" fill="#4338ca">ÊTRE + adjectif</text>
+ <text x="180" y="73" text-anchor="middle" font-size="13" fill="#4338ca">la taille, la silhouette, le caractère</text>
+ <text x="180" y="98" text-anchor="middle" font-size="13.5" font-style="italic" fill="#23201b">Il est grand et mince.</text>
+ <path d="M330,80 C390,110 400,170 346,206" stroke="#4338ca" stroke-width="1.8" fill="none" opacity=".5"/>
+
+ <!-- 2 avoir -->
+ <rect x="570" y="24" width="300" height="92" rx="12" fill="#e7f5ef" stroke="#0f7a54" stroke-width="2"/>
+ <text x="720" y="50" text-anchor="middle" font-size="16" font-weight="700" fill="#0f7a54">AVOIR + <tspan text-decoration="underline">les</tspan> + partie du corps</text>
+ <text x="720" y="73" text-anchor="middle" font-size="13" fill="#0f7a54">les yeux, les cheveux, le nez</text>
+ <text x="720" y="98" text-anchor="middle" font-size="13.5" font-style="italic" fill="#23201b">Elle a les yeux bleus.</text>
+ <path d="M570,80 C510,110 500,170 554,206" stroke="#0f7a54" stroke-width="1.8" fill="none" opacity=".5"/>
+
+ <!-- 3 avoir l'air -->
+ <rect x="30" y="340" width="300" height="92" rx="12" fill="#fffdf5" stroke="#d9b45b" stroke-width="2"/>
+ <text x="180" y="366" text-anchor="middle" font-size="16" font-weight="700" fill="#8a6d1f">AVOIR L’AIR + adjectif</text>
+ <text x="180" y="389" text-anchor="middle" font-size="13" fill="#8a6d1f">une impression, pas un fait</text>
+ <text x="180" y="414" text-anchor="middle" font-size="13.5" font-style="italic" fill="#23201b">Il a l’air fatigué.</text>
+ <path d="M330,376 C390,346 400,290 346,252" stroke="#d9b45b" stroke-width="1.8" fill="none" opacity=".6"/>
+
+ <!-- 4 porter -->
+ <rect x="570" y="340" width="300" height="92" rx="12" fill="#fdeceb" stroke="#b3261e" stroke-width="2"/>
+ <text x="720" y="366" text-anchor="middle" font-size="16" font-weight="700" fill="#b3261e">PORTER + vêtement</text>
+ <text x="720" y="389" text-anchor="middle" font-size="13" fill="#b3261e">ce qu’il a sur lui aujourd’hui</text>
+ <text x="720" y="414" text-anchor="middle" font-size="13.5" font-style="italic" fill="#23201b">Elle porte une robe bleue.</text>
+ <path d="M570,376 C510,346 500,290 554,252" stroke="#b3261e" stroke-width="1.8" fill="none" opacity=".5"/>
+
+ <!-- side extras -->
+ <rect x="340" y="110" width="220" height="34" rx="17" fill="#fff" stroke="#e6e3dc"/>
+ <text x="450" y="132" text-anchor="middle" font-size="13" fill="#6b675f">ressembler <tspan font-weight="700">à</tspan> + personne</text>
+ <rect x="340" y="306" width="220" height="34" rx="17" fill="#fff" stroke="#e6e3dc"/>
+ <text x="450" y="328" text-anchor="middle" font-size="13" fill="#6b675f">c’est quelqu’un <tspan font-weight="700">de</tspan> + adj.</text>
+ <path d="M450,146 L450,194" stroke="#6b675f" stroke-width="1.4" opacity=".4"/>
+ <path d="M450,262 L450,304" stroke="#6b675f" stroke-width="1.4" opacity=".4"/>
+</svg>
+<div class="note"><b>Les trois pièges de cette carte.</b><br><br><b>1 ·</b> On dit <i>elle a <b>les</b> cheveux longs</i>, jamais <i>ses</i> cheveux. <i>Avoir</i> dit déjà à qui ils appartiennent.<br><b>2 ·</b> L’adjectif s’accorde avec la <u>partie du corps</u>, pas avec la personne : <i>elle a les cheveux <b>longs</b></i> — masculin pluriel, parce que <i>cheveux</i> l’est.<br><b>3 ·</b> Après <i>c’est quelqu’un de</i>, l’adjectif reste au <b>masculin singulier</b>, même pour une femme : <i>Marie ? C’est quelqu’un de très <b>gentil</b>.</i><br><br>Tout le détail au <a href="French_Cours_Complet.html#c24">chapitre 24</a>.</div>
+</section>
+<div class="panel">
+<h3>Comment s’en servir</h3>
+<p><b>Ne les lisez pas — reproduisez-les.</b> Prenez une feuille, redessinez la carte de mémoire, puis comparez. Ce que vous oubliez en la redessinant est exactement ce que vous ne savez pas encore.</p>
+<p>C’est la même logique que les exercices du livre : l’effort de restitution installe la mémoire, la relecture donne seulement l’impression de savoir.</p>
+<p>Revenez-y <b>avant un contrôle</b> plutôt qu’en apprenant : une carte sert à vérifier qu’un système tient, pas à le découvrir.</p>
+</div>
+</main>
+<script>
+(function(){var nav=document.querySelector('nav.site');if(!nav)return;var last=0,t=false;
+window.addEventListener('scroll',function(){if(t)return;t=true;requestAnimationFrame(function(){
+var y=window.pageYOffset;if(y>160&&y>last+4)nav.classList.add('navhidden');else if(y<last-4||y<=160)nav.classList.remove('navhidden');last=y;t=false;});},{passive:true});})();
+</script>
+</body></html>

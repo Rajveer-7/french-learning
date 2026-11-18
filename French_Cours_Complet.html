@@ -21,8 +21,11 @@
   .toggle button.on { background:var(--accent); color:#fff; }
   #search { flex:1 1 200px; min-width:160px; border:1px solid var(--line); border-radius:999px; padding:8px 14px; font-size:14px; background:var(--card); color:var(--ink); }
   .parttabs { display:flex; gap:6px; flex-wrap:wrap; margin:14px 0 18px; position:sticky; top:0; background:var(--bg); padding:10px 0 8px; z-index:9; border-bottom:1px solid var(--line); transition:max-height .22s ease; }
-  .parttabs.collapsed { max-height:46px; overflow:hidden; }
-  .tabstoggle { position:sticky; top:0; z-index:10; display:flex; justify-content:flex-end; margin:-6px 0 0; }
+  .parttabs.collapsed { max-height:none; overflow:visible; padding:8px 0 6px; }
+  .parttabs.collapsed button { display:none; }
+  .parttabs.collapsed button.on { display:inline-block; }
+  .tabstoggle { position:sticky; top:0; z-index:10; display:flex; justify-content:flex-start; margin:-40px 0 14px; padding-left:0; pointer-events:none; }
+  .tabstoggle button { pointer-events:auto; margin-left:auto; }
   .tabstoggle button { border:1px solid var(--line); background:var(--card); color:var(--accent); border-radius:999px; padding:4px 12px; font-size:12px; font-family:system-ui,sans-serif; cursor:pointer; }
   .tabstoggle button:hover { background:var(--accentbg); }
   nav.site { transition:transform .25s ease; }
