@@ -20,6 +20,14 @@
   .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
   .toggle button.on { background:var(--accent); color:#fff; }
   #search { flex:1 1 200px; min-width:160px; border:1px solid var(--line); border-radius:999px; padding:8px 14px; font-size:14px; background:var(--card); color:var(--ink); }
+  .concept { background:#fff; border:1px solid var(--line); border-left:5px solid var(--accent); border-radius:12px; padding:16px 18px; margin:0 0 18px; }
+  .concept .ctag { display:inline-block; font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--accent); background:var(--accentbg); border-radius:999px; padding:3px 10px; margin-bottom:10px; font-weight:700; }
+  .concept .cq { font-size:12.5px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); margin:14px 0 3px; }
+  .concept .cq:first-of-type { margin-top:0; }
+  .concept .ca { font-size:15px; line-height:1.62; margin:0; }
+  .concept .ca b { color:var(--ink); }
+  .concept .cfr { font-style:italic; color:var(--green); }
+  @media (max-width:640px){ .concept { padding:14px; } .concept .ca { font-size:14.5px; } }
   .parttabs { display:flex; gap:6px; flex-wrap:wrap; margin:14px 0 18px; position:sticky; top:0; background:var(--bg); padding:10px 0 8px; z-index:9; border-bottom:1px solid var(--line); transition:max-height .22s ease; }
   .parttabs.collapsed { max-height:none; overflow:visible; padding:8px 0 6px; }
   .parttabs.collapsed button { display:none; }
@@ -356,6 +364,7 @@ const BOOK = [];
 BOOK.push({
   id:'plan', part:'Le plan — la feuille de route',
   sub:"Where you are, where this goes, and what each chapter contains. Start here.",
+  concept:{"what": "A map of the whole book, not a lesson. It lists every chapter, the order they have to be learnt in, and what you'll be able to <b>do</b> after each one.", "where": "Read it once before you start, and come back to it whenever you're not sure what to study next or whether you're ready to move on.", "why": "French grammar is cumulative in a way English grammar isn't. You cannot learn the past tense before you can conjugate the present, and you cannot conjugate anything before you can pronounce it. The order in this plan is not a preference — it is the dependency chain."},
   chapters:[
   { title:'Comment ce livre est construit — How this book works', blocks:[
     {t:'p', x:"This book assumes you know <b>zero French</b>. Every chapter starts from nothing, explains in English, and builds on the one before it. You can read it in order from Chapter 1 and never need anything else."},
@@ -443,6 +452,7 @@ BOOK.push({
   id:'g00',
   part:'GRAMMAIRE — les mots et les phrases',
   sub:"The foundation under everything else: the nine word classes, how a French sentence is built, the four sentence types. Read this once and every other chapter makes more sense.",
+  concept:{"what": "The vocabulary of grammar itself: what a <b>noun</b>, a <b>verb</b>, a <b>subject</b>, an <b>article</b>, an <b>adjective</b>, a <b>pronoun</b> and an <b>agreement</b> actually are.", "where": "Every single other chapter uses these words. When a chapter says \"the adjective agrees with the noun\", this is where you find out what that sentence means.", "why": "French is taught, examined and corrected in these terms — in class, in the TCF, and in every French textbook. English schools often skip this vocabulary; French ones never do. Twenty minutes here saves you confusion in thirty chapters.", "trap": "Many English speakers were never taught the difference between a <b>subject</b> and an <b>object</b>, because English word order makes it obvious. French uses pronouns that change shape depending on which one they are, so the distinction stops being optional."},
   chapters:[
   { title:'G.0 · Pourquoi cette partie existe', blocks:[
     {t:'p', x:"The chapters of this book are organised by what you want to <b>do</b> — introduce yourself, talk about the past, give instructions. That's the right way to learn a language, because it's how you actually use one."},
@@ -825,6 +835,7 @@ BOOK.push({
 BOOK.push({
   id:'c01', part:'Chapitre 1 — Les sons et l\'alphabet',
   sub:"Reading French out loud. Do this one first — everything else depends on it.",
+  concept:{"what": "The sound system: which letters are said, which are silent, and which combinations always make the same sound.", "where": "Every word you will ever read, hear or say. This chapter is not about one topic — it is the operating system the rest of the book runs on.", "why": "French stopped pronouncing its word endings between about 1300 and 1600 but never changed its spelling. So the written word is a photograph of how French sounded 700 years ago. Once you know which parts of the photograph are historical and which are live, French spelling becomes one of the most predictable systems in Europe.", "trap": "Reading French with English sound values. <i>Parlez</i> is not \"par-lezz\", <i>vous</i> is not \"vowss\", and <i>beaucoup</i> has no k-sound at the end. If you learn the words before the sounds, you will learn them wrong and have to unlearn them later — which takes far longer."},
   chapters:[
   { title:'1.0 · Objectifs — what you\'ll be able to do', blocks:[
     {t:'ex', x:"<b>À la fin de ce chapitre, je peux :</b> <i>(By the end of this chapter, I can:)</i><br><br>· read a French word I've never seen and say it correctly<br>· know which letters at the end of a word are <b>silent</b><br>· make the three <b>nasal</b> sounds<br>· tell <b>u</b> and <b>ou</b> apart<br>· know what the accents (é è ê ç) are <u>for</u><br>· spell my name out loud in French"},
@@ -1463,6 +1474,7 @@ BOOK.push({
 BOOK.push({
   id:'c02', part:'Chapitre 2 — Se présenter',
   sub:"Saying who you are. The first thing anyone asks, and the first thing the examiner asks.",
+  concept:{"what": "The first thing you can actually do with French: say who you are, where you're from, what you do, and ask the same of someone else.", "where": "The opening ninety seconds of every conversation, every class, and the first task of the TCF <b>expression orale</b>.", "why": "Introductions are fixed, ritual language in every culture, and French is stricter about it than English. There are set phrases — <i>je m'appelle, je viens de, enchanté</i> — and native speakers expect them. Learning the ritual first buys you a working conversation before you understand any grammar.", "trap": "Translating \"I am\" for everything. English says <i>I am twenty</i>, <i>I am hungry</i>, <i>I am called Raj</i> — French uses <b>avoir</b> for the first two and a reflexive verb for the third. Three different structures, one English verb."},
   chapters:[
   { title:'2.0 · Objectifs', blocks:[
     {t:'ex', x:"<b>À la fin de ce chapitre, je peux :</b><br><br>· greet someone and say goodbye at the right level of politeness<br>· give my <b>name</b>, <b>age</b>, <b>nationality</b>, <b>where I live</b> and <b>what I do</b><br>· understand why French has <b>two words for « you »</b> and pick the right one<br>· ask the same questions back<br>· produce a 30-second introduction without thinking"},
@@ -1825,6 +1837,7 @@ BOOK.push({
 BOOK.push({
   id:'c03', part:'Chapitre 3 — Les nombres',
   sub:"Counting, prices, phone numbers — and why 70 to 99 go strange.",
+  concept:{"what": "The number system — counting, prices, ages, phone numbers, dates and quantities.", "where": "Shopping, telling the time, giving your age, reading a price, understanding an address, and the listening paper of the TCF, where numbers are the single most common thing candidates mishear.", "why": "French numbers above 60 are built on an old base-twenty system that survived from before Roman counting took over. <b>Soixante-dix</b> is literally \"sixty-ten\" and <b>quatre-vingt-dix</b> is \"four-twenties-ten\". It is not illogical — it is just a different base, frozen in place.", "trap": "Hearing numbers is far harder than saying them. <i>Deux</i> and <i>douze</i>, <i>trois</i> and <i>treize</i>, <i>soixante</i> and <i>soixante-seize</i> are close in fast speech. Drill the listening, not just the counting."},
   chapters:[
   { title:'3.0 · Objectifs', blocks:[
     {t:'ex', x:"<b>À la fin de ce chapitre, je peux :</b><br><br>· count from <b>0 to 1000</b><br>· understand why <b>70, 80, 90</b> are built the way they are<br>· give a <b>price</b> and understand one<br>· read a <b>phone number</b> the French way<br>· say my <b>age</b> and a <b>year</b><br>· use <b>premier, deuxième…</b> (first, second…)"},
@@ -2410,6 +2423,7 @@ BOOK.push({
 BOOK.push({
   id:'c04', part:'Chapitre 4 — ÊTRE et AVOIR',
   sub:"The two verbs half of French runs on. Learn these properly and everything later is easier.",
+  concept:{"what": "The two verbs French cannot function without: <b>être</b> (to be) and <b>avoir</b> (to have).", "where": "Everywhere. They describe people and things, they give your age, they express hunger and cold — and later they become the <b>auxiliaries</b> that build every compound past tense in the language.", "why": "Both verbs are ancient and used so constantly that they wore down into irregularity, exactly like English <i>be</i> (am/is/are/was/were). High-frequency verbs resist regularisation in every language; that is why the two most useful verbs are also the two strangest.", "trap": "English uses <i>to be</i> for states that French gives to <b>avoir</b>: <i>j'<b>ai</b> faim</i> (I am hungry — literally \"I have hunger\"), <i>j'<b>ai</b> vingt ans</i>, <i>j'<b>ai</b> froid</i>. French treats these as things you possess, not things you are."},
   chapters:[
   { title:'4.0 · Objectifs', blocks:[
     {t:'ex', x:"<b>À la fin de ce chapitre, je peux :</b><br><br>· conjugate <b>être</b> (to be) and <b>avoir</b> (to have) in all six persons<br>· know which one to use for <b>age, hunger, cold, fear</b><br>· use <b>il y a</b> to say what exists<br>· use <b>c'est</b> and <b>il est</b> correctly<br>· understand why these two verbs are irregular"},
@@ -2778,6 +2792,7 @@ BOOK.push({
 BOOK.push({
   id:'c05', part:'Chapitre 5 — Le genre et les articles',
   sub:"le, la, les, un, une, du — the little words in front of every noun, and why French insists on them.",
+  concept:{"what": "Why every French noun is either masculine or feminine, and which little word — <i>le, la, les, un, une, des, du, de la</i> — goes in front of it.", "where": "Every noun you will ever use. You cannot say \"table\" in French; you can only say <i>une table</i> or <i>la table</i>. The article is part of the word.", "why": "Latin had three genders and French kept two of them. Gender has almost nothing to do with meaning — it is a grammatical class, like a filing label. It matters because articles, adjectives and past participles all have to match it, so getting gender wrong makes several other words wrong at once.", "trap": "Learning a noun without its article. If you memorise <i>table</i> you have learnt half a word; memorise <b>une table</b> and you have learnt all of it. Fixing a wrongly-learnt gender later is much harder than learning it right the first time."},
   chapters:[
   { title:'5.0 · Objectifs', blocks:[
     {t:'ex', x:"<b>À la fin de ce chapitre, je peux :</b><br><br>· understand what <b>masculine</b> and <b>feminine</b> actually mean in French<br>· use <b>le, la, les</b> (the) and <b>un, une, des</b> (a / some)<br>· use <b>du, de la, des</b> for uncountable things<br>· know why French puts an article where English puts nothing<br>· know what happens to articles after a <b>negative</b><br>· guess a noun's gender from its ending"},
@@ -3207,6 +3222,7 @@ BOOK.push({
 BOOK.push({
   id:'c06', part:'Chapitre 6 — Poser une question',
   sub:"Three ways to ask anything — and why French has three where English has one.",
+  concept:{"what": "The three ways to turn a statement into a question, and the question words — <i>qui, que, quoi, où, quand, comment, pourquoi, combien, quel</i>.", "where": "Any conversation you want to participate in rather than just survive. Half of the TCF <b>expression orale</b> is asking questions, not answering them.", "why": "French has three registers of question and they are not interchangeable. Rising intonation (<i>Tu viens ?</i>) is spoken and casual. <b>Est-ce que</b> (<i>Est-ce que tu viens ?</i>) is neutral and always safe. <b>Inversion</b> (<i>Viens-tu ?</i>) is formal and written. English does all three with one structure, so the choice has to be learnt consciously.", "trap": "Using inversion everywhere because it looks \"correct\". In spoken French it can sound stiff or even sarcastic. <b>Est-ce que</b> is the one to default to."},
   chapters:[
   { title:'6.0 · Objectifs', blocks:[
     {t:'ex', x:"<b>À la fin de ce chapitre, je peux :</b><br><br>· ask a yes/no question in <b>three different ways</b><br>· choose the right one for the situation<br>· use <b>qui, que, où, quand, comment, pourquoi, combien, quel</b><br>· answer with <b>oui</b>, <b>non</b> — and know when to say <b>si</b><br>· hold a short two-way conversation"},
@@ -3526,6 +3542,7 @@ BOOK.push({
 BOOK.push({
   id:'at1', part:'ATELIER 1 — Révision intégrée (ch. 1–6)',
   sub:"Everything from Part 1, working together. Reading, listening, dictation and production — like a real workbook.",
+  concept:{"what": "Not a new topic — a workshop. Everything from Chapters 1 to 6 used together, the way real French uses it, in all four TCF skills at once.", "where": "After you've read Chapters 1–6 and think you know them. This is where you find out whether you do.", "why": "Learning a grammar point in isolation and then using it in a sentence are two different skills, and only the second one is tested. Each chapter gives you a context clue — you know the exercise is about articles, so you think about articles. Here there are no clues. That is the condition of the exam, and of real conversation."},
   chapters:[
   { title:'A1.0 · Comment marche cet atelier', blocks:[
     {t:'p', x:"The six chapters taught things one at a time. Real French uses them <b>all at once</b>. This workshop is where they meet."},
@@ -3659,6 +3676,7 @@ BOOK.push({
 BOOK.push({
   id:'c07', part:'Chapitre 7 — La famille et les gens',
   sub:"Family, people, and describing them. Plus mon/ma/mes — the first thing that really agrees.",
+  concept:{"what": "The words for people — family, friends, colleagues — and the possessives that go with them: <i>mon, ma, mes, son, sa, ses, notre, leur</i>.", "where": "Describing your own life, which is what the TCF speaking and writing papers ask you to do first. Also the single most common small-talk topic in any language.", "why": "French possessives agree with the <b>thing owned</b>, not with the owner. <i>Sa voiture</i> means \"his car\" <u>or</u> \"her car\" — the <i>sa</i> is feminine because <i>voiture</i> is feminine, and tells you nothing about who owns it. English does the opposite.", "trap": "Saying <i>sa</i> for \"her\" and <i>son</i> for \"his\". That is English logic. In French, <i>son père</i> can mean her father and <i>sa mère</i> can mean his mother. Look at the noun, never at the owner."},
   chapters:[
   { title:'7.0 · Objectifs', blocks:[
     {t:'ex', x:"<b>À la fin de ce chapitre, je peux :</b><br><br>· name every member of a family<br>· use <b>mon, ma, mes</b> and the whole possessive set<br>· understand why <b>son</b> means <u>both</u> « his » and « her »<br>· describe someone's <b>appearance</b> and <b>character</b><br>· say <b>ma famille me manque</b> — and understand why it's backwards<br>· talk about my own family for a minute without stopping"},
@@ -3956,6 +3974,7 @@ BOOK.push({
 BOOK.push({
   id:'c08', part:'Chapitre 8 — Le présent des verbes réguliers',
   sub:"Every verb in the language except a handful. Three patterns, and one of them covers 90%.",
+  concept:{"what": "How to change a verb's ending so it matches who is doing the action — the <b>-er</b>, <b>-ir</b> and <b>-re</b> patterns of the present tense.", "where": "Every sentence with a verb in it, which is every sentence. About 90% of French verbs — and almost every new verb invented since 1900 — follow the <b>-er</b> pattern.", "why": "French verb endings carry the information English puts in the pronoun. In Latin you could say <i>amo</i> and the <b>-o</b> told you it was \"I\". French kept the endings in writing, then lost most of them in speech — which is why <i>je parle, tu parles, il parle, ils parlent</i> are spelt four ways and said one way.", "trap": "Hearing is not the problem; <b>writing</b> is. Because four forms sound identical, learners write <i>ils parle</i> or <i>tu parle</i>. The TCF written paper catches this every time."},
   chapters:[
   { title:'8.0 · Objectifs', blocks:[
     {t:'ex', x:"<b>À la fin de ce chapitre, je peux :</b><br><br>· conjugate any <b>-ER</b> verb (about 90% of all French verbs)<br>· conjugate the <b>-IR</b> and <b>-RE</b> groups<br>· recognise which group a new verb belongs to just from its ending<br>· understand why four of the six forms sound <u>identical</u><br>· use about <b>60 common verbs</b> to talk about my life<br>· handle the small spelling changes in <i>manger</i>, <i>commencer</i>, <i>acheter</i>, <i>appeler</i>"},
@@ -4186,6 +4205,7 @@ BOOK.push({
 BOOK.push({
   id:'c09', part:'Chapitre 9 — Les verbes irréguliers',
   sub:"The twenty verbs that break the rules — and, inevitably, the twenty you need most.",
+  concept:{"what": "The verbs that refuse the patterns — <b>aller, faire, venir, prendre, pouvoir, vouloir, devoir, savoir, voir, dire, mettre, partir</b> and their relatives.", "where": "Constantly. The irregular verbs are irregular <u>because</u> they are the most used, so they appear in almost every sentence you'll hear.", "why": "Frequency protects irregularity. A verb used a hundred times a day is learnt whole, by ear, so it never gets tidied up by analogy. Rare verbs get regularised; common ones don't. English works the same way — <i>go/went</i>, <i>be/was</i>, <i>have/had</i>.", "trap": "Trying to derive them. You can't. These are memorised, out loud, in full, until the sound of a wrong form makes you flinch. Twelve verbs cover most of what you need — Chapter <b>Référence</b> has them laid out."},
   chapters:[
   { title:'9.0 · Objectifs', blocks:[
     {t:'ex', x:"<b>À la fin de ce chapitre, je peux :</b><br><br>· conjugate <b>aller, faire, venir, prendre, pouvoir, vouloir, devoir, savoir</b><br>· use <b>aller + infinitif</b> to talk about the future<br>· use <b>pouvoir / vouloir / devoir</b> with another verb<br>· tell <b>savoir</b> from <b>connaître</b> — both are « to know »<br>· recognise verb <u>families</u> instead of memorising one by one<br>· understand why the most common verbs are always the messiest"},
@@ -4752,6 +4772,7 @@ BOOK.push({
 BOOK.push({
   id:'c10', part:'Chapitre 10 — Les adjectifs',
   sub:"Describing things — and the agreement system that runs through the rest of the language.",
+  concept:{"what": "Describing words, and the two things French makes them do that English doesn't: <b>agree</b> with their noun, and usually come <b>after</b> it.", "where": "Any time you describe anything — a person, a place, a film, a meal. Description is the backbone of the TCF speaking paper's second task.", "why": "Agreement is a leftover from Latin, where endings showed which words belonged together. French kept it in the spelling even where it vanished from the sound: <i>grand</i> and <i>grande</i> differ by a written <b>e</b> and an audible <b>d</b>. Position is different: French puts the adjective after the noun by default because the noun is the main information and the describing word is a refinement.", "trap": "Word order. <i>Une voiture rouge</i>, not \"une rouge voiture\". A small set of very common adjectives — <b>beau, bon, grand, petit, jeune, vieux, nouveau, joli, gros</b> — do go in front, and they have to be learnt as the exception."},
   chapters:[
   { title:'10.0 · Objectifs', blocks:[
     {t:'ex', x:"<b>À la fin de ce chapitre, je peux :</b><br><br>· make any adjective agree in <b>gender</b> and <b>number</b><br>· know where an adjective goes — <b>after</b> the noun, and the exceptions<br>· use the <b>BAGS</b> adjectives that go in front<br>· handle <b>beau / nouveau / vieux</b>, which have three masculine forms<br>· describe people, places and things with about <b>80 adjectives</b><br>· understand why French bothers with agreement at all"},
@@ -5106,6 +5127,7 @@ BOOK.push({
 BOOK.push({
   id:'c11', part:'Chapitre 11 — L\'heure, les jours et la date',
   sub:"Telling the time, naming the days, giving a date. The detail TCF listening questions hang on.",
+  concept:{"what": "Telling the time, naming the days and months, and writing or saying a date.", "where": "Appointments, timetables, opening hours, train announcements — and the TCF listening paper, where a time or a date is very often the answer.", "why": "France uses the 24-hour clock for anything official, writes the day before the month, and does not capitalise days or months. None of this is arbitrary — it is simply a different convention, and the exam uses the French one.", "trap": "<i>Lundi</i> means \"on Monday\" (one specific Monday). <b>Le</b> <i>lundi</i> means \"on Mondays\" (every week). One article changes a single event into a habit."},
   chapters:[
   { title:'11.0 · Objectifs', blocks:[
     {t:'ex', x:"<b>À la fin de ce chapitre, je peux :</b><br><br>· ask and tell the time in both the <b>12-hour</b> and <b>24-hour</b> systems<br>· use <b>et quart</b>, <b>et demie</b>, <b>moins le quart</b><br>· name the <b>days</b>, <b>months</b> and <b>seasons</b><br>· give a full <b>date</b><br>· say <b>at</b> what time something happens, and <b>from … to …</b><br>· tell the difference between <b>dans / en / il y a / depuis / pendant</b>"},
@@ -5537,6 +5559,7 @@ BOOK.push({
   id:'c12',
   part:'Chapitre 12 — La négation',
   sub:"Saying no, not, never, nothing, nobody, no longer, not yet. French wraps the verb in two words — and one of them vanishes when people speak.",
+  concept:{"what": "How to say no — the <b>ne … pas</b> sandwich, and its relatives <i>ne … jamais, ne … plus, ne … rien, ne … personne, ne … que</i>.", "where": "Half of normal speech. You will say what you don't do, don't have and don't like far more often than you expect.", "why": "French negation has two parts because it grew that way. Old French negated with just <i>ne</i>; speakers then added a reinforcing noun for emphasis — <i>pas</i> (a step), <i>point</i> (a dot), <i>rien</i> (a thing). The reinforcement became compulsory and the original <i>ne</i> became almost silent. Spoken French is now quietly dropping the <i>ne</i> again, completing the circle.", "trap": "In conversation the French say <i>je sais pas</i>, not <i>je ne sais pas</i> — so learners conclude the <b>ne</b> is optional. It is optional in speech and <u>compulsory</u> in writing. The TCF written paper marks its absence."},
   chapters:[
   { title:'12.0 · Objectifs du chapitre', blocks:[
     {t:'p', x:"Up to now everything you've built has been <b>affirmative</b> — a statement that something <u>is</u> the case. <i>Je suis indien. J'ai vingt-trois ans. Il est huit heures.</i> That's half of language. The other half is denying: <b>I'm not, I don't have, it isn't, I never, nobody, nothing, not any more, not yet</b>."},
@@ -5867,6 +5890,7 @@ BOOK.push({
   id:'at2',
   part:'ATELIER 2 — Révision intégrée (ch. 7–12)',
   sub:"Family, present tense, irregulars, adjectives, time and negation — all mixed together, with nothing telling you which rule is being tested.",
+  concept:{"what": "The second workshop: Chapters 7 to 12 combined — people, verbs, adjectives, time and negation, used together with no labels telling you which is which.", "where": "After Chapter 12, before you start the past tenses. The past builds directly on present-tense conjugation, so this is the checkpoint.", "why": "This is the point where French stops being a list of topics and starts being a language. If you can hold agreement, conjugation and negation in one sentence at the same time, you're ready for the past. If you can't, more past tense won't help."},
   chapters:[
   { title:'A2.0 · Comment marche cet atelier', blocks:[
     {t:'p', x:"Chapters 7 to 12 each taught one thing at a time. That's how you learn a rule — but it isn't how French arrives at you. In a real conversation, or in a TCF question, six rules show up in the same sentence and nothing announces which is which. This workshop is the bridge."},
@@ -6046,6 +6070,7 @@ BOOK.push({
   id:'c13',
   part:'Chapitre 13 — Le passé composé avec AVOIR',
   sub:"Talking about the past. Two pieces, one of which you already own. This is the single most useful chapter in the book for the oral exam.",
+  concept:{"what": "The main past tense of spoken and written French, built with <b>avoir</b> plus a <b>participe passé</b>: <i>j'ai mangé, nous avons fini, ils ont vendu</i>.", "where": "Telling anyone about anything that happened. Narrating your weekend, your career, your trip — the TCF speaking and writing papers both ask for it directly.", "why": "French lost the simple past from everyday speech (it survives only in novels and history books) and replaced it with a two-part structure — \"I have eaten\" used where English says \"I ate\". So <i>j'ai mangé</i> is <u>both</u> \"I ate\" and \"I have eaten\"; French no longer distinguishes them.", "trap": "Translating English \"I have eaten\" and \"I ate\" differently. They are the same French sentence. Trying to keep the English distinction produces structures that don't exist."},
   chapters:[
   { title:'13.0 · Objectifs du chapitre', blocks:[
     {t:'p', x:"Everything in Chapters 1 to 12 happens <b>now</b>. <i>Je travaille. J'ai vingt-trois ans. Il est huit heures. Je ne fume pas.</i> You can describe your life accurately and completely — in the present. What you cannot do is tell someone what <u>happened</u>."},
@@ -6573,6 +6598,7 @@ BOOK.push({
   id:'c14',
   part:'Chapitre 14 — Le passé composé avec ÊTRE',
   sub:"Sixteen verbs refuse AVOIR. They take ÊTRE, and their participles agree with the subject like adjectives. Plus all the reflexive verbs.",
+  concept:{"what": "The minority of verbs that build the passé composé with <b>être</b> instead of <i>avoir</i> — and make their participle agree with the subject.", "where": "Any story involving movement or change of state: going, coming, arriving, leaving, being born, dying, staying, falling.", "why": "These verbs have no object — you don't \"go something\". With nothing to act on, the old Romance languages treated them as describing the subject's <u>state</u> rather than an action, and state verbs took <i>être</i>. That is also why the participle behaves like an adjective and agrees: <i>elle est allé<b>e</b></i>.", "trap": "The famous list is usually taught as <b>DR MRS VANDERTRAMPP</b>, and most versions of it are incomplete or contain a verb twice. The chapter gives the corrected list — seventeen verbs — with the reasoning, so you don't have to trust the mnemonic blindly."},
   chapters:[
   { title:'14.0 · Objectifs du chapitre', blocks:[
     {t:'p', x:"In Chapter 13 you built the past with <b>avoir</b>, and it worked for every verb you tried. Now the exception. A small, closed group of verbs — about sixteen of them — refuses <i>avoir</i> and insists on <b>être</b> as its auxiliary. And when a verb takes <i>être</i>, something else changes too: the <b>participle agrees with the subject</b>, exactly the way an adjective does."},
@@ -7028,6 +7054,7 @@ BOOK.push({
   id:'c15',
   part:'Chapitre 15 — L\'imparfait',
   sub:"The second past tense. One set of endings, three exceptions, no auxiliary, no agreement. It describes instead of narrating.",
+  concept:{"what": "The other past tense: the one for descriptions, habits and situations that were going on — <i>je parlais, il faisait froid, nous habitions</i>.", "where": "Setting a scene, describing how things used to be, saying what you were doing when something interrupted. Any story longer than one sentence needs it.", "why": "French splits the past in two by <b>aspect</b> — not by when something happened, but by how you're looking at it. A finished, bounded event takes the passé composé; an unbounded background takes the imparfait. English has this too (<i>I was eating</i> vs <i>I ate</i>) but doesn't apply it as consistently.", "trap": "The imparfait is built from the <b>nous</b> form of the present, minus <i>-ons</i>. One verb breaks this: <b>être</b> → <i>j'étais</i>. That single exception is worth memorising separately."},
   chapters:[
   { title:'15.0 · Objectifs du chapitre', blocks:[
     {t:'p', x:"French has two everyday past tenses, and this is the second. It's called <b>l'imparfait</b> — the \"imperfect\" — and after the machinery of Chapters 13 and 14 it will feel like a holiday: <b>one</b> set of endings, applied to <b>every verb in the language</b>, with exactly <b>three</b> exceptions. No auxiliary. No participle. No agreement."},
@@ -7415,6 +7442,7 @@ BOOK.push({
   id:'c16',
   part:'Chapitre 16 — Passé composé ou imparfait ?',
   sub:"The chapter that makes the past work. A decision method, the verbs whose meaning changes, and long practice weaving both tenses through one story.",
+  concept:{"what": "The decision procedure: given a past sentence, which of the two tenses do you use?", "where": "Every narrative you write or speak. This is the single most heavily marked grammar point in the TCF written paper at B1.", "why": "Because it isn't a rule about time, it's a rule about <b>framing</b>. The same real event can take either tense depending on whether the speaker presents it as a completed point or as a continuing backdrop. <i>Il pleuvait</i> and <i>il a plu</i> can describe the same rain.", "trap": "Looking for a keyword. Time markers help — <i>souvent, tous les jours, d'habitude</i> lean imparfait; <i>soudain, hier, une fois</i> lean passé composé — but they are hints, not rules. The chapter teaches the question to ask instead: <b>is this the picture, or is this the frame?</b>"},
   chapters:[
   { title:'16.0 · Objectifs du chapitre', blocks:[
     {t:'p', x:"You can now <b>form</b> both past tenses. Chapters 13 and 14 gave you the passé composé; Chapter 15 gave you the imparfait. Neither chapter asked you to choose between them, and that was deliberate — forming and choosing are different skills, and trying to learn both at once is what makes the French past feel impossible."},
@@ -7781,6 +7809,7 @@ BOOK.push({
   id:'at3',
   part:'ATELIER 3 — Révision intégrée (ch. 13–16)',
   sub:"The whole past tense system, mixed and unlabelled. Long readings, audio-only listening, a fifteen-verb narrative, and extended production.",
+  concept:{"what": "The third workshop: Chapters 13 to 16 together — both past tenses, both auxiliaries, agreement, and the choice between them, with no labels.", "where": "After Chapter 16. This is the gate between A2 and B1.", "why": "The past tenses are where most learners stall. Not because the forms are hard, but because choosing between them under time pressure is a different skill from knowing the rule. This workshop puts you under that pressure deliberately."},
   chapters:[
   { title:'A3.0 · Comment marche cet atelier', blocks:[
     {t:'p', x:"Partie 3 taught the past in four steps: the passé composé with <i>avoir</i>, then with <i>être</i>, then the imparfait, then the choice. Each chapter let you work inside one rule at a time. This workshop takes the scaffolding away."},
@@ -8016,6 +8045,7 @@ BOOK.push({
   id:'c17',
   part:'Chapitre 17 — Le futur proche',
   sub:"The easiest tense in French. ALLER + infinitive, and you can talk about everything you're going to do. Twenty minutes to learn, a lifetime of use.",
+  concept:{"what": "The easy future: <b>aller</b> conjugated, plus an infinitive. <i>Je vais partir</i> — I'm going to leave.", "where": "Almost all spoken talk about the future. In conversation the French use this far more than the \"real\" future tense.", "why": "Every language seems to build a future out of a verb of motion — English \"I'm going to\", French \"je vais\", Spanish \"voy a\". Going somewhere and intending something are so close in the mind that the grammar fuses them.", "trap": "It needs no new conjugation at all — only <b>aller</b>, which you already have. Learners often delay it because \"future\" sounds advanced. It isn't; it's the cheapest tense in the book."},
   chapters:[
   { title:'17.0 · Objectifs du chapitre', blocks:[
     {t:'p', x:"You can now describe the present and narrate the past. What you still cannot do is say what you're <b>going to do</b> — and that's a serious gap, because one of the ten questions the TCF examiner will almost certainly ask you is <i>Quels sont vos projets ?</i>"},
@@ -8346,6 +8376,7 @@ BOOK.push({
   id:'c18',
   part:'Chapitre 18 — L\'impératif',
   sub:"Giving orders, advice and instructions. The shortest tense in French — three persons, no subject pronoun, and one rule that surprises everyone.",
+  concept:{"what": "Giving orders, instructions, advice and invitations: <i>Parle ! Parlons ! Parlez !</i>", "where": "Recipes, directions, signs, instructions, and anything polite — <i>asseyez-vous</i>, <i>excusez-moi</i>, <i>allons-y</i>.", "why": "The imperative is just the present tense with the pronoun removed — the person is obvious because you're talking to them. The only oddity is that <b>-er</b> verbs drop the final <i>s</i> in the <i>tu</i> form: <i>tu parles</i> → <b>parle !</b>", "trap": "Pronoun placement flips. Affirmative: <i>Donne-<b>moi</b> ça</i> — pronoun after, hyphenated, and <i>me</i> becomes <b>moi</b>. Negative: <i>Ne <b>me</b> donne pas ça</i> — back in front. Same sentence, two positions."},
   chapters:[
   { title:'18.0 · Objectifs du chapitre', blocks:[
     {t:'p', x:"Everything you've built so far <b>describes</b>: what is, what was, what's going to be. This chapter does something different — it tells someone to <b>do</b> something."},
@@ -8648,6 +8679,7 @@ BOOK.push({
   id:'c19',
   part:'Chapitre 19 — Les verbes pronominaux',
   sub:"Me, te, se — les verbes qu’on fait à soi-même. Toute votre journée du réveil au coucher, et la deuxième grande famille des verbes avec ÊTRE.",
+  concept:{"what": "Verbs that carry an extra pronoun pointing back at the subject: <i>je <b>me</b> lève, tu <b>te</b> laves, ils <b>se</b> parlent</i>.", "where": "Your entire daily routine — waking, washing, dressing, hurrying, resting, going to bed — plus a large set of verbs where the reflexive pronoun is simply part of the verb, like <i>se souvenir</i> (to remember).", "why": "Three different jobs hide under one form. <b>Reflexive</b>: the action comes back to you (<i>je me lave</i> — I wash myself). <b>Reciprocal</b>: two people do it to each other (<i>ils se parlent</i> — they talk to each other). <b>Lexical</b>: the pronoun carries no meaning and the verb just needs it (<i>je m'appelle</i>). French didn't invent three structures; it reused one.", "trap": "In the passé composé they <u>all</u> take <b>être</b>, with no exceptions: <i>je me suis levé</i>, never \"je m'ai levé\". And the participle usually agrees with the subject."},
   chapters:[
   { title:'19.0 · Objectifs du chapitre', blocks:[
     {t:'p', x:"Jusqu’ici, tous vos verbes pointent <b>vers l’extérieur</b>. <i>Je regarde la télé.</i> <i>Je lave la voiture.</i> Le sujet fait quelque chose, et quelque chose d’autre le reçoit."},
@@ -9069,6 +9101,7 @@ BOOK.push({
   id:'c20',
   part:'Chapitre 20 — Les pronoms compléments (COD et COI)',
   sub:"le, la, les, lui, leur — remplacer un mot déjà dit. Le chapitre qui fait passer votre français de « correct » à « naturel ».",
+  concept:{"what": "Replacing a noun you've already mentioned with a short pronoun placed <b>before</b> the verb — <b>COD</b> (<i>le, la, les</i>) and <b>COI</b> (<i>lui, leur</i>).", "where": "The moment you have more than one sentence about the same thing. Repeating the noun sounds foreign and childish; pronouns are what make speech flow.", "why": "The difference is purely about whether the verb needs a preposition. <i>Je vois <b>Marie</b></i> — no preposition, direct object, so <b>je la vois</b>. <i>Je parle <b>à Marie</b></i> — preposition <b>à</b>, indirect object, so <b>je lui parle</b>. The test is to ask <i>qui ?</i> or <i>quoi ?</i> straight after the verb.", "trap": "English word order. English puts the pronoun after the verb — <i>I see her</i> — and French puts it before — <i>je <b>la</b> vois</i>. Also, the verbs don't match: <i>téléphoner</i> and <i>répondre</i> take <b>à</b> in French even though \"phone\" and \"answer\" are direct in English."},
   chapters:[
   { title:'20.0 · Objectifs du chapitre', blocks:[
     {t:'p', x:"Écoutez deux phrases.<br><br><i>— Tu connais Marie ?<br>— Oui, je connais Marie.</i><br><br>C’est grammaticalement correct, et c’est immédiatement reconnaissable comme du français d’étranger. Un francophone dirait :<br><br><i>— Oui, je <b>la</b> connais.</i>"},
@@ -9357,6 +9390,7 @@ BOOK.push({
   id:'c21',
   part:'Chapitre 21 — Les pronoms Y et EN',
   sub:"Deux lettres qui remplacent des phrases entières. Les derniers pronoms compléments, et les plus fréquents de tout le français parlé.",
+  concept:{"what": "Two more pronouns that work the same way but replace whole phrases: <b>Y</b> for things introduced by <i>à</i> or any place, <b>EN</b> for things introduced by <i>de</i> or any quantity.", "where": "Constantly, and almost invisibly. <i>J'y vais</i>, <i>il y a</i>, <i>j'en ai</i>, <i>je m'en vais</i> are among the most frequent strings in spoken French.", "why": "They are the pronoun versions of the two prepositions that organise the whole language. <b>à</b> = towards / at → <b>y</b>. <b>de</b> = from / of / some → <b>en</b>. If you know which preposition a verb takes, you already know which pronoun it uses.", "trap": "English has no equivalent, so learners skip them — and then sound stilted. <i>J'ai trois frères</i> → <i>J'<b>en</b> ai trois</i>. Dropping the <i>en</i> and saying \"j'ai trois\" is wrong; the pronoun is compulsory even though English omits it."},
   chapters:[
   { title:'21.0 · Objectifs du chapitre', blocks:[
     {t:'p', x:"Au chapitre 20, vous avez remplacé des <b>personnes</b> et des <b>choses</b> par <i>le, la, les, lui, leur</i>. Il reste deux cases vides dans le système : que faire d’un <b>lieu</b>, et que faire d’une <b>quantité</b> ?"},
@@ -9587,6 +9621,7 @@ BOOK.push({
   id:'c22',
   part:'Chapitre 22 — Les pronoms toniques et démonstratifs',
   sub:"moi, toi, lui, eux · celui, celle, ceux, ça. Insister, désigner, comparer — et enfin dire « celui de mon frère » sans se répéter.",
+  concept:{"what": "<b>Toniques</b> (<i>moi, toi, lui, elle, nous, vous, eux, elles</i>) — the pronouns that can stand alone — and <b>démonstratifs</b> (<i>ce, cet, cette, ces, celui, celle, ceux</i>) — this and that.", "where": "Emphasis (<i><b>Moi</b>, je pense que…</i>), after prepositions (<i>avec <b>lui</b></i>), one-word answers (<i>Qui ? — <b>Moi</b>.</i>), and pointing at things (<i><b>cette</b> voiture</i>).", "why": "French subject pronouns are unstressable — you physically cannot put emphasis on <i>je</i>. So the language keeps a second, heavier set for exactly the jobs that need weight. English does the same with <i>I</i> and <i>me</i>, just less systematically.", "trap": "Never <i>avec je</i> or <i>c'est je</i>. After a preposition and after <i>c'est</i>, it is always the tonic form: <b>avec moi</b>, <b>c'est moi</b>."},
   chapters:[
   { title:'22.0 · Objectifs du chapitre', blocks:[
     {t:'p', x:"Il reste deux familles de pronoms, et vous les avez déjà croisées sans explication. Au chapitre 21, pour dire « je pense à ma mère », il a fallu écrire <i>je pense <b>à elle</b></i>. Ce <b>elle</b>-là n’est pas le sujet <i>elle</i> : c’est un <b>pronom tonique</b>. Et dans la conversation du restaurant, <i>Moi, je m’en occupe</i> commençait par un <b>moi</b> qui n’était sujet de rien."},
@@ -9779,6 +9814,7 @@ BOOK.push({
   id:'ref1',
   part:'RÉFÉRENCE — Les douze verbes et la conjugaison',
   sub:"Ce qu’est conjuguer, et les tableaux complets des douze verbes demandés en classe : aller, pouvoir, vouloir, faire, venir, voir, parler, travailler, partir, dire, connaître, savoir.",
+  concept:{"what": "Not a chapter — a lookup table. The twelve verbs French cannot do without, conjugated in every tense you'll meet, plus the machinery of how conjugation works.", "where": "Open it whenever you're writing and can't remember a form. It is meant to be consulted, not read straight through.", "why": "Conjugation is always the same two pieces: a <b>radical</b> (the stem, which carries the meaning) and a <b>terminaison</b> (the ending, which carries the person and the tense). Regular verbs keep one radical; irregular ones swap between two or three. Seeing that explicitly turns memorisation into pattern recognition.", "trap": "Trying to learn this page. Don't. Learn the twelve verbs out loud a few at a time, and use the page as a reference for the rest."},
   chapters:[
   { title:'R.0 · Conjuguer — ce que ça veut dire exactement', blocks:[
     {t:'p', x:"Un verbe français n’a pas une forme, il en a des dizaines. <b>Conjuguer</b>, c’est choisir laquelle, en fonction de deux informations : <b>qui</b> fait l’action, et <b>quand</b>."},
@@ -10084,6 +10120,7 @@ BOOK.push({
   id:'c23',
   part:'Chapitre 23 — Exprimer la fréquence',
   sub:"Toujours, souvent, deux fois par semaine, tous les jours, le lundi. Dire à quelle fréquence vous faites les choses — et savoir où placer le mot.",
+  concept:{"what": "Saying how often — <i>toujours, souvent, parfois, rarement, jamais</i> — and the expressions that give exact frequency, like <i>une fois par semaine</i>.", "where": "Describing routines and habits, which is the most common speaking prompt at A2–B1. It is also the vocabulary that signals the <b>imparfait</b> in a past narrative.", "why": "Frequency words are small, unstressed and easy to miss when listening, but they completely change the meaning of a sentence. <i>Je vais au cinéma</i> and <i>je vais <b>rarement</b> au cinéma</i> are opposite claims made with one extra word.", "trap": "Placement. Short adverbs of frequency go <b>after</b> the conjugated verb — <i>je vais <b>souvent</b></i> — not before it as in English (\"I often go\"). In the passé composé they slot between auxiliary and participle: <i>j'ai <b>souvent</b> mangé</i>."},
   chapters:[
   { title:'23.0 · Objectifs du chapitre', blocks:[
     {t:'p', x:"« <i>Parlez-moi de votre routine.</i> » « <i>Faites-vous du sport ?</i> » « <i>À quelle fréquence utilisez-vous les transports en commun ?</i> » Ces trois questions sont des classiques de l’expression orale du TCF, et on ne peut répondre à aucune des trois sans dire <b>à quelle fréquence</b>."},
@@ -10409,6 +10446,7 @@ BOOK.push({
   id:'c24',
   part:'Chapitre 24 — Décrire quelqu’un',
   sub:"Les quatre structures de la description : être + adjectif, avoir + partie du corps, avoir l’air + adjectif, porter + vêtement. Plus tout le vocabulaire qui va avec.",
+  concept:{"what": "Describing a person completely: physical appearance, body parts, clothing, character, qualities and faults, and professions with their feminine forms.", "where": "The second task of the TCF <b>expression orale</b> is almost always a description. It is also what you do every time you tell someone about a colleague, a friend or a stranger.", "why": "Description is where everything you've learnt collides: gender, adjective agreement, adjective position, <i>être</i> vs <i>avoir</i>, and possessives all have to be right at once. That is why it comes late and why it's worth practising out loud.", "trap": "<i>Il est professeur</i> — no article before a profession after <i>être</i>. English insists on \"a\": \"he is <b>a</b> teacher\". French drops it, unless an adjective is attached: <i>c'est <b>un</b> bon professeur</i>."},
   chapters:[{ title:'24.0 · Objectifs du chapitre', blocks:[
     {t:'p', x:"« <i>Décrivez une personne de votre famille.</i> » « <i>À quoi ressemble votre meilleur ami ?</i> » « <i>Qui est la personne sur la photo ?</i> » Décrire quelqu’un est l’une des tâches les plus prévisibles de l’examen, et l’une des plus faciles à préparer — parce qu’elle repose sur <b>quatre structures seulement</b>."},
     {t:'p', x:"Votre professeure les a présentées exactement dans cet ordre, et c’est le bon : chacune ajoute une couche à la précédente."},
@@ -11115,6 +11153,7 @@ BOOK.push({
   id:'c25',
   part:'Chapitre 25 — Les pronoms relatifs',
   sub:"qui, que, où, dont. Souder deux phrases en une seule — le marqueur le plus net du passage au niveau B1.",
+  concept:{"what": "The words that glue two sentences into one: <b>qui, que, où, dont</b>.", "where": "The difference between A2 and B1 writing. Short sentences sound like a beginner; relative pronouns are how you stop sounding like one.", "why": "Each one replaces a different grammatical role in the second sentence. <b>qui</b> replaces a subject, <b>que</b> replaces an object, <b>où</b> replaces a place or a time, <b>dont</b> replaces something introduced by <i>de</i>. Work out the role, and the pronoun chooses itself.", "trap": "English lets you delete the relative pronoun — \"the book I read\". French never does: <i>le livre <b>que</b> j'ai lu</i>. The <i>que</i> is compulsory, every time."},
   chapters:[
   { title:'25.0 · Objectifs du chapitre', blocks:[
     {t:'p', x:"Comparez ces deux façons de dire la même chose.<br><br><i>J’ai vu un film. Le film était très long. Le film parlait de la guerre.</i><br><br><i>J’ai vu un film <b>qui</b> était très long et <b>qui</b> parlait de la guerre.</i><br><br>Trois phrases courtes contre une seule phrase construite. Les deux sont correctes ; la seconde est du français."},
@@ -11358,6 +11397,7 @@ BOOK.push({
   id:'c26',
   part:'Chapitre 26 — Les prépositions',
   sub:"à, de, en, dans, chez, pour, par, avec, sans. Les petits mots qui font les petites fautes — et les pays, qui ont leur propre règle.",
+  concept:{"what": "The small words that connect everything — <b>à, de, en, dans, chez, sur, sous, pour, par, avec</b> — plus the rules for countries, cities and means of transport.", "where": "Every sentence with a place, a time, a destination or a purpose in it. Prepositions are the most frequent words in French after articles.", "why": "Two prepositions carry most of the load, and they are opposites of direction. <b>à</b> = towards, at, in. <b>de</b> = from, of, out of. Which one a sentence needs is decided by the <u>verb</u>, not by the place: <i>je vais <b>au</b> bureau</i> but <i>je viens <b>du</b> bureau</i>.", "trap": "Prepositions almost never translate one-to-one. English \"in\" is <i>à</i> for a city (<b>à</b> Paris), <i>en</i> for a feminine country (<b>en</b> France), <i>au</i> for a masculine one (<b>au</b> Canada), <i>aux</i> for a plural one (<b>aux</b> États-Unis). Learn them attached to the word, not as a translation."},
   chapters:[
   { title:'26.0 · Objectifs du chapitre', blocks:[
     {t:'p', x:"<i>Je vais <b>à</b> Paris.</i> · <i>Je vais <b>en</b> France.</i> · <i>Je vais <b>au</b> Canada.</i> · <i>Je vais <b>aux</b> États-Unis.</i><br><br>Quatre prépositions différentes pour le même verbe et la même idée. Rien ne le laisse deviner, et c’est exactement pourquoi ce chapitre existe."},
@@ -11671,6 +11711,7 @@ BOOK.push({
   id:'c27',
   part:'Chapitre 27 — Le futur simple et le conditionnel',
   sub:"je partirai, je partirais. Un seul radical pour deux temps — et la politesse française enfin expliquée.",
+  concept:{"what": "Two tenses built on the same stem: the <b>futur simple</b> (<i>je parlerai</i> — I will speak) and the <b>conditionnel</b> (<i>je parlerais</i> — I would speak).", "where": "The futur simple for plans, predictions and promises in writing. The conditionnel for politeness (<i>je <b>voudrais</b></i>), hypotheses, and reported future.", "why": "They are the same machine with different endings. Take the infinitive, add the <i>avoir</i> present endings → future. Add the <i>imparfait</i> endings → conditional. The irregular stems — <i>ir-, aur-, ser-, fer-, pourr-, voudr-, devr-, saur-, viendr-</i> — are irregular for <u>both</u>, so you learn each one once and get two tenses.", "trap": "<i>Je parlerai</i> and <i>je parlerais</i> differ by one silent letter and sound nearly identical. In writing, that letter is the difference between a promise and a hypothesis — and the TCF written paper tests exactly this."},
   chapters:[
   { title:'27.0 · Objectifs du chapitre', blocks:[
     {t:'p', x:"Vous savez déjà parler du futur avec <b>aller + infinitif</b> : <i>je vais partir</i>. C’est le futur proche du chapitre 17, et il suffit dans la conversation courante.<br><br>Ce chapitre ajoute deux formes qui n’ont pas d’équivalent dans le futur proche : le <b>futur simple</b> (<i>je partirai</i>) pour l’écrit et les projets lointains, et le <b>conditionnel</b> (<i>je partirais</i>) pour l’hypothèse et la politesse."},
@@ -11859,6 +11900,7 @@ BOOK.push({
   id:'c28',
   part:'Chapitre 28 — Le comparatif et le superlatif',
   sub:"plus que, moins que, aussi que, le meilleur, le pire. Comparer deux choses — une tâche explicite de l’examen.",
+  concept:{"what": "Comparing: <b>plus … que</b>, <b>moins … que</b>, <b>aussi … que</b>, and the superlative <b>le plus / le moins</b>.", "where": "Any opinion, any argument, any \"which is better\" question — which is the standard prompt for TCF writing task 3 and the B1 speaking task.", "why": "French builds comparatives analytically — it adds a word rather than changing the adjective. There is no French equivalent of \"bigger\"; you say <i><b>plus</b> grand</i>. That makes it simpler than English, which mixes <i>-er</i> and <i>more</i> unpredictably.", "trap": "Two irregulars survive from Latin: <b>bon → meilleur</b> (never \"plus bon\") and <b>bien → mieux</b> (never \"plus bien\"). And the adjective still has to agree: <i>elle est la <b>meilleure</b></i>."},
   chapters:[
   { title:'28.0 · Objectifs et la structure de base', blocks:[
     {t:'p', x:"« <i>Comparez la vie en ville et la vie à la campagne.</i> » « <i>Quel est le meilleur moyen de transport ?</i> » Comparer est une consigne fréquente de l’expression écrite du TCF, et la structure tient en une ligne."},
@@ -12004,6 +12046,7 @@ BOOK.push({
   id:'c29',
   part:'Chapitre 29 — Le subjonctif',
   sub:"Il faut que tu viennes. Le mode du souhait, de l’obligation et du doute — beaucoup plus limité qu’on ne vous l’a dit.",
+  concept:{"what": "A separate set of verb forms used after certain expressions of wish, emotion, doubt, necessity and obligation: <i>il faut que je <b>fasse</b></i>, <i>je veux que tu <b>viennes</b></i>.", "where": "Expressing what you want, need, fear or doubt. It's the grammatical marker that separates B1 from A2 in examiners' eyes.", "why": "The subjunctive isn't a tense — it doesn't say when. It says the speaker isn't presenting the event as a fact but as something wished for, feared or required. English had this and mostly lost it; only fossils remain (\"if I <b>were</b> you\", \"I insist he <b>be</b> told\").", "trap": "It is <u>triggered</u>, not chosen. You don't decide to use the subjunctive — a specific expression forces it. Learn the trigger list (<i>il faut que, vouloir que, avoir peur que, bien que, pour que, avant que</i>) rather than trying to feel when it applies."},
   chapters:[
   { title:'29.0 · Objectifs — et pourquoi il fait moins peur qu’on croit', blocks:[
     {t:'p', x:"Le subjonctif a une réputation terrifiante. Elle est largement imméritée, et voici pourquoi."},
@@ -12195,6 +12238,7 @@ BOOK.push({
   id:'c30',
   part:'Chapitre 30 — Les connecteurs logiques',
   sub:"et, mais, donc, alors, parce que, puis, enfin, pourtant. Les mots qui relient les idées — et qui transforment une liste en raisonnement.",
+  concept:{"what": "The words that organise an argument: <b>mais, donc, parce que, car, cependant, pourtant, en effet, d'ailleurs, enfin</b>.", "where": "Written French above all. The TCF <b>expression écrite</b> is marked partly on coherence, and connectors are what coherence looks like on paper.", "why": "French academic and professional writing is explicitly signposted — the reader is told, at the start of each sentence, what relationship it has to the previous one. English tolerates implicit links; French expects them stated.", "trap": "<b>Parce que</b> and <b>car</b> both mean \"because\" but aren't interchangeable. <i>Parce que</i> answers a <i>pourquoi</i> and can start a sentence; <i>car</i> is written, joins two clauses, and can never start one."},
   chapters:[
   { title:'30.0 · Objectifs du chapitre', blocks:[
     {t:'p', x:"Lisez ces deux réponses à la question « <i>Pourquoi apprenez-vous le français ?</i> »<br><br><b>A.</b> <i>J’apprends le français. Je veux aller au Canada. Le français est obligatoire. C’est difficile. Je continue.</i><br><br><b>B.</b> <i>J’apprends le français <b>parce que</b> je veux aller au Canada <b>et que</b> le français y est obligatoire. C’est difficile, <b>mais</b> je continue <b>quand même</b>.</i>"},
@@ -12402,6 +12446,7 @@ BOOK.push({
   id:'c31',
   part:'Chapitre 31 — Situer l’action dans le temps',
   sub:"je viens de manger · je suis en train de manger · j’avais mangé · en mangeant. Quatre outils qui complètent le système des temps.",
+  concept:{"what": "Placing an action in time: <b>depuis, il y a, pendant, pour, en, dans</b> — and the difference between a duration, a starting point and a deadline.", "where": "Any sentence about how long something has lasted or when it will happen. This is a dense cluster of exam questions because the words look interchangeable and are not.", "why": "Each one answers a different question. <b>depuis</b> = since when, and the action is still going. <b>il y a</b> = how long ago, and it's finished. <b>pendant</b> = for how long, complete. <b>dans</b> = in how much time from now. <b>en</b> = how long it took to complete.", "trap": "<i>Depuis</i> takes the <b>present</b> in French where English takes a perfect: <i>J'habite ici <b>depuis</b> cinq ans</i> = \"I <b>have been</b> living here for five years\". Using a past tense there is the classic English-speaker error."},
   chapters:[
   { title:'31.0 · Objectifs — les quatre trous du système', blocks:[
     {t:'p', x:"Vous avez maintenant le présent, le passé composé, l’imparfait, le futur proche, le futur simple, le conditionnel et le subjonctif. C’est presque tout — mais il reste quatre situations que ces temps ne couvrent pas."},
@@ -12551,6 +12596,7 @@ BOOK.push({
   id:'c32',
   part:'Chapitre 32 — Le discours indirect',
   sub:"« Il a dit qu’il viendrait. » Rapporter les paroles de quelqu’un — et la concordance des temps qui fait peur et qui tient en trois lignes.",
+  concept:{"what": "Reporting what someone said without quoting them: <i>Il dit qu'il vient</i> / <i>Il a dit qu'il venait</i>.", "where": "Retelling conversations, summarising, writing emails about what a colleague told you — and reading comprehension, where texts constantly report speech.", "why": "When the reporting verb moves into the past, the reported verb moves back with it: present → imparfait, passé composé → plus-que-parfait, futur → conditionnel. It's a chain reaction called <b>la concordance des temps</b>, and English does the same thing (\"he says he is coming\" → \"he said he <b>was</b> coming\").", "trap": "Questions change shape too. <i>Est-ce que</i> becomes <b>si</b>, and <i>qu'est-ce que</i> becomes <b>ce que</b>: <i>Il demande <b>si</b> tu viens</i>, <i>Il demande <b>ce que</b> tu fais</i>."},
   chapters:[
   { title:'32.0 · Objectifs du chapitre', blocks:[
     {t:'p', x:"Il existe deux façons de rapporter ce que quelqu’un a dit.<br><br><b>Le discours direct</b> cite mot pour mot, entre guillemets : <i>Il m’a dit : « Je viendrai demain. »</i><br><br><b>Le discours indirect</b> intègre la phrase dans la vôtre : <i>Il m’a dit <b>qu’il viendrait le lendemain</b>.</i>"},
@@ -12742,6 +12788,7 @@ BOOK.push({
   id:'c33',
   part:'Chapitre 33 — La voix passive',
   sub:"« La lettre a été écrite. » Et surtout : pourquoi le français l’évite, et par quoi il la remplace.",
+  concept:{"what": "Turning the object of a sentence into its subject: <i>Le chef prépare le repas</i> → <i>Le repas <b>est préparé</b> par le chef</i>.", "where": "News reports, official notices, instructions, scientific and administrative writing — exactly the registers the TCF reading paper draws from.", "why": "The passive exists to move the important information to the front, or to avoid naming who did something. French uses it less than English does, and often prefers <b>on</b> instead: <i><b>On</b> parle français ici</i> rather than \"French is spoken here\".", "trap": "The participle agrees with the subject, because <i>être</i> is the auxiliary: <i>la voiture <b>est réparée</b></i>, <i>les voitures <b>sont réparées</b></i>. And the agent takes <b>par</b> for an action, <b>de</b> for a state (<i>aimé <b>de</b> tous</i>)."},
   chapters:[
   { title:'33.0 · Objectifs — et un avertissement utile', blocks:[
     {t:'p', x:"Une phrase peut se dire dans deux sens.<br><br><b>Voix active</b> — le sujet fait l’action : <i><b>Marie</b> a écrit la lettre.</i><br><b>Voix passive</b> — le sujet la subit : <i><b>La lettre</b> a été écrite par Marie.</i><br><br>Même information, deux angles. Ce qui était objet devient sujet."},
@@ -12881,6 +12928,7 @@ BOOK.push({
   id:'c34',
   part:'Chapitre 34 — Les derniers temps composés',
   sub:"j’aurais fait · quand j’aurai fini · après avoir mangé · une personne parlant français. Les quatre dernières formes du B1 — et elles se construisent toutes sur ce que vous savez déjà.",
+  concept:{"what": "The remaining compound tenses: <b>plus-que-parfait</b> (had done), <b>futur antérieur</b> (will have done) and <b>conditionnel passé</b> (would have done).", "where": "Any sentence with two past moments in it — \"I had already eaten when he arrived\" — and in the <i>si</i> clauses that express regret: <i>Si j'avais su, je serais venu</i>.", "why": "All three are built the same way: an auxiliary (<i>avoir</i> or <i>être</i>) in a given tense, plus the past participle. Put the auxiliary in the imparfait → plus-que-parfait. In the futur simple → futur antérieur. In the conditionnel → conditionnel passé. One rule, three tenses.", "trap": "The auxiliary and the agreement rules are exactly those of the passé composé — the <i>être</i> verbs are the same seventeen, the pronominals still take <i>être</i>. Nothing new is being learnt; the same machine is being run in a different gear."},
   chapters:[
   { title:'34.0 · Objectifs — vous savez déjà presque tout', blocks:[
     {t:'p', x:"Il reste quatre formes verbales à voir, et aucune ne demande d’apprendre une conjugaison nouvelle. Toutes se fabriquent avec <b>avoir</b> ou <b>être</b> + le participe passé, exactement comme le passé composé."},
@@ -13048,6 +13096,16 @@ function renderBook(){
     const h2=document.createElement('h2'); h2.textContent=part.part;
     const p=document.createElement('p'); p.textContent=part.sub||'';
     head.appendChild(h2); head.appendChild(p); sec.appendChild(head);
+
+    if(part.concept){
+      const c=document.createElement('div'); c.className='concept';
+      let html='<span class="ctag">Le concept — in plain English</span>';
+      html+='<div class="cq">What this is</div><p class="ca">'+part.concept.what+'</p>';
+      html+='<div class="cq">Where you use it</div><p class="ca">'+part.concept.where+'</p>';
+      html+='<div class="cq">Why French does it this way</div><p class="ca">'+part.concept.why+'</p>';
+      if(part.concept.trap) html+='<div class="cq">The English-speaker trap</div><p class="ca">'+part.concept.trap+'</p>';
+      c.innerHTML=html; sec.appendChild(c);
+    }
 
     const toc=document.createElement('div'); toc.className='tocbox';
     toc.innerHTML='<b>In this part:</b>';
