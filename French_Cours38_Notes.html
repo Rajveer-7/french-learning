@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cours 38 — Les contractions, les lieux et les pronoms COD</title>
+<style>
+  :root { --bg:#faf9f7; --card:#fff; --line:#e6e3dc; --ink:#23201b; --muted:#6b675f; --accent:#4338ca; --accentbg:#eceafe; --green:#0f7a54; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.5; }
+  .wrap { max-width:820px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:26px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; font-size:14px; }
+  nav { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-size:14px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:var(--card); }
+  nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .bar span { font-size:13px; color:var(--muted); }
+  .toggle { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .toggle button { border:none; background:var(--card); padding:6px 14px; font-size:13px; cursor:pointer; color:var(--ink); }
+  .toggle button.on { background:var(--accent); color:#fff; }
+  h2 { font-size:18px; margin:24px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  h3.sub2 { font-size:15px; margin:16px 0 6px; color:var(--accent); }
+  .lead { font-size:14px; color:var(--muted); margin:0 0 10px; }
+  .row { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:8px 0; }
+  .play { flex:0 0 auto; width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--accentbg); color:var(--accent); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .play:active { transform:scale(.94); }
+  .txt { flex:1 1 auto; min-width:0; }
+  .fr { font-size:17px; font-weight:600; cursor:pointer; }
+  .fr:hover { color:var(--accent); }
+  .ph { font-size:13px; color:var(--green); font-style:italic; }
+  .en { font-size:13px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; margin:10px 0; }
+  .cell { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 10px; cursor:pointer; }
+  .cell:hover { border-color:var(--accent); }
+  .cell .fr { font-size:14px; }
+  .cell .ph { font-size:11px; }
+  .note { background:#fff8e6; border:1px solid #f0e0a8; border-radius:10px; padding:10px 12px; font-size:13px; color:#6b5a1e; margin:12px 0; }
+  .example { background:#eefaf3; border:1px solid #bfe6cf; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#155c37; margin:10px 0; }
+  .warn { background:#fdeceb; border:1px solid #f2c4c1; border-radius:10px; padding:10px 12px; font-size:13.5px; color:#8d2a25; margin:12px 0; }
+  .source { background:#f4f2ee; border:1px solid #d8d2c6; border-left:4px solid var(--muted); border-radius:10px; padding:12px 14px; font-size:13.5px; color:#4a463e; margin:12px 0; }
+  .qa { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .qa .q { font-weight:600; cursor:pointer; }
+  .qa .q:hover { color:var(--accent); }
+  .qa .qen { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .conjt { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  .conjt th, .conjt td { border:1px solid var(--line); padding:8px 10px; text-align:left; }
+  .conjt th { background:var(--accentbg); color:var(--accent); }
+  .riddle { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .riddle .prompt { font-size:15px; margin-bottom:8px; font-weight:600; }
+  .riddle .btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .riddle .btns button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:7px 14px; font-size:14px; cursor:pointer; }
+  .riddle .btns button:hover { border-color:var(--accent); }
+  .riddle .fb { font-size:13px; margin-top:8px; }
+  .riddle .fb.ok { color:#155c37; } .riddle .fb.bad { color:#a33; }
+  .fillrow { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+  .fillrow .sent { font-size:15px; margin-bottom:8px; }
+  .fillrow input { border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:14px; width:200px; }
+  .fillrow button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-size:13px; cursor:pointer; margin-left:8px; }
+  .fillrow .fb { font-size:13px; margin-top:8px; }
+  .fillrow .fb.ok { color:#155c37; } .fillrow .fb.bad { color:#a33; }
+  .quizbox { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .quizbtn { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:999px; padding:9px 16px; font-size:14px; cursor:pointer; }
+  .quizarea { margin-top:12px; }
+  .quizprog { font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .quizfr { font-size:17px; font-weight:600; margin-bottom:10px; }
+  .quizopt { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fff; border-radius:10px; padding:9px 12px; margin:6px 0; font-size:14px; cursor:pointer; }
+  .quizopt:hover { border-color:var(--accent); }
+  .quizopt.correct { background:#eefaf3; border-color:var(--green); color:#155c37; }
+  .quizopt.wrong { background:#fdeceb; border-color:#d9534f; color:#a33; }
+  .quizresult { font-size:15px; font-weight:600; margin:10px 0; }
+  .quizretry { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-size:13px; cursor:pointer; }
+  .pending { background:#f4f2ee; border:1px dashed #c9c4b8; border-radius:10px; padding:10px 12px; font-size:13px; color:var(--muted); margin:12px 0; }
+  .reading { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:10px 0; }
+  .reading p { margin:0 0 10px; }
+</style>
+<style id="why-style">
+  .whybox { background:linear-gradient(180deg,#f3f1ff 0%,#eceafe 100%); border:1px solid #cfc9f5; border-left:5px solid #4338ca;
+            border-radius:12px; padding:16px 18px; margin:22px 0; }
+  .whybox h4 { margin:0 0 8px; font-size:15.5px; color:#3a2fb0; }
+  .whybox h4 span { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#6b675f; display:block; margin-bottom:3px; font-weight:600; }
+  .whybox p { margin:0; font-size:13.5px; color:#2b2740; line-height:1.6; }
+  .whybox a.more { display:inline-block; margin-top:10px; font-size:12.5px; color:#4338ca; text-decoration:none; font-weight:600; }
+  .whybox a.more:hover { text-decoration:underline; }
+</style>
+<style id="mobile-fix">
+@media (max-width: 640px){
+  .wrap{ padding:12px 12px 70px; }
+  h1{ font-size:22px; line-height:1.25; }
+  h2{ font-size:19px; }
+  h3{ font-size:16px; }
+  /* nav becomes one swipeable row instead of a wall of chips */
+  nav{ flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
+       padding-bottom:6px; margin-bottom:14px; scrollbar-width:thin; }
+  nav a{ flex:0 0 auto; white-space:nowrap; font-size:12px; padding:6px 9px; }
+  /* tables scroll sideways instead of crushing */
+  table, .conjt{ display:block; width:100%; overflow-x:auto;
+                 -webkit-overflow-scrolling:touch; white-space:nowrap; font-size:13px; }
+  table td, table th, .conjt td, .conjt th{ white-space:normal; min-width:92px; }
+  /* reading blocks */
+  .note,.example,.warn,.source,.lead,.txtp{ font-size:14.5px; }
+  .grid{ grid-template-columns:1fr !important; }
+  /* bigger tap targets on the audio rows */
+  .row{ padding:10px 8px; }
+  .play{ min-width:38px; min-height:38px; }
+  .fr{ font-size:16px; }
+  .ph,.en{ font-size:13px; }
+  /* exercises */
+  .fillrow input{ width:100%; box-sizing:border-box; font-size:16px; padding:8px; }
+  .fillrow button,.riddle button{ padding:9px 12px; font-size:14px; margin-top:6px; }
+  .riddle .btns{ display:flex; flex-wrap:wrap; gap:6px; }
+  /* book page chapter tabs */
+  .parttabs{ flex-wrap:nowrap; overflow-x:auto; }
+  .parttabs button{ flex:0 0 auto; white-space:nowrap; }
+}
+
+nav.site{background:#fff;border-bottom:1px solid #e6e3dc;padding:9px 14px;display:flex;flex-wrap:wrap;gap:3px;font-family:system-ui,-apple-system,sans-serif;font-size:12.5px;position:sticky;top:0;z-index:40}
+nav.site a{color:#6b675f;text-decoration:none;padding:4px 9px;border-radius:6px;white-space:nowrap}
+nav.site a:hover{background:#eceafe;color:#4338ca}
+nav.site a.navhome{color:#4338ca;font-weight:600}
+nav.site a.navdim{color:#b9b4ab;margin-left:auto}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Cours 38 — Les contractions, les lieux et les pronoms COD</h1>
+  <p class="sub">à / de + article · aller au, venir du · les pronoms COD et leur place</p>
+
+  <nav class="site">
+  <a href="French_Parcours.html" class="navhome">★ Le parcours</a>
+  <a href="French_Programme.html">Le programme</a><a href="French_Cours_Complet.html"><b>Le livre</b></a>
+  <a href="French_Comprehension_Orale.html">Écoute</a>
+  <a href="French_Conjugueur.html">Conjugueur</a>
+  <a href="French_Lexique.html">Lexique</a>
+  <a href="French_Cartes.html">Cartes</a>
+  <a href="French_Metiers.html">Métiers</a>
+  <a href="French_Cours_Index.html">Mes cours</a>
+  <a href="French_Comment_Etudier.html">Méthode</a>
+  <a href="French_Plan_10_Mois.html">Plan</a>
+  <a href="French_TCF_Guide.html">TCF</a>
+  <a href="French_Ressources.html">Ressources</a>
+  <a href="French_Archives.html" class="navdim">Archives</a>
+</nav>
+
+  <div class="bar">
+    <span>Speed:</span>
+    <span class="toggle"><button id="n" class="on">Normal</button><button id="s">Slow</button></span>
+    <span id="voicewarn"></span>
+  </div>
+
+  <div id="content"></div>
+</div>
+<script>
+
+
+
+let rate = 1, frVoice = null;
+function pickVoice(){
+  const v = speechSynthesis.getVoices();
+  frVoice = v.find(x=>/fr[-_]FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null;
+  const s = document.getElementById('voiceStatus');
+  if (frVoice) s.textContent = "\u{1F50A} " + frVoice.name;
+  else if (v.length) s.textContent = "⚠ no French voice — see Cours 1 page";
+}
+speechSynthesis.onvoiceschanged = pickVoice; pickVoice();
+function utter(text){
+  const u = new SpeechSynthesisUtterance(String(text).replace(/\s+([!?])/g,'$1').replace(/___/g,''));
+  u.lang='fr-FR'; if(frVoice) u.voice=frVoice; u.rate=(r||rate); return u;
+}
+function speak(text, r){ speechSynthesis.cancel(); speechSynthesis.speak(utter(text)); }
+
+function makeRow(fr, ph, en){
+  const row=document.createElement('div'); row.className='row';
+  const btn=document.createElement('button'); btn.className='play'; btn.textContent='▶';
+  const txt=document.createElement('div'); txt.className='txt';
+  txt.innerHTML='<div class="fr"></div>'+(ph?'<div class="ph"></div>':'')+(en?'<div class="en"></div>':'');
+  txt.querySelector('.fr').textContent=fr;
+  if(ph) txt.querySelector('.ph').textContent=ph;
+  if(en) txt.querySelector('.en').textContent=en;
+  btn.onclick=()=>speak(fr); txt.querySelector('.fr').onclick=()=>speak(fr);
+  row.appendChild(btn); row.appendChild(txt);
+  return row;
+}
+
+const content = document.getElementById('content');
+const GLOBAL_VOCAB = [];
+/* ===== helpers for this page ===== */
+function h2(t){ const e=document.createElement('h2'); e.textContent=t; content.appendChild(e); }
+function h3(t){ const e=document.createElement('h3'); e.className='sub2'; e.textContent=t; content.appendChild(e); }
+function lead(t){ const e=document.createElement('p'); e.className='lead'; e.innerHTML=t; content.appendChild(e); }
+function note(t){ const e=document.createElement('div'); e.className='note'; e.innerHTML=t; content.appendChild(e); }
+function ex(t){ const e=document.createElement('div'); e.className='example'; e.innerHTML=t; content.appendChild(e); }
+function warn(t){ const e=document.createElement('div'); e.className='warn'; e.innerHTML=t; content.appendChild(e); }
+function src(t){ const e=document.createElement('div'); e.className='source'; e.innerHTML=t; content.appendChild(e); }
+function rows(list){ list.forEach(([fr,ph,en])=>{ content.appendChild(makeRow(fr,ph,en)); GLOBAL_VOCAB.push({fr:fr,en:en}); }); }
+function grid(list){
+  const g=document.createElement('div'); g.className='grid';
+  list.forEach(([fr,ph])=>{
+    const c=document.createElement('div'); c.className='cell';
+    c.innerHTML='<div class="fr"></div><div class="ph"></div>';
+    c.querySelector('.fr').innerHTML=fr; c.querySelector('.ph').innerHTML=ph;
+    const plain=String(fr).replace(/<[^>]*>/g,'').replace(/\s*—.*$/,'').trim();
+    c.onclick=()=>speak(plain); g.appendChild(c);
+  });
+  content.appendChild(g);
+}
+function table(head, body){
+  const t=document.createElement('table'); t.className='conjt';
+  let html='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  body.forEach(r=>{ html+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  t.innerHTML=html; content.appendChild(t);
+}
+function fill(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const s=document.createElement('div'); s.className='sent'; s.innerHTML=it.s;
+    const inp=document.createElement('input'); inp.placeholder='...';
+    const btn=document.createElement('button'); btn.textContent='Check';
+    const fb=document.createElement('div'); fb.className='fb';
+    function check(){
+      const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.?!]$/,'');
+      const ok=it.a.some(a=>a.toLowerCase()===v);
+      if(ok){ fb.className='fb ok'; fb.innerHTML='✓ '+it.a[0]+' — '+it.why; speak(it.a[0]); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Answer: <b>'+it.a[0]+'</b> — '+it.why; }
+    }
+    btn.onclick=check;
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+    d.appendChild(s);
+    const line=document.createElement('div'); line.appendChild(inp); line.appendChild(btn);
+    d.appendChild(line);
+    if(it.en){ const t=document.createElement('div'); t.className='en'; t.style.marginTop='6px'; t.textContent=it.en; d.appendChild(t); }
+    d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+function mcq(items){
+  items.forEach(it=>{
+    const d=document.createElement('div'); d.className='riddle';
+    const p=document.createElement('div'); p.className='prompt'; p.innerHTML=it.q;
+    const b=document.createElement('div'); b.className='btns';
+    const fb=document.createElement('div'); fb.className='fb';
+    it.opts.forEach((o,i)=>{
+      const btn=document.createElement('button'); btn.textContent=o;
+      btn.onclick=()=>{
+        if(i===it.a){ fb.className='fb ok'; fb.innerHTML='✓ '+o+' — '+it.why; speak(o); }
+        else { fb.className='fb bad'; fb.innerHTML='✗ The answer is <b>'+it.opts[it.a]+'</b> — '+it.why; }
+      };
+      b.appendChild(btn);
+    });
+    d.appendChild(p); d.appendChild(b); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+/* ===== 1 ===== */
+function fillx(list){ fill(list.map(x=>({s:x[0], a:[x[1]], en:x[2]||'', why:x[3]||('Réponse : <b>'+x[1]+'</b>')}))); }
+function mcqx(list){ mcq(list.map(x=>({q:x[0], opts:x[1], a:x[2], why:x[3]||''}))); }
+
+function read(paras){
+  const d=document.createElement('div'); d.className='reading';
+  paras.forEach(t=>{
+    const el=document.createElement('p'); el.innerHTML=t; el.style.cursor='pointer';
+    const plain=String(t).replace(/<[^>]*>/g,'');
+    el.onclick=()=>speak(plain);
+    d.appendChild(el);
+  });
+  content.appendChild(d);
+}
+
+function dict(items){
+  items.forEach((it,n)=>{
+    const d=document.createElement('div'); d.className='fillrow';
+    const top=document.createElement('div'); top.className='sent';
+    top.innerHTML='<b>'+(n+1)+'.</b> Écoutez, puis écrivez ce que vous entendez. <i>(Listen, then write what you hear.)</i>';
+    const bar=document.createElement('div'); bar.style.cssText='display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:8px 0';
+    const pb=document.createElement('button'); pb.textContent='▶ Écouter'; pb.onclick=()=>speak(it.fr);
+    const sb=document.createElement('button'); sb.textContent='▶ Lentement'; sb.onclick=()=>speak(it.fr,0.55);
+    const inp=document.createElement('input'); inp.placeholder='Écrivez ici…'; inp.style.flex='1';
+    const cb=document.createElement('button'); cb.textContent='Vérifier';
+    const fb=document.createElement('div'); fb.className='fb';
+    function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9' ]/g,' ').replace(/\s+/g,' ').trim(); }
+    cb.onclick=()=>{
+      if(norm(inp.value)===norm(it.fr)){ fb.className='fb ok'; fb.innerHTML='✓ <b>'+it.fr+'</b><br>'+(it.en||'')+(it.why?'<br><i>'+it.why+'</i>':''); }
+      else { fb.className='fb bad'; fb.innerHTML='✗ Réponse : <b>'+it.fr+'</b><br>'+(it.en||'')+(it.why?'<br><i>'+it.why+'</i>':''); }
+    };
+    inp.addEventListener('keydown',e=>{ if(e.key==='Enter') cb.onclick(); });
+    bar.appendChild(pb); bar.appendChild(sb); bar.appendChild(inp); bar.appendChild(cb);
+    d.appendChild(top); d.appendChild(bar); d.appendChild(fb);
+    content.appendChild(d);
+  });
+}
+
+
+
+h2('1. Les contractions : à et de devant un article');
+lead("Le cours a commencé par un petit tableau que la prof appelle <b>les contractions</b>. L’idée est simple. En français, <b>à</b> et <b>de</b> ne supportent pas de rester à côté de <b>le</b> ni de <b>les</b>. Dès que les deux se touchent, ils fusionnent en un seul mot. Avec <b>la</b> et avec <b>l’</b>, au contraire, il ne se passe rien : les deux mots restent séparés.");
+
+h3('1.1 Les huit formes à connaître par cœur');
+table(['&nbsp;','de + article','à + article'],[
+ ['<b>masculin</b> — le','de + le = <b>du</b>','à + le = <b>au</b>'],
+ ['<b>féminin</b> — la','de + la = <b>de la</b>','à + la = <b>à la</b>'],
+ ['<b>voyelle</b> — l’','de + l’ = <b>de l’</b>','à + l’ = <b>à l’</b>'],
+ ['<b>pluriel</b> — les','de + les = <b>des</b>','à + les = <b>aux</b>']
+]);
+rows([
+ ['du','dü','of the / from the (masculine)'],
+ ['de la','deu la','of the / from the (feminine)'],
+ ["de l’",'deu l','of the / from the (before a vowel)'],
+ ['des','day','of the / from the (plural)'],
+ ['au','oh','to the / at the (masculine)'],
+ ['à la','a la','to the / at the (feminine)'],
+ ["à l’",'a l',"to the / at the (before a vowel)"],
+ ['aux','oh','to the / at the (plural)']
+]);
+note("<b>Aux</b> et <b>au</b> se prononcent exactement pareil, « oh ». C’est seulement l’orthographe qui change. De même, <b>des</b> se prononce « day » comme <b>les</b> — mais avec un d. Quand vous écoutez, c’est le mot qui suit qui vous dit si c’est singulier ou pluriel : <i>au cinéma</i> (un cinéma) contre <i>aux toilettes</i> (plusieurs).");
+warn("Deux formes seulement sont de vraies fusions : <b>du</b> et <b>des</b>, <b>au</b> et <b>aux</b>. Les quatre autres — <i>de la, de l’, à la, à l’</i> — s’écrivent en deux mots. Beaucoup d’élèves écrivent « dela » ou « ala » : c’est faux.");
+ex("Sans contraction, on dirait : <i>Je vais <s>à le</s> cinéma</i>. Impossible. On écrit <b>Je vais au cinéma</b>. Mais <i>Je vais <b>à la</b> plage</i> est parfaitement correct, parce que <b>la</b> ne fusionne jamais.");
+
+h3('1.2 Pourquoi la liaison compte ici');
+lead("Avec <b>aux</b> et <b>des</b> devant une voyelle, le <b>s</b> final se réveille et se prononce <b>z</b>. C’est la liaison.");
+rows([
+ ['aux enfants','oh-zan-fan','to the children'],
+ ['des amis','day-za-mi','of the friends / some friends'],
+ ['aux États-Unis','oh-zay-ta-zü-ni','to the United States'],
+ ['des hôtels','day-zo-tel','of the hotels']
+]);
+note("Devant une consonne, pas de liaison : <i>aux toilettes</i> se dit « oh twa-let », sans z.");
+
+h2('2. Les articles avec les lieux : c’est le verbe qui décide');
+lead("La deuxième partie du cours s’appelait « <i>Articles used with places &amp; other forms</i> ». C’est le point le plus utile de la journée, et le tableau de la classe le montre sans le dire : <b>ce n’est pas le lieu qui choisit la préposition, c’est le verbe</b>. Demandez-vous dans quelle direction va l’action.");
+
+h3('2.1 La règle en une image');
+table(['Direction','Verbes typiques','Masc','Fém','Pluriel','Voyelle'],[
+ ['<b>vers le lieu / dans le lieu</b><br><span class="en">to, at, in</span>','aller, habiter, travailler, être, vivre','<b>au</b>','<b>à la</b>','<b>aux</b>','<b>à l’</b>'],
+ ['<b>depuis le lieu</b><br><span class="en">from, of</span>','venir, arriver, rentrer, sortir','<b>du</b>','<b>de la</b>','<b>des</b>','<b>de l’</b>']
+]);
+ex("<b>Je vais au bureau</b> — j’y vais, direction le lieu, donc <b>à</b>.<br><b>Je viens du bureau</b> — j’en sors, direction inverse, donc <b>de</b>.<br>Même lieu, même phrase, deux prépositions opposées, uniquement à cause du verbe.");
+note("Vous connaissez déjà cette paire : c’est exactement le couple <b>aller à</b> / <b>venir de</b> qui donne les pronoms <b>y</b> et <b>en</b> au chapitre 21 du livre. <i>Je vais au bureau → j’<b>y</b> vais. Je viens du bureau → j’<b>en</b> viens.</i> Si vous tenez la préposition, vous tenez le pronom.");
+
+h3('2.2 Un troisième emploi de « de » : la possession');
+lead("Le tableau de la classe mélange deux choses sous le mot « <i>of</i> ». À côté de l’idée de provenance, <b>de</b> sert aussi à relier deux noms : le second possède ou qualifie le premier. L’anglais met ’s ou of ; le français met toujours <b>de</b>.");
+rows([
+ ['les clés de la voiture','lay clay deu la vwa-türe','the car keys'],
+ ['les enfants de Victor','lay-zan-fan deu Vik-tor','Victor’s children'],
+ ['la porte du garage','la port dü ga-rahzh','the garage door'],
+ ['le prof des enfants','leu prof day-zan-fan','the children’s teacher']
+]);
+warn("Devant un nom propre, <b>pas d’article</b>, donc pas de contraction : <i>les enfants <b>de</b> Victor</i>, jamais « du Victor ».");
+
+h3('2.3 Les dix phrases du cours, traduites');
+lead("Voici les exemples du tableau, chacun avec sa raison. Cliquez pour écouter.");
+rows([
+ ['On va au cinéma ce soir.','on va oh si-nay-ma seu swar','We’re going to the cinema tonight. — aller + le cinéma → au'],
+ ['Je vais au bureau.','zheu vay oh bü-ro','I’m going to the office. — aller + le bureau → au'],
+ ['Elle arrive de l’école.','el a-reev deu lay-kol','She’s arriving from school. — arriver + l’école → de l’'],
+ ['Ils sortent des halles.','eel sort day al','They’re coming out of the market hall. — sortir + les halles → des'],
+ ['Elle est à la maison.','el ay a la may-zon','She’s at home. — être + la maison → à la'],
+ ['Il va aux toilettes.','eel va oh twa-let','He’s going to the toilet. — aller + les toilettes → aux'],
+ ['Où sont les clés de la voiture ?','oo son lay clay deu la vwa-tür','Where are the car keys? — possession + la voiture → de la'],
+ ['Je parle des enfants de Victor.','zheu parl day-zan-fan deu Vik-tor','I’m talking about Victor’s children. — parler de + les enfants → des'],
+ ['Ils vont à la plage.','eel von a la plahzh','They’re going to the beach. — aller + la plage → à la'],
+ ['Je viens de l’hôtel.','zheu vyan deu lo-tel','I’m coming from the hotel. — venir + l’hôtel → de l’']
+]);
+note("Remarquez la neuvième phrase : <b>parler de</b> n’a rien à voir avec un lieu. Certains verbes exigent <b>de</b> par nature — <i>parler de, avoir besoin de, se souvenir de, s’occuper de</i> — et la contraction s’applique quand même. C’est pour ça que le tableau s’appelle « places <b>&amp; other forms</b> ».");
+
+h3('2.4 Le cas des « toilettes »');
+lead("<b>Les toilettes</b> est toujours au pluriel en français, même pour une seule pièce. D’où <i>aux toilettes</i> et jamais « à la toilette ». Même logique pour <b>les halles</b>, <b>les Champs-Élysées</b>, <b>les États-Unis</b>.");
+
+h3('2.5 Exercices — choisissez la contraction');
+fillx([
+ ['Je vais ___ restaurant.','au','I’m going to the restaurant.','<i>aller</i> + <i>le restaurant</i> → <b>au</b>.'],
+ ['Elle rentre ___ travail.','du','She’s coming home from work.','<i>rentrer</i> va dans le sens « depuis », et <i>le travail</i> est masculin → <b>du</b>.'],
+ ['Nous habitons ___ campagne.','à la','We live in the countryside.','<i>habiter</i> = on est dans le lieu → <b>à</b> ; <i>la campagne</i> est féminin → <b>à la</b>.'],
+ ['Il arrive ___ aéroport.','de l’','He’s arriving from the airport.','<i>arriver</i> = provenance → <b>de</b> ; <i>aéroport</i> commence par une voyelle → <b>de l’</b>.'],
+ ['Les parents ___ élèves sont là.','des','The pupils’ parents are here.','Possession, et <i>les élèves</i> est pluriel → <b>des</b>.'],
+ ['Tu travailles ___ hôpital ?','à l’','Do you work at the hospital?','<i>travailler</i> = on est dans le lieu → <b>à</b> ; <i>hôpital</i> a un h muet → <b>à l’</b>.'],
+ ['Je viens ___ États-Unis.','des','I come from the United States.','<i>venir</i> → <b>de</b> ; pluriel → <b>des</b>, prononcé « day-zay-ta-zü-ni ».'],
+ ['Elle est ___ toilettes.','aux','She’s in the toilet.','<i>être</i> → <b>à</b> ; <i>les toilettes</i> est pluriel → <b>aux</b>.'],
+ ['C’est la voiture ___ voisin.','du','It’s the neighbour’s car.','Possession ; <i>le voisin</i> est masculin → <b>du</b>.'],
+ ['Ils vont ___ montagne en hiver.','à la','They go to the mountains in winter.','<i>aller</i> → <b>à</b> ; <i>la montagne</i> est féminin → <b>à la</b>.']
+]);
+
+h2('3. Les pronoms COD');
+lead("La deuxième moitié du cours passe à un tout autre sujet : les <b>pronoms compléments d’objet direct</b>, les COD. L’idée est celle de n’importe quelle langue — on ne répète pas un nom qu’on vient de dire. En anglais vous dites <i>I know Marie → I know <b>her</b></i>. Le français fait pareil, mais il place le pronom <b>avant</b> le verbe, pas après. C’est toute la difficulté.");
+
+h3('3.1 La liste de la classe');
+table(['Sujet','COD','Anglais'],[
+ ['je','<b>me</b> (m’)','me'],
+ ['tu','<b>te</b> (t’)','you'],
+ ['il / elle','<b>le / la</b> (l’)','him / her / it'],
+ ['nous','<b>nous</b>','us'],
+ ['vous','<b>vous</b>','you'],
+ ['ils / elles','<b>les</b>','them'],
+ ['—','<b>se</b> (s’)','each other / oneself']
+]);
+rows([
+ ['Il m’aime.','eel mem','He loves me.'],
+ ['Elle va t’inviter.','el va tan-vi-tay','She’s going to invite you.'],
+ ['Fabio nous cherche.','Fa-byo noo shairsh','Fabio is looking for us.'],
+ ['On se voit quand ?','on seu vwa kan','When are we seeing each other?'],
+ ['Je vous présente mon ami.','zheu voo pray-zant mon-na-mi','Let me introduce my friend to you.'],
+ ['Il vous déteste.','eel voo day-test','He hates you.'],
+ ['Elle ne me connaît pas.','el neu meu ko-nay pa','She doesn’t know me.']
+]);
+note("<b>Me, te, se, le, la</b> perdent leur voyelle devant une voyelle ou un h muet : <i>il <b>m’</b>aime</i>, <i>je <b>t’</b>invite</i>, <i>on <b>s’</b>appelle</i>, <i>je <b>l’</b>adore</i>. <b>Nous, vous, les</b> ne changent jamais — mais <b>les</b> fait la liaison : <i>je les aime</i> se dit « zheu lay-zem ».");
+
+h3('3.2 Comment reconnaître un COD');
+lead("La prof donne le test, et c’est le bon : posez <b>qui ?</b> ou <b>quoi ?</b> <u>après</u> le verbe. Si la réponse vient sans préposition, c’est un COD.");
+ex("<i>Je cherche <b>mon frère</b>.</i> → Je cherche <b>qui</b> ? mon frère. Pas de préposition → COD → <b>Je le cherche.</b><br><i>Je parle <b>à mon frère</b>.</i> → Je parle <b>à qui</b> ? Il y a un <b>à</b> → ce n’est pas un COD, c’est un COI → <b>Je lui parle.</b>");
+warn("Le piège est que l’anglais ne met pas toujours la préposition là où le français la met. <i>To phone someone</i> est direct en anglais, mais <b>téléphoner <u>à</u> quelqu’un</b> en français. Il faut vérifier en français, pas en anglais.");
+
+h3('3.3 Les verbes du cours qui prennent un COD');
+lead("Le tableau de droite liste des verbes suivis directement de <b>quelqu’un</b>, sans préposition. Ce sont donc des verbes à COD.");
+rows([
+ ['aimer quelqu’un','ay-may kel-kan','to love somebody'],
+ ['adorer quelqu’un','a-do-ray kel-kan','to adore somebody'],
+ ['chercher quelqu’un','shair-shay kel-kan','to look for somebody'],
+ ['inviter quelqu’un','an-vi-tay kel-kan','to invite somebody'],
+ ['connaître quelqu’un','ko-nay-treu kel-kan','to know somebody'],
+ ['voir quelqu’un','vwar kel-kan','to see somebody'],
+ ['détester quelqu’un','day-tes-tay kel-kan','to hate somebody'],
+ ['présenter quelqu’un','pray-zan-tay kel-kan','to introduce somebody']
+]);
+note("Notez que <i>chercher</i> et <i>regarder</i> sont directs en français alors que l’anglais ajoute une particule : <i>to look <b>for</b></i>, <i>to look <b>at</b></i>. Ne traduisez pas la particule — <b>je le cherche</b>, pas « je cherche pour lui ».");
+warn("Dans le document de la classe le verbe est écrit « Connaitre » et « Connaissez ». L’orthographe traditionnelle, celle du TCF et des dictionnaires, est <b>connaître</b> avec l’accent circonflexe sur le i devant un t. Écrivez-la avec l’accent.");
+
+h3('3.4 La place du pronom');
+lead("Voici le vrai sujet du cours. Le pronom COD se colle <b>devant le verbe qui le gouverne</b>. Trois cas suffisent pour tout couvrir.");
+table(['Temps','Affirmatif','Négatif'],[
+ ['<b>présent</b>','sujet + <b>pronom</b> + verbe<br><i>Il <b>te</b> cherche.</i>','sujet + <b>ne</b> + pronom + verbe + <b>pas</b><br><i>Elle ne <b>vous</b> connaît pas.</i>'],
+ ['<b>futur proche</b>','sujet + aller + <b>pronom</b> + infinitif<br><i>Je vais <b>le</b> voir.</i>','sujet + ne + aller + pas + <b>pronom</b> + infinitif<br><i>Je ne vais pas <b>le</b> voir.</i>'],
+ ['<b>passé composé</b>','sujet + <b>pronom</b> + auxiliaire + participe<br><i>Je <b>l’</b>ai vu.</i>','sujet + ne + <b>pronom</b> + auxiliaire + pas + participe<br><i>Je ne <b>l’</b>ai pas vu.</i>']
+]);
+ex("Au <b>présent</b> et au <b>passé composé</b>, le pronom passe devant tout le bloc verbal, <b>ne</b> compris : <i>je ne <b>le</b> connais pas</i>, <i>je ne <b>l’</b>ai pas invité</i>.<br>Au <b>futur proche</b>, c’est différent : <i>aller</i> est conjugué mais ce n’est pas lui qui mange l’objet — c’est l’infinitif. Le pronom va donc <b>entre les deux verbes</b> : <i>je ne vais pas <b>le</b> voir</i>.");
+
+h3('3.5 Le participe passé s’accorde avec le COD placé avant');
+lead("Un point que la classe n’a pas encore abordé mais qui tombe au TCF : au passé composé avec <b>avoir</b>, si le COD est <u>devant</u> le verbe, le participe s’accorde avec lui.");
+ex("<i>J’ai vu <b>Marie</b>.</i> → le COD est après, pas d’accord.<br><i>Je <b>l’</b>ai vu<b>e</b>.</i> → le COD <i>l’</i> = Marie, féminin, placé avant → on ajoute <b>-e</b>.<br><i>Je <b>les</b> ai invité<b>s</b>.</i> → pluriel masculin → <b>-s</b>.");
+note("À l’oral, l’accord ne s’entend presque jamais — <i>vu / vue / vus</i> se disent pareil. Il s’entend seulement avec les participes en consonne : <i>je l’ai mi<b>se</b></i>, <i>je l’ai fai<b>te</b></i>. À l’écrit, il se voit toujours.");
+
+h3('3.6 Exercices — remplacez par un pronom');
+fillx([
+ ['Je regarde la télévision. → Je ___ regarde.','la','I watch television. → I watch it.','<i>la télévision</i> est féminin singulier → <b>la</b>.'],
+ ['Tu connais mes parents ? → Tu ___ connais ?','les','Do you know my parents? → Do you know them?','Pluriel → <b>les</b>, prononcé « lay » avec liaison : « tü lay ko-nay ».'],
+ ['Elle invite Paul. → Elle ___ invite.','l’','She invites Paul. → She invites him.','<i>le</i> devient <b>l’</b> devant la voyelle de <i>invite</i>.'],
+ ['Nous aimons ce film. → Nous ___ aimons.','l’','We love this film. → We love it.','Masculin singulier devant voyelle → <b>l’</b>.'],
+ ['Il ne comprend pas la question. → Il ne ___ comprend pas.','la','He doesn’t understand the question. → He doesn’t understand it.','Le pronom se glisse entre <b>ne</b> et le verbe.'],
+ ['Je vais appeler ma sœur. → Je vais ___ appeler.','l’','I’m going to call my sister. → I’m going to call her.','Futur proche : le pronom va entre <i>vais</i> et l’infinitif.'],
+ ['Elle a acheté les livres. → Elle ___ a achetés.','les','She bought the books. → She bought them.','Devant l’auxiliaire, et le participe prend <b>-s</b>.'],
+ ['Vous ne voyez pas Marie ? → Vous ne ___ voyez pas ?','la','Don’t you see Marie? → Don’t you see her?','Féminin singulier devant une consonne → <b>la</b>.']
+]);
+mcqx([
+ ['Où se place le pronom au futur proche ?',['avant « aller »','entre « aller » et l’infinitif','après l’infinitif'],1,'C’est l’infinitif qui gouverne l’objet, donc le pronom se colle à lui : <i>je vais <b>le</b> voir</i>.'],
+ ['« Je parle à mon frère. » Le pronom correct est :',['le','lui','les'],1,'<i>parler <b>à</b></i> → préposition → COI → <b>lui</b>, pas <i>le</i>.'],
+ ['« Elle ___ connaît pas. » (me)',['ne m’ / —','ne me','me ne'],1,'<i>Elle ne <b>me</b> connaît pas.</i> Pas d’élision : <i>connaît</i> commence par une consonne.'],
+ ['Je viens ___ hôtel.',['à l’','de l’','du'],1,'<i>venir</i> = provenance → <b>de</b> ; <i>hôtel</i> commence par un h muet → <b>de l’</b>.'],
+ ['Il va ___ toilettes.',['à la','au','aux'],2,'<i>Les toilettes</i> est toujours pluriel → <b>aux</b>.'],
+ ['« Je l’ai vu___ » en parlant de Sophie :',['vu','vue','vus'],1,'COD féminin placé avant → le participe prend <b>-e</b>.']
+]);
+
+h2('4. Ce qu’il faut retenir');
+lead("Deux règles, et elles tiennent en deux questions.");
+ex("<b>Pour la préposition :</b> dans quel sens va l’action ? Vers le lieu → <b>au / à la / aux / à l’</b>. Depuis le lieu → <b>du / de la / des / de l’</b>.<br><br><b>Pour le pronom :</b> le verbe prend-il une préposition ? Non → COD (<i>le, la, les</i>). Oui, avec <b>à</b> → COI (<i>lui, leur</i>). Et le pronom se place devant le verbe qui le gouverne.");
+note("<b>Pour la prochaine fois</b> — écrivez dix phrases sur votre journée : cinq avec un verbe de mouvement et la bonne contraction, cinq avec un pronom COD. Puis relisez-les en vous demandant, pour chacune, « qui ? quoi ? » après le verbe.");
+lead("Le <b>chapitre 5</b> du livre traite les articles contractés, le <b>chapitre 20</b> les pronoms COD et COI, le <b>chapitre 21</b> les pronoms <i>y</i> et <i>en</i>, et le <b>chapitre 26</b> les prépositions de lieu en entier. Cette page relie les quatre.");
+src('Cours 38 · PDF « unité 789 », page 10 (« Articles used with places &amp; other forms ») et PDF « Unité 4_5_6 », page 13 (« Les pronoms COD 1 »). Les tableaux et les dix phrases d’exemple viennent de la classe ; <b>les explications, les traductions, les prononciations et les exercices de cette page sont rédigés ici</b>. Une coquille du document est signalée en 3.3. Je n’ai pas entendu le son du cours, seulement vu l’écran — si la prof a dit autre chose, signalez-le et je corrige.');
+
+</script>
+</body>
+</html>
